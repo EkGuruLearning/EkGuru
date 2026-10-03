@@ -1,0 +1,2791 @@
+{
+  "code": "ja",
+  "name": "Japanese",
+  "native": "日本語",
+  "phase": 1,
+  "medium": "en",
+  "file_level": "C1+",
+  "level": {
+    "title": "Japanese C1+ — Precision, register and mediation",
+    "goals": [
+      "Say exactly how certain you are and what would change your mind",
+      "Move one text up and down the register scale",
+      "Mediate a Japanese source for readers who do not share its register"
+    ],
+    "units": [
+      {
+        "id": "C1+-U1",
+        "title": "せいど",
+        "lessons": [
+          {
+            "id": "C1+-U1-L1",
+            "title": "たしかさの だんかい",
+            "learn": "Certainty is graded in four steps: かならず (certain), おそらく … でしょう (probable), ありえます (possible), ありえません (out of the question). The step chosen is a claim about the evidence, not about your mood.",
+            "vocab": [
+              {
+                "t": "かならず",
+                "r": "kanarazu",
+                "en": "certainly, without fail",
+                "pos": "adverb"
+              },
+              {
+                "t": "おそらく",
+                "r": "osoraku",
+                "en": "probably",
+                "pos": "adverb"
+              },
+              {
+                "t": "ありえます",
+                "r": "ariemasu",
+                "en": "is possible",
+                "pos": "verb"
+              },
+              {
+                "t": "ありえません",
+                "r": "ariemasen",
+                "en": "is impossible",
+                "pos": "verb"
+              },
+              {
+                "t": "みこみ",
+                "r": "mikomi",
+                "en": "outlook, prospect",
+                "pos": "noun"
+              }
+            ],
+            "grammar": {
+              "title": "Levels of certainty",
+              "pattern": "かならず 〜ます · おそらく 〜でしょう · ありえます · ありえません",
+              "explain": "かならず takes a plain affirmative, おそらく pairs with でしょう, and possibility is a verb: ありえます / ありえません. Writing たぶん with でしょう is weaker than おそらく and belongs in speech rather than in a report.",
+              "examples": [
+                {
+                  "t": "かならず あした とどきます。",
+                  "r": "Kanarazu ashita todokimasu.",
+                  "en": "It will certainly arrive tomorrow."
+                },
+                {
+                  "t": "おそらく みこみは たつ でしょう。",
+                  "r": "Osoraku mikomi wa tatsu deshou.",
+                  "en": "The outlook will probably hold."
+                },
+                {
+                  "t": "その かのうせいも ありえます。",
+                  "r": "Sono kanousei mo ariemasu.",
+                  "en": "That possibility is also open."
+                }
+              ],
+              "mistakes": [
+                {
+                  "wrong": "おそらく です でしょう か。",
+                  "right": "おそらく 〜でしょう。",
+                  "why": "おそらく takes でしょう and closes the sentence."
+                },
+                {
+                  "wrong": "ありえません と おもいます でしょう。",
+                  "right": "ありえません。",
+                  "why": "One certainty marker per sentence."
+                }
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "査読者",
+                "t": "どのくらい たしかですか。",
+                "r": "Dono kurai tashika desu ka.",
+                "en": "How certain are you?"
+              },
+              {
+                "sp": "分析者",
+                "t": "おそらく みこみは たつ でしょう。かならず とは いえません。",
+                "r": "Osoraku mikomi wa tatsu deshou. Kanarazu to wa iemasen.",
+                "en": "The outlook will probably hold. I cannot say it certainly."
+              },
+              {
+                "sp": "査読者",
+                "t": "ほかの かのうせいは。",
+                "r": "Hoka no kanousei wa.",
+                "en": "And other possibilities?"
+              },
+              {
+                "sp": "分析者",
+                "t": "その かのうせいも ありえます。",
+                "r": "Sono kanousei mo ariemasu.",
+                "en": "That possibility is also open."
+              }
+            ],
+            "practice": [
+              {
+                "type": "multiple_choice",
+                "q": "Practice 1: [multiple choice] たしかさの だんかい — Choose the meaning of かならず (kanarazu) in this lesson.",
+                "answer": "certainly, without fail",
+                "skill_target": "Japanese: kana and kanji, particles は/が/を/に, です・ます politeness, verb-final order, counters and keigo",
+                "options": [
+                  "certainly, without fail",
+                  "probably",
+                  "is possible",
+                  "is impossible"
+                ]
+              },
+              {
+                "type": "fill_in_the_blank",
+                "q": "Practice 2: [fill in the blank] たしかさの だんかい — Type the Japanese expression meaning “probably”.",
+                "answer": "おそらく",
+                "skill_target": "Japanese: kana and kanji, particles は/が/を/に, です・ます politeness, verb-final order, counters and keigo"
+              },
+              {
+                "type": "translation",
+                "q": "Practice 3: [translation] たしかさの だんかい — Interpret the Japanese script in context: かならず あした とどきます。 (Kanarazu ashita todokimasu.).",
+                "answer": "It will certainly arrive tomorrow.",
+                "skill_target": "Japanese: kana and kanji, particles は/が/を/に, です・ます politeness, verb-final order, counters and keigo"
+              },
+              {
+                "type": "reverse_translation",
+                "q": "Practice 4: [reverse translation] たしかさの だんかい — Write in Japanese script: The outlook will probably hold..",
+                "answer": "おそらく みこみは たつ でしょう。",
+                "skill_target": "Japanese: kana and kanji, particles は/が/を/に, です・ます politeness, verb-final order, counters and keigo"
+              },
+              {
+                "type": "matching",
+                "q": "Practice 5: [matching] たしかさの だんかい — Match ありえます to its lesson meaning.",
+                "answer": "is possible",
+                "skill_target": "Japanese: kana and kanji, particles は/が/を/に, です・ます politeness, verb-final order, counters and keigo",
+                "options": [
+                  "is possible",
+                  "certainly, without fail",
+                  "probably"
+                ]
+              },
+              {
+                "type": "reorder",
+                "q": "Practice 6: [reorder] たしかさの だんかい — Reconstruct the lesson model in coherent Japanese: That possibility is also open..",
+                "answer": "その かのうせいも ありえます。",
+                "skill_target": "Japanese: kana and kanji, particles は/が/を/に, です・ます politeness, verb-final order, counters and keigo"
+              },
+              {
+                "type": "sentence_building",
+                "q": "Practice 7: [sentence building] たしかさの だんかい — Build the sentence with the lesson pattern (かならず 〜ます · おそらく 〜でしょう · ありえます · ありえません): It will certainly arrive tomorrow..",
+                "answer": "かならず あした とどきます。",
+                "skill_target": "Japanese: kana and kanji, particles は/が/を/に, です・ます politeness, verb-final order, counters and keigo"
+              },
+              {
+                "type": "word_selection",
+                "q": "Practice 8: [word selection] たしかさの だんかい — Select the Japanese form for “is impossible”.",
+                "answer": "ありえません",
+                "skill_target": "Japanese: kana and kanji, particles は/が/を/に, です・ます politeness, verb-final order, counters and keigo",
+                "options": [
+                  "ありえません",
+                  "みこみ"
+                ]
+              },
+              {
+                "type": "error_correction",
+                "q": "Practice 9: [error correction] たしかさの だんかい — Correct the model the lesson warns about: おそらく です でしょう か。",
+                "answer": "おそらく 〜でしょう。",
+                "skill_target": "Japanese: kana and kanji, particles は/が/を/に, です・ます politeness, verb-final order, counters and keigo"
+              },
+              {
+                "type": "dialogue_completion",
+                "q": "Practice 10: [dialogue completion] たしかさの だんかい — Complete the exchange with the studied response to: How certain are you?",
+                "answer": "おそらく みこみは たつ でしょう。かならず とは いえません。",
+                "skill_target": "Japanese: kana and kanji, particles は/が/を/に, です・ます politeness, verb-final order, counters and keigo"
+              },
+              {
+                "type": "reading_comprehension",
+                "q": "Practice 11: [reading comprehension] たしかさの だんかい — Read “ほかの かのうせいは。” (Hoka no kanousei wa.). What does it mean?",
+                "answer": "And other possibilities?",
+                "skill_target": "Japanese: kana and kanji, particles は/が/を/に, です・ます politeness, verb-final order, counters and keigo"
+              },
+              {
+                "type": "paragraph_comprehension",
+                "q": "Practice 12: [paragraph comprehension] たしかさの だんかい — Read the lesson dialogue as a whole and give its key move: That possibility is also open.",
+                "answer": "その かのうせいも ありえます。",
+                "skill_target": "Japanese: kana and kanji, particles は/が/を/に, です・ます politeness, verb-final order, counters and keigo"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "Which meaning best fits かならず?",
+                "options": [
+                  "certainly, without fail",
+                  "probably",
+                  "is possible",
+                  "is impossible"
+                ],
+                "answer": 0,
+                "why": "かならず (kanarazu) means certainly, without fail in this lesson."
+              },
+              {
+                "q": "Which meaning best fits おそらく?",
+                "options": [
+                  "probably",
+                  "certainly, without fail",
+                  "is possible",
+                  "is impossible"
+                ],
+                "answer": 0,
+                "why": "おそらく (osoraku) means probably in this lesson."
+              },
+              {
+                "q": "Which meaning best fits ありえます?",
+                "options": [
+                  "is possible",
+                  "certainly, without fail",
+                  "probably",
+                  "is impossible"
+                ],
+                "answer": 0,
+                "why": "ありえます (ariemasu) means is possible in this lesson."
+              },
+              {
+                "q": "Which meaning best fits ありえません?",
+                "options": [
+                  "is impossible",
+                  "certainly, without fail",
+                  "probably",
+                  "is possible"
+                ],
+                "answer": 0,
+                "why": "ありえません (ariemasen) means is impossible in this lesson."
+              },
+              {
+                "q": "Which meaning best fits みこみ?",
+                "options": [
+                  "outlook, prospect",
+                  "certainly, without fail",
+                  "probably",
+                  "is possible"
+                ],
+                "answer": 0,
+                "why": "みこみ (mikomi) means outlook, prospect in this lesson."
+              }
+            ],
+            "flashcards": "auto:vocab",
+            "worksheet": {
+              "title": "Certainty worksheet",
+              "tasks": [
+                {
+                  "instruction": "Grade the claim.",
+                  "items": [
+                    "it will certainly arrive tomorrow",
+                    "the outlook will probably hold"
+                  ],
+                  "key": [
+                    "かならず あした とどきます",
+                    "おそらく みこみは たつ でしょう"
+                  ]
+                },
+                {
+                  "instruction": "Leave the door open.",
+                  "items": [
+                    "that possibility is also open",
+                    "how certain are you?"
+                  ],
+                  "key": [
+                    "その かのうせいも ありえます",
+                    "どのくらい たしかですか"
+                  ]
+                },
+                {
+                  "instruction": "Integrated offline practice: read the first model, transform or extend it in Japanese script, then rehearse it as a dialogue. Self-check meaning, grammar, and register.",
+                  "items": [
+                    "かならず あした とどきます。",
+                    "どのくらい たしかですか。"
+                  ],
+                  "key": [
+                    "It will certainly arrive tomorrow.",
+                    "How certain are you?"
+                  ]
+                }
+              ]
+            },
+            "srs_candidates": [
+              "かならず",
+              "おそらく",
+              "ありえます",
+              "ありえません"
+            ],
+            "srs_policy": "Only these four high-value terms are preselected; lesson mistakes and productive patterns may enter personalized review after an actual error."
+          },
+          {
+            "id": "C1+-U1-L2",
+            "title": "こんきょと すいろん",
+            "learn": "Evidence and inference are kept in separate sentences: 〜から わかります (can be known from) and 〜に すぎません (no more than). と おもわれます marks what the field believes rather than what you do.",
+            "vocab": [
+              {
+                "t": "こんきょ",
+                "r": "konkyo",
+                "en": "evidence, grounds",
+                "pos": "noun"
+              },
+              {
+                "t": "すいろん",
+                "r": "suiron",
+                "en": "inference",
+                "pos": "noun"
+              },
+              {
+                "t": "わかります",
+                "r": "wakarimasu",
+                "en": "to be known, to be understood",
+                "pos": "verb"
+              },
+              {
+                "t": "〜に すぎません",
+                "r": "~ ni sugimasen",
+                "en": "is no more than",
+                "pos": "phrase"
+              },
+              {
+                "t": "おもわれます",
+                "r": "omowaremasu",
+                "en": "it is thought (passive)",
+                "pos": "verb"
+              }
+            ],
+            "grammar": {
+              "title": "Evidence and inference",
+              "pattern": "〜から わかります · 〜に すぎません · 〜と おもわれます · すいろんは べつです",
+              "explain": "The evidence sentence names the material and から わかります; the inference takes と おもわれます or に すぎません. Mixing the two in one sentence is the failure the register exists to prevent.",
+              "examples": [
+                {
+                  "t": "この すうじ から わかる ことは ひとつ だけです。",
+                  "r": "Kono suuji kara wakaru koto wa hitotsu dake desu.",
+                  "en": "Only one thing can be known from this figure."
+                },
+                {
+                  "t": "それは すいろん に すぎません。",
+                  "r": "Sore wa suiron ni sugimasen.",
+                  "en": "That is no more than an inference."
+                },
+                {
+                  "t": "いまは そう おもわれて います。",
+                  "r": "Ima wa sou omowarete imasu.",
+                  "en": "That is how it is currently thought."
+                }
+              ],
+              "mistakes": [
+                {
+                  "wrong": "この すうじ は げんいん が わかります。",
+                  "right": "この すうじ から わかる ことは かぎられて います。",
+                  "why": "A figure supports a limited reading, not a cause."
+                },
+                {
+                  "wrong": "すいろん は こんきょ です。",
+                  "right": "すいろんと こんきょ は べつです。",
+                  "why": "The two are stated separately."
+                }
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "編集者",
+                "t": "それは こんきょですか、すいろんですか。",
+                "r": "Sore wa konkyo desu ka, suiron desu ka.",
+                "en": "Is that evidence or inference?"
+              },
+              {
+                "sp": "分析者",
+                "t": "すいろん に すぎません。",
+                "r": "Suiron ni sugimasen.",
+                "en": "It is no more than an inference."
+              },
+              {
+                "sp": "編集者",
+                "t": "こんきょは。",
+                "r": "Konkyo wa.",
+                "en": "And the evidence?"
+              },
+              {
+                "sp": "分析者",
+                "t": "この すうじ から わかる ことは ひとつ だけです。",
+                "r": "Kono suuji kara wakaru koto wa hitotsu dake desu.",
+                "en": "Only one thing can be known from this figure."
+              }
+            ],
+            "practice": [
+              {
+                "type": "multiple_choice",
+                "q": "Practice 1: [multiple choice] こんきょと すいろん — Choose the meaning of こんきょ (konkyo) in this lesson.",
+                "answer": "evidence, grounds",
+                "skill_target": "Japanese: kana and kanji, particles は/が/を/に, です・ます politeness, verb-final order, counters and keigo",
+                "options": [
+                  "evidence, grounds",
+                  "inference",
+                  "to be known, to be understood",
+                  "is no more than"
+                ]
+              },
+              {
+                "type": "fill_in_the_blank",
+                "q": "Practice 2: [fill in the blank] こんきょと すいろん — Type the Japanese expression meaning “inference”.",
+                "answer": "すいろん",
+                "skill_target": "Japanese: kana and kanji, particles は/が/を/に, です・ます politeness, verb-final order, counters and keigo"
+              },
+              {
+                "type": "translation",
+                "q": "Practice 3: [translation] こんきょと すいろん — Interpret the Japanese script in context: この すうじ から わかる ことは ひとつ だけです。 (Kono suuji kara wakaru koto wa hitotsu dake desu.).",
+                "answer": "Only one thing can be known from this figure.",
+                "skill_target": "Japanese: kana and kanji, particles は/が/を/に, です・ます politeness, verb-final order, counters and keigo"
+              },
+              {
+                "type": "reverse_translation",
+                "q": "Practice 4: [reverse translation] こんきょと すいろん — Write in Japanese script: That is no more than an inference..",
+                "answer": "それは すいろん に すぎません。",
+                "skill_target": "Japanese: kana and kanji, particles は/が/を/に, です・ます politeness, verb-final order, counters and keigo"
+              },
+              {
+                "type": "matching",
+                "q": "Practice 5: [matching] こんきょと すいろん — Match わかります to its lesson meaning.",
+                "answer": "to be known, to be understood",
+                "skill_target": "Japanese: kana and kanji, particles は/が/を/に, です・ます politeness, verb-final order, counters and keigo",
+                "options": [
+                  "to be known, to be understood",
+                  "evidence, grounds",
+                  "inference"
+                ]
+              },
+              {
+                "type": "reorder",
+                "q": "Practice 6: [reorder] こんきょと すいろん — Reconstruct the lesson model in coherent Japanese: That is how it is currently thought..",
+                "answer": "いまは そう おもわれて います。",
+                "skill_target": "Japanese: kana and kanji, particles は/が/を/に, です・ます politeness, verb-final order, counters and keigo"
+              },
+              {
+                "type": "sentence_building",
+                "q": "Practice 7: [sentence building] こんきょと すいろん — Build the sentence with the lesson pattern (〜から わかります · 〜に すぎません · 〜と おもわれます · すいろんは べつです): Only one thing can be known from this figure..",
+                "answer": "この すうじ から わかる ことは ひとつ だけです。",
+                "skill_target": "Japanese: kana and kanji, particles は/が/を/に, です・ます politeness, verb-final order, counters and keigo"
+              },
+              {
+                "type": "word_selection",
+                "q": "Practice 8: [word selection] こんきょと すいろん — Select the Japanese form for “is no more than”.",
+                "answer": "〜に すぎません",
+                "skill_target": "Japanese: kana and kanji, particles は/が/を/に, です・ます politeness, verb-final order, counters and keigo",
+                "options": [
+                  "〜に すぎません",
+                  "おもわれます"
+                ]
+              },
+              {
+                "type": "error_correction",
+                "q": "Practice 9: [error correction] こんきょと すいろん — Correct the model the lesson warns about: この すうじ は げんいん が わかります。",
+                "answer": "この すうじ から わかる ことは かぎられて います。",
+                "skill_target": "Japanese: kana and kanji, particles は/が/を/に, です・ます politeness, verb-final order, counters and keigo"
+              },
+              {
+                "type": "dialogue_completion",
+                "q": "Practice 10: [dialogue completion] こんきょと すいろん — Complete the exchange with the studied response to: Is that evidence or inference?",
+                "answer": "すいろん に すぎません。",
+                "skill_target": "Japanese: kana and kanji, particles は/が/を/に, です・ます politeness, verb-final order, counters and keigo"
+              },
+              {
+                "type": "reading_comprehension",
+                "q": "Practice 11: [reading comprehension] こんきょと すいろん — Read “こんきょは。” (Konkyo wa.). What does it mean?",
+                "answer": "And the evidence?",
+                "skill_target": "Japanese: kana and kanji, particles は/が/を/に, です・ます politeness, verb-final order, counters and keigo"
+              },
+              {
+                "type": "paragraph_comprehension",
+                "q": "Practice 12: [paragraph comprehension] こんきょと すいろん — Read the lesson dialogue as a whole and give its key move: Only one thing can be known from this figure.",
+                "answer": "この すうじ から わかる ことは ひとつ だけです。",
+                "skill_target": "Japanese: kana and kanji, particles は/が/を/に, です・ます politeness, verb-final order, counters and keigo"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "Which meaning best fits こんきょ?",
+                "options": [
+                  "evidence, grounds",
+                  "inference",
+                  "to be known, to be understood",
+                  "is no more than"
+                ],
+                "answer": 0,
+                "why": "こんきょ (konkyo) means evidence, grounds in this lesson."
+              },
+              {
+                "q": "Which meaning best fits すいろん?",
+                "options": [
+                  "inference",
+                  "evidence, grounds",
+                  "to be known, to be understood",
+                  "is no more than"
+                ],
+                "answer": 0,
+                "why": "すいろん (suiron) means inference in this lesson."
+              },
+              {
+                "q": "Which meaning best fits わかります?",
+                "options": [
+                  "to be known, to be understood",
+                  "evidence, grounds",
+                  "inference",
+                  "is no more than"
+                ],
+                "answer": 0,
+                "why": "わかります (wakarimasu) means to be known, to be understood in this lesson."
+              },
+              {
+                "q": "Which meaning best fits 〜に すぎません?",
+                "options": [
+                  "is no more than",
+                  "evidence, grounds",
+                  "inference",
+                  "to be known, to be understood"
+                ],
+                "answer": 0,
+                "why": "〜に すぎません (~ ni sugimasen) means is no more than in this lesson."
+              },
+              {
+                "q": "Which meaning best fits おもわれます?",
+                "options": [
+                  "it is thought (passive)",
+                  "evidence, grounds",
+                  "inference",
+                  "to be known, to be understood"
+                ],
+                "answer": 0,
+                "why": "おもわれます (omowaremasu) means it is thought (passive) in this lesson."
+              }
+            ],
+            "flashcards": "auto:vocab",
+            "worksheet": {
+              "title": "Evidence worksheet",
+              "tasks": [
+                {
+                  "instruction": "Separate the two.",
+                  "items": [
+                    "that is no more than an inference",
+                    "only one thing can be known from this figure"
+                  ],
+                  "key": [
+                    "それは すいろん に すぎません",
+                    "この すうじ から わかる ことは ひとつ だけです"
+                  ]
+                },
+                {
+                  "instruction": "Report the field.",
+                  "items": [
+                    "that is how it is currently thought",
+                    "is that evidence or inference?"
+                  ],
+                  "key": [
+                    "いまは そう おもわれて います",
+                    "それは こんきょですか、すいろんですか"
+                  ]
+                },
+                {
+                  "instruction": "Integrated offline practice: read the first model, transform or extend it in Japanese script, then rehearse it as a dialogue. Self-check meaning, grammar, and register.",
+                  "items": [
+                    "この すうじ から わかる ことは ひとつ だけです。",
+                    "それは こんきょですか、すいろんですか。"
+                  ],
+                  "key": [
+                    "Only one thing can be known from this figure.",
+                    "Is that evidence or inference?"
+                  ]
+                }
+              ]
+            },
+            "srs_candidates": [
+              "こんきょ",
+              "すいろん",
+              "わかります",
+              "〜に すぎません"
+            ],
+            "srs_policy": "Only these four high-value terms are preselected; lesson mistakes and productive patterns may enter personalized review after an actual error."
+          },
+          {
+            "id": "C1+-U1-L3",
+            "title": "はんいを きめる",
+            "learn": "A claim is fenced before it is made: 〜に かぎり (as far as ~ is concerned), 〜を のぞいて (excluding), 〜の ばあい (in the case of). The fence is part of the claim, not a footnote.",
+            "vocab": [
+              {
+                "t": "はんい",
+                "r": "han'i",
+                "en": "range, scope",
+                "pos": "noun"
+              },
+              {
+                "t": "かぎり",
+                "r": "kagiri",
+                "en": "as far as, limited to",
+                "pos": "noun"
+              },
+              {
+                "t": "のぞいて",
+                "r": "nozoite",
+                "en": "excluding",
+                "pos": "phrase"
+              },
+              {
+                "t": "てきよう",
+                "r": "tekiyou",
+                "en": "application, scope",
+                "pos": "noun"
+              },
+              {
+                "t": "げんてい",
+                "r": "gentei",
+                "en": "limit, restriction",
+                "pos": "noun"
+              }
+            ],
+            "grammar": {
+              "title": "Fencing a claim",
+              "pattern": "〜に かぎり · 〜を のぞいて · 〜の ばあいに かぎられます · はんいを かきます",
+              "explain": "に かぎり is followed by the claim; を のぞいて removes a group; に かぎられます marks where the finding does apply. A claim with no fence claims the whole world.",
+              "examples": [
+                {
+                  "t": "この データに かぎり、けいこうは つづいて います。",
+                  "r": "Kono deeta ni kagiri, keikou wa tsuzuite imasu.",
+                  "en": "As far as this data goes, the trend continues."
+                },
+                {
+                  "t": "にじゅうだい を のぞいて、はんぶん です。",
+                  "r": "Nijuudai o nozoite, hanbun desu.",
+                  "en": "Excluding people in their twenties, it is half."
+                },
+                {
+                  "t": "この ばあいに かぎられます。",
+                  "r": "Kono baai ni kagiraremasu.",
+                  "en": "It applies to this case only."
+                }
+              ],
+              "mistakes": [
+                {
+                  "wrong": "この データ は かぎり、けいこう。",
+                  "right": "この データに かぎり、けいこうは つづいて います。",
+                  "why": "The fence takes に かぎり and a full clause."
+                },
+                {
+                  "wrong": "にじゅうだい の のぞき、はんぶん です。",
+                  "right": "にじゅうだい を のぞいて、はんぶん です。",
+                  "why": "Exclusion takes を のぞいて."
+                }
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "査読者",
+                "t": "この けつろん、はんいが ひろすぎます。",
+                "r": "Kono ketsuron, han'i ga hirosugimasu.",
+                "en": "The scope of this conclusion is too wide."
+              },
+              {
+                "sp": "分析者",
+                "t": "この データに かぎります。",
+                "r": "Kono deeta ni kagirimasu.",
+                "en": "I will limit it to this data."
+              },
+              {
+                "sp": "査読者",
+                "t": "ほかの たいしょうは。",
+                "r": "Hoka no taishou wa.",
+                "en": "And other groups?"
+              },
+              {
+                "sp": "分析者",
+                "t": "にじゅうだい を のぞいて、はんぶん です。",
+                "r": "Nijuudai o nozoite, hanbun desu.",
+                "en": "Excluding people in their twenties, it is half."
+              }
+            ],
+            "practice": [
+              {
+                "type": "multiple_choice",
+                "q": "Practice 1: [multiple choice] はんいを きめる — Choose the meaning of はんい (han'i) in this lesson.",
+                "answer": "range, scope",
+                "skill_target": "Japanese: kana and kanji, particles は/が/を/に, です・ます politeness, verb-final order, counters and keigo",
+                "options": [
+                  "range, scope",
+                  "as far as, limited to",
+                  "excluding",
+                  "application, scope"
+                ]
+              },
+              {
+                "type": "fill_in_the_blank",
+                "q": "Practice 2: [fill in the blank] はんいを きめる — Type the Japanese expression meaning “as far as, limited to”.",
+                "answer": "かぎり",
+                "skill_target": "Japanese: kana and kanji, particles は/が/を/に, です・ます politeness, verb-final order, counters and keigo"
+              },
+              {
+                "type": "translation",
+                "q": "Practice 3: [translation] はんいを きめる — Interpret the Japanese script in context: この データに かぎり、けいこうは つづいて います。 (Kono deeta ni kagiri, keikou wa tsuzuite imasu.).",
+                "answer": "As far as this data goes, the trend continues.",
+                "skill_target": "Japanese: kana and kanji, particles は/が/を/に, です・ます politeness, verb-final order, counters and keigo"
+              },
+              {
+                "type": "reverse_translation",
+                "q": "Practice 4: [reverse translation] はんいを きめる — Write in Japanese script: Excluding people in their twenties, it is half..",
+                "answer": "にじゅうだい を のぞいて、はんぶん です。",
+                "skill_target": "Japanese: kana and kanji, particles は/が/を/に, です・ます politeness, verb-final order, counters and keigo"
+              },
+              {
+                "type": "matching",
+                "q": "Practice 5: [matching] はんいを きめる — Match のぞいて to its lesson meaning.",
+                "answer": "excluding",
+                "skill_target": "Japanese: kana and kanji, particles は/が/を/に, です・ます politeness, verb-final order, counters and keigo",
+                "options": [
+                  "excluding",
+                  "range, scope",
+                  "as far as, limited to"
+                ]
+              },
+              {
+                "type": "reorder",
+                "q": "Practice 6: [reorder] はんいを きめる — Reconstruct the lesson model in coherent Japanese: It applies to this case only..",
+                "answer": "この ばあいに かぎられます。",
+                "skill_target": "Japanese: kana and kanji, particles は/が/を/に, です・ます politeness, verb-final order, counters and keigo"
+              },
+              {
+                "type": "sentence_building",
+                "q": "Practice 7: [sentence building] はんいを きめる — Build the sentence with the lesson pattern (〜に かぎり · 〜を のぞいて · 〜の ばあいに かぎられます · はんいを かきます): As far as this data goes, the trend continues..",
+                "answer": "この データに かぎり、けいこうは つづいて います。",
+                "skill_target": "Japanese: kana and kanji, particles は/が/を/に, です・ます politeness, verb-final order, counters and keigo"
+              },
+              {
+                "type": "word_selection",
+                "q": "Practice 8: [word selection] はんいを きめる — Select the Japanese form for “application, scope”.",
+                "answer": "てきよう",
+                "skill_target": "Japanese: kana and kanji, particles は/が/を/に, です・ます politeness, verb-final order, counters and keigo",
+                "options": [
+                  "てきよう",
+                  "げんてい"
+                ]
+              },
+              {
+                "type": "error_correction",
+                "q": "Practice 9: [error correction] はんいを きめる — Correct the model the lesson warns about: この データ は かぎり、けいこう。",
+                "answer": "この データに かぎり、けいこうは つづいて います。",
+                "skill_target": "Japanese: kana and kanji, particles は/が/を/に, です・ます politeness, verb-final order, counters and keigo"
+              },
+              {
+                "type": "dialogue_completion",
+                "q": "Practice 10: [dialogue completion] はんいを きめる — Complete the exchange with the studied response to: The scope of this conclusion is too wide.",
+                "answer": "この データに かぎります。",
+                "skill_target": "Japanese: kana and kanji, particles は/が/を/に, です・ます politeness, verb-final order, counters and keigo"
+              },
+              {
+                "type": "reading_comprehension",
+                "q": "Practice 11: [reading comprehension] はんいを きめる — Read “ほかの たいしょうは。” (Hoka no taishou wa.). What does it mean?",
+                "answer": "And other groups?",
+                "skill_target": "Japanese: kana and kanji, particles は/が/を/に, です・ます politeness, verb-final order, counters and keigo"
+              },
+              {
+                "type": "paragraph_comprehension",
+                "q": "Practice 12: [paragraph comprehension] はんいを きめる — Read the lesson dialogue as a whole and give its key move: Excluding people in their twenties, it is half.",
+                "answer": "にじゅうだい を のぞいて、はんぶん です。",
+                "skill_target": "Japanese: kana and kanji, particles は/が/を/に, です・ます politeness, verb-final order, counters and keigo"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "Which meaning best fits はんい?",
+                "options": [
+                  "range, scope",
+                  "as far as, limited to",
+                  "excluding",
+                  "application, scope"
+                ],
+                "answer": 0,
+                "why": "はんい (han'i) means range, scope in this lesson."
+              },
+              {
+                "q": "Which meaning best fits かぎり?",
+                "options": [
+                  "as far as, limited to",
+                  "range, scope",
+                  "excluding",
+                  "application, scope"
+                ],
+                "answer": 0,
+                "why": "かぎり (kagiri) means as far as, limited to in this lesson."
+              },
+              {
+                "q": "Which meaning best fits のぞいて?",
+                "options": [
+                  "excluding",
+                  "range, scope",
+                  "as far as, limited to",
+                  "application, scope"
+                ],
+                "answer": 0,
+                "why": "のぞいて (nozoite) means excluding in this lesson."
+              },
+              {
+                "q": "Which meaning best fits てきよう?",
+                "options": [
+                  "application, scope",
+                  "range, scope",
+                  "as far as, limited to",
+                  "excluding"
+                ],
+                "answer": 0,
+                "why": "てきよう (tekiyou) means application, scope in this lesson."
+              },
+              {
+                "q": "Which meaning best fits げんてい?",
+                "options": [
+                  "limit, restriction",
+                  "range, scope",
+                  "as far as, limited to",
+                  "excluding"
+                ],
+                "answer": 0,
+                "why": "げんてい (gentei) means limit, restriction in this lesson."
+              }
+            ],
+            "flashcards": "auto:vocab",
+            "worksheet": {
+              "title": "Scope worksheet",
+              "tasks": [
+                {
+                  "instruction": "Fence the claim.",
+                  "items": [
+                    "as far as this data goes, the trend continues",
+                    "excluding people in their twenties, it is half"
+                  ],
+                  "key": [
+                    "この データに かぎり、けいこうは つづいて います",
+                    "にじゅうだい を のぞいて、はんぶん です"
+                  ]
+                },
+                {
+                  "instruction": "Limit the application.",
+                  "items": [
+                    "it applies to this case only",
+                    "the scope of this conclusion is too wide"
+                  ],
+                  "key": [
+                    "この ばあいに かぎられます",
+                    "この けつろん、はんいが ひろすぎます"
+                  ]
+                },
+                {
+                  "instruction": "Integrated offline practice: read the first model, transform or extend it in Japanese script, then rehearse it as a dialogue. Self-check meaning, grammar, and register.",
+                  "items": [
+                    "この データに かぎり、けいこうは つづいて います。",
+                    "この けつろん、はんいが ひろすぎます。"
+                  ],
+                  "key": [
+                    "As far as this data goes, the trend continues.",
+                    "The scope of this conclusion is too wide."
+                  ]
+                }
+              ]
+            },
+            "srs_candidates": [
+              "はんい",
+              "かぎり",
+              "のぞいて",
+              "てきよう"
+            ],
+            "srs_policy": "Only these four high-value terms are preselected; lesson mistakes and productive patterns may enter personalized review after an actual error."
+          }
+        ]
+      },
+      {
+        "id": "C1+-U2",
+        "title": "レジスター",
+        "lessons": [
+          {
+            "id": "C1+-U2-L1",
+            "title": "です・ます と である",
+            "learn": "The same page can be written in です・ます or in である, and the choice is announced by the whole document: である for reports and papers, です・ます for letters and notices, mixed only where a quotation begins.",
+            "vocab": [
+              {
+                "t": "レジスター",
+                "r": "regisutaa",
+                "en": "register",
+                "pos": "noun"
+              },
+              {
+                "t": "である",
+                "r": "de aru",
+                "en": "is (written plain style)",
+                "pos": "phrase"
+              },
+              {
+                "t": "です・ます",
+                "r": "desu masu",
+                "en": "polite style",
+                "pos": "phrase"
+              },
+              {
+                "t": "とういつ",
+                "r": "touitsu",
+                "en": "unification, consistency",
+                "pos": "noun"
+              },
+              {
+                "t": "いいかえます",
+                "r": "iikaemasu",
+                "en": "to rephrase",
+                "pos": "verb"
+              }
+            ],
+            "grammar": {
+              "title": "Choosing a register",
+              "pattern": "〜である (report) · 〜です (notice) · レジスターを とういつします",
+              "explain": "The register is chosen once and kept for the whole text; a switch mid-paragraph reads as an accident. The same sentence can be rephrased across registers without changing its content.",
+              "examples": [
+                {
+                  "t": "この けっかは ちょうさ に よる ものである。",
+                  "r": "Kono kekka wa chousa ni yoru mono de aru.",
+                  "en": "This result is based on a survey."
+                },
+                {
+                  "t": "この けっかは ちょうさに よる ものです。",
+                  "r": "Kono kekka wa chousa ni yoru mono desu.",
+                  "en": "This result is based on a survey (polite)."
+                },
+                {
+                  "t": "レジスターを とういつします。",
+                  "r": "Regisutaa o touitsu shimasu.",
+                  "en": "I will unify the register."
+                }
+              ],
+              "mistakes": [
+                {
+                  "wrong": "この けっか は ちょうさ に よる です である。",
+                  "right": "この けっかは ちょうさに よる ものである。",
+                  "why": "One register per sentence."
+                },
+                {
+                  "wrong": "レジスター は かえます と ちゅう で。",
+                  "right": "レジスターは ぶんしょう の なかで かえません。",
+                  "why": "The register is fixed for the whole text."
+                }
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "編集者",
+                "t": "レジスターが まざって います。",
+                "r": "Regisutaa ga mazatte imasu.",
+                "en": "The registers are mixed."
+              },
+              {
+                "sp": "分析者",
+                "t": "この ほうこくは である で とういつします。",
+                "r": "Kono houkoku wa de aru de touitsu shimasu.",
+                "en": "I will unify this report in である style."
+              },
+              {
+                "sp": "編集者",
+                "t": "おしらせは。",
+                "r": "Oshirase wa.",
+                "en": "And the notice?"
+              },
+              {
+                "sp": "分析者",
+                "t": "おしらせは です・ます です。",
+                "r": "Oshirase wa desu masu desu.",
+                "en": "The notice is in です・ます."
+              }
+            ],
+            "practice": [
+              {
+                "type": "multiple_choice",
+                "q": "Practice 1: [multiple choice] です・ます と である — Choose the meaning of レジスター (regisutaa) in this lesson.",
+                "answer": "register",
+                "skill_target": "Japanese: kana and kanji, particles は/が/を/に, です・ます politeness, verb-final order, counters and keigo",
+                "options": [
+                  "register",
+                  "is (written plain style)",
+                  "polite style",
+                  "unification, consistency"
+                ]
+              },
+              {
+                "type": "fill_in_the_blank",
+                "q": "Practice 2: [fill in the blank] です・ます と である — Type the Japanese expression meaning “is (written plain style)”.",
+                "answer": "である",
+                "skill_target": "Japanese: kana and kanji, particles は/が/を/に, です・ます politeness, verb-final order, counters and keigo"
+              },
+              {
+                "type": "translation",
+                "q": "Practice 3: [translation] です・ます と である — Interpret the Japanese script in context: この けっかは ちょうさ に よる ものである。 (Kono kekka wa chousa ni yoru mono de aru.).",
+                "answer": "This result is based on a survey.",
+                "skill_target": "Japanese: kana and kanji, particles は/が/を/に, です・ます politeness, verb-final order, counters and keigo"
+              },
+              {
+                "type": "reverse_translation",
+                "q": "Practice 4: [reverse translation] です・ます と である — Write in Japanese script: This result is based on a survey (polite)..",
+                "answer": "この けっかは ちょうさに よる ものです。",
+                "skill_target": "Japanese: kana and kanji, particles は/が/を/に, です・ます politeness, verb-final order, counters and keigo"
+              },
+              {
+                "type": "matching",
+                "q": "Practice 5: [matching] です・ます と である — Match です・ます to its lesson meaning.",
+                "answer": "polite style",
+                "skill_target": "Japanese: kana and kanji, particles は/が/を/に, です・ます politeness, verb-final order, counters and keigo",
+                "options": [
+                  "polite style",
+                  "register",
+                  "is (written plain style)"
+                ]
+              },
+              {
+                "type": "reorder",
+                "q": "Practice 6: [reorder] です・ます と である — Reconstruct the lesson model in coherent Japanese: I will unify the register..",
+                "answer": "レジスターを とういつします。",
+                "skill_target": "Japanese: kana and kanji, particles は/が/を/に, です・ます politeness, verb-final order, counters and keigo"
+              },
+              {
+                "type": "sentence_building",
+                "q": "Practice 7: [sentence building] です・ます と である — Build the sentence with the lesson pattern (〜である (report) · 〜です (notice) · レジスターを とういつします): This result is based on a survey..",
+                "answer": "この けっかは ちょうさ に よる ものである。",
+                "skill_target": "Japanese: kana and kanji, particles は/が/を/に, です・ます politeness, verb-final order, counters and keigo"
+              },
+              {
+                "type": "word_selection",
+                "q": "Practice 8: [word selection] です・ます と である — Select the Japanese form for “unification, consistency”.",
+                "answer": "とういつ",
+                "skill_target": "Japanese: kana and kanji, particles は/が/を/に, です・ます politeness, verb-final order, counters and keigo",
+                "options": [
+                  "とういつ",
+                  "いいかえます"
+                ]
+              },
+              {
+                "type": "error_correction",
+                "q": "Practice 9: [error correction] です・ます と である — Correct the model the lesson warns about: この けっか は ちょうさ に よる です である。",
+                "answer": "この けっかは ちょうさに よる ものである。",
+                "skill_target": "Japanese: kana and kanji, particles は/が/を/に, です・ます politeness, verb-final order, counters and keigo"
+              },
+              {
+                "type": "dialogue_completion",
+                "q": "Practice 10: [dialogue completion] です・ます と である — Complete the exchange with the studied response to: The registers are mixed.",
+                "answer": "この ほうこくは である で とういつします。",
+                "skill_target": "Japanese: kana and kanji, particles は/が/を/に, です・ます politeness, verb-final order, counters and keigo"
+              },
+              {
+                "type": "reading_comprehension",
+                "q": "Practice 11: [reading comprehension] です・ます と である — Read “おしらせは。” (Oshirase wa.). What does it mean?",
+                "answer": "And the notice?",
+                "skill_target": "Japanese: kana and kanji, particles は/が/を/に, です・ます politeness, verb-final order, counters and keigo"
+              },
+              {
+                "type": "paragraph_comprehension",
+                "q": "Practice 12: [paragraph comprehension] です・ます と である — Read the lesson dialogue as a whole and give its key move: The notice is in です・ます.",
+                "answer": "おしらせは です・ます です。",
+                "skill_target": "Japanese: kana and kanji, particles は/が/を/に, です・ます politeness, verb-final order, counters and keigo"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "Which meaning best fits レジスター?",
+                "options": [
+                  "register",
+                  "is (written plain style)",
+                  "polite style",
+                  "unification, consistency"
+                ],
+                "answer": 0,
+                "why": "レジスター (regisutaa) means register in this lesson."
+              },
+              {
+                "q": "Which meaning best fits である?",
+                "options": [
+                  "is (written plain style)",
+                  "register",
+                  "polite style",
+                  "unification, consistency"
+                ],
+                "answer": 0,
+                "why": "である (de aru) means is (written plain style) in this lesson."
+              },
+              {
+                "q": "Which meaning best fits です・ます?",
+                "options": [
+                  "polite style",
+                  "register",
+                  "is (written plain style)",
+                  "unification, consistency"
+                ],
+                "answer": 0,
+                "why": "です・ます (desu masu) means polite style in this lesson."
+              },
+              {
+                "q": "Which meaning best fits とういつ?",
+                "options": [
+                  "unification, consistency",
+                  "register",
+                  "is (written plain style)",
+                  "polite style"
+                ],
+                "answer": 0,
+                "why": "とういつ (touitsu) means unification, consistency in this lesson."
+              },
+              {
+                "q": "Which meaning best fits いいかえます?",
+                "options": [
+                  "to rephrase",
+                  "register",
+                  "is (written plain style)",
+                  "polite style"
+                ],
+                "answer": 0,
+                "why": "いいかえます (iikaemasu) means to rephrase in this lesson."
+              }
+            ],
+            "flashcards": "auto:vocab",
+            "worksheet": {
+              "title": "Register worksheet",
+              "tasks": [
+                {
+                  "instruction": "Pick the register.",
+                  "items": [
+                    "this result is based on a survey (report style)",
+                    "this result is based on a survey (polite)"
+                  ],
+                  "key": [
+                    "この けっかは ちょうさ に よる ものである",
+                    "この けっかは ちょうさに よる ものです"
+                  ]
+                },
+                {
+                  "instruction": "Keep it consistent.",
+                  "items": [
+                    "I will unify the register",
+                    "the registers are mixed"
+                  ],
+                  "key": [
+                    "レジスターを とういつします",
+                    "レジスターが まざって います"
+                  ]
+                },
+                {
+                  "instruction": "Integrated offline practice: read the first model, transform or extend it in Japanese script, then rehearse it as a dialogue. Self-check meaning, grammar, and register.",
+                  "items": [
+                    "この けっかは ちょうさ に よる ものである。",
+                    "レジスターが まざって います。"
+                  ],
+                  "key": [
+                    "This result is based on a survey.",
+                    "The registers are mixed."
+                  ]
+                }
+              ]
+            },
+            "srs_candidates": [
+              "レジスター",
+              "である",
+              "です・ます",
+              "とういつ"
+            ],
+            "srs_policy": "Only these four high-value terms are preselected; lesson mistakes and productive patterns may enter personalized review after an actual error."
+          },
+          {
+            "id": "C1+-U2-L2",
+            "title": "けいごの えらび",
+            "learn": "Keigo is a choice about whose action it is: いらっしゃる (they come), うかがう (I go), いただく (I receive), さしあげる (I give). Choosing the wrong direction sounds worse than using no keigo at all.",
+            "vocab": [
+              {
+                "t": "うかがいます",
+                "r": "ukagaimasu",
+                "en": "to visit, to ask (humble)",
+                "pos": "verb"
+              },
+              {
+                "t": "いただきます",
+                "r": "itadakimasu",
+                "en": "to receive (humble)",
+                "pos": "verb"
+              },
+              {
+                "t": "さしあげます",
+                "r": "sashiagemasu",
+                "en": "to give (humble)",
+                "pos": "verb"
+              },
+              {
+                "t": "ごらんに なります",
+                "r": "goran ni narimasu",
+                "en": "to see (respectful)",
+                "pos": "phrase"
+              },
+              {
+                "t": "ほうもん",
+                "r": "houmon",
+                "en": "visit",
+                "pos": "noun"
+              }
+            ],
+            "grammar": {
+              "title": "Choosing keigo",
+              "pattern": "いらっしゃる (their action, respectful) · うかがう (my action, humble) · いただく (my receiving) · さしあげる (my giving)",
+              "explain": "Respectful forms raise the other person's action; humble forms lower my own. A humble verb on the other person's act is the error that marks a learner, so the test is always: whose action is it?",
+              "examples": [
+                {
+                  "t": "あした うちに うかがいます。",
+                  "r": "Ashita uchi ni ukagaimasu.",
+                  "en": "I will visit you tomorrow."
+                },
+                {
+                  "t": "せんせいは もう ごらんに なりました。",
+                  "r": "Sensei wa mou goran ni narimashita.",
+                  "en": "The teacher has already seen it."
+                },
+                {
+                  "t": "おみやげを いただきました。",
+                  "r": "Omiyage o itadakimashita.",
+                  "en": "I received a gift."
+                }
+              ],
+              "mistakes": [
+                {
+                  "wrong": "わたし が いらっしゃいます。",
+                  "right": "わたしが うかがいます。",
+                  "why": "My own action takes the humble form うかがう."
+                },
+                {
+                  "wrong": "せんせい に さしあげて いただきました。",
+                  "right": "せんせいに おみやげを いただきました。",
+                  "why": "Receiving takes いただく; さしあげる is giving."
+                }
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "調停者",
+                "t": "あした ほうもん しますか。",
+                "r": "Ashita houmon shimasu ka.",
+                "en": "Will you visit tomorrow?"
+              },
+              {
+                "sp": "分析者",
+                "t": "はい、あした うかがいます。",
+                "r": "Hai, ashita ukagaimasu.",
+                "en": "Yes, I will visit tomorrow."
+              },
+              {
+                "sp": "調停者",
+                "t": "その しりょうは みましたか。",
+                "r": "Sono shiryou wa mimashita ka.",
+                "en": "Have you seen those materials?"
+              },
+              {
+                "sp": "分析者",
+                "t": "せんせいは もう ごらんに なりました。わたしは あとで いただきます。",
+                "r": "Sensei wa mou goran ni narimashita. Watashi wa ato de itadakimasu.",
+                "en": "The teacher has already seen them. I will receive them later."
+              }
+            ],
+            "practice": [
+              {
+                "type": "multiple_choice",
+                "q": "Practice 1: [multiple choice] けいごの えらび — Choose the meaning of うかがいます (ukagaimasu) in this lesson.",
+                "answer": "to visit, to ask (humble)",
+                "skill_target": "Japanese: kana and kanji, particles は/が/を/に, です・ます politeness, verb-final order, counters and keigo",
+                "options": [
+                  "to visit, to ask (humble)",
+                  "to receive (humble)",
+                  "to give (humble)",
+                  "to see (respectful)"
+                ]
+              },
+              {
+                "type": "fill_in_the_blank",
+                "q": "Practice 2: [fill in the blank] けいごの えらび — Type the Japanese expression meaning “to receive (humble)”.",
+                "answer": "いただきます",
+                "skill_target": "Japanese: kana and kanji, particles は/が/を/に, です・ます politeness, verb-final order, counters and keigo"
+              },
+              {
+                "type": "translation",
+                "q": "Practice 3: [translation] けいごの えらび — Interpret the Japanese script in context: あした うちに うかがいます。 (Ashita uchi ni ukagaimasu.).",
+                "answer": "I will visit you tomorrow.",
+                "skill_target": "Japanese: kana and kanji, particles は/が/を/に, です・ます politeness, verb-final order, counters and keigo"
+              },
+              {
+                "type": "reverse_translation",
+                "q": "Practice 4: [reverse translation] けいごの えらび — Write in Japanese script: The teacher has already seen it..",
+                "answer": "せんせいは もう ごらんに なりました。",
+                "skill_target": "Japanese: kana and kanji, particles は/が/を/に, です・ます politeness, verb-final order, counters and keigo"
+              },
+              {
+                "type": "matching",
+                "q": "Practice 5: [matching] けいごの えらび — Match さしあげます to its lesson meaning.",
+                "answer": "to give (humble)",
+                "skill_target": "Japanese: kana and kanji, particles は/が/を/に, です・ます politeness, verb-final order, counters and keigo",
+                "options": [
+                  "to give (humble)",
+                  "to visit, to ask (humble)",
+                  "to receive (humble)"
+                ]
+              },
+              {
+                "type": "reorder",
+                "q": "Practice 6: [reorder] けいごの えらび — Reconstruct the lesson model in coherent Japanese: I received a gift..",
+                "answer": "おみやげを いただきました。",
+                "skill_target": "Japanese: kana and kanji, particles は/が/を/に, です・ます politeness, verb-final order, counters and keigo"
+              },
+              {
+                "type": "sentence_building",
+                "q": "Practice 7: [sentence building] けいごの えらび — Build the sentence with the lesson pattern (いらっしゃる (their action, respectful) · うかがう (my action, humble) · いただく (my receiving) · さしあげる (my giving)): I will visit you tomorrow..",
+                "answer": "あした うちに うかがいます。",
+                "skill_target": "Japanese: kana and kanji, particles は/が/を/に, です・ます politeness, verb-final order, counters and keigo"
+              },
+              {
+                "type": "word_selection",
+                "q": "Practice 8: [word selection] けいごの えらび — Select the Japanese form for “to see (respectful)”.",
+                "answer": "ごらんに なります",
+                "skill_target": "Japanese: kana and kanji, particles は/が/を/に, です・ます politeness, verb-final order, counters and keigo",
+                "options": [
+                  "ごらんに なります",
+                  "ほうもん"
+                ]
+              },
+              {
+                "type": "error_correction",
+                "q": "Practice 9: [error correction] けいごの えらび — Correct the model the lesson warns about: わたし が いらっしゃいます。",
+                "answer": "わたしが うかがいます。",
+                "skill_target": "Japanese: kana and kanji, particles は/が/を/に, です・ます politeness, verb-final order, counters and keigo"
+              },
+              {
+                "type": "dialogue_completion",
+                "q": "Practice 10: [dialogue completion] けいごの えらび — Complete the exchange with the studied response to: Will you visit tomorrow?",
+                "answer": "はい、あした うかがいます。",
+                "skill_target": "Japanese: kana and kanji, particles は/が/を/に, です・ます politeness, verb-final order, counters and keigo"
+              },
+              {
+                "type": "reading_comprehension",
+                "q": "Practice 11: [reading comprehension] けいごの えらび — Read “その しりょうは みましたか。” (Sono shiryou wa mimashita ka.). What does it mean?",
+                "answer": "Have you seen those materials?",
+                "skill_target": "Japanese: kana and kanji, particles は/が/を/に, です・ます politeness, verb-final order, counters and keigo"
+              },
+              {
+                "type": "paragraph_comprehension",
+                "q": "Practice 12: [paragraph comprehension] けいごの えらび — Read the lesson dialogue as a whole and give its key move: The teacher has already seen them. I will receive them later.",
+                "answer": "せんせいは もう ごらんに なりました。わたしは あとで いただきます。",
+                "skill_target": "Japanese: kana and kanji, particles は/が/を/に, です・ます politeness, verb-final order, counters and keigo"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "Which meaning best fits うかがいます?",
+                "options": [
+                  "to visit, to ask (humble)",
+                  "to receive (humble)",
+                  "to give (humble)",
+                  "to see (respectful)"
+                ],
+                "answer": 0,
+                "why": "うかがいます (ukagaimasu) means to visit, to ask (humble) in this lesson."
+              },
+              {
+                "q": "Which meaning best fits いただきます?",
+                "options": [
+                  "to receive (humble)",
+                  "to visit, to ask (humble)",
+                  "to give (humble)",
+                  "to see (respectful)"
+                ],
+                "answer": 0,
+                "why": "いただきます (itadakimasu) means to receive (humble) in this lesson."
+              },
+              {
+                "q": "Which meaning best fits さしあげます?",
+                "options": [
+                  "to give (humble)",
+                  "to visit, to ask (humble)",
+                  "to receive (humble)",
+                  "to see (respectful)"
+                ],
+                "answer": 0,
+                "why": "さしあげます (sashiagemasu) means to give (humble) in this lesson."
+              },
+              {
+                "q": "Which meaning best fits ごらんに なります?",
+                "options": [
+                  "to see (respectful)",
+                  "to visit, to ask (humble)",
+                  "to receive (humble)",
+                  "to give (humble)"
+                ],
+                "answer": 0,
+                "why": "ごらんに なります (goran ni narimasu) means to see (respectful) in this lesson."
+              },
+              {
+                "q": "Which meaning best fits ほうもん?",
+                "options": [
+                  "visit",
+                  "to visit, to ask (humble)",
+                  "to receive (humble)",
+                  "to give (humble)"
+                ],
+                "answer": 0,
+                "why": "ほうもん (houmon) means visit in this lesson."
+              }
+            ],
+            "flashcards": "auto:vocab",
+            "worksheet": {
+              "title": "Keigo worksheet",
+              "tasks": [
+                {
+                  "instruction": "Lower your own action.",
+                  "items": [
+                    "I will visit you tomorrow",
+                    "I received a gift"
+                  ],
+                  "key": [
+                    "あした うちに うかがいます",
+                    "おみやげを いただきました"
+                  ]
+                },
+                {
+                  "instruction": "Raise theirs.",
+                  "items": [
+                    "the teacher has already seen it",
+                    "will you visit tomorrow?"
+                  ],
+                  "key": [
+                    "せんせいは もう ごらんに なりました",
+                    "あした ほうもん しますか"
+                  ]
+                },
+                {
+                  "instruction": "Integrated offline practice: read the first model, transform or extend it in Japanese script, then rehearse it as a dialogue. Self-check meaning, grammar, and register.",
+                  "items": [
+                    "あした うちに うかがいます。",
+                    "あした ほうもん しますか。"
+                  ],
+                  "key": [
+                    "I will visit you tomorrow.",
+                    "Will you visit tomorrow?"
+                  ]
+                }
+              ]
+            },
+            "srs_candidates": [
+              "うかがいます",
+              "いただきます",
+              "さしあげます",
+              "ごらんに なります"
+            ],
+            "srs_policy": "Only these four high-value terms are preselected; lesson mistakes and productive patterns may enter personalized review after an actual error."
+          },
+          {
+            "id": "C1+-U2-L3",
+            "title": "くだけた はなし",
+            "learn": "Casual Japanese is a register, not a mistake: じゃ、だ、〜かな、〜だよ belong between people who know each other. The C1 skill is switching deliberately and never mixing the two inside one sentence.",
+            "vocab": [
+              {
+                "t": "くだけた",
+                "r": "kudaketa",
+                "en": "casual, informal",
+                "pos": "adjective"
+              },
+              {
+                "t": "〜だよ",
+                "r": "~ da yo",
+                "en": "it is (casual, informing)",
+                "pos": "phrase"
+              },
+              {
+                "t": "〜かな",
+                "r": "~ kana",
+                "en": "I wonder (casual)",
+                "pos": "phrase"
+              },
+              {
+                "t": "きんちょう",
+                "r": "kinchou",
+                "en": "tension, nervousness",
+                "pos": "noun"
+              },
+              {
+                "t": "ばめん",
+                "r": "bamen",
+                "en": "scene, situation",
+                "pos": "noun"
+              }
+            ],
+            "grammar": {
+              "title": "Switching registers",
+              "pattern": "じゃ、また · そうだよ · どう かな · 〜かも しれないな",
+              "explain": "The casual register drops です・ます, contracts では to じゃ, and adds よ/ね/な for the listener. Switching is announced by the whole sentence — half-casual sounds worse than either register alone.",
+              "examples": [
+                {
+                  "t": "じゃ、また あしたね。",
+                  "r": "Ja, mata ashita ne.",
+                  "en": "See you tomorrow, then."
+                },
+                {
+                  "t": "そうだよ。たぶん だいじょうぶ。",
+                  "r": "Sou da yo. Tabun daijoubu.",
+                  "en": "That is right. It is probably fine."
+                },
+                {
+                  "t": "どう かな。ちょっと わからないな。",
+                  "r": "Dou kana. Chotto wakaranai na.",
+                  "en": "I wonder. I am not sure."
+                }
+              ],
+              "mistakes": [
+                {
+                  "wrong": "じゃ、また あした ですね だよ。",
+                  "right": "じゃ、また あしたね。",
+                  "why": "One register per sentence."
+                },
+                {
+                  "wrong": "そう です よ だ。",
+                  "right": "そうだよ。",
+                  "why": "The casual ending replaces です, it does not join it."
+                }
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "分析者",
+                "t": "じゃ、また あしたね。",
+                "r": "Ja, mata ashita ne.",
+                "en": "See you tomorrow, then."
+              },
+              {
+                "sp": "査読者",
+                "t": "うん。あしたの しりょう、だいじょうぶ?",
+                "r": "Un. Ashita no shiryou, daijoubu?",
+                "en": "Yes. Are the materials for tomorrow all right?"
+              },
+              {
+                "sp": "分析者",
+                "t": "たぶん。ちょっと わからないな。",
+                "r": "Tabun. Chotto wakaranai na.",
+                "en": "Probably. I am not quite sure."
+              },
+              {
+                "sp": "査読者",
+                "t": "じゃ、あとで メール して。",
+                "r": "Ja, ato de meeru shite.",
+                "en": "Then mail me later."
+              }
+            ],
+            "practice": [
+              {
+                "type": "multiple_choice",
+                "q": "Practice 1: [multiple choice] くだけた はなし — Choose the meaning of くだけた (kudaketa) in this lesson.",
+                "answer": "casual, informal",
+                "skill_target": "Japanese: kana and kanji, particles は/が/を/に, です・ます politeness, verb-final order, counters and keigo",
+                "options": [
+                  "casual, informal",
+                  "it is (casual, informing)",
+                  "I wonder (casual)",
+                  "tension, nervousness"
+                ]
+              },
+              {
+                "type": "fill_in_the_blank",
+                "q": "Practice 2: [fill in the blank] くだけた はなし — Type the Japanese expression meaning “it is (casual, informing)”.",
+                "answer": "〜だよ",
+                "skill_target": "Japanese: kana and kanji, particles は/が/を/に, です・ます politeness, verb-final order, counters and keigo"
+              },
+              {
+                "type": "translation",
+                "q": "Practice 3: [translation] くだけた はなし — Interpret the Japanese script in context: じゃ、また あしたね。 (Ja, mata ashita ne.).",
+                "answer": "See you tomorrow, then.",
+                "skill_target": "Japanese: kana and kanji, particles は/が/を/に, です・ます politeness, verb-final order, counters and keigo"
+              },
+              {
+                "type": "reverse_translation",
+                "q": "Practice 4: [reverse translation] くだけた はなし — Write in Japanese script: That is right. It is probably fine..",
+                "answer": "そうだよ。たぶん だいじょうぶ。",
+                "skill_target": "Japanese: kana and kanji, particles は/が/を/に, です・ます politeness, verb-final order, counters and keigo"
+              },
+              {
+                "type": "matching",
+                "q": "Practice 5: [matching] くだけた はなし — Match 〜かな to its lesson meaning.",
+                "answer": "I wonder (casual)",
+                "skill_target": "Japanese: kana and kanji, particles は/が/を/に, です・ます politeness, verb-final order, counters and keigo",
+                "options": [
+                  "I wonder (casual)",
+                  "casual, informal",
+                  "it is (casual, informing)"
+                ]
+              },
+              {
+                "type": "reorder",
+                "q": "Practice 6: [reorder] くだけた はなし — Reconstruct the lesson model in coherent Japanese: I wonder. I am not sure..",
+                "answer": "どう かな。ちょっと わからないな。",
+                "skill_target": "Japanese: kana and kanji, particles は/が/を/に, です・ます politeness, verb-final order, counters and keigo"
+              },
+              {
+                "type": "sentence_building",
+                "q": "Practice 7: [sentence building] くだけた はなし — Build the sentence with the lesson pattern (じゃ、また · そうだよ · どう かな · 〜かも しれないな): See you tomorrow, then..",
+                "answer": "じゃ、また あしたね。",
+                "skill_target": "Japanese: kana and kanji, particles は/が/を/に, です・ます politeness, verb-final order, counters and keigo"
+              },
+              {
+                "type": "word_selection",
+                "q": "Practice 8: [word selection] くだけた はなし — Select the Japanese form for “tension, nervousness”.",
+                "answer": "きんちょう",
+                "skill_target": "Japanese: kana and kanji, particles は/が/を/に, です・ます politeness, verb-final order, counters and keigo",
+                "options": [
+                  "きんちょう",
+                  "ばめん"
+                ]
+              },
+              {
+                "type": "error_correction",
+                "q": "Practice 9: [error correction] くだけた はなし — Correct the model the lesson warns about: じゃ、また あした ですね だよ。",
+                "answer": "じゃ、また あしたね。",
+                "skill_target": "Japanese: kana and kanji, particles は/が/を/に, です・ます politeness, verb-final order, counters and keigo"
+              },
+              {
+                "type": "dialogue_completion",
+                "q": "Practice 10: [dialogue completion] くだけた はなし — Complete the exchange with the studied response to: See you tomorrow, then.",
+                "answer": "うん。あしたの しりょう、だいじょうぶ?",
+                "skill_target": "Japanese: kana and kanji, particles は/が/を/に, です・ます politeness, verb-final order, counters and keigo"
+              },
+              {
+                "type": "reading_comprehension",
+                "q": "Practice 11: [reading comprehension] くだけた はなし — Read “たぶん。ちょっと わからないな。” (Tabun. Chotto wakaranai na.). What does it mean?",
+                "answer": "Probably. I am not quite sure.",
+                "skill_target": "Japanese: kana and kanji, particles は/が/を/に, です・ます politeness, verb-final order, counters and keigo"
+              },
+              {
+                "type": "paragraph_comprehension",
+                "q": "Practice 12: [paragraph comprehension] くだけた はなし — Read the lesson dialogue as a whole and give its key move: Then mail me later.",
+                "answer": "じゃ、あとで メール して。",
+                "skill_target": "Japanese: kana and kanji, particles は/が/を/に, です・ます politeness, verb-final order, counters and keigo"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "Which meaning best fits くだけた?",
+                "options": [
+                  "casual, informal",
+                  "it is (casual, informing)",
+                  "I wonder (casual)",
+                  "tension, nervousness"
+                ],
+                "answer": 0,
+                "why": "くだけた (kudaketa) means casual, informal in this lesson."
+              },
+              {
+                "q": "Which meaning best fits 〜だよ?",
+                "options": [
+                  "it is (casual, informing)",
+                  "casual, informal",
+                  "I wonder (casual)",
+                  "tension, nervousness"
+                ],
+                "answer": 0,
+                "why": "〜だよ (~ da yo) means it is (casual, informing) in this lesson."
+              },
+              {
+                "q": "Which meaning best fits 〜かな?",
+                "options": [
+                  "I wonder (casual)",
+                  "casual, informal",
+                  "it is (casual, informing)",
+                  "tension, nervousness"
+                ],
+                "answer": 0,
+                "why": "〜かな (~ kana) means I wonder (casual) in this lesson."
+              },
+              {
+                "q": "Which meaning best fits きんちょう?",
+                "options": [
+                  "tension, nervousness",
+                  "casual, informal",
+                  "it is (casual, informing)",
+                  "I wonder (casual)"
+                ],
+                "answer": 0,
+                "why": "きんちょう (kinchou) means tension, nervousness in this lesson."
+              },
+              {
+                "q": "Which meaning best fits ばめん?",
+                "options": [
+                  "scene, situation",
+                  "casual, informal",
+                  "it is (casual, informing)",
+                  "I wonder (casual)"
+                ],
+                "answer": 0,
+                "why": "ばめん (bamen) means scene, situation in this lesson."
+              }
+            ],
+            "flashcards": "auto:vocab",
+            "worksheet": {
+              "title": "Casual worksheet",
+              "tasks": [
+                {
+                  "instruction": "Say it casually.",
+                  "items": [
+                    "see you tomorrow, then",
+                    "that is right. It is probably fine."
+                  ],
+                  "key": [
+                    "じゃ、また あしたね",
+                    "そうだよ。たぶん だいじょうぶ。"
+                  ]
+                },
+                {
+                  "instruction": "Leave it open.",
+                  "items": [
+                    "I wonder. I am not sure.",
+                    "then mail me later"
+                  ],
+                  "key": [
+                    "どう かな。ちょっと わからないな",
+                    "じゃ、あとで メール して"
+                  ]
+                },
+                {
+                  "instruction": "Integrated offline practice: read the first model, transform or extend it in Japanese script, then rehearse it as a dialogue. Self-check meaning, grammar, and register.",
+                  "items": [
+                    "じゃ、また あしたね。",
+                    "じゃ、また あしたね。"
+                  ],
+                  "key": [
+                    "See you tomorrow, then.",
+                    "See you tomorrow, then."
+                  ]
+                }
+              ]
+            },
+            "srs_candidates": [
+              "くだけた",
+              "〜だよ",
+              "〜かな",
+              "きんちょう"
+            ],
+            "srs_policy": "Only these four high-value terms are preselected; lesson mistakes and productive patterns may enter personalized review after an actual error."
+          }
+        ]
+      },
+      {
+        "id": "C1+-U3",
+        "title": "ちゅうかい",
+        "lessons": [
+          {
+            "id": "C1+-U3-L1",
+            "title": "やさしい にほんごで つたえる",
+            "learn": "Mediation starts by announcing the register: やさしい にほんごで おつたえします. Sentences shorten to one clause, kanji gain furigana, and every turn of phrase is marked with いいかえると.",
+            "vocab": [
+              {
+                "t": "おつたえします",
+                "r": "otsutae shimasu",
+                "en": "I convey (humble)",
+                "pos": "verb"
+              },
+              {
+                "t": "ふりがな",
+                "r": "furigana",
+                "en": "reading gloss",
+                "pos": "noun"
+              },
+              {
+                "t": "ぶんせつ",
+                "r": "bunsetsu",
+                "en": "clause, phrase",
+                "pos": "noun"
+              },
+              {
+                "t": "みじかく",
+                "r": "mijikaku",
+                "en": "shortly, briefly",
+                "pos": "adverb"
+              },
+              {
+                "t": "いいかえます",
+                "r": "iikaemasu",
+                "en": "to rephrase",
+                "pos": "verb"
+              }
+            ],
+            "grammar": {
+              "title": "Plain-language mediation",
+              "pattern": "やさしい にほんごで おつたえします · ぶんせつを みじかく します · いいかえると、〜",
+              "explain": "The rendering is announced, the clauses shorten to one idea each, and each rephrase is marked. Naming the change is what makes a plain rendering a service rather than a simplification of the reader.",
+              "examples": [
+                {
+                  "t": "やさしい にほんごで おつたえします。",
+                  "r": "Yasashii nihongo de otsutae shimasu.",
+                  "en": "I will convey it in plain Japanese."
+                },
+                {
+                  "t": "ぶんせつを みじかく します。",
+                  "r": "Bunsetsu o mijikaku shimasu.",
+                  "en": "I will shorten the clauses."
+                },
+                {
+                  "t": "いいかえると、あしたまで です。",
+                  "r": "Iikaeru to, ashita made desu.",
+                  "en": "In other words, it is until tomorrow."
+                }
+              ],
+              "mistakes": [
+                {
+                  "wrong": "やさしい にほんご を おつたえ します です。",
+                  "right": "やさしい にほんごで おつたえします。",
+                  "why": "One ending per sentence."
+                },
+                {
+                  "wrong": "ぶんせつ は みじかく です。",
+                  "right": "ぶんせつを みじかく します。",
+                  "why": "The change is a verb: みじかく します."
+                }
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "調停者",
+                "t": "この おしらせ、むずかしいですか。",
+                "r": "Kono oshirase, muzukashii desu ka.",
+                "en": "Is this notice difficult?"
+              },
+              {
+                "sp": "分析者",
+                "t": "はい。やさしい にほんごで おつたえします。",
+                "r": "Hai. Yasashii nihongo de otsutae shimasu.",
+                "en": "Yes. I will convey it in plain Japanese."
+              },
+              {
+                "sp": "調停者",
+                "t": "どう しますか。",
+                "r": "Dou shimasu ka.",
+                "en": "How will you do it?"
+              },
+              {
+                "sp": "分析者",
+                "t": "ぶんせつを みじかく して、いいかえると を つけます。",
+                "r": "Bunsetsu o mijikaku shite, iikaeru to o tsukemasu.",
+                "en": "I will shorten the clauses and add 'in other words'."
+              }
+            ],
+            "practice": [
+              {
+                "type": "multiple_choice",
+                "q": "Practice 1: [multiple choice] やさしい にほんごで つたえる — Choose the meaning of おつたえします (otsutae shimasu) in this lesson.",
+                "answer": "I convey (humble)",
+                "skill_target": "Japanese: kana and kanji, particles は/が/を/に, です・ます politeness, verb-final order, counters and keigo",
+                "options": [
+                  "I convey (humble)",
+                  "reading gloss",
+                  "clause, phrase",
+                  "shortly, briefly"
+                ]
+              },
+              {
+                "type": "fill_in_the_blank",
+                "q": "Practice 2: [fill in the blank] やさしい にほんごで つたえる — Type the Japanese expression meaning “reading gloss”.",
+                "answer": "ふりがな",
+                "skill_target": "Japanese: kana and kanji, particles は/が/を/に, です・ます politeness, verb-final order, counters and keigo"
+              },
+              {
+                "type": "translation",
+                "q": "Practice 3: [translation] やさしい にほんごで つたえる — Interpret the Japanese script in context: やさしい にほんごで おつたえします。 (Yasashii nihongo de otsutae shimasu.).",
+                "answer": "I will convey it in plain Japanese.",
+                "skill_target": "Japanese: kana and kanji, particles は/が/を/に, です・ます politeness, verb-final order, counters and keigo"
+              },
+              {
+                "type": "reverse_translation",
+                "q": "Practice 4: [reverse translation] やさしい にほんごで つたえる — Write in Japanese script: I will shorten the clauses..",
+                "answer": "ぶんせつを みじかく します。",
+                "skill_target": "Japanese: kana and kanji, particles は/が/を/に, です・ます politeness, verb-final order, counters and keigo"
+              },
+              {
+                "type": "matching",
+                "q": "Practice 5: [matching] やさしい にほんごで つたえる — Match ぶんせつ to its lesson meaning.",
+                "answer": "clause, phrase",
+                "skill_target": "Japanese: kana and kanji, particles は/が/を/に, です・ます politeness, verb-final order, counters and keigo",
+                "options": [
+                  "clause, phrase",
+                  "I convey (humble)",
+                  "reading gloss"
+                ]
+              },
+              {
+                "type": "reorder",
+                "q": "Practice 6: [reorder] やさしい にほんごで つたえる — Reconstruct the lesson model in coherent Japanese: In other words, it is until tomorrow..",
+                "answer": "いいかえると、あしたまで です。",
+                "skill_target": "Japanese: kana and kanji, particles は/が/を/に, です・ます politeness, verb-final order, counters and keigo"
+              },
+              {
+                "type": "sentence_building",
+                "q": "Practice 7: [sentence building] やさしい にほんごで つたえる — Build the sentence with the lesson pattern (やさしい にほんごで おつたえします · ぶんせつを みじかく します · いいかえると、〜): I will convey it in plain Japanese..",
+                "answer": "やさしい にほんごで おつたえします。",
+                "skill_target": "Japanese: kana and kanji, particles は/が/を/に, です・ます politeness, verb-final order, counters and keigo"
+              },
+              {
+                "type": "word_selection",
+                "q": "Practice 8: [word selection] やさしい にほんごで つたえる — Select the Japanese form for “shortly, briefly”.",
+                "answer": "みじかく",
+                "skill_target": "Japanese: kana and kanji, particles は/が/を/に, です・ます politeness, verb-final order, counters and keigo",
+                "options": [
+                  "みじかく",
+                  "いいかえます"
+                ]
+              },
+              {
+                "type": "error_correction",
+                "q": "Practice 9: [error correction] やさしい にほんごで つたえる — Correct the model the lesson warns about: やさしい にほんご を おつたえ します です。",
+                "answer": "やさしい にほんごで おつたえします。",
+                "skill_target": "Japanese: kana and kanji, particles は/が/を/に, です・ます politeness, verb-final order, counters and keigo"
+              },
+              {
+                "type": "dialogue_completion",
+                "q": "Practice 10: [dialogue completion] やさしい にほんごで つたえる — Complete the exchange with the studied response to: Is this notice difficult?",
+                "answer": "はい。やさしい にほんごで おつたえします。",
+                "skill_target": "Japanese: kana and kanji, particles は/が/を/に, です・ます politeness, verb-final order, counters and keigo"
+              },
+              {
+                "type": "reading_comprehension",
+                "q": "Practice 11: [reading comprehension] やさしい にほんごで つたえる — Read “どう しますか。” (Dou shimasu ka.). What does it mean?",
+                "answer": "How will you do it?",
+                "skill_target": "Japanese: kana and kanji, particles は/が/を/に, です・ます politeness, verb-final order, counters and keigo"
+              },
+              {
+                "type": "paragraph_comprehension",
+                "q": "Practice 12: [paragraph comprehension] やさしい にほんごで つたえる — Read the lesson dialogue as a whole and give its key move: I will shorten the clauses and add 'in other words'.",
+                "answer": "ぶんせつを みじかく して、いいかえると を つけます。",
+                "skill_target": "Japanese: kana and kanji, particles は/が/を/に, です・ます politeness, verb-final order, counters and keigo"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "Which meaning best fits おつたえします?",
+                "options": [
+                  "I convey (humble)",
+                  "reading gloss",
+                  "clause, phrase",
+                  "shortly, briefly"
+                ],
+                "answer": 0,
+                "why": "おつたえします (otsutae shimasu) means I convey (humble) in this lesson."
+              },
+              {
+                "q": "Which meaning best fits ふりがな?",
+                "options": [
+                  "reading gloss",
+                  "I convey (humble)",
+                  "clause, phrase",
+                  "shortly, briefly"
+                ],
+                "answer": 0,
+                "why": "ふりがな (furigana) means reading gloss in this lesson."
+              },
+              {
+                "q": "Which meaning best fits ぶんせつ?",
+                "options": [
+                  "clause, phrase",
+                  "I convey (humble)",
+                  "reading gloss",
+                  "shortly, briefly"
+                ],
+                "answer": 0,
+                "why": "ぶんせつ (bunsetsu) means clause, phrase in this lesson."
+              },
+              {
+                "q": "Which meaning best fits みじかく?",
+                "options": [
+                  "shortly, briefly",
+                  "I convey (humble)",
+                  "reading gloss",
+                  "clause, phrase"
+                ],
+                "answer": 0,
+                "why": "みじかく (mijikaku) means shortly, briefly in this lesson."
+              },
+              {
+                "q": "Which meaning best fits いいかえます?",
+                "options": [
+                  "to rephrase",
+                  "I convey (humble)",
+                  "reading gloss",
+                  "clause, phrase"
+                ],
+                "answer": 0,
+                "why": "いいかえます (iikaemasu) means to rephrase in this lesson."
+              }
+            ],
+            "flashcards": "auto:vocab",
+            "worksheet": {
+              "title": "Plain language worksheet",
+              "tasks": [
+                {
+                  "instruction": "Announce the rendering.",
+                  "items": [
+                    "I will convey it in plain Japanese",
+                    "I will shorten the clauses"
+                  ],
+                  "key": [
+                    "やさしい にほんごで おつたえします",
+                    "ぶんせつを みじかく します"
+                  ]
+                },
+                {
+                  "instruction": "Mark the rephrase.",
+                  "items": [
+                    "in other words, it is until tomorrow",
+                    "is this notice difficult?"
+                  ],
+                  "key": [
+                    "いいかえると、あしたまで です",
+                    "この おしらせ、むずかしいですか"
+                  ]
+                },
+                {
+                  "instruction": "Integrated offline practice: read the first model, transform or extend it in Japanese script, then rehearse it as a dialogue. Self-check meaning, grammar, and register.",
+                  "items": [
+                    "やさしい にほんごで おつたえします。",
+                    "この おしらせ、むずかしいですか。"
+                  ],
+                  "key": [
+                    "I will convey it in plain Japanese.",
+                    "Is this notice difficult?"
+                  ]
+                }
+              ]
+            },
+            "srs_candidates": [
+              "おつたえします",
+              "ふりがな",
+              "ぶんせつ",
+              "みじかく"
+            ],
+            "srs_policy": "Only these four high-value terms are preselected; lesson mistakes and productive patterns may enter personalized review after an actual error."
+          },
+          {
+            "id": "C1+-U3-L2",
+            "title": "ことばを のこして ちゅうしゃくする",
+            "learn": "When a word will not travel, it stays and takes a gloss: そのまま のこします、かっこに ちゅうしゃくを つけます. The gloss is written for a reader who will meet the word again.",
+            "vocab": [
+              {
+                "t": "ちゅうしゃく",
+                "r": "chuushaku",
+                "en": "gloss, annotation",
+                "pos": "noun"
+              },
+              {
+                "t": "そのまま",
+                "r": "sonomama",
+                "en": "as it is",
+                "pos": "adverb"
+              },
+              {
+                "t": "のこします",
+                "r": "nokoshimasu",
+                "en": "to leave (as is)",
+                "pos": "verb"
+              },
+              {
+                "t": "やくご",
+                "r": "yakugo",
+                "en": "translated term",
+                "pos": "noun"
+              },
+              {
+                "t": "せつめい",
+                "r": "setsumei",
+                "en": "explanation",
+                "pos": "noun"
+              }
+            ],
+            "grammar": {
+              "title": "Keeping a word",
+              "pattern": "そのまま のこします · かっこに ちゅうしゃくを つけます · やくごは つくりません",
+              "explain": "The word is kept in the original, the gloss goes in brackets, and no translated term is coined — coining is how a concept arrives in another language already distorted. The gloss explains, it does not replace.",
+              "examples": [
+                {
+                  "t": "この ことばは そのまま のこします。",
+                  "r": "Kono kotoba wa sonomama nokoshimasu.",
+                  "en": "I will leave this word as it is."
+                },
+                {
+                  "t": "かっこに ちゅうしゃくを つけます。",
+                  "r": "Kakko ni chuushaku o tsukemasu.",
+                  "en": "I will attach a gloss in brackets."
+                },
+                {
+                  "t": "やくごは つくりません。",
+                  "r": "Yakugo wa tsukurimasen.",
+                  "en": "I will not coin a translated term."
+                }
+              ],
+              "mistakes": [
+                {
+                  "wrong": "やくご を つくって、ことば を けします。",
+                  "right": "そのまま のこして、ちゅうしゃくを つけます。",
+                  "why": "Keep the word and gloss it; do not replace it."
+                },
+                {
+                  "wrong": "ちゅうしゃく は ことば を かえます。",
+                  "right": "ちゅうしゃくは ことばを せつめい します。",
+                  "why": "A gloss explains; it does not substitute."
+                }
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "査読者",
+                "t": "その ことば、どう しますか。",
+                "r": "Sono kotoba, dou shimasu ka.",
+                "en": "What will you do with that word?"
+              },
+              {
+                "sp": "調停者",
+                "t": "そのまま のこして、かっこに ちゅうしゃくを つけます。",
+                "r": "Sonomama nokoshite, kakko ni chuushaku o tsukemasu.",
+                "en": "Leave it as it is and attach a gloss in brackets."
+              },
+              {
+                "sp": "査読者",
+                "t": "やくごは。",
+                "r": "Yakugo wa.",
+                "en": "And a translated term?"
+              },
+              {
+                "sp": "調停者",
+                "t": "つくりません。せつめい だけ です。",
+                "r": "Tsukurimasen. Setsumei dake desu.",
+                "en": "I will not coin one. Explanation only."
+              }
+            ],
+            "practice": [
+              {
+                "type": "multiple_choice",
+                "q": "Practice 1: [multiple choice] ことばを のこして ちゅうしゃくする — Choose the meaning of ちゅうしゃく (chuushaku) in this lesson.",
+                "answer": "gloss, annotation",
+                "skill_target": "Japanese: kana and kanji, particles は/が/を/に, です・ます politeness, verb-final order, counters and keigo",
+                "options": [
+                  "gloss, annotation",
+                  "as it is",
+                  "to leave (as is)",
+                  "translated term"
+                ]
+              },
+              {
+                "type": "fill_in_the_blank",
+                "q": "Practice 2: [fill in the blank] ことばを のこして ちゅうしゃくする — Type the Japanese expression meaning “as it is”.",
+                "answer": "そのまま",
+                "skill_target": "Japanese: kana and kanji, particles は/が/を/に, です・ます politeness, verb-final order, counters and keigo"
+              },
+              {
+                "type": "translation",
+                "q": "Practice 3: [translation] ことばを のこして ちゅうしゃくする — Interpret the Japanese script in context: この ことばは そのまま のこします。 (Kono kotoba wa sonomama nokoshimasu.).",
+                "answer": "I will leave this word as it is.",
+                "skill_target": "Japanese: kana and kanji, particles は/が/を/に, です・ます politeness, verb-final order, counters and keigo"
+              },
+              {
+                "type": "reverse_translation",
+                "q": "Practice 4: [reverse translation] ことばを のこして ちゅうしゃくする — Write in Japanese script: I will attach a gloss in brackets..",
+                "answer": "かっこに ちゅうしゃくを つけます。",
+                "skill_target": "Japanese: kana and kanji, particles は/が/を/に, です・ます politeness, verb-final order, counters and keigo"
+              },
+              {
+                "type": "matching",
+                "q": "Practice 5: [matching] ことばを のこして ちゅうしゃくする — Match のこします to its lesson meaning.",
+                "answer": "to leave (as is)",
+                "skill_target": "Japanese: kana and kanji, particles は/が/を/に, です・ます politeness, verb-final order, counters and keigo",
+                "options": [
+                  "to leave (as is)",
+                  "gloss, annotation",
+                  "as it is"
+                ]
+              },
+              {
+                "type": "reorder",
+                "q": "Practice 6: [reorder] ことばを のこして ちゅうしゃくする — Reconstruct the lesson model in coherent Japanese: I will not coin a translated term..",
+                "answer": "やくごは つくりません。",
+                "skill_target": "Japanese: kana and kanji, particles は/が/を/に, です・ます politeness, verb-final order, counters and keigo"
+              },
+              {
+                "type": "sentence_building",
+                "q": "Practice 7: [sentence building] ことばを のこして ちゅうしゃくする — Build the sentence with the lesson pattern (そのまま のこします · かっこに ちゅうしゃくを つけます · やくごは つくりません): I will leave this word as it is..",
+                "answer": "この ことばは そのまま のこします。",
+                "skill_target": "Japanese: kana and kanji, particles は/が/を/に, です・ます politeness, verb-final order, counters and keigo"
+              },
+              {
+                "type": "word_selection",
+                "q": "Practice 8: [word selection] ことばを のこして ちゅうしゃくする — Select the Japanese form for “translated term”.",
+                "answer": "やくご",
+                "skill_target": "Japanese: kana and kanji, particles は/が/を/に, です・ます politeness, verb-final order, counters and keigo",
+                "options": [
+                  "やくご",
+                  "せつめい"
+                ]
+              },
+              {
+                "type": "error_correction",
+                "q": "Practice 9: [error correction] ことばを のこして ちゅうしゃくする — Correct the model the lesson warns about: やくご を つくって、ことば を けします。",
+                "answer": "そのまま のこして、ちゅうしゃくを つけます。",
+                "skill_target": "Japanese: kana and kanji, particles は/が/を/に, です・ます politeness, verb-final order, counters and keigo"
+              },
+              {
+                "type": "dialogue_completion",
+                "q": "Practice 10: [dialogue completion] ことばを のこして ちゅうしゃくする — Complete the exchange with the studied response to: What will you do with that word?",
+                "answer": "そのまま のこして、かっこに ちゅうしゃくを つけます。",
+                "skill_target": "Japanese: kana and kanji, particles は/が/を/に, です・ます politeness, verb-final order, counters and keigo"
+              },
+              {
+                "type": "reading_comprehension",
+                "q": "Practice 11: [reading comprehension] ことばを のこして ちゅうしゃくする — Read “やくごは。” (Yakugo wa.). What does it mean?",
+                "answer": "And a translated term?",
+                "skill_target": "Japanese: kana and kanji, particles は/が/を/に, です・ます politeness, verb-final order, counters and keigo"
+              },
+              {
+                "type": "paragraph_comprehension",
+                "q": "Practice 12: [paragraph comprehension] ことばを のこして ちゅうしゃくする — Read the lesson dialogue as a whole and give its key move: I will not coin one. Explanation only.",
+                "answer": "つくりません。せつめい だけ です。",
+                "skill_target": "Japanese: kana and kanji, particles は/が/を/に, です・ます politeness, verb-final order, counters and keigo"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "Which meaning best fits ちゅうしゃく?",
+                "options": [
+                  "gloss, annotation",
+                  "as it is",
+                  "to leave (as is)",
+                  "translated term"
+                ],
+                "answer": 0,
+                "why": "ちゅうしゃく (chuushaku) means gloss, annotation in this lesson."
+              },
+              {
+                "q": "Which meaning best fits そのまま?",
+                "options": [
+                  "as it is",
+                  "gloss, annotation",
+                  "to leave (as is)",
+                  "translated term"
+                ],
+                "answer": 0,
+                "why": "そのまま (sonomama) means as it is in this lesson."
+              },
+              {
+                "q": "Which meaning best fits のこします?",
+                "options": [
+                  "to leave (as is)",
+                  "gloss, annotation",
+                  "as it is",
+                  "translated term"
+                ],
+                "answer": 0,
+                "why": "のこします (nokoshimasu) means to leave (as is) in this lesson."
+              },
+              {
+                "q": "Which meaning best fits やくご?",
+                "options": [
+                  "translated term",
+                  "gloss, annotation",
+                  "as it is",
+                  "to leave (as is)"
+                ],
+                "answer": 0,
+                "why": "やくご (yakugo) means translated term in this lesson."
+              },
+              {
+                "q": "Which meaning best fits せつめい?",
+                "options": [
+                  "explanation",
+                  "gloss, annotation",
+                  "as it is",
+                  "to leave (as is)"
+                ],
+                "answer": 0,
+                "why": "せつめい (setsumei) means explanation in this lesson."
+              }
+            ],
+            "flashcards": "auto:vocab",
+            "worksheet": {
+              "title": "Gloss worksheet",
+              "tasks": [
+                {
+                  "instruction": "Keep the word.",
+                  "items": [
+                    "I will leave this word as it is",
+                    "I will attach a gloss in brackets"
+                  ],
+                  "key": [
+                    "この ことばは そのまま のこします",
+                    "かっこに ちゅうしゃくを つけます"
+                  ]
+                },
+                {
+                  "instruction": "Refuse the coinage.",
+                  "items": [
+                    "I will not coin a translated term",
+                    "and a translated term?"
+                  ],
+                  "key": [
+                    "やくごは つくりません",
+                    "やくごは"
+                  ]
+                },
+                {
+                  "instruction": "Integrated offline practice: read the first model, transform or extend it in Japanese script, then rehearse it as a dialogue. Self-check meaning, grammar, and register.",
+                  "items": [
+                    "この ことばは そのまま のこします。",
+                    "その ことば、どう しますか。"
+                  ],
+                  "key": [
+                    "I will leave this word as it is.",
+                    "What will you do with that word?"
+                  ]
+                }
+              ]
+            },
+            "srs_candidates": [
+              "ちゅうしゃく",
+              "そのまま",
+              "のこします",
+              "やくご"
+            ],
+            "srs_policy": "Only these four high-value terms are preselected; lesson mistakes and productive patterns may enter personalized review after an actual error."
+          },
+          {
+            "id": "C1+-U3-L3",
+            "title": "やくしゃの ちゅうい",
+            "learn": "The translator's note records what the rendering lost: やくしゃの ちゅうい として、〜が おちて います. おちます (to drop out) names the loss without complaining about it.",
+            "vocab": [
+              {
+                "t": "やくしゃ",
+                "r": "yakusha",
+                "en": "translator",
+                "pos": "noun"
+              },
+              {
+                "t": "ちゅうい",
+                "r": "chuui",
+                "en": "note, caution",
+                "pos": "noun"
+              },
+              {
+                "t": "おちます",
+                "r": "ochimasu",
+                "en": "to drop out, to be lost",
+                "pos": "verb"
+              },
+              {
+                "t": "おぎなう",
+                "r": "oginau",
+                "en": "to supplement, to make up for",
+                "pos": "verb"
+              },
+              {
+                "t": "ものたりなさ",
+                "r": "monotarinasa",
+                "en": "the sense of falling short",
+                "pos": "noun"
+              }
+            ],
+            "grammar": {
+              "title": "Translator's note",
+              "pattern": "やくしゃの ちゅうい として、〜が おちて います · それは おぎなえません · ものたりなさ を かきます",
+              "explain": "The note names the loss (〜が おちて います), states honestly that it cannot be made up (おぎなえません), and records the shortfall in ものたりなさ. Naming what a rendering loses is what keeps the original available to the reader.",
+              "examples": [
+                {
+                  "t": "やくしゃの ちゅうい として、ていねいさが おちて います。",
+                  "r": "Yakusha no chuui to shite, teineisa ga ochite imasu.",
+                  "en": "As a translator's note, the politeness is lost."
+                },
+                {
+                  "t": "それは おぎなえません。",
+                  "r": "Sore wa oginaemasen.",
+                  "en": "That cannot be made up for."
+                },
+                {
+                  "t": "ものたりなさを かきます。",
+                  "r": "Monotarinasa o kakimasu.",
+                  "en": "I will write the shortfall."
+                }
+              ],
+              "mistakes": [
+                {
+                  "wrong": "やくしゃ の ちゅうい は いいわけ です。",
+                  "right": "やくしゃの ちゅうい として、〜が おちて います。",
+                  "why": "A note names the loss; it is not an excuse."
+                },
+                {
+                  "wrong": "おちて います です。",
+                  "right": "おちて います。",
+                  "why": "います ends the sentence; です does not follow."
+                }
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "調停者",
+                "t": "ちゅういを つけますか。",
+                "r": "Chuui o tsukemasu ka.",
+                "en": "Will you add a note?"
+              },
+              {
+                "sp": "査読者",
+                "t": "はい。やくしゃの ちゅうい として、ていねいさが おちて います。",
+                "r": "Hai. Yakusha no chuui to shite, teineisa ga ochite imasu.",
+                "en": "Yes. As a translator's note, the politeness is lost."
+              },
+              {
+                "sp": "調停者",
+                "t": "おぎなえますか。",
+                "r": "Oginaemasu ka.",
+                "en": "Can it be made up for?"
+              },
+              {
+                "sp": "査読者",
+                "t": "いいえ、おぎなえません。ものたりなさを かきます。",
+                "r": "Iie, oginaemasen. Monotarinasa o kakimasu.",
+                "en": "No, it cannot. I will write the shortfall."
+              }
+            ],
+            "practice": [
+              {
+                "type": "multiple_choice",
+                "q": "Practice 1: [multiple choice] やくしゃの ちゅうい — Choose the meaning of やくしゃ (yakusha) in this lesson.",
+                "answer": "translator",
+                "skill_target": "Japanese: kana and kanji, particles は/が/を/に, です・ます politeness, verb-final order, counters and keigo",
+                "options": [
+                  "translator",
+                  "note, caution",
+                  "to drop out, to be lost",
+                  "to supplement, to make up for"
+                ]
+              },
+              {
+                "type": "fill_in_the_blank",
+                "q": "Practice 2: [fill in the blank] やくしゃの ちゅうい — Type the Japanese expression meaning “note, caution”.",
+                "answer": "ちゅうい",
+                "skill_target": "Japanese: kana and kanji, particles は/が/を/に, です・ます politeness, verb-final order, counters and keigo"
+              },
+              {
+                "type": "translation",
+                "q": "Practice 3: [translation] やくしゃの ちゅうい — Interpret the Japanese script in context: やくしゃの ちゅうい として、ていねいさが おちて います。 (Yakusha no chuui to shite, teineisa ga ochite imasu.).",
+                "answer": "As a translator's note, the politeness is lost.",
+                "skill_target": "Japanese: kana and kanji, particles は/が/を/に, です・ます politeness, verb-final order, counters and keigo"
+              },
+              {
+                "type": "reverse_translation",
+                "q": "Practice 4: [reverse translation] やくしゃの ちゅうい — Write in Japanese script: That cannot be made up for..",
+                "answer": "それは おぎなえません。",
+                "skill_target": "Japanese: kana and kanji, particles は/が/を/に, です・ます politeness, verb-final order, counters and keigo"
+              },
+              {
+                "type": "matching",
+                "q": "Practice 5: [matching] やくしゃの ちゅうい — Match おちます to its lesson meaning.",
+                "answer": "to drop out, to be lost",
+                "skill_target": "Japanese: kana and kanji, particles は/が/を/に, です・ます politeness, verb-final order, counters and keigo",
+                "options": [
+                  "to drop out, to be lost",
+                  "translator",
+                  "note, caution"
+                ]
+              },
+              {
+                "type": "reorder",
+                "q": "Practice 6: [reorder] やくしゃの ちゅうい — Reconstruct the lesson model in coherent Japanese: I will write the shortfall..",
+                "answer": "ものたりなさを かきます。",
+                "skill_target": "Japanese: kana and kanji, particles は/が/を/に, です・ます politeness, verb-final order, counters and keigo"
+              },
+              {
+                "type": "sentence_building",
+                "q": "Practice 7: [sentence building] やくしゃの ちゅうい — Build the sentence with the lesson pattern (やくしゃの ちゅうい として、〜が おちて います · それは おぎなえません · ものたりなさ を かきます): As a translator's note, the politeness is lost..",
+                "answer": "やくしゃの ちゅうい として、ていねいさが おちて います。",
+                "skill_target": "Japanese: kana and kanji, particles は/が/を/に, です・ます politeness, verb-final order, counters and keigo"
+              },
+              {
+                "type": "word_selection",
+                "q": "Practice 8: [word selection] やくしゃの ちゅうい — Select the Japanese form for “to supplement, to make up for”.",
+                "answer": "おぎなう",
+                "skill_target": "Japanese: kana and kanji, particles は/が/を/に, です・ます politeness, verb-final order, counters and keigo",
+                "options": [
+                  "おぎなう",
+                  "ものたりなさ"
+                ]
+              },
+              {
+                "type": "error_correction",
+                "q": "Practice 9: [error correction] やくしゃの ちゅうい — Correct the model the lesson warns about: やくしゃ の ちゅうい は いいわけ です。",
+                "answer": "やくしゃの ちゅうい として、〜が おちて います。",
+                "skill_target": "Japanese: kana and kanji, particles は/が/を/に, です・ます politeness, verb-final order, counters and keigo"
+              },
+              {
+                "type": "dialogue_completion",
+                "q": "Practice 10: [dialogue completion] やくしゃの ちゅうい — Complete the exchange with the studied response to: Will you add a note?",
+                "answer": "はい。やくしゃの ちゅうい として、ていねいさが おちて います。",
+                "skill_target": "Japanese: kana and kanji, particles は/が/を/に, です・ます politeness, verb-final order, counters and keigo"
+              },
+              {
+                "type": "reading_comprehension",
+                "q": "Practice 11: [reading comprehension] やくしゃの ちゅうい — Read “おぎなえますか。” (Oginaemasu ka.). What does it mean?",
+                "answer": "Can it be made up for?",
+                "skill_target": "Japanese: kana and kanji, particles は/が/を/に, です・ます politeness, verb-final order, counters and keigo"
+              },
+              {
+                "type": "paragraph_comprehension",
+                "q": "Practice 12: [paragraph comprehension] やくしゃの ちゅうい — Read the lesson dialogue as a whole and give its key move: No, it cannot. I will write the shortfall.",
+                "answer": "いいえ、おぎなえません。ものたりなさを かきます。",
+                "skill_target": "Japanese: kana and kanji, particles は/が/を/に, です・ます politeness, verb-final order, counters and keigo"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "Which meaning best fits やくしゃ?",
+                "options": [
+                  "translator",
+                  "note, caution",
+                  "to drop out, to be lost",
+                  "to supplement, to make up for"
+                ],
+                "answer": 0,
+                "why": "やくしゃ (yakusha) means translator in this lesson."
+              },
+              {
+                "q": "Which meaning best fits ちゅうい?",
+                "options": [
+                  "note, caution",
+                  "translator",
+                  "to drop out, to be lost",
+                  "to supplement, to make up for"
+                ],
+                "answer": 0,
+                "why": "ちゅうい (chuui) means note, caution in this lesson."
+              },
+              {
+                "q": "Which meaning best fits おちます?",
+                "options": [
+                  "to drop out, to be lost",
+                  "translator",
+                  "note, caution",
+                  "to supplement, to make up for"
+                ],
+                "answer": 0,
+                "why": "おちます (ochimasu) means to drop out, to be lost in this lesson."
+              },
+              {
+                "q": "Which meaning best fits おぎなう?",
+                "options": [
+                  "to supplement, to make up for",
+                  "translator",
+                  "note, caution",
+                  "to drop out, to be lost"
+                ],
+                "answer": 0,
+                "why": "おぎなう (oginau) means to supplement, to make up for in this lesson."
+              },
+              {
+                "q": "Which meaning best fits ものたりなさ?",
+                "options": [
+                  "the sense of falling short",
+                  "translator",
+                  "note, caution",
+                  "to drop out, to be lost"
+                ],
+                "answer": 0,
+                "why": "ものたりなさ (monotarinasa) means the sense of falling short in this lesson."
+              }
+            ],
+            "flashcards": "auto:vocab",
+            "worksheet": {
+              "title": "Translator's note worksheet",
+              "tasks": [
+                {
+                  "instruction": "Name the loss.",
+                  "items": [
+                    "as a translator's note, the politeness is lost",
+                    "that cannot be made up for"
+                  ],
+                  "key": [
+                    "やくしゃの ちゅうい として、ていねいさが おちて います",
+                    "それは おぎなえません"
+                  ]
+                },
+                {
+                  "instruction": "Record the shortfall.",
+                  "items": [
+                    "I will write the shortfall",
+                    "will you add a note?"
+                  ],
+                  "key": [
+                    "ものたりなさを かきます",
+                    "ちゅういを つけますか"
+                  ]
+                },
+                {
+                  "instruction": "Integrated offline practice: read the first model, transform or extend it in Japanese script, then rehearse it as a dialogue. Self-check meaning, grammar, and register.",
+                  "items": [
+                    "やくしゃの ちゅうい として、ていねいさが おちて います。",
+                    "ちゅういを つけますか。"
+                  ],
+                  "key": [
+                    "As a translator's note, the politeness is lost.",
+                    "Will you add a note?"
+                  ]
+                }
+              ]
+            },
+            "srs_candidates": [
+              "やくしゃ",
+              "ちゅうい",
+              "おちます",
+              "おぎなう"
+            ],
+            "srs_policy": "Only these four high-value terms are preselected; lesson mistakes and productive patterns may enter personalized review after an actual error."
+          }
+        ]
+      }
+    ],
+    "test": {
+      "title": "Japanese C1+ Checkpoint Test",
+      "items": [
+        {
+          "type": "translate_en",
+          "q": "Say: That is no more than an inference.",
+          "answer": "それは すいろん に すぎません。"
+        },
+        {
+          "type": "translate_ja",
+          "q": "この データに かぎり、けいこうは つづいて います。",
+          "answer": "As far as this data goes, the trend continues."
+        },
+        {
+          "type": "multiple_choice",
+          "q": "Which sentence uses humble keigo for the speaker's own action?",
+          "answer": "あした うちに うかがいます。"
+        },
+        {
+          "type": "fill_in_the_blank",
+          "q": "にじゅうだい___ のぞいて、はんぶん です。",
+          "answer": "を"
+        },
+        {
+          "type": "word_selection",
+          "q": "Select the Japanese for 'as it is, without changing it'.",
+          "answer": "そのまま"
+        },
+        {
+          "type": "error_correction",
+          "q": "わたし が いらっしゃいます。",
+          "answer": "わたしが うかがいます。"
+        },
+        {
+          "type": "dialogue_completion",
+          "q": "Complete: その ことば、どう しますか。 — ___ (leave it as it is and attach a gloss)",
+          "answer": "そのまま のこして、かっこに ちゅうしゃくを つけます"
+        },
+        {
+          "type": "matching",
+          "q": "Match やくしゃの ちゅうい to its meaning.",
+          "answer": "a translator's note"
+        },
+        {
+          "type": "reading_comprehension",
+          "q": "あしたの ごご までに もうしこんで ください。 By when is the application due?",
+          "answer": "by tomorrow afternoon"
+        },
+        {
+          "type": "inference",
+          "q": "「おぎなえませんから、ものたりなさを かきます。」 — what is the writer doing?",
+          "answer": "recording what the rendering lost"
+        },
+        {
+          "type": "main_idea",
+          "q": "やさしい にほんごで おつたえします。ぶんせつを みじかく します。 What is this?",
+          "answer": "a plain-language mediation"
+        },
+        {
+          "type": "detail_identification",
+          "q": "おそらく みこみは たつ でしょう。 How certain is the speaker?",
+          "answer": "probable, not certain"
+        }
+      ]
+    },
+    "extra": {
+      "culture": {
+        "text": "Mediation in Japanese runs through やさしい日本語, a public-service register with its own rules — one instruction per line, furigana, no double negatives — and through やくしゃの ちゅうい, the translator's note that records what a rendering loses. Both exist because Japanese carries politeness inside the sentence: a notice translated into plain language loses the keigo that made it polite, and the honest move is to write that loss down rather than pretend the two texts are the same.",
+        "source_url": "https://en.wikipedia.org/wiki/Plain_language"
+      },
+      "reading": {
+        "text": "この おしらせは やさしい にほんごで おつたえします。いいかえると、あした の ごご までに もうしこんで ください、という いみです。ただし、やくしゃの ちゅうい として、ていねいさが おちて います。おぎなえませんから、ものたりなさ を かきます。この ことばは そのまま のこします。",
+        "gloss": "I will convey this notice in plain Japanese. In other words, it means: please apply by tomorrow afternoon. However, as a translator's note, the politeness is lost. Since it cannot be made up for, I will write the shortfall. This word I leave as it is.",
+        "original": true
+      },
+      "listening": {
+        "script": "調停者: やさしい にほんごで おつたえしますか。<br>分析者: はい。ぶんせつを みじかく して、ふりがなを つけます。<br>調停者: ことばは。<br>分析者: そのまま のこして、かっこに ちゅうしゃくを つけます。",
+        "gloss": "Mediator: Will you convey it in plain Japanese? Analyst: Yes. I will shorten the clauses and add furigana. Mediator: And the words? Analyst: I will leave them as they are and attach a gloss in brackets.",
+        "voice_tag": "ja-JP"
+      },
+      "idioms": [
+        {
+          "t": "おそらく",
+          "literal": "osoraku",
+          "meaning": "probably"
+        },
+        {
+          "t": "ありえます",
+          "literal": "ariemasu",
+          "meaning": "is possible"
+        },
+        {
+          "t": "こんきょ",
+          "literal": "konkyo",
+          "meaning": "evidence"
+        },
+        {
+          "t": "すいろん に すぎません",
+          "literal": "suiron ni sugimasen",
+          "meaning": "no more than an inference"
+        },
+        {
+          "t": "に かぎり",
+          "literal": "ni kagiri",
+          "meaning": "as far as … is concerned"
+        },
+        {
+          "t": "を のぞいて",
+          "literal": "o nozoite",
+          "meaning": "excluding"
+        },
+        {
+          "t": "うかがいます",
+          "literal": "ukagaimasu",
+          "meaning": "I will visit (humble)"
+        },
+        {
+          "t": "そのまま のこす",
+          "literal": "sonomama nokosu",
+          "meaning": "to leave as it is"
+        },
+        {
+          "t": "やくしゃの ちゅうい",
+          "literal": "yakusha no chuui",
+          "meaning": "translator's note"
+        },
+        {
+          "t": "おぎなえません",
+          "literal": "oginaemasen",
+          "meaning": "cannot be made up for"
+        }
+      ],
+      "mistakes": [
+        {
+          "wrong": "わたし が いらっしゃいます。",
+          "right": "わたしが うかがいます。",
+          "why": "My own action takes the humble form."
+        },
+        {
+          "wrong": "すいろん は こんきょ です。",
+          "right": "すいろんと こんきょ は べつです。",
+          "why": "Evidence and inference are stated separately."
+        },
+        {
+          "wrong": "この データ は かぎり、けいこう。",
+          "right": "この データに かぎり、けいこうは つづいて います。",
+          "why": "The fence takes に かぎり and a full clause."
+        }
+      ],
+      "task": {
+        "title": "Mediate one Japanese source for two different readers",
+        "instructions": "Take any Japanese text of a few hundred characters — a notice, a report, a news item. Produce three outputs: (1) a plain-Japanese rendering announced with やさしい にほんごで おつたえします, shortened to one clause per line with furigana on the harder kanji; (2) the same content in である for a report; (3) a spoken version to a colleague with ようするに and one next step. Keep one key term from the original in each version, and finish with a やくしゃの ちゅうい that records what each rendering dropped. If any version sounds more certain than the source, lower it."
+      }
+    }
+  }
+}

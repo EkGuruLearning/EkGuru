@@ -28,6 +28,14 @@ def main():
             ok = save_json(f'data/audio-manifest/{code}.json', {'schema_version': 1, 'lang': row['speech_tag'], 'entries': [], 'note': NOTE}, check) and ok
         elif manifest.get('entries'):
             mapping[code]['rec'] = 1
+            if manifest.get('lang') != row['speech_tag']:
+                print(f'  {code}: manifest has entries with a different lang ({manifest.get("lang")!r}) — not rewritten')
+        elif manifest.get('lang') != row['speech_tag']:
+            # An empty manifest is ours to correct: a stale tag here is the bug that
+            # produced ja-JA / ko-KO / uk-UK / vi-VI on every page that inlines the table.
+            manifest['lang'] = row['speech_tag']
+            ok = save_json(f'data/audio-manifest/{code}.json', manifest, check) and ok
+            print(f'  {code}: audio manifest lang corrected to {row["speech_tag"]}')
     # Legacy two-letter hub codes are aliases of the canonical course codes, not second languages.
     for canonical, info in load('data/global/language-code-map.json').get('canonical_course_codes', {}).items():
         for alias in info.get('aliases', []):

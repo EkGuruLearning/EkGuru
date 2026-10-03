@@ -102,25 +102,25 @@
             },
             "dialogue": [
               {
-                "sp": "Analyst",
+                "sp": "Analyste",
                 "t": "Les données laissent penser que la mesure a eu un effet limité.",
                 "r": "le do-ne les pɑ̃-se kə la mə-zyr a y œ̃ e-fe li-mi-te",
                 "en": "The data suggest that the measure had a limited effect."
               },
               {
-                "sp": "Editor",
+                "sp": "Rédacteur",
                 "t": "Il ne semble pas que cette conclusion soit suffisamment étayée.",
                 "r": "il nə sombl pa kə set kon-kly-zjɔ̃ swa sy-fi-za-mɑ̃ e-te-ye",
                 "en": "This conclusion does not appear sufficiently substantiated."
               },
               {
-                "sp": "Colleague",
+                "sp": "Collègue",
                 "t": "Encore faut-il distinguer un indice d’une preuve.",
                 "r": "on-kor fo-til dis-tɛ̃-ge œ̃ ɛ̃-dis dyn prœv",
                 "en": "It remains necessary to distinguish an indication from proof."
               },
               {
-                "sp": "Chair",
+                "sp": "Président",
                 "t": "Les données laissent penser que la mesure a eu un effet limité.",
                 "r": "le do-ne les pɑ̃-se kə la mə-zyr a y œ̃ e-fe li-mi-te",
                 "en": "The data suggest that the measure had a limited effect."
@@ -400,25 +400,25 @@
             },
             "dialogue": [
               {
-                "sp": "Analyst",
+                "sp": "Analyste",
                 "t": "La chercheuse a précisé que les résultats demeuraient provisoires.",
                 "r": "la ʃer-ʃøz a pre-si-ze kə le re-zyl-ta də-mø-re pro-vi-zwar",
                 "en": "The researcher clarified that the results remained provisional."
               },
               {
-                "sp": "Editor",
+                "sp": "Rédacteur",
                 "t": "Selon le rapport, l’équipe aurait sous-estimé le risque.",
                 "r": "sə-lɔ̃ lə ra-por le-kip o-re su-ze-sti-me lə risk",
                 "en": "According to the report, the team may have underestimated the risk."
               },
               {
-                "sp": "Colleague",
+                "sp": "Collègue",
                 "t": "L’article attribue clairement chaque hypothèse à sa source.",
                 "r": "lar-tikl a-tri-by klɛr-mɑ̃ ʃak i-po-tɛz a sa surs",
                 "en": "The article clearly attributes each hypothesis to its source."
               },
               {
-                "sp": "Chair",
+                "sp": "Président",
                 "t": "La chercheuse a précisé que les résultats demeuraient provisoires.",
                 "r": "la ʃer-ʃøz a pre-si-ze kə le re-zyl-ta də-mø-re pro-vi-zwar",
                 "en": "The researcher clarified that the results remained provisional."
@@ -614,6 +614,295 @@
                 }
               ]
             }
+          },
+          {
+            "id": "fr-c1-l7",
+            "title": "Attribution sans caution : selon, d'après, il semblerait que",
+            "learn": "French distances a claim with frames: SELON X, D'APRÈS X, À EN CROIRE X, IL SEMBLERAIT QUE. The frame names who owns the claim and keeps the speaker out of it.",
+            "vocab": [
+              {
+                "t": "selon",
+                "r": "suh-LOH(N)",
+                "en": "according to",
+                "pos": "preposition"
+              },
+              {
+                "t": "d'après",
+                "r": "dah-PREH",
+                "en": "according to",
+                "pos": "preposition"
+              },
+              {
+                "t": "il semblerait que",
+                "r": "eel sah(n)-bluh-RAY kuh",
+                "en": "it would seem that",
+                "pos": "phrase"
+              },
+              {
+                "t": "à en croire",
+                "r": "ah ah(n) KRWAHR",
+                "en": "if we believe",
+                "pos": "phrase"
+              },
+              {
+                "t": "la source",
+                "r": "lah SOORS",
+                "en": "source",
+                "pos": "noun"
+              }
+            ],
+            "grammar": {
+              "title": "Attribution frames",
+              "pattern": "selon + source · d'après + source · il semblerait que + subjonctif · à en croire + source",
+              "explain": "Selon deux sources concordantes, le dossier serait bloqué. D'après l'AFP, la décision serait reportée. Il semblerait que le ministre ait changé d'avis. The conditional (serait) and the subjunctive (ait) keep the claim at arm's length.",
+              "examples": [
+                {
+                  "t": "Selon deux sources, le dossier serait bloqué.",
+                  "r": "suh-LOH(N) duh SOORS, luh doh-SYAY suh-RAY bloh-KAY.",
+                  "en": "According to two sources, the file is reportedly blocked."
+                },
+                {
+                  "t": "D'après l'AFP, la décision serait reportée.",
+                  "r": "dah-PREH lah-ef-PAY, lah day-see-ZYOH(N) suh-RAY ruh-por-TAY.",
+                  "en": "According to AFP, the decision is reportedly postponed."
+                },
+                {
+                  "t": "Il semblerait que le ministre ait changé d'avis.",
+                  "r": "eel sah(n)-bluh-RAY kuh luh mee-NEESTR ay shah(n)-ZHAY dah-VEE.",
+                  "en": "It would seem the minister has changed his mind."
+                }
+              ],
+              "mistakes": [
+                {
+                  "wrong": "Selon le journal dit que le dossier est bloqué.",
+                  "right": "Selon le journal, le dossier serait bloqué.",
+                  "why": "selon takes a source phrase, not a finite clause."
+                },
+                {
+                  "wrong": "Il semblerait que le ministre a changé d'avis.",
+                  "right": "Il semblerait que le ministre ait changé d'avis.",
+                  "why": "il semblerait que takes the subjunctive."
+                }
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "Analyste",
+                "t": "Que sait-on au juste ?",
+                "r": "kuh seh-TOH(N) oh ZHÜST ?",
+                "en": "What do we actually know?"
+              },
+              {
+                "sp": "Collègue",
+                "t": "Selon deux sources, le dossier serait bloqué.",
+                "r": "suh-LOH(N) duh SOORS, luh doh-SYAY suh-RAY bloh-KAY.",
+                "en": "According to two sources, the file is reportedly blocked."
+              },
+              {
+                "sp": "Analyste",
+                "t": "Et la décision ?",
+                "r": "ay lah day-see-ZYOH(N) ?",
+                "en": "And the decision?"
+              },
+              {
+                "sp": "Collègue",
+                "t": "D'après l'AFP, elle serait reportée — rien d'officiel.",
+                "r": "dah-PREH lah-ef-PAY, el suh-RAY ruh-por-TAY — rya(n) doh-fee-SYEL.",
+                "en": "According to AFP it is reportedly postponed — nothing official."
+              }
+            ],
+            "practice": [
+              {
+                "type": "multiple_choice",
+                "q": "Practice 1: [multiple choice] Attribution sans caution : selon, d'après, il semblerait que — Choose the meaning of selon (suh-LOH(N)) in this lesson.",
+                "answer": "according to",
+                "skill_target": "French: grammatical gender and agreement, the passé composé/imparfait split, the two registers of tu and vous, and the nasal vowels that make liaison audible",
+                "options": [
+                  "according to",
+                  "it would seem that",
+                  "if we believe",
+                  "source"
+                ]
+              },
+              {
+                "type": "fill_in_the_blank",
+                "q": "Practice 2: [fill in the blank] Attribution sans caution : selon, d'après, il semblerait que — Type the French expression meaning “according to”.",
+                "answer": "d'après",
+                "skill_target": "French: grammatical gender and agreement, the passé composé/imparfait split, the two registers of tu and vous, and the nasal vowels that make liaison audible"
+              },
+              {
+                "type": "translation",
+                "q": "Practice 3: [translation] Attribution sans caution : selon, d'après, il semblerait que — Interpret the Latin with French diacritics (é è ê à ç ù î ô û œ « ») in context: Selon deux sources, le dossier serait bloqué. (suh-LOH(N) duh SOORS, luh doh-SYAY suh-RAY bloh-KAY.).",
+                "answer": "According to two sources, the file is reportedly blocked.",
+                "skill_target": "French: grammatical gender and agreement, the passé composé/imparfait split, the two registers of tu and vous, and the nasal vowels that make liaison audible"
+              },
+              {
+                "type": "reverse_translation",
+                "q": "Practice 4: [reverse translation] Attribution sans caution : selon, d'après, il semblerait que — Write in Latin with French diacritics (é è ê à ç ù î ô û œ « »): According to AFP, the decision is reportedly postponed..",
+                "answer": "D'après l'AFP, la décision serait reportée.",
+                "skill_target": "French: grammatical gender and agreement, the passé composé/imparfait split, the two registers of tu and vous, and the nasal vowels that make liaison audible"
+              },
+              {
+                "type": "matching",
+                "q": "Practice 5: [matching] Attribution sans caution : selon, d'après, il semblerait que — Match il semblerait que to its lesson meaning.",
+                "answer": "it would seem that",
+                "skill_target": "French: grammatical gender and agreement, the passé composé/imparfait split, the two registers of tu and vous, and the nasal vowels that make liaison audible",
+                "options": [
+                  "it would seem that",
+                  "according to",
+                  "according to"
+                ]
+              },
+              {
+                "type": "reorder",
+                "q": "Practice 6: [reorder] Attribution sans caution : selon, d'après, il semblerait que — Reconstruct the lesson model in coherent French: It would seem the minister has changed his mind..",
+                "answer": "Il semblerait que le ministre ait changé d'avis.",
+                "skill_target": "French: grammatical gender and agreement, the passé composé/imparfait split, the two registers of tu and vous, and the nasal vowels that make liaison audible"
+              },
+              {
+                "type": "sentence_building",
+                "q": "Practice 7: [sentence building] Attribution sans caution : selon, d'après, il semblerait que — Build the sentence with the lesson pattern (selon + source · d'après + source · il semblerait que + subjonctif · à en croire + source): According to two sources, the file is reportedly blocked..",
+                "answer": "Selon deux sources, le dossier serait bloqué.",
+                "skill_target": "French: grammatical gender and agreement, the passé composé/imparfait split, the two registers of tu and vous, and the nasal vowels that make liaison audible"
+              },
+              {
+                "type": "word_selection",
+                "q": "Practice 8: [word selection] Attribution sans caution : selon, d'après, il semblerait que — Select the French form for “if we believe”.",
+                "answer": "à en croire",
+                "skill_target": "French: grammatical gender and agreement, the passé composé/imparfait split, the two registers of tu and vous, and the nasal vowels that make liaison audible",
+                "options": [
+                  "à en croire",
+                  "la source"
+                ]
+              },
+              {
+                "type": "error_correction",
+                "q": "Practice 9: [error correction] Attribution sans caution : selon, d'après, il semblerait que — Correct the model the lesson warns about: Selon le journal dit que le dossier est bloqué.",
+                "answer": "Selon le journal, le dossier serait bloqué.",
+                "skill_target": "French: grammatical gender and agreement, the passé composé/imparfait split, the two registers of tu and vous, and the nasal vowels that make liaison audible"
+              },
+              {
+                "type": "dialogue_completion",
+                "q": "Practice 10: [dialogue completion] Attribution sans caution : selon, d'après, il semblerait que — Complete the exchange with the studied response to: What do we actually know?",
+                "answer": "Selon deux sources, le dossier serait bloqué.",
+                "skill_target": "French: grammatical gender and agreement, the passé composé/imparfait split, the two registers of tu and vous, and the nasal vowels that make liaison audible"
+              },
+              {
+                "type": "reading_comprehension",
+                "q": "Practice 11: [reading comprehension] Attribution sans caution : selon, d'après, il semblerait que — Read “Et la décision ?” (ay lah day-see-ZYOH(N) ?). What does it mean?",
+                "answer": "And the decision?",
+                "skill_target": "French: grammatical gender and agreement, the passé composé/imparfait split, the two registers of tu and vous, and the nasal vowels that make liaison audible"
+              },
+              {
+                "type": "paragraph_comprehension",
+                "q": "Practice 12: [paragraph comprehension] Attribution sans caution : selon, d'après, il semblerait que — Read the lesson dialogue as a whole and give its key move: According to AFP it is reportedly postponed — nothing official.",
+                "answer": "D'après l'AFP, elle serait reportée — rien d'officiel.",
+                "skill_target": "French: grammatical gender and agreement, the passé composé/imparfait split, the two registers of tu and vous, and the nasal vowels that make liaison audible"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "Which meaning best fits selon?",
+                "options": [
+                  "according to",
+                  "it would seem that",
+                  "if we believe",
+                  "source"
+                ],
+                "answer": 0,
+                "why": "selon (suh-LOH(N)) means according to in this lesson."
+              },
+              {
+                "q": "Which meaning best fits d'après?",
+                "options": [
+                  "according to",
+                  "it would seem that",
+                  "if we believe",
+                  "source"
+                ],
+                "answer": 0,
+                "why": "d'après (dah-PREH) means according to in this lesson."
+              },
+              {
+                "q": "Which meaning best fits il semblerait que?",
+                "options": [
+                  "it would seem that",
+                  "according to",
+                  "according to",
+                  "if we believe"
+                ],
+                "answer": 0,
+                "why": "il semblerait que (eel sah(n)-bluh-RAY kuh) means it would seem that in this lesson."
+              },
+              {
+                "q": "Which meaning best fits à en croire?",
+                "options": [
+                  "if we believe",
+                  "according to",
+                  "according to",
+                  "it would seem that"
+                ],
+                "answer": 0,
+                "why": "à en croire (ah ah(n) KRWAHR) means if we believe in this lesson."
+              },
+              {
+                "q": "Which meaning best fits la source?",
+                "options": [
+                  "source",
+                  "according to",
+                  "according to",
+                  "it would seem that"
+                ],
+                "answer": 0,
+                "why": "la source (lah SOORS) means source in this lesson."
+              }
+            ],
+            "flashcards": "auto:vocab",
+            "worksheet": {
+              "title": "Attribution worksheet",
+              "tasks": [
+                {
+                  "instruction": "Put the claim at arm's length.",
+                  "items": [
+                    "the file is blocked (two sources)",
+                    "the decision is postponed (AFP)"
+                  ],
+                  "key": [
+                    "Selon deux sources, le dossier serait bloqué.",
+                    "D'après l'AFP, la décision serait reportée."
+                  ]
+                },
+                {
+                  "instruction": "Name the source, not the fact.",
+                  "items": [
+                    "nothing official",
+                    "it would seem"
+                  ],
+                  "key": [
+                    "Rien d'officiel.",
+                    "Il semblerait que …"
+                  ]
+                },
+                {
+                  "instruction": "Integrated offline practice: read the first model, transform or extend it in Latin with French diacritics (é è ê à ç ù î ô û œ « »), then rehearse it as a dialogue. Self-check meaning, grammar, and register.",
+                  "items": [
+                    "Selon deux sources, le dossier serait bloqué.",
+                    "Que sait-on au juste ?"
+                  ],
+                  "key": [
+                    "According to two sources, the file is reportedly blocked.",
+                    "What do we actually know?"
+                  ]
+                }
+              ]
+            },
+            "srs_candidates": [
+              "selon",
+              "d'après",
+              "il semblerait que",
+              "à en croire"
+            ],
+            "srs_policy": "Only these four high-value terms are preselected; lesson mistakes and productive patterns may enter personalized review after an actual error."
           }
         ]
       },
@@ -702,25 +991,25 @@
             },
             "dialogue": [
               {
-                "sp": "Analyst",
+                "sp": "Analyste",
                 "t": "Je vous saurais gré de transmettre la version révisée avant jeudi.",
                 "r": "ʒə vu so-re gre də trɑ̃s-mɛtr la vɛr-sjɔ̃ re-vi-ze a-vɑ̃ ʒø-di",
                 "en": "I would be grateful if you sent the revised version before Thursday."
               },
               {
-                "sp": "Editor",
+                "sp": "Rédacteur",
                 "t": "Il conviendrait d’acter ce désaccord dans le procès-verbal.",
                 "r": "il kɔ̃-vjɛ̃-dre dak-te sə de-za-kor dɑ̃ lə pro-sɛ vɛr-bal",
                 "en": "It would be advisable to record this disagreement in the minutes."
               },
               {
-                "sp": "Colleague",
+                "sp": "Collègue",
                 "t": "Nous accepterions la contre-proposition à condition que l’échéance soit maintenue.",
                 "r": "nu zak-sɛp-tə-rjɔ̃ la kɔ̃tr pro-po-zi-sjɔ̃ a kɔ̃-di-sjɔ̃ kə le-ʃe-ɑ̃s swa mɛ̃-tə-ny",
                 "en": "We would accept the counterproposal provided the deadline were maintained."
               },
               {
-                "sp": "Chair",
+                "sp": "Président",
                 "t": "Je vous saurais gré de transmettre la version révisée avant jeudi.",
                 "r": "ʒə vu so-re gre də trɑ̃s-mɛtr la vɛr-sjɔ̃ re-vi-ze a-vɑ̃ ʒø-di",
                 "en": "I would be grateful if you sent the revised version before Thursday."
@@ -985,25 +1274,25 @@
             },
             "dialogue": [
               {
-                "sp": "Analyst",
+                "sp": "Analyste",
                 "t": "Cette conclusion se limite à l’échantillon urbain étudié.",
                 "r": "set kɔ̃-kly-zjɔ̃ sə li-mit a le-ʃɑ̃-ti-jɔ̃ yr-bɛ̃ e-ty-dje",
                 "en": "This conclusion is limited to the urban sample studied."
               },
               {
-                "sp": "Editor",
+                "sp": "Rédacteur",
                 "t": "La corrélation observée ne suffit pas à établir une causalité.",
                 "r": "la ko-re-la-sjɔ̃ ɔp-sɛr-ve nə sy-fi pa a e-ta-blir yn ko-za-li-te",
                 "en": "The observed correlation is not sufficient to establish causality."
               },
               {
-                "sp": "Colleague",
+                "sp": "Collègue",
                 "t": "Autrement dit, la moyenne augmente, mais pas chacune des valeurs.",
                 "r": "o-trə-mɑ̃ di la mwa-jɛn og-mɑ̃t mɛ pa ʃa-kyn de va-lœr",
                 "en": "In other words, the average increases, but not every value."
               },
               {
-                "sp": "Chair",
+                "sp": "Président",
                 "t": "Cette conclusion se limite à l’échantillon urbain étudié.",
                 "r": "set kɔ̃-kly-zjɔ̃ sə li-mit a le-ʃɑ̃-ti-jɔ̃ yr-bɛ̃ e-ty-dje",
                 "en": "This conclusion is limited to the urban sample studied."
@@ -1201,6 +1490,297 @@
                 }
               ]
             }
+          },
+          {
+            "id": "fr-c1-l8",
+            "title": "La causalité graduée : contribuer à, expliquer en partie",
+            "learn": "Careful French causal prose grades the link: CONTRIBUER À (contributes), EXPLIQUER EN PARTIE (partly explains), ÊTRE LIÉ À (is linked to), NE PAS SUFFIRE À (is not enough to).",
+            "vocab": [
+              {
+                "t": "contribuer à",
+                "r": "koh(n)-tree-BÜ-AY ah",
+                "en": "to contribute to",
+                "pos": "verb"
+              },
+              {
+                "t": "en partie",
+                "r": "ah(n) par-TEE",
+                "en": "partly",
+                "pos": "phrase"
+              },
+              {
+                "t": "être lié à",
+                "r": "etr LYAY ah",
+                "en": "to be linked to",
+                "pos": "phrase"
+              },
+              {
+                "t": "suffire à",
+                "r": "sü-FEER ah",
+                "en": "to be enough to",
+                "pos": "verb"
+              },
+              {
+                "t": "la corrélation",
+                "r": "lah koh-ray-lah-SYOH(N)",
+                "en": "correlation",
+                "pos": "noun"
+              }
+            ],
+            "grammar": {
+              "title": "Calibrated cause",
+              "pattern": "contribue à … · explique en partie … · est lié à … · ne suffit pas à …",
+              "explain": "La sécheresse contribue à la hausse, mais elle ne suffit pas à l'expliquer. Le coût de l'énergie est lié à la même tendance. A correlation is not a cause, and the verbs say so before the conclusion does.",
+              "examples": [
+                {
+                  "t": "La sécheresse contribue à la hausse.",
+                  "r": "lah say-SHRESS koh(n)-tree-BÜ ah lah OHS.",
+                  "en": "The drought contributes to the rise."
+                },
+                {
+                  "t": "Elle ne suffit pas à l'expliquer.",
+                  "r": "el nuh sü-FEE pah ah lek-splee-KAY.",
+                  "en": "It is not enough to explain it."
+                },
+                {
+                  "t": "Une corrélation n'est pas une cause.",
+                  "r": "ün koh-ray-lah-SYOH(N) nay pah zün KOHZ.",
+                  "en": "A correlation is not a cause."
+                }
+              ],
+              "mistakes": [
+                {
+                  "wrong": "La sécheresse explique la hausse à cent pour cent.",
+                  "right": "La sécheresse contribue à la hausse.",
+                  "why": "Grade the link: contributing is not causing."
+                },
+                {
+                  "wrong": "Une corrélation explique une cause.",
+                  "right": "Une corrélation ne suffit pas à établir une cause.",
+                  "why": "Name the limit of the evidence."
+                }
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "Président",
+                "t": "Pourquoi cette hausse ?",
+                "r": "poor-KWAH set OHS ?",
+                "en": "Why this rise?"
+              },
+              {
+                "sp": "Analyste",
+                "t": "La sécheresse contribue à la hausse.",
+                "r": "lah say-SHRESS koh(n)-tree-BÜ ah lah OHS.",
+                "en": "The drought contributes to the rise."
+              },
+              {
+                "sp": "Président",
+                "t": "C'est la cause ?",
+                "r": "say lah KOHZ ?",
+                "en": "Is that the cause?"
+              },
+              {
+                "sp": "Analyste",
+                "t": "Elle l'explique en partie. Le reste tient aux coûts de l'énergie.",
+                "r": "el lek-spleek ah(n) par-TEE. luh REST tya(n) oh koo duh lay-ner-ZHEE.",
+                "en": "It partly explains it. The rest is down to energy costs."
+              }
+            ],
+            "practice": [
+              {
+                "type": "multiple_choice",
+                "q": "Practice 1: [multiple choice] La causalité graduée : contribuer à, expliquer en partie — Choose the meaning of contribuer à (koh(n)-tree-BÜ-AY ah) in this lesson.",
+                "answer": "to contribute to",
+                "skill_target": "French: grammatical gender and agreement, the passé composé/imparfait split, the two registers of tu and vous, and the nasal vowels that make liaison audible",
+                "options": [
+                  "to contribute to",
+                  "partly",
+                  "to be linked to",
+                  "to be enough to"
+                ]
+              },
+              {
+                "type": "fill_in_the_blank",
+                "q": "Practice 2: [fill in the blank] La causalité graduée : contribuer à, expliquer en partie — Type the French expression meaning “partly”.",
+                "answer": "en partie",
+                "skill_target": "French: grammatical gender and agreement, the passé composé/imparfait split, the two registers of tu and vous, and the nasal vowels that make liaison audible"
+              },
+              {
+                "type": "translation",
+                "q": "Practice 3: [translation] La causalité graduée : contribuer à, expliquer en partie — Interpret the Latin with French diacritics (é è ê à ç ù î ô û œ « ») in context: La sécheresse contribue à la hausse. (lah say-SHRESS koh(n)-tree-BÜ ah lah OHS.).",
+                "answer": "The drought contributes to the rise.",
+                "skill_target": "French: grammatical gender and agreement, the passé composé/imparfait split, the two registers of tu and vous, and the nasal vowels that make liaison audible"
+              },
+              {
+                "type": "reverse_translation",
+                "q": "Practice 4: [reverse translation] La causalité graduée : contribuer à, expliquer en partie — Write in Latin with French diacritics (é è ê à ç ù î ô û œ « »): It is not enough to explain it..",
+                "answer": "Elle ne suffit pas à l'expliquer.",
+                "skill_target": "French: grammatical gender and agreement, the passé composé/imparfait split, the two registers of tu and vous, and the nasal vowels that make liaison audible"
+              },
+              {
+                "type": "matching",
+                "q": "Practice 5: [matching] La causalité graduée : contribuer à, expliquer en partie — Match être lié à to its lesson meaning.",
+                "answer": "to be linked to",
+                "skill_target": "French: grammatical gender and agreement, the passé composé/imparfait split, the two registers of tu and vous, and the nasal vowels that make liaison audible",
+                "options": [
+                  "to be linked to",
+                  "to contribute to",
+                  "partly"
+                ]
+              },
+              {
+                "type": "reorder",
+                "q": "Practice 6: [reorder] La causalité graduée : contribuer à, expliquer en partie — Reconstruct the lesson model in coherent French: A correlation is not a cause..",
+                "answer": "Une corrélation n'est pas une cause.",
+                "skill_target": "French: grammatical gender and agreement, the passé composé/imparfait split, the two registers of tu and vous, and the nasal vowels that make liaison audible"
+              },
+              {
+                "type": "sentence_building",
+                "q": "Practice 7: [sentence building] La causalité graduée : contribuer à, expliquer en partie — Build the sentence with the lesson pattern (contribue à … · explique en partie … · est lié à … · ne suffit pas à …): The drought contributes to the rise..",
+                "answer": "La sécheresse contribue à la hausse.",
+                "skill_target": "French: grammatical gender and agreement, the passé composé/imparfait split, the two registers of tu and vous, and the nasal vowels that make liaison audible"
+              },
+              {
+                "type": "word_selection",
+                "q": "Practice 8: [word selection] La causalité graduée : contribuer à, expliquer en partie — Select the French form for “to be enough to”.",
+                "answer": "suffire à",
+                "skill_target": "French: grammatical gender and agreement, the passé composé/imparfait split, the two registers of tu and vous, and the nasal vowels that make liaison audible",
+                "options": [
+                  "suffire à",
+                  "la corrélation"
+                ]
+              },
+              {
+                "type": "error_correction",
+                "q": "Practice 9: [error correction] La causalité graduée : contribuer à, expliquer en partie — Correct the model the lesson warns about: La sécheresse explique la hausse à cent pour cent.",
+                "answer": "La sécheresse contribue à la hausse.",
+                "skill_target": "French: grammatical gender and agreement, the passé composé/imparfait split, the two registers of tu and vous, and the nasal vowels that make liaison audible"
+              },
+              {
+                "type": "dialogue_completion",
+                "q": "Practice 10: [dialogue completion] La causalité graduée : contribuer à, expliquer en partie — Complete the exchange with the studied response to: Why this rise?",
+                "answer": "La sécheresse contribue à la hausse.",
+                "skill_target": "French: grammatical gender and agreement, the passé composé/imparfait split, the two registers of tu and vous, and the nasal vowels that make liaison audible"
+              },
+              {
+                "type": "reading_comprehension",
+                "q": "Practice 11: [reading comprehension] La causalité graduée : contribuer à, expliquer en partie — Read “C'est la cause ?” (say lah KOHZ ?). What does it mean?",
+                "answer": "Is that the cause?",
+                "skill_target": "French: grammatical gender and agreement, the passé composé/imparfait split, the two registers of tu and vous, and the nasal vowels that make liaison audible"
+              },
+              {
+                "type": "paragraph_comprehension",
+                "q": "Practice 12: [paragraph comprehension] La causalité graduée : contribuer à, expliquer en partie — Read the lesson dialogue as a whole and give its key move: It partly explains it. The rest is down to energy costs.",
+                "answer": "Elle l'explique en partie. Le reste tient aux coûts de l'énergie.",
+                "skill_target": "French: grammatical gender and agreement, the passé composé/imparfait split, the two registers of tu and vous, and the nasal vowels that make liaison audible"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "Which meaning best fits contribuer à?",
+                "options": [
+                  "to contribute to",
+                  "partly",
+                  "to be linked to",
+                  "to be enough to"
+                ],
+                "answer": 0,
+                "why": "contribuer à (koh(n)-tree-BÜ-AY ah) means to contribute to in this lesson."
+              },
+              {
+                "q": "Which meaning best fits en partie?",
+                "options": [
+                  "partly",
+                  "to contribute to",
+                  "to be linked to",
+                  "to be enough to"
+                ],
+                "answer": 0,
+                "why": "en partie (ah(n) par-TEE) means partly in this lesson."
+              },
+              {
+                "q": "Which meaning best fits être lié à?",
+                "options": [
+                  "to be linked to",
+                  "to contribute to",
+                  "partly",
+                  "to be enough to"
+                ],
+                "answer": 0,
+                "why": "être lié à (etr LYAY ah) means to be linked to in this lesson."
+              },
+              {
+                "q": "Which meaning best fits suffire à?",
+                "options": [
+                  "to be enough to",
+                  "to contribute to",
+                  "partly",
+                  "to be linked to"
+                ],
+                "answer": 0,
+                "why": "suffire à (sü-FEER ah) means to be enough to in this lesson."
+              },
+              {
+                "q": "Which meaning best fits la corrélation?",
+                "options": [
+                  "correlation",
+                  "to contribute to",
+                  "partly",
+                  "to be linked to"
+                ],
+                "answer": 0,
+                "why": "la corrélation (lah koh-ray-lah-SYOH(N)) means correlation in this lesson."
+              }
+            ],
+            "flashcards": "auto:vocab",
+            "worksheet": {
+              "title": "Causality worksheet",
+              "tasks": [
+                {
+                  "instruction": "Grade the link.",
+                  "items": [
+                    "contributes to",
+                    "partly explains",
+                    "is not enough to"
+                  ],
+                  "key": [
+                    "contribue à",
+                    "explique en partie",
+                    "ne suffit pas à"
+                  ]
+                },
+                {
+                  "instruction": "State the limit.",
+                  "items": [
+                    "a correlation is not a cause",
+                    "the rest is down to energy costs"
+                  ],
+                  "key": [
+                    "Une corrélation n'est pas une cause.",
+                    "Le reste tient aux coûts de l'énergie."
+                  ]
+                },
+                {
+                  "instruction": "Integrated offline practice: read the first model, transform or extend it in Latin with French diacritics (é è ê à ç ù î ô û œ « »), then rehearse it as a dialogue. Self-check meaning, grammar, and register.",
+                  "items": [
+                    "La sécheresse contribue à la hausse.",
+                    "Pourquoi cette hausse ?"
+                  ],
+                  "key": [
+                    "The drought contributes to the rise.",
+                    "Why this rise?"
+                  ]
+                }
+              ]
+            },
+            "srs_candidates": [
+              "contribuer à",
+              "en partie",
+              "être lié à",
+              "suffire à"
+            ],
+            "srs_policy": "Only these four high-value terms are preselected; lesson mistakes and productive patterns may enter personalized review after an actual error."
           }
         ]
       },
@@ -1289,25 +1869,25 @@
             },
             "dialogue": [
               {
-                "sp": "Analyst",
+                "sp": "Analyste",
                 "t": "Le tutoiement peut créer de la proximité ou paraître déplacé selon la relation.",
                 "r": "lə ty-twa-mɑ̃ pø kre-e də la prok-si-mi-te u pa-rɛtr de-pla-se sə-lɔ̃ la rə-la-sjɔ̃",
                 "en": "Using tu can create closeness or seem inappropriate depending on the relationship."
               },
               {
-                "sp": "Editor",
+                "sp": "Rédacteur",
                 "t": "Une tournure régionale n’est pas fautive, mais elle peut être marquée ailleurs.",
                 "r": "yn tur-nyr re-ʒjo-nal nɛ pa fo-tiv mɛ ɛl pø ɛtr mar-ke a-jœr",
                 "en": "A regional expression is not wrong, but may be marked elsewhere."
               },
               {
-                "sp": "Colleague",
+                "sp": "Collègue",
                 "t": "Le registre courant convient mieux à cette médiation destinée au grand public.",
                 "r": "lə rə-ʒistr ku-rɑ̃ kɔ̃-vjɛ̃ mjø a set me-dja-sjɔ̃ dɛs-ti-ne o grɑ̃ py-blik",
                 "en": "Neutral register better suits this mediation for the general public."
               },
               {
-                "sp": "Chair",
+                "sp": "Président",
                 "t": "Le tutoiement peut créer de la proximité ou paraître déplacé selon la relation.",
                 "r": "lə ty-twa-mɑ̃ pø kre-e də la prok-si-mi-te u pa-rɛtr de-pla-se sə-lɔ̃ la rə-la-sjɔ̃",
                 "en": "Using tu can create closeness or seem inappropriate depending on the relationship."
@@ -1582,25 +2162,25 @@
             },
             "dialogue": [
               {
-                "sp": "Analyst",
+                "sp": "Analyste",
                 "t": "Les études convergent sur la direction de l’effet, mais divergent sur son ampleur.",
                 "r": "le ze-tyd kɔ̃-vɛrʒ syr la di-rɛk-sjɔ̃ də le-fɛ mɛ di-vɛrʒ syr sɔ̃ nɑ̃-plœr",
                 "en": "The studies converge on the direction of the effect but diverge on its magnitude."
               },
               {
-                "sp": "Editor",
+                "sp": "Rédacteur",
                 "t": "La synthèse conserve les réserves méthodologiques propres à chaque source.",
                 "r": "la sɛ̃-tɛz kɔ̃-sɛrv le re-zɛrv me-to-do-lo-ʒik propr a ʃak surs",
                 "en": "The synthesis preserves the methodological caveats specific to each source."
               },
               {
-                "sp": "Colleague",
+                "sp": "Collègue",
                 "t": "La version publique reformule le constat sans le transformer en certitude.",
                 "r": "la vɛr-sjɔ̃ py-blik rə-for-myl lə kɔ̃-sta sɑ̃ lə trɑ̃s-for-me ɑ̃ sɛr-ti-tyd",
                 "en": "The public version reformulates the finding without turning it into certainty."
               },
               {
-                "sp": "Chair",
+                "sp": "Président",
                 "t": "Les études convergent sur la direction de l’effet, mais divergent sur son ampleur.",
                 "r": "le ze-tyd kɔ̃-vɛrʒ syr la di-rɛk-sjɔ̃ də le-fɛ mɛ di-vɛrʒ syr sɔ̃ nɑ̃-plœr",
                 "en": "The studies converge on the direction of the effect but diverge on its magnitude."
@@ -1786,6 +2366,295 @@
                 }
               ]
             }
+          },
+          {
+            "id": "fr-c1-l9",
+            "title": "La synthèse de deux sources en un paragraphe",
+            "learn": "Synthesis names the sources and then speaks with one voice: SELON L'INSTITUT … ; LE SYNDICAT, DE SON CÔTÉ, … ; CE QUI LES RÉUNIT, C'EST QUE …",
+            "vocab": [
+              {
+                "t": "de son côté",
+                "r": "duh soh(n) koh-TAY",
+                "en": "on its side",
+                "pos": "phrase"
+              },
+              {
+                "t": "ce qui les réunit",
+                "r": "suh kee lay ray-ü-NEE",
+                "en": "what brings them together",
+                "pos": "phrase"
+              },
+              {
+                "t": "converger",
+                "r": "koh(n)-ver-ZHAY",
+                "en": "to converge",
+                "pos": "verb"
+              },
+              {
+                "t": "diverger",
+                "r": "dee-ver-ZHAY",
+                "en": "to diverge",
+                "pos": "verb"
+              },
+              {
+                "t": "la synthèse",
+                "r": "lah sa(n)-TEHZ",
+                "en": "synthesis",
+                "pos": "noun"
+              }
+            ],
+            "grammar": {
+              "title": "Source sandwich",
+              "pattern": "selon A … · B, de son côté, … · ce qui les réunit, c'est que … · sur ce point, ils divergent",
+              "explain": "Selon l'institut, la tendance est stable. Le syndicat, de son côté, signale des risques. Ce qui les réunit, c'est que les données manquent. Three sentences: two positions, one shared ground.",
+              "examples": [
+                {
+                  "t": "Selon l'institut, la tendance est stable.",
+                  "r": "suh-LOH(N) la(n)-stee-TÜ, lah tah(n)-DAH(N)S ay stah-BL.",
+                  "en": "According to the institute, the trend is stable."
+                },
+                {
+                  "t": "Le syndicat, de son côté, signale des risques.",
+                  "r": "luh sa(n)-dee-KAH, duh soh(n) koh-TAY, see-NYAL day REESK.",
+                  "en": "The union, for its part, points to risks."
+                },
+                {
+                  "t": "Sur ce point, ils divergent.",
+                  "r": "sür suh PWA(N), eel dee-ver-ZH.",
+                  "en": "On this point they diverge."
+                }
+              ],
+              "mistakes": [
+                {
+                  "wrong": "Les deux disent la même chose et l'inverse.",
+                  "right": "Ce qui les réunit, c'est que les données manquent.",
+                  "why": "A synthesis names shared ground and difference separately."
+                },
+                {
+                  "wrong": "Selon les deux, de son côté.",
+                  "right": "Selon l'institut ; le syndicat, de son côté, …",
+                  "why": "One source per clause."
+                }
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "Président",
+                "t": "Une synthèse, s'il vous plaît.",
+                "r": "ün sa(n)-TEHZ, seel voo PLAY.",
+                "en": "A summary, please."
+              },
+              {
+                "sp": "Analyste",
+                "t": "Selon l'institut, la tendance est stable ; le syndicat, de son côté, signale des risques.",
+                "r": "suh-LOH(N) la(n)-stee-TÜ, lah tah(n)-DAH(N)S ay stah-BL ; luh sa(n)-dee-KAH, duh soh(n) koh-TAY, see-NYAL day REESK.",
+                "en": "According to the institute the trend is stable; the union, for its part, points to risks."
+              },
+              {
+                "sp": "Président",
+                "t": "Et le terrain commun ?",
+                "r": "ay luh teh-RA(N) koh-MÜ(N) ?",
+                "en": "And the common ground?"
+              },
+              {
+                "sp": "Analyste",
+                "t": "Ce qui les réunit, c'est que les données manquent.",
+                "r": "suh kee lay ray-ü-NEE, say kuh lay doh-NAY MAH(N)K.",
+                "en": "What brings them together is that the data is missing."
+              }
+            ],
+            "practice": [
+              {
+                "type": "multiple_choice",
+                "q": "Practice 1: [multiple choice] La synthèse de deux sources en un paragraphe — Choose the meaning of de son côté (duh soh(n) koh-TAY) in this lesson.",
+                "answer": "on its side",
+                "skill_target": "French: grammatical gender and agreement, the passé composé/imparfait split, the two registers of tu and vous, and the nasal vowels that make liaison audible",
+                "options": [
+                  "on its side",
+                  "what brings them together",
+                  "to converge",
+                  "to diverge"
+                ]
+              },
+              {
+                "type": "fill_in_the_blank",
+                "q": "Practice 2: [fill in the blank] La synthèse de deux sources en un paragraphe — Type the French expression meaning “what brings them together”.",
+                "answer": "ce qui les réunit",
+                "skill_target": "French: grammatical gender and agreement, the passé composé/imparfait split, the two registers of tu and vous, and the nasal vowels that make liaison audible"
+              },
+              {
+                "type": "translation",
+                "q": "Practice 3: [translation] La synthèse de deux sources en un paragraphe — Interpret the Latin with French diacritics (é è ê à ç ù î ô û œ « ») in context: Selon l'institut, la tendance est stable. (suh-LOH(N) la(n)-stee-TÜ, lah tah(n)-DAH(N)S ay stah-BL.).",
+                "answer": "According to the institute, the trend is stable.",
+                "skill_target": "French: grammatical gender and agreement, the passé composé/imparfait split, the two registers of tu and vous, and the nasal vowels that make liaison audible"
+              },
+              {
+                "type": "reverse_translation",
+                "q": "Practice 4: [reverse translation] La synthèse de deux sources en un paragraphe — Write in Latin with French diacritics (é è ê à ç ù î ô û œ « »): The union, for its part, points to risks..",
+                "answer": "Le syndicat, de son côté, signale des risques.",
+                "skill_target": "French: grammatical gender and agreement, the passé composé/imparfait split, the two registers of tu and vous, and the nasal vowels that make liaison audible"
+              },
+              {
+                "type": "matching",
+                "q": "Practice 5: [matching] La synthèse de deux sources en un paragraphe — Match converger to its lesson meaning.",
+                "answer": "to converge",
+                "skill_target": "French: grammatical gender and agreement, the passé composé/imparfait split, the two registers of tu and vous, and the nasal vowels that make liaison audible",
+                "options": [
+                  "to converge",
+                  "on its side",
+                  "what brings them together"
+                ]
+              },
+              {
+                "type": "reorder",
+                "q": "Practice 6: [reorder] La synthèse de deux sources en un paragraphe — Reconstruct the lesson model in coherent French: On this point they diverge..",
+                "answer": "Sur ce point, ils divergent.",
+                "skill_target": "French: grammatical gender and agreement, the passé composé/imparfait split, the two registers of tu and vous, and the nasal vowels that make liaison audible"
+              },
+              {
+                "type": "sentence_building",
+                "q": "Practice 7: [sentence building] La synthèse de deux sources en un paragraphe — Build the sentence with the lesson pattern (selon A … · B, de son côté, … · ce qui les réunit, c'est que … · sur ce point, ils divergent): According to the institute, the trend is stable..",
+                "answer": "Selon l'institut, la tendance est stable.",
+                "skill_target": "French: grammatical gender and agreement, the passé composé/imparfait split, the two registers of tu and vous, and the nasal vowels that make liaison audible"
+              },
+              {
+                "type": "word_selection",
+                "q": "Practice 8: [word selection] La synthèse de deux sources en un paragraphe — Select the French form for “to diverge”.",
+                "answer": "diverger",
+                "skill_target": "French: grammatical gender and agreement, the passé composé/imparfait split, the two registers of tu and vous, and the nasal vowels that make liaison audible",
+                "options": [
+                  "diverger",
+                  "la synthèse"
+                ]
+              },
+              {
+                "type": "error_correction",
+                "q": "Practice 9: [error correction] La synthèse de deux sources en un paragraphe — Correct the model the lesson warns about: Les deux disent la même chose et l'inverse.",
+                "answer": "Ce qui les réunit, c'est que les données manquent.",
+                "skill_target": "French: grammatical gender and agreement, the passé composé/imparfait split, the two registers of tu and vous, and the nasal vowels that make liaison audible"
+              },
+              {
+                "type": "dialogue_completion",
+                "q": "Practice 10: [dialogue completion] La synthèse de deux sources en un paragraphe — Complete the exchange with the studied response to: A summary, please.",
+                "answer": "Selon l'institut, la tendance est stable ; le syndicat, de son côté, signale des risques.",
+                "skill_target": "French: grammatical gender and agreement, the passé composé/imparfait split, the two registers of tu and vous, and the nasal vowels that make liaison audible"
+              },
+              {
+                "type": "reading_comprehension",
+                "q": "Practice 11: [reading comprehension] La synthèse de deux sources en un paragraphe — Read “Et le terrain commun ?” (ay luh teh-RA(N) koh-MÜ(N) ?). What does it mean?",
+                "answer": "And the common ground?",
+                "skill_target": "French: grammatical gender and agreement, the passé composé/imparfait split, the two registers of tu and vous, and the nasal vowels that make liaison audible"
+              },
+              {
+                "type": "paragraph_comprehension",
+                "q": "Practice 12: [paragraph comprehension] La synthèse de deux sources en un paragraphe — Read the lesson dialogue as a whole and give its key move: What brings them together is that the data is missing.",
+                "answer": "Ce qui les réunit, c'est que les données manquent.",
+                "skill_target": "French: grammatical gender and agreement, the passé composé/imparfait split, the two registers of tu and vous, and the nasal vowels that make liaison audible"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "Which meaning best fits de son côté?",
+                "options": [
+                  "on its side",
+                  "what brings them together",
+                  "to converge",
+                  "to diverge"
+                ],
+                "answer": 0,
+                "why": "de son côté (duh soh(n) koh-TAY) means on its side in this lesson."
+              },
+              {
+                "q": "Which meaning best fits ce qui les réunit?",
+                "options": [
+                  "what brings them together",
+                  "on its side",
+                  "to converge",
+                  "to diverge"
+                ],
+                "answer": 0,
+                "why": "ce qui les réunit (suh kee lay ray-ü-NEE) means what brings them together in this lesson."
+              },
+              {
+                "q": "Which meaning best fits converger?",
+                "options": [
+                  "to converge",
+                  "on its side",
+                  "what brings them together",
+                  "to diverge"
+                ],
+                "answer": 0,
+                "why": "converger (koh(n)-ver-ZHAY) means to converge in this lesson."
+              },
+              {
+                "q": "Which meaning best fits diverger?",
+                "options": [
+                  "to diverge",
+                  "on its side",
+                  "what brings them together",
+                  "to converge"
+                ],
+                "answer": 0,
+                "why": "diverger (dee-ver-ZHAY) means to diverge in this lesson."
+              },
+              {
+                "q": "Which meaning best fits la synthèse?",
+                "options": [
+                  "synthesis",
+                  "on its side",
+                  "what brings them together",
+                  "to converge"
+                ],
+                "answer": 0,
+                "why": "la synthèse (lah sa(n)-TEHZ) means synthesis in this lesson."
+              }
+            ],
+            "flashcards": "auto:vocab",
+            "worksheet": {
+              "title": "Synthesis worksheet",
+              "tasks": [
+                {
+                  "instruction": "Line the sources up.",
+                  "items": [
+                    "according to the institute",
+                    "the union, for its part"
+                  ],
+                  "key": [
+                    "Selon l'institut, …",
+                    "Le syndicat, de son côté, …"
+                  ]
+                },
+                {
+                  "instruction": "Write the synthesis.",
+                  "items": [
+                    "the common ground",
+                    "on this point they diverge"
+                  ],
+                  "key": [
+                    "Ce qui les réunit, c'est que …",
+                    "Sur ce point, ils divergent."
+                  ]
+                },
+                {
+                  "instruction": "Integrated offline practice: read the first model, transform or extend it in Latin with French diacritics (é è ê à ç ù î ô û œ « »), then rehearse it as a dialogue. Self-check meaning, grammar, and register.",
+                  "items": [
+                    "Selon l'institut, la tendance est stable.",
+                    "Une synthèse, s'il vous plaît."
+                  ],
+                  "key": [
+                    "According to the institute, the trend is stable.",
+                    "A summary, please."
+                  ]
+                }
+              ]
+            },
+            "srs_candidates": [
+              "de son côté",
+              "ce qui les réunit",
+              "converger",
+              "diverger"
+            ],
+            "srs_policy": "Only these four high-value terms are preselected; lesson mistakes and productive patterns may enter personalized review after an actual error."
           }
         ]
       }
@@ -1853,6 +2722,95 @@
           ]
         }
       ]
+    },
+    "extra": {
+      "culture": {
+        "text": "Administrative French loves the noun: « la mise en œuvre de la réforme » hides an actor, a verb and a responsibility. C1 work is learning to un-nominalise — to read « procéder à l'actualisation » and hear « mettre à jour » — and to write in a register that stays impersonal without disappearing entirely.",
+        "source_url": "https://en.wikipedia.org/wiki/French_grammar"
+      },
+      "reading": {
+        "text": "Le rapport indique que « la mise en œuvre du dispositif fera l'objet d'une évaluation ». Traduit en français courant : quelqu'un devra vérifier si la mesure fonctionne, et le rapport ne dit pas qui. C'est précisément ce flou que la note de synthèse attaque : pour chaque phrase au passif, on écrit le verbe, le sujet et la date.",
+        "gloss": "The report states that 'the implementation of the scheme will be the subject of an evaluation'. Translated into ordinary French: somebody will have to check whether the measure works, and the report does not say who. It is exactly that vagueness that the summary note attacks: for every passive sentence, write the verb, the subject and the date.",
+        "original": true
+      },
+      "listening": {
+        "script": "Analyste: Il conviendrait de procéder à un réexamen.<br>Président: Concrètement ?<br>Analyste: Concrètement : deux personnes, quinze jours, une note de trois pages.<br>Président: Voilà qui est plus clair.",
+        "gloss": "Analyst: It would be advisable to carry out a review. Chair: Concretely? Analyst: Concretely: two people, two weeks, a three-page note. Chair: That is clearer.",
+        "voice_tag": "fr-FR"
+      },
+      "idioms": [
+        {
+          "t": "La mise en œuvre",
+          "literal": "the putting into work",
+          "meaning": "implementation"
+        },
+        {
+          "t": "Faire l'objet de",
+          "literal": "to be the object of",
+          "meaning": "to be subject to"
+        },
+        {
+          "t": "Procéder à",
+          "literal": "to proceed to",
+          "meaning": "to carry out"
+        },
+        {
+          "t": "Il conviendrait de",
+          "literal": "it would be fitting to",
+          "meaning": "it would be advisable to"
+        },
+        {
+          "t": "En l'état",
+          "literal": "in the state",
+          "meaning": "as things stand"
+        },
+        {
+          "t": "Au titre de",
+          "literal": "under the heading of",
+          "meaning": "under, by virtue of"
+        },
+        {
+          "t": "Sous réserve de",
+          "literal": "under reserve of",
+          "meaning": "subject to"
+        },
+        {
+          "t": "Le cas échéant",
+          "literal": "the case arising",
+          "meaning": "if applicable"
+        },
+        {
+          "t": "À toutes fins utiles",
+          "literal": "to all useful ends",
+          "meaning": "for whatever purpose it may serve"
+        },
+        {
+          "t": "Dont acte",
+          "literal": "of which record",
+          "meaning": "noted accordingly"
+        }
+      ],
+      "mistakes": [
+        {
+          "wrong": "Il a été procédé par les services à une vérification (subject hidden).",
+          "right": "Les services ont vérifié les comptes.",
+          "why": "Un-nominalise: name the actor and the verb."
+        },
+        {
+          "wrong": "Il conviendrait de procéder à un réexamen rapide et efficace et utile.",
+          "right": "Il conviendrait de réexaminer le dispositif sous quinze jours.",
+          "why": "One adjective per claim; the date does the work."
+        },
+        {
+          "wrong": "Faire l'objet d'une évaluation par qui que ce soit.",
+          "right": "Faire l'objet d'une évaluation indépendante.",
+          "why": "Replace the vague agent with a named one."
+        }
+      ],
+      "task": {
+        "title": "Un-nominalise one administrative paragraph",
+        "instructions": "Take a real French administrative sentence you have received — a letter, a notice, a school form — and rewrite it three times: as it was written, in plain French with a subject and a verb, and as a three-line memo that names who does what by when. Note every noun phrase you had to unpack; that list is your C1 vocabulary."
+      }
     }
   }
 }

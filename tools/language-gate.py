@@ -26,7 +26,17 @@ from lib.ultra_content import ROOT, load, save_json
 
 RUNGS = ['A1', 'A1+', 'A2', 'A2+', 'B1', 'B1+', 'B2', 'B2+', 'C1', 'C1+', 'C2']
 SLUG_CODE = {'hindi': 'hi', 'bengali': 'bn', 'gujarati': 'gu', 'kannada': 'kn', 'malayalam': 'ml', 'marathi': 'mr', 'punjabi': 'pa', 'tamil': 'ta', 'telugu': 'te', 'urdu': 'ur'}
-PLACEHOLDER = re.compile(r'lorem ipsum|\bTODO\b|\[translate\]|\bTBD\b|coming soon|placeholder text', re.I)
+PLACEHOLDER = re.compile(r'lorem ipsum|\[translate\]|coming soon|placeholder text', re.I)
+# A developer marker is not a word. Written case-insensitively, `\bTODO\b` also
+# matched the Portuguese "todo" ("Eu a vejo todo dia.", "Com todo o respeito…")
+# and failed the whole Portuguese course — a language with 100% real content —
+# for placeholder text it never had. The Spanish "todo" is the same trap for a
+# T1 language that is still to come. Markers are therefore matched in capitals
+# only, which is how a leftover one is actually written in a data file; every
+# text this gate scans passes through either JSON or hand-written prose, so the
+# capitalisation is available to it. Verified before the change: no uppercase
+# TODO or TBD exists anywhere under data/courses.
+MARKER = re.compile(r'\bTODO\b|\bTBD\b')
 WORD_LISTS = ['greetings', 'pronouns', 'verbs', 'days', 'time_words', 'family', 'food_words', 'colors', 'core_nouns', 'travel_words', 'shopping_words', 'classifiers']
 PHRASE_LISTS = ['food_phrases', 'shopping_phrases', 'travel_phrases', 'daily_phrases']
 REVIEW_ID = re.compile(r'^[a-zA-Z0-9_-]{8,64}$')
@@ -151,7 +161,7 @@ def evaluate():
             bad = [v for v in vocab if v.get('t') and not in_script(v['t'], r['scripts'] or ['Latn'])]; metrics['script_mismatch'] = len(bad)
             if bad: reasons.append('script_mismatch')
             if 'Latn' not in r['scripts'] and any(not v.get('r') for v in vocab if v.get('t')): reasons.append('romanisation_missing')
-            if any(PLACEHOLDER.search(p) for p in parts): reasons.append('placeholder_text')
+            if any(PLACEHOLDER.search(p) or MARKER.search(p) for p in parts): reasons.append('placeholder_text')
         status, why = review_state(code, digest(contents.get(code, {})))
         if why: reasons.append(why)
         if tier in ('T1', 'T2') and status != 'verified' and 'no_native_review' not in reasons and why is None: reasons.append('no_native_review')
@@ -171,8 +181,78 @@ def evaluate():
             'indexed_failed_pages': len(indexed_failed), 'indexed_failed_sample': indexed_failed[:12], 'languages': results}
 
 
+def selftest():
+    """The placeholder patterns, on the texts that made them wrong.
+
+    The Portuguese cases are the real lesson sentences from data/courses that
+    the case-insensitive `\\bTODO\\b` used to flag; the marker cases are what a
+    genuine leftover looks like. Expected results are written out rather than
+    computed, so changing either pattern has to be a deliberate change here too.
+    """
+    checks = [
+        # Portuguese "todo" is a word, not a marker — the false positive this fixes.
+        ("Portuguese todo", "Eu a vejo todo dia.", False),
+        ("Portuguese todo, longer", "Com todo o respeito pela sua proposta, gostaria de esboçar uma alternativa.", False),
+        ("Portuguese todo, subject", "Todo o dia eu estudo português.", False),
+        # Spanish, the same trap in a T1 language still to be written.
+        ("Spanish todo", "Todo el mundo habla español.", False),
+        # Portuguese "tudo" was never matched; it must stay clean too.
+        ("Portuguese tudo", "Tudo bem, obrigado.", False),
+        # A real leftover marker is written in capitals.
+        ("TODO marker", "TODO: replace with real Portuguese", True),
+        ("bare TBD", "TBD", True),
+        ("inline TBD", "This is TBD by the author", True),
+        # English filler phrases are still caught in any case.
+        ("lorem ipsum", "lorem ipsum dolor sit amet", True),
+        ("translate tag", "[translate] this later", True),
+        ("coming soon", "More lessons coming soon", True),
+        ("placeholder text", "placeholder text here", True),
+        ("coming soon, capitals", "COMING SOON", True),
+    ]
+    bad = []
+    for name, text, expected in checks:
+        got = bool(PLACEHOLDER.search(text) or MARKER.search(text))
+        if got != expected:
+            bad.append("%s: flagged=%s, expected=%s" % (name, got, expected))
+    if bad:
+        print("FAIL  placeholder selftest — " + "; ".join(bad))
+        return 1
+
+    # The script check, on the same kind of case: correct non-ASCII Latin
+    # content that a too-narrow Latn range called a script mismatch (194 Uzbek
+    # items), next to the scripts it must keep rejecting.
+    script_checks = [
+        ("Uzbek oʻ/gʻ", "oʻqituvchisiz", ['Latn'], True),
+        ("Uzbek ʼ", "maʼno", ['Latn'], True),
+        ("Uzbek sentence", "Men har kuni ertalab oʻzbek tilini oʻrganaman.", ['Latn'], True),
+        ("Devanagari is not Latin", "नमस्ते", ['Latn'], False),
+        ("Cyrillic is not Latin", "привет", ['Latn'], False),
+        ("Arabic is not Latin", "مرحبا", ['Latn'], False),
+        ("Han is not Latin", "你好", ['Latn'], False),
+        ("Devanagari still passes Deva", "नमस्ते", ['Deva'], True),
+        ("Hangul syllables pass Hang", "안녕하세요", ['Hang'], True),
+        ("Korean stem pattern with compat jamo passes Hang", "-(으)ㄹ 거예요", ['Hang'], True),
+        ("Latin still fails Hang", "annyeonghaseyo", ['Hang'], False),
+        ("Latin still fails Deva", "Hello", ['Deva'], False),
+    ]
+    bad = []
+    for name, text, scripts, expected in script_checks:
+        got = in_script(text, scripts)
+        if got != expected:
+            bad.append("%s: in_script=%s, expected=%s" % (name, got, expected))
+    if bad:
+        print("FAIL  script selftest — " + "; ".join(bad))
+        return 1
+
+    print("ok    placeholder patterns: Portuguese/Spanish 'todo' is text, capitalised TODO/TBD is a marker")
+    print("ok    script ranges: Uzbek oʻ/ʼ are Latin; Devanagari, Cyrillic, Arabic and Han are still rejected")
+    return 0
+
+
 def main():
-    ap = argparse.ArgumentParser(); ap.add_argument('--check', action='store_true'); ap.add_argument('--enforce-publication', action='store_true'); ap.add_argument('--lang'); a = ap.parse_args()
+    ap = argparse.ArgumentParser(); ap.add_argument('--check', action='store_true'); ap.add_argument('--enforce-publication', action='store_true'); ap.add_argument('--lang'); ap.add_argument('--selftest', action='store_true'); a = ap.parse_args()
+    if a.selftest:
+        return selftest()
     report = evaluate()
     if a.lang:
         row = next((x for x in report['languages'] if x['code'] == a.lang), None)

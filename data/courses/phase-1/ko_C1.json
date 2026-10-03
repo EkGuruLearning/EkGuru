@@ -103,25 +103,25 @@
             },
             "dialogue": [
               {
-                "sp": "Analyst",
+                "sp": "분석자",
                 "t": "보고서에 따르면 지역별 차이가 남아 있기는 하지만 실행은 개선된 것으로 보인다.",
                 "r": "bogoseo-e ttaleumyeon ji-yeogbyeol cha-iga nam-a issgineun hajiman silhaeng-eun gaeseondoen geos-eulo bo-inda.",
                 "en": "The report suggests implementation improved although regional differences remain."
               },
               {
-                "sp": "Editor",
+                "sp": "편집자",
                 "t": "증거가 제한적이라 하더라도 그 결과를 무시하거나 확정적 사실로 제시해서는 안 된다.",
                 "r": "jeunggeoga jehanjeog-ila hadeolado geu gyeolgwaleul musihageona hwagjeongjeog sasillo jesihaeseoneun an doenda.",
                 "en": "Limited evidence should neither be ignored nor presented as final fact."
               },
               {
-                "sp": "Mediator",
+                "sp": "중재자",
                 "t": "사회의 변화는 맥락과 방법론을 함께 검토해야 비판적으로 평가할 수 있다.",
                 "r": "sahoe-ui byeonhwaneun maeglaggwa bangbeoblon-eul hamkke geomtohae-ya bipanjeog-eulo pyeonggahal su issda.",
                 "en": "Social change can be evaluated critically only by examining context and method."
               },
               {
-                "sp": "Reviewer",
+                "sp": "검토자",
                 "t": "제안의 취지를 존중하면서도 실행상의 한계를 반영한 대안을 제시하고자 합니다.",
                 "r": "je-an-ui chwijileul jonjunghamyeonseodo silhaengsang-ui hangyeleul ban-yeonghan dae-an-eul jesihagoja habnida.",
                 "en": "Respecting the proposal, I wish to offer an alternative reflecting practical limits."
@@ -405,25 +405,25 @@
             },
             "dialogue": [
               {
-                "sp": "Analyst",
+                "sp": "분석자",
                 "t": "증거가 제한적이라 하더라도 그 결과를 무시하거나 확정적 사실로 제시해서는 안 된다.",
                 "r": "jeunggeoga jehanjeog-ila hadeolado geu gyeolgwaleul musihageona hwagjeongjeog sasillo jesihaeseoneun an doenda.",
                 "en": "Limited evidence should neither be ignored nor presented as final fact."
               },
               {
-                "sp": "Editor",
+                "sp": "편집자",
                 "t": "사회의 변화는 맥락과 방법론을 함께 검토해야 비판적으로 평가할 수 있다.",
                 "r": "sahoe-ui byeonhwaneun maeglaggwa bangbeoblon-eul hamkke geomtohae-ya bipanjeog-eulo pyeonggahal su issda.",
                 "en": "Social change can be evaluated critically only by examining context and method."
               },
               {
-                "sp": "Mediator",
+                "sp": "중재자",
                 "t": "제안의 취지를 존중하면서도 실행상의 한계를 반영한 대안을 제시하고자 합니다.",
                 "r": "je-an-ui chwijileul jonjunghamyeonseodo silhaengsang-ui hangyeleul ban-yeonghan dae-an-eul jesihagoja habnida.",
                 "en": "Respecting the proposal, I wish to offer an alternative reflecting practical limits."
               },
               {
-                "sp": "Reviewer",
+                "sp": "검토자",
                 "t": "두 연구를 종합하면 맥락의 차이가 결과의 불일치를 부분적으로 설명한다.",
                 "r": "du yeonguleul jonghabhamyeon maeglag-ui cha-iga gyeolgwa-ui bul-ilchileul bubunjeog-eulo seolmyeonghanda.",
                 "en": "Together the studies show context partly explains divergent results."
@@ -620,6 +620,295 @@
                 }
               ]
             }
+          },
+          {
+            "id": "ko-c1-l7",
+            "title": "출처를 밝히기",
+            "learn": "Reported speech changes its ending with the clause it quotes: -다고 for a statement, -라고 for a copula or a quoted term, -냐고 for a question, -자고 for a suggestion. One source takes one reporting verb, and 보도체 keeps the quote tighter than the frame around it.",
+            "vocab": [
+              {
+                "t": "출처",
+                "r": "chulcheo",
+                "en": "source, attribution",
+                "pos": "noun"
+              },
+              {
+                "t": "인용",
+                "r": "inyong",
+                "en": "quotation",
+                "pos": "noun"
+              },
+              {
+                "t": "주장하다",
+                "r": "jujanghada",
+                "en": "to assert, to argue",
+                "pos": "verb"
+              },
+              {
+                "t": "지적하다",
+                "r": "jijeokhada",
+                "en": "to point out",
+                "pos": "verb"
+              },
+              {
+                "t": "-다고 하다",
+                "r": "-dago hada",
+                "en": "to say that (statement)",
+                "pos": "grammar"
+              }
+            ],
+            "grammar": {
+              "title": "Choosing the quotation ending",
+              "pattern": "늘었다고 밝혔다 · 효과적이라고 지적했다 · 가능하냐고 물었다 · 검토하자고 제안했다",
+              "explain": "The quote keeps the plain form of its own clause and then takes the ending that matches its type: -다고 for statements, -라고 after 이다 or a quoted word, -냐고 for questions, -자고 for suggestions. 밝히다, 지적하다 and 주장하다 are the frames that carry it in 보도체.",
+              "examples": [
+                {
+                  "t": "보고서는 수출이 늘었다고 밝혔다.",
+                  "r": "bogoseo-neun suchul-i neureotdago balkyeotda.",
+                  "en": "The report stated that exports had risen."
+                },
+                {
+                  "t": "전문가는 정책이 효과적이라고 지적했다.",
+                  "r": "jeonmun-ga-neun jeongchaek-i hyogwajeogirago jijeokhaetda.",
+                  "en": "The expert pointed out that the policy was effective."
+                },
+                {
+                  "t": "기자가 가능하냐고 물었다.",
+                  "r": "gija-ga ganeunghan-nyago mureotda.",
+                  "en": "The reporter asked whether it was possible."
+                }
+              ],
+              "mistakes": [
+                {
+                  "wrong": "보고서는 늘었다고 밝혔습니다 늘어났습니다.",
+                  "right": "보고서는 수출이 늘었다고 밝혔습니다.",
+                  "why": "The quoted clause carries its own ending; it is not repeated after the frame."
+                },
+                {
+                  "wrong": "전문가는 효과적이었다고 지적했다고 밝혔다.",
+                  "right": "전문가는 효과적이었다고 지적했다.",
+                  "why": "One source takes one reporting verb — 지적하다 and 밝히다 are not stacked."
+                }
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "기자",
+                "t": "이번 발표의 핵심이 무엇입니까?",
+                "r": "ibeon balpyo-ui haeksim-i mueosimnikka?",
+                "en": "What is the core of this announcement?"
+              },
+              {
+                "sp": "연구자",
+                "t": "수출이 늘었다고 밝혔지만 원인은 다릅니다.",
+                "r": "suchul-i neureotdago balkyeotjiman wonin-eun dareumnida.",
+                "en": "It stated that exports rose, but the cause is different."
+              },
+              {
+                "sp": "기자",
+                "t": "그러면 정책 효과는 없었다고 보십니까?",
+                "r": "geureomyeon jeongchaek hyogwa-neun eopseotdago bosimnikka?",
+                "en": "Then do you think the policy had no effect?"
+              },
+              {
+                "sp": "연구자",
+                "t": "없었다고 단정하기는 어렵습니다. 근거가 더 필요하다고 봅니다.",
+                "r": "eopseotdago danjeonghagineun eoryeopseumnida. geun-geo-ga deo piryohadago bomnida.",
+                "en": "It is hard to state that it had none. I think more evidence is needed."
+              }
+            ],
+            "practice": [
+              {
+                "type": "multiple_choice",
+                "q": "Practice 1: [multiple choice] 출처를 밝히기 — Choose the meaning of 출처 (chulcheo) in this lesson.",
+                "answer": "source, attribution",
+                "skill_target": "Korean: Hangul, particle system 은/는·이/가·을/를·에/에서, speech levels 해요체 and 합니다체, honorific -(으)시- and 드리다, agglutinative verb endings, counters and 사자성어",
+                "options": [
+                  "source, attribution",
+                  "quotation",
+                  "to assert, to argue",
+                  "to point out"
+                ]
+              },
+              {
+                "type": "fill_in_the_blank",
+                "q": "Practice 2: [fill in the blank] 출처를 밝히기 — Type the Korean expression meaning “quotation”.",
+                "answer": "인용",
+                "skill_target": "Korean: Hangul, particle system 은/는·이/가·을/를·에/에서, speech levels 해요체 and 합니다체, honorific -(으)시- and 드리다, agglutinative verb endings, counters and 사자성어"
+              },
+              {
+                "type": "translation",
+                "q": "Practice 3: [translation] 출처를 밝히기 — Interpret the Hangul in context: 보고서는 수출이 늘었다고 밝혔다. (bogoseo-neun suchul-i neureotdago balkyeotda.).",
+                "answer": "The report stated that exports had risen.",
+                "skill_target": "Korean: Hangul, particle system 은/는·이/가·을/를·에/에서, speech levels 해요체 and 합니다체, honorific -(으)시- and 드리다, agglutinative verb endings, counters and 사자성어"
+              },
+              {
+                "type": "reverse_translation",
+                "q": "Practice 4: [reverse translation] 출처를 밝히기 — Write in Hangul: The expert pointed out that the policy was effective..",
+                "answer": "전문가는 정책이 효과적이라고 지적했다.",
+                "skill_target": "Korean: Hangul, particle system 은/는·이/가·을/를·에/에서, speech levels 해요체 and 합니다체, honorific -(으)시- and 드리다, agglutinative verb endings, counters and 사자성어"
+              },
+              {
+                "type": "matching",
+                "q": "Practice 5: [matching] 출처를 밝히기 — Match 주장하다 to its lesson meaning.",
+                "answer": "to assert, to argue",
+                "skill_target": "Korean: Hangul, particle system 은/는·이/가·을/를·에/에서, speech levels 해요체 and 합니다체, honorific -(으)시- and 드리다, agglutinative verb endings, counters and 사자성어",
+                "options": [
+                  "to assert, to argue",
+                  "source, attribution",
+                  "quotation"
+                ]
+              },
+              {
+                "type": "reorder",
+                "q": "Practice 6: [reorder] 출처를 밝히기 — Reconstruct the lesson model in coherent Korean: The reporter asked whether it was possible..",
+                "answer": "기자가 가능하냐고 물었다.",
+                "skill_target": "Korean: Hangul, particle system 은/는·이/가·을/를·에/에서, speech levels 해요체 and 합니다체, honorific -(으)시- and 드리다, agglutinative verb endings, counters and 사자성어"
+              },
+              {
+                "type": "sentence_building",
+                "q": "Practice 7: [sentence building] 출처를 밝히기 — Build the sentence with the lesson pattern (늘었다고 밝혔다 · 효과적이라고 지적했다 · 가능하냐고 물었다 · 검토하자고 제안했다): The report stated that exports had risen..",
+                "answer": "보고서는 수출이 늘었다고 밝혔다.",
+                "skill_target": "Korean: Hangul, particle system 은/는·이/가·을/를·에/에서, speech levels 해요체 and 합니다체, honorific -(으)시- and 드리다, agglutinative verb endings, counters and 사자성어"
+              },
+              {
+                "type": "word_selection",
+                "q": "Practice 8: [word selection] 출처를 밝히기 — Select the Korean form for “to point out”.",
+                "answer": "지적하다",
+                "skill_target": "Korean: Hangul, particle system 은/는·이/가·을/를·에/에서, speech levels 해요체 and 합니다체, honorific -(으)시- and 드리다, agglutinative verb endings, counters and 사자성어",
+                "options": [
+                  "지적하다",
+                  "-다고 하다"
+                ]
+              },
+              {
+                "type": "error_correction",
+                "q": "Practice 9: [error correction] 출처를 밝히기 — Correct the model the lesson warns about: 보고서는 늘었다고 밝혔습니다 늘어났습니다.",
+                "answer": "보고서는 수출이 늘었다고 밝혔습니다.",
+                "skill_target": "Korean: Hangul, particle system 은/는·이/가·을/를·에/에서, speech levels 해요체 and 합니다체, honorific -(으)시- and 드리다, agglutinative verb endings, counters and 사자성어"
+              },
+              {
+                "type": "dialogue_completion",
+                "q": "Practice 10: [dialogue completion] 출처를 밝히기 — Complete the exchange with the studied response to: What is the core of this announcement?",
+                "answer": "수출이 늘었다고 밝혔지만 원인은 다릅니다.",
+                "skill_target": "Korean: Hangul, particle system 은/는·이/가·을/를·에/에서, speech levels 해요체 and 합니다체, honorific -(으)시- and 드리다, agglutinative verb endings, counters and 사자성어"
+              },
+              {
+                "type": "reading_comprehension",
+                "q": "Practice 11: [reading comprehension] 출처를 밝히기 — Read “그러면 정책 효과는 없었다고 보십니까?” (geureomyeon jeongchaek hyogwa-neun eopseotdago bosimnikka?). What does it mean?",
+                "answer": "Then do you think the policy had no effect?",
+                "skill_target": "Korean: Hangul, particle system 은/는·이/가·을/를·에/에서, speech levels 해요체 and 합니다체, honorific -(으)시- and 드리다, agglutinative verb endings, counters and 사자성어"
+              },
+              {
+                "type": "paragraph_comprehension",
+                "q": "Practice 12: [paragraph comprehension] 출처를 밝히기 — Read the lesson dialogue as a whole and give its key move: It is hard to state that it had none. I think more evidence is needed.",
+                "answer": "없었다고 단정하기는 어렵습니다. 근거가 더 필요하다고 봅니다.",
+                "skill_target": "Korean: Hangul, particle system 은/는·이/가·을/를·에/에서, speech levels 해요체 and 합니다체, honorific -(으)시- and 드리다, agglutinative verb endings, counters and 사자성어"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "Which meaning best fits 출처?",
+                "options": [
+                  "source, attribution",
+                  "quotation",
+                  "to assert, to argue",
+                  "to point out"
+                ],
+                "answer": 0,
+                "why": "출처 (chulcheo) means source, attribution in this lesson."
+              },
+              {
+                "q": "Which meaning best fits 인용?",
+                "options": [
+                  "quotation",
+                  "source, attribution",
+                  "to assert, to argue",
+                  "to point out"
+                ],
+                "answer": 0,
+                "why": "인용 (inyong) means quotation in this lesson."
+              },
+              {
+                "q": "Which meaning best fits 주장하다?",
+                "options": [
+                  "to assert, to argue",
+                  "source, attribution",
+                  "quotation",
+                  "to point out"
+                ],
+                "answer": 0,
+                "why": "주장하다 (jujanghada) means to assert, to argue in this lesson."
+              },
+              {
+                "q": "Which meaning best fits 지적하다?",
+                "options": [
+                  "to point out",
+                  "source, attribution",
+                  "quotation",
+                  "to assert, to argue"
+                ],
+                "answer": 0,
+                "why": "지적하다 (jijeokhada) means to point out in this lesson."
+              },
+              {
+                "q": "Which meaning best fits -다고 하다?",
+                "options": [
+                  "to say that (statement)",
+                  "source, attribution",
+                  "quotation",
+                  "to assert, to argue"
+                ],
+                "answer": 0,
+                "why": "-다고 하다 (-dago hada) means to say that (statement) in this lesson."
+              }
+            ],
+            "flashcards": "auto:vocab",
+            "worksheet": {
+              "title": "Attribution worksheet",
+              "tasks": [
+                {
+                  "instruction": "Quote a statement.",
+                  "items": [
+                    "the report stated that exports had risen",
+                    "the expert pointed out that the policy was effective"
+                  ],
+                  "key": [
+                    "보고서는 수출이 늘었다고 밝혔다",
+                    "전문가는 정책이 효과적이라고 지적했다"
+                  ]
+                },
+                {
+                  "instruction": "Quote a question and a suggestion.",
+                  "items": [
+                    "the reporter asked whether it was possible",
+                    "they proposed to review it"
+                  ],
+                  "key": [
+                    "기자가 가능하냐고 물었다",
+                    "검토하자고 제안했다"
+                  ]
+                },
+                {
+                  "instruction": "Integrated offline practice: read the first model, transform or extend it in Hangul, then rehearse it as a dialogue. Self-check meaning, grammar, and register.",
+                  "items": [
+                    "보고서는 수출이 늘었다고 밝혔다.",
+                    "이번 발표의 핵심이 무엇입니까?"
+                  ],
+                  "key": [
+                    "The report stated that exports had risen.",
+                    "What is the core of this announcement?"
+                  ]
+                }
+              ]
+            },
+            "srs_candidates": [
+              "출처",
+              "인용",
+              "주장하다",
+              "지적하다"
+            ],
+            "srs_policy": "Only these four high-value terms are preselected; lesson mistakes and productive patterns may enter personalized review after an actual error."
           }
         ]
       },
@@ -712,25 +1001,25 @@
             },
             "dialogue": [
               {
-                "sp": "Analyst",
+                "sp": "분석자",
                 "t": "사회의 변화는 맥락과 방법론을 함께 검토해야 비판적으로 평가할 수 있다.",
                 "r": "sahoe-ui byeonhwaneun maeglaggwa bangbeoblon-eul hamkke geomtohae-ya bipanjeog-eulo pyeonggahal su issda.",
                 "en": "Social change can be evaluated critically only by examining context and method."
               },
               {
-                "sp": "Editor",
+                "sp": "편집자",
                 "t": "제안의 취지를 존중하면서도 실행상의 한계를 반영한 대안을 제시하고자 합니다.",
                 "r": "je-an-ui chwijileul jonjunghamyeonseodo silhaengsang-ui hangyeleul ban-yeonghan dae-an-eul jesihagoja habnida.",
                 "en": "Respecting the proposal, I wish to offer an alternative reflecting practical limits."
               },
               {
-                "sp": "Mediator",
+                "sp": "중재자",
                 "t": "두 연구를 종합하면 맥락의 차이가 결과의 불일치를 부분적으로 설명한다.",
                 "r": "du yeonguleul jonghabhamyeon maeglag-ui cha-iga gyeolgwa-ui bul-ilchileul bubunjeog-eulo seolmyeonghanda.",
                 "en": "Together the studies show context partly explains divergent results."
               },
               {
-                "sp": "Reviewer",
+                "sp": "검토자",
                 "t": "자료가 불완전했으므로 위원회는 인과관계가 밝혀질 때까지 결정을 미루었다.",
                 "r": "jalyoga bul-wanjeonhaess-eumeulo wi-wonhoeneun ingwagwangyega balghyeojil ttae-kkaji gyeoljeong-eul milu-eossda.",
                 "en": "The committee deferred its decision until causality was clarified."
@@ -1012,25 +1301,25 @@
             },
             "dialogue": [
               {
-                "sp": "Analyst",
+                "sp": "분석자",
                 "t": "제안의 취지를 존중하면서도 실행상의 한계를 반영한 대안을 제시하고자 합니다.",
                 "r": "je-an-ui chwijileul jonjunghamyeonseodo silhaengsang-ui hangyeleul ban-yeonghan dae-an-eul jesihagoja habnida.",
                 "en": "Respecting the proposal, I wish to offer an alternative reflecting practical limits."
               },
               {
-                "sp": "Editor",
+                "sp": "편집자",
                 "t": "두 연구를 종합하면 맥락의 차이가 결과의 불일치를 부분적으로 설명한다.",
                 "r": "du yeonguleul jonghabhamyeon maeglag-ui cha-iga gyeolgwa-ui bul-ilchileul bubunjeog-eulo seolmyeonghanda.",
                 "en": "Together the studies show context partly explains divergent results."
               },
               {
-                "sp": "Mediator",
+                "sp": "중재자",
                 "t": "자료가 불완전했으므로 위원회는 인과관계가 밝혀질 때까지 결정을 미루었다.",
                 "r": "jalyoga bul-wanjeonhaess-eumeulo wi-wonhoeneun ingwagwangyega balghyeojil ttae-kkaji gyeoljeong-eul milu-eossda.",
                 "en": "The committee deferred its decision until causality was clarified."
               },
               {
-                "sp": "Reviewer",
+                "sp": "검토자",
                 "t": "보고서에 따르면 지역별 차이가 남아 있기는 하지만 실행은 개선된 것으로 보인다.",
                 "r": "bogoseo-e ttaleumyeon ji-yeogbyeol cha-iga nam-a issgineun hajiman silhaeng-eun gaeseondoen geos-eulo bo-inda.",
                 "en": "The report suggests implementation improved although regional differences remain."
@@ -1220,6 +1509,295 @@
                 }
               ]
             }
+          },
+          {
+            "id": "ko-c1-l8",
+            "title": "상충하는 자료를 다루기",
+            "learn": "Conflicting figures are held together with the right connector: 반면에 for a contrast inside one sentence, 한편 for a change of subject, 다만 for a limit, and -므로 when the conflict is the reason for caution.",
+            "vocab": [
+              {
+                "t": "상충하다",
+                "r": "sangchunghada",
+                "en": "to conflict, to clash",
+                "pos": "verb"
+              },
+              {
+                "t": "반면에",
+                "r": "banmyeon-e",
+                "en": "on the other hand",
+                "pos": "connector"
+              },
+              {
+                "t": "유보하다",
+                "r": "yubohada",
+                "en": "to hold back, to reserve",
+                "pos": "verb"
+              },
+              {
+                "t": "격차",
+                "r": "gyeokcha",
+                "en": "gap, disparity",
+                "pos": "noun"
+              },
+              {
+                "t": "근거",
+                "r": "geun-geo",
+                "en": "evidence, grounds",
+                "pos": "noun"
+              }
+            ],
+            "grammar": {
+              "title": "Connectors for a contradiction",
+              "pattern": "수도권은 늘어난 반면에 지방은 줄었다 · 한편 다른 조사에서는 · 다만 결론은 유보한다",
+              "explain": "반면에 puts two clauses of the same sentence in opposition; 한편 opens a new sentence about a different source; 다만 limits what was just claimed. A reason and its consequence take -므로 or -기 때문에, never 그리고.",
+              "examples": [
+                {
+                  "t": "수도권은 늘어난 반면에 지방은 줄었다.",
+                  "r": "sudogwon-eun neureonan banmyeon-e jibang-eun jureotda.",
+                  "en": "The capital region rose, while the provinces fell."
+                },
+                {
+                  "t": "한편 다른 조사에서는 반대 결과가 나왔다.",
+                  "r": "hanpyeon dareun josa-eseo-neun bandae gyeolgwa-ga nawatda.",
+                  "en": "Meanwhile a different survey produced the opposite result."
+                },
+                {
+                  "t": "자료가 상충하므로 결론을 유보한다.",
+                  "r": "jaryo-ga sangchunghameuro gyeollon-eul yubohanda.",
+                  "en": "The data conflict, so the conclusion is held back."
+                }
+              ],
+              "mistakes": [
+                {
+                  "wrong": "자료가 다릅니다. 그리고 결론을 내릴 수 없습니다.",
+                  "right": "자료가 상충하므로 결론을 내리기 어렵습니다.",
+                  "why": "A reason and its result are joined by -므로 or -기 때문에, not by 그리고."
+                },
+                {
+                  "wrong": "두 자료는 반대입니다.",
+                  "right": "두 자료는 서로 상충합니다.",
+                  "why": "반대 is a person's stance; data conflict with 상충하다."
+                }
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "동료",
+                "t": "두 조사의 결과가 다릅니까?",
+                "r": "du josa-ui gyeolgwa-ga dareumnikka?",
+                "en": "Do the two surveys disagree?"
+              },
+              {
+                "sp": "분석자",
+                "t": "수도권은 늘어난 반면에 지방은 줄었습니다.",
+                "r": "sudogwon-eun neureonan banmyeon-e jibang-eun jureosseumnida.",
+                "en": "The capital region rose, while the provinces fell."
+              },
+              {
+                "sp": "동료",
+                "t": "그러면 어느 쪽을 믿어야 합니까?",
+                "r": "geureomyeon eoneu jjok-eul mideo-ya hamnikka?",
+                "en": "Then which should we believe?"
+              },
+              {
+                "sp": "분석자",
+                "t": "자료가 상충하므로 결론을 유보하고 표본을 더 봐야 합니다.",
+                "r": "jaryo-ga sangchunghameuro gyeollon-eul yubohago pyobon-eul deo bwaya hamnida.",
+                "en": "Because the data conflict, we should hold the conclusion and look at more samples."
+              }
+            ],
+            "practice": [
+              {
+                "type": "multiple_choice",
+                "q": "Practice 1: [multiple choice] 상충하는 자료를 다루기 — Choose the meaning of 상충하다 (sangchunghada) in this lesson.",
+                "answer": "to conflict, to clash",
+                "skill_target": "Korean: Hangul, particle system 은/는·이/가·을/를·에/에서, speech levels 해요체 and 합니다체, honorific -(으)시- and 드리다, agglutinative verb endings, counters and 사자성어",
+                "options": [
+                  "to conflict, to clash",
+                  "on the other hand",
+                  "to hold back, to reserve",
+                  "gap, disparity"
+                ]
+              },
+              {
+                "type": "fill_in_the_blank",
+                "q": "Practice 2: [fill in the blank] 상충하는 자료를 다루기 — Type the Korean expression meaning “on the other hand”.",
+                "answer": "반면에",
+                "skill_target": "Korean: Hangul, particle system 은/는·이/가·을/를·에/에서, speech levels 해요체 and 합니다체, honorific -(으)시- and 드리다, agglutinative verb endings, counters and 사자성어"
+              },
+              {
+                "type": "translation",
+                "q": "Practice 3: [translation] 상충하는 자료를 다루기 — Interpret the Hangul in context: 수도권은 늘어난 반면에 지방은 줄었다. (sudogwon-eun neureonan banmyeon-e jibang-eun jureotda.).",
+                "answer": "The capital region rose, while the provinces fell.",
+                "skill_target": "Korean: Hangul, particle system 은/는·이/가·을/를·에/에서, speech levels 해요체 and 합니다체, honorific -(으)시- and 드리다, agglutinative verb endings, counters and 사자성어"
+              },
+              {
+                "type": "reverse_translation",
+                "q": "Practice 4: [reverse translation] 상충하는 자료를 다루기 — Write in Hangul: Meanwhile a different survey produced the opposite result..",
+                "answer": "한편 다른 조사에서는 반대 결과가 나왔다.",
+                "skill_target": "Korean: Hangul, particle system 은/는·이/가·을/를·에/에서, speech levels 해요체 and 합니다체, honorific -(으)시- and 드리다, agglutinative verb endings, counters and 사자성어"
+              },
+              {
+                "type": "matching",
+                "q": "Practice 5: [matching] 상충하는 자료를 다루기 — Match 유보하다 to its lesson meaning.",
+                "answer": "to hold back, to reserve",
+                "skill_target": "Korean: Hangul, particle system 은/는·이/가·을/를·에/에서, speech levels 해요체 and 합니다체, honorific -(으)시- and 드리다, agglutinative verb endings, counters and 사자성어",
+                "options": [
+                  "to hold back, to reserve",
+                  "to conflict, to clash",
+                  "on the other hand"
+                ]
+              },
+              {
+                "type": "reorder",
+                "q": "Practice 6: [reorder] 상충하는 자료를 다루기 — Reconstruct the lesson model in coherent Korean: The data conflict, so the conclusion is held back..",
+                "answer": "자료가 상충하므로 결론을 유보한다.",
+                "skill_target": "Korean: Hangul, particle system 은/는·이/가·을/를·에/에서, speech levels 해요체 and 합니다체, honorific -(으)시- and 드리다, agglutinative verb endings, counters and 사자성어"
+              },
+              {
+                "type": "sentence_building",
+                "q": "Practice 7: [sentence building] 상충하는 자료를 다루기 — Build the sentence with the lesson pattern (수도권은 늘어난 반면에 지방은 줄었다 · 한편 다른 조사에서는 · 다만 결론은 유보한다): The capital region rose, while the provinces fell..",
+                "answer": "수도권은 늘어난 반면에 지방은 줄었다.",
+                "skill_target": "Korean: Hangul, particle system 은/는·이/가·을/를·에/에서, speech levels 해요체 and 합니다체, honorific -(으)시- and 드리다, agglutinative verb endings, counters and 사자성어"
+              },
+              {
+                "type": "word_selection",
+                "q": "Practice 8: [word selection] 상충하는 자료를 다루기 — Select the Korean form for “gap, disparity”.",
+                "answer": "격차",
+                "skill_target": "Korean: Hangul, particle system 은/는·이/가·을/를·에/에서, speech levels 해요체 and 합니다체, honorific -(으)시- and 드리다, agglutinative verb endings, counters and 사자성어",
+                "options": [
+                  "격차",
+                  "근거"
+                ]
+              },
+              {
+                "type": "error_correction",
+                "q": "Practice 9: [error correction] 상충하는 자료를 다루기 — Correct the model the lesson warns about: 자료가 다릅니다. 그리고 결론을 내릴 수 없습니다.",
+                "answer": "자료가 상충하므로 결론을 내리기 어렵습니다.",
+                "skill_target": "Korean: Hangul, particle system 은/는·이/가·을/를·에/에서, speech levels 해요체 and 합니다체, honorific -(으)시- and 드리다, agglutinative verb endings, counters and 사자성어"
+              },
+              {
+                "type": "dialogue_completion",
+                "q": "Practice 10: [dialogue completion] 상충하는 자료를 다루기 — Complete the exchange with the studied response to: Do the two surveys disagree?",
+                "answer": "수도권은 늘어난 반면에 지방은 줄었습니다.",
+                "skill_target": "Korean: Hangul, particle system 은/는·이/가·을/를·에/에서, speech levels 해요체 and 합니다체, honorific -(으)시- and 드리다, agglutinative verb endings, counters and 사자성어"
+              },
+              {
+                "type": "reading_comprehension",
+                "q": "Practice 11: [reading comprehension] 상충하는 자료를 다루기 — Read “그러면 어느 쪽을 믿어야 합니까?” (geureomyeon eoneu jjok-eul mideo-ya hamnikka?). What does it mean?",
+                "answer": "Then which should we believe?",
+                "skill_target": "Korean: Hangul, particle system 은/는·이/가·을/를·에/에서, speech levels 해요체 and 합니다체, honorific -(으)시- and 드리다, agglutinative verb endings, counters and 사자성어"
+              },
+              {
+                "type": "paragraph_comprehension",
+                "q": "Practice 12: [paragraph comprehension] 상충하는 자료를 다루기 — Read the lesson dialogue as a whole and give its key move: Because the data conflict, we should hold the conclusion and look at more samples.",
+                "answer": "자료가 상충하므로 결론을 유보하고 표본을 더 봐야 합니다.",
+                "skill_target": "Korean: Hangul, particle system 은/는·이/가·을/를·에/에서, speech levels 해요체 and 합니다체, honorific -(으)시- and 드리다, agglutinative verb endings, counters and 사자성어"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "Which meaning best fits 상충하다?",
+                "options": [
+                  "to conflict, to clash",
+                  "on the other hand",
+                  "to hold back, to reserve",
+                  "gap, disparity"
+                ],
+                "answer": 0,
+                "why": "상충하다 (sangchunghada) means to conflict, to clash in this lesson."
+              },
+              {
+                "q": "Which meaning best fits 반면에?",
+                "options": [
+                  "on the other hand",
+                  "to conflict, to clash",
+                  "to hold back, to reserve",
+                  "gap, disparity"
+                ],
+                "answer": 0,
+                "why": "반면에 (banmyeon-e) means on the other hand in this lesson."
+              },
+              {
+                "q": "Which meaning best fits 유보하다?",
+                "options": [
+                  "to hold back, to reserve",
+                  "to conflict, to clash",
+                  "on the other hand",
+                  "gap, disparity"
+                ],
+                "answer": 0,
+                "why": "유보하다 (yubohada) means to hold back, to reserve in this lesson."
+              },
+              {
+                "q": "Which meaning best fits 격차?",
+                "options": [
+                  "gap, disparity",
+                  "to conflict, to clash",
+                  "on the other hand",
+                  "to hold back, to reserve"
+                ],
+                "answer": 0,
+                "why": "격차 (gyeokcha) means gap, disparity in this lesson."
+              },
+              {
+                "q": "Which meaning best fits 근거?",
+                "options": [
+                  "evidence, grounds",
+                  "to conflict, to clash",
+                  "on the other hand",
+                  "to hold back, to reserve"
+                ],
+                "answer": 0,
+                "why": "근거 (geun-geo) means evidence, grounds in this lesson."
+              }
+            ],
+            "flashcards": "auto:vocab",
+            "worksheet": {
+              "title": "Conflicting-data worksheet",
+              "tasks": [
+                {
+                  "instruction": "Contrast two results.",
+                  "items": [
+                    "the capital region rose, while the provinces fell",
+                    "the data conflict"
+                  ],
+                  "key": [
+                    "수도권은 늘어난 반면에 지방은 줄었다",
+                    "자료가 서로 상충합니다"
+                  ]
+                },
+                {
+                  "instruction": "State a cautious conclusion.",
+                  "items": [
+                    "the data conflict, so I hold the conclusion",
+                    "a different survey produced the opposite result"
+                  ],
+                  "key": [
+                    "자료가 상충하므로 결론을 유보한다",
+                    "다른 조사에서는 반대 결과가 나왔다"
+                  ]
+                },
+                {
+                  "instruction": "Integrated offline practice: read the first model, transform or extend it in Hangul, then rehearse it as a dialogue. Self-check meaning, grammar, and register.",
+                  "items": [
+                    "수도권은 늘어난 반면에 지방은 줄었다.",
+                    "두 조사의 결과가 다릅니까?"
+                  ],
+                  "key": [
+                    "The capital region rose, while the provinces fell.",
+                    "Do the two surveys disagree?"
+                  ]
+                }
+              ]
+            },
+            "srs_candidates": [
+              "상충하다",
+              "반면에",
+              "유보하다",
+              "격차"
+            ],
+            "srs_policy": "Only these four high-value terms are preselected; lesson mistakes and productive patterns may enter personalized review after an actual error."
           }
         ]
       },
@@ -1312,25 +1890,25 @@
             },
             "dialogue": [
               {
-                "sp": "Analyst",
+                "sp": "분석자",
                 "t": "두 연구를 종합하면 맥락의 차이가 결과의 불일치를 부분적으로 설명한다.",
                 "r": "du yeonguleul jonghabhamyeon maeglag-ui cha-iga gyeolgwa-ui bul-ilchileul bubunjeog-eulo seolmyeonghanda.",
                 "en": "Together the studies show context partly explains divergent results."
               },
               {
-                "sp": "Editor",
+                "sp": "편집자",
                 "t": "자료가 불완전했으므로 위원회는 인과관계가 밝혀질 때까지 결정을 미루었다.",
                 "r": "jalyoga bul-wanjeonhaess-eumeulo wi-wonhoeneun ingwagwangyega balghyeojil ttae-kkaji gyeoljeong-eul milu-eossda.",
                 "en": "The committee deferred its decision until causality was clarified."
               },
               {
-                "sp": "Mediator",
+                "sp": "중재자",
                 "t": "보고서에 따르면 지역별 차이가 남아 있기는 하지만 실행은 개선된 것으로 보인다.",
                 "r": "bogoseo-e ttaleumyeon ji-yeogbyeol cha-iga nam-a issgineun hajiman silhaeng-eun gaeseondoen geos-eulo bo-inda.",
                 "en": "The report suggests implementation improved although regional differences remain."
               },
               {
-                "sp": "Reviewer",
+                "sp": "검토자",
                 "t": "증거가 제한적이라 하더라도 그 결과를 무시하거나 확정적 사실로 제시해서는 안 된다.",
                 "r": "jeunggeoga jehanjeog-ila hadeolado geu gyeolgwaleul musihageona hwagjeongjeog sasillo jesihaeseoneun an doenda.",
                 "en": "Limited evidence should neither be ignored nor presented as final fact."
@@ -1604,25 +2182,25 @@
             },
             "dialogue": [
               {
-                "sp": "Analyst",
+                "sp": "분석자",
                 "t": "자료가 불완전했으므로 위원회는 인과관계가 밝혀질 때까지 결정을 미루었다.",
                 "r": "jalyoga bul-wanjeonhaess-eumeulo wi-wonhoeneun ingwagwangyega balghyeojil ttae-kkaji gyeoljeong-eul milu-eossda.",
                 "en": "The committee deferred its decision until causality was clarified."
               },
               {
-                "sp": "Editor",
+                "sp": "편집자",
                 "t": "보고서에 따르면 지역별 차이가 남아 있기는 하지만 실행은 개선된 것으로 보인다.",
                 "r": "bogoseo-e ttaleumyeon ji-yeogbyeol cha-iga nam-a issgineun hajiman silhaeng-eun gaeseondoen geos-eulo bo-inda.",
                 "en": "The report suggests implementation improved although regional differences remain."
               },
               {
-                "sp": "Mediator",
+                "sp": "중재자",
                 "t": "증거가 제한적이라 하더라도 그 결과를 무시하거나 확정적 사실로 제시해서는 안 된다.",
                 "r": "jeunggeoga jehanjeog-ila hadeolado geu gyeolgwaleul musihageona hwagjeongjeog sasillo jesihaeseoneun an doenda.",
                 "en": "Limited evidence should neither be ignored nor presented as final fact."
               },
               {
-                "sp": "Reviewer",
+                "sp": "검토자",
                 "t": "사회의 변화는 맥락과 방법론을 함께 검토해야 비판적으로 평가할 수 있다.",
                 "r": "sahoe-ui byeonhwaneun maeglaggwa bangbeoblon-eul hamkke geomtohae-ya bipanjeog-eulo pyeonggahal su issda.",
                 "en": "Social change can be evaluated critically only by examining context and method."
@@ -1815,6 +2393,295 @@
                 }
               ]
             }
+          },
+          {
+            "id": "ko-c1-l9",
+            "title": "완곡어와 책임",
+            "learn": "A hedged claim is not a vague one: -ㄴ 것으로 보인다 reports what the evidence shows, -ㄹ 가능성이 있다 measures the chance, and -기 어렵다 refuses a conclusion. Responsibility is named separately with 에게 있다.",
+            "vocab": [
+              {
+                "t": "완곡하다",
+                "r": "wangokhada",
+                "en": "to be indirect, to be softened",
+                "pos": "verb"
+              },
+              {
+                "t": "책임",
+                "r": "chaegim",
+                "en": "responsibility",
+                "pos": "noun"
+              },
+              {
+                "t": "소재",
+                "r": "sojae",
+                "en": "where something lies",
+                "pos": "noun"
+              },
+              {
+                "t": "가능성",
+                "r": "ganeungseong",
+                "en": "possibility",
+                "pos": "noun"
+              },
+              {
+                "t": "-ㄴ 것으로 보이다",
+                "r": "-n geoseuro boida",
+                "en": "it appears that",
+                "pos": "grammar"
+              }
+            ],
+            "grammar": {
+              "title": "Measuring a claim",
+              "pattern": "실패한 것으로 보인다 · 실패했을 가능성이 있다 · 실패했다고 보기 어렵다",
+              "explain": "The three frames weaken a claim in different directions: -ㄴ 것으로 보인다 keeps the evidence in front, -ㄹ 가능성이 있다 keeps a share of doubt, -기 어렵다 refuses agreement. They attach to the modifier form of the verb, and a hedged sentence never ends in a second predicate.",
+              "examples": [
+                {
+                  "t": "정책이 실패한 것으로 보인다.",
+                  "r": "jeongchaek-i silpaehan geoseuro boida.",
+                  "en": "The policy appears to have failed."
+                },
+                {
+                  "t": "효과가 있었을 가능성도 있다.",
+                  "r": "hyogwa-ga isseosseul ganeungseong-do itda.",
+                  "en": "There is also a possibility that it worked."
+                },
+                {
+                  "t": "책임은 담당자에게 있다.",
+                  "r": "chaegim-eun damdangja-ege itda.",
+                  "en": "Responsibility lies with the person in charge."
+                }
+              ],
+              "mistakes": [
+                {
+                  "wrong": "정책이 실패했습니다 것으로 보입니다.",
+                  "right": "정책이 실패한 것으로 보입니다.",
+                  "why": "The hedge takes the modifier form 실패한, not a finished sentence."
+                },
+                {
+                  "wrong": "책임이 있습니다 담당자에게 있습니다.",
+                  "right": "책임은 담당자에게 있습니다.",
+                  "why": "One topic, one predicate — 담당자에게 있습니다 completes the sentence."
+                }
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "기자",
+                "t": "정책이 실패했다고 보십니까?",
+                "r": "jeongchaek-i silpaehaetdago bosimnikka?",
+                "en": "Do you think the policy failed?"
+              },
+              {
+                "sp": "연구자",
+                "t": "실패했다고 보기 어렵습니다. 다만 효과가 제한적이었을 가능성은 있습니다.",
+                "r": "silpaehaetdago bogi eoryeopseumnida. dameot hyogwa-ga jehantjeogieosseul ganeungseong-eun isseumnida.",
+                "en": "It is hard to say it failed. There is, however, a possibility the effect was limited."
+              },
+              {
+                "sp": "기자",
+                "t": "그러면 책임은 어디에 있습니까?",
+                "r": "geureomyeon chaegim-eun eodi-e isseumnikka?",
+                "en": "Then where does responsibility lie?"
+              },
+              {
+                "sp": "연구자",
+                "t": "책임은 집행 담당자에게 있고, 판단은 자료가 쌓인 뒤에 해야 합니다.",
+                "r": "chaegim-eun jiphaeng damdangja-ege itgo, pandan-eun jaryo-ga ssain dwie haeya hamnida.",
+                "en": "Responsibility lies with those who carried it out; judgement should wait until the data accumulate."
+              }
+            ],
+            "practice": [
+              {
+                "type": "multiple_choice",
+                "q": "Practice 1: [multiple choice] 완곡어와 책임 — Choose the meaning of 완곡하다 (wangokhada) in this lesson.",
+                "answer": "to be indirect, to be softened",
+                "skill_target": "Korean: Hangul, particle system 은/는·이/가·을/를·에/에서, speech levels 해요체 and 합니다체, honorific -(으)시- and 드리다, agglutinative verb endings, counters and 사자성어",
+                "options": [
+                  "to be indirect, to be softened",
+                  "responsibility",
+                  "where something lies",
+                  "possibility"
+                ]
+              },
+              {
+                "type": "fill_in_the_blank",
+                "q": "Practice 2: [fill in the blank] 완곡어와 책임 — Type the Korean expression meaning “responsibility”.",
+                "answer": "책임",
+                "skill_target": "Korean: Hangul, particle system 은/는·이/가·을/를·에/에서, speech levels 해요체 and 합니다체, honorific -(으)시- and 드리다, agglutinative verb endings, counters and 사자성어"
+              },
+              {
+                "type": "translation",
+                "q": "Practice 3: [translation] 완곡어와 책임 — Interpret the Hangul in context: 정책이 실패한 것으로 보인다. (jeongchaek-i silpaehan geoseuro boida.).",
+                "answer": "The policy appears to have failed.",
+                "skill_target": "Korean: Hangul, particle system 은/는·이/가·을/를·에/에서, speech levels 해요체 and 합니다체, honorific -(으)시- and 드리다, agglutinative verb endings, counters and 사자성어"
+              },
+              {
+                "type": "reverse_translation",
+                "q": "Practice 4: [reverse translation] 완곡어와 책임 — Write in Hangul: There is also a possibility that it worked..",
+                "answer": "효과가 있었을 가능성도 있다.",
+                "skill_target": "Korean: Hangul, particle system 은/는·이/가·을/를·에/에서, speech levels 해요체 and 합니다체, honorific -(으)시- and 드리다, agglutinative verb endings, counters and 사자성어"
+              },
+              {
+                "type": "matching",
+                "q": "Practice 5: [matching] 완곡어와 책임 — Match 소재 to its lesson meaning.",
+                "answer": "where something lies",
+                "skill_target": "Korean: Hangul, particle system 은/는·이/가·을/를·에/에서, speech levels 해요체 and 합니다체, honorific -(으)시- and 드리다, agglutinative verb endings, counters and 사자성어",
+                "options": [
+                  "where something lies",
+                  "to be indirect, to be softened",
+                  "responsibility"
+                ]
+              },
+              {
+                "type": "reorder",
+                "q": "Practice 6: [reorder] 완곡어와 책임 — Reconstruct the lesson model in coherent Korean: Responsibility lies with the person in charge..",
+                "answer": "책임은 담당자에게 있다.",
+                "skill_target": "Korean: Hangul, particle system 은/는·이/가·을/를·에/에서, speech levels 해요체 and 합니다체, honorific -(으)시- and 드리다, agglutinative verb endings, counters and 사자성어"
+              },
+              {
+                "type": "sentence_building",
+                "q": "Practice 7: [sentence building] 완곡어와 책임 — Build the sentence with the lesson pattern (실패한 것으로 보인다 · 실패했을 가능성이 있다 · 실패했다고 보기 어렵다): The policy appears to have failed..",
+                "answer": "정책이 실패한 것으로 보인다.",
+                "skill_target": "Korean: Hangul, particle system 은/는·이/가·을/를·에/에서, speech levels 해요체 and 합니다체, honorific -(으)시- and 드리다, agglutinative verb endings, counters and 사자성어"
+              },
+              {
+                "type": "word_selection",
+                "q": "Practice 8: [word selection] 완곡어와 책임 — Select the Korean form for “possibility”.",
+                "answer": "가능성",
+                "skill_target": "Korean: Hangul, particle system 은/는·이/가·을/를·에/에서, speech levels 해요체 and 합니다체, honorific -(으)시- and 드리다, agglutinative verb endings, counters and 사자성어",
+                "options": [
+                  "가능성",
+                  "-ㄴ 것으로 보이다"
+                ]
+              },
+              {
+                "type": "error_correction",
+                "q": "Practice 9: [error correction] 완곡어와 책임 — Correct the model the lesson warns about: 정책이 실패했습니다 것으로 보입니다.",
+                "answer": "정책이 실패한 것으로 보입니다.",
+                "skill_target": "Korean: Hangul, particle system 은/는·이/가·을/를·에/에서, speech levels 해요체 and 합니다체, honorific -(으)시- and 드리다, agglutinative verb endings, counters and 사자성어"
+              },
+              {
+                "type": "dialogue_completion",
+                "q": "Practice 10: [dialogue completion] 완곡어와 책임 — Complete the exchange with the studied response to: Do you think the policy failed?",
+                "answer": "실패했다고 보기 어렵습니다. 다만 효과가 제한적이었을 가능성은 있습니다.",
+                "skill_target": "Korean: Hangul, particle system 은/는·이/가·을/를·에/에서, speech levels 해요체 and 합니다체, honorific -(으)시- and 드리다, agglutinative verb endings, counters and 사자성어"
+              },
+              {
+                "type": "reading_comprehension",
+                "q": "Practice 11: [reading comprehension] 완곡어와 책임 — Read “그러면 책임은 어디에 있습니까?” (geureomyeon chaegim-eun eodi-e isseumnikka?). What does it mean?",
+                "answer": "Then where does responsibility lie?",
+                "skill_target": "Korean: Hangul, particle system 은/는·이/가·을/를·에/에서, speech levels 해요체 and 합니다체, honorific -(으)시- and 드리다, agglutinative verb endings, counters and 사자성어"
+              },
+              {
+                "type": "paragraph_comprehension",
+                "q": "Practice 12: [paragraph comprehension] 완곡어와 책임 — Read the lesson dialogue as a whole and give its key move: Responsibility lies with those who carried it out; judgement should wait until the data accumulate.",
+                "answer": "책임은 집행 담당자에게 있고, 판단은 자료가 쌓인 뒤에 해야 합니다.",
+                "skill_target": "Korean: Hangul, particle system 은/는·이/가·을/를·에/에서, speech levels 해요체 and 합니다체, honorific -(으)시- and 드리다, agglutinative verb endings, counters and 사자성어"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "Which meaning best fits 완곡하다?",
+                "options": [
+                  "to be indirect, to be softened",
+                  "responsibility",
+                  "where something lies",
+                  "possibility"
+                ],
+                "answer": 0,
+                "why": "완곡하다 (wangokhada) means to be indirect, to be softened in this lesson."
+              },
+              {
+                "q": "Which meaning best fits 책임?",
+                "options": [
+                  "responsibility",
+                  "to be indirect, to be softened",
+                  "where something lies",
+                  "possibility"
+                ],
+                "answer": 0,
+                "why": "책임 (chaegim) means responsibility in this lesson."
+              },
+              {
+                "q": "Which meaning best fits 소재?",
+                "options": [
+                  "where something lies",
+                  "to be indirect, to be softened",
+                  "responsibility",
+                  "possibility"
+                ],
+                "answer": 0,
+                "why": "소재 (sojae) means where something lies in this lesson."
+              },
+              {
+                "q": "Which meaning best fits 가능성?",
+                "options": [
+                  "possibility",
+                  "to be indirect, to be softened",
+                  "responsibility",
+                  "where something lies"
+                ],
+                "answer": 0,
+                "why": "가능성 (ganeungseong) means possibility in this lesson."
+              },
+              {
+                "q": "Which meaning best fits -ㄴ 것으로 보이다?",
+                "options": [
+                  "it appears that",
+                  "to be indirect, to be softened",
+                  "responsibility",
+                  "where something lies"
+                ],
+                "answer": 0,
+                "why": "-ㄴ 것으로 보이다 (-n geoseuro boida) means it appears that in this lesson."
+              }
+            ],
+            "flashcards": "auto:vocab",
+            "worksheet": {
+              "title": "Hedging worksheet",
+              "tasks": [
+                {
+                  "instruction": "Soften a claim.",
+                  "items": [
+                    "the policy appears to have failed",
+                    "there is a possibility that it worked"
+                  ],
+                  "key": [
+                    "정책이 실패한 것으로 보인다",
+                    "효과가 있었을 가능성이 있다"
+                  ]
+                },
+                {
+                  "instruction": "Place responsibility.",
+                  "items": [
+                    "responsibility lies with the person in charge",
+                    "it is hard to conclude yet"
+                  ],
+                  "key": [
+                    "책임은 담당자에게 있습니다",
+                    "결론을 내리기 어렵습니다"
+                  ]
+                },
+                {
+                  "instruction": "Integrated offline practice: read the first model, transform or extend it in Hangul, then rehearse it as a dialogue. Self-check meaning, grammar, and register.",
+                  "items": [
+                    "정책이 실패한 것으로 보인다.",
+                    "정책이 실패했다고 보십니까?"
+                  ],
+                  "key": [
+                    "The policy appears to have failed.",
+                    "Do you think the policy failed?"
+                  ]
+                }
+              ]
+            },
+            "srs_candidates": [
+              "완곡하다",
+              "책임",
+              "소재",
+              "가능성"
+            ],
+            "srs_policy": "Only these four high-value terms are preselected; lesson mistakes and productive patterns may enter personalized review after an actual error."
           }
         ]
       }
@@ -1873,6 +2740,95 @@
           "answer": "六課の日本語表現を用い、証拠、含意、結束性、読み手への配慮を説明する。"
         }
       ]
+    },
+    "extra": {
+      "culture": {
+        "text": "Korean newspaper prose runs on a register of its own. Headlines drop particles and end in nouns; the body uses -했다 for what happened and -했다고 for what somebody said, so that every claim arrives with its source attached. Quotation is therefore not decoration but grammar: -다고 하다 turns a sentence into reported speech, and a writer who drops it is claiming the statement rather than attributing it. Mediation between two sides is done in the same spirit, with different endings for each side's position.",
+        "source_url": "https://en.wikipedia.org/wiki/Korean_grammar"
+      },
+      "reading": {
+        "text": "보고서에 따르면 올해 상반기 수출은 지난해 같은 기간보다 늘었지만 지역별 격차가 확대된 것으로 나타났다. 특히 수도권의 증가율이 두 자릿수를 기록한 반면 지방은 한 자릿수에 머물렀다. 전문가들은 환율과 물류비가 주요 변수라고 지적했다. 한 연구자는 이 흐름이 일시적일 수 있다고 보았고, 다른 연구자는 구조적 변화라고 반박했다. 두 주장 모두 근거를 갖추고 있으나 아직 결론을 내리기에는 이르다.",
+        "gloss": "According to the report, exports in the first half of this year rose against the same period last year, but the gap between regions widened. The capital region recorded double-digit growth, while the provinces stayed in single digits. Experts pointed to the exchange rate and logistics costs as the main variables. One researcher held that the trend may be temporary, and another countered that it is a structural change. Both claims carry evidence, but it is too early to conclude.",
+        "original": true
+      },
+      "listening": {
+        "script": "기자: 발표 내용을 조금 더 구체적으로 설명해 주시겠습니까?<br>연구자: 수출 증가는 사실이지만 원인은 아직 단정하기 어렵습니다.<br>기자: 그러면 정책 효과는 없었다고 보십니까?<br>연구자: 그렇게 말씀드리지는 않겠습니다. 다만 근거가 더 필요하다는 것입니다.<br>기자: 알겠습니다. 한계를 명시해서 보도하겠습니다.",
+        "gloss": "Reporter: Could you explain the announcement in more detail? Researcher: The rise in exports is a fact, but the cause cannot yet be pinned down. Reporter: Then do you think the policy had no effect? Researcher: I would not put it that way. I am saying we need more evidence. Reporter: Understood — I will report it with the limits stated.",
+        "voice_tag": "ko-KR"
+      },
+      "idioms": [
+        {
+          "t": "설상가상",
+          "literal": "on top of the snow, more snow",
+          "meaning": "to make matters worse"
+        },
+        {
+          "t": "금상첨화",
+          "literal": "flowers added to brocade",
+          "meaning": "something good on top of something already good"
+        },
+        {
+          "t": "사면초가",
+          "literal": "enemies on all four sides",
+          "meaning": "besieged with no way out"
+        },
+        {
+          "t": "오리무중",
+          "literal": "five li deep in fog",
+          "meaning": "completely unclear"
+        },
+        {
+          "t": "반신반의",
+          "literal": "half believe, half doubt",
+          "meaning": "to be half convinced"
+        },
+        {
+          "t": "자충수",
+          "literal": "a move that checkmates yourself",
+          "meaning": "a self-defeating move"
+        },
+        {
+          "t": "뜨거운 감자",
+          "literal": "a hot potato",
+          "meaning": "a topic nobody wants to hold"
+        },
+        {
+          "t": "이견을 보이다",
+          "literal": "to show a different view",
+          "meaning": "to disagree publicly"
+        },
+        {
+          "t": "선례를 남기다",
+          "literal": "to leave a precedent",
+          "meaning": "to set a precedent"
+        },
+        {
+          "t": "결론을 유보하다",
+          "literal": "to hold the conclusion back",
+          "meaning": "to reserve judgement"
+        }
+      ],
+      "mistakes": [
+        {
+          "wrong": "보고서는 수출이 늘었다고 말했다 늘어났다.",
+          "right": "보고서는 수출이 늘었다고 말했다.",
+          "why": "In reported speech the quoted clause already carries its ending; do not restate it."
+        },
+        {
+          "wrong": "정책 효과가 없었다고 보입니다.",
+          "right": "정책 효과가 없었다고 봅니다.",
+          "why": "The reporting verb is the writer's: 봅니다, not the passive 보입니다."
+        },
+        {
+          "wrong": "지역 격차가 확대되었다는 점을 지적했다고 밝혔다.",
+          "right": "지역 격차가 확대되었다는 점을 지적했다.",
+          "why": "One attribution per sentence — -다고 밝히다 cannot be stacked on 지적하다."
+        }
+      ],
+      "task": {
+        "title": "Report an argument without taking it",
+        "instructions": "Take a real news claim and write four sentences of Korean report: the claim with -다고 하다, the evidence it rests on, the strongest counter-argument, and one sentence that states plainly what remains unresolved. Use 보도체 endings and no first-person opinion."
+      }
     }
   }
 }

@@ -106,25 +106,25 @@
             },
             "dialogue": [
               {
-                "sp": "Translator",
+                "sp": "अनुवादक",
                 "t": "“उसने फिर शिकायत की” में कौन-सी पूर्वधारणा है?",
                 "r": "“usne phir śikāyat kī” mẽ kaun-sī pūrvadhāraṇā hai?",
                 "en": "What presupposition occurs in “She complained again”?"
               },
               {
-                "sp": "Editor",
+                "sp": "संपादक",
                 "t": "कि वह पहले भी शिकायत कर चुकी थी; यह नया दावा नहीं, पृष्ठभूमि की तरह रखा गया है।",
                 "r": "ki vah pahle bhī śikāyat kar cukī thī; yah nayā dāvā nahī̃, pṛṣṭhabhūmi kī tarah rakhā gayā hai.",
                 "en": "That she had complained before; it is presented as background, not the new claim."
               },
               {
-                "sp": "Translator",
+                "sp": "अनुवादक",
                 "t": "और “समिति ने ही” का निहितार्थ?",
                 "r": "aur “samiti ne hī” kā nihitārth?",
                 "en": "And the implication of “the committee itself”?"
               },
               {
-                "sp": "Editor",
+                "sp": "संपादक",
                 "t": "प्रासंगिक अन्य पक्षों ने निर्णय नहीं लिया—यही विरोधी विकल्प हटाया गया है।",
                 "r": "prāsaṅgik anya pakṣõ ne nirṇay nahī̃ liyā—yahī virodhī vikalp haṭāyā gayā hai.",
                 "en": "Other relevant parties did not decide—the contrasting alternatives are excluded."
@@ -416,25 +416,25 @@
             },
             "dialogue": [
               {
-                "sp": "Speaker",
+                "sp": "वक्ता",
                 "t": "प्रस्तुति की शुरुआत निष्कर्ष से करूँ या पृष्ठभूमि से?",
                 "r": "prastuti kī śuruāt niṣkarṣ se karū̃ yā pṛṣṭhabhūmi se?",
                 "en": "Should I begin the presentation with the conclusion or background?"
               },
               {
-                "sp": "Coach",
+                "sp": "प्रशिक्षक",
                 "t": "श्रोताओं को जितनी पृष्ठभूमि चाहिए उतनी दें, फिर नई बात पर प्रमुखता रखें।",
                 "r": "śrotāõ ko jitnī pṛṣṭhabhūmi cāhie utnī dẽ, phir naī bāt par pramukhtā rakhẽ.",
                 "en": "Give listeners as much background as they need, then emphasize the new information."
               },
               {
-                "sp": "Speaker",
+                "sp": "वक्ता",
                 "t": "“लागत तो घटी” से क्या प्रभाव पड़ेगा?",
                 "r": "“lāgat to ghaṭī” se kyā prabhāv paṛegā?",
                 "en": "What effect will “costs did fall” have?"
               },
               {
-                "sp": "Coach",
+                "sp": "प्रशिक्षक",
                 "t": "आप उस लाभ को स्वीकार करके उसके बाद की सीमा को अधिक प्रभावी बनाते हैं।",
                 "r": "āp us lābh ko svīkār karke uske bād kī sīmā ko adhik prabhāvī banāte haĩ.",
                 "en": "You concede that benefit and make the following limitation more effective."
@@ -641,6 +641,323 @@
               "वास्तव में"
             ],
             "srs_policy": "Only these four high-value terms are preselected; lesson mistakes and productive patterns may enter personalized review after an actual error."
+          },
+          {
+            "id": "C2-U1-L3",
+            "title": "निहितार्थ और पूर्वधारणा — what a sentence takes for granted",
+            "learn": "At C2 the work moves from what a sentence says to what it assumes. A पूर्वधारणा (presupposition) survives negation — ‘तुमने पढ़ना बंद क्यों किया?’ still assumes you were reading — while a निहितार्थ (implicature) can be cancelled without contradiction: ‘कुछ छात्र आए, वैसे सब नहीं आए।’ Learning to test which is which is how you stop being argued with sideways.",
+            "vocab": [
+              {
+                "t": "निहितार्थ",
+                "r": "nihitārth",
+                "en": "implicature, implied meaning",
+                "pos": "noun"
+              },
+              {
+                "t": "पूर्वधारणा",
+                "r": "pūrvadhāraṇā",
+                "en": "presupposition",
+                "pos": "noun"
+              },
+              {
+                "t": "अभिकथन",
+                "r": "abhikathan",
+                "en": "assertion, what is stated",
+                "pos": "noun"
+              },
+              {
+                "t": "निषेध",
+                "r": "niṣedh",
+                "en": "negation",
+                "pos": "noun"
+              },
+              {
+                "t": "संदेहास्पद",
+                "r": "saṅdehāspad",
+                "en": "dubious, questionable",
+                "pos": "adjective"
+              },
+              {
+                "t": "बलाघात",
+                "r": "balāghāt",
+                "en": "emphasis, stress",
+                "pos": "noun"
+              },
+              {
+                "t": "निगमन",
+                "r": "nigaman",
+                "en": "inference, deduction",
+                "pos": "noun"
+              },
+              {
+                "t": "स्पष्टतः",
+                "r": "spaṣṭataḥ",
+                "en": "explicitly, clearly",
+                "pos": "adverb"
+              }
+            ],
+            "grammar": {
+              "title": "परीक्षण: निषेध और रद्दीकरण",
+              "explain": "Two tests separate the layers. Presupposition test: negate the sentence and see what survives — ‘वह पढ़ना बंद नहीं कर रहा’ still assumes he was reading, so ‘he was reading’ is a presupposition, not an assertion. Implicature test: add a cancellation — ‘कुछ छात्र आए, वैसे सब नहीं आए’ is not contradictory, so ‘not all came’ was only an implicature. In argument, पूर्वधारणा is what you may challenge and निगमन is what you may only call valid or invalid.",
+              "pattern": "यह कहा गया कि… · यह मान लिया गया कि… (presupposition) · इससे यह निकलता है कि… (inference)",
+              "examples": [
+                {
+                  "t": "प्रश्न यह मान लेता है कि समय पर्याप्त था — यही उसकी पूर्वधारणा है।",
+                  "r": "praśn yah mān letā hai ki samay paryāpt thā — yahī uskī pūrvadhāraṇā hai.",
+                  "en": "The question assumes there was enough time — that is its presupposition."
+                },
+                {
+                  "t": "उसने कहा कि कुछ रिपोर्टें देर से आईं, पर यह नहीं कहा कि सब देर से आईं।",
+                  "r": "usne kahā ki kuch riporṭeṅ der se āīṅ, par yah nahī̃ kahā ki sab der se āīṅ.",
+                  "en": "He said some reports arrived late, but did not say all did."
+                },
+                {
+                  "t": "यदि आधार सही हैं, तो निगमन वैध है; यह अलग प्रश्न है कि निष्कर्ष सत्य है या नहीं।",
+                  "r": "yadi ādhār sahī hain, to nigaman vaidh hai; yah alag praśn hai ki niṣkarṣ satya hai yā nahī̃.",
+                  "en": "If the premises are correct the inference is valid; whether the conclusion is true is another question."
+                }
+              ],
+              "mistakes": [
+                "Treating a challengeable presupposition as an established fact: ‘आपने जो गलती की…’ presumes the fault before it is shown.",
+                "Reading ‘कुछ’ as ‘सब’ — the classic implicature slip in both directions of an argument."
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "समीक्षक",
+                "t": "आपके प्रश्न में ही यह मान लिया गया है कि दोष किसी एक पक्ष का है।",
+                "r": "āpke praśn meṅ hī yah mān liyā gayā hai ki doṣ kisī ek pakṣ kā hai.",
+                "en": "Your very question assumes the fault lies with one side."
+              },
+              {
+                "sp": "लेखक",
+                "t": "सही पकड़ा। तो पहले पूर्वधारणा को अलग करते हैं।",
+                "r": "sahī pakaṛā. to pahle pūrvadhāraṇā ko alag karte haiṅ.",
+                "en": "Well caught. Then let us separate the presupposition first."
+              },
+              {
+                "sp": "समीक्षक",
+                "t": "और ‘कुछ’ से ‘सब’ निकालना भी उचित नहीं।",
+                "r": "aur ‘kuch’ se ‘sab’ nikālnā bhī ucit nahī̃.",
+                "en": "And drawing ‘all’ out of ‘some’ is not fair either."
+              },
+              {
+                "sp": "लेखक",
+                "t": "मानता हूँ — निहितार्थ रद्द किया जा सकता है, पूर्वधारणा नहीं।",
+                "r": "māntā hū̃ — nihitārth radd kiyā jā saktā hai, pūrvadhāraṇā nahī̃.",
+                "en": "I accept — an implicature can be cancelled, a presupposition cannot."
+              }
+            ],
+            "practice": [
+              {
+                "type": "multiple_choice",
+                "q": "Which survives negation, and is therefore a presupposition?",
+                "answer": "‘उसने पढ़ना बंद कर दिया’ → वह पहले पढ़ता था।",
+                "skill_target": "multiple choice",
+                "options": [
+                  "‘उसने पढ़ना बंद कर दिया’ → वह पहले पढ़ता था।",
+                  "‘कुछ आए’ → सब नहीं आए।",
+                  "‘वह थका है’ → उसे आराम चाहिए।",
+                  "‘महँगा है’ → ख़रीदना कठिन है।"
+                ]
+              },
+              {
+                "type": "fill_in_the_blank",
+                "q": "प्रश्न यह ____ लेता है कि समय पर्याप्त था। (assumes)",
+                "answer": "मान",
+                "skill_target": "fill in the blank"
+              },
+              {
+                "type": "translation",
+                "q": "He said some reports arrived late, but did not say all did.",
+                "answer": "उसने कहा कि कुछ रिपोर्टें देर से आईं, पर यह नहीं कहा कि सब देर से आईं।",
+                "skill_target": "translation"
+              },
+              {
+                "type": "reverse_translation",
+                "q": "निहितार्थ रद्द किया जा सकता है, पूर्वधारणा नहीं।",
+                "answer": "An implicature can be cancelled, a presupposition cannot.",
+                "skill_target": "reverse translation"
+              },
+              {
+                "type": "word_selection",
+                "q": "Which term means a questionable assumption built into the wording?",
+                "answer": "पूर्वधारणा",
+                "skill_target": "word selection",
+                "options": [
+                  "पूर्वधारणा",
+                  "निहितार्थ",
+                  "अभिकथन",
+                  "निगमन"
+                ]
+              },
+              {
+                "type": "matching",
+                "q": "Match each layer with its test.",
+                "answer": "पूर्वधारणा = survives negation",
+                "skill_target": "matching",
+                "options": [
+                  "अभिकथन = what is directly said",
+                  "निहितार्थ = can be cancelled",
+                  "पूर्वधारणा = survives negation",
+                  "निगमन = valid or invalid"
+                ]
+              },
+              {
+                "type": "reorder",
+                "q": "Put these in order: मान लिया गया · यह · कि · है",
+                "answer": "यह मान लिया गया है कि…",
+                "skill_target": "reorder"
+              },
+              {
+                "type": "sentence_building",
+                "q": "Build the challenge: ‘The question assumes the fault is already established.’",
+                "answer": "यह प्रश्न मान लेता है कि दोष पहले से सिद्ध है।",
+                "skill_target": "sentence building"
+              },
+              {
+                "type": "error_correction",
+                "q": "Find the over-reading: उसने कहा कि कुछ रिपोर्टें देर से आईं, इसलिए सब देर से आईं।",
+                "answer": "उसने कहा कि कुछ रिपोर्टें देर से आईं, पर सबके बारे में कुछ नहीं कहा।",
+                "skill_target": "error correction"
+              },
+              {
+                "type": "dialogue_completion",
+                "q": "— तो पहले क्या अलग करें? — ____ (First separate the presupposition.)",
+                "answer": "पहले पूर्वधारणा को अलग करते हैं।",
+                "skill_target": "dialogue completion"
+              },
+              {
+                "type": "paraphrase",
+                "q": "Rewrite so that no presupposition remains.",
+                "answer": "आपने जो गलती की, उसका कारण क्या था? → क्या आपको लगता है कि कोई गलती हुई? यदि हाँ, तो उसका कारण क्या था?",
+                "skill_target": "paraphrase"
+              },
+              {
+                "type": "argument_construction",
+                "q": "Write a four-sentence passage: assertion, presupposition, implicature, explicit qualification.",
+                "answer": "रिपोर्ट देर से आई। यह मान लिया गया कि विभाग लापरवाह है। इसमें यह भी सुनाई देता है कि सब विभाग ऐसे हैं। परंतु यह स्पष्टतः नहीं कहा गया।",
+                "skill_target": "argument construction"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "A presupposition is what…",
+                "options": [
+                  "can be cancelled",
+                  "survives negation",
+                  "is stated directly",
+                  "follows necessarily"
+                ],
+                "answer": 1,
+                "why": "Negation leaves it standing."
+              },
+              {
+                "q": "‘कुछ छात्र आए, वैसे सब नहीं आए’ is acceptable because…",
+                "options": [
+                  "it contradicts itself",
+                  "the implicature is cancelled",
+                  "it is a presupposition",
+                  "it is formal"
+                ],
+                "answer": 1,
+                "why": "Cancellation shows ‘not all’ was never asserted."
+              },
+              {
+                "q": "निगमन is assessed as…",
+                "options": [
+                  "true or false",
+                  "valid or invalid",
+                  "polite or rude",
+                  "clear or vague"
+                ],
+                "answer": 1,
+                "why": "Logic concerns the link between premises and conclusion."
+              },
+              {
+                "q": "‘आपने जो गलती की, उसका कारण क्या था?’ contains…",
+                "options": [
+                  "a presupposition",
+                  "a concessive",
+                  "a citation",
+                  "an imperative"
+                ],
+                "answer": 0,
+                "why": "The fault is assumed before it is established."
+              },
+              {
+                "q": "Which sentence states the inference rather than the input?",
+                "options": [
+                  "आधार सही हैं।",
+                  "इससे यह निकलता है कि निष्कर्ष वैध है।",
+                  "रिपोर्ट देर से आई।",
+                  "यह मान लिया गया।"
+                ],
+                "answer": 1,
+                "why": "It marks the movement from premises to conclusion."
+              }
+            ],
+            "flashcards": "auto:vocab",
+            "srs_candidates": [
+              "पूर्वधारणा",
+              "निहितार्थ",
+              "निगमन",
+              "मान लिया गया"
+            ],
+            "srs_policy": "Only these four high-value terms are preselected; lesson mistakes and productive patterns may enter personalized review after an actual error.",
+            "worksheet": {
+              "title": "Testing the layers",
+              "tasks": [
+                {
+                  "instruction": "Write the Hindi term for each layer.",
+                  "items": [
+                    "assertion",
+                    "implicature",
+                    "presupposition",
+                    "inference"
+                  ],
+                  "key": [
+                    "अभिकथन",
+                    "निहितार्थ",
+                    "पूर्वधारणा",
+                    "निगमन"
+                  ]
+                },
+                {
+                  "instruction": "Name the presupposition in each question.",
+                  "items": [
+                    "तुमने पढ़ना बंद क्यों किया?",
+                    "आपने वह फ़ाइल क्यों मिटा दी?"
+                  ],
+                  "key": [
+                    "वह पहले पढ़ता था।",
+                    "फ़ाइल मौजूद थी और वही व्यक्ति उसे मिटाने वाला है।"
+                  ]
+                },
+                {
+                  "instruction": "Cancel the implicature in each line.",
+                  "items": [
+                    "कुछ रिपोर्टें देर से आईं।",
+                    "कई लोग सहमत हैं।"
+                  ],
+                  "key": [
+                    "कुछ रिपोर्टें देर से आईं, पर सब नहीं।",
+                    "कई लोग सहमत हैं, पर सब नहीं।"
+                  ]
+                },
+                {
+                  "instruction": "Write a four-line correction: name the assumption, then restate the claim without it.",
+                  "items": [
+                    "assumption",
+                    "restatement"
+                  ],
+                  "key": [
+                    "आपके प्रश्न में यह मान लिया गया है कि दोष किसी एक पक्ष का है।",
+                    "इसलिए पहले यह पूछना उचित होगा कि दोष सिद्ध हुआ है या नहीं।"
+                  ]
+                }
+              ]
+            }
           }
         ]
       },
@@ -729,25 +1046,25 @@
             },
             "dialogue": [
               {
-                "sp": "Editor",
+                "sp": "संपादक",
                 "t": "लेख कहता है कि विरोधियों को समस्या समझ ही नहीं आई।",
                 "r": "lekh kahtā hai ki virodhiyõ ko samasyā samajh hī nahī̃ āī.",
                 "en": "The article says opponents simply failed to understand the problem."
               },
               {
-                "sp": "Writer",
+                "sp": "लेखक",
                 "t": "यह उनके तर्क का अनुचित सरलीकरण है। मैं उनकी सबसे मजबूत आपत्ति रखूँगा।",
                 "r": "yah unke tark kā anucit saralīkaraṇ hai. maĩ unkī sabse mazbūt āpatti rakhū̃gā.",
                 "en": "That unfairly simplifies their argument. I will present their strongest objection."
               },
               {
-                "sp": "Editor",
+                "sp": "संपादक",
                 "t": "फिर निष्कर्ष कैसे बचाएँगे?",
                 "r": "phir niṣkarṣ kaise bacāẽge?",
                 "en": "Then how will you defend the conclusion?"
               },
               {
-                "sp": "Writer",
+                "sp": "लेखक",
                 "t": "आपत्ति की मान्य सीमा स्वीकार करूँगा, फिर सप्रमाण उत्तर और सीमित अनुशंसा दूँगा।",
                 "r": "āpatti kī mānya sīmā svīkār karū̃gā, phir sapramāṇ uttar aur sīmit anuśaṃsā dū̃gā.",
                 "en": "I will accept its valid limit, then provide an evidence-based answer and a limited recommendation."
@@ -1023,25 +1340,25 @@
             },
             "dialogue": [
               {
-                "sp": "Reviewer",
+                "sp": "समीक्षक",
                 "t": "आपने दोनों अध्ययनों को एक ही निष्कर्ष का समर्थन करने वाला बताया है।",
                 "r": "āpne donõ adhyayanõ ko ek hī niṣkarṣ kā samarthan karne vālā batāyā hai.",
                 "en": "You said both studies support the same conclusion."
               },
               {
-                "sp": "Author",
+                "sp": "लेखक",
                 "t": "यह ठीक नहीं; दूसरे अध्ययन में प्रभाव केवल छोटे संस्थानों में मिला।",
                 "r": "yah ṭhīk nahī̃; dūsre adhyayan mẽ prabhāv keval choṭe saṃsthānõ mẽ milā.",
                 "en": "That is inaccurate; the second study found the effect only in small institutions."
               },
               {
-                "sp": "Reviewer",
+                "sp": "समीक्षक",
                 "t": "तो पुनःसूत्रण में क्या बदलेंगे?",
                 "r": "to punaḥsūtraṇ mẽ kyā badlẽge?",
                 "en": "What will you change in the reformulation?"
               },
               {
-                "sp": "Author",
+                "sp": "लेखक",
                 "t": "साझा दिशा बताऊँगा, पर आबादी, पद्धति और निश्चितता का अंतर सुरक्षित रखूँगा।",
                 "r": "sājhā diśā batāū̃gā, par ābādī, paddhati aur niścittā kā antar surakṣit rakhū̃gā.",
                 "en": "I will state the shared direction but preserve differences in population, method, and certainty."
@@ -1251,6 +1568,327 @@
               "अपवादतः"
             ],
             "srs_policy": "Only these four high-value terms are preselected; lesson mistakes and productive patterns may enter personalized review after an actual error."
+          },
+          {
+            "id": "C2-U2-L3",
+            "title": "उद्धरण और पुनर्कथन — keeping sources honest",
+            "learn": "When several sources disagree, the C2 skill is not choosing a winner but keeping each voice audible: आधार (the basis of a claim), दृष्टिकोण (standpoint), भिन्नता (the difference), समर्थन (support), उद्धरण (quotation). A faithful synthesis lets you say what each source claimed, on what basis, and how sure it was — without flattening them into one voice.",
+            "vocab": [
+              {
+                "t": "उद्धरण",
+                "r": "uddharaṇ",
+                "en": "quotation, citation",
+                "pos": "noun"
+              },
+              {
+                "t": "संदर्भ",
+                "r": "sandarbh",
+                "en": "reference, context",
+                "pos": "noun"
+              },
+              {
+                "t": "आधार",
+                "r": "ādhār",
+                "en": "basis, grounds",
+                "pos": "noun"
+              },
+              {
+                "t": "दृष्टिकोण",
+                "r": "dṛṣṭikoṇ",
+                "en": "standpoint, perspective",
+                "pos": "noun"
+              },
+              {
+                "t": "भिन्नता",
+                "r": "bhinnatā",
+                "en": "difference, divergence",
+                "pos": "noun"
+              },
+              {
+                "t": "समर्थन",
+                "r": "samarthan",
+                "en": "support, endorsement",
+                "pos": "noun"
+              },
+              {
+                "t": "असंगति",
+                "r": "asaṅgati",
+                "en": "inconsistency",
+                "pos": "noun"
+              },
+              {
+                "t": "अप्रमाणित",
+                "r": "apramāṇit",
+                "en": "unverified, unattested",
+                "pos": "adjective"
+              }
+            ],
+            "grammar": {
+              "title": "स्रोत-सूचना: किसने, किस आधार पर, कितने निश्चय से",
+              "explain": "Reported scholarship carries three pieces of information at once — the source, the basis and the degree of certainty: मिश्रा के अनुसार (according to Mishra), आँकड़ों के आधार पर (on the basis of data), सुझाव देते हैं (they suggest) versus सिद्ध करते हैं (they demonstrate). असंगति between sources is named, not hidden: दोनों के निष्कर्ष भिन्न हैं क्योंकि आधार भिन्न है.",
+              "pattern": "… के अनुसार · आँकड़ों के आधार पर · सुझाव देते हैं / सिद्ध करते हैं · भिन्नता यह है कि…",
+              "examples": [
+                {
+                  "t": "मिश्रा के अनुसार नमूना छोटा था, इसलिए वे केवल सुझाव देते हैं।",
+                  "r": "miśrā ke anusār namūnā choṭā thā, isliye ve keval sujhāv dete haiṅ.",
+                  "en": "According to Mishra the sample was small, so they only suggest."
+                },
+                {
+                  "t": "आँकड़ों के आधार पर दोनों अध्ययन भिन्न निष्कर्ष निकालते हैं।",
+                  "r": "ā̃kṛõ ke ādhār par donõ adhyayan bhinn niṣkarṣ nikālte haiṅ.",
+                  "en": "On the basis of the data the two studies draw different conclusions."
+                },
+                {
+                  "t": "यह दावा अभी अप्रमाणित है और इसका आधार कोई उद्धरण नहीं देता।",
+                  "r": "yah dāvā abhī apramāṇit hai aur iskā ādhār koī uddharaṇ nahī̃ detā.",
+                  "en": "This claim is still unverified and no citation supports it."
+                }
+              ],
+              "mistakes": [
+                "Synthesis that reports only the agreement and silently drops भिन्नता — dissent is data too.",
+                "Using सिद्ध करते हैं for what the source only suggested: the reported strength must match the source’s."
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "संपादक",
+                "t": "दोनों अध्ययनों में असंगति है — आपने कैसे निपटाया?",
+                "r": "donõ adhyayanõ meṅ asaṅgati hai — āpne kaise niptāyā?",
+                "en": "The two studies are inconsistent — how did you handle it?"
+              },
+              {
+                "sp": "लेखक",
+                "t": "मैंने दोनों के आधार अलग-अलग रखे और भिन्नता स्पष्ट लिखी।",
+                "r": "mainne donõ ke ādhār alag-alag rakhe aur bhinnatā spaṣṭ likhī.",
+                "en": "I kept their bases separate and wrote the divergence out clearly."
+              },
+              {
+                "sp": "संपादक",
+                "t": "और आपका निष्कर्ष?",
+                "r": "aur āpkā niṣkarṣ?",
+                "en": "And your conclusion?"
+              },
+              {
+                "sp": "लेखक",
+                "t": "केवल इतना कि आधार भिन्न है; इसलिए दोनों में से किसी को सिद्ध नहीं कहा जा सकता।",
+                "r": "keval itnā ki ādhār bhinn hai; isliye donõ meṅ se kisī ko siddh nahī̃ kahā jā saktā.",
+                "en": "Only that the bases differ; so neither can be called proven."
+              }
+            ],
+            "practice": [
+              {
+                "type": "multiple_choice",
+                "q": "Which line reports the source’s certainty faithfully?",
+                "answer": "मिश्रा के अनुसार संभावना है, निष्कर्ष नहीं।",
+                "skill_target": "multiple choice",
+                "options": [
+                  "मिश्रा के अनुसार संभावना है, निष्कर्ष नहीं।",
+                  "मिश्रा ने सिद्ध कर दिया है।",
+                  "मिश्रा का मत सर्वथा सत्य है।",
+                  "मिश्रा और सब एक ही बात कहते हैं।"
+                ]
+              },
+              {
+                "type": "fill_in_the_blank",
+                "q": "आँकड़ों के ____ पर दोनों अध्ययन भिन्न निष्कर्ष निकालते हैं। (basis)",
+                "answer": "आधार",
+                "skill_target": "fill in the blank"
+              },
+              {
+                "type": "translation",
+                "q": "This claim is still unverified and no citation supports it.",
+                "answer": "यह दावा अभी अप्रमाणित है और इसे कोई उद्धरण समर्थन नहीं देता।",
+                "skill_target": "translation"
+              },
+              {
+                "type": "reverse_translation",
+                "q": "भिन्नता यह है कि एक अध्ययन की आबादी बड़ी थी।",
+                "answer": "The difference is that one study had a large population.",
+                "skill_target": "reverse translation"
+              },
+              {
+                "type": "word_selection",
+                "q": "Which term marks a claim as not yet verified?",
+                "answer": "अप्रमाणित",
+                "skill_target": "word selection",
+                "options": [
+                  "अप्रमाणित",
+                  "समर्थन",
+                  "संदर्भ",
+                  "दृष्टिकोण"
+                ]
+              },
+              {
+                "type": "matching",
+                "q": "Match each reporting verb with the strength it signals.",
+                "answer": "सुझाव देते हैं = tentative",
+                "skill_target": "matching",
+                "options": [
+                  "सिद्ध करते हैं = demonstrated",
+                  "सुझाव देते हैं = tentative",
+                  "बताते हैं = states",
+                  "मानते हैं = takes as a view"
+                ]
+              },
+              {
+                "type": "reorder",
+                "q": "Put these in order: अनुसार · मिश्रा · के · नमूना छोटा था",
+                "answer": "मिश्रा के अनुसार नमूना छोटा था।",
+                "skill_target": "reorder"
+              },
+              {
+                "type": "sentence_building",
+                "q": "Build the synthesis line: ‘The bases differ, so the conclusions diverge.’",
+                "answer": "आधार भिन्न हैं, इसलिए निष्कर्ष भी भिन्न हैं।",
+                "skill_target": "sentence building"
+              },
+              {
+                "type": "error_correction",
+                "q": "Find the unfair report: राव ने सिद्ध किया है कि नीति असफल रही, हालाँकि उनका अध्ययन सुझाव देता है।",
+                "answer": "राव का अध्ययन सुझाव देता है कि नीति के परिणाम सीमित हो सकते हैं।",
+                "skill_target": "error correction"
+              },
+              {
+                "type": "dialogue_completion",
+                "q": "— दोनों अध्ययन एक-दूसरे का खंडन करते हैं? — ____ (Not exactly; their bases differ.)",
+                "answer": "निश्चित रूप से नहीं — दोनों के आधार भिन्न हैं।",
+                "skill_target": "dialogue completion"
+              },
+              {
+                "type": "paraphrase",
+                "q": "Reformulate this dense citation without changing its certainty.",
+                "answer": "यह संभव है कि नीति का प्रभाव सीमित रहा (रिपोर्ट, पृ. 14)। → रिपोर्ट के अनुसार नीति का प्रभाव सीमित हो सकता है।",
+                "skill_target": "paraphrase"
+              },
+              {
+                "type": "summary",
+                "q": "Write a three-line synthesis of two sources that disagree, naming the divergence.",
+                "answer": "मिश्रा के अनुसार नमूना छोटा था। राव के अनुसार नमूना बड़ा था। इसलिए दोनों के निष्कर्ष भिन्न हैं और दोनों अनिश्चित दावे करते हैं।",
+                "skill_target": "summary"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "A faithful synthesis must keep…",
+                "options": [
+                  "only the agreement",
+                  "the differences too",
+                  "the sources anonymous",
+                  "only the strongest claim"
+                ],
+                "answer": 1,
+                "why": "Dissent is evidence about the field."
+              },
+              {
+                "q": "अप्रमाणित means…",
+                "options": [
+                  "disproved",
+                  "unverified",
+                  "unpopular",
+                  "unnamed"
+                ],
+                "answer": 1,
+                "why": "It is a claim without supporting evidence."
+              },
+              {
+                "q": "‘सुझाव देते हैं’ signals…",
+                "options": [
+                  "certainty",
+                  "tentativeness",
+                  "quotation",
+                  "refutation"
+                ],
+                "answer": 1,
+                "why": "The source proposes, it does not prove."
+              },
+              {
+                "q": "आँकड़ों के आधार पर introduces…",
+                "options": [
+                  "an opinion",
+                  "the basis of a claim",
+                  "a citation style",
+                  "a concession"
+                ],
+                "answer": 1,
+                "why": "It names the grounds."
+              },
+              {
+                "q": "Which sentence hides an inconsistency?",
+                "options": [
+                  "दोनों के निष्कर्ष भिन्न हैं।",
+                  "दोनों एक ही निष्कर्ष पर पहुँचते हैं (though their data differ).",
+                  "भिन्नता का कारण आधार है।",
+                  "एक अध्ययन अनिश्चित है।"
+                ],
+                "answer": 1,
+                "why": "It asserts agreement that the data contradict."
+              }
+            ],
+            "flashcards": "auto:vocab",
+            "srs_candidates": [
+              "उद्धरण",
+              "आधार",
+              "भिन्नता",
+              "अप्रमाणित"
+            ],
+            "srs_policy": "Only these four high-value terms are preselected; lesson mistakes and productive patterns may enter personalized review after an actual error.",
+            "worksheet": {
+              "title": "Sourcing and synthesis",
+              "tasks": [
+                {
+                  "instruction": "Write the Hindi for each reporting term.",
+                  "items": [
+                    "citation",
+                    "basis",
+                    "divergence",
+                    "unverified"
+                  ],
+                  "key": [
+                    "उद्धरण",
+                    "आधार",
+                    "भिन्नता",
+                    "अप्रमाणित"
+                  ]
+                },
+                {
+                  "instruction": "Rewrite each claim at the strength the source allows.",
+                  "items": [
+                    "मिश्रा ने सिद्ध किया है कि… (small sample)",
+                    "राव का निष्कर्ष अंतिम है। (one district)"
+                  ],
+                  "key": [
+                    "मिश्रा के अनुसार संभावना है कि…",
+                    "राव का निष्कर्ष एक ज़िले तक सीमित है।"
+                  ]
+                },
+                {
+                  "instruction": "Write a divergence sentence for each pair.",
+                  "items": [
+                    "आबादी: बड़ी / छोटी",
+                    "अवधि: दो वर्ष / छह महीने"
+                  ],
+                  "key": [
+                    "भिन्नता यह है कि एक अध्ययन की आबादी बड़ी थी।",
+                    "भिन्नता यह है कि अवधि दो वर्ष और छह महीने की थी।"
+                  ]
+                },
+                {
+                  "instruction": "Write a four-line synthesis: source, basis, divergence, cautious conclusion.",
+                  "items": [
+                    "source",
+                    "basis",
+                    "divergence",
+                    "conclusion"
+                  ],
+                  "key": [
+                    "मिश्रा और राव दोनों नीति के प्रभाव का अध्ययन करते हैं।",
+                    "मिश्रा आँकड़ों के आधार पर और राव साक्षात्कारों के आधार पर लिखते हैं।",
+                    "भिन्नता यह है कि उनके निष्कर्ष एक-दूसरे से अलग हैं।",
+                    "इसलिए अभी कहा जा सकता है कि प्रभाव की मात्रा अप्रमाणित है।"
+                  ]
+                }
+              ]
+            }
           }
         ]
       },
@@ -1339,25 +1977,25 @@
             },
             "dialogue": [
               {
-                "sp": "Critic",
+                "sp": "समालोचक",
                 "t": "कहानी में पात्र हर संकट पर कहता है, “वाह, क्या शानदार व्यवस्था है!”",
                 "r": "kahānī mẽ pātra har saṅkaṭ par kahtā hai, “vāh, kyā śāndār vyavasthā hai!”",
                 "en": "In the story the character says at every crisis, “Wow, what a wonderful system!”"
               },
               {
-                "sp": "Student",
+                "sp": "विद्यार्थी",
                 "t": "शाब्दिक प्रशंसा और लगातार विफलता का विरोध विडंबना बनाता है।",
                 "r": "śābdik praśaṃsā aur lagātār viphaltā kā virodh viḍambanā banātā hai.",
                 "en": "The contrast between literal praise and repeated failure creates irony."
               },
               {
-                "sp": "Critic",
+                "sp": "समालोचक",
                 "t": "क्या केवल वाक्य देखकर यह निष्कर्ष निकलता?",
                 "r": "kyā keval vākya dekhkar yah niṣkarṣ nikaltā?",
                 "en": "Could that conclusion follow from the sentence alone?"
               },
               {
-                "sp": "Student",
+                "sp": "विद्यार्थी",
                 "t": "नहीं, कथानक, दोहराव और सम्भावित स्वर—तीनों संकेतार्थ तय करते हैं।",
                 "r": "nahī̃, kathānak, dohrāv aur sambhāvit svar—tīnõ saṅketārth tay karte haĩ.",
                 "en": "No; plot, repetition, and likely tone jointly determine the suggested meaning."
@@ -1643,25 +2281,25 @@
             },
             "dialogue": [
               {
-                "sp": "Chair",
+                "sp": "अध्यक्ष",
                 "t": "किस शर्त पर आप प्रस्ताव का समर्थन कर सकते हैं?",
                 "r": "kis śart par āp prastāv kā samarthan kar sakte haĩ?",
                 "en": "Under what condition can you support the proposal?"
               },
               {
-                "sp": "Representative",
+                "sp": "प्रतिनिधि",
                 "t": "समीक्षा के निष्कर्ष सार्वजनिक हों तो सशर्त सहमति संभव है।",
                 "r": "samīkṣā ke niṣkarṣ sārvajanik hõ to saśart sahmati saṃbhav hai.",
                 "en": "Conditional agreement is possible if the review findings are public."
               },
               {
-                "sp": "Manager",
+                "sp": "प्रबंधक",
                 "t": "समय-सीमा बनी रहे तो यह समझौता-प्रस्ताव हमें स्वीकार है।",
                 "r": "samay-sīmā banī rahe to yah samjhautā-prastāv hamẽ svīkār hai.",
                 "en": "The compromise is acceptable to us if the deadline remains."
               },
               {
-                "sp": "Chair",
+                "sp": "अध्यक्ष",
                 "t": "कार्यवृत्त में दोनों शर्तें और शेष असहमति दर्ज होंगी; इसे सर्वसम्मति नहीं कहेंगे।",
                 "r": "kāryavṛtt mẽ donõ śartẽ aur śeṣ asahmati darj hõgī; ise sarvasammati nahī̃ kahẽge.",
                 "en": "The minutes will record both conditions and remaining dissent; we will not call it consensus."
@@ -1858,6 +2496,325 @@
               "असहमति दर्ज करना"
             ],
             "srs_policy": "Only these four high-value terms are preselected; lesson mistakes and productive patterns may enter personalized review after an actual error."
+          },
+          {
+            "id": "C2-U3-L3",
+            "title": "रूपांतरण — recasting a text without losing it",
+            "learn": "Stylistic mastery is demonstrated by रूपांतरण: taking the same content through a report, an editorial, a formal notice and a spoken explanation, changing syntax, metaphor and information order while keeping every claim, hedge and relationship intact. The measure of success is not elegance but invariance — does the reader of version B know exactly what version A said?",
+            "vocab": [
+              {
+                "t": "रूपांतरण",
+                "r": "rūpāntaraṇ",
+                "en": "transformation, recasting",
+                "pos": "noun"
+              },
+              {
+                "t": "अपरिवर्तनीय",
+                "r": "aparivartanīya",
+                "en": "invariant, unchangeable",
+                "pos": "adjective"
+              },
+              {
+                "t": "शैली",
+                "r": "śailī",
+                "en": "style",
+                "pos": "noun"
+              },
+              {
+                "t": "लक्ष्य-पाठक",
+                "r": "lakṣya-pāṭhak",
+                "en": "target reader",
+                "pos": "noun"
+              },
+              {
+                "t": "स्वर",
+                "r": "svar",
+                "en": "tone, voice",
+                "pos": "noun"
+              },
+              {
+                "t": "संक्षिप्तीकरण",
+                "r": "saṅkṣiptīkaraṇ",
+                "en": "condensation",
+                "pos": "noun"
+              },
+              {
+                "t": "विस्तार",
+                "r": "vistār",
+                "en": "expansion, elaboration",
+                "pos": "noun"
+              },
+              {
+                "t": "भाव-निष्ठा",
+                "r": "bhāv-niṣṭhā",
+                "en": "fidelity of sense",
+                "pos": "collocation"
+              }
+            ],
+            "grammar": {
+              "title": "शैली बदलती है, दावा नहीं",
+              "explain": "Recasting changes surface features and holds the claim constant: कर्ता-कर्म बदलने पर भी तथ्य वही रहता है, and a hedge must follow the claim into every version. Practical moves: condense (संक्षिप्त में), expand (विस्तार से), change voice (किया गया ↔ ने किया), change order (cleft: यह तथ्य ही निर्णायक था), change metaphor (जब धारा बदलती है ↔ जब सोच बदलती है). भाव-निष्ठा is the criterion.",
+              "pattern": "विस्तार से कहें तो… · संक्षेप में… · कर्तृवाच्य ↔ कर्मवाच्य · यह तथ्य ही कि…",
+              "examples": [
+                {
+                  "t": "कार्यवृत्त की शैली में: यह सुझाव स्वीकृत किया गया।",
+                  "r": "kāryavṛtt kī śailī meṅ: yah sujhāv svīkṛt kiyā gayā.",
+                  "en": "In minutes style: this suggestion was approved."
+                },
+                {
+                  "t": "संपादकीय की शैली में: यही सुझाव दिशा बदल सकता है।",
+                  "r": "sampādakīya kī śailī meṅ: yahī sujhāv diśā badal saktā hai.",
+                  "en": "In editorial style: this very suggestion could change direction."
+                },
+                {
+                  "t": "बोलचाल में: देखिए, यह बात मान ली गई है, पक्का कुछ नहीं।",
+                  "r": "bolcāl meṅ: dekhiye, yah bāt mān lī gaī hai, pakkā kuch nahī̃.",
+                  "en": "In speech: look, the point has been accepted, but nothing is certain."
+                }
+              ],
+              "mistakes": [
+                "Condensation that drops a hedge: संभव है → होगा turns a possibility into a promise across versions.",
+                "Changing the relationship while changing the register — a formal recast that removes politeness markers changes what the speaker did."
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "प्रशिक्षक",
+                "t": "एक ही निर्णय तीन शैलियों में लिखिए।",
+                "r": "ek hī nirṇay tīn śailiyõ meṅ likhie.",
+                "en": "Write the same decision in three styles."
+              },
+              {
+                "sp": "शिक्षार्थी",
+                "t": "कार्यवृत्त में: निर्णय अगली बैठक तक स्थगित किया गया।",
+                "r": "kāryavṛtt meṅ: nirṇay aglī baiṭhak tak sthagit kiyā gayā.",
+                "en": "In minutes: the decision was deferred to the next meeting."
+              },
+              {
+                "sp": "शिक्षार्थी",
+                "t": "संपादकीय में: निर्णय टल गया, पर प्रश्न खुला है।",
+                "r": "sampādakīya meṅ: nirṇay ṭal gayā, par praśn khulā hai.",
+                "en": "In editorial: the decision slipped, but the question remains open."
+              },
+              {
+                "sp": "प्रशिक्षक",
+                "t": "और भाव-निष्ठा? क्या कहीं दावा बदला?",
+                "r": "aur bhāv-niṣṭhā? kyā kahī̃ dāvā badlā?",
+                "en": "And fidelity? Did the claim shift anywhere?"
+              }
+            ],
+            "practice": [
+              {
+                "type": "multiple_choice",
+                "q": "Which recast keeps both the claim and the hedge?",
+                "answer": "यह संभव है कि योजना टल जाए।",
+                "skill_target": "multiple choice",
+                "options": [
+                  "यह संभव है कि योजना टल जाए।",
+                  "योजना टल जाएगी।",
+                  "योजना टालनी ही चाहिए।",
+                  "योजना का कोई भविष्य नहीं।"
+                ]
+              },
+              {
+                "type": "fill_in_the_blank",
+                "q": "कर्तृवाच्य से ____ में बदलने पर भी तथ्य वही रहता है। (passive)",
+                "answer": "कर्मवाच्य",
+                "skill_target": "fill in the blank"
+              },
+              {
+                "type": "translation",
+                "q": "The same claim, in editorial style: the decision slipped, but the question remains open.",
+                "answer": "संपादकीय शैली में वही दावा: निर्णय टल गया, पर प्रश्न खुला है।",
+                "skill_target": "translation"
+              },
+              {
+                "type": "reverse_translation",
+                "q": "संक्षेप में कहें तो योजना अभी प्रस्तावित है।",
+                "answer": "In short, the plan is still only proposed.",
+                "skill_target": "reverse translation"
+              },
+              {
+                "type": "word_selection",
+                "q": "Which term means fidelity to sense across versions?",
+                "answer": "भाव-निष्ठा",
+                "skill_target": "word selection",
+                "options": [
+                  "भाव-निष्ठा",
+                  "विस्तार",
+                  "शैली",
+                  "स्वर"
+                ]
+              },
+              {
+                "type": "matching",
+                "q": "Match each operation with its effect.",
+                "answer": "संक्षिप्तीकरण = fewer words",
+                "skill_target": "matching",
+                "options": [
+                  "विस्तार = more detail",
+                  "संक्षिप्तीकरण = fewer words",
+                  "कर्मवाच्य = actor backgrounded",
+                  "रूपांतरण = style changed"
+                ]
+              },
+              {
+                "type": "reorder",
+                "q": "Put these in order: तो · विस्तार से · कहें · यह",
+                "answer": "विस्तार से कहें तो यह…",
+                "skill_target": "reorder"
+              },
+              {
+                "type": "sentence_building",
+                "q": "Build the cleft: ‘It was this fact that decided the matter.’",
+                "answer": "यह तथ्य ही निर्णायक था।",
+                "skill_target": "sentence building"
+              },
+              {
+                "type": "error_correction",
+                "q": "Find the version that changed the claim: कार्यवृत्त: निर्णय स्थगित। संपादकीय: निर्णय हो गया।",
+                "answer": "संपादकीय: निर्णय अभी स्थगित है, पर प्रश्न खुला है।",
+                "skill_target": "error correction"
+              },
+              {
+                "type": "dialogue_completion",
+                "q": "— तीन शैलियों में दावा वही है? — ____ (Yes, only the style changed.)",
+                "answer": "जी, दावा वही है — केवल शैली बदली है।",
+                "skill_target": "dialogue completion"
+              },
+              {
+                "type": "register_transformation",
+                "q": "Recast this spoken line as a formal notice.",
+                "answer": "देखिए, फ़ाइल अभी तैयार नहीं है, कल मिलेगी। → सूचित किया जाता है कि फ़ाइल एक कार्यदिवस में उपलब्ध होगी।",
+                "skill_target": "register transformation"
+              },
+              {
+                "type": "guided_composition",
+                "q": "Write the same single claim in three styles: notice, editorial, spoken.",
+                "answer": "सूचना: सूचित किया जाता है कि प्रस्ताव विचाराधीन है। संपादकीय: प्रस्ताव अभी विचाराधीन है, उत्तर नहीं। बोलचाल: देखिए, फ़ैसला अभी नहीं हुआ, सोच-विचार चल रहा है।",
+                "skill_target": "guided composition"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "The test of a good recast is…",
+                "options": [
+                  "more elegant language",
+                  "invariance of claim and hedging",
+                  "a different conclusion",
+                  "a longer text"
+                ],
+                "answer": 1,
+                "why": "Version B must say what version A said."
+              },
+              {
+                "q": "संभव है → होगा across versions is…",
+                "options": [
+                  "a style change",
+                  "a changed claim",
+                  "a condensation",
+                  "a cleft"
+                ],
+                "answer": 1,
+                "why": "Certainty was added."
+              },
+              {
+                "q": "Changing किया गया to ने किया changes…",
+                "options": [
+                  "the fact",
+                  "which participant is backgrounded",
+                  "the tense",
+                  "the politeness"
+                ],
+                "answer": 1,
+                "why": "Voice shifts attention, not the event."
+              },
+              {
+                "q": "भाव-निष्ठा requires that…",
+                "options": [
+                  "the wording is identical",
+                  "the sense and relationships survive",
+                  "the register is identical",
+                  "the length is the same"
+                ],
+                "answer": 1,
+                "why": "Form varies; content and stance do not."
+              },
+              {
+                "q": "Which condensation is faithful?",
+                "options": [
+                  "निर्णय संभव है → निर्णय होगा",
+                  "निर्णय संभव है, पक्का नहीं → निर्णय अभी अनिश्चित है",
+                  "संभव है → आवश्यक है",
+                  "संभव है → निश्चित है"
+                ],
+                "answer": 1,
+                "why": "It keeps the uncertainty rather than removing it."
+              }
+            ],
+            "flashcards": "auto:vocab",
+            "srs_candidates": [
+              "रूपांतरण",
+              "भाव-निष्ठा",
+              "संक्षिप्तीकरण",
+              "यह तथ्य ही"
+            ],
+            "srs_policy": "Only these four high-value terms are preselected; lesson mistakes and productive patterns may enter personalized review after an actual error.",
+            "worksheet": {
+              "title": "Recasting with fidelity",
+              "tasks": [
+                {
+                  "instruction": "Write the Hindi for each stylistic operation.",
+                  "items": [
+                    "recasting",
+                    "condensation",
+                    "expansion",
+                    "fidelity of sense"
+                  ],
+                  "key": [
+                    "रूपांतरण",
+                    "संक्षिप्तीकरण",
+                    "विस्तार",
+                    "भाव-निष्ठा"
+                  ]
+                },
+                {
+                  "instruction": "Recast each in formal notice style.",
+                  "items": [
+                    "फ़ाइल कल मिलेगी।",
+                    "बैठक अब नहीं होगी।"
+                  ],
+                  "key": [
+                    "सूचित किया जाता है कि फ़ाइल एक कार्यदिवस में उपलब्ध होगी।",
+                    "सूचित किया जाता है कि बैठक स्थगित कर दी गई है।"
+                  ]
+                },
+                {
+                  "instruction": "Condense each without dropping the hedge.",
+                  "items": [
+                    "इसमें कहा गया है कि निर्णय संभव है, पक्का नहीं।",
+                    "अपेक्षा है कि उत्तर अगले सप्ताह मिल सकता है।"
+                  ],
+                  "key": [
+                    "निर्णय अभी अनिश्चित है।",
+                    "उत्तर अगले सप्ताह संभव है।"
+                  ]
+                },
+                {
+                  "instruction": "Take one claim through three styles and label each version.",
+                  "items": [
+                    "notice",
+                    "editorial",
+                    "spoken"
+                  ],
+                  "key": [
+                    "सूचना: प्रस्ताव विचाराधीन है।",
+                    "संपादकीय: प्रस्ताव अभी विचाराधीन है — यह उत्तर नहीं है।",
+                    "बोलचाल: सोच-विचार चल रहा है, फ़ैसला बाकी है।"
+                  ]
+                }
+              ]
+            }
           }
         ]
       }
@@ -1916,6 +2873,101 @@
           "answer": "पहला अध्ययन लाभ का संकेत देता है; दूसरा नमूने और मापन की सीमाएँ उजागर करता है। अतः दिशा आशाजनक है, पर प्रभाव का परिमाण अभी अनिश्चित है।"
         }
       ]
+    },
+    "extra": {
+      "culture": {
+        "text": "हिन्दी की शब्दावली तीन परतों में बनी है। सबसे नीचे तद्भव शब्द हैं — जो संस्कृत से बदलते-बदलते आए: दूध, आँख, हाथ। उनके ऊपर तत्सम हैं, जो संस्कृत से ज्यों-के-त्यों आए और ज़्यादातर औपचारिक लिखने में रहते हैं: दुग्ध, नेत्र, हस्त। सबसे ऊपर फ़ारसी, अरबी और अँग्रेज़ी की परत है: क़लम, किताब, टिकट। किसी भी वाक्य की शैली यहीं तय होती है — कौन-सी परत किसके साथ बैठती है, और कौन-सी परत एक-दूसरे को काट देती है।",
+        "gloss": "Hindi’s vocabulary is built in three layers. At the bottom are tadbhava words, which drifted from Sanskrit over centuries: dūdh (milk), āṅkh (eye), hāth (hand). Above them sit tatsama words, taken from Sanskrit unchanged and mostly kept for formal writing: dugdh, netra, hast. On top is the Persian, Arabic and English layer: qalam, kitāb, ṭikaṭ. The style of any sentence is decided right here — which layer sits with which, and which layer cuts against another.",
+        "source_url": "https://en.wikipedia.org/wiki/Hindi"
+      },
+      "reading": {
+        "text": "अनुवाद में सबसे बड़ी चूक शब्दों की नहीं, इरादे की होती है। एक ही वाक्य अँग्रेज़ी में विनम्र लगता है और हिन्दी में रूखा, क्योंकि हिन्दी विनम्रता क्रिया के रूप में दिखाती है, शब्दों में नहीं। जो अनुवादक यह समझ लेता है, वह ‘कृपया’ जोड़कर विनम्रता नहीं लाता; वह क्रिया बदल देता है। इसीलिए अच्छा अनुवाद मूल से मिलता-जुलता नहीं, बल्कि मूल जैसा व्यवहार करता है — पाठक को वही जगह देता है जो मूल पाठक को मिली थी।",
+        "gloss": "The biggest failure in translation is not of words but of intent. The same sentence sounds polite in English and blunt in Hindi, because Hindi shows politeness in the verb form, not in the words. A translator who understands this does not bring politeness by adding ‘kripayā’; they change the verb. That is why a good translation does not resemble the original, it behaves like it — it gives the reader the same room the original reader had.",
+        "original": true
+      },
+      "listening": {
+        "script": "मैं मानता हूँ कि भाषा कभी शुद्ध नहीं होती, और जो इसे शुद्ध करने चलते हैं वे उसे मार डालते हैं। पर इसका उल्टा भी उतना ही ग़लत है — यह कहना कि सब कुछ चलेगा। फ़र्क़ यह है कि भाषा नियम से नहीं, आदत से चलती है; और आदत उसी को बदलती है जो उसे समझता है। इसलिए सवाल ‘सही क्या है’ नहीं, ‘कौन समझेगा’ है।",
+        "gloss": "I hold that a language is never pure, and that those who set out to purify it kill it. But the opposite is just as wrong — saying that anything goes. The difference is that a language runs on habit, not on rules; and habit changes only for someone who understands it. So the question is not ‘what is correct’ but ‘who will understand’.",
+        "voice_tag": "hi-IN"
+      },
+      "idioms": [
+        {
+          "t": "मुँह में राम, बगल में छुरी",
+          "literal": "Ram on the tongue, a knife under the arm",
+          "meaning": "sweet to your face, ready to cut you from the side"
+        },
+        {
+          "t": "आँखों में धूल झोंकना",
+          "literal": "to blow dust into somebody’s eyes",
+          "meaning": "to deceive someone while they watch"
+        },
+        {
+          "t": "हाथ-पाँव फूल जाना",
+          "literal": "hands and feet to swell up",
+          "meaning": "to be paralysed by fear — the body stops cooperating"
+        },
+        {
+          "t": "नाक में दम करना",
+          "literal": "to put your life into somebody’s nose",
+          "meaning": "to plague a person until they cannot bear it"
+        },
+        {
+          "t": "दाँत खट्टे करना",
+          "literal": "to make somebody’s teeth sour",
+          "meaning": "to defeat an opponent thoroughly"
+        },
+        {
+          "t": "तलवार की धार पर चलना",
+          "literal": "to walk on the edge of a sword",
+          "meaning": "to tread a line where one slip ends everything"
+        },
+        {
+          "t": "जुग-जुग जियो",
+          "literal": "live age upon age",
+          "meaning": "a blessing: may you live long — said to a child, or to anyone who has done you a kindness"
+        },
+        {
+          "t": "दूध का दूध, पानी का पानी",
+          "literal": "milk to the milk, water to the water",
+          "meaning": "a verdict that separates the two sides exactly — used of a fair judge"
+        },
+        {
+          "t": "सोने पे सुहागा",
+          "literal": "borax on gold",
+          "meaning": "a bonus on top of something already good"
+        },
+        {
+          "t": "कान भरना",
+          "literal": "to fill somebody’s ear",
+          "meaning": "to poison a person’s mind against another by quiet talk"
+        }
+      ],
+      "mistakes": [
+        {
+          "wrong": "वह मेरा मित्र है, वह बहुत अच्छा आदमी है, वह हमेशा मदद करता है।",
+          "right": "वह मेरा मित्र है और हमेशा मदद करता है।",
+          "why": "at C2 the failure is almost never grammar; it is a chain of clauses with no subordination. Hindi joins with और, लेकिन, जो and participles, not by stacking full sentences."
+        },
+        {
+          "wrong": "यह पुस्तक मेरे द्वारा पढ़ी गई। (in ordinary speech)",
+          "right": "यह किताब मैंने पढ़ी।",
+          "why": "the Sanskrit passive द्वारा-construction exists but reads like a government circular. Choosing it in conversation is a register error, not a grammar error."
+        },
+        {
+          "wrong": "मुझे हिन्दी बोलनी आती है। (meaning: I know how to speak Hindi — agreement on बोलनी)",
+          "right": "मुझे हिन्दी बोलना आता है।",
+          "why": "with आना as ‘to know how’, the verbal noun stays masculine singular whatever the object’s gender. Very common even among fluent speakers, so the error survives for years."
+        },
+        {
+          "wrong": "वे लोग जो आए थे, उनका स्वागत किया गया और उन्होंने अपने विचार रखे और फिर चले गए।",
+          "right": "जो लोग आए थे, उन्होंने अपने विचार रखे और चले गए।",
+          "why": "over-correcting into formal vocabulary while leaving the sentence unstructured produces the para that reads like a form. Sentence architecture is the last thing to fix and the first thing a reader notices."
+        }
+      ],
+      "task": {
+        "title": "One idea, three layers, one honest note",
+        "instructions": "Choose one everyday idea — for example ‘the bus was late again’. Write it three times, once with only तद्भव vocabulary, once with तत्सम vocabulary, once with the Persian–English layer. Then write a short note underneath saying which version you would actually use, to whom, and why. Do not translate between the three: write each one straight. That is the exercise — the layers are registers, and registers are chosen, not translated."
+      }
     }
   }
 }

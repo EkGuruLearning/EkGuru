@@ -98,25 +98,25 @@
             },
             "dialogue": [
               {
-                "sp": "Doctor",
+                "sp": "डॉक्टर",
                 "t": "तुम्हाला काय झालं?",
                 "r": "Tumhala kay jhala?",
                 "en": "What happened to you?"
               },
               {
-                "sp": "Patient",
+                "sp": "रुग्ण",
                 "t": "डॉक्टर, दोन दिवसांपासून ताप आहे.",
                 "r": "Doktar, don divasampasun tap ahe.",
                 "en": "Doctor, fever for two days."
               },
               {
-                "sp": "Doctor",
+                "sp": "डॉक्टर",
                 "t": "खोकला-सर्दी आहे का?",
                 "r": "Khokala-sardi ahe ka?",
                 "en": "Any cough or cold?"
               },
               {
-                "sp": "Patient",
+                "sp": "रुग्ण",
                 "t": "फक्त खोकला आहे.",
                 "r": "Phakta khokala ahe.",
                 "en": "Only a cough."
@@ -194,7 +194,7 @@
               },
               {
                 "type": "dialogue_completion",
-                "q": "Practice 10 [dialogue completion] — Health and Wellbeing — A1: Complete Patient’s turn: Doctor, fever for two days.",
+                "q": "Practice 10 [dialogue completion] — Health and Wellbeing — A1: Complete रुग्ण’s turn: Doctor, fever for two days.",
                 "answer": "डॉक्टर, दोन दिवसांपासून ताप आहे.",
                 "skill_target": "Marathi dialogue completion: Marathi gender/agreement, postpositions, aspect, and respectful register"
               },
@@ -408,25 +408,25 @@
             },
             "dialogue": [
               {
-                "sp": "Manager",
+                "sp": "व्यवस्थापक",
                 "t": "या! तुमचं नाव काय?",
                 "r": "Ya! Tumcha nav kay?",
                 "en": "Welcome! What is your name?"
               },
               {
-                "sp": "Newcomer",
+                "sp": "नवागंतुक",
                 "t": "माझं नाव कुमार.",
                 "r": "Majha nav Kumar.",
                 "en": "My name is Kumar."
               },
               {
-                "sp": "Manager",
+                "sp": "व्यवस्थापक",
                 "t": "हे तुमचं टेबल. कॉम्प्युटर चालू करा.",
                 "r": "He tumcha table. Computer chalu kara.",
                 "en": "This is your desk. Switch on the computer."
               },
               {
-                "sp": "Newcomer",
+                "sp": "नवागंतुक",
                 "t": "ठीक आहे. ईमेल पत्ता काय?",
                 "r": "Thik ahe. Email patta kay?",
                 "en": "OK. What is the email address?"
@@ -637,6 +637,295 @@
               "रिसेप्शन"
             ],
             "srs_policy": "Only selected high-value forms are preselected; actual mistakes and productive patterns enter personalized review after learner evidence."
+          },
+          {
+            "id": "mr-a1-l7",
+            "title": "ओळख: नाव, गाव आणि काम",
+            "learn": "An introduction is four slots — name, town, work, and a question back. Marathi puts the verb at the end and marks the town with -त when you live there (पुण्यात राहतो/राहते). माझे नाव … आहे is the neutral opencr; मी … आहे states a person or a profession.",
+            "vocab": [
+              {
+                "t": "नाव",
+                "r": "naav",
+                "en": "name",
+                "pos": "noun"
+              },
+              {
+                "t": "गाव",
+                "r": "gaav",
+                "en": "village, town",
+                "pos": "noun"
+              },
+              {
+                "t": "काम",
+                "r": "kaam",
+                "en": "work",
+                "pos": "noun"
+              },
+              {
+                "t": "राहणे",
+                "r": "raahne",
+                "en": "to live, to stay",
+                "pos": "verb"
+              },
+              {
+                "t": "ओळख",
+                "r": "olakh",
+                "en": "acquaintance, recognition",
+                "pos": "noun"
+              }
+            ],
+            "grammar": {
+              "title": "Giving your name",
+              "pattern": "माझे नाव … आहे · मी पुण्यात राहतो · तुमचे नाव काय?",
+              "explain": "माझे नाव is neuter, so it takes आहे; a place you live in takes the locative -त (पुण्यात, नागपुरात), and a place you come from takes -चा/-ची (नागपूरचा, पुणेकर). The question back is तुमचे नाव काय? with तुम्ही.",
+              "examples": [
+                {
+                  "t": "माझे नाव अर्णव आहे.",
+                  "r": "Maze naav Arnav ahe.",
+                  "en": "My name is Arnav."
+                },
+                {
+                  "t": "मी पुण्यात राहतो.",
+                  "r": "Mi Punyat raahto.",
+                  "en": "I live in Pune."
+                },
+                {
+                  "t": "तुमचे नाव काय आहे?",
+                  "r": "Tumche naav kay ahe?",
+                  "en": "What is your name?"
+                }
+              ],
+              "mistakes": [
+                {
+                  "wrong": "माझं नाव आहे अर्णव.",
+                  "right": "माझे नाव अर्णव आहे.",
+                  "why": "The name comes before the verb."
+                },
+                {
+                  "wrong": "मी पुणे राहतो.",
+                  "right": "मी पुण्यात राहतो.",
+                  "why": "Living there takes -त: पुण्यात."
+                }
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "मीरा",
+                "t": "तुमचे नाव काय आहे?",
+                "r": "Tumche naav kay ahe?",
+                "en": "What is your name?"
+              },
+              {
+                "sp": "अर्णव",
+                "t": "माझे नाव अर्णव आहे. मी नागपूरचा आहे.",
+                "r": "Maze naav Arnav ahe. Mi Nagpurcha ahe.",
+                "en": "My name is Arnav. I am from Nagpur."
+              },
+              {
+                "sp": "मीरा",
+                "t": "मी पुण्यात राहते. तुम्ही काय करता?",
+                "r": "Mi Punyat raahte. Tumhi kay karta?",
+                "en": "I live in Pune. What do you do?"
+              },
+              {
+                "sp": "अर्णव",
+                "t": "मी शाळेत शिकवतो.",
+                "r": "Mi shalet shikavto.",
+                "en": "I teach in a school."
+              }
+            ],
+            "practice": [
+              {
+                "type": "multiple_choice",
+                "q": "Practice 1: [multiple choice] ओळख: नाव, गाव आणि काम — Choose the meaning of नाव (naav) in this lesson.",
+                "answer": "name",
+                "skill_target": "Marathi: Devanagari with ळ and the candra vowels, three-way address (तू / तुम्ही / आपण), three genders and agreement, postpositions, verb-final order, the -त आहे progressive and Marathi's compound verbs",
+                "options": [
+                  "name",
+                  "village, town",
+                  "work",
+                  "to live, to stay"
+                ]
+              },
+              {
+                "type": "fill_in_the_blank",
+                "q": "Practice 2: [fill in the blank] ओळख: नाव, गाव आणि काम — Type the Marathi expression meaning “village, town”.",
+                "answer": "गाव",
+                "skill_target": "Marathi: Devanagari with ळ and the candra vowels, three-way address (तू / तुम्ही / आपण), three genders and agreement, postpositions, verb-final order, the -त आहे progressive and Marathi's compound verbs"
+              },
+              {
+                "type": "translation",
+                "q": "Practice 3: [translation] ओळख: नाव, गाव आणि काम — Interpret the Devanagari in context: माझे नाव अर्णव आहे. (Maze naav Arnav ahe.).",
+                "answer": "My name is Arnav.",
+                "skill_target": "Marathi: Devanagari with ळ and the candra vowels, three-way address (तू / तुम्ही / आपण), three genders and agreement, postpositions, verb-final order, the -त आहे progressive and Marathi's compound verbs"
+              },
+              {
+                "type": "reverse_translation",
+                "q": "Practice 4: [reverse translation] ओळख: नाव, गाव आणि काम — Write in Devanagari: I live in Pune..",
+                "answer": "मी पुण्यात राहतो.",
+                "skill_target": "Marathi: Devanagari with ळ and the candra vowels, three-way address (तू / तुम्ही / आपण), three genders and agreement, postpositions, verb-final order, the -त आहे progressive and Marathi's compound verbs"
+              },
+              {
+                "type": "matching",
+                "q": "Practice 5: [matching] ओळख: नाव, गाव आणि काम — Match काम to its lesson meaning.",
+                "answer": "work",
+                "skill_target": "Marathi: Devanagari with ळ and the candra vowels, three-way address (तू / तुम्ही / आपण), three genders and agreement, postpositions, verb-final order, the -त आहे progressive and Marathi's compound verbs",
+                "options": [
+                  "work",
+                  "name",
+                  "village, town"
+                ]
+              },
+              {
+                "type": "reorder",
+                "q": "Practice 6: [reorder] ओळख: नाव, गाव आणि काम — Reconstruct the lesson model in coherent Marathi: What is your name?.",
+                "answer": "तुमचे नाव काय आहे?",
+                "skill_target": "Marathi: Devanagari with ळ and the candra vowels, three-way address (तू / तुम्ही / आपण), three genders and agreement, postpositions, verb-final order, the -त आहे progressive and Marathi's compound verbs"
+              },
+              {
+                "type": "sentence_building",
+                "q": "Practice 7: [sentence building] ओळख: नाव, गाव आणि काम — Build the sentence with the lesson pattern (माझे नाव … आहे · मी पुण्यात राहतो · तुमचे नाव काय?): My name is Arnav..",
+                "answer": "माझे नाव अर्णव आहे.",
+                "skill_target": "Marathi: Devanagari with ळ and the candra vowels, three-way address (तू / तुम्ही / आपण), three genders and agreement, postpositions, verb-final order, the -त आहे progressive and Marathi's compound verbs"
+              },
+              {
+                "type": "word_selection",
+                "q": "Practice 8: [word selection] ओळख: नाव, गाव आणि काम — Select the Marathi form for “to live, to stay”.",
+                "answer": "राहणे",
+                "skill_target": "Marathi: Devanagari with ळ and the candra vowels, three-way address (तू / तुम्ही / आपण), three genders and agreement, postpositions, verb-final order, the -त आहे progressive and Marathi's compound verbs",
+                "options": [
+                  "राहणे",
+                  "ओळख"
+                ]
+              },
+              {
+                "type": "error_correction",
+                "q": "Practice 9: [error correction] ओळख: नाव, गाव आणि काम — Correct the model the lesson warns about: माझं नाव आहे अर्णव.",
+                "answer": "माझे नाव अर्णव आहे.",
+                "skill_target": "Marathi: Devanagari with ळ and the candra vowels, three-way address (तू / तुम्ही / आपण), three genders and agreement, postpositions, verb-final order, the -त आहे progressive and Marathi's compound verbs"
+              },
+              {
+                "type": "dialogue_completion",
+                "q": "Practice 10: [dialogue completion] ओळख: नाव, गाव आणि काम — Complete the exchange with the studied response to: What is your name?",
+                "answer": "माझे नाव अर्णव आहे. मी नागपूरचा आहे.",
+                "skill_target": "Marathi: Devanagari with ळ and the candra vowels, three-way address (तू / तुम्ही / आपण), three genders and agreement, postpositions, verb-final order, the -त आहे progressive and Marathi's compound verbs"
+              },
+              {
+                "type": "reading_comprehension",
+                "q": "Practice 11: [reading comprehension] ओळख: नाव, गाव आणि काम — Read “मी पुण्यात राहते. तुम्ही काय करता?” (Mi Punyat raahte. Tumhi kay karta?). What does it mean?",
+                "answer": "I live in Pune. What do you do?",
+                "skill_target": "Marathi: Devanagari with ळ and the candra vowels, three-way address (तू / तुम्ही / आपण), three genders and agreement, postpositions, verb-final order, the -त आहे progressive and Marathi's compound verbs"
+              },
+              {
+                "type": "paragraph_comprehension",
+                "q": "Practice 12: [paragraph comprehension] ओळख: नाव, गाव आणि काम — Read the lesson dialogue as a whole and give its key move: I teach in a school.",
+                "answer": "मी शाळेत शिकवतो.",
+                "skill_target": "Marathi: Devanagari with ळ and the candra vowels, three-way address (तू / तुम्ही / आपण), three genders and agreement, postpositions, verb-final order, the -त आहे progressive and Marathi's compound verbs"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "Which meaning best fits नाव?",
+                "options": [
+                  "name",
+                  "village, town",
+                  "work",
+                  "to live, to stay"
+                ],
+                "answer": 0,
+                "why": "नाव (naav) means name in this lesson."
+              },
+              {
+                "q": "Which meaning best fits गाव?",
+                "options": [
+                  "village, town",
+                  "name",
+                  "work",
+                  "to live, to stay"
+                ],
+                "answer": 0,
+                "why": "गाव (gaav) means village, town in this lesson."
+              },
+              {
+                "q": "Which meaning best fits काम?",
+                "options": [
+                  "work",
+                  "name",
+                  "village, town",
+                  "to live, to stay"
+                ],
+                "answer": 0,
+                "why": "काम (kaam) means work in this lesson."
+              },
+              {
+                "q": "Which meaning best fits राहणे?",
+                "options": [
+                  "to live, to stay",
+                  "name",
+                  "village, town",
+                  "work"
+                ],
+                "answer": 0,
+                "why": "राहणे (raahne) means to live, to stay in this lesson."
+              },
+              {
+                "q": "Which meaning best fits ओळख?",
+                "options": [
+                  "acquaintance, recognition",
+                  "name",
+                  "village, town",
+                  "work"
+                ],
+                "answer": 0,
+                "why": "ओळख (olakh) means acquaintance, recognition in this lesson."
+              }
+            ],
+            "flashcards": "auto:vocab",
+            "worksheet": {
+              "title": "Introduction worksheet",
+              "tasks": [
+                {
+                  "instruction": "Introduce yourself.",
+                  "items": [
+                    "my name is Meera",
+                    "I live in Pune"
+                  ],
+                  "key": [
+                    "माझे नाव मीरा आहे",
+                    "मी पुण्यात राहते"
+                  ]
+                },
+                {
+                  "instruction": "Ask the question back.",
+                  "items": [
+                    "what is your name?",
+                    "what do you do?"
+                  ],
+                  "key": [
+                    "तुमचे नाव काय आहे?",
+                    "तुम्ही काय करता?"
+                  ]
+                },
+                {
+                  "instruction": "Integrated offline practice: read the first model, transform or extend it in Devanagari, then rehearse it as a dialogue. Self-check meaning, grammar, and register.",
+                  "items": [
+                    "माझे नाव अर्णव आहे.",
+                    "तुमचे नाव काय आहे?"
+                  ],
+                  "key": [
+                    "My name is Arnav.",
+                    "What is your name?"
+                  ]
+                }
+              ]
+            },
+            "srs_candidates": [
+              "नाव",
+              "गाव",
+              "काम",
+              "राहणे"
+            ],
+            "srs_policy": "Only these four high-value terms are preselected; lesson mistakes and productive patterns may enter personalized review after an actual error."
           }
         ]
       },
@@ -725,25 +1014,25 @@
             },
             "dialogue": [
               {
-                "sp": "Student",
+                "sp": "विद्यार्थी",
                 "t": "गुरुजी, माझा गृहपाठ संपला.",
                 "r": "Guruji, majha gruhpath sampala.",
                 "en": "Teacher, I finished my homework."
               },
               {
-                "sp": "Teacher",
+                "sp": "शिक्षक",
                 "t": "खूप छान! धडा मोठ्याने वाच.",
                 "r": "Khup chhan! Dhada mothyane vach.",
                 "en": "Very good! Read the lesson loudly."
               },
               {
-                "sp": "Student",
+                "sp": "विद्यार्थी",
                 "t": "हा शब्द समजला नाही.",
                 "r": "Ha shabd samajla nahi.",
                 "en": "I don't understand this word."
               },
               {
-                "sp": "Teacher",
+                "sp": "शिक्षक",
                 "t": "शब्दकोशात बघ.",
                 "r": "Shabdakoshat bagh.",
                 "en": "Look in the dictionary."
@@ -798,7 +1087,7 @@
               },
               {
                 "type": "dialogue_completion",
-                "q": "Practice 9 [dialogue completion] — Education and Learning — A1: Complete Student’s turn: Teacher, I finished my homework.",
+                "q": "Practice 9 [dialogue completion] — Education and Learning — A1: Complete विद्यार्थी’s turn: Teacher, I finished my homework.",
                 "answer": "गुरुजी, माझा गृहपाठ संपला.",
                 "skill_target": "Marathi dialogue completion: Marathi gender/agreement, postpositions, aspect, and respectful register"
               },
@@ -1030,25 +1319,25 @@
             },
             "dialogue": [
               {
-                "sp": "Brother",
+                "sp": "भाऊ",
                 "t": "बघ, आकाशात काळे ढग!",
                 "r": "Bagh, aakashat kale dhag!",
                 "en": "Look, dark clouds in the sky!"
               },
               {
-                "sp": "Sister",
+                "sp": "बहीण",
                 "t": "होय. आज पाऊस येणार.",
                 "r": "Hoy. Aaj paus yenar.",
                 "en": "Yes. Rain will come today."
               },
               {
-                "sp": "Brother",
+                "sp": "भाऊ",
                 "t": "छत्री घे. वारा जोरदार आहे.",
                 "r": "Chhatri ghe. Vara jordar ahe.",
                 "en": "Take the umbrella. The wind is strong."
               },
               {
-                "sp": "Sister",
+                "sp": "बहीण",
                 "t": "मृगाच्या पावसाचा वास मला आवडतो!",
                 "r": "Mrugachya pausacha vas mala aavadto!",
                 "en": "I love the smell of first rain!"
@@ -1264,6 +1553,295 @@
               "हिम"
             ],
             "srs_policy": "Only selected high-value forms are preselected; actual mistakes and productive patterns enter personalized review after learner evidence."
+          },
+          {
+            "id": "mr-a1-l8",
+            "title": "दिवस आणि तारखा",
+            "learn": "A day of the week takes -ई to mean on that day: सोमवारी, शुक्रवारी. A date is read day and month in that order (पंधरा मे), and आज, उद्या and काल stand beside the verb with no postposition at all.",
+            "vocab": [
+              {
+                "t": "आठवडा",
+                "r": "aathvada",
+                "en": "week",
+                "pos": "noun"
+              },
+              {
+                "t": "तारीख",
+                "r": "taarikh",
+                "en": "date",
+                "pos": "noun"
+              },
+              {
+                "t": "महिना",
+                "r": "mahina",
+                "en": "month",
+                "pos": "noun"
+              },
+              {
+                "t": "आज",
+                "r": "aaj",
+                "en": "today",
+                "pos": "adverb"
+              },
+              {
+                "t": "उद्या",
+                "r": "udya",
+                "en": "tomorrow",
+                "pos": "adverb"
+              }
+            ],
+            "grammar": {
+              "title": "On Monday, on the fifteenth",
+              "pattern": "सोमवारी बैठक आहे · पंधरा मे · उद्या शाळा बंद आहे",
+              "explain": "The -वार days add -ई for on that day: सोमवारी, मंगळवारी, शुक्रवारी. A date puts the day before the month and takes no postposition: पंधरा मे, एक जानेवारी. आज, उद्या, काल and परवा never take -ला.",
+              "examples": [
+                {
+                  "t": "सोमवारी बैठक आहे.",
+                  "r": "Somvari baithak ahe.",
+                  "en": "The meeting is on Monday."
+                },
+                {
+                  "t": "माझा वाढदिवस पंधरा मे आहे.",
+                  "r": "Majha vaadhdivas pandhra May ahe.",
+                  "en": "My birthday is on the fifteenth of May."
+                },
+                {
+                  "t": "उद्या शाळा बंद आहे.",
+                  "r": "Udya shala band ahe.",
+                  "en": "Tomorrow the school is closed."
+                }
+              ],
+              "mistakes": [
+                {
+                  "wrong": "सोमवार बैठक आहे.",
+                  "right": "सोमवारी बैठक आहे.",
+                  "why": "-वार takes -ई for on that day."
+                },
+                {
+                  "wrong": "मी उद्याला जाईन.",
+                  "right": "मी उद्या जाईन.",
+                  "why": "आज and उद्या take no postposition."
+                }
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "अर्णव",
+                "t": "उद्या तुमची बैठक आहे का?",
+                "r": "Udya tumchi baithak ahe ka?",
+                "en": "Is your meeting tomorrow?"
+              },
+              {
+                "sp": "मीरा",
+                "t": "हो, सोमवारी सकाळी दहा वाजता.",
+                "r": "Ho, somvari sakali daha vajta.",
+                "en": "Yes, on Monday at ten in the morning."
+              },
+              {
+                "sp": "अर्णव",
+                "t": "कालची बैठक पुढे गेली का?",
+                "r": "Kaalchi baithak pudhe geli ka?",
+                "en": "Did yesterday's meeting get postponed?"
+              },
+              {
+                "sp": "मीरा",
+                "t": "हो, गुरुवारपर्यंत पुढे ढकलली.",
+                "r": "Ho, guruvar-paryant pudhe dhakalli.",
+                "en": "Yes, it was pushed to Thursday."
+              }
+            ],
+            "practice": [
+              {
+                "type": "multiple_choice",
+                "q": "Practice 1: [multiple choice] दिवस आणि तारखा — Choose the meaning of आठवडा (aathvada) in this lesson.",
+                "answer": "week",
+                "skill_target": "Marathi: Devanagari with ळ and the candra vowels, three-way address (तू / तुम्ही / आपण), three genders and agreement, postpositions, verb-final order, the -त आहे progressive and Marathi's compound verbs",
+                "options": [
+                  "week",
+                  "date",
+                  "month",
+                  "today"
+                ]
+              },
+              {
+                "type": "fill_in_the_blank",
+                "q": "Practice 2: [fill in the blank] दिवस आणि तारखा — Type the Marathi expression meaning “date”.",
+                "answer": "तारीख",
+                "skill_target": "Marathi: Devanagari with ळ and the candra vowels, three-way address (तू / तुम्ही / आपण), three genders and agreement, postpositions, verb-final order, the -त आहे progressive and Marathi's compound verbs"
+              },
+              {
+                "type": "translation",
+                "q": "Practice 3: [translation] दिवस आणि तारखा — Interpret the Devanagari in context: सोमवारी बैठक आहे. (Somvari baithak ahe.).",
+                "answer": "The meeting is on Monday.",
+                "skill_target": "Marathi: Devanagari with ळ and the candra vowels, three-way address (तू / तुम्ही / आपण), three genders and agreement, postpositions, verb-final order, the -त आहे progressive and Marathi's compound verbs"
+              },
+              {
+                "type": "reverse_translation",
+                "q": "Practice 4: [reverse translation] दिवस आणि तारखा — Write in Devanagari: My birthday is on the fifteenth of May..",
+                "answer": "माझा वाढदिवस पंधरा मे आहे.",
+                "skill_target": "Marathi: Devanagari with ळ and the candra vowels, three-way address (तू / तुम्ही / आपण), three genders and agreement, postpositions, verb-final order, the -त आहे progressive and Marathi's compound verbs"
+              },
+              {
+                "type": "matching",
+                "q": "Practice 5: [matching] दिवस आणि तारखा — Match महिना to its lesson meaning.",
+                "answer": "month",
+                "skill_target": "Marathi: Devanagari with ळ and the candra vowels, three-way address (तू / तुम्ही / आपण), three genders and agreement, postpositions, verb-final order, the -त आहे progressive and Marathi's compound verbs",
+                "options": [
+                  "month",
+                  "week",
+                  "date"
+                ]
+              },
+              {
+                "type": "reorder",
+                "q": "Practice 6: [reorder] दिवस आणि तारखा — Reconstruct the lesson model in coherent Marathi: Tomorrow the school is closed..",
+                "answer": "उद्या शाळा बंद आहे.",
+                "skill_target": "Marathi: Devanagari with ळ and the candra vowels, three-way address (तू / तुम्ही / आपण), three genders and agreement, postpositions, verb-final order, the -त आहे progressive and Marathi's compound verbs"
+              },
+              {
+                "type": "sentence_building",
+                "q": "Practice 7: [sentence building] दिवस आणि तारखा — Build the sentence with the lesson pattern (सोमवारी बैठक आहे · पंधरा मे · उद्या शाळा बंद आहे): The meeting is on Monday..",
+                "answer": "सोमवारी बैठक आहे.",
+                "skill_target": "Marathi: Devanagari with ळ and the candra vowels, three-way address (तू / तुम्ही / आपण), three genders and agreement, postpositions, verb-final order, the -त आहे progressive and Marathi's compound verbs"
+              },
+              {
+                "type": "word_selection",
+                "q": "Practice 8: [word selection] दिवस आणि तारखा — Select the Marathi form for “today”.",
+                "answer": "आज",
+                "skill_target": "Marathi: Devanagari with ळ and the candra vowels, three-way address (तू / तुम्ही / आपण), three genders and agreement, postpositions, verb-final order, the -त आहे progressive and Marathi's compound verbs",
+                "options": [
+                  "आज",
+                  "उद्या"
+                ]
+              },
+              {
+                "type": "error_correction",
+                "q": "Practice 9: [error correction] दिवस आणि तारखा — Correct the model the lesson warns about: सोमवार बैठक आहे.",
+                "answer": "सोमवारी बैठक आहे.",
+                "skill_target": "Marathi: Devanagari with ळ and the candra vowels, three-way address (तू / तुम्ही / आपण), three genders and agreement, postpositions, verb-final order, the -त आहे progressive and Marathi's compound verbs"
+              },
+              {
+                "type": "dialogue_completion",
+                "q": "Practice 10: [dialogue completion] दिवस आणि तारखा — Complete the exchange with the studied response to: Is your meeting tomorrow?",
+                "answer": "हो, सोमवारी सकाळी दहा वाजता.",
+                "skill_target": "Marathi: Devanagari with ळ and the candra vowels, three-way address (तू / तुम्ही / आपण), three genders and agreement, postpositions, verb-final order, the -त आहे progressive and Marathi's compound verbs"
+              },
+              {
+                "type": "reading_comprehension",
+                "q": "Practice 11: [reading comprehension] दिवस आणि तारखा — Read “कालची बैठक पुढे गेली का?” (Kaalchi baithak pudhe geli ka?). What does it mean?",
+                "answer": "Did yesterday's meeting get postponed?",
+                "skill_target": "Marathi: Devanagari with ळ and the candra vowels, three-way address (तू / तुम्ही / आपण), three genders and agreement, postpositions, verb-final order, the -त आहे progressive and Marathi's compound verbs"
+              },
+              {
+                "type": "paragraph_comprehension",
+                "q": "Practice 12: [paragraph comprehension] दिवस आणि तारखा — Read the lesson dialogue as a whole and give its key move: Yes, it was pushed to Thursday.",
+                "answer": "हो, गुरुवारपर्यंत पुढे ढकलली.",
+                "skill_target": "Marathi: Devanagari with ळ and the candra vowels, three-way address (तू / तुम्ही / आपण), three genders and agreement, postpositions, verb-final order, the -त आहे progressive and Marathi's compound verbs"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "Which meaning best fits आठवडा?",
+                "options": [
+                  "week",
+                  "date",
+                  "month",
+                  "today"
+                ],
+                "answer": 0,
+                "why": "आठवडा (aathvada) means week in this lesson."
+              },
+              {
+                "q": "Which meaning best fits तारीख?",
+                "options": [
+                  "date",
+                  "week",
+                  "month",
+                  "today"
+                ],
+                "answer": 0,
+                "why": "तारीख (taarikh) means date in this lesson."
+              },
+              {
+                "q": "Which meaning best fits महिना?",
+                "options": [
+                  "month",
+                  "week",
+                  "date",
+                  "today"
+                ],
+                "answer": 0,
+                "why": "महिना (mahina) means month in this lesson."
+              },
+              {
+                "q": "Which meaning best fits आज?",
+                "options": [
+                  "today",
+                  "week",
+                  "date",
+                  "month"
+                ],
+                "answer": 0,
+                "why": "आज (aaj) means today in this lesson."
+              },
+              {
+                "q": "Which meaning best fits उद्या?",
+                "options": [
+                  "tomorrow",
+                  "week",
+                  "date",
+                  "month"
+                ],
+                "answer": 0,
+                "why": "उद्या (udya) means tomorrow in this lesson."
+              }
+            ],
+            "flashcards": "auto:vocab",
+            "worksheet": {
+              "title": "Date worksheet",
+              "tasks": [
+                {
+                  "instruction": "Say when.",
+                  "items": [
+                    "on Monday",
+                    "on the fifteenth of May"
+                  ],
+                  "key": [
+                    "सोमवारी",
+                    "पंधरा मे"
+                  ]
+                },
+                {
+                  "instruction": "Ask about it.",
+                  "items": [
+                    "is the meeting tomorrow?",
+                    "when is your birthday?"
+                  ],
+                  "key": [
+                    "उद्या बैठक आहे का?",
+                    "तुमचा वाढदिवस कधी आहे?"
+                  ]
+                },
+                {
+                  "instruction": "Integrated offline practice: read the first model, transform or extend it in Devanagari, then rehearse it as a dialogue. Self-check meaning, grammar, and register.",
+                  "items": [
+                    "सोमवारी बैठक आहे.",
+                    "उद्या तुमची बैठक आहे का?"
+                  ],
+                  "key": [
+                    "The meeting is on Monday.",
+                    "Is your meeting tomorrow?"
+                  ]
+                }
+              ]
+            },
+            "srs_candidates": [
+              "आठवडा",
+              "तारीख",
+              "महिना",
+              "आज"
+            ],
+            "srs_policy": "Only these four high-value terms are preselected; lesson mistakes and productive patterns may enter personalized review after an actual error."
           }
         ]
       },
@@ -1352,25 +1930,25 @@
             },
             "dialogue": [
               {
-                "sp": "Granddaughter",
+                "sp": "नात",
                 "t": "आजी, काय शिजतंय?",
                 "r": "Aaji, kay shijtay?",
                 "en": "Grandma, what is cooking?"
               },
               {
-                "sp": "Grandmother",
+                "sp": "आजी",
                 "t": "पुरणपोळी, माझ्या बाळा!",
                 "r": "Puranpoli, majhya bala!",
                 "en": "Puran poli, my dear!"
               },
               {
-                "sp": "Grandmother",
+                "sp": "आजी",
                 "t": "हात धुऊन बस.",
                 "r": "Hat dhun bas.",
                 "en": "Wash your hands and sit."
               },
               {
-                "sp": "Granddaughter",
+                "sp": "नात",
                 "t": "आजी, जेवण खमंगतंय!",
                 "r": "Aaji, jevan khamangtay!",
                 "en": "Grandma, the food smells nice!"
@@ -1402,7 +1980,7 @@
               },
               {
                 "type": "dialogue_completion",
-                "q": "Practice 8 [dialogue completion] — Home and Relationships — A1: Complete Granddaughter’s turn: Grandma, the food smells nice!",
+                "q": "Practice 8 [dialogue completion] — Home and Relationships — A1: Complete नात’s turn: Grandma, the food smells nice!",
                 "answer": "आजी, जेवण खमंगतंय!",
                 "skill_target": "Marathi dialogue completion: Marathi gender/agreement, postpositions, aspect, and respectful register"
               },
@@ -1660,25 +2238,25 @@
             },
             "dialogue": [
               {
-                "sp": "Neighbour",
+                "sp": "शेजारी",
                 "t": "गुढीपाडव्याच्या शुभेच्छा!",
                 "r": "Gudhipadvyachya shubhechha!",
                 "en": "Happy Gudhi Padwa! New Year greetings!"
               },
               {
-                "sp": "Mother",
+                "sp": "आई",
                 "t": "तुम्हालाही! या, गोड खा.",
                 "r": "Tumhalahi! Ya, god kha.",
                 "en": "Same to you! Come, eat sweets."
               },
               {
-                "sp": "Neighbour",
+                "sp": "शेजारी",
                 "t": "गुढी सुंदर दिसते!",
                 "r": "Gudhi sundar distey!",
                 "en": "The gudi looks beautiful!"
               },
               {
-                "sp": "Mother",
+                "sp": "आई",
                 "t": "संध्याकाळी मिरवणूक आहे.",
                 "r": "Sandhyakali miravnuk ahe.",
                 "en": "In the evening there is a procession."
@@ -1891,6 +2469,295 @@
               "आंब्याच्या पानांचं तोरण"
             ],
             "srs_policy": "Only selected high-value forms are preselected; actual mistakes and productive patterns enter personalized review after learner evidence."
+          },
+          {
+            "id": "mr-a1-l9",
+            "title": "कपडे आणि रंग",
+            "learn": "A colour copies the noun it describes: निळा शर्ट, निळी साडी, निळे स्वेटर. Colours in -ा inflect like that; लाल, गुलाबी and केशरी never change. घालणे is the verb for wearing.",
+            "vocab": [
+              {
+                "t": "शर्ट",
+                "r": "shirt",
+                "en": "shirt",
+                "pos": "noun"
+              },
+              {
+                "t": "साडी",
+                "r": "sadi",
+                "en": "sari",
+                "pos": "noun"
+              },
+              {
+                "t": "स्वेटर",
+                "r": "sweater",
+                "en": "sweater",
+                "pos": "noun"
+              },
+              {
+                "t": "रंग",
+                "r": "rang",
+                "en": "colour",
+                "pos": "noun"
+              },
+              {
+                "t": "घालणे",
+                "r": "ghaalne",
+                "en": "to wear, to put on",
+                "pos": "verb"
+              }
+            ],
+            "grammar": {
+              "title": "Agreement of colours",
+              "pattern": "निळा शर्ट · निळी साडी · निळे स्वेटर · लाल टोपी",
+              "explain": "Marathi has three genders, and a colour adjective copies the gender of its noun: masculine -ा, feminine -ी, neuter -े. Colours borrowed as they are — लाल, गुलाबी, केशरी — stay the same with every noun.",
+              "examples": [
+                {
+                  "t": "मला निळा शर्ट आवडतो.",
+                  "r": "Mala nila shirt aavdto.",
+                  "en": "I like the blue shirt."
+                },
+                {
+                  "t": "ती हिरवी साडी घालते.",
+                  "r": "Ti hirvi sadi ghalte.",
+                  "en": "She wears a green sari."
+                },
+                {
+                  "t": "हे लाल स्वेटर आहे.",
+                  "r": "He laal sweater ahe.",
+                  "en": "This is a red sweater."
+                }
+              ],
+              "mistakes": [
+                {
+                  "wrong": "ती हिरवा साडी घालते.",
+                  "right": "ती हिरवी साडी घालते.",
+                  "why": "साडी is feminine: हिरवी."
+                },
+                {
+                  "wrong": "मी काळा टोपी घालतो.",
+                  "right": "मी काळी टोपी घालतो.",
+                  "why": "टोपी is feminine: काळी टोपी."
+                }
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "मीरा",
+                "t": "ही साडी कशी वाटते?",
+                "r": "Hi sadi kashi vaatte?",
+                "en": "How does this sari look?"
+              },
+              {
+                "sp": "अर्णव",
+                "t": "छान! पण निळी जास्त शोभेल.",
+                "r": "Chaan! Pan nili jaast shobhel.",
+                "en": "Lovely! But blue will suit you more."
+              },
+              {
+                "sp": "मीरा",
+                "t": "माझ्याकडे निळी आहे. तुमचा शर्ट कोणता?",
+                "r": "Majhyakade nili ahe. Tumcha shirt konta?",
+                "en": "I have a blue one. Which is your shirt?"
+              },
+              {
+                "sp": "अर्णव",
+                "t": "हा पांढरा. उन्हात पांढरा चांगला वाटतो.",
+                "r": "Ha pandhra. Unhaat pandhra chaangla vaatto.",
+                "en": "This white one. White looks good in the sun."
+              }
+            ],
+            "practice": [
+              {
+                "type": "multiple_choice",
+                "q": "Practice 1: [multiple choice] कपडे आणि रंग — Choose the meaning of शर्ट (shirt) in this lesson.",
+                "answer": "shirt",
+                "skill_target": "Marathi: Devanagari with ळ and the candra vowels, three-way address (तू / तुम्ही / आपण), three genders and agreement, postpositions, verb-final order, the -त आहे progressive and Marathi's compound verbs",
+                "options": [
+                  "shirt",
+                  "sari",
+                  "sweater",
+                  "colour"
+                ]
+              },
+              {
+                "type": "fill_in_the_blank",
+                "q": "Practice 2: [fill in the blank] कपडे आणि रंग — Type the Marathi expression meaning “sari”.",
+                "answer": "साडी",
+                "skill_target": "Marathi: Devanagari with ळ and the candra vowels, three-way address (तू / तुम्ही / आपण), three genders and agreement, postpositions, verb-final order, the -त आहे progressive and Marathi's compound verbs"
+              },
+              {
+                "type": "translation",
+                "q": "Practice 3: [translation] कपडे आणि रंग — Interpret the Devanagari in context: मला निळा शर्ट आवडतो. (Mala nila shirt aavdto.).",
+                "answer": "I like the blue shirt.",
+                "skill_target": "Marathi: Devanagari with ळ and the candra vowels, three-way address (तू / तुम्ही / आपण), three genders and agreement, postpositions, verb-final order, the -त आहे progressive and Marathi's compound verbs"
+              },
+              {
+                "type": "reverse_translation",
+                "q": "Practice 4: [reverse translation] कपडे आणि रंग — Write in Devanagari: She wears a green sari..",
+                "answer": "ती हिरवी साडी घालते.",
+                "skill_target": "Marathi: Devanagari with ळ and the candra vowels, three-way address (तू / तुम्ही / आपण), three genders and agreement, postpositions, verb-final order, the -त आहे progressive and Marathi's compound verbs"
+              },
+              {
+                "type": "matching",
+                "q": "Practice 5: [matching] कपडे आणि रंग — Match स्वेटर to its lesson meaning.",
+                "answer": "sweater",
+                "skill_target": "Marathi: Devanagari with ळ and the candra vowels, three-way address (तू / तुम्ही / आपण), three genders and agreement, postpositions, verb-final order, the -त आहे progressive and Marathi's compound verbs",
+                "options": [
+                  "sweater",
+                  "shirt",
+                  "sari"
+                ]
+              },
+              {
+                "type": "reorder",
+                "q": "Practice 6: [reorder] कपडे आणि रंग — Reconstruct the lesson model in coherent Marathi: This is a red sweater..",
+                "answer": "हे लाल स्वेटर आहे.",
+                "skill_target": "Marathi: Devanagari with ळ and the candra vowels, three-way address (तू / तुम्ही / आपण), three genders and agreement, postpositions, verb-final order, the -त आहे progressive and Marathi's compound verbs"
+              },
+              {
+                "type": "sentence_building",
+                "q": "Practice 7: [sentence building] कपडे आणि रंग — Build the sentence with the lesson pattern (निळा शर्ट · निळी साडी · निळे स्वेटर · लाल टोपी): I like the blue shirt..",
+                "answer": "मला निळा शर्ट आवडतो.",
+                "skill_target": "Marathi: Devanagari with ळ and the candra vowels, three-way address (तू / तुम्ही / आपण), three genders and agreement, postpositions, verb-final order, the -त आहे progressive and Marathi's compound verbs"
+              },
+              {
+                "type": "word_selection",
+                "q": "Practice 8: [word selection] कपडे आणि रंग — Select the Marathi form for “colour”.",
+                "answer": "रंग",
+                "skill_target": "Marathi: Devanagari with ळ and the candra vowels, three-way address (तू / तुम्ही / आपण), three genders and agreement, postpositions, verb-final order, the -त आहे progressive and Marathi's compound verbs",
+                "options": [
+                  "रंग",
+                  "घालणे"
+                ]
+              },
+              {
+                "type": "error_correction",
+                "q": "Practice 9: [error correction] कपडे आणि रंग — Correct the model the lesson warns about: ती हिरवा साडी घालते.",
+                "answer": "ती हिरवी साडी घालते.",
+                "skill_target": "Marathi: Devanagari with ळ and the candra vowels, three-way address (तू / तुम्ही / आपण), three genders and agreement, postpositions, verb-final order, the -त आहे progressive and Marathi's compound verbs"
+              },
+              {
+                "type": "dialogue_completion",
+                "q": "Practice 10: [dialogue completion] कपडे आणि रंग — Complete the exchange with the studied response to: How does this sari look?",
+                "answer": "छान! पण निळी जास्त शोभेल.",
+                "skill_target": "Marathi: Devanagari with ळ and the candra vowels, three-way address (तू / तुम्ही / आपण), three genders and agreement, postpositions, verb-final order, the -त आहे progressive and Marathi's compound verbs"
+              },
+              {
+                "type": "reading_comprehension",
+                "q": "Practice 11: [reading comprehension] कपडे आणि रंग — Read “माझ्याकडे निळी आहे. तुमचा शर्ट कोणता?” (Majhyakade nili ahe. Tumcha shirt konta?). What does it mean?",
+                "answer": "I have a blue one. Which is your shirt?",
+                "skill_target": "Marathi: Devanagari with ळ and the candra vowels, three-way address (तू / तुम्ही / आपण), three genders and agreement, postpositions, verb-final order, the -त आहे progressive and Marathi's compound verbs"
+              },
+              {
+                "type": "paragraph_comprehension",
+                "q": "Practice 12: [paragraph comprehension] कपडे आणि रंग — Read the lesson dialogue as a whole and give its key move: This white one. White looks good in the sun.",
+                "answer": "हा पांढरा. उन्हात पांढरा चांगला वाटतो.",
+                "skill_target": "Marathi: Devanagari with ळ and the candra vowels, three-way address (तू / तुम्ही / आपण), three genders and agreement, postpositions, verb-final order, the -त आहे progressive and Marathi's compound verbs"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "Which meaning best fits शर्ट?",
+                "options": [
+                  "shirt",
+                  "sari",
+                  "sweater",
+                  "colour"
+                ],
+                "answer": 0,
+                "why": "शर्ट (shirt) means shirt in this lesson."
+              },
+              {
+                "q": "Which meaning best fits साडी?",
+                "options": [
+                  "sari",
+                  "shirt",
+                  "sweater",
+                  "colour"
+                ],
+                "answer": 0,
+                "why": "साडी (sadi) means sari in this lesson."
+              },
+              {
+                "q": "Which meaning best fits स्वेटर?",
+                "options": [
+                  "sweater",
+                  "shirt",
+                  "sari",
+                  "colour"
+                ],
+                "answer": 0,
+                "why": "स्वेटर (sweater) means sweater in this lesson."
+              },
+              {
+                "q": "Which meaning best fits रंग?",
+                "options": [
+                  "colour",
+                  "shirt",
+                  "sari",
+                  "sweater"
+                ],
+                "answer": 0,
+                "why": "रंग (rang) means colour in this lesson."
+              },
+              {
+                "q": "Which meaning best fits घालणे?",
+                "options": [
+                  "to wear, to put on",
+                  "shirt",
+                  "sari",
+                  "sweater"
+                ],
+                "answer": 0,
+                "why": "घालणे (ghaalne) means to wear, to put on in this lesson."
+              }
+            ],
+            "flashcards": "auto:vocab",
+            "worksheet": {
+              "title": "Colour worksheet",
+              "tasks": [
+                {
+                  "instruction": "Agree the colour.",
+                  "items": [
+                    "a blue shirt",
+                    "a green sari"
+                  ],
+                  "key": [
+                    "निळा शर्ट",
+                    "हिरवी साडी"
+                  ]
+                },
+                {
+                  "instruction": "Say what is worn.",
+                  "items": [
+                    "I wear a white shirt.",
+                    "she wears a red sari."
+                  ],
+                  "key": [
+                    "मी पांढरा शर्ट घालतो.",
+                    "ती लाल साडी घालते."
+                  ]
+                },
+                {
+                  "instruction": "Integrated offline practice: read the first model, transform or extend it in Devanagari, then rehearse it as a dialogue. Self-check meaning, grammar, and register.",
+                  "items": [
+                    "मला निळा शर्ट आवडतो.",
+                    "ही साडी कशी वाटते?"
+                  ],
+                  "key": [
+                    "I like the blue shirt.",
+                    "How does this sari look?"
+                  ]
+                }
+              ]
+            },
+            "srs_candidates": [
+              "शर्ट",
+              "साडी",
+              "स्वेटर",
+              "रंग"
+            ],
+            "srs_policy": "Only these four high-value terms are preselected; lesson mistakes and productive patterns may enter personalized review after an actual error."
           }
         ]
       }
@@ -1949,6 +2816,95 @@
           "answer": "पाऊस पडतोय (Paus padtoy)"
         }
       ]
+    },
+    "extra": {
+      "culture": {
+        "text": "Marathi is written in Devanagari, with letters and habits Hindi does not have: ळ, the retroflex l of फळ (fruit) and शाळा (school); the candra signs ॅ and ॉ that carry English vowels into बँक and कॉलेज; and no capitals at all, so a sentence opens on the same letter it would use in the middle. The ळ is the quickest way to hear the difference: मराठी itself, and every Marathi speaker's name for the language, uses a sound that a Hindi speaker hears as a plain l.",
+        "source_url": "https://en.wikipedia.org/wiki/Marathi_language"
+      },
+      "reading": {
+        "text": "मी मीरा आहे. मी पुण्यात राहते. सकाळी सहा वाजता उठते आणि चहा करते. माझी आई शिक्षिका आहे आणि वडील दुकान चालवतात. मी रोज सकाळी अभ्यास करते, नंतर कॉलेजला जाते. संध्याकाळी मैदानावर फिरायला जाते. मला पुस्तके वाचायला आवडतात. रात्री जेवणानंतर मी दिवसभराची नोंद लिहिते. शनिवारी मी मैत्रिणींना भेटते आणि गप्पा मारते. रविवारी घरी सगळे एकत्र जेवतात.",
+        "gloss": "I am Meera. I live in Pune. I get up at six in the morning and make tea. My mother is a teacher and my father runs a shop. Every morning I study, then I go to college. In the evening I go for a walk on the ground. I like reading books. At night, after dinner, I write down my day. On Saturday I meet my friends and we chat. On Sunday everyone at home eats together.",
+        "original": true
+      },
+      "listening": {
+        "script": "मीरा: नमस्कार, तुम्ही कसे आहात?<br>अर्णव: मी मजेत आहे, धन्यवाद. तुम्ही कशी आहात?<br>मीरा: मी सुद्धा छान आहे. हा तुमचा मुलगा आहे का?<br>अर्णव: हो, त्याचे नाव ओम आहे. तो आता शाळेत जातो.<br>मीरा: छान! माझी मुलगी पण शाळेत आहे.",
+        "gloss": "Meera: Hello, how are you? Arnav: I am well, thank you. How are you? Meera: I am fine too. Is this your son? Arnav: Yes, his name is Om. He goes to school now. Meera: Nice! My daughter is at school too.",
+        "voice_tag": "mr-IN"
+      },
+      "idioms": [
+        {
+          "t": "काय चाललंय?",
+          "literal": "what is going on?",
+          "meaning": "how are things? (greeting a friend)"
+        },
+        {
+          "t": "मस्त",
+          "literal": "excellent",
+          "meaning": "great, cool"
+        },
+        {
+          "t": "अरेरे",
+          "literal": "oh dear",
+          "meaning": "oh no (mild dismay)"
+        },
+        {
+          "t": "गप्पा मारणे",
+          "literal": "to hit gossip",
+          "meaning": "to chat, to pass the time talking"
+        },
+        {
+          "t": "पोटभर",
+          "literal": "to the stomach",
+          "meaning": "as much as one wants, to the full"
+        },
+        {
+          "t": "थंडी वाजते",
+          "literal": "the cold rings",
+          "meaning": "it is freezing"
+        },
+        {
+          "t": "छान",
+          "literal": "fine",
+          "meaning": "nice, lovely"
+        },
+        {
+          "t": "चहा घेऊ या",
+          "literal": "let us take tea",
+          "meaning": "let's have a cup of tea"
+        },
+        {
+          "t": "काळजी घ्या",
+          "literal": "take the worry",
+          "meaning": "take care"
+        },
+        {
+          "t": "भेटू या",
+          "literal": "let us meet",
+          "meaning": "see you (said on leaving)"
+        }
+      ],
+      "mistakes": [
+        {
+          "wrong": "तू कुठे राहतो?",
+          "right": "तू कुठे राहतोस?",
+          "why": "तू takes its own ending: राहतोस for a male, राहतेस for a female. राहतो belongs to मी, तो."
+        },
+        {
+          "wrong": "हे माझा भाऊ आहे.",
+          "right": "हा माझा भाऊ आहे.",
+          "why": "The demonstrative agrees with the noun: हा भाऊ, ही बहीण, हे पुस्तक."
+        },
+        {
+          "wrong": "मला भूक आहे.",
+          "right": "मला भूक लागली आहे.",
+          "why": "Hunger has its own verb in Marathi: भूक लागते. भूक आहे just states that hunger exists."
+        }
+      ],
+      "task": {
+        "title": "Introduce yourself to a Marathi classmate",
+        "instructions": "Write five Marathi sentences: your name, the city you live in, what you do in the morning, one thing you like, and one question back to the reader. Use आहे / आहात / आहेत correctly, choose तुम्ही as your address, and read the five sentences aloud twice."
+      }
     }
   },
   "pronunciation": [
@@ -2196,112 +3152,112 @@
       },
       {
         "t": "तीन",
-        "r": "tīn",
+        "r": "tin",
         "en": "3"
       },
       {
         "t": "चार",
-        "r": "cār",
+        "r": "char",
         "en": "4"
       },
       {
         "t": "पाच",
-        "r": "pāc",
+        "r": "pach",
         "en": "5"
       },
       {
         "t": "सहा",
-        "r": "sahā",
+        "r": "saha",
         "en": "6"
       },
       {
         "t": "सात",
-        "r": "sāt",
+        "r": "sat",
         "en": "7"
       },
       {
         "t": "आठ",
-        "r": "āṭh",
+        "r": "ath",
         "en": "8"
       },
       {
         "t": "नऊ",
-        "r": "naū",
+        "r": "nau",
         "en": "9"
       },
       {
         "t": "दहा",
-        "r": "dahā",
+        "r": "daha",
         "en": "10"
       },
       {
         "t": "अकरा",
-        "r": "akarā",
+        "r": "akara",
         "en": "11"
       },
       {
         "t": "बारा",
-        "r": "bārā",
+        "r": "bara",
         "en": "12"
       },
       {
         "t": "तेरा",
-        "r": "terā",
+        "r": "tera",
         "en": "13"
       },
       {
         "t": "चौदा",
-        "r": "caudā",
+        "r": "chauda",
         "en": "14"
       },
       {
         "t": "पंधरा",
-        "r": "pandharā",
+        "r": "pandhara",
         "en": "15"
       },
       {
         "t": "सोळा",
-        "r": "soḷā",
+        "r": "sola",
         "en": "16"
       },
       {
         "t": "सतरा",
-        "r": "satarā",
+        "r": "satara",
         "en": "17"
       },
       {
         "t": "अठरा",
-        "r": "aṭharā",
+        "r": "athara",
         "en": "18"
       },
       {
         "t": "एकोणीस",
-        "r": "ekoṇīs",
+        "r": "ekonis",
         "en": "19"
       },
       {
         "t": "वीस",
-        "r": "vīs",
+        "r": "vis",
         "en": "20"
       },
       {
         "t": "तीस",
-        "r": "tīs",
+        "r": "tis",
         "en": "30"
       },
       {
         "t": "चाळीस",
-        "r": "cāḷīs",
+        "r": "chalis",
         "en": "40"
       },
       {
         "t": "पन्नास",
-        "r": "pannās",
+        "r": "pannas",
         "en": "50"
       },
       {
         "t": "साठ",
-        "r": "sāṭh",
+        "r": "sath",
         "en": "60"
       },
       {
@@ -2311,7 +3267,7 @@
       },
       {
         "t": "ऐंशी",
-        "r": "aiṁśī",
+        "r": "ainshi",
         "en": "80"
       },
       {
@@ -2321,7 +3277,7 @@
       },
       {
         "t": "शंभर",
-        "r": "śambhar",
+        "r": "shambhar",
         "en": "100"
       }
     ],

@@ -178,6 +178,9 @@ def p_index(d):
               ("food", "Food & eating", "Ordering, tastes and table talk — in restaurants and markets."),
               ("shopping", "Shopping & money", "Prices, bargaining and the phrases for markets and shops.")]
     cards = "".join(f'<a class="hs-card" href="{s}/"><b>{t}</b><span>{x}</span></a>' for s, t, x in topics)
+    guide_cards = "\n".join(
+        '<a class="hs-card" href="' + s + '/"><b>' + t + '</b><span>' + x + '</span></a>'
+        for s, t, x in PHASE3_EXISTING + PHASE3_POSTS)
     adv = ""
     if d.get("advanced_modules"):
         cards2 = "".join(f'<a class="hs-card" href="advanced/{m["slug"]}/"><b>{m["title"]}</b><span>{m["lede"]}</span></a>' for m in d["advanced_modules"])
@@ -198,6 +201,13 @@ def p_index(d):
   <div class="hs-grid">
 {cards}
   </div>{adv}
+  <h2>Guides — read one a day</h2>
+  <p>The ten long-form guides for this course: two are written for beginners, two for people who already
+  read the script, and one is honest about how close this language is to Hindi. Each runs to well over a
+  thousand words and links to the others.</p>
+  <div class="hs-grid">
+{guide_cards}
+  </div>
   <h2>Practice labs</h2><ul class="linklist">
     <li><a href="practice/">Practice labs</a><span>Quiz, typing trainer, worksheets and conversation scenarios.</span></li>
     <li><a href="practice/quiz/">Topic quiz</a><span>Multiple-choice questions from the lesson bank, with explanations.</span></li>
@@ -331,7 +341,12 @@ def p_grammar(d):
     prows = "".join(f"<tr><td>{E(p['who_en'])}</td><td>{E(p['who_t'])}</td><td><b>{E(p['verb_t'])}</b></td><td>{E(p['verb_r'])}</td></tr>" for p in d["present_table"])
     pf = "".join(f"<tr><td>{E(x['en'])}</td><td>{E(x['hi'])}</td><td><b>{E(x['t'])}</b></td><td>{E(x['r'])}</td></tr>" for x in d["past_future"])
     post = "".join(f"<tr><td>{E(p['en'])}</td><td>{E(p['hi'])}</td><td><b>{E(p['t'])}</b></td><td>{E(p['ex_t'])} ({E(p['ex_r'])}) — {E(p['ex_en'])}</td></tr>" for p in d["postpositions"])
-    clf = "".join(f"<tr><td><b>{E(c['en'])}</b> ({E(c['r'])})</td><td>{E(c['hi'])}</td><td>{E(c['note'])}</td></tr>" for c in d["classifiers"])
+    # `t` is the target-language text. It used to be read from `en` because the
+    # classifiers list carried the target text there and no `t` at all; that
+    # shape also made tools/language-gate.py read an empty word. The data now
+    # matches every other list in the file (see
+    # tools/normalize-lang-data-classifiers.py); the table is unchanged.
+    clf = "".join(f"<tr><td><b>{E(c['t'])}</b> ({E(c['r'])})</td><td>{E(c['hi'])}</td><td>{E(c['note'])}</td></tr>" for c in d["classifiers"])
     # v104+ — per-language prose (Bengali defaults keep the first course byte-identical)
     gender_title = E(d.get("gender_title", "No grammatical gender"))
     gender_note = E(d.get("gender_note", "Unlike Hindi, adjectives never change: the word for \u201cgood\u201d stays the same for boys, girls and books. One less thing to memorise."))
@@ -686,14 +701,727 @@ window.EKGURU_TYPING_ACTIVE =
 
 # Reading-page order for prev/next navigation (hub, practice labs, review
 # and progress are intentionally excluded — they are tools, not reading).
+# ---------------------------------------------------------------- phase 3 blog posts
+#
+# PHASE 3 of the AdSense command: blog-style, readable posts (>= 1000 words) for
+# the Learn tab. Ten post types per language; five of them already had a home
+# (beginner / pronunciation / grammar / travel / numbers) and five had none, so
+# they are new pages here. Every fact on these pages comes from
+# tools/lang-data/<slug>.json — the tables are the data itself, never invented.
+#
+# Note on style: Python 3.11 is the supported interpreter, so no f-string in this
+# block may contain a nested f-string or a backslash inside its expression part.
+# Every fragment is therefore computed into a variable first.
+
+PHASE3_POSTS = [
+    # The count is not hard-coded to 100: the packs hold 100-104 words in these
+    # eight groups, and the page states its own true total in the heading rather
+    # than rounding it to a nicer number.
+    ("common-words", "Most common words",
+     "The highest-frequency words, in eight groups, with pronunciation for each."),
+    ("mistakes", "Common mistakes",
+     "The traps learners fall into in this language, and the fix for each one."),
+    ("reading", "How to read the script",
+     "A step-by-step path from letters to reading real sentences."),
+    ("vs-hindi", "vs Hindi",
+     "What Hindi speakers already know, and what trips everyone else up."),
+    ("speaking-alone", "Practise speaking alone",
+     "Shadowing, self-talk and a routine you can keep without a tutor."),
+]
+
+PHASE3_EXISTING = [
+    ("beginner", "Beginner's guide", "How to learn from scratch, and the honest first 30 days."),
+    ("pronunciation", "Alphabet, letter by letter", "Every letter with the sound it makes."),
+    ("grammar", "Grammar basics", "Word order, verbs and the sentence ladder."),
+    ("travel", "Phrases for travel", "Stations, hotels, fares and the phrases you will use."),
+    ("numbers", "Numbers 1 to 100", "Counting, prices and time — with the counting pattern."),
+]
+
+# Language family, stated plainly. Hindi is this site's bridge language, so the
+# "vs Hindi" guide has to be honest about how close the two really are.
+LANG_FAMILY = {
+    "bengali": ("Indo-Aryan", "a cousin of Hindi"),
+    "gujarati": ("Indo-Aryan", "a cousin of Hindi"),
+    "marathi": ("Indo-Aryan", "a cousin of Hindi"),
+    "punjabi": ("Indo-Aryan", "a cousin of Hindi"),
+    "urdu": ("Indo-Aryan", "the closest major relative of Hindi"),
+    "kannada": ("Dravidian", "not related to Hindi at all"),
+    "malayalam": ("Dravidian", "not related to Hindi at all"),
+    "tamil": ("Dravidian", "not related to Hindi at all"),
+    "telugu": ("Dravidian", "not related to Hindi at all"),
+}
+
+
+def _h2(t):
+    return "  <h2>" + t + "</h2>"
+
+
+def _h3(t):
+    return "  <h3>" + t + "</h3>"
+
+
+def _p(*paras):
+    return "\n".join("  <p>" + p + "</p>" for p in paras)
+
+
+def _ul(items):
+    return "  <ul>\n" + "\n".join("    <li>" + x + "</li>" for x in items) + "\n  </ul>"
+
+
+def _ol(items):
+    return "  <ol>\n" + "\n".join("    <li>" + x + "</li>" for x in items) + "\n  </ol>"
+
+
+def _callout(title, body):
+    return '  <div class="note"><b>' + title + "</b> " + body + "</div>"
+
+
+def _rows_table(rows, col3, with_hi=True):
+    """en/native/roman table with a leading row number.
+
+    with_hi=False for the review deck, which stores only the target language and
+    its meaning — printing an empty Hindi column would be a lie about the data.
+    """
+    out = ['<table class="tbl tri"><thead><tr><th>#</th><th>English</th>']
+    if with_hi:
+        out.append('<th>Hindi</th>')
+    out.append('<th>' + E(col3) + '</th><th>Say it</th></tr></thead><tbody>')
+    for i, w in enumerate(rows, 1):
+        cells = ["<tr><td>" + str(i) + "</td><td>" + E(w.get("en", "")) + "</td>"]
+        if with_hi:
+            cells.append("<td>" + E(w.get("hi", "")) + "</td>")
+        cells.append("<td><b>" + E(w["t"]) + "</b></td><td>" + E(w["r"]) + "</td></tr>")
+        out.append("".join(cells))
+    out.append("</tbody></table>")
+    return "\n".join(out)
+
+
+def _num_table(rows, lang):
+    out = ['<table class="tbl tri"><thead><tr><th>#</th><th>Hindi</th><th>' + E(lang)
+           + '</th><th>Say it</th></tr></thead><tbody>']
+    for w in rows:
+        out.append("<tr><td><b>" + str(w["n"]) + "</b></td><td>" + E(w["hi"]) + "</td>"
+                   "<td><b>" + E(w["t"]) + "</b></td><td>" + E(w["r"]) + "</td></tr>")
+    out.append("</tbody></table>")
+    return "\n".join(out)
+
+
+def _pf_table(d):
+    """past / future sentences, four columns."""
+    out = ['<table class="tbl tri"><thead><tr><th>English</th><th>Hindi</th><th>'
+           + E(d["name"]) + '</th><th>Say it</th></tr></thead><tbody>']
+    for x in d["past_future"]:
+        out.append("<tr><td>" + E(x["en"]) + "</td><td>" + E(x["hi"]) + "</td><td><b>"
+                   + E(x["t"]) + "</b></td><td>" + E(x["r"]) + "</td></tr>")
+    out.append("</tbody></table>")
+    return "\n".join(out)
+
+
+def _guide_links(d, here):
+    """Cross-links between the ten phase-3 posts, minus the current one."""
+    items = []
+    for slug, label, blurb in PHASE3_EXISTING + PHASE3_POSTS:
+        if slug == here:
+            continue
+        link = '<a href="../' + slug + '/">' + E(label) + " — " + E(d["name"]) + "</a>"
+        items.append("<li>" + link + "<span>" + E(blurb) + "</span></li>")
+    return ('<h2>More guides in this course</h2>\n  <ul class="linklist">\n    '
+            + "\n    ".join(items) + "\n  </ul>")
+
+
+# ---------------------------------------------------------------- 5 new posts
+
+def p_common_words(d):
+    n = d["name"]
+    groups = [
+        ("Greetings and politeness", d["greetings"]),
+        ("Pronouns", d["pronouns"]),
+        ("The 18 verbs you will use every day", d["verbs"]),
+        ("Family", d["family"]),
+        ("Colours", d["colors"]),
+        ("Core nouns", d["core_nouns"]),
+        ("Time words", d["time_words"]),
+        ("Days of the week", d["days"]),
+    ]
+    total = sum(len(rows) for _t, rows in groups)
+    blocks = []
+    for title, rows in groups:
+        blocks.append(_h2(title + " (" + str(len(rows)) + ")"))
+        blocks.append(_rows_table(rows, n))
+    tables = "\n".join(blocks)
+
+    lede = ("If you learn one thing first, learn this. Every word below is high-frequency — you will hear it in "
+            "the first hour of any real conversation. There are " + str(total) + " words here, in eight groups you "
+            "can take one at a time, and every one is written three ways: <b>English</b>, <b>Hindi</b> and <b>"
+            + E(n) + "</b> (" + E(d["native"]) + ") with a pronunciation column.")
+    why = _p(
+        "<b>Why start with frequency?</b> A language is not a wall you climb; it is a snowball. The first "
+        + str(total) + " words unlock the parts of " + E(n) + " that repeat every day — greeting someone, saying "
+        "what you want, saying who you mean, and saying when. Grammar without vocabulary is silent, and vocabulary "
+        'without grammar is a shopping list. Start here, then let the <a href="../grammar/">grammar page</a> show '
+        "you how to bolt these words together.",
+        "A useful rule of thumb: with a few hundred high-frequency words and one verb pattern, a learner can "
+        "already manage greetings, shops and simple questions. This page is the densest part of that set.")
+    howto = _callout(
+        "How to use this page.",
+        "Do not swallow all " + str(total) + " words in one sitting. Take one group a day, read the column aloud, "
+        "cover the pronunciation column and say each word. Then test yourself with the "
+        '<a href="../practice/quiz/">topic quiz</a> and keep the ones that will not stick in the '
+        '<a href="../review/">review deck</a>.')
+    after = _h2("What to do after these " + str(total)) + _p(
+        "You now own the skeleton of " + E(n) + ". The next step is not more words — it is sentences. Take five "
+        "verbs from the list above and build one sentence each about your own day. Then read the "
+        '<a href="../grammar/">grammar basics guide</a> for the word order (' + E(d["sov"]["t"]) + "), and the "
+        '<a href="../speaking-alone/">speaking-alone plan</a> so the words come out of your mouth and not just '
+        "off the page.")
+    body = "\n".join([
+        crumb(d, [(None, "100 most common words")]),
+        "  <h1>" + E(n) + " — the " + str(total) + " most common words</h1>",
+        '  <p class="lede">' + lede + "</p>",
+        why, howto, tables, after,
+        _guide_links(d, "common-words"),
+    ])
+    return ("{0} — the {1} most common words with pronunciation".format(n, total),
+            "The {0} highest-frequency {1} words in eight groups — greetings, pronouns, verbs, family, colours, "
+            "nouns, time and days — each with Hindi, {1} script and how to say it.".format(total, n),
+            body)
+
+
+def p_mistakes(d):
+    n = d["name"]
+    lede = ("Nobody fails at " + E(n) + " because it is impossible. People stall because they repeat five or six "
+            "specific habits for months. Here they are, honestly, with the fix for each.")
+    lede2 = _p("None of these mistakes means you are bad at languages. They are the normal fault lines of "
+               + E(n) + " — the places where your instincts, usually English instincts, pull in the wrong "
+               "direction.")
+    m1 = _h2("Mistake 1 — Translating word for word") + _p(
+        "English builds sentences as <b>subject – verb – object</b>. " + E(n) + " does not. The pattern here is <b>"
+        + E(d["sov"]["t"]) + "</b> — " + E(d["sov"]["en"]) + ".",
+        "If you translate one English word at a time you get sentences that are technically understandable and "
+        "permanently foreign. Train the other order until it feels normal: take three sentences you would say today "
+        "in English and rebuild them in the " + E(n) + " order, out loud, before you look anything up.")
+    m1f = _callout("The fix.", "Learn sentence patterns, not words in isolation. The "
+                  '<a href="../grammar/">grammar page</a> has the present-tense table to copy — say every row '
+                  "aloud once and you have the shape of the language.")
+    m2 = _h2("Mistake 2 — Skipping the script") + _p(
+        "The " + E(d["script_name"]) + " looks like the biggest mountain at the start, so learners put it off and "
+        "survive on romanisation. " + E(d["script_note"]),
+        "Romanisation is a crutch that quietly caps your ceiling: you cannot read a menu, a sign or a message, and "
+        "your pronunciation drifts further from the real thing every week, because roman letters carry English "
+        "sounds into " + E(n) + ".")
+    m2f = _callout("The fix.", 'Twenty minutes a day for two weeks on the '
+                  '<a href="../pronunciation/">letter tables</a>, then type every word you learn in the '
+                  '<a href="../practice/typing/">typing trainer</a>. The '
+                  '<a href="../reading/">step-by-step reading guide</a> walks the whole path.')
+    m3 = _h2("Mistake 3 — Assuming gender works like English") + _p(
+        E(d["gender_title"]) + ".",
+        "English hides gender except in pronouns, so learners either ignore it or guess. Guessing is worse than "
+        "ignoring, because the shape of a noun is usually where its gender lives, and the verb often agrees with it.")
+    m3f = _callout("The fix.", "Learn every new noun <i>with</i> a sentence you can use it in, never as a bare word, "
+                  "and check the past-tense forms in the tables on this site before you memorise them.")
+    m4 = _h2("Mistake 4 — Treating the verb as the hard part") + _p(
+        E(d["present_note"]),
+        "Learners hunt for the exact equivalent of \"I am doing\" or \"I have done\", and instead of accepting that "
+        + E(n) + " divides the work differently, they freeze.")
+    m4f = _callout("The fix.", 'Practise the I/you/he rows of the <a href="../grammar/">present-tense table</a> '
+                  "until they are automatic, then change only the verb. The "
+                  '<a href="../practice/quiz/">quiz</a> mixes them so you cannot copy the tense you saw last.')
+    m5 = _h2("Mistake 5 — Getting negation wrong") + _p(
+        E(d["negation_title"]) + ".",
+        "Say \"I don't understand\" wrong once at the wrong moment and you will avoid the phrase for a month. "
+        "Negation is short, frequent, and worth an hour of your week.")
+    m5f = _callout("The fix.", "Take any five sentences you already know and make each one negative. Drill them as a "
+                  "pair: positive, negative, positive, negative.")
+    m6 = _h2("Mistake 6 — Counting with English grammar") + _p(
+        E(d["counting_note"]),
+        "Numbers feel easy, so learners skip the small differences around counting — and then get tripped by "
+        "\"two people\" or \"three books\" the first time they need them in a shop.")
+    m6f = _callout("The fix.", 'Use the <a href="../numbers/">numbers and counting guide</a> and count real things '
+                  "in your house: two chairs, three books, five people. Context is what makes the pattern stick.")
+    m7 = _h2("Mistake 7 — Waiting until you are ready to speak") + _p(
+        "Almost every learner waits for a magic morning when the language suddenly feels safe. That morning never "
+        "comes. Speaking badly early is not a failure mode; it is the method.",
+        "Start with the phrases you cannot get wrong — " + E(d.get("survival_trio", "greetings, thanks, and where "
+        "is X")) + " — and use them with a real person at the first opportunity.")
+    m7f = _callout("The fix.", 'The <a href="../speaking-alone/">speaking-alone routine</a> lets you build the habit '
+                  "privately before you use it publicly. Ten minutes a day beats one three-hour session a week.")
+    check = _h2("A two-minute self-check") + _ul([
+        "Can you read a simple sentence aloud without the roman column?",
+        "Can you make five sentences negative on demand?",
+        "Do you know the gender behaviour of the last ten nouns you learned?",
+        "Can you count to twenty and use a number with a noun?",
+        "Did you say anything out loud in the last 24 hours?"])
+    close = _p("Every \"no\" is not a verdict — it is just the next hour of study, with a clear target.",
+               "And one asymmetry worth remembering: understanding a language always runs ahead of speaking it, by "
+               "months. You will feel like you are failing long after you have started succeeding. The corrections "
+               "above are not there to make you doubt yourself — they are there so that the effort you are already "
+               "putting in stops leaking.")
+    body = "\n".join([
+        crumb(d, [(None, "Common mistakes")]),
+        "  <h1>Common mistakes when learning " + E(n) + " — and how to fix them</h1>",
+        '  <p class="lede">' + lede + "</p>", lede2,
+        m1, m1f, m2, m2f, m3, m3f, m4, m4f, m5, m5f, m6, m6f, m7, m7f, check, close,
+        _guide_links(d, "mistakes"),
+    ])
+    return ("Common mistakes when learning {0} — and how to fix them".format(n),
+            "The {0} traps that slow learners down: word order, gender, negation, counting and the script — each "
+            "with the fix and a drill.".format(n),
+            body)
+
+
+def p_reading(d):
+    n = d["name"]
+    vowels = d["vowels"]
+    consonants = d["consonants"]
+    step1 = _h2("Step 1 — Meet the vowels") + _p(
+        "The " + E(d["script_name"]) + " has " + str(len(vowels)) + " vowels, shown below with the sound each one "
+        "makes.",
+        "Read the table left to right, out loud. Do not try to memorise it in one pass: recognition first, recall "
+        "later. Two passes today and two tomorrow beats an hour tonight.") + alpha_table(vowels)
+    step2 = _h2("Step 2 — Meet the consonants") + _p(
+        "Then the " + str(len(consonants)) + " consonants. This is the part people find intimidating, and it is "
+        "mostly an illusion created by an unfamiliar script: the table below gives you the sound of every letter, "
+        "in words you already know.") + alpha_table(consonants)
+    pace = _callout("A realistic pace.", "Two letters a day with five minutes of writing each. In about three weeks "
+                    "the alphabet stops being a wall and becomes a slightly slow tool — which is exactly what it "
+                    "should feel like.")
+    step3 = (_h2("Step 3 — Read numbers first") + _p(
+        "Numbers are the ideal first reading exercise: short, repetitive, and you already know what they mean from "
+        'the <a href="../numbers/">counting page</a>. Read these out loud without looking at the Hindi or English '
+        "column, then cover the last column and read them again. If you can read 1–10, you can read a price board.")
+        + _num_table(d["numbers"][:10], n))
+    step4 = _h2("Step 4 — Read real words") + _p(
+        "Now real vocabulary. These twelve words are the ones you will use most; read the " + E(n) + " column first "
+        "and only then check the pronunciation column.") + _rows_table(d["review_deck"][:12], n, with_hi=False)
+    step5 = _h2("Step 5 — Read a whole sentence") + _p(
+        "Reading words is one skill; reading a sentence is a second one. Start with the word order you already "
+        "know — <b>" + E(d["sov"]["t"]) + "</b> — then read slowly, then at speaking speed.",
+        "Read each phrase below aloud three times. When you can read them without pausing, you have crossed from "
+        "decoding to reading.") + tri_table(d["daily_phrases"][:6], col3=n)
+    step6 = _h2("Step 6 — Make it a habit") + _ol([
+        "Five minutes reading the letter tables aloud, every day.",
+        "Five minutes typing the words you learned in the practice typing trainer.",
+        "Once a week, re-read a page you have already studied and notice how much faster it goes.",
+        "Never read only in your head: the mouth learns the script faster than the eye does."])
+    close = _p('When reading starts to feel routine, push on to the <a href="../grammar/">grammar basics</a> and '
+               'the <a href="../speaking-alone/">speaking-alone plan</a> — reading is the door, not the room.')
+    lede = (E(d["script_note"]) + " Below is the path that gets you from \"those are just shapes\" to reading a "
+            "real " + E(n) + " sentence, in six steps you can work through in a fortnight of short sessions.")
+    body = "\n".join([
+        crumb(d, [(None, "How to read the script")]),
+        "  <h1>How to read " + E(n) + " script — a step-by-step guide</h1>",
+        '  <p class="lede">' + lede + "</p>",
+        step1, step2, pace, step3, step4, step5, step6, close,
+        _guide_links(d, "reading"),
+    ])
+    return ("How to read {0} script — a step-by-step guide".format(n),
+            "A practical path to reading {0}: the {1} letter by letter, then real words and numbers, in the order "
+            "that actually works.".format(n, d["script_name"]),
+            body)
+
+
+def p_vs_hindi(d):
+    n = d["name"]
+    fam, rel = LANG_FAMILY.get(d["slug"], ("", "related to Hindi in different ways"))
+    same_script = "Devanagari" in d.get("script_name", "")
+    if same_script:
+        script_para = ("Good news first: " + E(n) + " is written in " + E(d["script_name"]) + ", the same script "
+                       "Hindi uses. If you can read Hindi, you can already read the letters on every " + E(n) +
+                       " page of this course — you are learning new words and new grammar, not a new alphabet.")
+    else:
+        script_para = ("First, the difference you cannot ignore: Hindi is written in Devanagari, and " + E(n) +
+                       " is written in " + E(d["script_name"]) + ". That is a separate reading skill to build. " +
+                       E(d["script_note"]))
+    lede = ("This site teaches every " + E(n) + " word in three languages at once, with Hindi sitting right next to "
+            "English, which hides a fair question: if you already speak Hindi, how much of " + E(n) + " do you get "
+            "for free? " + E(n) + " is " + E(fam.lower()) + " — " + E(rel) + ". Here is the honest breakdown.")
+    script = _h2("The script") + _p(script_para)
+    order = _h2("Word order") + _p(
+        "Here the two languages agree: " + E(n) + " puts the verb last. The pattern is <b>" + E(d["sov"]["t"]) +
+        "</b> — " + E(d["sov"]["en"]) + ". Hindi works the same way, so if Hindi word order is already in your ear, "
+        "that is one fewer thing to unlearn.")
+    words = _h2("Words you may already know") + _p(
+        "Look down the Hindi and " + E(n) + " columns together. Where the two are similar, that is usually a word "
+        "that travelled — through Sanskrit, through Persian, or through centuries of trade and administration. "
+        "Where they differ, the everyday word is usually native. Numbers are the clearest test:") \
+        + _num_table(d["numbers"][:10], n) + _p(
+        "Compare each Hindi number with its " + E(n) + " partner above. Similar ones are free vocabulary. The "
+        "different ones are words you must memorise deliberately — and they are worth it, because a number is the "
+        "word you use when you buy something.")
+    side = _h3("Everyday words, side by side") + _rows_table(d["family"][:6] + d["colors"][:4], n)
+    warn = _callout("Do not assume — check.",
+                    "The most common mistake a Hindi speaker makes is assuming a similar-sounding word means exactly "
+                    "the same thing. It usually means something close, and \"close\" is where misunderstandings "
+                    "live. Read the English column too, even when the Hindi one looks familiar.")
+    gram = _h2("Grammar: where the two part company") + _p(
+        "<b>Gender.</b> " + E(d["gender_title"]) + ".",
+        "<b>Verbs.</b> " + E(d["present_note"]),
+        "<b>Negation.</b> " + E(d["negation_title"]) + ".",
+        "<b>Counting.</b> " + E(d["counting_note"]))
+    if_hi = _h2("If you already speak Hindi") + _ul([
+        "Skip nothing: the script and word order transfer, the grammar does not.",
+        "Use the Hindi column as a shortcut for meaning, then read the " + E(n) + " column aloud twice.",
+        "Watch the verb endings first — that is where the transfer stops working.",
+        "Watch gender agreement in the past tense, the usual first serious stumble."])
+    if_not = _h2("If you do not speak Hindi") + _p(
+        "Then treat the Hindi column as a bonus rather than a prerequisite: every page on this site gives you "
+        "English and " + E(n) + " with pronunciation, so you can learn " + E(n) + " without a word of Hindi. What "
+        "the Hindi column buys you is a second reference point when a word refuses to stick.",
+        "It is also worth knowing that Hindi is a genuinely useful bridge language in India: the numbers and a few "
+        "hundred shared words turn up everywhere, and the reflex of putting the verb at the end is the same.")
+    sound = _h2("Pronunciation: the part nobody warns you about") + _p(
+        "Similar vocabulary and a shared word order make a Hindi speaker feel at home early, which is exactly when "
+        "pronunciation gets neglected. Words that look familiar are the ones you are most likely to say with Hindi "
+        "vowels and Hindi stress.",
+        "The fix is unglamorous: read the pronunciation column even on the words you think you already know, and "
+        "read the letter tables once properly, out loud. Ten minutes of honesty at the start saves a year of "
+        "corrections later — and people will understand you far more easily once the sounds are right.")
+    if fam:
+        fam_line = E(n) + " is " + E(fam.lower()) + " — " + E(rel) + "."
+    else:
+        fam_line = E(n) + " and Hindi are related in different ways."
+    short = _h2("The short version") + _ul([
+        fam_line,
+        "Same word order" + (" and the same script" if same_script else ", different script"),
+        "A comparable verb-last sentence shape, with different verb machinery",
+        "Shared vocabulary where history put it; native vocabulary where it matters most — everyday life"])
+    close = _p('Now put it to work: the <a href="../common-words/">100 most common words</a> page is laid out so '
+               'you can compare the two columns line by line, and the <a href="../mistakes/">mistakes guide</a> '
+               "covers the traps that catch bilingual speakers in particular.",
+               "The comparison is also a useful test of your own intuition. Read a handful of words you think you "
+               "already know, cover the English column, and see whether the Hindi meaning is genuinely the same. "
+               "Where it is not, you have found the exact place to spend your next study session.")
+    body = "\n".join([
+        crumb(d, [(None, E(n) + " vs Hindi")]),
+        "  <h1>" + E(n) + " vs Hindi — what's different and what's similar</h1>",
+        '  <p class="lede">' + lede + "</p>",
+        script, order, words, side, warn, gram, if_hi, if_not, sound, short, close,
+        _guide_links(d, "vs-hindi"),
+    ])
+    return ("{0} vs Hindi — what is different and what is similar".format(n),
+            "How close {0} and Hindi really are: script, word order, verbs, gender and vocabulary — with the words "
+            "you already know if you speak Hindi.".format(n),
+            body)
+
+
+def p_speaking_alone(d):
+    n = d["name"]
+    first = d["greetings"][0]
+    dlg_html = ""
+    if d.get("dialogues"):
+        dlg = d["dialogues"][0]
+        dlg_html = (_h2("Shadow the dialogues (" + str(len(d["dialogues"])) + " on this site)")
+                    + _p("Below is the first dialogue in the course, \"" + E(dlg["title"]) + "\". Read it aloud line "
+                         "by line, copying the rhythm rather than the words. Shadowing means speaking <i>at the "
+                         "same time</i> as the model, not after it — that is what forces your mouth to keep up.")
+                    + dialogue_html(dlg["lines"])
+                    + _p("Then close the page and say the whole conversation from memory. You will lose half of "
+                         "it. Do the same tomorrow and you will not."))
+    lede = ("You can get genuinely far in " + E(n) + " without a teacher or a conversation partner. Not all the "
+            "way — nobody learns to handle real speech alone — but far enough that your first real conversation "
+            "will not be your first spoken " + E(n) + " sentence. Here is the routine, in the order it should be "
+            "built.")
+    s1 = _h2("1. Shadow before you speak") + _p(
+        "Shadowing is copying speech in real time. Take a phrase from the "
+        '<a href="../conversation/">conversation page</a> — ' + E(first["t"]) + " (" + E(first["r"]) + ") is a good "
+        "first one — and say it while you read it, out loud, five times. Then say it without the page. The point is "
+        "not comprehension; it is making your mouth move in an unfamiliar way until it stops being unfamiliar.")
+    s2 = _h2("2. Talk to yourself on a schedule") + _p(
+        "Narrate your day in " + E(n) + " for two minutes, twice a day. Keep it dull on purpose: what you are "
+        "doing, what you want, what is next. Dull sentences repeat, and repeated sentences are the ones that stick.",
+        'Use the <a href="../daily-life/">daily phrases</a> as scaffolding at first, then swap in words from the '
+        '<a href="../common-words/">100 most common words</a>. If you cannot say a sentence, say the closest one '
+        "you can, note the gap, and look it up afterwards. Gaps are data.")
+    s3 = _h2("3. Record yourself once a week") + _ol([
+        "Read ten words from the pronunciation letter tables aloud and record them.",
+        "Play it back and compare with the pronunciation column on the page. Listen for sounds, not for accent.",
+        "Record the same ten words next week. The improvement is the motivation."]) + _p(
+        "Recording is uncomfortable for about three weeks, and then it becomes the most useful habit on this list, "
+        "because it is the only way to hear what other people actually hear.")
+    s4 = _h2("4. Drill the sounds you cannot hear") + _p(
+        E(d["script_note"]),
+        "That matters for speaking: the letters you cannot distinguish are the letters you will not pronounce "
+        "differently. Take the vowels and consonants marked as tricky on the "
+        '<a href="../pronunciation/">pronunciation page</a> and make one sentence with each, then say it until it '
+        "is smooth.")
+    s4b = _callout("A useful trick.", "Exaggerate the difficult sound on purpose while practising. You will feel "
+                   "silly, and you will hear the difference. When you drop back to normal speed your mouth will be "
+                   "in the right place.")
+    s5 = _h2("5. Feed the habit with spaced repetition") + _p(
+        "Speaking practice fails when the words are not there yet. Spend ten minutes on the "
+        '<a href="../review/">review deck</a> or the <a href="../practice/typing/">typing trainer</a> every day, so '
+        "that speaking practice is about building sentences rather than hunting for vocabulary.")
+    s6 = _h2("6. Know when you are ready for a person") + _ul([
+        "You can greet, thank and ask where something is without translating in your head.",
+        "You can say what you did yesterday, even badly.",
+        "You can ask someone to repeat themselves — and catch the first three words of the answer."]) + _p(
+        "That is the point to find a human: a tutor, a colleague, a market stall, an online exchange. Before that, "
+        "the person is mostly doing the work your own routine should be doing.")
+    s7 = _h2("The honest limits of practising alone") + _p(
+        "No amount of shadowing teaches you to understand an unfamiliar voice at natural speed, and it cannot "
+        "correct an error you cannot hear. A routine alone is a strong bridge and a bad destination. Our tutors "
+        "teach Hindi one to one, and this " + E(n) + " course stays free either way.")
+    s8 = _h2("The daily twenty minutes") + _ol([
+        "5 minutes: read the letter tables aloud.",
+        "5 minutes: ten words from the review deck, spoken and typed.",
+        "5 minutes: shadow one dialogue or narrate your day.",
+        "5 minutes: write two sentences — including one negative sentence."]) + _p(
+        "Keep it that small and it will survive a busy week, which is the only test that matters.")
+    body = "\n".join([
+        crumb(d, [(None, "Practise speaking alone")]),
+        "  <h1>How to practise speaking " + E(n) + " alone — a realistic plan</h1>",
+        '  <p class="lede">' + lede + "</p>",
+        s1, dlg_html, s2, s3, s4, s4b, s5, s6, s7, s8,
+        _guide_links(d, "speaking-alone"),
+    ])
+    return ("How to practise speaking {0} alone — a realistic plan".format(n),
+            "A no-tutor speaking routine for {0}: shadowing, self-talk, recording yourself and spaced repetition — "
+            "plus the honest limits of practising alone.".format(n),
+            body)
+
+
+# ---------------------------------------------------------------- deepening the five that already existed
+
+def deep_beginner(d):
+    n = d["name"]
+    weeks = _ol([
+        "<b>Week 1 — sounds.</b> The pronunciation vowel and consonant tables, two letters a day, said aloud. "
+        "Add five greetings from the conversation page.",
+        "<b>Week 2 — numbers and reading.</b> Numbers 1–20 from the numbers guide, then the tens. Read each one "
+        "aloud without the roman column.",
+        "<b>Week 3 — your first sentences.</b> The grammar page, present tense, I/you/we rows. Build five sentences "
+        "about your own day, then make each one negative.",
+        "<b>Week 4 — real situations.</b> Food, shopping and travel phrases. Role-play them out loud as if the "
+        "person were in front of you."])
+    plan = _h2("Your first 30 days, week by week") + _p(
+        "Most courses fail because they never say what to do <i>on Tuesday</i>. Here is a four-week plan built on "
+        "the pages of this site, sized for twenty minutes a day. If you miss a day, do not restart the week — just "
+        "carry on.") + weeks
+    keep = _h2("What to learn first — and what to ignore for now") + _ul([
+        "<b>Learn now:</b> greetings, pronouns, numbers to 20, the present tense, and the words you use about "
+        "yourself.",
+        "<b>Ignore for now:</b> literary vocabulary, perfect tenses, regional dialect, and every exception you meet "
+        "in a grammar table before it appears in a real sentence.",
+        "<b>Never skip:</b> pronunciation. Everything you drill later is built on how you said it first."])
+    ready = _callout("How to know you are ready to move on.",
+                     "You can read ten short words aloud without help, greet someone politely, count to twenty, and "
+                     "build five simple sentences about your day. That is the whole beginner bar — there is nothing "
+                     "mysterious waiting behind it.")
+    hello = _h2("How to say hello, out loud") + tri_table(d["greetings"][:8], col3=n) + _p(
+        "Say every row aloud twice, then close the table and try from memory. This is the most rewarding first hour "
+        "of the whole language, because these eight lines get used every day once you arrive.")
+    memory = _h2("How to remember the words") + _p(
+        "Three techniques do most of the work in the first month, and none of them requires an app.",
+        "<b>Say it out loud.</b> Words you only read are stored weakly. Every word on this site has a pronunciation "
+        "column precisely so you can say it while you read it.",
+        "<b>Attach it to something.</b> A word learned inside a sentence about your own life is remembered far "
+        "better than a word learned from a list. When you meet a new word, immediately say one true sentence with it.",
+        "<b>Meet it again.</b> Five minutes of review on three separate days beats one hour of cramming, every time. "
+        "That is what the review deck and the quiz are for.") + _ul([
+        "<b>Ten spare minutes?</b> Read the letter tables aloud and run ten words through the review deck.",
+        "<b>Thirty spare minutes?</b> Twenty minutes on the current week's page, then ten minutes of quiz questions.",
+        "<b>A whole evening?</b> Do not study for three hours. Do the usual twenty minutes and watch something in "
+        "the language instead — listening is not wasted time."]) + _p(
+        "The learners who reach the end of this course are not the ones with the most free time. They are the ones "
+        "who kept the daily session small enough to survive a bad week.")
+    expects = _h2("What this level is, and what it is not") + _p(
+        "The beginner stage is not a smaller version of fluency. It is a separate skill with its own finish line: "
+        "reading without panic, greeting people correctly, handling numbers, and building simple true sentences "
+        "about your own life.",
+        "It is normal at this stage to understand far more than you can say, and it is normal to forget a word you "
+        "learned yesterday. Neither is a sign that you are doing it wrong. What matters is that the twenty minutes "
+        "happen, that you say things out loud, and that you keep returning to words before they disappear entirely.",
+        "When the four weeks above are done, do not jump to advanced material. Take the topics one at a time — "
+        "food, shopping, travel, time — and make sure each one is usable before you move on. A learner who can "
+        "really use five topics will out-converse a learner who has skimmed fifteen.",
+        "One last honest note: " + E(d["difficulty"]) if d.get("difficulty") else "")
+    return plan + keep + ready + hello + memory + expects
+
+
+def deep_pronunciation(d):
+    n = d["name"]
+    keys = ("no ", "not ", "never", "unlike", "harder", "between", "roll", "breath", "both")
+    tricky = [c for c in d["consonants"] if any(w in c["hint"].lower() for w in keys)][:5]
+    tricky_html = ""
+    if tricky:
+        items = ["<b>" + E(c["t"]) + "</b> (" + E(c["r"]) + ") — " + E(c["hint"]) for c in tricky]
+        tricky_html = (_h2("The letters that actually need work")
+                       + _p("Every alphabet has a few letters that learners hear as \"the same\". They are not the "
+                            "same, and they are the ones worth drilling deliberately.")
+                       + _ul(items))
+    read10 = (_h2("Read these ten words out loud")
+              + _p("Reading practice works better with real words than with letter drills. These are ten "
+                   "high-value words from the course — read the " + E(n) + " column first, then check the "
+                   "pronunciation column underneath.")
+              + _rows_table(d["review_deck"][:10], n, with_hi=False))
+    write = (_h2("Writing: hand before keyboard")
+             + _p("Write each new letter by hand five times. Handwriting forces you to notice the strokes and the "
+                  "joins, which typing lets you skip. Once you can write it, the typing trainer turns that knowledge "
+                  "into speed.",
+                  "A realistic goal for the first fortnight is not beauty, it is legibility to yourself. "
+                  "Handwriting in " + E(n) + " improves the same way it does in English: slowly, and by doing it in "
+                  "short bursts often.")
+             + _callout("When you get stuck.",
+                        "If a letter refuses to stick, it is almost always because you are learning it in isolation. "
+                        "Attach it to a word you already know from the numbers or greetings tables, and learn the "
+                        "pair."))
+    fortnight = _h2("The first fortnight, day by day") + _ol([
+        "<b>Days 1–5.</b> Two vowels a day, written by hand five times each and read aloud. No vocabulary yet.",
+        "<b>Days 6–10.</b> Two consonants a day the same way. By now you should recognise the vowels on sight.",
+        "<b>Days 11–12.</b> Read the numbers table without the roman column. Slow is fine — accurate is the goal.",
+        "<b>Day 13.</b> Read the ten words above and check yourself against the pronunciation column.",
+        "<b>Day 14.</b> Type ten words in the practice typing trainer, then read the greetings table aloud unaided."])
+    fortnight += _p("Fourteen short sessions is genuinely enough to read slowly, which is all the beginner stage "
+                    "asks. Everything after that is speed, and speed comes from reading things you already "
+                    "understand.")
+    return tricky_html + read10 + write + fortnight
+
+
+def deep_grammar(d):
+    n = d["name"]
+    ladder = _h2("The sentence ladder") + _p(
+        "Do not learn grammar as a list of rules. Learn it as a ladder with seven rungs, where every rung is "
+        "something you can say out loud today.") + _ol([
+        "<b>Say what you are.</b> Simple I-sentences with no verb change.",
+        "<b>Say what you want.</b> The same pattern with a noun from the common words list.",
+        "<b>Say what you do.</b> The present-tense table above, first person only.",
+        "<b>Say what someone else does.</b> The same table, third person — this is where the endings move.",
+        "<b>Say what happened.</b> Past tense, five sentences about yesterday.",
+        "<b>Say what will happen.</b> Future tense, five sentences about tomorrow.",
+        "<b>Say what does not happen.</b> Negative forms of five sentences you have already built."])
+    pf = _h2("Past and future, in five sentences each") + _pf_table(d)
+    small = (_h2("Small words, big sentences") + _p(
+        "Two groups of small words turn correct sentences into natural ones: the little words that mean in, at or "
+        "to, and the words used when counting things.") + tri_table(d["postpositions"], col3=n)
+        + _p("And the counting words:") + tri_table(d["classifiers"], col3=n))
+    rule = _callout("The grammar rule that matters most.",
+                    E(d["present_note"]) + " Learn the pattern, then change one thing at a time — verb, then "
+                    "person, then tense. Learners who change everything at once produce sentences they cannot debug.")
+    return ladder + pf + small + rule
+
+
+def deep_travel(d):
+    n = d["name"]
+    tp = d["travel_phrases"][0]
+    station = (_h2("At the station") + _h3("Buying a ticket") + _p(
+        "Travel conversations are short, repetitive and predictable — which makes them the best possible practice "
+        "ground. The exchange below covers almost every ticket window; learn your half of it until it is automatic.")
+        + _ul([
+            "<b>You:</b> " + E(tp["t"]) + " (" + E(tp["r"]) + ") — " + E(tp["en"]),
+            "<b>You:</b> say the destination, then the number of tickets using a number from the table below.",
+            "<b>Them:</b> a number. You will hear it faster than you expect — listen for the tens.",
+            "<b>You:</b> thank them. This is the moment the greeting table pays off."]))
+    hotel = _h2("At the hotel") + _p(
+        "Three phrases cover most of a check-in: that you have a booking, that you want a room, and what it costs. "
+        "Everything else is numbers.",
+        "Say the price aloud back to them. It is polite, it confirms your listening, and it is the single most "
+        "useful habit in a place where you are still counting slowly.")
+    fares = _h2("Fares, money and bargaining") + _p(
+        "Numbers are the vocabulary of travel, and markets are where you will use them most. "
+        + E(d.get("bargaining_script", ""))) + _num_table(d["numbers"][:12], n)
+    food = _h2("Food on the road") + _p(
+        "Ordering is a script you can rehearse at home. Read the phrases below out loud, then order an imaginary "
+        "meal three times.") + tri_table(d["food_phrases"], col3=n)
+    culture = _h2("Cultural context, briefly") + _ul(
+        ["<b>" + E(c["t"]) + "</b> (" + E(c["r"]) + ") — " + E(c["en"]) for c in d["culture"]])
+    warn = _callout("The one thing to remember when you travel.",
+                    "Speak less and listen more in the first two days. Your pronunciation improves faster from "
+                    "hearing real speech than from any table on this site — and people will correct you kindly if "
+                    "you give them the chance.")
+    stuck = _h2("When you get stuck mid-sentence") + _p(
+        "You will get stuck, and that is not a failure — it happens to everyone in the first week of using a "
+        "language for real. What matters is having a way out that does not involve switching to English immediately.",
+        "Three moves cover almost every situation: repeat the last word you understood as a question, ask the "
+        "person to say it again more slowly, and fall back on the survival trio you already know. If none of that "
+        "works, point at the phrase on your screen — nobody minds, and you will have used the language anyway.",
+        "Then, afterwards, write down the sentence you could not finish. That one sentence is the most efficient "
+        "vocabulary lesson you will get all week, because you will never forget the moment it failed you.")
+    rehearse = _h2("Rehearse these three scenes before you go") + _ol([
+        "Buying a ticket, including saying the destination and asking the price.",
+        "Checking into a room, including saying how many nights and asking what time breakfast is.",
+        "Ordering food, including saying what you do not eat and asking for the bill."])
+    return station + hotel + fares + food + culture + rehearse + stuck + warn
+
+
+def deep_number(d):
+    n = d["name"]
+    how = _h2("How the counting system actually works") + _p(
+        "Beyond twenty, most numbers in " + E(n) + " are built from parts you already know: tens plus units. The "
+        "table above gives you the building blocks; the pattern gives you the rest.",
+        E(d["counting_note"]))
+    used = _h2("Numbers you will use more than you think") + _ul([
+        "<b>Prices.</b> Read the price aloud back to the seller — it confirms the number and practises it.",
+        "<b>Time.</b> Hours first, then minutes. Learn \"half past\" as one phrase rather than assembling it.",
+        "<b>Quantities.</b> Two of something, three of something — this is where the counting words appear.",
+        "<b>Phone numbers.</b> The fastest way to make digits automatic: read your own number aloud every day."])
+    trap = _h2("The counting trap") + _p(
+        "Numbers feel easy early, which is why the exception around counting things catches learners late. Count "
+        "real objects at home — two chairs, three books, five people — and say each one in " + E(n) + ". Ten "
+        "minutes of real counting beats an hour of reciting the list.")
+    drill = _callout("A five-minute drill.",
+                     "Count to twenty out loud. Then count backwards from twenty. Then count a real object in front "
+                     "of you. Then read the numbers table above without the Hindi column. Repeat tomorrow — this is "
+                     "one of the few parts of a language that improves measurably in a week.")
+    why = _h2("Why numbers are worth a whole week") + _p(
+        "Numbers are the cheapest fluency in any language. They are finite, they repeat constantly, and they appear "
+        "in the situations where you most need to be understood quickly: paying, asking how far, agreeing on a time.",
+        "Most learners learn to count and then stop, which is a mistake. Counting is reciting; using numbers is a "
+        "different skill. In a shop you do not need to count from one — you need to hear a price and understand it "
+        "the first time, and you need to say a number someone else will understand on the first try.",
+        "That is why every drill below is about real use rather than recitation.")
+    plan = _h2("A week with the numbers") + _ol([
+        "<b>Day 1.</b> Read 1–10 aloud ten times, then type them in the training lab.",
+        "<b>Day 2.</b> Read 11–20 aloud, then cover the roman column and read them again.",
+        "<b>Day 3.</b> The tens only — they are the skeleton of every number up to 100.",
+        "<b>Day 4.</b> Read the whole table top to bottom without the Hindi column.",
+        "<b>Day 5.</b> Count real objects at home, out loud, including two of something and five of something.",
+        "<b>Day 6.</b> Say your age, your house number and your phone number in the language.",
+        "<b>Day 7.</b> Take the topic quiz without looking at this page, then re-read the rows you missed."])
+    clock = (_h2("Telling the time") + _p(
+        "Once you can count, the clock is mostly a matter of two numbers and one pattern. Say the hour first, then "
+        "the minutes — the same order you already learned for any quantity.",
+        "Learn the time words below as whole phrases rather than assembling them from parts. They are short, they "
+        "repeat every day, and being able to say when something happens is what turns a vocabulary list into a "
+        "conversation about your actual life.") + tri_table(d["time_words"], col3=n) + _p(
+        "A practical exercise: for one week, say the time out loud every time you check your phone. It takes two "
+        "seconds and it makes the words automatic within days — far faster than revisiting the table.",
+        "The same trick works for dates. Say today's date aloud in the morning and tomorrow's at night, and you "
+        "will have the vocabulary you need for appointments, buses and bookings without ever sitting down to "
+        "memorise a calendar."))
+    test = _h2("The test that actually matters") + _p(
+        "Ask someone to say ten numbers between one and a hundred and write down what you hear. If you get eight "
+        "right, your numbers are genuinely working — the two you missed are the ones to drill tomorrow. Reciting "
+        "1–100 in order proves much less than that single exercise.")
+    return how + used + trap + why + plan + clock + test + drill
+
+
+DEEPEN = {
+    "beginner/": deep_beginner,
+    "pronunciation/": deep_pronunciation,
+    "grammar/": deep_grammar,
+    "travel/": deep_travel,
+    "numbers/": deep_number,
+}
+
+
+# The reading order the prev/next chain walks. The five PHASE 3 posts slot in at
+# the point in the sequence where a learner would want them, rather than being
+# appended at the end: words before numbers, mistakes once there is vocabulary
+# to get wrong, reading once there is grammar to read with, the comparison and
+# the speaking routine last before the intermediate sequence.
 READ_ORDER = [
     ("basics/", "Basics"), ("beginner/", "Beginner"),
-    ("pronunciation/", "Pronunciation"), ("numbers/", "Numbers"),
+    ("pronunciation/", "Pronunciation"), ("common-words/", "Most common words"),
+    ("numbers/", "Numbers"),
     ("time-dates/", "Time & dates"), ("conversation/", "Conversation"),
-    ("vocabulary/", "Vocabulary"), ("grammar/", "Grammar"),
+    ("vocabulary/", "Vocabulary"), ("mistakes/", "Common mistakes"),
+    ("grammar/", "Grammar"),
     ("elementary/", "Elementary"), ("food/", "Food"),
     ("shopping/", "Shopping"), ("travel/", "Travel"),
-    ("daily-life/", "Daily life"), ("intermediate/", "Intermediate"),
+    ("reading/", "Reading practice"),
+    ("daily-life/", "Daily life"), ("vs-hindi/", "Compared with Hindi"),
+    ("speaking-alone/", "Practising alone"),
+    ("intermediate/", "Intermediate"),
 ]
 
 
@@ -722,7 +1450,14 @@ def build(slug):
     out = os.path.join(ROOT, "learn", slug)
     wrote = []
 
-    NOINDEX = {"review/", "my-progress/"}  # private local state, mirrors Hindi
+    # review/ and my-progress/ are private local state (mirrors Hindi).
+    # The five PHASE 3 posts are NEW FILES: the owner's immutable indexing
+    # contract (tools/ultra/contract.py, data/quality/indexing-baseline.json)
+    # requires every page that is not in the 2026-10-01 baseline to be noindex.
+    # They stay reachable and linked; promoting them to index is an owner
+    # decision, not a generator's.
+    NOINDEX = {"review/", "my-progress/", "common-words/", "mistakes/",
+               "reading/", "vs-hindi/", "speaking-alone/"}
 
     # full prev/next chain: topics + advanced hub + advanced modules
     _mods = d.get("advanced_modules", [])
@@ -752,6 +1487,10 @@ def build(slug):
             if i < len(CHAIN) - 1:
                 next_pair = (href(CHAIN[i + 1][0]), CHAIN[i + 1][1])
             body += "\n  " + prevnext_nav(prev_pair, next_pair)
+        # PHASE 3 depth: the five guides that already had a page get their long-form
+        # section, and all ten link to one another (internal linking).
+        if relpath in DEEPEN:
+            body += "\n" + DEEPEN[relpath](d) + "\n" + _guide_links(d, relpath[:-1])
         robots = "noindex, follow" if relpath in NOINDEX else "index, follow, max-snippet:-1, max-image-preview:large"
         page = shell(d, relpath, title, desc, body, depth, extra, robots)
         fp = os.path.join(out, relpath, "index.html")
@@ -774,6 +1513,12 @@ def build(slug):
                    "time": "time-dates", "food": "food", "shopping": "shopping"}
         key = fn.__name__.split("_", 1)[1]
         emit(slugmap[key] + "/", t, ds, b, 3)
+    # -- PHASE 3 blog posts (five new pages; the other five post types are the
+    #    deepened guides emitted above)
+    for post_slug, post_fn in zip(["common-words", "mistakes", "reading", "vs-hindi", "speaking-alone"],
+                                  [p_common_words, p_mistakes, p_reading, p_vs_hindi, p_speaking_alone]):
+        t, ds, b = post_fn(d)
+        emit(post_slug + "/", t, ds, b, 3)
     # -- practice hub + labs
     t, ds, b = p_practice(d)
     emit("practice/", t, ds, b, 3)

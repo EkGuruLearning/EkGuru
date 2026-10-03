@@ -103,25 +103,25 @@
             },
             "dialogue": [
               {
-                "sp": "Analyst",
+                "sp": "Analystin",
                 "t": "Nicht die Entscheidung allein war ausschlaggebend; vielmehr veränderte gerade die Art ihrer Umsetzung das Ergebnis.",
                 "r": "Nicht die Entscheidung allein war ausschlaggebend; vielmehr veränderte gerade die Art ihrer Umsetzung das Ergebnis.",
                 "en": "The decision alone was not decisive; rather, precisely the manner of its implementation changed the outcome."
               },
               {
-                "sp": "Editor",
+                "sp": "Redakteurin",
                 "t": "Sein Schweigen dürfte wohl weniger Zustimmung als eine bewusst gewahrte Distanz signalisiert haben.",
                 "r": "Sein Schweigen dürfte wohl weniger Zustimmung als eine bewusst gewahrte Distanz signalisiert haben.",
                 "en": "His silence probably signalled less agreement than a consciously maintained distance."
               },
               {
-                "sp": "Mediator",
+                "sp": "Mediatorin",
                 "t": "Tempo ist nötig, gewiss; doch Tempo ohne Rechenschaft ist kein Fortschritt, sondern vertagte Krise.",
                 "r": "Tempo ist nötig, gewiss; doch Tempo ohne Rechenschaft ist kein Fortschritt, sondern vertagte Krise.",
                 "en": "Speed is necessary, certainly; but speed without accountability is not progress, only crisis postponed."
               },
               {
-                "sp": "Reviewer",
+                "sp": "Gutachterin",
                 "t": "Der Satz fiel im Saal kein einziges Mal, und doch schrieb sein Echo jede folgende Entscheidung mit.",
                 "r": "Der Satz fiel im Saal kein einziges Mal, und doch schrieb sein Echo jede folgende Entscheidung mit.",
                 "en": "The sentence was never uttered in the hall, yet its echo co-authored every decision that followed."
@@ -405,25 +405,25 @@
             },
             "dialogue": [
               {
-                "sp": "Analyst",
+                "sp": "Analystin",
                 "t": "Sein Schweigen dürfte wohl weniger Zustimmung als eine bewusst gewahrte Distanz signalisiert haben.",
                 "r": "Sein Schweigen dürfte wohl weniger Zustimmung als eine bewusst gewahrte Distanz signalisiert haben.",
                 "en": "His silence probably signalled less agreement than a consciously maintained distance."
               },
               {
-                "sp": "Editor",
+                "sp": "Redakteurin",
                 "t": "Tempo ist nötig, gewiss; doch Tempo ohne Rechenschaft ist kein Fortschritt, sondern vertagte Krise.",
                 "r": "Tempo ist nötig, gewiss; doch Tempo ohne Rechenschaft ist kein Fortschritt, sondern vertagte Krise.",
                 "en": "Speed is necessary, certainly; but speed without accountability is not progress, only crisis postponed."
               },
               {
-                "sp": "Mediator",
+                "sp": "Mediatorin",
                 "t": "Der Satz fiel im Saal kein einziges Mal, und doch schrieb sein Echo jede folgende Entscheidung mit.",
                 "r": "Der Satz fiel im Saal kein einziges Mal, und doch schrieb sein Echo jede folgende Entscheidung mit.",
                 "en": "The sentence was never uttered in the hall, yet its echo co-authored every decision that followed."
               },
               {
-                "sp": "Reviewer",
+                "sp": "Gutachterin",
                 "t": "Ich möchte Ihren Einwand keineswegs entkräften, sondern seinen Geltungsbereich so bestimmen, dass wir ihn nicht überdehnen.",
                 "r": "Ich möchte Ihren Einwand keineswegs entkräften, sondern seinen Geltungsbereich so bestimmen, dass wir ihn nicht überdehnen.",
                 "en": "I do not wish to invalidate your objection, but to define its scope so that we do not overextend it."
@@ -620,6 +620,295 @@
                 }
               ]
             }
+          },
+          {
+            "id": "de-c2-l7",
+            "title": "Presupposition: what the sentence assumes",
+            "learn": "A sentence smuggles in assumptions: WARUM HABEN SIE DAS VERBOT IGNORIERT? presupposes the ban and the ignoring. C2 names the presupposition instead of arguing inside it: DIESE FRAGE UNTERSTELLT, DASS …",
+            "vocab": [
+              {
+                "t": "unterstellen",
+                "r": "OON-ter-shtel-len",
+                "en": "to impute, presuppose",
+                "pos": "verb"
+              },
+              {
+                "t": "die Voraussetzung",
+                "r": "dee fohr-OWS-zeh-tsoong",
+                "en": "precondition",
+                "pos": "noun"
+              },
+              {
+                "t": "die Implikatur",
+                "r": "dee im-plee-kah-TOOR",
+                "en": "implicature",
+                "pos": "noun"
+              },
+              {
+                "t": "nahelegen",
+                "r": "NAH-huh-lay-gen",
+                "en": "to suggest, imply",
+                "pos": "verb"
+              },
+              {
+                "t": "zurückweisen",
+                "r": "tsoo-REWK-vy-zen",
+                "en": "to reject",
+                "pos": "verb"
+              }
+            ],
+            "grammar": {
+              "title": "Naming the presupposition",
+              "pattern": "die Frage unterstellt, dass … · das legt nahe, dass …",
+              "explain": "Die Frage unterstellt, dass das Verbot bekannt war. Der Satz legt nahe, es habe einen Verstoß gegeben — das ist nicht belegt. Konjunktiv II (hätte, wäre) often marks the assumption as unverified.",
+              "examples": [
+                {
+                  "t": "Die Frage unterstellt, dass alle davon wussten.",
+                  "r": "dee FRAH-guh OON-ter-shtelt, das AL-luh dah-FON VOOS-ten.",
+                  "en": "The question presupposes that everyone knew."
+                },
+                {
+                  "t": "Der Satz legt nahe, es habe einen Verstoß gegeben.",
+                  "r": "dair zats laykt NAH-huh, es HAH-buh EYE-nen fair-SHTOS ge-GAY-ben.",
+                  "en": "The sentence implies that there was a breach."
+                },
+                {
+                  "t": "Diese Voraussetzung weise ich zurück.",
+                  "r": "DEE-zuh fohr-OWS-zeh-tsoong VY-zuh ikh tsoo-REWK.",
+                  "en": "I reject that presupposition."
+                }
+              ],
+              "mistakes": [
+                {
+                  "wrong": "Warum haben Sie das ignoriert?",
+                  "right": "Warum sollten Sie das ignorieren? — or name the presupposition first.",
+                  "why": "The question smuggles in the answer; in argument one must break the frame before answering."
+                },
+                {
+                  "wrong": "Der Satz impliziert, dass es so war.",
+                  "right": "Der Satz legt nahe, dass es so war.",
+                  "why": "legen nahe states an implication without asserting it — implizieren claims a logical link that must then be defended."
+                }
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "Interviewerin",
+                "t": "Warum haben Sie die Regel ignoriert?",
+                "r": "var-OOM HAH-ben zee dee RAY-gel i-gno-REERT?",
+                "en": "Why did you ignore the rule?"
+              },
+              {
+                "sp": "Sprecherin",
+                "t": "Diese Frage unterstellt, dass ich sie ignoriert habe.",
+                "r": "DEE-zuh FRAH-guh OON-ter-shtelt, das ikh zee i-gno-REERT HAH-buh.",
+                "en": "That question presupposes that I ignored it."
+              },
+              {
+                "sp": "Interviewerin",
+                "t": "Haben Sie denn nicht?",
+                "r": "HAH-ben zee den nikht?",
+                "en": "Didn't you?"
+              },
+              {
+                "sp": "Sprecherin",
+                "t": "Der Vorgang ist ungeklärt. Bevor ich antworte, klären wir das.",
+                "r": "dair FOHR-gang ist OON-ge-klairt. beh-FOHR ikh ANT-vor-tuh, KLAY-ren veer das.",
+                "en": "The matter is unresolved. Before I answer, we settle that."
+              }
+            ],
+            "practice": [
+              {
+                "type": "multiple_choice",
+                "q": "Practice 1: [multiple choice] Presupposition: what the sentence assumes — Choose the meaning of unterstellen (OON-ter-shtel-len) in this lesson.",
+                "answer": "to impute, presuppose",
+                "skill_target": "German: verb-second word order, four cases with article agreement, separable prefixes, Perfekt vs Präteritum, modal particles, and Konjunktiv register — measured by clause architecture and by choosing du or Sie before the first verb.",
+                "options": [
+                  "to impute, presuppose",
+                  "precondition",
+                  "implicature",
+                  "to suggest, imply"
+                ]
+              },
+              {
+                "type": "fill_in_the_blank",
+                "q": "Practice 2: [fill in the blank] Presupposition: what the sentence assumes — Type the German expression meaning “precondition”.",
+                "answer": "die Voraussetzung",
+                "skill_target": "German: verb-second word order, four cases with article agreement, separable prefixes, Perfekt vs Präteritum, modal particles, and Konjunktiv register — measured by clause architecture and by choosing du or Sie before the first verb."
+              },
+              {
+                "type": "translation",
+                "q": "Practice 3: [translation] Presupposition: what the sentence assumes — Interpret the German in context: Die Frage unterstellt, dass alle davon wussten. (dee FRAH-guh OON-ter-shtelt, das AL-luh dah-FON VOOS-ten.).",
+                "answer": "The question presupposes that everyone knew.",
+                "skill_target": "German: verb-second word order, four cases with article agreement, separable prefixes, Perfekt vs Präteritum, modal particles, and Konjunktiv register — measured by clause architecture and by choosing du or Sie before the first verb."
+              },
+              {
+                "type": "reverse_translation",
+                "q": "Practice 4: [reverse translation] Presupposition: what the sentence assumes — Write in German: The sentence implies that there was a breach..",
+                "answer": "Der Satz legt nahe, es habe einen Verstoß gegeben.",
+                "skill_target": "German: verb-second word order, four cases with article agreement, separable prefixes, Perfekt vs Präteritum, modal particles, and Konjunktiv register — measured by clause architecture and by choosing du or Sie before the first verb."
+              },
+              {
+                "type": "matching",
+                "q": "Practice 5: [matching] Presupposition: what the sentence assumes — Match die Implikatur to its lesson meaning.",
+                "answer": "implicature",
+                "skill_target": "German: verb-second word order, four cases with article agreement, separable prefixes, Perfekt vs Präteritum, modal particles, and Konjunktiv register — measured by clause architecture and by choosing du or Sie before the first verb.",
+                "options": [
+                  "implicature",
+                  "to impute, presuppose",
+                  "precondition"
+                ]
+              },
+              {
+                "type": "reorder",
+                "q": "Practice 6: [reorder] Presupposition: what the sentence assumes — Reconstruct the lesson model in coherent German: I reject that presupposition..",
+                "answer": "Diese Voraussetzung weise ich zurück.",
+                "skill_target": "German: verb-second word order, four cases with article agreement, separable prefixes, Perfekt vs Präteritum, modal particles, and Konjunktiv register — measured by clause architecture and by choosing du or Sie before the first verb."
+              },
+              {
+                "type": "sentence_building",
+                "q": "Practice 7: [sentence building] Presupposition: what the sentence assumes — Build the sentence with the lesson pattern (die Frage unterstellt, dass … · das legt nahe, dass …): The question presupposes that everyone knew..",
+                "answer": "Die Frage unterstellt, dass alle davon wussten.",
+                "skill_target": "German: verb-second word order, four cases with article agreement, separable prefixes, Perfekt vs Präteritum, modal particles, and Konjunktiv register — measured by clause architecture and by choosing du or Sie before the first verb."
+              },
+              {
+                "type": "word_selection",
+                "q": "Practice 8: [word selection] Presupposition: what the sentence assumes — Select the German form for “to suggest, imply”.",
+                "answer": "nahelegen",
+                "skill_target": "German: verb-second word order, four cases with article agreement, separable prefixes, Perfekt vs Präteritum, modal particles, and Konjunktiv register — measured by clause architecture and by choosing du or Sie before the first verb.",
+                "options": [
+                  "nahelegen",
+                  "zurückweisen"
+                ]
+              },
+              {
+                "type": "error_correction",
+                "q": "Practice 9: [error correction] Presupposition: what the sentence assumes — Correct the model the lesson warns about: Warum haben Sie das ignoriert?",
+                "answer": "Warum sollten Sie das ignorieren? — or name the presupposition first.",
+                "skill_target": "German: verb-second word order, four cases with article agreement, separable prefixes, Perfekt vs Präteritum, modal particles, and Konjunktiv register — measured by clause architecture and by choosing du or Sie before the first verb."
+              },
+              {
+                "type": "dialogue_completion",
+                "q": "Practice 10: [dialogue completion] Presupposition: what the sentence assumes — Complete the exchange with the studied response to: Why did you ignore the rule?",
+                "answer": "Diese Frage unterstellt, dass ich sie ignoriert habe.",
+                "skill_target": "German: verb-second word order, four cases with article agreement, separable prefixes, Perfekt vs Präteritum, modal particles, and Konjunktiv register — measured by clause architecture and by choosing du or Sie before the first verb."
+              },
+              {
+                "type": "reading_comprehension",
+                "q": "Practice 11: [reading comprehension] Presupposition: what the sentence assumes — Read “Haben Sie denn nicht?” (HAH-ben zee den nikht?). What does it mean?",
+                "answer": "Didn't you?",
+                "skill_target": "German: verb-second word order, four cases with article agreement, separable prefixes, Perfekt vs Präteritum, modal particles, and Konjunktiv register — measured by clause architecture and by choosing du or Sie before the first verb."
+              },
+              {
+                "type": "paragraph_comprehension",
+                "q": "Practice 12: [paragraph comprehension] Presupposition: what the sentence assumes — Read the lesson dialogue as a whole and give its key move: The matter is unresolved. Before I answer, we settle that.",
+                "answer": "Der Vorgang ist ungeklärt. Bevor ich antworte, klären wir das.",
+                "skill_target": "German: verb-second word order, four cases with article agreement, separable prefixes, Perfekt vs Präteritum, modal particles, and Konjunktiv register — measured by clause architecture and by choosing du or Sie before the first verb."
+              }
+            ],
+            "quiz": [
+              {
+                "q": "Which meaning best fits unterstellen?",
+                "options": [
+                  "to impute, presuppose",
+                  "precondition",
+                  "implicature",
+                  "to suggest, imply"
+                ],
+                "answer": 0,
+                "why": "unterstellen (OON-ter-shtel-len) means to impute, presuppose in this lesson."
+              },
+              {
+                "q": "Which meaning best fits die Voraussetzung?",
+                "options": [
+                  "precondition",
+                  "to impute, presuppose",
+                  "implicature",
+                  "to suggest, imply"
+                ],
+                "answer": 0,
+                "why": "die Voraussetzung (dee fohr-OWS-zeh-tsoong) means precondition in this lesson."
+              },
+              {
+                "q": "Which meaning best fits die Implikatur?",
+                "options": [
+                  "implicature",
+                  "to impute, presuppose",
+                  "precondition",
+                  "to suggest, imply"
+                ],
+                "answer": 0,
+                "why": "die Implikatur (dee im-plee-kah-TOOR) means implicature in this lesson."
+              },
+              {
+                "q": "Which meaning best fits nahelegen?",
+                "options": [
+                  "to suggest, imply",
+                  "to impute, presuppose",
+                  "precondition",
+                  "implicature"
+                ],
+                "answer": 0,
+                "why": "nahelegen (NAH-huh-lay-gen) means to suggest, imply in this lesson."
+              },
+              {
+                "q": "Which meaning best fits zurückweisen?",
+                "options": [
+                  "to reject",
+                  "to impute, presuppose",
+                  "precondition",
+                  "implicature"
+                ],
+                "answer": 0,
+                "why": "zurückweisen (tsoo-REWK-vy-zen) means to reject in this lesson."
+              }
+            ],
+            "flashcards": "auto:vocab",
+            "worksheet": {
+              "title": "Presupposition worksheet",
+              "tasks": [
+                {
+                  "instruction": "Name what is assumed.",
+                  "items": [
+                    "the question presupposes that everyone knew",
+                    "the sentence implies a breach"
+                  ],
+                  "key": [
+                    "Die Frage unterstellt, dass alle wussten.",
+                    "Der Satz legt nahe, dass es einen Verstoß gab."
+                  ]
+                },
+                {
+                  "instruction": "Break the frame.",
+                  "items": [
+                    "reject the presupposition",
+                    "unresolved before answering"
+                  ],
+                  "key": [
+                    "Diese Voraussetzung weise ich zurück.",
+                    "Das ist nicht geklärt."
+                  ]
+                },
+                {
+                  "instruction": "Integrated offline practice: read the first model, transform or extend it in German, then rehearse it as a dialogue. Self-check meaning, grammar, and register.",
+                  "items": [
+                    "Die Frage unterstellt, dass alle davon wussten.",
+                    "Warum haben Sie die Regel ignoriert?"
+                  ],
+                  "key": [
+                    "The question presupposes that everyone knew.",
+                    "Why did you ignore the rule?"
+                  ]
+                }
+              ]
+            },
+            "srs_candidates": [
+              "unterstellen",
+              "die Voraussetzung",
+              "die Implikatur",
+              "nahelegen"
+            ],
+            "srs_policy": "Only these four high-value terms are preselected; lesson mistakes and productive patterns may enter personalized review after an actual error."
           }
         ]
       },
@@ -712,25 +1001,25 @@
             },
             "dialogue": [
               {
-                "sp": "Analyst",
+                "sp": "Analystin",
                 "t": "Tempo ist nötig, gewiss; doch Tempo ohne Rechenschaft ist kein Fortschritt, sondern vertagte Krise.",
                 "r": "Tempo ist nötig, gewiss; doch Tempo ohne Rechenschaft ist kein Fortschritt, sondern vertagte Krise.",
                 "en": "Speed is necessary, certainly; but speed without accountability is not progress, only crisis postponed."
               },
               {
-                "sp": "Editor",
+                "sp": "Redakteurin",
                 "t": "Der Satz fiel im Saal kein einziges Mal, und doch schrieb sein Echo jede folgende Entscheidung mit.",
                 "r": "Der Satz fiel im Saal kein einziges Mal, und doch schrieb sein Echo jede folgende Entscheidung mit.",
                 "en": "The sentence was never uttered in the hall, yet its echo co-authored every decision that followed."
               },
               {
-                "sp": "Mediator",
+                "sp": "Mediatorin",
                 "t": "Ich möchte Ihren Einwand keineswegs entkräften, sondern seinen Geltungsbereich so bestimmen, dass wir ihn nicht überdehnen.",
                 "r": "Ich möchte Ihren Einwand keineswegs entkräften, sondern seinen Geltungsbereich so bestimmen, dass wir ihn nicht überdehnen.",
                 "en": "I do not wish to invalidate your objection, but to define its scope so that we do not overextend it."
               },
               {
-                "sp": "Reviewer",
+                "sp": "Gutachterin",
                 "t": "Nach Maßgabe der verfügbaren Evidenz ist dies eine plausible Deutung, keineswegs jedoch ein abschließendes Urteil.",
                 "r": "Nach Maßgabe der verfügbaren Evidenz ist dies eine plausible Deutung, keineswegs jedoch ein abschließendes Urteil.",
                 "en": "By the available evidence, this is a plausible interpretation, but by no means a final judgment."
@@ -1012,25 +1301,25 @@
             },
             "dialogue": [
               {
-                "sp": "Analyst",
+                "sp": "Analystin",
                 "t": "Der Satz fiel im Saal kein einziges Mal, und doch schrieb sein Echo jede folgende Entscheidung mit.",
                 "r": "Der Satz fiel im Saal kein einziges Mal, und doch schrieb sein Echo jede folgende Entscheidung mit.",
                 "en": "The sentence was never uttered in the hall, yet its echo co-authored every decision that followed."
               },
               {
-                "sp": "Editor",
+                "sp": "Redakteurin",
                 "t": "Ich möchte Ihren Einwand keineswegs entkräften, sondern seinen Geltungsbereich so bestimmen, dass wir ihn nicht überdehnen.",
                 "r": "Ich möchte Ihren Einwand keineswegs entkräften, sondern seinen Geltungsbereich so bestimmen, dass wir ihn nicht überdehnen.",
                 "en": "I do not wish to invalidate your objection, but to define its scope so that we do not overextend it."
               },
               {
-                "sp": "Mediator",
+                "sp": "Mediatorin",
                 "t": "Nach Maßgabe der verfügbaren Evidenz ist dies eine plausible Deutung, keineswegs jedoch ein abschließendes Urteil.",
                 "r": "Nach Maßgabe der verfügbaren Evidenz ist dies eine plausible Deutung, keineswegs jedoch ein abschließendes Urteil.",
                 "en": "By the available evidence, this is a plausible interpretation, but by no means a final judgment."
               },
               {
-                "sp": "Reviewer",
+                "sp": "Gutachterin",
                 "t": "Nicht die Entscheidung allein war ausschlaggebend; vielmehr veränderte gerade die Art ihrer Umsetzung das Ergebnis.",
                 "r": "Nicht die Entscheidung allein war ausschlaggebend; vielmehr veränderte gerade die Art ihrer Umsetzung das Ergebnis.",
                 "en": "The decision alone was not decisive; rather, precisely the manner of its implementation changed the outcome."
@@ -1220,6 +1509,293 @@
                 }
               ]
             }
+          },
+          {
+            "id": "de-c2-l8",
+            "title": "Deliberate register break: Amtsdeutsch, Werbung, Motto",
+            "learn": "A C2 text can fold in a register on purpose — a Verwaltungssatz quoted to be mocked, a slogan dropped into an essay. The effect is signalled by the surrounding sentence: «Es klingt wie Amtsdeutsch, wenn es heißt: …»",
+            "vocab": [
+              {
+                "t": "das Amtsdeutsch",
+                "r": "das AMTS-doych",
+                "en": "officialese",
+                "pos": "noun"
+              },
+              {
+                "t": "die Werbesprache",
+                "r": "dee VAIR-buh-shprah-khuh",
+                "en": "advertising language",
+                "pos": "noun"
+              },
+              {
+                "t": "das Motto",
+                "r": "das MOT-toh",
+                "en": "motto, slogan",
+                "pos": "noun"
+              },
+              {
+                "t": "zitieren",
+                "r": "tsi-TEE-ren",
+                "en": "to quote",
+                "pos": "verb"
+              },
+              {
+                "t": "der Registerbruch",
+                "r": "dair re-GIS-ter-brookh",
+                "en": "register break",
+                "pos": "noun"
+              }
+            ],
+            "grammar": {
+              "title": "Quoting a register, and marking it",
+              "pattern": "es klingt wie Amtsdeutsch, wenn es heißt: … · mit einem Motto gesagt: …",
+              "explain": "Es klingt wie Amtsdeutsch, wenn es heißt: «Die Gewährung erfolgt nach Prüfung.» Mit einem Motto gesagt: «Erst prüfen, dann gewähren.» The frame keeps the borrowed register bounded and the irony legible.",
+              "examples": [
+                {
+                  "t": "Es klingt wie Amtsdeutsch: «Die Gewährung erfolgt nach Prüfung.»",
+                  "r": "es klingt vee AMTS-doych: dee ge-VAY-roong air-FOLKT nakh PREW-foong.",
+                  "en": "It sounds like officialese: 'Granting follows review.'"
+                },
+                {
+                  "t": "Mit einem Motto gesagt: erst prüfen, dann vertrauen.",
+                  "r": "mit EYE-nem MOT-toh ge-ZAHKT: airst PREW-fen, dan fair-TROW-en.",
+                  "en": "Put as a motto: first check, then trust."
+                },
+                {
+                  "t": "Der Registerbruch ist Absicht, kein Fehler.",
+                  "r": "dair re-GIS-ter-brookh ist AP-zikht, kine FAY-ler.",
+                  "en": "The register break is intentional, not a mistake."
+                }
+              ],
+              "mistakes": [
+                {
+                  "wrong": "Die Gewährung erfolgt nach Prüfung. (in an essay, unmarked)",
+                  "right": "Es klingt wie Amtsdeutsch, wenn es heißt: «…»",
+                  "why": "An unmarked quotation reads as the author's own register."
+                },
+                {
+                  "wrong": "Motto: wir sind gut.",
+                  "right": "Motto: «Erst prüfen, dann vertrauen.»",
+                  "why": "A motto earns its place by compressing the argument, not by praising it."
+                }
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "Autor",
+                "t": "Klingt dieser Satz gut?",
+                "r": "klingt DEE-zer zats goot?",
+                "en": "Does this sentence sound good?"
+              },
+              {
+                "sp": "Lektorin",
+                "t": "Er klingt wie Amtsdeutsch: «Die Gewährung erfolgt nach Prüfung.»",
+                "r": "air klingt vee AMTS-doych: dee ge-VAY-roong air-FOLKT nakh PREW-foong.",
+                "en": "It sounds like officialese: 'Granting follows review.'"
+              },
+              {
+                "sp": "Autor",
+                "t": "Also kürzen?",
+                "r": "AL-zo KEWR-tsen?",
+                "en": "So shorten it?"
+              },
+              {
+                "sp": "Lektorin",
+                "t": "Oder bewusst zitieren — aber dann mit Rahmen.",
+                "r": "OH-der beh-VOOST tsi-TEE-ren — AH-ber dan mit RAH-men.",
+                "en": "Or quote it deliberately — but then with a frame."
+              }
+            ],
+            "practice": [
+              {
+                "type": "multiple_choice",
+                "q": "Practice 1: [multiple choice] Deliberate register break: Amtsdeutsch, Werbung, Motto — Choose the meaning of das Amtsdeutsch (das AMTS-doych) in this lesson.",
+                "answer": "officialese",
+                "skill_target": "German: verb-second word order, four cases with article agreement, separable prefixes, Perfekt vs Präteritum, modal particles, and Konjunktiv register — measured by clause architecture and by choosing du or Sie before the first verb.",
+                "options": [
+                  "officialese",
+                  "advertising language",
+                  "motto, slogan",
+                  "to quote"
+                ]
+              },
+              {
+                "type": "fill_in_the_blank",
+                "q": "Practice 2: [fill in the blank] Deliberate register break: Amtsdeutsch, Werbung, Motto — Type the German expression meaning “advertising language”.",
+                "answer": "die Werbesprache",
+                "skill_target": "German: verb-second word order, four cases with article agreement, separable prefixes, Perfekt vs Präteritum, modal particles, and Konjunktiv register — measured by clause architecture and by choosing du or Sie before the first verb."
+              },
+              {
+                "type": "translation",
+                "q": "Practice 3: [translation] Deliberate register break: Amtsdeutsch, Werbung, Motto — Interpret the German in context: Es klingt wie Amtsdeutsch: «Die Gewährung erfolgt nach Prüfung.» (es klingt vee AMTS-doych: dee ge-VAY-roong air-FOLKT nakh PREW-foong.).",
+                "answer": "It sounds like officialese: 'Granting follows review.'",
+                "skill_target": "German: verb-second word order, four cases with article agreement, separable prefixes, Perfekt vs Präteritum, modal particles, and Konjunktiv register — measured by clause architecture and by choosing du or Sie before the first verb."
+              },
+              {
+                "type": "reverse_translation",
+                "q": "Practice 4: [reverse translation] Deliberate register break: Amtsdeutsch, Werbung, Motto — Write in German: Put as a motto: first check, then trust..",
+                "answer": "Mit einem Motto gesagt: erst prüfen, dann vertrauen.",
+                "skill_target": "German: verb-second word order, four cases with article agreement, separable prefixes, Perfekt vs Präteritum, modal particles, and Konjunktiv register — measured by clause architecture and by choosing du or Sie before the first verb."
+              },
+              {
+                "type": "matching",
+                "q": "Practice 5: [matching] Deliberate register break: Amtsdeutsch, Werbung, Motto — Match das Motto to its lesson meaning.",
+                "answer": "motto, slogan",
+                "skill_target": "German: verb-second word order, four cases with article agreement, separable prefixes, Perfekt vs Präteritum, modal particles, and Konjunktiv register — measured by clause architecture and by choosing du or Sie before the first verb.",
+                "options": [
+                  "motto, slogan",
+                  "officialese",
+                  "advertising language"
+                ]
+              },
+              {
+                "type": "reorder",
+                "q": "Practice 6: [reorder] Deliberate register break: Amtsdeutsch, Werbung, Motto — Reconstruct the lesson model in coherent German: The register break is intentional, not a mistake..",
+                "answer": "Der Registerbruch ist Absicht, kein Fehler.",
+                "skill_target": "German: verb-second word order, four cases with article agreement, separable prefixes, Perfekt vs Präteritum, modal particles, and Konjunktiv register — measured by clause architecture and by choosing du or Sie before the first verb."
+              },
+              {
+                "type": "sentence_building",
+                "q": "Practice 7: [sentence building] Deliberate register break: Amtsdeutsch, Werbung, Motto — Build the sentence with the lesson pattern (es klingt wie Amtsdeutsch, wenn es heißt: … · mit einem Motto gesagt: …): It sounds like officialese: 'Granting follows review.'.",
+                "answer": "Es klingt wie Amtsdeutsch: «Die Gewährung erfolgt nach Prüfung.»",
+                "skill_target": "German: verb-second word order, four cases with article agreement, separable prefixes, Perfekt vs Präteritum, modal particles, and Konjunktiv register — measured by clause architecture and by choosing du or Sie before the first verb."
+              },
+              {
+                "type": "word_selection",
+                "q": "Practice 8: [word selection] Deliberate register break: Amtsdeutsch, Werbung, Motto — Select the German form for “to quote”.",
+                "answer": "zitieren",
+                "skill_target": "German: verb-second word order, four cases with article agreement, separable prefixes, Perfekt vs Präteritum, modal particles, and Konjunktiv register — measured by clause architecture and by choosing du or Sie before the first verb.",
+                "options": [
+                  "zitieren",
+                  "der Registerbruch"
+                ]
+              },
+              {
+                "type": "error_correction",
+                "q": "Practice 9: [error correction] Deliberate register break: Amtsdeutsch, Werbung, Motto — Correct the model the lesson warns about: Die Gewährung erfolgt nach Prüfung. (in an essay, unmarked)",
+                "answer": "Es klingt wie Amtsdeutsch, wenn es heißt: «…»",
+                "skill_target": "German: verb-second word order, four cases with article agreement, separable prefixes, Perfekt vs Präteritum, modal particles, and Konjunktiv register — measured by clause architecture and by choosing du or Sie before the first verb."
+              },
+              {
+                "type": "dialogue_completion",
+                "q": "Practice 10: [dialogue completion] Deliberate register break: Amtsdeutsch, Werbung, Motto — Complete the exchange with the studied response to: Does this sentence sound good?",
+                "answer": "Er klingt wie Amtsdeutsch: «Die Gewährung erfolgt nach Prüfung.»",
+                "skill_target": "German: verb-second word order, four cases with article agreement, separable prefixes, Perfekt vs Präteritum, modal particles, and Konjunktiv register — measured by clause architecture and by choosing du or Sie before the first verb."
+              },
+              {
+                "type": "reading_comprehension",
+                "q": "Practice 11: [reading comprehension] Deliberate register break: Amtsdeutsch, Werbung, Motto — Read “Also kürzen?” (AL-zo KEWR-tsen?). What does it mean?",
+                "answer": "So shorten it?",
+                "skill_target": "German: verb-second word order, four cases with article agreement, separable prefixes, Perfekt vs Präteritum, modal particles, and Konjunktiv register — measured by clause architecture and by choosing du or Sie before the first verb."
+              },
+              {
+                "type": "paragraph_comprehension",
+                "q": "Practice 12: [paragraph comprehension] Deliberate register break: Amtsdeutsch, Werbung, Motto — Read the lesson dialogue as a whole and give its key move: Or quote it deliberately — but then with a frame.",
+                "answer": "Oder bewusst zitieren — aber dann mit Rahmen.",
+                "skill_target": "German: verb-second word order, four cases with article agreement, separable prefixes, Perfekt vs Präteritum, modal particles, and Konjunktiv register — measured by clause architecture and by choosing du or Sie before the first verb."
+              }
+            ],
+            "quiz": [
+              {
+                "q": "Which meaning best fits das Amtsdeutsch?",
+                "options": [
+                  "officialese",
+                  "advertising language",
+                  "motto, slogan",
+                  "to quote"
+                ],
+                "answer": 0,
+                "why": "das Amtsdeutsch (das AMTS-doych) means officialese in this lesson."
+              },
+              {
+                "q": "Which meaning best fits die Werbesprache?",
+                "options": [
+                  "advertising language",
+                  "officialese",
+                  "motto, slogan",
+                  "to quote"
+                ],
+                "answer": 0,
+                "why": "die Werbesprache (dee VAIR-buh-shprah-khuh) means advertising language in this lesson."
+              },
+              {
+                "q": "Which meaning best fits das Motto?",
+                "options": [
+                  "motto, slogan",
+                  "officialese",
+                  "advertising language",
+                  "to quote"
+                ],
+                "answer": 0,
+                "why": "das Motto (das MOT-toh) means motto, slogan in this lesson."
+              },
+              {
+                "q": "Which meaning best fits zitieren?",
+                "options": [
+                  "to quote",
+                  "officialese",
+                  "advertising language",
+                  "motto, slogan"
+                ],
+                "answer": 0,
+                "why": "zitieren (tsi-TEE-ren) means to quote in this lesson."
+              },
+              {
+                "q": "Which meaning best fits der Registerbruch?",
+                "options": [
+                  "register break",
+                  "officialese",
+                  "advertising language",
+                  "motto, slogan"
+                ],
+                "answer": 0,
+                "why": "der Registerbruch (dair re-GIS-ter-brookh) means register break in this lesson."
+              }
+            ],
+            "flashcards": "auto:vocab",
+            "worksheet": {
+              "title": "Register worksheet",
+              "tasks": [
+                {
+                  "instruction": "Frame the borrowed register.",
+                  "items": [
+                    "officialese",
+                    "advertising language"
+                  ],
+                  "key": [
+                    "Es klingt wie Amtsdeutsch: …",
+                    "Es klingt wie Werbesprache: …"
+                  ]
+                },
+                {
+                  "instruction": "Compress the argument into a motto.",
+                  "items": [
+                    "check first, then trust"
+                  ],
+                  "key": [
+                    "Motto: «Erst prüfen, dann vertrauen.»"
+                  ]
+                },
+                {
+                  "instruction": "Integrated offline practice: read the first model, transform or extend it in German, then rehearse it as a dialogue. Self-check meaning, grammar, and register.",
+                  "items": [
+                    "Es klingt wie Amtsdeutsch: «Die Gewährung erfolgt nach Prüfung.»",
+                    "Klingt dieser Satz gut?"
+                  ],
+                  "key": [
+                    "It sounds like officialese: 'Granting follows review.'",
+                    "Does this sentence sound good?"
+                  ]
+                }
+              ]
+            },
+            "srs_candidates": [
+              "das Amtsdeutsch",
+              "die Werbesprache",
+              "das Motto",
+              "zitieren"
+            ],
+            "srs_policy": "Only these four high-value terms are preselected; lesson mistakes and productive patterns may enter personalized review after an actual error."
           }
         ]
       },
@@ -1312,25 +1888,25 @@
             },
             "dialogue": [
               {
-                "sp": "Analyst",
+                "sp": "Analystin",
                 "t": "Ich möchte Ihren Einwand keineswegs entkräften, sondern seinen Geltungsbereich so bestimmen, dass wir ihn nicht überdehnen.",
                 "r": "Ich möchte Ihren Einwand keineswegs entkräften, sondern seinen Geltungsbereich so bestimmen, dass wir ihn nicht überdehnen.",
                 "en": "I do not wish to invalidate your objection, but to define its scope so that we do not overextend it."
               },
               {
-                "sp": "Editor",
+                "sp": "Redakteurin",
                 "t": "Nach Maßgabe der verfügbaren Evidenz ist dies eine plausible Deutung, keineswegs jedoch ein abschließendes Urteil.",
                 "r": "Nach Maßgabe der verfügbaren Evidenz ist dies eine plausible Deutung, keineswegs jedoch ein abschließendes Urteil.",
                 "en": "By the available evidence, this is a plausible interpretation, but by no means a final judgment."
               },
               {
-                "sp": "Mediator",
+                "sp": "Mediatorin",
                 "t": "Nicht die Entscheidung allein war ausschlaggebend; vielmehr veränderte gerade die Art ihrer Umsetzung das Ergebnis.",
                 "r": "Nicht die Entscheidung allein war ausschlaggebend; vielmehr veränderte gerade die Art ihrer Umsetzung das Ergebnis.",
                 "en": "The decision alone was not decisive; rather, precisely the manner of its implementation changed the outcome."
               },
               {
-                "sp": "Reviewer",
+                "sp": "Gutachterin",
                 "t": "Sein Schweigen dürfte wohl weniger Zustimmung als eine bewusst gewahrte Distanz signalisiert haben.",
                 "r": "Sein Schweigen dürfte wohl weniger Zustimmung als eine bewusst gewahrte Distanz signalisiert haben.",
                 "en": "His silence probably signalled less agreement than a consciously maintained distance."
@@ -1604,25 +2180,25 @@
             },
             "dialogue": [
               {
-                "sp": "Analyst",
+                "sp": "Analystin",
                 "t": "Nach Maßgabe der verfügbaren Evidenz ist dies eine plausible Deutung, keineswegs jedoch ein abschließendes Urteil.",
                 "r": "Nach Maßgabe der verfügbaren Evidenz ist dies eine plausible Deutung, keineswegs jedoch ein abschließendes Urteil.",
                 "en": "By the available evidence, this is a plausible interpretation, but by no means a final judgment."
               },
               {
-                "sp": "Editor",
+                "sp": "Redakteurin",
                 "t": "Nicht die Entscheidung allein war ausschlaggebend; vielmehr veränderte gerade die Art ihrer Umsetzung das Ergebnis.",
                 "r": "Nicht die Entscheidung allein war ausschlaggebend; vielmehr veränderte gerade die Art ihrer Umsetzung das Ergebnis.",
                 "en": "The decision alone was not decisive; rather, precisely the manner of its implementation changed the outcome."
               },
               {
-                "sp": "Mediator",
+                "sp": "Mediatorin",
                 "t": "Sein Schweigen dürfte wohl weniger Zustimmung als eine bewusst gewahrte Distanz signalisiert haben.",
                 "r": "Sein Schweigen dürfte wohl weniger Zustimmung als eine bewusst gewahrte Distanz signalisiert haben.",
                 "en": "His silence probably signalled less agreement than a consciously maintained distance."
               },
               {
-                "sp": "Reviewer",
+                "sp": "Gutachterin",
                 "t": "Tempo ist nötig, gewiss; doch Tempo ohne Rechenschaft ist kein Fortschritt, sondern vertagte Krise.",
                 "r": "Tempo ist nötig, gewiss; doch Tempo ohne Rechenschaft ist kein Fortschritt, sondern vertagte Krise.",
                 "en": "Speed is necessary, certainly; but speed without accountability is not progress, only crisis postponed."
@@ -1815,6 +2391,297 @@
                 }
               ]
             }
+          },
+          {
+            "id": "de-c2-l9",
+            "title": "Calibrated forecasts: naming uncertainty in numbers",
+            "learn": "Expert German states its own uncertainty with a scale: GESICHERT, WAHRSCHEINLICH, MÖGLICH, NICHT AUSZUSCHLIESSEN, UNWAHRSCHEINLICH — and with the time it applies to: KURZFRISTIG, BIS 2030. The forecast is only as good as the words around it.",
+            "vocab": [
+              {
+                "t": "gesichert",
+                "r": "ge-ZEE-khert",
+                "en": "established, secure",
+                "pos": "adjective"
+              },
+              {
+                "t": "wahrscheinlich",
+                "r": "var-SHYNE-likh",
+                "en": "probable",
+                "pos": "adjective"
+              },
+              {
+                "t": "nicht auszuschließen",
+                "r": "nikht OWS-tsoo-sklee-sen",
+                "en": "cannot be ruled out",
+                "pos": "phrase"
+              },
+              {
+                "t": "kurzfristig",
+                "r": "KOORTS-frish-tikh",
+                "en": "in the short term",
+                "pos": "adverb"
+              },
+              {
+                "t": "die Prognose",
+                "r": "dee pro-GNO-zuh",
+                "en": "forecast",
+                "pos": "noun"
+              }
+            ],
+            "grammar": {
+              "title": "Uncertainty scale",
+              "pattern": "gesichert > wahrscheinlich > möglich > nicht auszuschließen > unwahrscheinlich",
+              "explain": "Kurzfristig ist ein Anstieg wahrscheinlich, langfristig möglich; ein Rückgang ist nicht auszuschließen. Stating the horizon and the band is what makes a forecast falsifiable instead of rhetorical.",
+              "examples": [
+                {
+                  "t": "Kurzfristig ist ein Anstieg wahrscheinlich.",
+                  "r": "KOORTS-frish-tikh ist ine AN-shtayk var-SHYNE-likh.",
+                  "en": "In the short term a rise is probable."
+                },
+                {
+                  "t": "Ein Rückgang ist nicht auszuschließen.",
+                  "r": "ine REWK-gang ist nikht OWS-tsoo-sklee-sen.",
+                  "en": "A decline cannot be ruled out."
+                },
+                {
+                  "t": "Diese Prognose gilt bis 2030.",
+                  "r": "DEE-zuh pro-GNO-zuh gilt bis TSVY-tow-zent-DRY-sikh.",
+                  "en": "This forecast holds until 2030."
+                }
+              ],
+              "mistakes": [
+                {
+                  "wrong": "Es wird steigen.",
+                  "right": "Kurzfristig ist ein Anstieg wahrscheinlich.",
+                  "why": "A bare future assertion hides both the horizon and the band."
+                },
+                {
+                  "wrong": "Vielleicht möglich.",
+                  "right": "Möglich, aber unwahrscheinlich.",
+                  "why": "Two hedges in a row cancel; the scale needs one position."
+                }
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "Chef",
+                "t": "Wie ist Ihre Prognose?",
+                "r": "vee ist EE-ruh pro-GNO-zuh?",
+                "en": "What is your forecast?"
+              },
+              {
+                "sp": "Analystin",
+                "t": "Kurzfristig ist ein Anstieg wahrscheinlich.",
+                "r": "KOORTS-frish-tikh ist ine AN-shtayk var-SHYNE-likh.",
+                "en": "In the short term a rise is probable."
+              },
+              {
+                "sp": "Chef",
+                "t": "Und langfristig?",
+                "r": "unt LANG-frish-tikh?",
+                "en": "And in the long term?"
+              },
+              {
+                "sp": "Analystin",
+                "t": "Möglich. Ein Rückgang ist jedenfalls nicht auszuschließen.",
+                "r": "MURK-likh. ine REWK-gang ist YAY-den-fals nikht OWS-tsoo-sklee-sen.",
+                "en": "Possible. In any case a decline cannot be ruled out."
+              }
+            ],
+            "practice": [
+              {
+                "type": "multiple_choice",
+                "q": "Practice 1: [multiple choice] Calibrated forecasts: naming uncertainty in numbers — Choose the meaning of gesichert (ge-ZEE-khert) in this lesson.",
+                "answer": "established, secure",
+                "skill_target": "German: verb-second word order, four cases with article agreement, separable prefixes, Perfekt vs Präteritum, modal particles, and Konjunktiv register — measured by clause architecture and by choosing du or Sie before the first verb.",
+                "options": [
+                  "established, secure",
+                  "probable",
+                  "cannot be ruled out",
+                  "in the short term"
+                ]
+              },
+              {
+                "type": "fill_in_the_blank",
+                "q": "Practice 2: [fill in the blank] Calibrated forecasts: naming uncertainty in numbers — Type the German expression meaning “probable”.",
+                "answer": "wahrscheinlich",
+                "skill_target": "German: verb-second word order, four cases with article agreement, separable prefixes, Perfekt vs Präteritum, modal particles, and Konjunktiv register — measured by clause architecture and by choosing du or Sie before the first verb."
+              },
+              {
+                "type": "translation",
+                "q": "Practice 3: [translation] Calibrated forecasts: naming uncertainty in numbers — Interpret the German in context: Kurzfristig ist ein Anstieg wahrscheinlich. (KOORTS-frish-tikh ist ine AN-shtayk var-SHYNE-likh.).",
+                "answer": "In the short term a rise is probable.",
+                "skill_target": "German: verb-second word order, four cases with article agreement, separable prefixes, Perfekt vs Präteritum, modal particles, and Konjunktiv register — measured by clause architecture and by choosing du or Sie before the first verb."
+              },
+              {
+                "type": "reverse_translation",
+                "q": "Practice 4: [reverse translation] Calibrated forecasts: naming uncertainty in numbers — Write in German: A decline cannot be ruled out..",
+                "answer": "Ein Rückgang ist nicht auszuschließen.",
+                "skill_target": "German: verb-second word order, four cases with article agreement, separable prefixes, Perfekt vs Präteritum, modal particles, and Konjunktiv register — measured by clause architecture and by choosing du or Sie before the first verb."
+              },
+              {
+                "type": "matching",
+                "q": "Practice 5: [matching] Calibrated forecasts: naming uncertainty in numbers — Match nicht auszuschließen to its lesson meaning.",
+                "answer": "cannot be ruled out",
+                "skill_target": "German: verb-second word order, four cases with article agreement, separable prefixes, Perfekt vs Präteritum, modal particles, and Konjunktiv register — measured by clause architecture and by choosing du or Sie before the first verb.",
+                "options": [
+                  "cannot be ruled out",
+                  "established, secure",
+                  "probable"
+                ]
+              },
+              {
+                "type": "reorder",
+                "q": "Practice 6: [reorder] Calibrated forecasts: naming uncertainty in numbers — Reconstruct the lesson model in coherent German: This forecast holds until 2030..",
+                "answer": "Diese Prognose gilt bis 2030.",
+                "skill_target": "German: verb-second word order, four cases with article agreement, separable prefixes, Perfekt vs Präteritum, modal particles, and Konjunktiv register — measured by clause architecture and by choosing du or Sie before the first verb."
+              },
+              {
+                "type": "sentence_building",
+                "q": "Practice 7: [sentence building] Calibrated forecasts: naming uncertainty in numbers — Build the sentence with the lesson pattern (gesichert > wahrscheinlich > möglich > nicht auszuschließen > unwahrscheinlich): In the short term a rise is probable..",
+                "answer": "Kurzfristig ist ein Anstieg wahrscheinlich.",
+                "skill_target": "German: verb-second word order, four cases with article agreement, separable prefixes, Perfekt vs Präteritum, modal particles, and Konjunktiv register — measured by clause architecture and by choosing du or Sie before the first verb."
+              },
+              {
+                "type": "word_selection",
+                "q": "Practice 8: [word selection] Calibrated forecasts: naming uncertainty in numbers — Select the German form for “in the short term”.",
+                "answer": "kurzfristig",
+                "skill_target": "German: verb-second word order, four cases with article agreement, separable prefixes, Perfekt vs Präteritum, modal particles, and Konjunktiv register — measured by clause architecture and by choosing du or Sie before the first verb.",
+                "options": [
+                  "kurzfristig",
+                  "die Prognose"
+                ]
+              },
+              {
+                "type": "error_correction",
+                "q": "Practice 9: [error correction] Calibrated forecasts: naming uncertainty in numbers — Correct the model the lesson warns about: Es wird steigen.",
+                "answer": "Kurzfristig ist ein Anstieg wahrscheinlich.",
+                "skill_target": "German: verb-second word order, four cases with article agreement, separable prefixes, Perfekt vs Präteritum, modal particles, and Konjunktiv register — measured by clause architecture and by choosing du or Sie before the first verb."
+              },
+              {
+                "type": "dialogue_completion",
+                "q": "Practice 10: [dialogue completion] Calibrated forecasts: naming uncertainty in numbers — Complete the exchange with the studied response to: What is your forecast?",
+                "answer": "Kurzfristig ist ein Anstieg wahrscheinlich.",
+                "skill_target": "German: verb-second word order, four cases with article agreement, separable prefixes, Perfekt vs Präteritum, modal particles, and Konjunktiv register — measured by clause architecture and by choosing du or Sie before the first verb."
+              },
+              {
+                "type": "reading_comprehension",
+                "q": "Practice 11: [reading comprehension] Calibrated forecasts: naming uncertainty in numbers — Read “Und langfristig?” (unt LANG-frish-tikh?). What does it mean?",
+                "answer": "And in the long term?",
+                "skill_target": "German: verb-second word order, four cases with article agreement, separable prefixes, Perfekt vs Präteritum, modal particles, and Konjunktiv register — measured by clause architecture and by choosing du or Sie before the first verb."
+              },
+              {
+                "type": "paragraph_comprehension",
+                "q": "Practice 12: [paragraph comprehension] Calibrated forecasts: naming uncertainty in numbers — Read the lesson dialogue as a whole and give its key move: Possible. In any case a decline cannot be ruled out.",
+                "answer": "Möglich. Ein Rückgang ist jedenfalls nicht auszuschließen.",
+                "skill_target": "German: verb-second word order, four cases with article agreement, separable prefixes, Perfekt vs Präteritum, modal particles, and Konjunktiv register — measured by clause architecture and by choosing du or Sie before the first verb."
+              }
+            ],
+            "quiz": [
+              {
+                "q": "Which meaning best fits gesichert?",
+                "options": [
+                  "established, secure",
+                  "probable",
+                  "cannot be ruled out",
+                  "in the short term"
+                ],
+                "answer": 0,
+                "why": "gesichert (ge-ZEE-khert) means established, secure in this lesson."
+              },
+              {
+                "q": "Which meaning best fits wahrscheinlich?",
+                "options": [
+                  "probable",
+                  "established, secure",
+                  "cannot be ruled out",
+                  "in the short term"
+                ],
+                "answer": 0,
+                "why": "wahrscheinlich (var-SHYNE-likh) means probable in this lesson."
+              },
+              {
+                "q": "Which meaning best fits nicht auszuschließen?",
+                "options": [
+                  "cannot be ruled out",
+                  "established, secure",
+                  "probable",
+                  "in the short term"
+                ],
+                "answer": 0,
+                "why": "nicht auszuschließen (nikht OWS-tsoo-sklee-sen) means cannot be ruled out in this lesson."
+              },
+              {
+                "q": "Which meaning best fits kurzfristig?",
+                "options": [
+                  "in the short term",
+                  "established, secure",
+                  "probable",
+                  "cannot be ruled out"
+                ],
+                "answer": 0,
+                "why": "kurzfristig (KOORTS-frish-tikh) means in the short term in this lesson."
+              },
+              {
+                "q": "Which meaning best fits die Prognose?",
+                "options": [
+                  "forecast",
+                  "established, secure",
+                  "probable",
+                  "cannot be ruled out"
+                ],
+                "answer": 0,
+                "why": "die Prognose (dee pro-GNO-zuh) means forecast in this lesson."
+              }
+            ],
+            "flashcards": "auto:vocab",
+            "worksheet": {
+              "title": "Forecast worksheet",
+              "tasks": [
+                {
+                  "instruction": "Place it on the scale.",
+                  "items": [
+                    "probable in the short term",
+                    "cannot be ruled out",
+                    "held until 2030"
+                  ],
+                  "key": [
+                    "kurzfristig wahrscheinlich",
+                    "nicht auszuschließen",
+                    "gilt bis 2030"
+                  ]
+                },
+                {
+                  "instruction": "Name the horizon.",
+                  "items": [
+                    "in the short term",
+                    "in the long term"
+                  ],
+                  "key": [
+                    "kurzfristig",
+                    "langfristig"
+                  ]
+                },
+                {
+                  "instruction": "Integrated offline practice: read the first model, transform or extend it in German, then rehearse it as a dialogue. Self-check meaning, grammar, and register.",
+                  "items": [
+                    "Kurzfristig ist ein Anstieg wahrscheinlich.",
+                    "Wie ist Ihre Prognose?"
+                  ],
+                  "key": [
+                    "In the short term a rise is probable.",
+                    "What is your forecast?"
+                  ]
+                }
+              ]
+            },
+            "srs_candidates": [
+              "gesichert",
+              "wahrscheinlich",
+              "nicht auszuschließen",
+              "kurzfristig"
+            ],
+            "srs_policy": "Only these four high-value terms are preselected; lesson mistakes and productive patterns may enter personalized review after an actual error."
           }
         ]
       }
@@ -1873,6 +2740,95 @@
           "answer": "Use the German patterns from all six lessons and justify evidence, implication, cohesion, and audience."
         }
       ]
+    },
+    "extra": {
+      "culture": {
+        "text": "German has a literature of ideas read aloud: Lessing's arguments, Brecht's interruptions, Kafka's paragraphs that never quite resolve. The practical effect on C2 is that quotation is normal — an essay quotes a phrase and then reverses it, and the reversal is the argument. Readers are expected to hear the borrowed phrase, which is why C2 drills allusion, parallelism and irony rather than more vocabulary lists.",
+        "source_url": "https://en.wikipedia.org/wiki/German_literature"
+      },
+      "reading": {
+        "text": "Ein Essay beginnt: «Es ist nicht alles Gold, was glänzt — dieser Satz ist wahr und wird trotzdem falsch, sobald man ihn als Urteil über Menschen benutzt.» Der Autor zitiert also, um zu widersprechen. Wer die Anspielung nicht hört, liest nur eine Behauptung. Wer sie hört, liest eine Bewegung: erst die übernommene Formel, dann ihre Umkehrung, dann die Begründung.",
+        "gloss": "An essay begins: 'All that glitters is not gold — that sentence is true and becomes false the moment you use it as a verdict on people.' So the author quotes in order to contradict. Whoever does not hear the allusion reads only a claim. Whoever hears it reads a movement: first the borrowed formula, then its reversal, then the reasoning.",
+        "original": true
+      },
+      "listening": {
+        "script": "Autorin: Ihr Text zitiert Goethe und widerspricht ihm.<br>Interviewerin: Ist das nicht riskant?<br>Autorin: Nein — nur wenn man den Satz nur noch als Zitat liest.<br>Interviewerin: Also rechnen Sie mit Lesern, die ihn kennen.",
+        "gloss": "Author: Your text quotes Goethe and contradicts him. Interviewer: Isn't that risky? Author: No — only if one still reads the sentence merely as a quotation. Interviewer: So you count on readers who know it.",
+        "voice_tag": "de-DE"
+      },
+      "idioms": [
+        {
+          "t": "Das Kind mit dem Bade ausschütten",
+          "literal": "to throw the child out with the bathwater",
+          "meaning": "to throw out the good with the bad"
+        },
+        {
+          "t": "Eulen nach Athen tragen",
+          "literal": "to carry owls to Athens",
+          "meaning": "to carry coals to Newcastle"
+        },
+        {
+          "t": "Den Rubikon überschreiten",
+          "literal": "to cross the Rubicon",
+          "meaning": "to pass the point of no return"
+        },
+        {
+          "t": "Wie ein Damoklesschwert",
+          "literal": "like a sword of Damocles",
+          "meaning": "a threat hanging overhead"
+        },
+        {
+          "t": "Sisyphusarbeit",
+          "literal": "Sisyphus work",
+          "meaning": "endless, futile labour"
+        },
+        {
+          "t": "Mit zweierlei Maß messen",
+          "literal": "to measure with two different measures",
+          "meaning": "to apply double standards"
+        },
+        {
+          "t": "Eine Lanze brechen für",
+          "literal": "to break a lance for",
+          "meaning": "to champion someone or something"
+        },
+        {
+          "t": "Den Teufel an die Wand malen",
+          "literal": "to paint the devil on the wall",
+          "meaning": "to be a doomsayer"
+        },
+        {
+          "t": "Etwas auf den Punkt bringen",
+          "literal": "to bring something to the point",
+          "meaning": "to state it precisely"
+        },
+        {
+          "t": "Zwischen den Zeilen lesen",
+          "literal": "to read between the lines",
+          "meaning": "to read between the lines"
+        }
+      ],
+      "mistakes": [
+        {
+          "wrong": "Der Konjunktiv I zeigt, dass er glaubt es.",
+          "right": "Der Konjunktiv I zeigt, dass er es glaubt / er glaube es.",
+          "why": "Embedded clauses need one finite verb each; the evidential form replaces, not doubles it."
+        },
+        {
+          "wrong": "Es ist nicht alles Gold was glänzt.",
+          "right": "Es ist nicht alles Gold, was glänzt.",
+          "why": "The comma marks the relative clause — and quoting the proverb ironically does not make it a proof: C2 reads the stance, not only the words."
+        },
+        {
+          "wrong": "Ich bin davon überzeugt, dass das stimmt, oder?",
+          "right": "…, dass das stimmt.",
+          "why": "Modal particles push a claim toward the listener; in argument they can undercut the very certainty they mark."
+        }
+      ],
+      "task": {
+        "title": "Quote, reverse, justify",
+        "instructions": "Write one German paragraph of C2 argument in three moves: quote a proverb or a famous line, reverse it, and justify the reversal with a case the original misses. Then cut every adjective that only adds emphasis and check whether the reversal still stands. If it does, the paragraph was an argument; if it does not, it was decoration."
+      }
     }
   }
 }

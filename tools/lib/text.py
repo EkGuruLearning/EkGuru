@@ -18,9 +18,24 @@ RANGES = {
     'Deva': [(0x900, 0x97f)], 'Beng': [(0x980, 0x9ff)], 'Guru': [(0xa00, 0xa7f)], 'Gujr': [(0xa80, 0xaff)],
     'Taml': [(0xb80, 0xbff)], 'Telu': [(0xc00, 0xc7f)], 'Knda': [(0xc80, 0xcff)], 'Mlym': [(0xd00, 0xd7f)],
     'Arab': [(0x600, 0x6ff), (0x750, 0x77f), (0x8a0, 0x8ff)], 'Hebr': [(0x590, 0x5ff)], 'Cyrl': [(0x400, 0x52f)],
-    'Grek': [(0x370, 0x3ff), (0x1f00, 0x1fff)], 'Thai': [(0xe00, 0xe7f)], 'Hang': [(0xac00, 0xd7af), (0x1100, 0x11ff)],
-    'Kore': [(0xac00, 0xd7af), (0x1100, 0x11ff), (0x4e00, 0x9fff)], 'Jpan': [(0x3040, 0x30ff), (0x4e00, 0x9fff)],
-    'Hani': [(0x3400, 0x9fff)], 'Hans': [(0x3400, 0x9fff)], 'Hant': [(0x3400, 0x9fff)], 'Latn': [(0x41, 0x24f), (0x1e00, 0x1eff)]}
+    'Grek': [(0x370, 0x3ff), (0x1f00, 0x1fff)], 'Thai': [(0xe00, 0xe7f)],
+    # Hangul is written with precomposed syllables (가), with conjoining jamo
+    # (U+1100 block) and — in grammar patterns and dictionaries — with the
+    # compatibility jamo block U+3130-318F, where the bare letters ㄱㄴㄹ live:
+    # a Korean course writes -(으)ㄹ 거예요 and -ㄴ 셈이다 that way, and without
+    # this range tools/language-gate.py reported four script mismatches against
+    # correct Korean content.
+    'Hang': [(0xac00, 0xd7af), (0x1100, 0x11ff), (0x3130, 0x318f)],
+    'Kore': [(0xac00, 0xd7af), (0x1100, 0x11ff), (0x3130, 0x318f), (0x4e00, 0x9fff)], 'Jpan': [(0x3040, 0x30ff), (0x4e00, 0x9fff)],
+    'Hani': [(0x3400, 0x9fff)], 'Hans': [(0x3400, 0x9fff)], 'Hant': [(0x3400, 0x9fff)],
+    # 0x2b0-0x2ff is the Spacing Modifier Letters block. They are letters, not
+    # punctuation (Unicode category Lm), and Latin-script orthographies write
+    # real words with them: Uzbek oʻ and gʻ use U+02BB, its maʼno uses U+02BC,
+    # and the same U+02BB is the ʻokina of Hawaiian, Tongan and Samoan. Stopping
+    # Latn at 0x24f made tools/language-gate.py report 194 script mismatches
+    # against correct Uzbek content — a false failure on a language whose own
+    # registry entry spells its endonym Oʻzbekcha with that character.
+    'Latn': [(0x41, 0x24f), (0x1e00, 0x1eff), (0x2b0, 0x2ff)]}
 
 
 def in_script(text, scripts):

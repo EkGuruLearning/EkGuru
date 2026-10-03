@@ -103,25 +103,25 @@
             },
             "dialogue": [
               {
-                "sp": "Analyst",
+                "sp": "Analystin",
                 "t": "Dem Bericht zufolge habe sich die Umsetzung verbessert, wenngleich die Wirkung regional unterschiedlich ausfalle.",
                 "r": "Dem Bericht zufolge habe sich die Umsetzung verbessert, wenngleich die Wirkung regional unterschiedlich ausfalle.",
                 "en": "According to the report, implementation has improved, although the effect reportedly varies by region."
               },
               {
-                "sp": "Editor",
+                "sp": "Redakteurin",
                 "t": "Auch wenn die Belege begrenzt sind, lässt sich der Befund weder übergehen noch als endgültig ausgeben.",
                 "r": "Auch wenn die Belege begrenzt sind, lässt sich der Befund weder übergehen noch als endgültig ausgeben.",
                 "en": "Even though the evidence is limited, the finding can neither be ignored nor presented as final."
               },
               {
-                "sp": "Mediator",
+                "sp": "Mediatorin",
                 "t": "Die kritische Bewertung gesellschaftlich wirksamer Veränderungen setzt eine Prüfung von Kontext und Methode voraus.",
                 "r": "Die kritische Bewertung gesellschaftlich wirksamer Veränderungen setzt eine Prüfung von Kontext und Methode voraus.",
                 "en": "Critical evaluation of changes affecting society presupposes examination of context and method."
               },
               {
-                "sp": "Reviewer",
+                "sp": "Gutachterin",
                 "t": "Da die Daten unvollständig waren, vertagte der Ausschuss die Entscheidung, bis der Kausalzusammenhang geklärt wäre.",
                 "r": "Da die Daten unvollständig waren, vertagte der Ausschuss die Entscheidung, bis der Kausalzusammenhang geklärt wäre.",
                 "en": "Because the data were incomplete, the committee postponed the decision until the causal relationship could be clarified."
@@ -405,25 +405,25 @@
             },
             "dialogue": [
               {
-                "sp": "Analyst",
+                "sp": "Analystin",
                 "t": "Auch wenn die Belege begrenzt sind, lässt sich der Befund weder übergehen noch als endgültig ausgeben.",
                 "r": "Auch wenn die Belege begrenzt sind, lässt sich der Befund weder übergehen noch als endgültig ausgeben.",
                 "en": "Even though the evidence is limited, the finding can neither be ignored nor presented as final."
               },
               {
-                "sp": "Editor",
+                "sp": "Redakteurin",
                 "t": "Die kritische Bewertung gesellschaftlich wirksamer Veränderungen setzt eine Prüfung von Kontext und Methode voraus.",
                 "r": "Die kritische Bewertung gesellschaftlich wirksamer Veränderungen setzt eine Prüfung von Kontext und Methode voraus.",
                 "en": "Critical evaluation of changes affecting society presupposes examination of context and method."
               },
               {
-                "sp": "Mediator",
+                "sp": "Mediatorin",
                 "t": "Da die Daten unvollständig waren, vertagte der Ausschuss die Entscheidung, bis der Kausalzusammenhang geklärt wäre.",
                 "r": "Da die Daten unvollständig waren, vertagte der Ausschuss die Entscheidung, bis der Kausalzusammenhang geklärt wäre.",
                 "en": "Because the data were incomplete, the committee postponed the decision until the causal relationship could be clarified."
               },
               {
-                "sp": "Reviewer",
+                "sp": "Gutachterin",
                 "t": "Bei allem Respekt für Ihren Vorschlag möchte ich eine Alternative skizzieren, die den Grenzen der Umsetzung Rechnung trägt.",
                 "r": "Bei allem Respekt für Ihren Vorschlag möchte ich eine Alternative skizzieren, die den Grenzen der Umsetzung Rechnung trägt.",
                 "en": "With due respect for your proposal, I would like to outline an alternative that accounts for implementation limits."
@@ -620,6 +620,297 @@
                 }
               ]
             }
+          },
+          {
+            "id": "de-c1-l7",
+            "title": "Unnamed sources: Konjunktiv I and «soll»",
+            "learn": "German keeps a claim at arm's length with Konjunktiv I: ER SEI KRANK (he is said to be ill), SIE HABE ABGELEHNT. Without a Konjunktiv I form the language falls back on soll: ER SOLL KRANK SEIN — the same distance, one word.",
+            "vocab": [
+              {
+                "t": "Konjunktiv I",
+                "r": "KON-yoonk-tif ine",
+                "en": "reported-speech mood",
+                "pos": "noun"
+              },
+              {
+                "t": "er sei",
+                "r": "air zy",
+                "en": "he is (reported)",
+                "pos": "verb"
+              },
+              {
+                "t": "sie habe",
+                "r": "zee HAH-buh",
+                "en": "she has (reported)",
+                "pos": "verb"
+              },
+              {
+                "t": "er solle",
+                "r": "air ZOL-luh",
+                "en": "he is said to (be to)",
+                "pos": "verb"
+              },
+              {
+                "t": "die Wiedergabe",
+                "r": "dee VEE-der-gah-buh",
+                "en": "reproduction, reporting",
+                "pos": "noun"
+              }
+            ],
+            "grammar": {
+              "title": "Evidential distance",
+              "pattern": "er sei · sie habe · er solle · laut Angaben",
+              "explain": "Der Minister sagte, die Lage sei ruhig. Er solle nächste Woche zurücktreten, heißt es. The form marks that the speaker is not vouching — dropping it turns the sentence into assertion.",
+              "examples": [
+                {
+                  "t": "Er sei krank, heißt es.",
+                  "r": "air zy krank, HYST es.",
+                  "en": "He is said to be ill."
+                },
+                {
+                  "t": "Sie habe den Antrag abgelehnt.",
+                  "r": "zee HAH-buh dayn AN-trahk AP-ge-laynt.",
+                  "en": "She is said to have rejected the application."
+                },
+                {
+                  "t": "Der Minister solle zurücktreten.",
+                  "r": "dair mi-NIS-ter ZOL-luh tsoo-REWK-tray-ten.",
+                  "en": "The minister is reportedly to step down."
+                }
+              ],
+              "mistakes": [
+                {
+                  "wrong": "Er ist krank, heißt es.",
+                  "right": "Er sei krank, heißt es.",
+                  "why": "«heißt es» expects Konjunktiv I; with «ist» the sentence asserts what it disclaims."
+                },
+                {
+                  "wrong": "Sie hat abgelehnt laut Quelle.",
+                  "right": "Sie habe laut Quelle abgelehnt.",
+                  "why": "The distancing sits in the verb, not in a trailing tag."
+                }
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "Redakteurin",
+                "t": "Woher wissen wir das?",
+                "r": "voh-HAIR VIS-sen veer das?",
+                "en": "How do we know that?"
+              },
+              {
+                "sp": "Reporter",
+                "t": "Zwei Quellen sagen, der Minister sei zurückgetreten.",
+                "r": "tsvy KVEL-len ZAH-gen, dair mi-NIS-ter zy tsoo-REWK-ge-tray-ten.",
+                "en": "Two sources say the minister has stepped down."
+              },
+              {
+                "sp": "Redakteurin",
+                "t": "Bestätigt?",
+                "r": "beh-SHTAY-tikht?",
+                "en": "Confirmed?"
+              },
+              {
+                "sp": "Reporter",
+                "t": "Nein — offiziell heißt es nur, er solle nächste Woche sprechen.",
+                "r": "nine — o-fi-TSYEL HYST es noor, air ZOL-luh NAYS-tuh VOKHuh SHPREH-khen.",
+                "en": "No — officially it is only said that he is to speak next week."
+              }
+            ],
+            "practice": [
+              {
+                "type": "multiple_choice",
+                "q": "Practice 1: [multiple choice] Unnamed sources: Konjunktiv I and «soll» — Choose the meaning of Konjunktiv I (KON-yoonk-tif ine) in this lesson.",
+                "answer": "reported-speech mood",
+                "skill_target": "German: verb-second word order, four cases with article agreement, separable prefixes, Perfekt vs Präteritum, modal particles, and Konjunktiv register — measured by clause architecture and by choosing du or Sie before the first verb.",
+                "options": [
+                  "reported-speech mood",
+                  "he is (reported)",
+                  "she has (reported)",
+                  "he is said to (be to)"
+                ]
+              },
+              {
+                "type": "fill_in_the_blank",
+                "q": "Practice 2: [fill in the blank] Unnamed sources: Konjunktiv I and «soll» — Type the German expression meaning “he is (reported)”.",
+                "answer": "er sei",
+                "skill_target": "German: verb-second word order, four cases with article agreement, separable prefixes, Perfekt vs Präteritum, modal particles, and Konjunktiv register — measured by clause architecture and by choosing du or Sie before the first verb."
+              },
+              {
+                "type": "translation",
+                "q": "Practice 3: [translation] Unnamed sources: Konjunktiv I and «soll» — Interpret the German in context: Er sei krank, heißt es. (air zy krank, HYST es.).",
+                "answer": "He is said to be ill.",
+                "skill_target": "German: verb-second word order, four cases with article agreement, separable prefixes, Perfekt vs Präteritum, modal particles, and Konjunktiv register — measured by clause architecture and by choosing du or Sie before the first verb."
+              },
+              {
+                "type": "reverse_translation",
+                "q": "Practice 4: [reverse translation] Unnamed sources: Konjunktiv I and «soll» — Write in German: She is said to have rejected the application..",
+                "answer": "Sie habe den Antrag abgelehnt.",
+                "skill_target": "German: verb-second word order, four cases with article agreement, separable prefixes, Perfekt vs Präteritum, modal particles, and Konjunktiv register — measured by clause architecture and by choosing du or Sie before the first verb."
+              },
+              {
+                "type": "matching",
+                "q": "Practice 5: [matching] Unnamed sources: Konjunktiv I and «soll» — Match sie habe to its lesson meaning.",
+                "answer": "she has (reported)",
+                "skill_target": "German: verb-second word order, four cases with article agreement, separable prefixes, Perfekt vs Präteritum, modal particles, and Konjunktiv register — measured by clause architecture and by choosing du or Sie before the first verb.",
+                "options": [
+                  "she has (reported)",
+                  "reported-speech mood",
+                  "he is (reported)"
+                ]
+              },
+              {
+                "type": "reorder",
+                "q": "Practice 6: [reorder] Unnamed sources: Konjunktiv I and «soll» — Reconstruct the lesson model in coherent German: The minister is reportedly to step down..",
+                "answer": "Der Minister solle zurücktreten.",
+                "skill_target": "German: verb-second word order, four cases with article agreement, separable prefixes, Perfekt vs Präteritum, modal particles, and Konjunktiv register — measured by clause architecture and by choosing du or Sie before the first verb."
+              },
+              {
+                "type": "sentence_building",
+                "q": "Practice 7: [sentence building] Unnamed sources: Konjunktiv I and «soll» — Build the sentence with the lesson pattern (er sei · sie habe · er solle · laut Angaben): He is said to be ill..",
+                "answer": "Er sei krank, heißt es.",
+                "skill_target": "German: verb-second word order, four cases with article agreement, separable prefixes, Perfekt vs Präteritum, modal particles, and Konjunktiv register — measured by clause architecture and by choosing du or Sie before the first verb."
+              },
+              {
+                "type": "word_selection",
+                "q": "Practice 8: [word selection] Unnamed sources: Konjunktiv I and «soll» — Select the German form for “he is said to (be to)”.",
+                "answer": "er solle",
+                "skill_target": "German: verb-second word order, four cases with article agreement, separable prefixes, Perfekt vs Präteritum, modal particles, and Konjunktiv register — measured by clause architecture and by choosing du or Sie before the first verb.",
+                "options": [
+                  "er solle",
+                  "die Wiedergabe"
+                ]
+              },
+              {
+                "type": "error_correction",
+                "q": "Practice 9: [error correction] Unnamed sources: Konjunktiv I and «soll» — Correct the model the lesson warns about: Er ist krank, heißt es.",
+                "answer": "Er sei krank, heißt es.",
+                "skill_target": "German: verb-second word order, four cases with article agreement, separable prefixes, Perfekt vs Präteritum, modal particles, and Konjunktiv register — measured by clause architecture and by choosing du or Sie before the first verb."
+              },
+              {
+                "type": "dialogue_completion",
+                "q": "Practice 10: [dialogue completion] Unnamed sources: Konjunktiv I and «soll» — Complete the exchange with the studied response to: How do we know that?",
+                "answer": "Zwei Quellen sagen, der Minister sei zurückgetreten.",
+                "skill_target": "German: verb-second word order, four cases with article agreement, separable prefixes, Perfekt vs Präteritum, modal particles, and Konjunktiv register — measured by clause architecture and by choosing du or Sie before the first verb."
+              },
+              {
+                "type": "reading_comprehension",
+                "q": "Practice 11: [reading comprehension] Unnamed sources: Konjunktiv I and «soll» — Read “Bestätigt?” (beh-SHTAY-tikht?). What does it mean?",
+                "answer": "Confirmed?",
+                "skill_target": "German: verb-second word order, four cases with article agreement, separable prefixes, Perfekt vs Präteritum, modal particles, and Konjunktiv register — measured by clause architecture and by choosing du or Sie before the first verb."
+              },
+              {
+                "type": "paragraph_comprehension",
+                "q": "Practice 12: [paragraph comprehension] Unnamed sources: Konjunktiv I and «soll» — Read the lesson dialogue as a whole and give its key move: No — officially it is only said that he is to speak next week.",
+                "answer": "Nein — offiziell heißt es nur, er solle nächste Woche sprechen.",
+                "skill_target": "German: verb-second word order, four cases with article agreement, separable prefixes, Perfekt vs Präteritum, modal particles, and Konjunktiv register — measured by clause architecture and by choosing du or Sie before the first verb."
+              }
+            ],
+            "quiz": [
+              {
+                "q": "Which meaning best fits Konjunktiv I?",
+                "options": [
+                  "reported-speech mood",
+                  "he is (reported)",
+                  "she has (reported)",
+                  "he is said to (be to)"
+                ],
+                "answer": 0,
+                "why": "Konjunktiv I (KON-yoonk-tif ine) means reported-speech mood in this lesson."
+              },
+              {
+                "q": "Which meaning best fits er sei?",
+                "options": [
+                  "he is (reported)",
+                  "reported-speech mood",
+                  "she has (reported)",
+                  "he is said to (be to)"
+                ],
+                "answer": 0,
+                "why": "er sei (air zy) means he is (reported) in this lesson."
+              },
+              {
+                "q": "Which meaning best fits sie habe?",
+                "options": [
+                  "she has (reported)",
+                  "reported-speech mood",
+                  "he is (reported)",
+                  "he is said to (be to)"
+                ],
+                "answer": 0,
+                "why": "sie habe (zee HAH-buh) means she has (reported) in this lesson."
+              },
+              {
+                "q": "Which meaning best fits er solle?",
+                "options": [
+                  "he is said to (be to)",
+                  "reported-speech mood",
+                  "he is (reported)",
+                  "she has (reported)"
+                ],
+                "answer": 0,
+                "why": "er solle (air ZOL-luh) means he is said to (be to) in this lesson."
+              },
+              {
+                "q": "Which meaning best fits die Wiedergabe?",
+                "options": [
+                  "reproduction, reporting",
+                  "reported-speech mood",
+                  "he is (reported)",
+                  "she has (reported)"
+                ],
+                "answer": 0,
+                "why": "die Wiedergabe (dee VEE-der-gah-buh) means reproduction, reporting in this lesson."
+              }
+            ],
+            "flashcards": "auto:vocab",
+            "worksheet": {
+              "title": "Evidential worksheet",
+              "tasks": [
+                {
+                  "instruction": "Put it at arm's length.",
+                  "items": [
+                    "he is ill (reported)",
+                    "she has resigned (reported)",
+                    "they are said to travel"
+                  ],
+                  "key": [
+                    "Er sei krank.",
+                    "Sie habe gekündigt.",
+                    "Sie sollen reisen."
+                  ]
+                },
+                {
+                  "instruction": "Say what the source is.",
+                  "items": [
+                    "two sources say",
+                    "officially it is said"
+                  ],
+                  "key": [
+                    "Zwei Quellen sagen",
+                    "offiziell heißt es"
+                  ]
+                },
+                {
+                  "instruction": "Integrated offline practice: read the first model, transform or extend it in German, then rehearse it as a dialogue. Self-check meaning, grammar, and register.",
+                  "items": [
+                    "Er sei krank, heißt es.",
+                    "Woher wissen wir das?"
+                  ],
+                  "key": [
+                    "He is said to be ill.",
+                    "How do we know that?"
+                  ]
+                }
+              ]
+            },
+            "srs_candidates": [
+              "Konjunktiv I",
+              "er sei",
+              "sie habe",
+              "er solle"
+            ],
+            "srs_policy": "Only these four high-value terms are preselected; lesson mistakes and productive patterns may enter personalized review after an actual error."
           }
         ]
       },
@@ -712,25 +1003,25 @@
             },
             "dialogue": [
               {
-                "sp": "Analyst",
+                "sp": "Analystin",
                 "t": "Die kritische Bewertung gesellschaftlich wirksamer Veränderungen setzt eine Prüfung von Kontext und Methode voraus.",
                 "r": "Die kritische Bewertung gesellschaftlich wirksamer Veränderungen setzt eine Prüfung von Kontext und Methode voraus.",
                 "en": "Critical evaluation of changes affecting society presupposes examination of context and method."
               },
               {
-                "sp": "Editor",
+                "sp": "Redakteurin",
                 "t": "Da die Daten unvollständig waren, vertagte der Ausschuss die Entscheidung, bis der Kausalzusammenhang geklärt wäre.",
                 "r": "Da die Daten unvollständig waren, vertagte der Ausschuss die Entscheidung, bis der Kausalzusammenhang geklärt wäre.",
                 "en": "Because the data were incomplete, the committee postponed the decision until the causal relationship could be clarified."
               },
               {
-                "sp": "Mediator",
+                "sp": "Mediatorin",
                 "t": "Bei allem Respekt für Ihren Vorschlag möchte ich eine Alternative skizzieren, die den Grenzen der Umsetzung Rechnung trägt.",
                 "r": "Bei allem Respekt für Ihren Vorschlag möchte ich eine Alternative skizzieren, die den Grenzen der Umsetzung Rechnung trägt.",
                 "en": "With due respect for your proposal, I would like to outline an alternative that accounts for implementation limits."
               },
               {
-                "sp": "Reviewer",
+                "sp": "Gutachterin",
                 "t": "Liest man beide Studien zusammen, erklärt der unterschiedliche Kontext zumindest einen Teil der abweichenden Ergebnisse.",
                 "r": "Liest man beide Studien zusammen, erklärt der unterschiedliche Kontext zumindest einen Teil der abweichenden Ergebnisse.",
                 "en": "Read together, the differing context explains at least part of the divergent results."
@@ -1012,25 +1303,25 @@
             },
             "dialogue": [
               {
-                "sp": "Analyst",
+                "sp": "Analystin",
                 "t": "Da die Daten unvollständig waren, vertagte der Ausschuss die Entscheidung, bis der Kausalzusammenhang geklärt wäre.",
                 "r": "Da die Daten unvollständig waren, vertagte der Ausschuss die Entscheidung, bis der Kausalzusammenhang geklärt wäre.",
                 "en": "Because the data were incomplete, the committee postponed the decision until the causal relationship could be clarified."
               },
               {
-                "sp": "Editor",
+                "sp": "Redakteurin",
                 "t": "Bei allem Respekt für Ihren Vorschlag möchte ich eine Alternative skizzieren, die den Grenzen der Umsetzung Rechnung trägt.",
                 "r": "Bei allem Respekt für Ihren Vorschlag möchte ich eine Alternative skizzieren, die den Grenzen der Umsetzung Rechnung trägt.",
                 "en": "With due respect for your proposal, I would like to outline an alternative that accounts for implementation limits."
               },
               {
-                "sp": "Mediator",
+                "sp": "Mediatorin",
                 "t": "Liest man beide Studien zusammen, erklärt der unterschiedliche Kontext zumindest einen Teil der abweichenden Ergebnisse.",
                 "r": "Liest man beide Studien zusammen, erklärt der unterschiedliche Kontext zumindest einen Teil der abweichenden Ergebnisse.",
                 "en": "Read together, the differing context explains at least part of the divergent results."
               },
               {
-                "sp": "Reviewer",
+                "sp": "Gutachterin",
                 "t": "Dem Bericht zufolge habe sich die Umsetzung verbessert, wenngleich die Wirkung regional unterschiedlich ausfalle.",
                 "r": "Dem Bericht zufolge habe sich die Umsetzung verbessert, wenngleich die Wirkung regional unterschiedlich ausfalle.",
                 "en": "According to the report, implementation has improved, although the effect reportedly varies by region."
@@ -1220,6 +1511,297 @@
                 }
               ]
             }
+          },
+          {
+            "id": "de-c1-l8",
+            "title": "Graded causality: trägt bei, dürfte, spricht dafür",
+            "learn": "Careful German causal prose grades the link: X TRÄGT ZU Y BEI (contributes), X DÜRFTE Y ERKLÄREN (may well explain), VIELES SPRICHT DAFÜR (much suggests). Each verb states how strong the link is.",
+            "vocab": [
+              {
+                "t": "beitragen zu",
+                "r": "BY-trah-gen tsoo",
+                "en": "to contribute to",
+                "pos": "verb"
+              },
+              {
+                "t": "dürfte",
+                "r": "DEWRF-tuh",
+                "en": "may well, is likely to",
+                "pos": "verb"
+              },
+              {
+                "t": "sprechen für",
+                "r": "SHPREH-khen fewr",
+                "en": "to argue for, suggest",
+                "pos": "phrase"
+              },
+              {
+                "t": "der Zusammenhang",
+                "r": "dair tsoo-ZAH-men-hank",
+                "en": "connection, correlation",
+                "pos": "noun"
+              },
+              {
+                "t": "hinreichend",
+                "r": "HIN-ry-khent",
+                "en": "sufficient",
+                "pos": "adjective"
+              }
+            ],
+            "grammar": {
+              "title": "Calibrated cause",
+              "pattern": "trägt bei zu · dürfte erklären · spricht dafür, dass · ist nicht hinreichend",
+              "explain": "Die Nachfrage dürfte den Preisanstieg erklären, doch allein ist sie nicht hinreichend. The sentence holds a mechanism and its limit in one clause pair — the signature of German academic prose.",
+              "examples": [
+                {
+                  "t": "Der Ausfall dürfte den Rückgang erklären.",
+                  "r": "dair OWS-fal DEWRF-tuh dayn REWK-gang air-KLAY-ren.",
+                  "en": "The outage may well explain the decline."
+                },
+                {
+                  "t": "Vieles spricht dafür, dass sich der Markt erholt.",
+                  "r": "FEE-les shprikht dah-FEWR, das zikh dair markt air-HOLT.",
+                  "en": "Much suggests the market is recovering."
+                },
+                {
+                  "t": "Das allein ist nicht hinreichend.",
+                  "r": "das ah-LINE ist nikht HIN-ry-khent.",
+                  "en": "That alone is not sufficient."
+                }
+              ],
+              "mistakes": [
+                {
+                  "wrong": "Der Ausfall erklärt den Rückgang.",
+                  "right": "Der Ausfall dürfte den Rückgang erklären.",
+                  "why": "A correlation is not a cause: dürfte marks the inference."
+                },
+                {
+                  "wrong": "Vieles spricht, dass es stimmt.",
+                  "right": "Vieles spricht dafür, dass es stimmt.",
+                  "why": "sprechen dafür is a fixed pair."
+                }
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "Kollegin",
+                "t": "Warum steigen die Preise?",
+                "r": "var-OOM SHTY-gen dee PRY-zuh?",
+                "en": "Why are prices rising?"
+              },
+              {
+                "sp": "Referent",
+                "t": "Die Nachfrage dürfte eine Rolle spielen.",
+                "r": "dee NAHKH-frah-guh DEWRF-tuh EYE-nuh ROL-luh SHPEE-len.",
+                "en": "Demand is likely to play a role."
+              },
+              {
+                "sp": "Kollegin",
+                "t": "Und die Energiepreise?",
+                "r": "unt dee air-nair-GEE-pry-zuh?",
+                "en": "And energy prices?"
+              },
+              {
+                "sp": "Referent",
+                "t": "Sie tragen dazu bei — hinreichend ist das aber nicht.",
+                "r": "zee TRAH-gen dah-tsoo by — HIN-ry-khent ist das AH-ber nikht.",
+                "en": "They contribute to it — but that is not sufficient."
+              }
+            ],
+            "practice": [
+              {
+                "type": "multiple_choice",
+                "q": "Practice 1: [multiple choice] Graded causality: trägt bei, dürfte, spricht dafür — Choose the meaning of beitragen zu (BY-trah-gen tsoo) in this lesson.",
+                "answer": "to contribute to",
+                "skill_target": "German: verb-second word order, four cases with article agreement, separable prefixes, Perfekt vs Präteritum, modal particles, and Konjunktiv register — measured by clause architecture and by choosing du or Sie before the first verb.",
+                "options": [
+                  "to contribute to",
+                  "may well, is likely to",
+                  "to argue for, suggest",
+                  "connection, correlation"
+                ]
+              },
+              {
+                "type": "fill_in_the_blank",
+                "q": "Practice 2: [fill in the blank] Graded causality: trägt bei, dürfte, spricht dafür — Type the German expression meaning “may well, is likely to”.",
+                "answer": "dürfte",
+                "skill_target": "German: verb-second word order, four cases with article agreement, separable prefixes, Perfekt vs Präteritum, modal particles, and Konjunktiv register — measured by clause architecture and by choosing du or Sie before the first verb."
+              },
+              {
+                "type": "translation",
+                "q": "Practice 3: [translation] Graded causality: trägt bei, dürfte, spricht dafür — Interpret the German in context: Der Ausfall dürfte den Rückgang erklären. (dair OWS-fal DEWRF-tuh dayn REWK-gang air-KLAY-ren.).",
+                "answer": "The outage may well explain the decline.",
+                "skill_target": "German: verb-second word order, four cases with article agreement, separable prefixes, Perfekt vs Präteritum, modal particles, and Konjunktiv register — measured by clause architecture and by choosing du or Sie before the first verb."
+              },
+              {
+                "type": "reverse_translation",
+                "q": "Practice 4: [reverse translation] Graded causality: trägt bei, dürfte, spricht dafür — Write in German: Much suggests the market is recovering..",
+                "answer": "Vieles spricht dafür, dass sich der Markt erholt.",
+                "skill_target": "German: verb-second word order, four cases with article agreement, separable prefixes, Perfekt vs Präteritum, modal particles, and Konjunktiv register — measured by clause architecture and by choosing du or Sie before the first verb."
+              },
+              {
+                "type": "matching",
+                "q": "Practice 5: [matching] Graded causality: trägt bei, dürfte, spricht dafür — Match sprechen für to its lesson meaning.",
+                "answer": "to argue for, suggest",
+                "skill_target": "German: verb-second word order, four cases with article agreement, separable prefixes, Perfekt vs Präteritum, modal particles, and Konjunktiv register — measured by clause architecture and by choosing du or Sie before the first verb.",
+                "options": [
+                  "to argue for, suggest",
+                  "to contribute to",
+                  "may well, is likely to"
+                ]
+              },
+              {
+                "type": "reorder",
+                "q": "Practice 6: [reorder] Graded causality: trägt bei, dürfte, spricht dafür — Reconstruct the lesson model in coherent German: That alone is not sufficient..",
+                "answer": "Das allein ist nicht hinreichend.",
+                "skill_target": "German: verb-second word order, four cases with article agreement, separable prefixes, Perfekt vs Präteritum, modal particles, and Konjunktiv register — measured by clause architecture and by choosing du or Sie before the first verb."
+              },
+              {
+                "type": "sentence_building",
+                "q": "Practice 7: [sentence building] Graded causality: trägt bei, dürfte, spricht dafür — Build the sentence with the lesson pattern (trägt bei zu · dürfte erklären · spricht dafür, dass · ist nicht hinreichend): The outage may well explain the decline..",
+                "answer": "Der Ausfall dürfte den Rückgang erklären.",
+                "skill_target": "German: verb-second word order, four cases with article agreement, separable prefixes, Perfekt vs Präteritum, modal particles, and Konjunktiv register — measured by clause architecture and by choosing du or Sie before the first verb."
+              },
+              {
+                "type": "word_selection",
+                "q": "Practice 8: [word selection] Graded causality: trägt bei, dürfte, spricht dafür — Select the German form for “connection, correlation”.",
+                "answer": "der Zusammenhang",
+                "skill_target": "German: verb-second word order, four cases with article agreement, separable prefixes, Perfekt vs Präteritum, modal particles, and Konjunktiv register — measured by clause architecture and by choosing du or Sie before the first verb.",
+                "options": [
+                  "der Zusammenhang",
+                  "hinreichend"
+                ]
+              },
+              {
+                "type": "error_correction",
+                "q": "Practice 9: [error correction] Graded causality: trägt bei, dürfte, spricht dafür — Correct the model the lesson warns about: Der Ausfall erklärt den Rückgang.",
+                "answer": "Der Ausfall dürfte den Rückgang erklären.",
+                "skill_target": "German: verb-second word order, four cases with article agreement, separable prefixes, Perfekt vs Präteritum, modal particles, and Konjunktiv register — measured by clause architecture and by choosing du or Sie before the first verb."
+              },
+              {
+                "type": "dialogue_completion",
+                "q": "Practice 10: [dialogue completion] Graded causality: trägt bei, dürfte, spricht dafür — Complete the exchange with the studied response to: Why are prices rising?",
+                "answer": "Die Nachfrage dürfte eine Rolle spielen.",
+                "skill_target": "German: verb-second word order, four cases with article agreement, separable prefixes, Perfekt vs Präteritum, modal particles, and Konjunktiv register — measured by clause architecture and by choosing du or Sie before the first verb."
+              },
+              {
+                "type": "reading_comprehension",
+                "q": "Practice 11: [reading comprehension] Graded causality: trägt bei, dürfte, spricht dafür — Read “Und die Energiepreise?” (unt dee air-nair-GEE-pry-zuh?). What does it mean?",
+                "answer": "And energy prices?",
+                "skill_target": "German: verb-second word order, four cases with article agreement, separable prefixes, Perfekt vs Präteritum, modal particles, and Konjunktiv register — measured by clause architecture and by choosing du or Sie before the first verb."
+              },
+              {
+                "type": "paragraph_comprehension",
+                "q": "Practice 12: [paragraph comprehension] Graded causality: trägt bei, dürfte, spricht dafür — Read the lesson dialogue as a whole and give its key move: They contribute to it — but that is not sufficient.",
+                "answer": "Sie tragen dazu bei — hinreichend ist das aber nicht.",
+                "skill_target": "German: verb-second word order, four cases with article agreement, separable prefixes, Perfekt vs Präteritum, modal particles, and Konjunktiv register — measured by clause architecture and by choosing du or Sie before the first verb."
+              }
+            ],
+            "quiz": [
+              {
+                "q": "Which meaning best fits beitragen zu?",
+                "options": [
+                  "to contribute to",
+                  "may well, is likely to",
+                  "to argue for, suggest",
+                  "connection, correlation"
+                ],
+                "answer": 0,
+                "why": "beitragen zu (BY-trah-gen tsoo) means to contribute to in this lesson."
+              },
+              {
+                "q": "Which meaning best fits dürfte?",
+                "options": [
+                  "may well, is likely to",
+                  "to contribute to",
+                  "to argue for, suggest",
+                  "connection, correlation"
+                ],
+                "answer": 0,
+                "why": "dürfte (DEWRF-tuh) means may well, is likely to in this lesson."
+              },
+              {
+                "q": "Which meaning best fits sprechen für?",
+                "options": [
+                  "to argue for, suggest",
+                  "to contribute to",
+                  "may well, is likely to",
+                  "connection, correlation"
+                ],
+                "answer": 0,
+                "why": "sprechen für (SHPREH-khen fewr) means to argue for, suggest in this lesson."
+              },
+              {
+                "q": "Which meaning best fits der Zusammenhang?",
+                "options": [
+                  "connection, correlation",
+                  "to contribute to",
+                  "may well, is likely to",
+                  "to argue for, suggest"
+                ],
+                "answer": 0,
+                "why": "der Zusammenhang (dair tsoo-ZAH-men-hank) means connection, correlation in this lesson."
+              },
+              {
+                "q": "Which meaning best fits hinreichend?",
+                "options": [
+                  "sufficient",
+                  "to contribute to",
+                  "may well, is likely to",
+                  "to argue for, suggest"
+                ],
+                "answer": 0,
+                "why": "hinreichend (HIN-ry-khent) means sufficient in this lesson."
+              }
+            ],
+            "flashcards": "auto:vocab",
+            "worksheet": {
+              "title": "Causality worksheet",
+              "tasks": [
+                {
+                  "instruction": "Grade the link.",
+                  "items": [
+                    "may well explain",
+                    "contributes to",
+                    "much suggests"
+                  ],
+                  "key": [
+                    "dürfte erklären",
+                    "trägt dazu bei",
+                    "vieles spricht dafür"
+                  ]
+                },
+                {
+                  "instruction": "State the limit.",
+                  "items": [
+                    "this alone is not enough",
+                    "correlation is not cause"
+                  ],
+                  "key": [
+                    "Das allein ist nicht hinreichend.",
+                    "Ein Zusammenhang ist keine Ursache."
+                  ]
+                },
+                {
+                  "instruction": "Integrated offline practice: read the first model, transform or extend it in German, then rehearse it as a dialogue. Self-check meaning, grammar, and register.",
+                  "items": [
+                    "Der Ausfall dürfte den Rückgang erklären.",
+                    "Warum steigen die Preise?"
+                  ],
+                  "key": [
+                    "The outage may well explain the decline.",
+                    "Why are prices rising?"
+                  ]
+                }
+              ]
+            },
+            "srs_candidates": [
+              "beitragen zu",
+              "dürfte",
+              "sprechen für",
+              "der Zusammenhang"
+            ],
+            "srs_policy": "Only these four high-value terms are preselected; lesson mistakes and productive patterns may enter personalized review after an actual error."
           }
         ]
       },
@@ -1312,25 +1894,25 @@
             },
             "dialogue": [
               {
-                "sp": "Analyst",
+                "sp": "Analystin",
                 "t": "Bei allem Respekt für Ihren Vorschlag möchte ich eine Alternative skizzieren, die den Grenzen der Umsetzung Rechnung trägt.",
                 "r": "Bei allem Respekt für Ihren Vorschlag möchte ich eine Alternative skizzieren, die den Grenzen der Umsetzung Rechnung trägt.",
                 "en": "With due respect for your proposal, I would like to outline an alternative that accounts for implementation limits."
               },
               {
-                "sp": "Editor",
+                "sp": "Redakteurin",
                 "t": "Liest man beide Studien zusammen, erklärt der unterschiedliche Kontext zumindest einen Teil der abweichenden Ergebnisse.",
                 "r": "Liest man beide Studien zusammen, erklärt der unterschiedliche Kontext zumindest einen Teil der abweichenden Ergebnisse.",
                 "en": "Read together, the differing context explains at least part of the divergent results."
               },
               {
-                "sp": "Mediator",
+                "sp": "Mediatorin",
                 "t": "Dem Bericht zufolge habe sich die Umsetzung verbessert, wenngleich die Wirkung regional unterschiedlich ausfalle.",
                 "r": "Dem Bericht zufolge habe sich die Umsetzung verbessert, wenngleich die Wirkung regional unterschiedlich ausfalle.",
                 "en": "According to the report, implementation has improved, although the effect reportedly varies by region."
               },
               {
-                "sp": "Reviewer",
+                "sp": "Gutachterin",
                 "t": "Auch wenn die Belege begrenzt sind, lässt sich der Befund weder übergehen noch als endgültig ausgeben.",
                 "r": "Auch wenn die Belege begrenzt sind, lässt sich der Befund weder übergehen noch als endgültig ausgeben.",
                 "en": "Even though the evidence is limited, the finding can neither be ignored nor presented as final."
@@ -1604,25 +2186,25 @@
             },
             "dialogue": [
               {
-                "sp": "Analyst",
+                "sp": "Analystin",
                 "t": "Liest man beide Studien zusammen, erklärt der unterschiedliche Kontext zumindest einen Teil der abweichenden Ergebnisse.",
                 "r": "Liest man beide Studien zusammen, erklärt der unterschiedliche Kontext zumindest einen Teil der abweichenden Ergebnisse.",
                 "en": "Read together, the differing context explains at least part of the divergent results."
               },
               {
-                "sp": "Editor",
+                "sp": "Redakteurin",
                 "t": "Dem Bericht zufolge habe sich die Umsetzung verbessert, wenngleich die Wirkung regional unterschiedlich ausfalle.",
                 "r": "Dem Bericht zufolge habe sich die Umsetzung verbessert, wenngleich die Wirkung regional unterschiedlich ausfalle.",
                 "en": "According to the report, implementation has improved, although the effect reportedly varies by region."
               },
               {
-                "sp": "Mediator",
+                "sp": "Mediatorin",
                 "t": "Auch wenn die Belege begrenzt sind, lässt sich der Befund weder übergehen noch als endgültig ausgeben.",
                 "r": "Auch wenn die Belege begrenzt sind, lässt sich der Befund weder übergehen noch als endgültig ausgeben.",
                 "en": "Even though the evidence is limited, the finding can neither be ignored nor presented as final."
               },
               {
-                "sp": "Reviewer",
+                "sp": "Gutachterin",
                 "t": "Die kritische Bewertung gesellschaftlich wirksamer Veränderungen setzt eine Prüfung von Kontext und Methode voraus.",
                 "r": "Die kritische Bewertung gesellschaftlich wirksamer Veränderungen setzt eine Prüfung von Kontext und Methode voraus.",
                 "en": "Critical evaluation of changes affecting society presupposes examination of context and method."
@@ -1815,6 +2397,293 @@
                 }
               ]
             }
+          },
+          {
+            "id": "de-c1-l9",
+            "title": "Synthesis: two sources, one paragraph",
+            "learn": "Synthesis names the sources and then speaks with one voice: LAUT BUNDESAMT …, DER VERBAND NENNT DAGEGEN … — GEMEINSAM IST BEIDEN, DASS … The third sentence is the synthesis, and it is where the writing earns its place.",
+            "vocab": [
+              {
+                "t": "laut",
+                "r": "lowt",
+                "en": "according to",
+                "pos": "preposition"
+              },
+              {
+                "t": "dagegen",
+                "r": "dah-GAY-gen",
+                "en": "by contrast",
+                "pos": "adverb"
+              },
+              {
+                "t": "gemeinsam",
+                "r": "ge-MYNE-zahm",
+                "en": "in common",
+                "pos": "adjective"
+              },
+              {
+                "t": "das Amt",
+                "r": "das amt",
+                "en": "office, authority",
+                "pos": "noun"
+              },
+              {
+                "t": "der Verband",
+                "r": "dair fair-PANT",
+                "en": "association, federation",
+                "pos": "noun"
+              }
+            ],
+            "grammar": {
+              "title": "Source sandwich",
+              "pattern": "laut A … · B nennt dagegen … · gemeinsam ist beiden, dass …",
+              "explain": "Laut Bundesamt ist die Zahl stabil. Der Verband nennt dagegen Risiken. Gemeinsam ist beiden, dass die Datenlage dünn ist. Three sentences, two positions, one honest conclusion.",
+              "examples": [
+                {
+                  "t": "Laut Amt ist die Zahl stabil.",
+                  "r": "lowt amt ist dee tsahl shta-BEEL.",
+                  "en": "According to the authority the figure is stable."
+                },
+                {
+                  "t": "Der Verband nennt dagegen ein Risiko.",
+                  "r": "dair fair-PANT nent dah-GAY-gen ine ri-ZEE-ko.",
+                  "en": "The association, by contrast, names a risk."
+                },
+                {
+                  "t": "Gemeinsam ist beiden, dass die Daten dünn sind.",
+                  "r": "ge-MYNE-zahm ist BY-den, das dee DAH-ten dewn zint.",
+                  "en": "What both have in common is that the data is thin."
+                }
+              ],
+              "mistakes": [
+                {
+                  "wrong": "Beide sagen dasselbe Gegenteil.",
+                  "right": "Beide betonen Unterschiedliches.",
+                  "why": "A synthesis states the difference and the shared ground; it cannot merge them."
+                },
+                {
+                  "wrong": "Gemeinsam ist beiden die Daten.",
+                  "right": "Gemeinsam ist beiden, dass die Daten dünn sind.",
+                  "why": "The shared point is a clause, not a noun phrase."
+                }
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "Chefin",
+                "t": "Wie ist die Lage bei den Zahlen?",
+                "r": "vee ist dee LAH-guh by daynTSAH-len?",
+                "en": "What is the picture on the figures?"
+              },
+              {
+                "sp": "Referent",
+                "t": "Laut Bundesamt ist die Zahl stabil; der Verband nennt dagegen Risiken.",
+                "r": "lowt BOON-des-amt ist dee tsahl shta-BEEL; dair fair-PANT nent dah-GAY-gen ri-ZEE-ken.",
+                "en": "According to the federal office the figure is stable; the association, by contrast, names risks."
+              },
+              {
+                "sp": "Chefin",
+                "t": "Und Ihr Fazit?",
+                "r": "unt eer fah-TSEET?",
+                "en": "And your conclusion?"
+              },
+              {
+                "sp": "Referent",
+                "t": "Gemeinsam ist beiden, dass die Datenlage dünn ist.",
+                "r": "ge-MYNE-zahm ist BY-den, das dee DAH-ten-lah-guh dewn ist.",
+                "en": "What is common to both is that the data is thin."
+              }
+            ],
+            "practice": [
+              {
+                "type": "multiple_choice",
+                "q": "Practice 1: [multiple choice] Synthesis: two sources, one paragraph — Choose the meaning of laut (lowt) in this lesson.",
+                "answer": "according to",
+                "skill_target": "German: verb-second word order, four cases with article agreement, separable prefixes, Perfekt vs Präteritum, modal particles, and Konjunktiv register — measured by clause architecture and by choosing du or Sie before the first verb.",
+                "options": [
+                  "according to",
+                  "by contrast",
+                  "in common",
+                  "office, authority"
+                ]
+              },
+              {
+                "type": "fill_in_the_blank",
+                "q": "Practice 2: [fill in the blank] Synthesis: two sources, one paragraph — Type the German expression meaning “by contrast”.",
+                "answer": "dagegen",
+                "skill_target": "German: verb-second word order, four cases with article agreement, separable prefixes, Perfekt vs Präteritum, modal particles, and Konjunktiv register — measured by clause architecture and by choosing du or Sie before the first verb."
+              },
+              {
+                "type": "translation",
+                "q": "Practice 3: [translation] Synthesis: two sources, one paragraph — Interpret the German in context: Laut Amt ist die Zahl stabil. (lowt amt ist dee tsahl shta-BEEL.).",
+                "answer": "According to the authority the figure is stable.",
+                "skill_target": "German: verb-second word order, four cases with article agreement, separable prefixes, Perfekt vs Präteritum, modal particles, and Konjunktiv register — measured by clause architecture and by choosing du or Sie before the first verb."
+              },
+              {
+                "type": "reverse_translation",
+                "q": "Practice 4: [reverse translation] Synthesis: two sources, one paragraph — Write in German: The association, by contrast, names a risk..",
+                "answer": "Der Verband nennt dagegen ein Risiko.",
+                "skill_target": "German: verb-second word order, four cases with article agreement, separable prefixes, Perfekt vs Präteritum, modal particles, and Konjunktiv register — measured by clause architecture and by choosing du or Sie before the first verb."
+              },
+              {
+                "type": "matching",
+                "q": "Practice 5: [matching] Synthesis: two sources, one paragraph — Match gemeinsam to its lesson meaning.",
+                "answer": "in common",
+                "skill_target": "German: verb-second word order, four cases with article agreement, separable prefixes, Perfekt vs Präteritum, modal particles, and Konjunktiv register — measured by clause architecture and by choosing du or Sie before the first verb.",
+                "options": [
+                  "in common",
+                  "according to",
+                  "by contrast"
+                ]
+              },
+              {
+                "type": "reorder",
+                "q": "Practice 6: [reorder] Synthesis: two sources, one paragraph — Reconstruct the lesson model in coherent German: What both have in common is that the data is thin..",
+                "answer": "Gemeinsam ist beiden, dass die Daten dünn sind.",
+                "skill_target": "German: verb-second word order, four cases with article agreement, separable prefixes, Perfekt vs Präteritum, modal particles, and Konjunktiv register — measured by clause architecture and by choosing du or Sie before the first verb."
+              },
+              {
+                "type": "sentence_building",
+                "q": "Practice 7: [sentence building] Synthesis: two sources, one paragraph — Build the sentence with the lesson pattern (laut A … · B nennt dagegen … · gemeinsam ist beiden, dass …): According to the authority the figure is stable..",
+                "answer": "Laut Amt ist die Zahl stabil.",
+                "skill_target": "German: verb-second word order, four cases with article agreement, separable prefixes, Perfekt vs Präteritum, modal particles, and Konjunktiv register — measured by clause architecture and by choosing du or Sie before the first verb."
+              },
+              {
+                "type": "word_selection",
+                "q": "Practice 8: [word selection] Synthesis: two sources, one paragraph — Select the German form for “office, authority”.",
+                "answer": "das Amt",
+                "skill_target": "German: verb-second word order, four cases with article agreement, separable prefixes, Perfekt vs Präteritum, modal particles, and Konjunktiv register — measured by clause architecture and by choosing du or Sie before the first verb.",
+                "options": [
+                  "das Amt",
+                  "der Verband"
+                ]
+              },
+              {
+                "type": "error_correction",
+                "q": "Practice 9: [error correction] Synthesis: two sources, one paragraph — Correct the model the lesson warns about: Beide sagen dasselbe Gegenteil.",
+                "answer": "Beide betonen Unterschiedliches.",
+                "skill_target": "German: verb-second word order, four cases with article agreement, separable prefixes, Perfekt vs Präteritum, modal particles, and Konjunktiv register — measured by clause architecture and by choosing du or Sie before the first verb."
+              },
+              {
+                "type": "dialogue_completion",
+                "q": "Practice 10: [dialogue completion] Synthesis: two sources, one paragraph — Complete the exchange with the studied response to: What is the picture on the figures?",
+                "answer": "Laut Bundesamt ist die Zahl stabil; der Verband nennt dagegen Risiken.",
+                "skill_target": "German: verb-second word order, four cases with article agreement, separable prefixes, Perfekt vs Präteritum, modal particles, and Konjunktiv register — measured by clause architecture and by choosing du or Sie before the first verb."
+              },
+              {
+                "type": "reading_comprehension",
+                "q": "Practice 11: [reading comprehension] Synthesis: two sources, one paragraph — Read “Und Ihr Fazit?” (unt eer fah-TSEET?). What does it mean?",
+                "answer": "And your conclusion?",
+                "skill_target": "German: verb-second word order, four cases with article agreement, separable prefixes, Perfekt vs Präteritum, modal particles, and Konjunktiv register — measured by clause architecture and by choosing du or Sie before the first verb."
+              },
+              {
+                "type": "paragraph_comprehension",
+                "q": "Practice 12: [paragraph comprehension] Synthesis: two sources, one paragraph — Read the lesson dialogue as a whole and give its key move: What is common to both is that the data is thin.",
+                "answer": "Gemeinsam ist beiden, dass die Datenlage dünn ist.",
+                "skill_target": "German: verb-second word order, four cases with article agreement, separable prefixes, Perfekt vs Präteritum, modal particles, and Konjunktiv register — measured by clause architecture and by choosing du or Sie before the first verb."
+              }
+            ],
+            "quiz": [
+              {
+                "q": "Which meaning best fits laut?",
+                "options": [
+                  "according to",
+                  "by contrast",
+                  "in common",
+                  "office, authority"
+                ],
+                "answer": 0,
+                "why": "laut (lowt) means according to in this lesson."
+              },
+              {
+                "q": "Which meaning best fits dagegen?",
+                "options": [
+                  "by contrast",
+                  "according to",
+                  "in common",
+                  "office, authority"
+                ],
+                "answer": 0,
+                "why": "dagegen (dah-GAY-gen) means by contrast in this lesson."
+              },
+              {
+                "q": "Which meaning best fits gemeinsam?",
+                "options": [
+                  "in common",
+                  "according to",
+                  "by contrast",
+                  "office, authority"
+                ],
+                "answer": 0,
+                "why": "gemeinsam (ge-MYNE-zahm) means in common in this lesson."
+              },
+              {
+                "q": "Which meaning best fits das Amt?",
+                "options": [
+                  "office, authority",
+                  "according to",
+                  "by contrast",
+                  "in common"
+                ],
+                "answer": 0,
+                "why": "das Amt (das amt) means office, authority in this lesson."
+              },
+              {
+                "q": "Which meaning best fits der Verband?",
+                "options": [
+                  "association, federation",
+                  "according to",
+                  "by contrast",
+                  "in common"
+                ],
+                "answer": 0,
+                "why": "der Verband (dair fair-PANT) means association, federation in this lesson."
+              }
+            ],
+            "flashcards": "auto:vocab",
+            "worksheet": {
+              "title": "Synthesis worksheet",
+              "tasks": [
+                {
+                  "instruction": "Line the sources up.",
+                  "items": [
+                    "according to the office",
+                    "the association, by contrast"
+                  ],
+                  "key": [
+                    "laut Amt",
+                    "der Verband nennt dagegen"
+                  ]
+                },
+                {
+                  "instruction": "Write the synthesis.",
+                  "items": [
+                    "what both have in common"
+                  ],
+                  "key": [
+                    "Gemeinsam ist beiden, dass …"
+                  ]
+                },
+                {
+                  "instruction": "Integrated offline practice: read the first model, transform or extend it in German, then rehearse it as a dialogue. Self-check meaning, grammar, and register.",
+                  "items": [
+                    "Laut Amt ist die Zahl stabil.",
+                    "Wie ist die Lage bei den Zahlen?"
+                  ],
+                  "key": [
+                    "According to the authority the figure is stable.",
+                    "What is the picture on the figures?"
+                  ]
+                }
+              ]
+            },
+            "srs_candidates": [
+              "laut",
+              "dagegen",
+              "gemeinsam",
+              "das Amt"
+            ],
+            "srs_policy": "Only these four high-value terms are preselected; lesson mistakes and productive patterns may enter personalized review after an actual error."
           }
         ]
       }
@@ -1873,6 +2742,95 @@
           "answer": "Use the German patterns from all six lessons and justify evidence, implication, cohesion, and audience."
         }
       ]
+    },
+    "extra": {
+      "culture": {
+        "text": "German institutional prose runs on the Nominalstil: verbs become nouns, nouns stack into compounds, and one sentence can carry a whole paragraph — «die Gewährung der Fristverlängerung erfolgt nach Prüfung der Voraussetzungen». It is not decoration; it is how law, administration and science compress a condition into a thing that can be referenced later. C1 is the level where you learn both to read it without parsing twice and to rewrite it as a verb sentence when a human has to act on it.",
+        "source_url": "https://en.wikipedia.org/wiki/German_grammar"
+      },
+      "reading": {
+        "text": "«Die Verlängerung der Frist setzt die Vorlage eines Nachweises voraus», heißt es im Bescheid. Der Satz enthält zwei Handlungen in zwei Substantiven. Wer ihn in Verantwortung übersetzen will, schreibt: «Wenn Sie den Nachweis vorlegen, können wir die Frist verlängern.» Derselbe Inhalt, ein Drittel der Wörter, ein Akteur. Genau diese Übersetzung ist die Arbeit von C1.",
+        "gloss": "'The extension of the deadline presupposes the submission of a proof,' says the official notice. The sentence contains two actions inside two nouns. Anyone who wants to translate it into responsibility writes: 'If you submit the proof, we can extend the deadline.' The same content, a third of the words, one actor. Exactly that translation is the work of C1.",
+        "original": true
+      },
+      "listening": {
+        "script": "Referent: Der Antrag wurde abgelehnt, weil die Frist nicht eingehalten wurde.<br>Kollegin: Kann man das genauer sagen?<br>Referent: Ja: Sie haben zu spät eingereicht.<br>Kollegin: Danke — so versteht es jeder.",
+        "gloss": "Officer: The application was rejected because the deadline was not met. Colleague: Can that be said more precisely? Officer: Yes: you submitted too late. Colleague: Thanks — that way everybody understands it.",
+        "voice_tag": "de-DE"
+      },
+      "idioms": [
+        {
+          "t": "Etwas in Kauf nehmen",
+          "literal": "to take something in purchase",
+          "meaning": "to accept a drawback"
+        },
+        {
+          "t": "Auf Messers Schneide stehen",
+          "literal": "to stand on the knife's edge",
+          "meaning": "to hang in the balance"
+        },
+        {
+          "t": "Das Heft in der Hand haben",
+          "literal": "to hold the notebook in hand",
+          "meaning": "to be in control"
+        },
+        {
+          "t": "Den Finger in die Wunde legen",
+          "literal": "to lay a finger in the wound",
+          "meaning": "to name the sore point"
+        },
+        {
+          "t": "Das Ruder herumreißen",
+          "literal": "to yank the rudder around",
+          "meaning": "to turn things around"
+        },
+        {
+          "t": "Einen Schlussstrich ziehen",
+          "literal": "to draw a closing line",
+          "meaning": "to draw a line under it"
+        },
+        {
+          "t": "Zug um Zug",
+          "literal": "move by move",
+          "meaning": "step by step, tit for tat"
+        },
+        {
+          "t": "Auf der Kippe stehen",
+          "literal": "to stand on the tipping edge",
+          "meaning": "to be touch-and-go"
+        },
+        {
+          "t": "Sich die Finger verbrennen",
+          "literal": "to burn one's fingers",
+          "meaning": "to get one's fingers burnt"
+        },
+        {
+          "t": "Etwas auf die lange Bank schieben",
+          "literal": "to push something onto the long bench",
+          "meaning": "to shelve something"
+        }
+      ],
+      "mistakes": [
+        {
+          "wrong": "Die Frist wurde verlängert, weil der Nachweis wurde vorgelegt.",
+          "right": "…, weil der Nachweis vorgelegt wurde.",
+          "why": "Subordinate clause: the finite verb goes last, the participle before it."
+        },
+        {
+          "wrong": "Man muss die Voraussetzungen prüfen, die für die Verlängerung.",
+          "right": "…prüfen, die für die Verlängerung gelten.",
+          "why": "The relative clause needs its own verb."
+        },
+        {
+          "wrong": "Der Antrag ist abgelehnt geworden.",
+          "right": "Der Antrag wurde abgelehnt.",
+          "why": "Passiv with werden; «ist abgelehnt worden» is the perfect form, not «geworden»."
+        }
+      ],
+      "task": {
+        "title": "Un-nominalise one paragraph",
+        "instructions": "Find one paragraph of German administrative or academic prose — a form letter, a handbook page, an abstract — and rewrite it twice: once with the verbs restored and one actor per sentence, once for a reader who has ninety seconds. Then write the original and both versions side by side and mark the nouns that turned back into verbs. That list is the C1 vocabulary."
+      }
     }
   }
 }

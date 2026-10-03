@@ -98,25 +98,25 @@
             },
             "dialogue": [
               {
-                "sp": "Doctor",
+                "sp": "ડૉક્ટર",
                 "t": "તમને શું થયું?",
                 "r": "Tamne shu thayu?",
                 "en": "What happened to you?"
               },
               {
-                "sp": "Patient",
+                "sp": "દર્દી",
                 "t": "ડૉક્ટર, બે દિવસથી તાવ છે.",
                 "r": "Doktar, be divasthi tav chhe.",
                 "en": "Doctor, fever for two days."
               },
               {
-                "sp": "Doctor",
+                "sp": "ડૉક્ટર",
                 "t": "ઉધરસ-શરદી છે?",
                 "r": "Udharas-shardi chhe?",
                 "en": "Any cough or cold?"
               },
               {
-                "sp": "Patient",
+                "sp": "દર્દી",
                 "t": "ફક્ત ઉધરસ છે.",
                 "r": "Phakt udharas chhe.",
                 "en": "Only a cough."
@@ -194,7 +194,7 @@
               },
               {
                 "type": "dialogue_completion",
-                "q": "Practice 10 [dialogue completion] — Health and Wellbeing — A2: Complete Patient’s turn: Doctor, fever for two days.",
+                "q": "Practice 10 [dialogue completion] — Health and Wellbeing — A2: Complete દર્દી’s turn: Doctor, fever for two days.",
                 "answer": "ડૉક્ટર, બે દિવસથી તાવ છે.",
                 "skill_target": "Gujarati dialogue completion: Gujarati agreement, postpositions, aspect, honorific address, and formal versus colloquial register"
               },
@@ -408,25 +408,25 @@
             },
             "dialogue": [
               {
-                "sp": "Manager",
+                "sp": "વ્યવસ્થાપક",
                 "t": "આવો! તમારું નામ શું?",
                 "r": "Aavo! Tamaru naam shu?",
                 "en": "Welcome! What is your name?"
               },
               {
-                "sp": "Newcomer",
+                "sp": "નવાગંતુક",
                 "t": "મારું નામ કુમાર.",
                 "r": "Maru naam Kumar.",
                 "en": "My name is Kumar."
               },
               {
-                "sp": "Manager",
+                "sp": "વ્યવસ્થાપક",
                 "t": "આ તમારું ટેબલ. કમ્પ્યૂટર ચાલુ કરો.",
                 "r": "Aa tamaru table. Computer chalu karo.",
                 "en": "This is your desk. Switch on the computer."
               },
               {
-                "sp": "Newcomer",
+                "sp": "નવાગંતુક",
                 "t": "બરાબર. ઇમેઇલ સરનામું શું?",
                 "r": "Barabar. Email sarnaamu shu?",
                 "en": "OK. What is the email address?"
@@ -634,6 +634,295 @@
               "નોકરી"
             ],
             "srs_policy": "Only selected high-value forms are preselected; actual mistakes and productive patterns enter personalized review after learner evidence."
+          },
+          {
+            "id": "gu-a2-l7",
+            "title": "ટિકિટ, પ્લેટફોર્મ અને સમય",
+            "learn": "Ticket talk is three questions: એક ટિકિટ આપો · ટ્રેન કયા પ્લેટફોર્મથી નીકળે છે? · તે કેટલા વાગ્યે નીકળે છે? Times are said with વાગ્યે, and the fraction comes before the hour: સવા નવ (9:15), સાડા નવ (9:30), પોણા દસ (9:45).",
+            "vocab": [
+              {
+                "t": "ટિકિટ",
+                "r": "tikit",
+                "en": "ticket",
+                "pos": "noun"
+              },
+              {
+                "t": "પ્લેટફોર્મ",
+                "r": "platform",
+                "en": "platform",
+                "pos": "noun"
+              },
+              {
+                "t": "નીકળવું",
+                "r": "neekalvu",
+                "en": "to depart",
+                "pos": "verb"
+              },
+              {
+                "t": "સવા",
+                "r": "savaa",
+                "en": "quarter past (in time-telling)",
+                "pos": "adverb"
+              },
+              {
+                "t": "પોણા",
+                "r": "ponaa",
+                "en": "quarter to (in time-telling)",
+                "pos": "adverb"
+              }
+            ],
+            "grammar": {
+              "title": "Station frame",
+              "pattern": "એક ટિકિટ આપો · ટ્રેન કયા પ્લેટફોર્મથી નીકળે છે? · સવા નવ વાગ્યે નીકળે છે",
+              "explain": "A ticket request is આપો, not a question: એક ટિકિટ આપો. Leaving is નીકળવું with the ablative -થી: પ્લેટફોર્મથી નીકળે છે. Time takes વાગ્યે, and સવા/સાડા/પોણા stands before the hour.",
+              "examples": [
+                {
+                  "t": "એક ટિકિટ આપો.",
+                  "r": "Ek tikit aapo.",
+                  "en": "One ticket, please."
+                },
+                {
+                  "t": "ટ્રેન કયા પ્લેટફોર્મથી નીકળે છે?",
+                  "r": "Tren kyaa platformthi neekale chhe?",
+                  "en": "Which platform does the train leave from?"
+                },
+                {
+                  "t": "ટ્રેન સવા નવ વાગ્યે નીકળે છે.",
+                  "r": "Tren savaa nav vaagye neekale chhe.",
+                  "en": "The train leaves at quarter past nine."
+                }
+              ],
+              "mistakes": [
+                {
+                  "wrong": "ટ્રેન નવ વાગ્યે નીકળે છે સવા.",
+                  "right": "ટ્રેન સવા નવ વાગ્યે નીકળે છે.",
+                  "why": "The fraction precedes the hour: સવા નવ."
+                },
+                {
+                  "wrong": "મને ટિકિટ જોઈએ છે બે.",
+                  "right": "મને બે ટિકિટ જોઈએ છે.",
+                  "why": "The number precedes the noun; the verb closes the sentence."
+                }
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "નવાગંતુક",
+                "t": "એક ટિકિટ આપો.",
+                "r": "Ek tikit aapo.",
+                "en": "One ticket, please."
+              },
+              {
+                "sp": "પડોશી",
+                "t": "કયા સ્ટેશન સુધી?",
+                "r": "Kyaa steshan sudhi?",
+                "en": "Up to which station?"
+              },
+              {
+                "sp": "નવાગંતુક",
+                "t": "વડોદરા. ટ્રેન કયા પ્લેટફોર્મથી નીકળે છે?",
+                "r": "Vadodara. Tren kyaa platformthi neekale chhe?",
+                "en": "Vadodara. Which platform does the train leave from?"
+              },
+              {
+                "sp": "પડોશી",
+                "t": "પ્લેટફોર્મ ત્રણથી, સવા નવ વાગ્યે.",
+                "r": "Platform tranthi, savaa nav vaagye.",
+                "en": "From platform three, at quarter past nine."
+              }
+            ],
+            "practice": [
+              {
+                "type": "multiple_choice",
+                "q": "Practice 1: [multiple choice] ટિકિટ, પ્લેટફોર્મ અને સમય — Choose the meaning of ટિકિટ (tikit) in this lesson.",
+                "answer": "ticket",
+                "skill_target": "Gujarati: Gujarati script, postpositions, verb-final order, polite vs familiar address, aspect and the compound verb",
+                "options": [
+                  "ticket",
+                  "platform",
+                  "to depart",
+                  "quarter past (in time-telling)"
+                ]
+              },
+              {
+                "type": "fill_in_the_blank",
+                "q": "Practice 2: [fill in the blank] ટિકિટ, પ્લેટફોર્મ અને સમય — Type the Gujarati expression meaning “platform”.",
+                "answer": "પ્લેટફોર્મ",
+                "skill_target": "Gujarati: Gujarati script, postpositions, verb-final order, polite vs familiar address, aspect and the compound verb"
+              },
+              {
+                "type": "translation",
+                "q": "Practice 3: [translation] ટિકિટ, પ્લેટફોર્મ અને સમય — Interpret the Gujarati script in context: એક ટિકિટ આપો. (Ek tikit aapo.).",
+                "answer": "One ticket, please.",
+                "skill_target": "Gujarati: Gujarati script, postpositions, verb-final order, polite vs familiar address, aspect and the compound verb"
+              },
+              {
+                "type": "reverse_translation",
+                "q": "Practice 4: [reverse translation] ટિકિટ, પ્લેટફોર્મ અને સમય — Write in Gujarati script: Which platform does the train leave from?.",
+                "answer": "ટ્રેન કયા પ્લેટફોર્મથી નીકળે છે?",
+                "skill_target": "Gujarati: Gujarati script, postpositions, verb-final order, polite vs familiar address, aspect and the compound verb"
+              },
+              {
+                "type": "matching",
+                "q": "Practice 5: [matching] ટિકિટ, પ્લેટફોર્મ અને સમય — Match નીકળવું to its lesson meaning.",
+                "answer": "to depart",
+                "skill_target": "Gujarati: Gujarati script, postpositions, verb-final order, polite vs familiar address, aspect and the compound verb",
+                "options": [
+                  "to depart",
+                  "ticket",
+                  "platform"
+                ]
+              },
+              {
+                "type": "reorder",
+                "q": "Practice 6: [reorder] ટિકિટ, પ્લેટફોર્મ અને સમય — Reconstruct the lesson model in coherent Gujarati: The train leaves at quarter past nine..",
+                "answer": "ટ્રેન સવા નવ વાગ્યે નીકળે છે.",
+                "skill_target": "Gujarati: Gujarati script, postpositions, verb-final order, polite vs familiar address, aspect and the compound verb"
+              },
+              {
+                "type": "sentence_building",
+                "q": "Practice 7: [sentence building] ટિકિટ, પ્લેટફોર્મ અને સમય — Build the sentence with the lesson pattern (એક ટિકિટ આપો · ટ્રેન કયા પ્લેટફોર્મથી નીકળે છે? · સવા નવ વાગ્યે નીકળે છે): One ticket, please..",
+                "answer": "એક ટિકિટ આપો.",
+                "skill_target": "Gujarati: Gujarati script, postpositions, verb-final order, polite vs familiar address, aspect and the compound verb"
+              },
+              {
+                "type": "word_selection",
+                "q": "Practice 8: [word selection] ટિકિટ, પ્લેટફોર્મ અને સમય — Select the Gujarati form for “quarter past (in time-telling)”.",
+                "answer": "સવા",
+                "skill_target": "Gujarati: Gujarati script, postpositions, verb-final order, polite vs familiar address, aspect and the compound verb",
+                "options": [
+                  "સવા",
+                  "પોણા"
+                ]
+              },
+              {
+                "type": "error_correction",
+                "q": "Practice 9: [error correction] ટિકિટ, પ્લેટફોર્મ અને સમય — Correct the model the lesson warns about: ટ્રેન નવ વાગ્યે નીકળે છે સવા.",
+                "answer": "ટ્રેન સવા નવ વાગ્યે નીકળે છે.",
+                "skill_target": "Gujarati: Gujarati script, postpositions, verb-final order, polite vs familiar address, aspect and the compound verb"
+              },
+              {
+                "type": "dialogue_completion",
+                "q": "Practice 10: [dialogue completion] ટિકિટ, પ્લેટફોર્મ અને સમય — Complete the exchange with the studied response to: One ticket, please.",
+                "answer": "કયા સ્ટેશન સુધી?",
+                "skill_target": "Gujarati: Gujarati script, postpositions, verb-final order, polite vs familiar address, aspect and the compound verb"
+              },
+              {
+                "type": "reading_comprehension",
+                "q": "Practice 11: [reading comprehension] ટિકિટ, પ્લેટફોર્મ અને સમય — Read “વડોદરા. ટ્રેન કયા પ્લેટફોર્મથી નીકળે છે?” (Vadodara. Tren kyaa platformthi neekale chhe?). What does it mean?",
+                "answer": "Vadodara. Which platform does the train leave from?",
+                "skill_target": "Gujarati: Gujarati script, postpositions, verb-final order, polite vs familiar address, aspect and the compound verb"
+              },
+              {
+                "type": "paragraph_comprehension",
+                "q": "Practice 12: [paragraph comprehension] ટિકિટ, પ્લેટફોર્મ અને સમય — Read the lesson dialogue as a whole and give its key move: From platform three, at quarter past nine.",
+                "answer": "પ્લેટફોર્મ ત્રણથી, સવા નવ વાગ્યે.",
+                "skill_target": "Gujarati: Gujarati script, postpositions, verb-final order, polite vs familiar address, aspect and the compound verb"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "Which meaning best fits ટિકિટ?",
+                "options": [
+                  "ticket",
+                  "platform",
+                  "to depart",
+                  "quarter past (in time-telling)"
+                ],
+                "answer": 0,
+                "why": "ટિકિટ (tikit) means ticket in this lesson."
+              },
+              {
+                "q": "Which meaning best fits પ્લેટફોર્મ?",
+                "options": [
+                  "platform",
+                  "ticket",
+                  "to depart",
+                  "quarter past (in time-telling)"
+                ],
+                "answer": 0,
+                "why": "પ્લેટફોર્મ (platform) means platform in this lesson."
+              },
+              {
+                "q": "Which meaning best fits નીકળવું?",
+                "options": [
+                  "to depart",
+                  "ticket",
+                  "platform",
+                  "quarter past (in time-telling)"
+                ],
+                "answer": 0,
+                "why": "નીકળવું (neekalvu) means to depart in this lesson."
+              },
+              {
+                "q": "Which meaning best fits સવા?",
+                "options": [
+                  "quarter past (in time-telling)",
+                  "ticket",
+                  "platform",
+                  "to depart"
+                ],
+                "answer": 0,
+                "why": "સવા (savaa) means quarter past (in time-telling) in this lesson."
+              },
+              {
+                "q": "Which meaning best fits પોણા?",
+                "options": [
+                  "quarter to (in time-telling)",
+                  "ticket",
+                  "platform",
+                  "to depart"
+                ],
+                "answer": 0,
+                "why": "પોણા (ponaa) means quarter to (in time-telling) in this lesson."
+              }
+            ],
+            "flashcards": "auto:vocab",
+            "worksheet": {
+              "title": "Station worksheet",
+              "tasks": [
+                {
+                  "instruction": "Buy the ticket.",
+                  "items": [
+                    "one ticket, please",
+                    "how much does it cost?"
+                  ],
+                  "key": [
+                    "એક ટિકિટ આપો.",
+                    "કેટલાની છે?"
+                  ]
+                },
+                {
+                  "instruction": "Ask about the train.",
+                  "items": [
+                    "which platform does the train leave from?",
+                    "it leaves at quarter past nine"
+                  ],
+                  "key": [
+                    "ટ્રેન કયા પ્લેટફોર્મથી નીકળે છે?",
+                    "સવા નવ વાગ્યે નીકળે છે."
+                  ]
+                },
+                {
+                  "instruction": "Integrated offline practice: read the first model, transform or extend it in Gujarati script, then rehearse it as a dialogue. Self-check meaning, grammar, and register.",
+                  "items": [
+                    "એક ટિકિટ આપો.",
+                    "એક ટિકિટ આપો."
+                  ],
+                  "key": [
+                    "One ticket, please.",
+                    "One ticket, please."
+                  ]
+                }
+              ]
+            },
+            "srs_candidates": [
+              "ટિકિટ",
+              "પ્લેટફોર્મ",
+              "નીકળવું",
+              "સવા"
+            ],
+            "srs_policy": "Only these four high-value terms are preselected; lesson mistakes and productive patterns may enter personalized review after an actual error."
           }
         ]
       },
@@ -722,25 +1011,25 @@
             },
             "dialogue": [
               {
-                "sp": "Student",
+                "sp": "વિદ્યાર્થી",
                 "t": "સાહેબ, પ્રણામ!",
                 "r": "Sahab, pranam!",
                 "en": "Good morning, teacher!"
               },
               {
-                "sp": "Teacher",
+                "sp": "શિક્ષક",
                 "t": "પ્રણામ! લેસન પૂરું કર્યું?",
                 "r": "Pranam! Lesan puru karyu?",
                 "en": "Pranam! Did you finish the homework?"
               },
               {
-                "sp": "Student",
+                "sp": "વિદ્યાર્થી",
                 "t": "હા સાહેબ. મારો નિબંધ લાંબો છે!",
                 "r": "Haa sahab. Maro nibandh lambo chhe!",
                 "en": "Yes teacher. My essay is long!"
               },
               {
-                "sp": "Teacher",
+                "sp": "શિક્ષક",
                 "t": "સરસ! મોટેથી વાંચો.",
                 "r": "Saras! Motethi vancho.",
                 "en": "Good! Read it aloud."
@@ -1027,25 +1316,25 @@
             },
             "dialogue": [
               {
-                "sp": "Brother",
+                "sp": "ભાઈ",
                 "t": "આજે હવામાન કેવું છે?",
                 "r": "Aaje havaman kevu chhe?",
                 "en": "What is the weather today?"
               },
               {
-                "sp": "Sister",
+                "sp": "બહેન",
                 "t": "વરસાદ આવશે. છત્રી લઈ લો.",
                 "r": "Varsad aavshe. Chhatri lai lo.",
                 "en": "It will rain. Take an umbrella."
               },
               {
-                "sp": "Brother",
+                "sp": "ભાઈ",
                 "t": "કાલે પણ વરસાદ પડ્યો.",
                 "r": "Kaale pan varsad padyo.",
                 "en": "It rained yesterday too."
               },
               {
-                "sp": "Sister",
+                "sp": "બહેન",
                 "t": "સારો વરસાદ એટલે સારો પાક.",
                 "r": "Saro varsad etle saru pak.",
                 "en": "Good rain means good crops."
@@ -1077,7 +1366,7 @@
               },
               {
                 "type": "dialogue_completion",
-                "q": "Practice 7 [dialogue completion] — Weather and Environment — A2: Complete Brother’s turn: It rained yesterday too.",
+                "q": "Practice 7 [dialogue completion] — Weather and Environment — A2: Complete ભાઈ’s turn: It rained yesterday too.",
                 "answer": "કાલે પણ વરસાદ પડ્યો.",
                 "skill_target": "Gujarati dialogue completion: Gujarati agreement, postpositions, aspect, honorific address, and formal versus colloquial register"
               },
@@ -1253,6 +1542,301 @@
               "ધાબડો"
             ],
             "srs_policy": "Only selected high-value forms are preselected; actual mistakes and productive patterns enter personalized review after learner evidence."
+          },
+          {
+            "id": "gu-a2-l8",
+            "title": "દવાખાને: દુખે છે, દવા લો",
+            "learn": "A symptom is the body part plus દુખે છે: માથું દુખે છે, પેટ દુખે છે, ગળું દુખે છે. The advice comes back in the imperative: આ દવા લો, બે દિવસ આરામ કરો.",
+            "vocab": [
+              {
+                "t": "દુખવું",
+                "r": "dukhvu",
+                "en": "to hurt, to ache",
+                "pos": "verb"
+              },
+              {
+                "t": "દવા",
+                "r": "dava",
+                "en": "medicine",
+                "pos": "noun"
+              },
+              {
+                "t": "આરામ",
+                "r": "aaram",
+                "en": "rest",
+                "pos": "noun"
+              },
+              {
+                "t": "તપાસ",
+                "r": "tapas",
+                "en": "check-up, examination",
+                "pos": "noun"
+              },
+              {
+                "t": "ચિઠ્ઠી",
+                "r": "chitthi",
+                "en": "note, prescription",
+                "pos": "noun"
+              }
+            ],
+            "grammar": {
+              "title": "Clinic frame",
+              "pattern": "માથું દુખે છે · બે દિવસથી તાવ છે · આ દવા દિવસમાં બે વાર લો · બે દિવસ આરામ કરો",
+              "explain": "The ache takes the body part as its subject — માથું દુખે છે, literally 'the head aches' — and the duration takes -થી: બે દિવસથી. The doctor replies with લો and કરો, and the frequency sits inside the sentence: દિવસમાં બે વાર.",
+              "examples": [
+                {
+                  "t": "માથું દુખે છે.",
+                  "r": "Maathu dukhe chhe.",
+                  "en": "I have a headache."
+                },
+                {
+                  "t": "આ દવા દિવસમાં બે વાર લો.",
+                  "r": "Aa davaa divasmaa be vaar lo.",
+                  "en": "Take this medicine twice a day."
+                },
+                {
+                  "t": "બે દિવસ આરામ કરો.",
+                  "r": "Be divas aaram karo.",
+                  "en": "Rest for two days."
+                }
+              ],
+              "mistakes": [
+                {
+                  "wrong": "મને માથું દુખે છે છે.",
+                  "right": "માથું દુખે છે.",
+                  "why": "One verb is enough: દુખે છે already carries the ache."
+                },
+                {
+                  "wrong": "તમે આરામ કરો બે દિવસ.",
+                  "right": "તમે બે દિવસ આરામ કરો.",
+                  "why": "A duration comes before the verb."
+                }
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "ડૉક્ટર",
+                "t": "તમને શું થયું?",
+                "r": "Tamne shu thayu?",
+                "en": "What happened to you?"
+              },
+              {
+                "sp": "દર્દી",
+                "t": "બે દિવસથી માથું દુખે છે.",
+                "r": "Be divasthi maathu dukhe chhe.",
+                "en": "I have had a headache for two days."
+              },
+              {
+                "sp": "ડૉક્ટર",
+                "t": "તાવ છે?",
+                "r": "Taav chhe?",
+                "en": "Is there a fever?"
+              },
+              {
+                "sp": "દર્દી",
+                "t": "ના, પણ ઊંઘ નથી આવતી.",
+                "r": "Naa, pan oongh nathi aavti.",
+                "en": "No, but I cannot sleep."
+              },
+              {
+                "sp": "ડૉક્ટર",
+                "t": "આ દવા લો અને બે દિવસ આરામ કરો.",
+                "r": "Aa davaa lo ane be divas aaram karo.",
+                "en": "Take this medicine and rest for two days."
+              }
+            ],
+            "practice": [
+              {
+                "type": "multiple_choice",
+                "q": "Practice 1: [multiple choice] દવાખાને: દુખે છે, દવા લો — Choose the meaning of દુખવું (dukhvu) in this lesson.",
+                "answer": "to hurt, to ache",
+                "skill_target": "Gujarati: Gujarati script, postpositions, verb-final order, polite vs familiar address, aspect and the compound verb",
+                "options": [
+                  "to hurt, to ache",
+                  "medicine",
+                  "rest",
+                  "check-up, examination"
+                ]
+              },
+              {
+                "type": "fill_in_the_blank",
+                "q": "Practice 2: [fill in the blank] દવાખાને: દુખે છે, દવા લો — Type the Gujarati expression meaning “medicine”.",
+                "answer": "દવા",
+                "skill_target": "Gujarati: Gujarati script, postpositions, verb-final order, polite vs familiar address, aspect and the compound verb"
+              },
+              {
+                "type": "translation",
+                "q": "Practice 3: [translation] દવાખાને: દુખે છે, દવા લો — Interpret the Gujarati script in context: માથું દુખે છે. (Maathu dukhe chhe.).",
+                "answer": "I have a headache.",
+                "skill_target": "Gujarati: Gujarati script, postpositions, verb-final order, polite vs familiar address, aspect and the compound verb"
+              },
+              {
+                "type": "reverse_translation",
+                "q": "Practice 4: [reverse translation] દવાખાને: દુખે છે, દવા લો — Write in Gujarati script: Take this medicine twice a day..",
+                "answer": "આ દવા દિવસમાં બે વાર લો.",
+                "skill_target": "Gujarati: Gujarati script, postpositions, verb-final order, polite vs familiar address, aspect and the compound verb"
+              },
+              {
+                "type": "matching",
+                "q": "Practice 5: [matching] દવાખાને: દુખે છે, દવા લો — Match આરામ to its lesson meaning.",
+                "answer": "rest",
+                "skill_target": "Gujarati: Gujarati script, postpositions, verb-final order, polite vs familiar address, aspect and the compound verb",
+                "options": [
+                  "rest",
+                  "to hurt, to ache",
+                  "medicine"
+                ]
+              },
+              {
+                "type": "reorder",
+                "q": "Practice 6: [reorder] દવાખાને: દુખે છે, દવા લો — Reconstruct the lesson model in coherent Gujarati: Rest for two days..",
+                "answer": "બે દિવસ આરામ કરો.",
+                "skill_target": "Gujarati: Gujarati script, postpositions, verb-final order, polite vs familiar address, aspect and the compound verb"
+              },
+              {
+                "type": "sentence_building",
+                "q": "Practice 7: [sentence building] દવાખાને: દુખે છે, દવા લો — Build the sentence with the lesson pattern (માથું દુખે છે · બે દિવસથી તાવ છે · આ દવા દિવસમાં બે વાર લો · બે દિવસ આરામ કરો): I have a headache..",
+                "answer": "માથું દુખે છે.",
+                "skill_target": "Gujarati: Gujarati script, postpositions, verb-final order, polite vs familiar address, aspect and the compound verb"
+              },
+              {
+                "type": "word_selection",
+                "q": "Practice 8: [word selection] દવાખાને: દુખે છે, દવા લો — Select the Gujarati form for “check-up, examination”.",
+                "answer": "તપાસ",
+                "skill_target": "Gujarati: Gujarati script, postpositions, verb-final order, polite vs familiar address, aspect and the compound verb",
+                "options": [
+                  "તપાસ",
+                  "ચિઠ્ઠી"
+                ]
+              },
+              {
+                "type": "error_correction",
+                "q": "Practice 9: [error correction] દવાખાને: દુખે છે, દવા લો — Correct the model the lesson warns about: મને માથું દુખે છે છે.",
+                "answer": "માથું દુખે છે.",
+                "skill_target": "Gujarati: Gujarati script, postpositions, verb-final order, polite vs familiar address, aspect and the compound verb"
+              },
+              {
+                "type": "dialogue_completion",
+                "q": "Practice 10: [dialogue completion] દવાખાને: દુખે છે, દવા લો — Complete the exchange with the studied response to: What happened to you?",
+                "answer": "બે દિવસથી માથું દુખે છે.",
+                "skill_target": "Gujarati: Gujarati script, postpositions, verb-final order, polite vs familiar address, aspect and the compound verb"
+              },
+              {
+                "type": "reading_comprehension",
+                "q": "Practice 11: [reading comprehension] દવાખાને: દુખે છે, દવા લો — Read “તાવ છે?” (Taav chhe?). What does it mean?",
+                "answer": "Is there a fever?",
+                "skill_target": "Gujarati: Gujarati script, postpositions, verb-final order, polite vs familiar address, aspect and the compound verb"
+              },
+              {
+                "type": "paragraph_comprehension",
+                "q": "Practice 12: [paragraph comprehension] દવાખાને: દુખે છે, દવા લો — Read the lesson dialogue as a whole and give its key move: No, but I cannot sleep.",
+                "answer": "ના, પણ ઊંઘ નથી આવતી.",
+                "skill_target": "Gujarati: Gujarati script, postpositions, verb-final order, polite vs familiar address, aspect and the compound verb"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "Which meaning best fits દુખવું?",
+                "options": [
+                  "to hurt, to ache",
+                  "medicine",
+                  "rest",
+                  "check-up, examination"
+                ],
+                "answer": 0,
+                "why": "દુખવું (dukhvu) means to hurt, to ache in this lesson."
+              },
+              {
+                "q": "Which meaning best fits દવા?",
+                "options": [
+                  "medicine",
+                  "to hurt, to ache",
+                  "rest",
+                  "check-up, examination"
+                ],
+                "answer": 0,
+                "why": "દવા (dava) means medicine in this lesson."
+              },
+              {
+                "q": "Which meaning best fits આરામ?",
+                "options": [
+                  "rest",
+                  "to hurt, to ache",
+                  "medicine",
+                  "check-up, examination"
+                ],
+                "answer": 0,
+                "why": "આરામ (aaram) means rest in this lesson."
+              },
+              {
+                "q": "Which meaning best fits તપાસ?",
+                "options": [
+                  "check-up, examination",
+                  "to hurt, to ache",
+                  "medicine",
+                  "rest"
+                ],
+                "answer": 0,
+                "why": "તપાસ (tapas) means check-up, examination in this lesson."
+              },
+              {
+                "q": "Which meaning best fits ચિઠ્ઠી?",
+                "options": [
+                  "note, prescription",
+                  "to hurt, to ache",
+                  "medicine",
+                  "rest"
+                ],
+                "answer": 0,
+                "why": "ચિઠ્ઠી (chitthi) means note, prescription in this lesson."
+              }
+            ],
+            "flashcards": "auto:vocab",
+            "worksheet": {
+              "title": "Clinic worksheet",
+              "tasks": [
+                {
+                  "instruction": "State the symptom.",
+                  "items": [
+                    "I have a headache",
+                    "my stomach hurts"
+                  ],
+                  "key": [
+                    "માથું દુખે છે.",
+                    "પેટ દુખે છે."
+                  ]
+                },
+                {
+                  "instruction": "Repeat the advice.",
+                  "items": [
+                    "take this medicine twice a day",
+                    "rest for two days"
+                  ],
+                  "key": [
+                    "આ દવા દિવસમાં બે વાર લો.",
+                    "બે દિવસ આરામ કરો."
+                  ]
+                },
+                {
+                  "instruction": "Integrated offline practice: read the first model, transform or extend it in Gujarati script, then rehearse it as a dialogue. Self-check meaning, grammar, and register.",
+                  "items": [
+                    "માથું દુખે છે.",
+                    "તમને શું થયું?"
+                  ],
+                  "key": [
+                    "I have a headache.",
+                    "What happened to you?"
+                  ]
+                }
+              ]
+            },
+            "srs_candidates": [
+              "દુખવું",
+              "દવા",
+              "આરામ",
+              "તપાસ"
+            ],
+            "srs_policy": "Only these four high-value terms are preselected; lesson mistakes and productive patterns may enter personalized review after an actual error."
           }
         ]
       },
@@ -1341,25 +1925,25 @@
             },
             "dialogue": [
               {
-                "sp": "Granddaughter",
+                "sp": "પૌત્રી",
                 "t": "બા, શું રંધાય છે?",
                 "r": "Ba, shu randhay chhe?",
                 "en": "Grandma, what is cooking?"
               },
               {
-                "sp": "Grandmother",
+                "sp": "દાદી",
                 "t": "ઉંધિયું, મારી દીકરી!",
                 "r": "Undhiyu, mari dikari!",
                 "en": "Undhiyu, my dear!"
               },
               {
-                "sp": "Grandmother",
+                "sp": "દાદી",
                 "t": "હાથ ધોઈને બેસ.",
                 "r": "Haath dhoine bes.",
                 "en": "Wash your hands and sit."
               },
               {
-                "sp": "Granddaughter",
+                "sp": "પૌત્રી",
                 "t": "બા, ખાવાનું મેકે છે!",
                 "r": "Ba, khavanu meke chhe!",
                 "en": "Grandma, the food smells nice!"
@@ -1641,25 +2225,25 @@
             },
             "dialogue": [
               {
-                "sp": "Neighbour",
+                "sp": "પડોશી",
                 "t": "નૂતન વર્ષાભિનંદન! આનંદ થાઓ!",
                 "r": "Nutan varshabhinandan! Aanand thao!",
                 "en": "Happy New Year! Wish you joy!"
               },
               {
-                "sp": "Mother",
+                "sp": "માતા",
                 "t": "તમને પણ! આવો, મિઠાઈ ખાઓ.",
                 "r": "Tamne pan! Aavo, mithai khao.",
                 "en": "Same to you! Come, eat sweets."
               },
               {
-                "sp": "Neighbour",
+                "sp": "પડોશી",
                 "t": "રંગોળી સરસ લાગે છે!",
                 "r": "Rangoli saras laage chhe!",
                 "en": "The rangoli looks beautiful!"
               },
               {
-                "sp": "Mother",
+                "sp": "માતા",
                 "t": "સાંજે ગરબો છે.",
                 "r": "Sanje garbo chhe.",
                 "en": "In the evening there is garba."
@@ -1737,7 +2321,7 @@
               },
               {
                 "type": "dialogue_completion",
-                "q": "Practice 15 [dialogue completion] — Culture and Community — A2: Complete Neighbour’s turn: The rangoli looks beautiful!",
+                "q": "Practice 15 [dialogue completion] — Culture and Community — A2: Complete પડોશી’s turn: The rangoli looks beautiful!",
                 "answer": "રંગોળી સરસ લાગે છે!",
                 "skill_target": "Gujarati dialogue completion: Gujarati agreement, postpositions, aspect, honorific address, and formal versus colloquial register"
               },
@@ -1869,6 +2453,295 @@
               "પાઘડી"
             ],
             "srs_policy": "Only selected high-value forms are preselected; actual mistakes and productive patterns enter personalized review after learner evidence."
+          },
+          {
+            "id": "gu-a2-l9",
+            "title": "કપડાં: સાઇઝ, રંગ, બદલવું",
+            "learn": "Clothes talk asks three things: આ સાઇઝ નાની છે · બીજો રંગ છે? · બદલી શકાય? The size adjective agrees with its noun — નાની સાઇઝ, નાનું કમીઝ — and the possibility of exchange is the passive-looking બદલી શકાય.",
+            "vocab": [
+              {
+                "t": "કપડાં",
+                "r": "kapdaa",
+                "en": "clothes",
+                "pos": "noun"
+              },
+              {
+                "t": "સાઇઝ",
+                "r": "size",
+                "en": "size",
+                "pos": "noun"
+              },
+              {
+                "t": "રંગ",
+                "r": "rang",
+                "en": "colour",
+                "pos": "noun"
+              },
+              {
+                "t": "બદલવું",
+                "r": "badalvu",
+                "en": "to change, to exchange",
+                "pos": "verb"
+              },
+              {
+                "t": "પરચૂરણ",
+                "r": "parchooran",
+                "en": "change (money), receipt",
+                "pos": "noun"
+              }
+            ],
+            "grammar": {
+              "title": "Clothes frame",
+              "pattern": "આ સાઇઝ નાની છે · બીજો રંગ છે? · બદલી શકાય? · પંદર દિવસમાં",
+              "explain": "The adjective agrees with the noun it describes: સાઇઝ is feminine (નાની), કમીઝ is neuter (નાનું). Exchange is expressed with શકાય: બદલી શકાય? — literally 'can it be exchanged?' — and the window is a plain time phrase: પંદર દિવસમાં.",
+              "examples": [
+                {
+                  "t": "આ સાઇઝ નાની છે.",
+                  "r": "Aa size naani chhe.",
+                  "en": "This size is small."
+                },
+                {
+                  "t": "બીજો રંગ છે?",
+                  "r": "Beejo rang chhe?",
+                  "en": "Is there another colour?"
+                },
+                {
+                  "t": "બદલી શકાય?",
+                  "r": "Badli shakaay?",
+                  "en": "Can it be exchanged?"
+                }
+              ],
+              "mistakes": [
+                {
+                  "wrong": "આ સાઇઝ નાનું છે.",
+                  "right": "આ સાઇઝ નાની છે.",
+                  "why": "સાઇઝ is feminine, so the adjective is નાની."
+                },
+                {
+                  "wrong": "હું બદલવું છે.",
+                  "right": "મારે બદલવું છે.",
+                  "why": "Need takes મારે + infinitive, never the bare હું."
+                }
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "માતા",
+                "t": "આ કમીઝની સાઇઝ નાની છે.",
+                "r": "Aa kameezni size naani chhe.",
+                "en": "The size of this shirt is small."
+              },
+              {
+                "sp": "ભાઈ",
+                "t": "બીજી સાઇઝ છે, આ લો.",
+                "r": "Beeji size chhe, aa lo.",
+                "en": "There is another size, take this one."
+              },
+              {
+                "sp": "માતા",
+                "t": "રંગ બદલી શકાય?",
+                "r": "Rang badli shakaay?",
+                "en": "Can the colour be exchanged?"
+              },
+              {
+                "sp": "ભાઈ",
+                "t": "હા, પરચૂરણ સાથે પંદર દિવસમાં.",
+                "r": "Haa, parchooran saathe pandar divasmaa.",
+                "en": "Yes, with the receipt, within fifteen days."
+              }
+            ],
+            "practice": [
+              {
+                "type": "multiple_choice",
+                "q": "Practice 1: [multiple choice] કપડાં: સાઇઝ, રંગ, બદલવું — Choose the meaning of કપડાં (kapdaa) in this lesson.",
+                "answer": "clothes",
+                "skill_target": "Gujarati: Gujarati script, postpositions, verb-final order, polite vs familiar address, aspect and the compound verb",
+                "options": [
+                  "clothes",
+                  "size",
+                  "colour",
+                  "to change, to exchange"
+                ]
+              },
+              {
+                "type": "fill_in_the_blank",
+                "q": "Practice 2: [fill in the blank] કપડાં: સાઇઝ, રંગ, બદલવું — Type the Gujarati expression meaning “size”.",
+                "answer": "સાઇઝ",
+                "skill_target": "Gujarati: Gujarati script, postpositions, verb-final order, polite vs familiar address, aspect and the compound verb"
+              },
+              {
+                "type": "translation",
+                "q": "Practice 3: [translation] કપડાં: સાઇઝ, રંગ, બદલવું — Interpret the Gujarati script in context: આ સાઇઝ નાની છે. (Aa size naani chhe.).",
+                "answer": "This size is small.",
+                "skill_target": "Gujarati: Gujarati script, postpositions, verb-final order, polite vs familiar address, aspect and the compound verb"
+              },
+              {
+                "type": "reverse_translation",
+                "q": "Practice 4: [reverse translation] કપડાં: સાઇઝ, રંગ, બદલવું — Write in Gujarati script: Is there another colour?.",
+                "answer": "બીજો રંગ છે?",
+                "skill_target": "Gujarati: Gujarati script, postpositions, verb-final order, polite vs familiar address, aspect and the compound verb"
+              },
+              {
+                "type": "matching",
+                "q": "Practice 5: [matching] કપડાં: સાઇઝ, રંગ, બદલવું — Match રંગ to its lesson meaning.",
+                "answer": "colour",
+                "skill_target": "Gujarati: Gujarati script, postpositions, verb-final order, polite vs familiar address, aspect and the compound verb",
+                "options": [
+                  "colour",
+                  "clothes",
+                  "size"
+                ]
+              },
+              {
+                "type": "reorder",
+                "q": "Practice 6: [reorder] કપડાં: સાઇઝ, રંગ, બદલવું — Reconstruct the lesson model in coherent Gujarati: Can it be exchanged?.",
+                "answer": "બદલી શકાય?",
+                "skill_target": "Gujarati: Gujarati script, postpositions, verb-final order, polite vs familiar address, aspect and the compound verb"
+              },
+              {
+                "type": "sentence_building",
+                "q": "Practice 7: [sentence building] કપડાં: સાઇઝ, રંગ, બદલવું — Build the sentence with the lesson pattern (આ સાઇઝ નાની છે · બીજો રંગ છે? · બદલી શકાય? · પંદર દિવસમાં): This size is small..",
+                "answer": "આ સાઇઝ નાની છે.",
+                "skill_target": "Gujarati: Gujarati script, postpositions, verb-final order, polite vs familiar address, aspect and the compound verb"
+              },
+              {
+                "type": "word_selection",
+                "q": "Practice 8: [word selection] કપડાં: સાઇઝ, રંગ, બદલવું — Select the Gujarati form for “to change, to exchange”.",
+                "answer": "બદલવું",
+                "skill_target": "Gujarati: Gujarati script, postpositions, verb-final order, polite vs familiar address, aspect and the compound verb",
+                "options": [
+                  "બદલવું",
+                  "પરચૂરણ"
+                ]
+              },
+              {
+                "type": "error_correction",
+                "q": "Practice 9: [error correction] કપડાં: સાઇઝ, રંગ, બદલવું — Correct the model the lesson warns about: આ સાઇઝ નાનું છે.",
+                "answer": "આ સાઇઝ નાની છે.",
+                "skill_target": "Gujarati: Gujarati script, postpositions, verb-final order, polite vs familiar address, aspect and the compound verb"
+              },
+              {
+                "type": "dialogue_completion",
+                "q": "Practice 10: [dialogue completion] કપડાં: સાઇઝ, રંગ, બદલવું — Complete the exchange with the studied response to: The size of this shirt is small.",
+                "answer": "બીજી સાઇઝ છે, આ લો.",
+                "skill_target": "Gujarati: Gujarati script, postpositions, verb-final order, polite vs familiar address, aspect and the compound verb"
+              },
+              {
+                "type": "reading_comprehension",
+                "q": "Practice 11: [reading comprehension] કપડાં: સાઇઝ, રંગ, બદલવું — Read “રંગ બદલી શકાય?” (Rang badli shakaay?). What does it mean?",
+                "answer": "Can the colour be exchanged?",
+                "skill_target": "Gujarati: Gujarati script, postpositions, verb-final order, polite vs familiar address, aspect and the compound verb"
+              },
+              {
+                "type": "paragraph_comprehension",
+                "q": "Practice 12: [paragraph comprehension] કપડાં: સાઇઝ, રંગ, બદલવું — Read the lesson dialogue as a whole and give its key move: Yes, with the receipt, within fifteen days.",
+                "answer": "હા, પરચૂરણ સાથે પંદર દિવસમાં.",
+                "skill_target": "Gujarati: Gujarati script, postpositions, verb-final order, polite vs familiar address, aspect and the compound verb"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "Which meaning best fits કપડાં?",
+                "options": [
+                  "clothes",
+                  "size",
+                  "colour",
+                  "to change, to exchange"
+                ],
+                "answer": 0,
+                "why": "કપડાં (kapdaa) means clothes in this lesson."
+              },
+              {
+                "q": "Which meaning best fits સાઇઝ?",
+                "options": [
+                  "size",
+                  "clothes",
+                  "colour",
+                  "to change, to exchange"
+                ],
+                "answer": 0,
+                "why": "સાઇઝ (size) means size in this lesson."
+              },
+              {
+                "q": "Which meaning best fits રંગ?",
+                "options": [
+                  "colour",
+                  "clothes",
+                  "size",
+                  "to change, to exchange"
+                ],
+                "answer": 0,
+                "why": "રંગ (rang) means colour in this lesson."
+              },
+              {
+                "q": "Which meaning best fits બદલવું?",
+                "options": [
+                  "to change, to exchange",
+                  "clothes",
+                  "size",
+                  "colour"
+                ],
+                "answer": 0,
+                "why": "બદલવું (badalvu) means to change, to exchange in this lesson."
+              },
+              {
+                "q": "Which meaning best fits પરચૂરણ?",
+                "options": [
+                  "change (money), receipt",
+                  "clothes",
+                  "size",
+                  "colour"
+                ],
+                "answer": 0,
+                "why": "પરચૂરણ (parchooran) means change (money), receipt in this lesson."
+              }
+            ],
+            "flashcards": "auto:vocab",
+            "worksheet": {
+              "title": "Clothes worksheet",
+              "tasks": [
+                {
+                  "instruction": "Ask about the clothes.",
+                  "items": [
+                    "this size is small",
+                    "is there another colour?"
+                  ],
+                  "key": [
+                    "આ સાઇઝ નાની છે.",
+                    "બીજો રંગ છે?"
+                  ]
+                },
+                {
+                  "instruction": "Arrange the exchange.",
+                  "items": [
+                    "can it be exchanged?",
+                    "within fifteen days with the receipt"
+                  ],
+                  "key": [
+                    "બદલી શકાય?",
+                    "પરચૂરણ સાથે પંદર દિવસમાં"
+                  ]
+                },
+                {
+                  "instruction": "Integrated offline practice: read the first model, transform or extend it in Gujarati script, then rehearse it as a dialogue. Self-check meaning, grammar, and register.",
+                  "items": [
+                    "આ સાઇઝ નાની છે.",
+                    "આ કમીઝની સાઇઝ નાની છે."
+                  ],
+                  "key": [
+                    "This size is small.",
+                    "The size of this shirt is small."
+                  ]
+                }
+              ]
+            },
+            "srs_candidates": [
+              "કપડાં",
+              "સાઇઝ",
+              "રંગ",
+              "બદલવું"
+            ],
+            "srs_policy": "Only these four high-value terms are preselected; lesson mistakes and productive patterns may enter personalized review after an actual error."
           }
         ]
       }
@@ -1927,6 +2800,95 @@
           "answer": "વરસાદ પડે છે (Varsad pade chhe)"
         }
       ]
+    },
+    "extra": {
+      "culture": {
+        "text": "Gujarati households run on tea and the bargaining that goes with it: ચા is offered before business of any kind, and a refusal is softened with વાંધો નહીં. In the market the price is a starting point — સસ્તું (cheap) and મોંઘું (expensive) are opinions, and asking ઓછું કરો (make it less) is normal, not rude. The polite forms વધારે/ઓછું matter more here than in a supermarket.",
+        "source_url": "https://en.wikipedia.org/wiki/Gujarati_cuisine"
+      },
+      "reading": {
+        "text": "આજે બજારમાં બહુ ભીડ હતી. મેં ટામેટાં અને બટાકા લીધા. દુકાનદારે કહ્યું, «એક કિલો ત્રીસ રૂપિયા». મેં કહ્યું, «ઓછું કરો». અંતે પચ્ચીસ રૂપિયામાં વાત થઈ. પછી હું દૂધ લેવા ગઈ. દૂધવાળો બોલ્યો, «કાલે દૂધ મોડું આવશે». મેં કહ્યું, «વાંધો નહીં».",
+        "gloss": "Today the market was very crowded. I bought tomatoes and potatoes. The shopkeeper said, 'thirty rupees a kilo'. I said, 'make it less'. In the end we settled on twenty-five rupees. Then I went to buy milk. The milkman said, 'tomorrow the milk will come late'. I said, 'no problem'.",
+        "original": true
+      },
+      "listening": {
+        "script": "ગ્રાહક: આ કિલો કેટલાનું છે?<br>દુકાનદાર: પચાસ રૂપિયા.<br>ગ્રાહક: થોડું ઓછું કરો.<br>દુકાનદાર: ચાલો, પિસ્તાલીસ.",
+        "gloss": "Customer: How much is a kilo of this? Shopkeeper: Fifty rupees. Customer: Make it a little less. Shopkeeper: All right, forty-five.",
+        "voice_tag": "gu-IN"
+      },
+      "idioms": [
+        {
+          "t": "ઓછું કરો",
+          "literal": "make it less",
+          "meaning": "bring the price down"
+        },
+        {
+          "t": "વાત થઈ",
+          "literal": "the talk happened",
+          "meaning": "we settled on a price"
+        },
+        {
+          "t": "ભીડ",
+          "literal": "crowd",
+          "meaning": "a crowd, a rush"
+        },
+        {
+          "t": "મોડું આવવું",
+          "literal": "to come late",
+          "meaning": "to be late"
+        },
+        {
+          "t": "વાંધો નહીં",
+          "literal": "no objection",
+          "meaning": "that is fine"
+        },
+        {
+          "t": "એક કિલો",
+          "literal": "one kilo",
+          "meaning": "one kilogram"
+        },
+        {
+          "t": "ચાલો",
+          "literal": "let us go",
+          "meaning": "all right, come on"
+        },
+        {
+          "t": "દૂધ લેવા જવું",
+          "literal": "to go to take milk",
+          "meaning": "to go for milk"
+        },
+        {
+          "t": "પૈસા પાછા",
+          "literal": "money back",
+          "meaning": "refund"
+        },
+        {
+          "t": "કેટલાનું?",
+          "literal": "of how much?",
+          "meaning": "how much does it cost?"
+        }
+      ],
+      "mistakes": [
+        {
+          "wrong": "આ કિલો કેટલો છે?",
+          "right": "આ કિલો કેટલાનું છે?",
+          "why": "A price is neuter: કેટલાનું."
+        },
+        {
+          "wrong": "મેં બજાર ગયો.",
+          "right": "હું બજાર ગયો.",
+          "why": "Intransitive જવું takes હું, not the ergative મેં."
+        },
+        {
+          "wrong": "દૂધવાળો કાલે મોડું આવશે છે.",
+          "right": "દૂધવાળો કાલે મોડું આવશે.",
+          "why": "The future is one word: આવશે."
+        }
+      ],
+      "task": {
+        "title": "Do a market round in Gujarati",
+        "instructions": "Write the six lines of a real market round: ask the price (કેટલાનું છે?), say it is expensive, ask for less, agree, ask for one more item, and close with thanks. Then write the same exchange where the shopkeeper says no and you accept it with વાંધો નહીં. The second version is the one that teaches the tone; keep both in your notebook under one heading."
+      }
     }
   }
 }

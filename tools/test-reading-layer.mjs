@@ -75,7 +75,13 @@ for (const p of pages) {
 /* ---------- 1. the class is where it should be, and nowhere else ---------- */
 check("the reading layer is on every hand-written page", legacy.length === 969,
   legacy.length + " page(s)");
-check("the page layer's pages carry the same class, tested separately", pageLayer.length === 1625,
+/* 1672 = 1625 + 45 PHASE 3 course posts (tools/build-language-course.py: 5 post
+   types x 9 Indian-language courses) + 2 PHASE 3 Hindi posts
+   (tools/build-hindi-phase3-posts.py). Update this count deliberately whenever
+   the page-layer inventory changes; every page-layer page must still carry the
+   class, and tools/test-page-layer.mjs independently enforces that for the
+   pages it owns. */
+check("the page layer's pages carry the same class, tested separately", pageLayer.length === 1672,
   pageLayer.length + " page(s)");
 check("the pages already on the v200 system were left alone", modern.length === 5,
   modern.join(", "));

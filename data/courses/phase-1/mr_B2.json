@@ -98,25 +98,25 @@
             },
             "dialogue": [
               {
-                "sp": "Doctor",
+                "sp": "डॉक्टर",
                 "t": "तुम्हाला काय झालं?",
                 "r": "Tumhala kay jhala?",
                 "en": "What happened to you?"
               },
               {
-                "sp": "Patient",
+                "sp": "रुग्ण",
                 "t": "डॉक्टर, दोन दिवसांपासून ताप आहे.",
                 "r": "Doktar, don divasampasun tap ahe.",
                 "en": "Doctor, fever for two days."
               },
               {
-                "sp": "Doctor",
+                "sp": "डॉक्टर",
                 "t": "खोकला-सर्दी आहे का?",
                 "r": "Khokala-sardi ahe ka?",
                 "en": "Any cough or cold?"
               },
               {
-                "sp": "Patient",
+                "sp": "रुग्ण",
                 "t": "फक्त खोकला आहे.",
                 "r": "Phakta khokala ahe.",
                 "en": "Only a cough."
@@ -194,7 +194,7 @@
               },
               {
                 "type": "dialogue_completion",
-                "q": "Practice 10 [dialogue completion] — Health and Wellbeing — B2: Complete Patient’s turn: Doctor, fever for two days.",
+                "q": "Practice 10 [dialogue completion] — Health and Wellbeing — B2: Complete रुग्ण’s turn: Doctor, fever for two days.",
                 "answer": "डॉक्टर, दोन दिवसांपासून ताप आहे.",
                 "skill_target": "Marathi dialogue completion: Marathi gender/agreement, postpositions, aspect, and respectful register"
               },
@@ -408,25 +408,25 @@
             },
             "dialogue": [
               {
-                "sp": "Manager",
+                "sp": "व्यवस्थापक",
                 "t": "या! तुमचं नाव काय?",
                 "r": "Ya! Tumcha nav kay?",
                 "en": "Welcome! What is your name?"
               },
               {
-                "sp": "Newcomer",
+                "sp": "नवागंतुक",
                 "t": "माझं नाव कुमार.",
                 "r": "Majha nav Kumar.",
                 "en": "My name is Kumar."
               },
               {
-                "sp": "Manager",
+                "sp": "व्यवस्थापक",
                 "t": "हे तुमचं टेबल. कॉम्प्युटर चालू करा.",
                 "r": "He tumcha table. Computer chalu kara.",
                 "en": "This is your desk. Switch on the computer."
               },
               {
-                "sp": "Newcomer",
+                "sp": "नवागंतुक",
                 "t": "ठीक आहे. ईमेल पत्ता काय?",
                 "r": "Thik ahe. Email patta kay?",
                 "en": "OK. What is the email address?"
@@ -634,6 +634,295 @@
               "सही"
             ],
             "srs_policy": "Only selected high-value forms are preselected; actual mistakes and productive patterns enter personalized review after learner evidence."
+          },
+          {
+            "id": "mr-b2-l7",
+            "title": "अंदाजपत्रक आणि मर्यादा",
+            "learn": "Planning speaks in conditions and obligations: खर्च वाढल्यास …, प्रत्येक टप्प्याला मर्यादा ठरवावी लागेल. The formal conditional is -ल्यास, the spoken one is तर, and obligation uses the -ावी/-ावे form with लागेल, agreeing with its noun. Marathi keeps the obligation impersonal, so the person is named only when it matters.",
+            "vocab": [
+              {
+                "t": "अंदाजपत्रक",
+                "r": "andaajpatrak",
+                "en": "budget",
+                "pos": "noun"
+              },
+              {
+                "t": "खर्च",
+                "r": "kharch",
+                "en": "expenditure, cost",
+                "pos": "noun"
+              },
+              {
+                "t": "मर्यादा",
+                "r": "maryada",
+                "en": "limit",
+                "pos": "noun"
+              },
+              {
+                "t": "तरतूद",
+                "r": "tartud",
+                "en": "provision, arrangement",
+                "pos": "noun"
+              },
+              {
+                "t": "ठरवणे",
+                "r": "tharvne",
+                "en": "to decide, to fix",
+                "pos": "verb"
+              }
+            ],
+            "grammar": {
+              "title": "Condition and obligation",
+              "pattern": "खर्च वाढल्यास … · मर्यादा ठरवावी लागेल · तरतूद ठेवली आहे",
+              "explain": "-ल्यास is the formal if (वाढल्यास, झाल्यास) and closes its own clause; तर is the spoken one and follows it. Obligation takes -ावी/-ावे with लागेल, and it agrees with its noun: मर्यादा ठरवावी लागेल, खर्च ठरवावा लागेल, काम करावे लागेल.",
+              "examples": [
+                {
+                  "t": "खर्च वाढल्यास मुदत वाढवावी लागेल.",
+                  "r": "Kharch vaadlyas mudat vaadhavi lagel.",
+                  "en": "If the cost rises, the deadline will have to be extended."
+                },
+                {
+                  "t": "प्रत्येक टप्प्याला मर्यादा ठरवावी लागेल.",
+                  "r": "Pratyek tappyala maryada tharvavi lagel.",
+                  "en": "A limit will have to be fixed for each stage."
+                },
+                {
+                  "t": "यासाठी तरतूद ठेवली आहे.",
+                  "r": "Yasathi tartud thevli ahe.",
+                  "en": "A provision has been kept for this."
+                }
+              ],
+              "mistakes": [
+                {
+                  "wrong": "टप्प्याला मर्यादा ठरवली लागेल.",
+                  "right": "टप्प्याला मर्यादा ठरवावी लागेल.",
+                  "why": "Obligation takes the -ावी form: ठरवावी लागेल."
+                },
+                {
+                  "wrong": "खर्च वाढला तर मुदत वाढेल लागेल.",
+                  "right": "खर्च वाढल्यास मुदत वाढवावी लागेल.",
+                  "why": "One obligation frame, not two futures stacked."
+                }
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "व्यवस्थापक",
+                "t": "या वर्षीचे अंदाजपत्रक तयार आहे का?",
+                "r": "Ya varshicha andaajpatrak tayar ahe ka?",
+                "en": "Is this year's budget ready?"
+              },
+              {
+                "sp": "सल्लागार",
+                "t": "तयार आहे, पण दोन टप्प्यांना मर्यादा ठरवावी लागेल.",
+                "r": "Tayar ahe, pan don tappyanna maryada tharvavi lagel.",
+                "en": "It is ready, but a limit will have to be fixed for two stages."
+              },
+              {
+                "sp": "व्यवस्थापक",
+                "t": "खर्च वाढल्यास काय करायचे?",
+                "r": "Kharch vaadlyas kay karayche?",
+                "en": "If the cost rises, what is to be done?"
+              },
+              {
+                "sp": "सल्लागार",
+                "t": "तेव्हा मुदत वाढवावी लागेल किंवा कामकाज कमी करावे लागेल.",
+                "r": "Tevha mudat vaadhavi lagel kinva kamkaj kami karave lagel.",
+                "en": "Then the deadline will have to be extended or the work cut down."
+              }
+            ],
+            "practice": [
+              {
+                "type": "multiple_choice",
+                "q": "Practice 1: [multiple choice] अंदाजपत्रक आणि मर्यादा — Choose the meaning of अंदाजपत्रक (andaajpatrak) in this lesson.",
+                "answer": "budget",
+                "skill_target": "Marathi: Devanagari with ळ and the candra vowels, three-way address (तू / तुम्ही / आपण), three genders and agreement, postpositions, verb-final order, the -त आहे progressive and Marathi's compound verbs",
+                "options": [
+                  "budget",
+                  "expenditure, cost",
+                  "limit",
+                  "provision, arrangement"
+                ]
+              },
+              {
+                "type": "fill_in_the_blank",
+                "q": "Practice 2: [fill in the blank] अंदाजपत्रक आणि मर्यादा — Type the Marathi expression meaning “expenditure, cost”.",
+                "answer": "खर्च",
+                "skill_target": "Marathi: Devanagari with ळ and the candra vowels, three-way address (तू / तुम्ही / आपण), three genders and agreement, postpositions, verb-final order, the -त आहे progressive and Marathi's compound verbs"
+              },
+              {
+                "type": "translation",
+                "q": "Practice 3: [translation] अंदाजपत्रक आणि मर्यादा — Interpret the Devanagari in context: खर्च वाढल्यास मुदत वाढवावी लागेल. (Kharch vaadlyas mudat vaadhavi lagel.).",
+                "answer": "If the cost rises, the deadline will have to be extended.",
+                "skill_target": "Marathi: Devanagari with ळ and the candra vowels, three-way address (तू / तुम्ही / आपण), three genders and agreement, postpositions, verb-final order, the -त आहे progressive and Marathi's compound verbs"
+              },
+              {
+                "type": "reverse_translation",
+                "q": "Practice 4: [reverse translation] अंदाजपत्रक आणि मर्यादा — Write in Devanagari: A limit will have to be fixed for each stage..",
+                "answer": "प्रत्येक टप्प्याला मर्यादा ठरवावी लागेल.",
+                "skill_target": "Marathi: Devanagari with ळ and the candra vowels, three-way address (तू / तुम्ही / आपण), three genders and agreement, postpositions, verb-final order, the -त आहे progressive and Marathi's compound verbs"
+              },
+              {
+                "type": "matching",
+                "q": "Practice 5: [matching] अंदाजपत्रक आणि मर्यादा — Match मर्यादा to its lesson meaning.",
+                "answer": "limit",
+                "skill_target": "Marathi: Devanagari with ळ and the candra vowels, three-way address (तू / तुम्ही / आपण), three genders and agreement, postpositions, verb-final order, the -त आहे progressive and Marathi's compound verbs",
+                "options": [
+                  "limit",
+                  "budget",
+                  "expenditure, cost"
+                ]
+              },
+              {
+                "type": "reorder",
+                "q": "Practice 6: [reorder] अंदाजपत्रक आणि मर्यादा — Reconstruct the lesson model in coherent Marathi: A provision has been kept for this..",
+                "answer": "यासाठी तरतूद ठेवली आहे.",
+                "skill_target": "Marathi: Devanagari with ळ and the candra vowels, three-way address (तू / तुम्ही / आपण), three genders and agreement, postpositions, verb-final order, the -त आहे progressive and Marathi's compound verbs"
+              },
+              {
+                "type": "sentence_building",
+                "q": "Practice 7: [sentence building] अंदाजपत्रक आणि मर्यादा — Build the sentence with the lesson pattern (खर्च वाढल्यास … · मर्यादा ठरवावी लागेल · तरतूद ठेवली आहे): If the cost rises, the deadline will have to be extended..",
+                "answer": "खर्च वाढल्यास मुदत वाढवावी लागेल.",
+                "skill_target": "Marathi: Devanagari with ळ and the candra vowels, three-way address (तू / तुम्ही / आपण), three genders and agreement, postpositions, verb-final order, the -त आहे progressive and Marathi's compound verbs"
+              },
+              {
+                "type": "word_selection",
+                "q": "Practice 8: [word selection] अंदाजपत्रक आणि मर्यादा — Select the Marathi form for “provision, arrangement”.",
+                "answer": "तरतूद",
+                "skill_target": "Marathi: Devanagari with ळ and the candra vowels, three-way address (तू / तुम्ही / आपण), three genders and agreement, postpositions, verb-final order, the -त आहे progressive and Marathi's compound verbs",
+                "options": [
+                  "तरतूद",
+                  "ठरवणे"
+                ]
+              },
+              {
+                "type": "error_correction",
+                "q": "Practice 9: [error correction] अंदाजपत्रक आणि मर्यादा — Correct the model the lesson warns about: टप्प्याला मर्यादा ठरवली लागेल.",
+                "answer": "टप्प्याला मर्यादा ठरवावी लागेल.",
+                "skill_target": "Marathi: Devanagari with ळ and the candra vowels, three-way address (तू / तुम्ही / आपण), three genders and agreement, postpositions, verb-final order, the -त आहे progressive and Marathi's compound verbs"
+              },
+              {
+                "type": "dialogue_completion",
+                "q": "Practice 10: [dialogue completion] अंदाजपत्रक आणि मर्यादा — Complete the exchange with the studied response to: Is this year's budget ready?",
+                "answer": "तयार आहे, पण दोन टप्प्यांना मर्यादा ठरवावी लागेल.",
+                "skill_target": "Marathi: Devanagari with ळ and the candra vowels, three-way address (तू / तुम्ही / आपण), three genders and agreement, postpositions, verb-final order, the -त आहे progressive and Marathi's compound verbs"
+              },
+              {
+                "type": "reading_comprehension",
+                "q": "Practice 11: [reading comprehension] अंदाजपत्रक आणि मर्यादा — Read “खर्च वाढल्यास काय करायचे?” (Kharch vaadlyas kay karayche?). What does it mean?",
+                "answer": "If the cost rises, what is to be done?",
+                "skill_target": "Marathi: Devanagari with ळ and the candra vowels, three-way address (तू / तुम्ही / आपण), three genders and agreement, postpositions, verb-final order, the -त आहे progressive and Marathi's compound verbs"
+              },
+              {
+                "type": "paragraph_comprehension",
+                "q": "Practice 12: [paragraph comprehension] अंदाजपत्रक आणि मर्यादा — Read the lesson dialogue as a whole and give its key move: Then the deadline will have to be extended or the work cut down.",
+                "answer": "तेव्हा मुदत वाढवावी लागेल किंवा कामकाज कमी करावे लागेल.",
+                "skill_target": "Marathi: Devanagari with ळ and the candra vowels, three-way address (तू / तुम्ही / आपण), three genders and agreement, postpositions, verb-final order, the -त आहे progressive and Marathi's compound verbs"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "Which meaning best fits अंदाजपत्रक?",
+                "options": [
+                  "budget",
+                  "expenditure, cost",
+                  "limit",
+                  "provision, arrangement"
+                ],
+                "answer": 0,
+                "why": "अंदाजपत्रक (andaajpatrak) means budget in this lesson."
+              },
+              {
+                "q": "Which meaning best fits खर्च?",
+                "options": [
+                  "expenditure, cost",
+                  "budget",
+                  "limit",
+                  "provision, arrangement"
+                ],
+                "answer": 0,
+                "why": "खर्च (kharch) means expenditure, cost in this lesson."
+              },
+              {
+                "q": "Which meaning best fits मर्यादा?",
+                "options": [
+                  "limit",
+                  "budget",
+                  "expenditure, cost",
+                  "provision, arrangement"
+                ],
+                "answer": 0,
+                "why": "मर्यादा (maryada) means limit in this lesson."
+              },
+              {
+                "q": "Which meaning best fits तरतूद?",
+                "options": [
+                  "provision, arrangement",
+                  "budget",
+                  "expenditure, cost",
+                  "limit"
+                ],
+                "answer": 0,
+                "why": "तरतूद (tartud) means provision, arrangement in this lesson."
+              },
+              {
+                "q": "Which meaning best fits ठरवणे?",
+                "options": [
+                  "to decide, to fix",
+                  "budget",
+                  "expenditure, cost",
+                  "limit"
+                ],
+                "answer": 0,
+                "why": "ठरवणे (tharvne) means to decide, to fix in this lesson."
+              }
+            ],
+            "flashcards": "auto:vocab",
+            "worksheet": {
+              "title": "Budget worksheet",
+              "tasks": [
+                {
+                  "instruction": "State the condition.",
+                  "items": [
+                    "if the cost rises the deadline will change",
+                    "a limit for each stage"
+                  ],
+                  "key": [
+                    "खर्च वाढल्यास मुदत बदलेल",
+                    "प्रत्येक टप्प्याला मर्यादा"
+                  ]
+                },
+                {
+                  "instruction": "State the obligation.",
+                  "items": [
+                    "a provision has been kept",
+                    "the work will have to be cut down"
+                  ],
+                  "key": [
+                    "तरतूद ठेवली आहे",
+                    "कामकाज कमी करावे लागेल"
+                  ]
+                },
+                {
+                  "instruction": "Integrated offline practice: read the first model, transform or extend it in Devanagari, then rehearse it as a dialogue. Self-check meaning, grammar, and register.",
+                  "items": [
+                    "खर्च वाढल्यास मुदत वाढवावी लागेल.",
+                    "या वर्षीचे अंदाजपत्रक तयार आहे का?"
+                  ],
+                  "key": [
+                    "If the cost rises, the deadline will have to be extended.",
+                    "Is this year's budget ready?"
+                  ]
+                }
+              ]
+            },
+            "srs_candidates": [
+              "अंदाजपत्रक",
+              "खर्च",
+              "मर्यादा",
+              "तरतूद"
+            ],
+            "srs_policy": "Only these four high-value terms are preselected; lesson mistakes and productive patterns may enter personalized review after an actual error."
           }
         ]
       },
@@ -722,25 +1011,25 @@
             },
             "dialogue": [
               {
-                "sp": "Student",
+                "sp": "विद्यार्थी",
                 "t": "गुरुजी, माझा गृहपाठ संपला.",
                 "r": "Guruji, majha gruhpath sampala.",
                 "en": "Teacher, I finished my homework."
               },
               {
-                "sp": "Teacher",
+                "sp": "शिक्षक",
                 "t": "खूप छान! धडा मोठ्याने वाच.",
                 "r": "Khup chhan! Dhada mothyane vach.",
                 "en": "Very good! Read the lesson loudly."
               },
               {
-                "sp": "Student",
+                "sp": "विद्यार्थी",
                 "t": "हा शब्द समजला नाही.",
                 "r": "Ha shabd samajla nahi.",
                 "en": "I don't understand this word."
               },
               {
-                "sp": "Teacher",
+                "sp": "शिक्षक",
                 "t": "शब्दकोशात बघ.",
                 "r": "Shabdakoshat bagh.",
                 "en": "Look in the dictionary."
@@ -1017,25 +1306,25 @@
             },
             "dialogue": [
               {
-                "sp": "Brother",
+                "sp": "भाऊ",
                 "t": "बघ, आकाशात काळे ढग!",
                 "r": "Bagh, aakashat kale dhag!",
                 "en": "Look, dark clouds in the sky!"
               },
               {
-                "sp": "Sister",
+                "sp": "बहीण",
                 "t": "होय. आज पाऊस येणार.",
                 "r": "Hoy. Aaj paus yenar.",
                 "en": "Yes. Rain will come today."
               },
               {
-                "sp": "Brother",
+                "sp": "भाऊ",
                 "t": "छत्री घे. वारा जोरदार आहे.",
                 "r": "Chhatri ghe. Vara jordar ahe.",
                 "en": "Take the umbrella. The wind is strong."
               },
               {
-                "sp": "Sister",
+                "sp": "बहीण",
                 "t": "मृगाच्या पावसाचा वास मला आवडतो!",
                 "r": "Mrugachya pausacha vas mala aavadto!",
                 "en": "I love the smell of first rain!"
@@ -1125,7 +1414,7 @@
               },
               {
                 "type": "dialogue_completion",
-                "q": "Practice 15 [dialogue completion] — Weather and Environment — B2: Complete Brother’s turn: Take the umbrella. The wind is strong.",
+                "q": "Practice 15 [dialogue completion] — Weather and Environment — B2: Complete भाऊ’s turn: Take the umbrella. The wind is strong.",
                 "answer": "छत्री घे. वारा जोरदार आहे.",
                 "skill_target": "Marathi dialogue completion: Marathi gender/agreement, postpositions, aspect, and respectful register"
               }
@@ -1245,6 +1534,295 @@
               "दक्षिण"
             ],
             "srs_policy": "Only selected high-value forms are preselected; actual mistakes and productive patterns enter personalized review after learner evidence."
+          },
+          {
+            "id": "mr-b2-l8",
+            "title": "वाटाघाटी आणि तडजोड",
+            "learn": "A negotiation leaves room inside the sentence: या दरात पुरवठा करता येईल. The potential -ता येईल makes an offer without promising it, a refusal names what is impossible rather than the person, and तडजोडीची तयारी states readiness. A counter-offer usually opens with थोडे or पण, so that the door stays open.",
+            "vocab": [
+              {
+                "t": "वाटाघाटी",
+                "r": "vaataghatai",
+                "en": "negotiation, talks",
+                "pos": "noun"
+              },
+              {
+                "t": "अट",
+                "r": "at",
+                "en": "condition, term",
+                "pos": "noun"
+              },
+              {
+                "t": "तडजोड",
+                "r": "tadjod",
+                "en": "compromise",
+                "pos": "noun"
+              },
+              {
+                "t": "तयारी",
+                "r": "tayari",
+                "en": "readiness, preparation",
+                "pos": "noun"
+              },
+              {
+                "t": "शक्य",
+                "r": "shakya",
+                "en": "possible",
+                "pos": "adjective"
+              }
+            ],
+            "grammar": {
+              "title": "Softening and refusing",
+              "pattern": "करता येईल · इतक्यात शक्य नाही · तडजोडीची तयारी आहे",
+              "explain": "The potential -ता येईल (करता, देता, घेता) offers without committing. A refusal names the impossible: इतक्यात शक्य नाही. Readiness takes the -ची possessive of what one is ready for — तडजोडीची तयारी, बोलणीची तयारी.",
+              "examples": [
+                {
+                  "t": "या दरात पुरवठा करता येईल.",
+                  "r": "Ya daarat purvatha karta yeil.",
+                  "en": "Supply can be made at this rate."
+                },
+                {
+                  "t": "इतक्यात शक्य नाही, पण विचार करता येईल.",
+                  "r": "Itkyat shakya nahi, pan vichaar karta yeil.",
+                  "en": "It is not possible at that rate, but it can be considered."
+                },
+                {
+                  "t": "आमची तडजोडीची तयारी आहे.",
+                  "r": "Aamchi tadjodichi tayari ahe.",
+                  "en": "We are ready to compromise."
+                }
+              ],
+              "mistakes": [
+                {
+                  "wrong": "देणे करता येईल.",
+                  "right": "देणे देता येईल.",
+                  "why": "The potential takes the -ता stem: देता येईल, करता येईल."
+                },
+                {
+                  "wrong": "आमची तयारी आहे तडजोड.",
+                  "right": "आमची तडजोडीची तयारी आहे.",
+                  "why": "तयारी takes -ची of what one is ready for."
+                }
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "खरेदी प्रमुख",
+                "t": "या दरात पुरवठा करता येईल का?",
+                "r": "Ya daarat purvatha karta yeil ka?",
+                "en": "Can supply be made at this rate?"
+              },
+              {
+                "sp": "पुरवठादार",
+                "t": "इतक्यात शक्य नाही. वाहतूक खर्च वेगळा आहे.",
+                "r": "Itkyat shakya nahi. Vahatuk kharch vegla ahe.",
+                "en": "Not possible at that rate. The transport cost is separate."
+              },
+              {
+                "sp": "खरेदी प्रमुख",
+                "t": "थोडी तडजोड करा. दोन्ही बाजूंना फायदा हवा.",
+                "r": "Thodi tadjod kara. Donhi bajunna fayda hava.",
+                "en": "Compromise a little. Both sides should gain."
+              },
+              {
+                "sp": "पुरवठादार",
+                "t": "ठीक. मुदत दोन महिन्यांऐवजी तीन महिने हवी.",
+                "r": "Thik. Mudat don mahinyan-aivaji teen mahine havi.",
+                "en": "All right. Instead of two months, the deadline should be three."
+              }
+            ],
+            "practice": [
+              {
+                "type": "multiple_choice",
+                "q": "Practice 1: [multiple choice] वाटाघाटी आणि तडजोड — Choose the meaning of वाटाघाटी (vaataghatai) in this lesson.",
+                "answer": "negotiation, talks",
+                "skill_target": "Marathi: Devanagari with ळ and the candra vowels, three-way address (तू / तुम्ही / आपण), three genders and agreement, postpositions, verb-final order, the -त आहे progressive and Marathi's compound verbs",
+                "options": [
+                  "negotiation, talks",
+                  "condition, term",
+                  "compromise",
+                  "readiness, preparation"
+                ]
+              },
+              {
+                "type": "fill_in_the_blank",
+                "q": "Practice 2: [fill in the blank] वाटाघाटी आणि तडजोड — Type the Marathi expression meaning “condition, term”.",
+                "answer": "अट",
+                "skill_target": "Marathi: Devanagari with ळ and the candra vowels, three-way address (तू / तुम्ही / आपण), three genders and agreement, postpositions, verb-final order, the -त आहे progressive and Marathi's compound verbs"
+              },
+              {
+                "type": "translation",
+                "q": "Practice 3: [translation] वाटाघाटी आणि तडजोड — Interpret the Devanagari in context: या दरात पुरवठा करता येईल. (Ya daarat purvatha karta yeil.).",
+                "answer": "Supply can be made at this rate.",
+                "skill_target": "Marathi: Devanagari with ळ and the candra vowels, three-way address (तू / तुम्ही / आपण), three genders and agreement, postpositions, verb-final order, the -त आहे progressive and Marathi's compound verbs"
+              },
+              {
+                "type": "reverse_translation",
+                "q": "Practice 4: [reverse translation] वाटाघाटी आणि तडजोड — Write in Devanagari: It is not possible at that rate, but it can be considered..",
+                "answer": "इतक्यात शक्य नाही, पण विचार करता येईल.",
+                "skill_target": "Marathi: Devanagari with ळ and the candra vowels, three-way address (तू / तुम्ही / आपण), three genders and agreement, postpositions, verb-final order, the -त आहे progressive and Marathi's compound verbs"
+              },
+              {
+                "type": "matching",
+                "q": "Practice 5: [matching] वाटाघाटी आणि तडजोड — Match तडजोड to its lesson meaning.",
+                "answer": "compromise",
+                "skill_target": "Marathi: Devanagari with ळ and the candra vowels, three-way address (तू / तुम्ही / आपण), three genders and agreement, postpositions, verb-final order, the -त आहे progressive and Marathi's compound verbs",
+                "options": [
+                  "compromise",
+                  "negotiation, talks",
+                  "condition, term"
+                ]
+              },
+              {
+                "type": "reorder",
+                "q": "Practice 6: [reorder] वाटाघाटी आणि तडजोड — Reconstruct the lesson model in coherent Marathi: We are ready to compromise..",
+                "answer": "आमची तडजोडीची तयारी आहे.",
+                "skill_target": "Marathi: Devanagari with ळ and the candra vowels, three-way address (तू / तुम्ही / आपण), three genders and agreement, postpositions, verb-final order, the -त आहे progressive and Marathi's compound verbs"
+              },
+              {
+                "type": "sentence_building",
+                "q": "Practice 7: [sentence building] वाटाघाटी आणि तडजोड — Build the sentence with the lesson pattern (करता येईल · इतक्यात शक्य नाही · तडजोडीची तयारी आहे): Supply can be made at this rate..",
+                "answer": "या दरात पुरवठा करता येईल.",
+                "skill_target": "Marathi: Devanagari with ळ and the candra vowels, three-way address (तू / तुम्ही / आपण), three genders and agreement, postpositions, verb-final order, the -त आहे progressive and Marathi's compound verbs"
+              },
+              {
+                "type": "word_selection",
+                "q": "Practice 8: [word selection] वाटाघाटी आणि तडजोड — Select the Marathi form for “readiness, preparation”.",
+                "answer": "तयारी",
+                "skill_target": "Marathi: Devanagari with ळ and the candra vowels, three-way address (तू / तुम्ही / आपण), three genders and agreement, postpositions, verb-final order, the -त आहे progressive and Marathi's compound verbs",
+                "options": [
+                  "तयारी",
+                  "शक्य"
+                ]
+              },
+              {
+                "type": "error_correction",
+                "q": "Practice 9: [error correction] वाटाघाटी आणि तडजोड — Correct the model the lesson warns about: देणे करता येईल.",
+                "answer": "देणे देता येईल.",
+                "skill_target": "Marathi: Devanagari with ळ and the candra vowels, three-way address (तू / तुम्ही / आपण), three genders and agreement, postpositions, verb-final order, the -त आहे progressive and Marathi's compound verbs"
+              },
+              {
+                "type": "dialogue_completion",
+                "q": "Practice 10: [dialogue completion] वाटाघाटी आणि तडजोड — Complete the exchange with the studied response to: Can supply be made at this rate?",
+                "answer": "इतक्यात शक्य नाही. वाहतूक खर्च वेगळा आहे.",
+                "skill_target": "Marathi: Devanagari with ळ and the candra vowels, three-way address (तू / तुम्ही / आपण), three genders and agreement, postpositions, verb-final order, the -त आहे progressive and Marathi's compound verbs"
+              },
+              {
+                "type": "reading_comprehension",
+                "q": "Practice 11: [reading comprehension] वाटाघाटी आणि तडजोड — Read “थोडी तडजोड करा. दोन्ही बाजूंना फायदा हवा.” (Thodi tadjod kara. Donhi bajunna fayda hava.). What does it mean?",
+                "answer": "Compromise a little. Both sides should gain.",
+                "skill_target": "Marathi: Devanagari with ळ and the candra vowels, three-way address (तू / तुम्ही / आपण), three genders and agreement, postpositions, verb-final order, the -त आहे progressive and Marathi's compound verbs"
+              },
+              {
+                "type": "paragraph_comprehension",
+                "q": "Practice 12: [paragraph comprehension] वाटाघाटी आणि तडजोड — Read the lesson dialogue as a whole and give its key move: All right. Instead of two months, the deadline should be three.",
+                "answer": "ठीक. मुदत दोन महिन्यांऐवजी तीन महिने हवी.",
+                "skill_target": "Marathi: Devanagari with ळ and the candra vowels, three-way address (तू / तुम्ही / आपण), three genders and agreement, postpositions, verb-final order, the -त आहे progressive and Marathi's compound verbs"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "Which meaning best fits वाटाघाटी?",
+                "options": [
+                  "negotiation, talks",
+                  "condition, term",
+                  "compromise",
+                  "readiness, preparation"
+                ],
+                "answer": 0,
+                "why": "वाटाघाटी (vaataghatai) means negotiation, talks in this lesson."
+              },
+              {
+                "q": "Which meaning best fits अट?",
+                "options": [
+                  "condition, term",
+                  "negotiation, talks",
+                  "compromise",
+                  "readiness, preparation"
+                ],
+                "answer": 0,
+                "why": "अट (at) means condition, term in this lesson."
+              },
+              {
+                "q": "Which meaning best fits तडजोड?",
+                "options": [
+                  "compromise",
+                  "negotiation, talks",
+                  "condition, term",
+                  "readiness, preparation"
+                ],
+                "answer": 0,
+                "why": "तडजोड (tadjod) means compromise in this lesson."
+              },
+              {
+                "q": "Which meaning best fits तयारी?",
+                "options": [
+                  "readiness, preparation",
+                  "negotiation, talks",
+                  "condition, term",
+                  "compromise"
+                ],
+                "answer": 0,
+                "why": "तयारी (tayari) means readiness, preparation in this lesson."
+              },
+              {
+                "q": "Which meaning best fits शक्य?",
+                "options": [
+                  "possible",
+                  "negotiation, talks",
+                  "condition, term",
+                  "compromise"
+                ],
+                "answer": 0,
+                "why": "शक्य (shakya) means possible in this lesson."
+              }
+            ],
+            "flashcards": "auto:vocab",
+            "worksheet": {
+              "title": "Negotiation worksheet",
+              "tasks": [
+                {
+                  "instruction": "Make an offer.",
+                  "items": [
+                    "supply can be made at this rate",
+                    "it can be considered"
+                  ],
+                  "key": [
+                    "या दरात पुरवठा करता येईल",
+                    "विचार करता येईल"
+                  ]
+                },
+                {
+                  "instruction": "Hold your ground politely.",
+                  "items": [
+                    "not possible at that rate",
+                    "we are ready to compromise"
+                  ],
+                  "key": [
+                    "इतक्यात शक्य नाही",
+                    "आमची तडजोडीची तयारी आहे"
+                  ]
+                },
+                {
+                  "instruction": "Integrated offline practice: read the first model, transform or extend it in Devanagari, then rehearse it as a dialogue. Self-check meaning, grammar, and register.",
+                  "items": [
+                    "या दरात पुरवठा करता येईल.",
+                    "या दरात पुरवठा करता येईल का?"
+                  ],
+                  "key": [
+                    "Supply can be made at this rate.",
+                    "Can supply be made at this rate?"
+                  ]
+                }
+              ]
+            },
+            "srs_candidates": [
+              "वाटाघाटी",
+              "अट",
+              "तडजोड",
+              "तयारी"
+            ],
+            "srs_policy": "Only these four high-value terms are preselected; lesson mistakes and productive patterns may enter personalized review after an actual error."
           }
         ]
       },
@@ -1333,25 +1911,25 @@
             },
             "dialogue": [
               {
-                "sp": "Granddaughter",
+                "sp": "नात",
                 "t": "आजी, काय शिजतंय?",
                 "r": "Aaji, kay shijtay?",
                 "en": "Grandma, what is cooking?"
               },
               {
-                "sp": "Grandmother",
+                "sp": "आजी",
                 "t": "पुरणपोळी, माझ्या बाळा!",
                 "r": "Puranpoli, majhya bala!",
                 "en": "Puran poli, my dear!"
               },
               {
-                "sp": "Grandmother",
+                "sp": "आजी",
                 "t": "हात धुऊन बस.",
                 "r": "Hat dhun bas.",
                 "en": "Wash your hands and sit."
               },
               {
-                "sp": "Granddaughter",
+                "sp": "नात",
                 "t": "आजी, जेवण खमंगतंय!",
                 "r": "Aaji, jevan khamangtay!",
                 "en": "Grandma, the food smells nice!"
@@ -1640,25 +2218,25 @@
             },
             "dialogue": [
               {
-                "sp": "Neighbour",
+                "sp": "शेजारी",
                 "t": "गुढीपाडव्याच्या शुभेच्छा!",
                 "r": "Gudhipadvyachya shubhechha!",
                 "en": "Happy Gudhi Padwa! New Year greetings!"
               },
               {
-                "sp": "Mother",
+                "sp": "आई",
                 "t": "तुम्हालाही! या, गोड खा.",
                 "r": "Tumhalahi! Ya, god kha.",
                 "en": "Same to you! Come, eat sweets."
               },
               {
-                "sp": "Neighbour",
+                "sp": "शेजारी",
                 "t": "गुढी सुंदर दिसते!",
                 "r": "Gudhi sundar distey!",
                 "en": "The gudi looks beautiful!"
               },
               {
-                "sp": "Mother",
+                "sp": "आई",
                 "t": "संध्याकाळी मिरवणूक आहे.",
                 "r": "Sandhyakali miravnuk ahe.",
                 "en": "In the evening there is a procession."
@@ -1854,6 +2432,295 @@
               "शिवरात्री"
             ],
             "srs_policy": "Only selected high-value forms are preselected; actual mistakes and productive patterns enter personalized review after learner evidence."
+          },
+          {
+            "id": "mr-b2-l9",
+            "title": "अहवाल आणि आढावा",
+            "learn": "A report names its finding impersonally: अहवालात नमूद केले आहे की …, and it keeps what is pending visible with बाकी आहेत. आढावा घेणे is the verb for holding a review, and the passive जाईल announces the next step without naming who takes it. A reported clause always takes की.",
+            "vocab": [
+              {
+                "t": "अहवाल",
+                "r": "ahaval",
+                "en": "report",
+                "pos": "noun"
+              },
+              {
+                "t": "आढावा",
+                "r": "aadhava",
+                "en": "review",
+                "pos": "noun"
+              },
+              {
+                "t": "पडताळणी",
+                "r": "padtaalni",
+                "en": "verification",
+                "pos": "noun"
+              },
+              {
+                "t": "नमूद",
+                "r": "namud",
+                "en": "stated, recorded",
+                "pos": "adjective"
+              },
+              {
+                "t": "बाकी",
+                "r": "baki",
+                "en": "pending, remaining",
+                "pos": "noun"
+              }
+            ],
+            "grammar": {
+              "title": "Reporting a finding",
+              "pattern": "अहवालात नमूद केले आहे की … · पडताळणीच्या बाकी आहेत · आढावा घेतला जाईल",
+              "explain": "A reported clause takes की. नमूद केले आहे and म्हटले आहे keep the writer out of the sentence, and बाकी agrees with what is pending (मुद्दे बाकी आहेत). The passive जाईल announces the next step, and तपासले आहे reports what is already done.",
+              "examples": [
+                {
+                  "t": "अहवालात नमूद केले आहे की खर्च अंदाजापेक्षा जास्त आहे.",
+                  "r": "Ahavalat namud kele ahe ki kharch andaajapeksha jaast ahe.",
+                  "en": "The report states that the cost is higher than estimated."
+                },
+                {
+                  "t": "दोन मुद्दे पडताळणीच्या बाकी आहेत.",
+                  "r": "Don mudde padtalnicha baki aahet.",
+                  "en": "Two points are still pending verification."
+                },
+                {
+                  "t": "पुढील महिन्यात आढावा घेतला जाईल.",
+                  "r": "Pudhil mahinyat aadhava ghetla jail.",
+                  "en": "The review will be held next month."
+                }
+              ],
+              "mistakes": [
+                {
+                  "wrong": "दोन मुद्दे बाकी आहे.",
+                  "right": "दोन मुद्दे बाकी आहेत.",
+                  "why": "मुद्दे is plural, so it takes आहेत."
+                },
+                {
+                  "wrong": "अहवालात नमूद केले आहे खर्च वाढला.",
+                  "right": "अहवालात नमूद केले आहे की खर्च वाढला.",
+                  "why": "A reported clause takes की."
+                }
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "संचालक",
+                "t": "आढाव्याचा अहवाल तयार आहे का?",
+                "r": "Aadhavyacha ahaval tayar ahe ka?",
+                "en": "Is the review report ready?"
+              },
+              {
+                "sp": "विभाग प्रमुख",
+                "t": "हो, पण दोन मुद्दे पडताळणीच्या बाकी आहेत.",
+                "r": "Ho, pan don mudde padtalnicha baki aahet.",
+                "en": "Yes, but two points are still pending verification."
+              },
+              {
+                "sp": "संचालक",
+                "t": "कोणते मुद्दे?",
+                "r": "Konte mudde?",
+                "en": "Which points?"
+              },
+              {
+                "sp": "विभाग प्रमुख",
+                "t": "खर्च आणि मुदत. उर्वरित सर्व तपासले आहे.",
+                "r": "Kharch aani mudat. Urvarit sarva tapasle ahe.",
+                "en": "Cost and deadline. Everything else has been checked."
+              }
+            ],
+            "practice": [
+              {
+                "type": "multiple_choice",
+                "q": "Practice 1: [multiple choice] अहवाल आणि आढावा — Choose the meaning of अहवाल (ahaval) in this lesson.",
+                "answer": "report",
+                "skill_target": "Marathi: Devanagari with ळ and the candra vowels, three-way address (तू / तुम्ही / आपण), three genders and agreement, postpositions, verb-final order, the -त आहे progressive and Marathi's compound verbs",
+                "options": [
+                  "report",
+                  "review",
+                  "verification",
+                  "stated, recorded"
+                ]
+              },
+              {
+                "type": "fill_in_the_blank",
+                "q": "Practice 2: [fill in the blank] अहवाल आणि आढावा — Type the Marathi expression meaning “review”.",
+                "answer": "आढावा",
+                "skill_target": "Marathi: Devanagari with ळ and the candra vowels, three-way address (तू / तुम्ही / आपण), three genders and agreement, postpositions, verb-final order, the -त आहे progressive and Marathi's compound verbs"
+              },
+              {
+                "type": "translation",
+                "q": "Practice 3: [translation] अहवाल आणि आढावा — Interpret the Devanagari in context: अहवालात नमूद केले आहे की खर्च अंदाजापेक्षा जास्त आहे. (Ahavalat namud kele ahe ki kharch andaajapeksha jaast ahe.).",
+                "answer": "The report states that the cost is higher than estimated.",
+                "skill_target": "Marathi: Devanagari with ळ and the candra vowels, three-way address (तू / तुम्ही / आपण), three genders and agreement, postpositions, verb-final order, the -त आहे progressive and Marathi's compound verbs"
+              },
+              {
+                "type": "reverse_translation",
+                "q": "Practice 4: [reverse translation] अहवाल आणि आढावा — Write in Devanagari: Two points are still pending verification..",
+                "answer": "दोन मुद्दे पडताळणीच्या बाकी आहेत.",
+                "skill_target": "Marathi: Devanagari with ळ and the candra vowels, three-way address (तू / तुम्ही / आपण), three genders and agreement, postpositions, verb-final order, the -त आहे progressive and Marathi's compound verbs"
+              },
+              {
+                "type": "matching",
+                "q": "Practice 5: [matching] अहवाल आणि आढावा — Match पडताळणी to its lesson meaning.",
+                "answer": "verification",
+                "skill_target": "Marathi: Devanagari with ळ and the candra vowels, three-way address (तू / तुम्ही / आपण), three genders and agreement, postpositions, verb-final order, the -त आहे progressive and Marathi's compound verbs",
+                "options": [
+                  "verification",
+                  "report",
+                  "review"
+                ]
+              },
+              {
+                "type": "reorder",
+                "q": "Practice 6: [reorder] अहवाल आणि आढावा — Reconstruct the lesson model in coherent Marathi: The review will be held next month..",
+                "answer": "पुढील महिन्यात आढावा घेतला जाईल.",
+                "skill_target": "Marathi: Devanagari with ळ and the candra vowels, three-way address (तू / तुम्ही / आपण), three genders and agreement, postpositions, verb-final order, the -त आहे progressive and Marathi's compound verbs"
+              },
+              {
+                "type": "sentence_building",
+                "q": "Practice 7: [sentence building] अहवाल आणि आढावा — Build the sentence with the lesson pattern (अहवालात नमूद केले आहे की … · पडताळणीच्या बाकी आहेत · आढावा घेतला जाईल): The report states that the cost is higher than estimated..",
+                "answer": "अहवालात नमूद केले आहे की खर्च अंदाजापेक्षा जास्त आहे.",
+                "skill_target": "Marathi: Devanagari with ळ and the candra vowels, three-way address (तू / तुम्ही / आपण), three genders and agreement, postpositions, verb-final order, the -त आहे progressive and Marathi's compound verbs"
+              },
+              {
+                "type": "word_selection",
+                "q": "Practice 8: [word selection] अहवाल आणि आढावा — Select the Marathi form for “stated, recorded”.",
+                "answer": "नमूद",
+                "skill_target": "Marathi: Devanagari with ळ and the candra vowels, three-way address (तू / तुम्ही / आपण), three genders and agreement, postpositions, verb-final order, the -त आहे progressive and Marathi's compound verbs",
+                "options": [
+                  "नमूद",
+                  "बाकी"
+                ]
+              },
+              {
+                "type": "error_correction",
+                "q": "Practice 9: [error correction] अहवाल आणि आढावा — Correct the model the lesson warns about: दोन मुद्दे बाकी आहे.",
+                "answer": "दोन मुद्दे बाकी आहेत.",
+                "skill_target": "Marathi: Devanagari with ळ and the candra vowels, three-way address (तू / तुम्ही / आपण), three genders and agreement, postpositions, verb-final order, the -त आहे progressive and Marathi's compound verbs"
+              },
+              {
+                "type": "dialogue_completion",
+                "q": "Practice 10: [dialogue completion] अहवाल आणि आढावा — Complete the exchange with the studied response to: Is the review report ready?",
+                "answer": "हो, पण दोन मुद्दे पडताळणीच्या बाकी आहेत.",
+                "skill_target": "Marathi: Devanagari with ळ and the candra vowels, three-way address (तू / तुम्ही / आपण), three genders and agreement, postpositions, verb-final order, the -त आहे progressive and Marathi's compound verbs"
+              },
+              {
+                "type": "reading_comprehension",
+                "q": "Practice 11: [reading comprehension] अहवाल आणि आढावा — Read “कोणते मुद्दे?” (Konte mudde?). What does it mean?",
+                "answer": "Which points?",
+                "skill_target": "Marathi: Devanagari with ळ and the candra vowels, three-way address (तू / तुम्ही / आपण), three genders and agreement, postpositions, verb-final order, the -त आहे progressive and Marathi's compound verbs"
+              },
+              {
+                "type": "paragraph_comprehension",
+                "q": "Practice 12: [paragraph comprehension] अहवाल आणि आढावा — Read the lesson dialogue as a whole and give its key move: Cost and deadline. Everything else has been checked.",
+                "answer": "खर्च आणि मुदत. उर्वरित सर्व तपासले आहे.",
+                "skill_target": "Marathi: Devanagari with ळ and the candra vowels, three-way address (तू / तुम्ही / आपण), three genders and agreement, postpositions, verb-final order, the -त आहे progressive and Marathi's compound verbs"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "Which meaning best fits अहवाल?",
+                "options": [
+                  "report",
+                  "review",
+                  "verification",
+                  "stated, recorded"
+                ],
+                "answer": 0,
+                "why": "अहवाल (ahaval) means report in this lesson."
+              },
+              {
+                "q": "Which meaning best fits आढावा?",
+                "options": [
+                  "review",
+                  "report",
+                  "verification",
+                  "stated, recorded"
+                ],
+                "answer": 0,
+                "why": "आढावा (aadhava) means review in this lesson."
+              },
+              {
+                "q": "Which meaning best fits पडताळणी?",
+                "options": [
+                  "verification",
+                  "report",
+                  "review",
+                  "stated, recorded"
+                ],
+                "answer": 0,
+                "why": "पडताळणी (padtaalni) means verification in this lesson."
+              },
+              {
+                "q": "Which meaning best fits नमूद?",
+                "options": [
+                  "stated, recorded",
+                  "report",
+                  "review",
+                  "verification"
+                ],
+                "answer": 0,
+                "why": "नमूद (namud) means stated, recorded in this lesson."
+              },
+              {
+                "q": "Which meaning best fits बाकी?",
+                "options": [
+                  "pending, remaining",
+                  "report",
+                  "review",
+                  "verification"
+                ],
+                "answer": 0,
+                "why": "बाकी (baki) means pending, remaining in this lesson."
+              }
+            ],
+            "flashcards": "auto:vocab",
+            "worksheet": {
+              "title": "Report worksheet",
+              "tasks": [
+                {
+                  "instruction": "Report the finding.",
+                  "items": [
+                    "the cost is higher than estimated",
+                    "two points are pending"
+                  ],
+                  "key": [
+                    "खर्च अंदाजापेक्षा जास्त आहे",
+                    "दोन मुद्दे बाकी आहेत"
+                  ]
+                },
+                {
+                  "instruction": "Announce the next step.",
+                  "items": [
+                    "the review will be held next month",
+                    "everything else has been checked"
+                  ],
+                  "key": [
+                    "पुढील महिन्यात आढावा घेतला जाईल",
+                    "उर्वरित सर्व तपासले आहे"
+                  ]
+                },
+                {
+                  "instruction": "Integrated offline practice: read the first model, transform or extend it in Devanagari, then rehearse it as a dialogue. Self-check meaning, grammar, and register.",
+                  "items": [
+                    "अहवालात नमूद केले आहे की खर्च अंदाजापेक्षा जास्त आहे.",
+                    "आढाव्याचा अहवाल तयार आहे का?"
+                  ],
+                  "key": [
+                    "The report states that the cost is higher than estimated.",
+                    "Is the review report ready?"
+                  ]
+                }
+              ]
+            },
+            "srs_candidates": [
+              "अहवाल",
+              "आढावा",
+              "पडताळणी",
+              "नमूद"
+            ],
+            "srs_policy": "Only these four high-value terms are preselected; lesson mistakes and productive patterns may enter personalized review after an actual error."
           }
         ]
       }
@@ -1912,6 +2779,95 @@
           "answer": "पाऊस पडतोय (Paus padtoy)"
         }
       ]
+    },
+    "extra": {
+      "culture": {
+        "text": "Marathi is the official language of Maharashtra and one of India's 22 scheduled languages, with roughly 83 million speakers. The state was redrawn on language lines in 1960, and the Marathi-speaking belt runs past its border — Belagavi and the Goa coast included — which is why a Marathi speaker may be in Karnataka or Goa as naturally as in Pune. In the courts, the collector's office and the municipal corporation, Marathi and English share the page, and the negotiating vocabulary is mostly Marathi words doing English work.",
+        "source_url": "https://en.wikipedia.org/wiki/Marathi_people"
+      },
+      "reading": {
+        "text": "दोन्ही बाजूंनी कराराच्या अटी वाचल्या. पुरवठादाराने मुदत तीन महिन्यांची मागितली, पण आमच्या बाजूने खर्च वाढणार होता. बोलणी दोन तास चालली. शेवटी एक तडजोड झाली: पहिला टप्पा दोन महिन्यांत, दुसरा टप्पा चार महिन्यांत. दोन्ही बाजूंनी अटी लिखित स्वरूपात मान्य केल्या आणि करारावर स्वाक्षरी केली. कोंडी फुटली कारण दोन्ही बाजूंनी अंतिम मुदत वाढवायला तयारी दाखवली. पुढील बैठकीत दररोजच्या पुरवठ्याचा आढावा घ्यायचे ठरले.",
+        "gloss": "Both sides read the terms of the contract. The supplier asked for a three-month deadline, but on our side the cost was going to rise. The talks went on for two hours. In the end there was a compromise: the first stage in two months, the second in four. Both sides accepted the conditions in writing and signed the contract. The deadlock broke because both sides showed readiness to extend the final deadline. At the next meeting it was decided to review the daily supply.",
+        "original": true
+      },
+      "listening": {
+        "script": "वकील: मुदतीवर दोन्ही बाजूंनी ठरले आहे का?<br>सल्लागार: ठरले आहे, पण अट एक आहे — पहिला टप्पा दोन महिन्यांत.<br>वकील: ती अट कागदावर लिहिली पाहिजे, अन्यथा पुढे वाद होईल.<br>सल्लागार: तयार आहे. मी आज सायंकाळी मसुदा पाठवतो.<br>वकील: चांगले. मसुद्यात दोन्ही बाजूंची स्वाक्षरी आणि दिनांक ठेवा.",
+        "gloss": "Lawyer: Have both sides settled on the deadline? Advisor: It is settled, but there is one condition — the first stage within two months. Lawyer: That condition must be written on paper, otherwise there will be a dispute later. Advisor: Ready. I will send the draft this evening. Lawyer: Good. Put both signatures and the date in the draft.",
+        "voice_tag": "mr-IN"
+      },
+      "idioms": [
+        {
+          "t": "तडजोड",
+          "literal": "a mutual giving",
+          "meaning": "compromise, settlement"
+        },
+        {
+          "t": "गुंता सोडवणे",
+          "literal": "to untie the knot",
+          "meaning": "to resolve a tangle or a dispute"
+        },
+        {
+          "t": "कोंडी फुटणे",
+          "literal": "the blockade to break",
+          "meaning": "a deadlock to give way"
+        },
+        {
+          "t": "अट पाळणे",
+          "literal": "to keep the condition",
+          "meaning": "to honour a term"
+        },
+        {
+          "t": "बोलणी करणे",
+          "literal": "to do the talking",
+          "meaning": "to hold negotiations"
+        },
+        {
+          "t": "स्वाक्षरी करणे",
+          "literal": "to do the signature",
+          "meaning": "to sign a document"
+        },
+        {
+          "t": "अंतिम मुदत",
+          "literal": "the last limit",
+          "meaning": "the final deadline"
+        },
+        {
+          "t": "जमीन तयार करणे",
+          "literal": "to prepare the ground",
+          "meaning": "to pave the way for something"
+        },
+        {
+          "t": "दुहेरी फायदा",
+          "literal": "double profit",
+          "meaning": "a win-win arrangement"
+        },
+        {
+          "t": "तह करणे",
+          "literal": "to make a pact",
+          "meaning": "to strike a settlement"
+        }
+      ],
+      "mistakes": [
+        {
+          "wrong": "आम्ही अट मान्य केला.",
+          "right": "आम्ही अट मान्य केली.",
+          "why": "अट is feminine, so the verb follows it: अट मान्य केली, अटी मान्य केल्या."
+        },
+        {
+          "wrong": "वाटाघाटी सुरू आहे.",
+          "right": "वाटाघाटी सुरू आहेत.",
+          "why": "वाटाघाटी is plural: वाटाघाटी सुरू आहेत, वाटाघाटी तडकल्या."
+        },
+        {
+          "wrong": "मी हा करार मान्य आहे.",
+          "right": "मी हा करार मान्य करतो.",
+          "why": "मान्य आहे describes the contract; accepting it needs the verb मान्य करतो / करते."
+        }
+      ],
+      "task": {
+        "title": "Draft the minutes of a negotiation",
+        "instructions": "Write five Marathi sentences of minutes: who met, what each side asked for, the तडजोड that was reached, the अट that was written down, and the signature line with a date. Use the impersonal once (ठरवले गेले) and keep the verbs in the polite form."
+      }
     }
   }
 }

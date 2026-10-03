@@ -103,25 +103,25 @@
             },
             "dialogue": [
               {
-                "sp": "Analyst",
+                "sp": "المحلّل",
                 "t": "لم يكن القرارُ وحده موضعَ الخلل، بل إنّ طريقةَ تنفيذه هي التي غيّرت النتيجة.",
                 "r": "lm ykn alqraru whdh mwd‘a alkhll، bl in tryqaa tnfydhh hy alty ghyrt alntyja.",
                 "en": "The decision alone was not the source of the flaw; rather, the manner of implementation changed the outcome."
               },
               {
-                "sp": "Editor",
+                "sp": "المحرّر",
                 "t": "لم يدلّ صمتُه على الموافقة بقدر ما أوحى بمسافة محسوبة تحفظ له مجال التراجع.",
                 "r": "lm ydl smtuh ‘la almwafqa bqdr ma awha bmsafa mhswba thfz lh mjal altraj‘.",
                 "en": "His silence indicated agreement less than it suggested a calculated distance preserving room to retreat."
               },
               {
-                "sp": "Mediator",
+                "sp": "الوسيط",
                 "t": "نحتاج إلى السرعة، نعم؛ لكنّ سرعةً بلا مساءلة ليست تقدّمًا بل تأجيلًا للأزمة.",
                 "r": "nhtaj ila alsr‘a، n‘m؛ lkn sr‘aan bla msa’la lyst tqdmana bl tajylana llazma.",
                 "en": "We need speed, yes; but speed without accountability is not progress, only a postponement of crisis."
               },
               {
-                "sp": "Reviewer",
+                "sp": "المراجع",
                 "t": "لم تُنطق العبارة في القاعة، غير أنّ صداها أعاد ترتيب كلّ قرار تلاها.",
                 "r": "lm tuntq al‘bara fy alqa‘a، ghyr an sdaha a‘ad trtyb kl qrar tlaha.",
                 "en": "The phrase was not uttered in the hall, yet its echo reordered every decision that followed."
@@ -405,25 +405,25 @@
             },
             "dialogue": [
               {
-                "sp": "Analyst",
+                "sp": "المحلّل",
                 "t": "لم يدلّ صمتُه على الموافقة بقدر ما أوحى بمسافة محسوبة تحفظ له مجال التراجع.",
                 "r": "lm ydl smtuh ‘la almwafqa bqdr ma awha bmsafa mhswba thfz lh mjal altraj‘.",
                 "en": "His silence indicated agreement less than it suggested a calculated distance preserving room to retreat."
               },
               {
-                "sp": "Editor",
+                "sp": "المحرّر",
                 "t": "نحتاج إلى السرعة، نعم؛ لكنّ سرعةً بلا مساءلة ليست تقدّمًا بل تأجيلًا للأزمة.",
                 "r": "nhtaj ila alsr‘a، n‘m؛ lkn sr‘aan bla msa’la lyst tqdmana bl tajylana llazma.",
                 "en": "We need speed, yes; but speed without accountability is not progress, only a postponement of crisis."
               },
               {
-                "sp": "Mediator",
+                "sp": "الوسيط",
                 "t": "لم تُنطق العبارة في القاعة، غير أنّ صداها أعاد ترتيب كلّ قرار تلاها.",
                 "r": "lm tuntq al‘bara fy alqa‘a، ghyr an sdaha a‘ad trtyb kl qrar tlaha.",
                 "en": "The phrase was not uttered in the hall, yet its echo reordered every decision that followed."
               },
               {
-                "sp": "Reviewer",
+                "sp": "المراجع",
                 "t": "لا أقصد نقض رأيكم، وإنّما تحديد مداه حتى لا نحمّله ما لا يحتمل.",
                 "r": "la aqsd nqd raykm، winma thdyd mdah hta la nhmlh ma la yhtml.",
                 "en": "I do not intend to refute your view, but to define its scope so that we do not make it bear more than it can."
@@ -620,6 +620,295 @@
                 }
               ]
             }
+          },
+          {
+            "id": "ar-c2-l7",
+            "title": "Implicature: what the text says without saying",
+            "learn": "A C2 reader reads the gap. مؤشّر، دلالة، ضمنياً، يُفهم من — these words let you name the inference and then hold it to account: is the writer telling me, or only letting me think it?",
+            "vocab": [
+              {
+                "t": "يُفهم من",
+                "r": "yufham min",
+                "en": "it is understood from",
+                "pos": "phrase"
+              },
+              {
+                "t": "ضمنياً",
+                "r": "ḍimniyyan",
+                "en": "implicitly",
+                "pos": "adverb"
+              },
+              {
+                "t": "دلالة",
+                "r": "dalāla",
+                "en": "indication, connotation",
+                "pos": "noun"
+              },
+              {
+                "t": "مؤشّر",
+                "r": "muʾashshir",
+                "en": "indicator",
+                "pos": "noun"
+              },
+              {
+                "t": "تلميح",
+                "r": "talmīḥ",
+                "en": "hint, allusion",
+                "pos": "noun"
+              }
+            ],
+            "grammar": {
+              "title": "Naming an inference",
+              "pattern": "yufham min + source + anna… · ḍimniyyan + verb · dalāla ʿalā + noun",
+              "explain": "يُفهم من الفقرة الثالثة أنّ الكاتب يشكّ في الأرقام — لكنّه لم يكتب ذلك صراحة. Naming the inference is not the same as asserting it: keep the frame, mark the degree, and the paragraph stays honest.",
+              "examples": [
+                {
+                  "t": "يُفهم من السياق أنّ القرار كان سياسياً.",
+                  "r": "yufham min al-siyāq anna al-qarār kāna siyāsiyyan.",
+                  "en": "It is understood from the context that the decision was political."
+                },
+                {
+                  "t": "أشار التقرير ضمنياً إلى وجود تأخير.",
+                  "r": "ashāra al-taqrīr ḍimniyyan ilā wujūd taʾkhīr.",
+                  "en": "The report implicitly pointed to a delay."
+                },
+                {
+                  "t": "هذا مؤشّر على تحوّل في الموقف، لا إعلان عنه.",
+                  "r": "hādhā muʾashshir ʿalā taḥawwul fī al-mawqif, lā iʿlān ʿanhu.",
+                  "en": "This is an indicator of a shift in position, not an announcement of one."
+                }
+              ],
+              "mistakes": [
+                {
+                  "wrong": "الكاتب يقول إنّ الأرقام كاذبة.",
+                  "right": "يُفهم من الفقرة أنّ الكاتب يشكّ في الأرقام.",
+                  "why": "Reading a hint and reporting it as a statement is the classic C2 error of over-reading."
+                },
+                {
+                  "wrong": "أشار إلى عن التأخير.",
+                  "right": "أشار إلى التأخير.",
+                  "why": "One preposition: إلى."
+                }
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "القارئ",
+                "t": "هل يقول النصّ إنّ الوزير كذب؟",
+                "r": "hal yaqūl al-naṣṣ inna al-wazīr kadhaba?",
+                "en": "Does the text say the minister lied?"
+              },
+              {
+                "sp": "المحرّر",
+                "t": "لا يقولها صراحة؛ يُفهم من ترتيب الوقائع أنّه يشكّ.",
+                "r": "lā yaqūlahā ṣarāḥatan; yufham min tartīb al-waqāʾiʿ annahu yashukk.",
+                "en": "It does not say it explicitly; from the ordering of events, it is understood that he doubts."
+              },
+              {
+                "sp": "القارئ",
+                "t": "إذاً العنوان تجاوز النصّ.",
+                "r": "idhan al-ʿunwān tajāwaza al-naṣṣ.",
+                "en": "Then the headline went beyond the text."
+              },
+              {
+                "sp": "المحرّر",
+                "t": "تماماً؛ وهذا فرق يُحاسب عليه القارئ المحترف.",
+                "r": "tamāman; wa-hādhā farq yuḥāsab ʿalayhi al-qāriʾ al-muḥtarif.",
+                "en": "Exactly — and that is a difference the professional reader can be held to."
+              }
+            ],
+            "practice": [
+              {
+                "type": "multiple_choice",
+                "q": "Practice 1: [multiple choice] Implicature: what the text says without saying — Choose the meaning of يُفهم من (yufham min) in this lesson.",
+                "answer": "it is understood from",
+                "skill_target": "Arabic: right-to-left script, root-and-pattern reading, case and agreement, formal fuṣḥā versus the spoken register learners actually hear",
+                "options": [
+                  "it is understood from",
+                  "implicitly",
+                  "indication, connotation",
+                  "indicator"
+                ]
+              },
+              {
+                "type": "fill_in_the_blank",
+                "q": "Practice 2: [fill in the blank] Implicature: what the text says without saying — Type the Arabic expression meaning “implicitly”.",
+                "answer": "ضمنياً",
+                "skill_target": "Arabic: right-to-left script, root-and-pattern reading, case and agreement, formal fuṣḥā versus the spoken register learners actually hear"
+              },
+              {
+                "type": "translation",
+                "q": "Practice 3: [translation] Implicature: what the text says without saying — Interpret the Arabic script in context: يُفهم من السياق أنّ القرار كان سياسياً. (yufham min al-siyāq anna al-qarār kāna siyāsiyyan.).",
+                "answer": "It is understood from the context that the decision was political.",
+                "skill_target": "Arabic: right-to-left script, root-and-pattern reading, case and agreement, formal fuṣḥā versus the spoken register learners actually hear"
+              },
+              {
+                "type": "reverse_translation",
+                "q": "Practice 4: [reverse translation] Implicature: what the text says without saying — Write in Arabic script: The report implicitly pointed to a delay..",
+                "answer": "أشار التقرير ضمنياً إلى وجود تأخير.",
+                "skill_target": "Arabic: right-to-left script, root-and-pattern reading, case and agreement, formal fuṣḥā versus the spoken register learners actually hear"
+              },
+              {
+                "type": "matching",
+                "q": "Practice 5: [matching] Implicature: what the text says without saying — Match دلالة to its lesson meaning.",
+                "answer": "indication, connotation",
+                "skill_target": "Arabic: right-to-left script, root-and-pattern reading, case and agreement, formal fuṣḥā versus the spoken register learners actually hear",
+                "options": [
+                  "indication, connotation",
+                  "it is understood from",
+                  "implicitly"
+                ]
+              },
+              {
+                "type": "reorder",
+                "q": "Practice 6: [reorder] Implicature: what the text says without saying — Reconstruct the lesson model in coherent Arabic: This is an indicator of a shift in position, not an announcement of one..",
+                "answer": "هذا مؤشّر على تحوّل في الموقف، لا إعلان عنه.",
+                "skill_target": "Arabic: right-to-left script, root-and-pattern reading, case and agreement, formal fuṣḥā versus the spoken register learners actually hear"
+              },
+              {
+                "type": "sentence_building",
+                "q": "Practice 7: [sentence building] Implicature: what the text says without saying — Build the sentence with the lesson pattern (yufham min + source + anna… · ḍimniyyan + verb · dalāla ʿalā + noun): It is understood from the context that the decision was political..",
+                "answer": "يُفهم من السياق أنّ القرار كان سياسياً.",
+                "skill_target": "Arabic: right-to-left script, root-and-pattern reading, case and agreement, formal fuṣḥā versus the spoken register learners actually hear"
+              },
+              {
+                "type": "word_selection",
+                "q": "Practice 8: [word selection] Implicature: what the text says without saying — Select the Arabic form for “indicator”.",
+                "answer": "مؤشّر",
+                "skill_target": "Arabic: right-to-left script, root-and-pattern reading, case and agreement, formal fuṣḥā versus the spoken register learners actually hear",
+                "options": [
+                  "مؤشّر",
+                  "تلميح"
+                ]
+              },
+              {
+                "type": "error_correction",
+                "q": "Practice 9: [error correction] Implicature: what the text says without saying — Correct the model the lesson warns about: الكاتب يقول إنّ الأرقام كاذبة.",
+                "answer": "يُفهم من الفقرة أنّ الكاتب يشكّ في الأرقام.",
+                "skill_target": "Arabic: right-to-left script, root-and-pattern reading, case and agreement, formal fuṣḥā versus the spoken register learners actually hear"
+              },
+              {
+                "type": "dialogue_completion",
+                "q": "Practice 10: [dialogue completion] Implicature: what the text says without saying — Complete the exchange with the studied response to: Does the text say the minister lied?",
+                "answer": "لا يقولها صراحة؛ يُفهم من ترتيب الوقائع أنّه يشكّ.",
+                "skill_target": "Arabic: right-to-left script, root-and-pattern reading, case and agreement, formal fuṣḥā versus the spoken register learners actually hear"
+              },
+              {
+                "type": "reading_comprehension",
+                "q": "Practice 11: [reading comprehension] Implicature: what the text says without saying — Read “إذاً العنوان تجاوز النصّ.” (idhan al-ʿunwān tajāwaza al-naṣṣ.). What does it mean?",
+                "answer": "Then the headline went beyond the text.",
+                "skill_target": "Arabic: right-to-left script, root-and-pattern reading, case and agreement, formal fuṣḥā versus the spoken register learners actually hear"
+              },
+              {
+                "type": "paragraph_comprehension",
+                "q": "Practice 12: [paragraph comprehension] Implicature: what the text says without saying — Read the lesson dialogue as a whole and give its key move: Exactly — and that is a difference the professional reader can be held to.",
+                "answer": "تماماً؛ وهذا فرق يُحاسب عليه القارئ المحترف.",
+                "skill_target": "Arabic: right-to-left script, root-and-pattern reading, case and agreement, formal fuṣḥā versus the spoken register learners actually hear"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "Which meaning best fits يُفهم من?",
+                "options": [
+                  "it is understood from",
+                  "implicitly",
+                  "indication, connotation",
+                  "indicator"
+                ],
+                "answer": 0,
+                "why": "يُفهم من (yufham min) means it is understood from in this lesson."
+              },
+              {
+                "q": "Which meaning best fits ضمنياً?",
+                "options": [
+                  "implicitly",
+                  "it is understood from",
+                  "indication, connotation",
+                  "indicator"
+                ],
+                "answer": 0,
+                "why": "ضمنياً (ḍimniyyan) means implicitly in this lesson."
+              },
+              {
+                "q": "Which meaning best fits دلالة?",
+                "options": [
+                  "indication, connotation",
+                  "it is understood from",
+                  "implicitly",
+                  "indicator"
+                ],
+                "answer": 0,
+                "why": "دلالة (dalāla) means indication, connotation in this lesson."
+              },
+              {
+                "q": "Which meaning best fits مؤشّر?",
+                "options": [
+                  "indicator",
+                  "it is understood from",
+                  "implicitly",
+                  "indication, connotation"
+                ],
+                "answer": 0,
+                "why": "مؤشّر (muʾashshir) means indicator in this lesson."
+              },
+              {
+                "q": "Which meaning best fits تلميح?",
+                "options": [
+                  "hint, allusion",
+                  "it is understood from",
+                  "implicitly",
+                  "indication, connotation"
+                ],
+                "answer": 0,
+                "why": "تلميح (talmīḥ) means hint, allusion in this lesson."
+              }
+            ],
+            "flashcards": "auto:vocab",
+            "worksheet": {
+              "title": "Inference worksheet",
+              "tasks": [
+                {
+                  "instruction": "Name the inference, keep it an inference.",
+                  "items": [
+                    "The writer repeats 'some sources'. (doubt)",
+                    "The date is never given. (something is hidden)"
+                  ],
+                  "key": [
+                    "يُفهم من تكرار «مصادر» أنّ الكاتب يشكّ في المعلومة",
+                    "غياب التاريخ مؤشّر على أنّ الكاتب يتجنّب الدقة"
+                  ]
+                },
+                {
+                  "instruction": "Correct the over-reading.",
+                  "items": [
+                    "النص يقول إنّ الشركة ستفلس.",
+                    "النص يقول إنّ الوزير غاضب."
+                  ],
+                  "key": [
+                    "يُفهم من النص أنّ الشركة تواجه صعوبات، دون أن يقول بالإفلاس",
+                    "تلميح النص غضب الوزير، دون أن يُصرّح به"
+                  ]
+                },
+                {
+                  "instruction": "Integrated offline practice: read the first model, transform or extend it in Arabic script, then rehearse it as a dialogue. Self-check meaning, grammar, and register.",
+                  "items": [
+                    "يُفهم من السياق أنّ القرار كان سياسياً.",
+                    "هل يقول النصّ إنّ الوزير كذب؟"
+                  ],
+                  "key": [
+                    "It is understood from the context that the decision was political.",
+                    "Does the text say the minister lied?"
+                  ]
+                }
+              ]
+            },
+            "srs_candidates": [
+              "يُفهم من",
+              "ضمنياً",
+              "دلالة",
+              "مؤشّر"
+            ],
+            "srs_policy": "Only these four high-value terms are preselected; lesson mistakes and productive patterns may enter personalized review after an actual error."
           }
         ]
       },
@@ -712,25 +1001,25 @@
             },
             "dialogue": [
               {
-                "sp": "Analyst",
+                "sp": "المحلّل",
                 "t": "نحتاج إلى السرعة، نعم؛ لكنّ سرعةً بلا مساءلة ليست تقدّمًا بل تأجيلًا للأزمة.",
                 "r": "nhtaj ila alsr‘a، n‘m؛ lkn sr‘aan bla msa’la lyst tqdmana bl tajylana llazma.",
                 "en": "We need speed, yes; but speed without accountability is not progress, only a postponement of crisis."
               },
               {
-                "sp": "Editor",
+                "sp": "المحرّر",
                 "t": "لم تُنطق العبارة في القاعة، غير أنّ صداها أعاد ترتيب كلّ قرار تلاها.",
                 "r": "lm tuntq al‘bara fy alqa‘a، ghyr an sdaha a‘ad trtyb kl qrar tlaha.",
                 "en": "The phrase was not uttered in the hall, yet its echo reordered every decision that followed."
               },
               {
-                "sp": "Mediator",
+                "sp": "الوسيط",
                 "t": "لا أقصد نقض رأيكم، وإنّما تحديد مداه حتى لا نحمّله ما لا يحتمل.",
                 "r": "la aqsd nqd raykm، winma thdyd mdah hta la nhmlh ma la yhtml.",
                 "en": "I do not intend to refute your view, but to define its scope so that we do not make it bear more than it can."
               },
               {
-                "sp": "Reviewer",
+                "sp": "المراجع",
                 "t": "في ضوء الشواهد المتاحة، يظلّ هذا تفسيرًا مرجّحًا لا حكمًا قاطعًا.",
                 "r": "fy dw’ alshwahd almtaha، yzl hdha tfsyrana mrjhana la hkmana qat‘ana.",
                 "en": "In light of available evidence, this remains a likely interpretation rather than a categorical judgment."
@@ -1012,25 +1301,25 @@
             },
             "dialogue": [
               {
-                "sp": "Analyst",
+                "sp": "المحلّل",
                 "t": "لم تُنطق العبارة في القاعة، غير أنّ صداها أعاد ترتيب كلّ قرار تلاها.",
                 "r": "lm tuntq al‘bara fy alqa‘a، ghyr an sdaha a‘ad trtyb kl qrar tlaha.",
                 "en": "The phrase was not uttered in the hall, yet its echo reordered every decision that followed."
               },
               {
-                "sp": "Editor",
+                "sp": "المحرّر",
                 "t": "لا أقصد نقض رأيكم، وإنّما تحديد مداه حتى لا نحمّله ما لا يحتمل.",
                 "r": "la aqsd nqd raykm، winma thdyd mdah hta la nhmlh ma la yhtml.",
                 "en": "I do not intend to refute your view, but to define its scope so that we do not make it bear more than it can."
               },
               {
-                "sp": "Mediator",
+                "sp": "الوسيط",
                 "t": "في ضوء الشواهد المتاحة، يظلّ هذا تفسيرًا مرجّحًا لا حكمًا قاطعًا.",
                 "r": "fy dw’ alshwahd almtaha، yzl hdha tfsyrana mrjhana la hkmana qat‘ana.",
                 "en": "In light of available evidence, this remains a likely interpretation rather than a categorical judgment."
               },
               {
-                "sp": "Reviewer",
+                "sp": "المراجع",
                 "t": "لم يكن القرارُ وحده موضعَ الخلل، بل إنّ طريقةَ تنفيذه هي التي غيّرت النتيجة.",
                 "r": "lm ykn alqraru whdh mwd‘a alkhll، bl in tryqaa tnfydhh hy alty ghyrt alntyja.",
                 "en": "The decision alone was not the source of the flaw; rather, the manner of implementation changed the outcome."
@@ -1220,6 +1509,295 @@
                 }
               ]
             }
+          },
+          {
+            "id": "ar-c2-l8",
+            "title": "الطباق والجناس: figures a headline can carry",
+            "learn": "طباق pairs opposites, جناس echoes two roots, سجع closes a line on a matching cadence. A headline can carry one figure and no more; two figures turn it into a slogan, and three into a parody. Judging that line is the C2 edit.",
+            "vocab": [
+              {
+                "t": "طباق",
+                "r": "ṭibāq",
+                "en": "antithesis, paired opposites",
+                "pos": "noun"
+              },
+              {
+                "t": "جناس",
+                "r": "jinās",
+                "en": "paronomasia, a play on similar roots",
+                "pos": "noun"
+              },
+              {
+                "t": "سجع",
+                "r": "sajʿ",
+                "en": "rhymed prose",
+                "pos": "noun"
+              },
+              {
+                "t": "كناية",
+                "r": "kināya",
+                "en": "metonymy, indirect allusion",
+                "pos": "noun"
+              },
+              {
+                "t": "بلاغة",
+                "r": "balāgha",
+                "en": "rhetoric, eloquence",
+                "pos": "noun"
+              }
+            ],
+            "grammar": {
+              "title": "One figure per headline",
+              "pattern": "ṭibāq: X wa-Y (opposites) · jinās: two forms of one root",
+              "explain": "طباق: الحرب والسلام وجهان لقضية واحدة. جناس: من مَلكَ وقتَه مَلكَ أمرَه. The figure frames the argument before the reader has judged it — so an editor asks: does the frame help them think, or decide for them?",
+              "examples": [
+                {
+                  "t": "الغنى والفقر في مدينة واحدة.",
+                  "r": "al-ghinā wa-l-faqr fī madīna wāḥida.",
+                  "en": "Wealth and poverty in one city."
+                },
+                {
+                  "t": "من ملك وقته ملك أمره.",
+                  "r": "man malaka waqtahu malaka amrah.",
+                  "en": "Whoever masters his time masters his affair."
+                },
+                {
+                  "t": "صمتٌ يقول أكثر مما يقول الكلام.",
+                  "r": "ṣamtun yaqūl akthar mimmā yaqūl al-kalām.",
+                  "en": "A silence that says more than speech says."
+                }
+              ],
+              "mistakes": [
+                {
+                  "wrong": "الغنى والفقر والطبقة الوسطى في مدينة.",
+                  "right": "الغنى والفقر في مدينة واحدة.",
+                  "why": "A third term dissolves the pair; طباق needs two poles."
+                },
+                {
+                  "wrong": "من ملك وقته ملك ملكه.",
+                  "right": "من ملك وقته ملك أمره.",
+                  "why": "Repeating one root is جناس only when the meanings differ; otherwise it is a slip."
+                }
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "رئيس التحرير",
+                "t": "ما رأيك في العنوان؟",
+                "r": "mā raʾyuka fī al-ʿunwān?",
+                "en": "What do you think of the headline?"
+              },
+              {
+                "sp": "المحرّر",
+                "t": "فيه طباق قوي: الحرب والسلام.",
+                "r": "fīhi ṭibāq qawī: al-ḥarb wa-l-salām.",
+                "en": "It has a strong antithesis: war and peace."
+              },
+              {
+                "sp": "رئيس التحرير",
+                "t": "لكنّه يوحي بأنّ الخيارين متساويان.",
+                "r": "lākinnahu yūḥī bi-anna al-khiyārayn mutasāwiyān.",
+                "en": "But it suggests the two options are equal."
+              },
+              {
+                "sp": "المحرّر",
+                "t": "إذاً أكسر التوازن: «السلام الذي يشبه الحرب».",
+                "r": "idhan aksir al-tawāzun: al-salām alladhī yushbih al-ḥarb.",
+                "en": "Then I break the balance: 'the peace that resembles war'."
+              }
+            ],
+            "practice": [
+              {
+                "type": "multiple_choice",
+                "q": "Practice 1: [multiple choice] الطباق والجناس: figures a headline can carry — Choose the meaning of طباق (ṭibāq) in this lesson.",
+                "answer": "antithesis, paired opposites",
+                "skill_target": "Arabic: right-to-left script, root-and-pattern reading, case and agreement, formal fuṣḥā versus the spoken register learners actually hear",
+                "options": [
+                  "antithesis, paired opposites",
+                  "paronomasia, a play on similar roots",
+                  "rhymed prose",
+                  "metonymy, indirect allusion"
+                ]
+              },
+              {
+                "type": "fill_in_the_blank",
+                "q": "Practice 2: [fill in the blank] الطباق والجناس: figures a headline can carry — Type the Arabic expression meaning “paronomasia, a play on similar roots”.",
+                "answer": "جناس",
+                "skill_target": "Arabic: right-to-left script, root-and-pattern reading, case and agreement, formal fuṣḥā versus the spoken register learners actually hear"
+              },
+              {
+                "type": "translation",
+                "q": "Practice 3: [translation] الطباق والجناس: figures a headline can carry — Interpret the Arabic script in context: الغنى والفقر في مدينة واحدة. (al-ghinā wa-l-faqr fī madīna wāḥida.).",
+                "answer": "Wealth and poverty in one city.",
+                "skill_target": "Arabic: right-to-left script, root-and-pattern reading, case and agreement, formal fuṣḥā versus the spoken register learners actually hear"
+              },
+              {
+                "type": "reverse_translation",
+                "q": "Practice 4: [reverse translation] الطباق والجناس: figures a headline can carry — Write in Arabic script: Whoever masters his time masters his affair..",
+                "answer": "من ملك وقته ملك أمره.",
+                "skill_target": "Arabic: right-to-left script, root-and-pattern reading, case and agreement, formal fuṣḥā versus the spoken register learners actually hear"
+              },
+              {
+                "type": "matching",
+                "q": "Practice 5: [matching] الطباق والجناس: figures a headline can carry — Match سجع to its lesson meaning.",
+                "answer": "rhymed prose",
+                "skill_target": "Arabic: right-to-left script, root-and-pattern reading, case and agreement, formal fuṣḥā versus the spoken register learners actually hear",
+                "options": [
+                  "rhymed prose",
+                  "antithesis, paired opposites",
+                  "paronomasia, a play on similar roots"
+                ]
+              },
+              {
+                "type": "reorder",
+                "q": "Practice 6: [reorder] الطباق والجناس: figures a headline can carry — Reconstruct the lesson model in coherent Arabic: A silence that says more than speech says..",
+                "answer": "صمتٌ يقول أكثر مما يقول الكلام.",
+                "skill_target": "Arabic: right-to-left script, root-and-pattern reading, case and agreement, formal fuṣḥā versus the spoken register learners actually hear"
+              },
+              {
+                "type": "sentence_building",
+                "q": "Practice 7: [sentence building] الطباق والجناس: figures a headline can carry — Build the sentence with the lesson pattern (ṭibāq: X wa-Y (opposites) · jinās: two forms of one root): Wealth and poverty in one city..",
+                "answer": "الغنى والفقر في مدينة واحدة.",
+                "skill_target": "Arabic: right-to-left script, root-and-pattern reading, case and agreement, formal fuṣḥā versus the spoken register learners actually hear"
+              },
+              {
+                "type": "word_selection",
+                "q": "Practice 8: [word selection] الطباق والجناس: figures a headline can carry — Select the Arabic form for “metonymy, indirect allusion”.",
+                "answer": "كناية",
+                "skill_target": "Arabic: right-to-left script, root-and-pattern reading, case and agreement, formal fuṣḥā versus the spoken register learners actually hear",
+                "options": [
+                  "كناية",
+                  "بلاغة"
+                ]
+              },
+              {
+                "type": "error_correction",
+                "q": "Practice 9: [error correction] الطباق والجناس: figures a headline can carry — Correct the model the lesson warns about: الغنى والفقر والطبقة الوسطى في مدينة.",
+                "answer": "الغنى والفقر في مدينة واحدة.",
+                "skill_target": "Arabic: right-to-left script, root-and-pattern reading, case and agreement, formal fuṣḥā versus the spoken register learners actually hear"
+              },
+              {
+                "type": "dialogue_completion",
+                "q": "Practice 10: [dialogue completion] الطباق والجناس: figures a headline can carry — Complete the exchange with the studied response to: What do you think of the headline?",
+                "answer": "فيه طباق قوي: الحرب والسلام.",
+                "skill_target": "Arabic: right-to-left script, root-and-pattern reading, case and agreement, formal fuṣḥā versus the spoken register learners actually hear"
+              },
+              {
+                "type": "reading_comprehension",
+                "q": "Practice 11: [reading comprehension] الطباق والجناس: figures a headline can carry — Read “لكنّه يوحي بأنّ الخيارين متساويان.” (lākinnahu yūḥī bi-anna al-khiyārayn mutasāwiyān.). What does it mean?",
+                "answer": "But it suggests the two options are equal.",
+                "skill_target": "Arabic: right-to-left script, root-and-pattern reading, case and agreement, formal fuṣḥā versus the spoken register learners actually hear"
+              },
+              {
+                "type": "paragraph_comprehension",
+                "q": "Practice 12: [paragraph comprehension] الطباق والجناس: figures a headline can carry — Read the lesson dialogue as a whole and give its key move: Then I break the balance: 'the peace that resembles war'.",
+                "answer": "إذاً أكسر التوازن: «السلام الذي يشبه الحرب».",
+                "skill_target": "Arabic: right-to-left script, root-and-pattern reading, case and agreement, formal fuṣḥā versus the spoken register learners actually hear"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "Which meaning best fits طباق?",
+                "options": [
+                  "antithesis, paired opposites",
+                  "paronomasia, a play on similar roots",
+                  "rhymed prose",
+                  "metonymy, indirect allusion"
+                ],
+                "answer": 0,
+                "why": "طباق (ṭibāq) means antithesis, paired opposites in this lesson."
+              },
+              {
+                "q": "Which meaning best fits جناس?",
+                "options": [
+                  "paronomasia, a play on similar roots",
+                  "antithesis, paired opposites",
+                  "rhymed prose",
+                  "metonymy, indirect allusion"
+                ],
+                "answer": 0,
+                "why": "جناس (jinās) means paronomasia, a play on similar roots in this lesson."
+              },
+              {
+                "q": "Which meaning best fits سجع?",
+                "options": [
+                  "rhymed prose",
+                  "antithesis, paired opposites",
+                  "paronomasia, a play on similar roots",
+                  "metonymy, indirect allusion"
+                ],
+                "answer": 0,
+                "why": "سجع (sajʿ) means rhymed prose in this lesson."
+              },
+              {
+                "q": "Which meaning best fits كناية?",
+                "options": [
+                  "metonymy, indirect allusion",
+                  "antithesis, paired opposites",
+                  "paronomasia, a play on similar roots",
+                  "rhymed prose"
+                ],
+                "answer": 0,
+                "why": "كناية (kināya) means metonymy, indirect allusion in this lesson."
+              },
+              {
+                "q": "Which meaning best fits بلاغة?",
+                "options": [
+                  "rhetoric, eloquence",
+                  "antithesis, paired opposites",
+                  "paronomasia, a play on similar roots",
+                  "rhymed prose"
+                ],
+                "answer": 0,
+                "why": "بلاغة (balāgha) means rhetoric, eloquence in this lesson."
+              }
+            ],
+            "flashcards": "auto:vocab",
+            "worksheet": {
+              "title": "Figure worksheet",
+              "tasks": [
+                {
+                  "instruction": "Build a طباق line.",
+                  "items": [
+                    "city / silence",
+                    "promise / deadline"
+                  ],
+                  "key": [
+                    "مدينةٌ تتكلّم وصمتٌ يسمع",
+                    "وعدٌ طويل ومهلةٌ قصيرة"
+                  ]
+                },
+                {
+                  "instruction": "Cut from three figures to one.",
+                  "items": [
+                    "سلام وحرب وغنى وفقر.",
+                    "صمت كلام كلام صمت."
+                  ],
+                  "key": [
+                    "سلامٌ يشبه الحرب",
+                    "صمتٌ يتكلّم"
+                  ]
+                },
+                {
+                  "instruction": "Integrated offline practice: read the first model, transform or extend it in Arabic script, then rehearse it as a dialogue. Self-check meaning, grammar, and register.",
+                  "items": [
+                    "الغنى والفقر في مدينة واحدة.",
+                    "ما رأيك في العنوان؟"
+                  ],
+                  "key": [
+                    "Wealth and poverty in one city.",
+                    "What do you think of the headline?"
+                  ]
+                }
+              ]
+            },
+            "srs_candidates": [
+              "طباق",
+              "جناس",
+              "سجع",
+              "كناية"
+            ],
+            "srs_policy": "Only these four high-value terms are preselected; lesson mistakes and productive patterns may enter personalized review after an actual error."
           }
         ]
       },
@@ -1312,25 +1890,25 @@
             },
             "dialogue": [
               {
-                "sp": "Analyst",
+                "sp": "المحلّل",
                 "t": "لا أقصد نقض رأيكم، وإنّما تحديد مداه حتى لا نحمّله ما لا يحتمل.",
                 "r": "la aqsd nqd raykm، winma thdyd mdah hta la nhmlh ma la yhtml.",
                 "en": "I do not intend to refute your view, but to define its scope so that we do not make it bear more than it can."
               },
               {
-                "sp": "Editor",
+                "sp": "المحرّر",
                 "t": "في ضوء الشواهد المتاحة، يظلّ هذا تفسيرًا مرجّحًا لا حكمًا قاطعًا.",
                 "r": "fy dw’ alshwahd almtaha، yzl hdha tfsyrana mrjhana la hkmana qat‘ana.",
                 "en": "In light of available evidence, this remains a likely interpretation rather than a categorical judgment."
               },
               {
-                "sp": "Mediator",
+                "sp": "الوسيط",
                 "t": "لم يكن القرارُ وحده موضعَ الخلل، بل إنّ طريقةَ تنفيذه هي التي غيّرت النتيجة.",
                 "r": "lm ykn alqraru whdh mwd‘a alkhll، bl in tryqaa tnfydhh hy alty ghyrt alntyja.",
                 "en": "The decision alone was not the source of the flaw; rather, the manner of implementation changed the outcome."
               },
               {
-                "sp": "Reviewer",
+                "sp": "المراجع",
                 "t": "لم يدلّ صمتُه على الموافقة بقدر ما أوحى بمسافة محسوبة تحفظ له مجال التراجع.",
                 "r": "lm ydl smtuh ‘la almwafqa bqdr ma awha bmsafa mhswba thfz lh mjal altraj‘.",
                 "en": "His silence indicated agreement less than it suggested a calculated distance preserving room to retreat."
@@ -1604,25 +2182,25 @@
             },
             "dialogue": [
               {
-                "sp": "Analyst",
+                "sp": "المحلّل",
                 "t": "في ضوء الشواهد المتاحة، يظلّ هذا تفسيرًا مرجّحًا لا حكمًا قاطعًا.",
                 "r": "fy dw’ alshwahd almtaha، yzl hdha tfsyrana mrjhana la hkmana qat‘ana.",
                 "en": "In light of available evidence, this remains a likely interpretation rather than a categorical judgment."
               },
               {
-                "sp": "Editor",
+                "sp": "المحرّر",
                 "t": "لم يكن القرارُ وحده موضعَ الخلل، بل إنّ طريقةَ تنفيذه هي التي غيّرت النتيجة.",
                 "r": "lm ykn alqraru whdh mwd‘a alkhll، bl in tryqaa tnfydhh hy alty ghyrt alntyja.",
                 "en": "The decision alone was not the source of the flaw; rather, the manner of implementation changed the outcome."
               },
               {
-                "sp": "Mediator",
+                "sp": "الوسيط",
                 "t": "لم يدلّ صمتُه على الموافقة بقدر ما أوحى بمسافة محسوبة تحفظ له مجال التراجع.",
                 "r": "lm ydl smtuh ‘la almwafqa bqdr ma awha bmsafa mhswba thfz lh mjal altraj‘.",
                 "en": "His silence indicated agreement less than it suggested a calculated distance preserving room to retreat."
               },
               {
-                "sp": "Reviewer",
+                "sp": "المراجع",
                 "t": "نحتاج إلى السرعة، نعم؛ لكنّ سرعةً بلا مساءلة ليست تقدّمًا بل تأجيلًا للأزمة.",
                 "r": "nhtaj ila alsr‘a، n‘m؛ lkn sr‘aan bla msa’la lyst tqdmana bl tajylana llazma.",
                 "en": "We need speed, yes; but speed without accountability is not progress, only a postponement of crisis."
@@ -1815,6 +2393,295 @@
                 }
               ]
             }
+          },
+          {
+            "id": "ar-c2-l9",
+            "title": "Correcting an expert without losing them",
+            "learn": "The last skill is social: you are wrong and the room is watching. Arabic gives you a staircase — نعم، لكن؛ صحيح أنّ… إلا أنّ؛ لستُ أختلف معك في… بل؛ أعيد الصياغة — each step keeping the person's face while moving the claim.",
+            "vocab": [
+              {
+                "t": "استدراك",
+                "r": "istidrāk",
+                "en": "correction, emendation",
+                "pos": "noun"
+              },
+              {
+                "t": "أعيد الصياغة",
+                "r": "uʿīd al-ṣiyāgha",
+                "en": "let me restate",
+                "pos": "phrase"
+              },
+              {
+                "t": "لستُ أختلف معك في",
+                "r": "lastu akhtalif maʿak fī",
+                "en": "I don't disagree with you on",
+                "pos": "phrase"
+              },
+              {
+                "t": "جوهر",
+                "r": "jawhar",
+                "en": "substance, essence",
+                "pos": "noun"
+              },
+              {
+                "t": "تلطّف",
+                "r": "talaṭṭuf",
+                "en": "tact, gentle handling",
+                "pos": "noun"
+              }
+            ],
+            "grammar": {
+              "title": "The correction staircase",
+              "pattern": "nʿam, lākin… → ṣaḥīḥ anna…, illā anna… → lastu akhtalif fī…, bal → uʿīd al-ṣiyāgha",
+              "explain": "لستُ أختلف معك في الهدف، بل في الوسيلة. Start with the shared ground, move by smallest step, and restate the other person's point in their own terms before you touch it — if the restatement is wrong, the disagreement is not yet real.",
+              "examples": [
+                {
+                  "t": "لا أختلف معك في التشخيص، بل في العلاج.",
+                  "r": "lā akhtalif maʿak fī al-tashkhīṣ, bal fī al-ʿilāj.",
+                  "en": "I don't disagree with the diagnosis, but with the treatment."
+                },
+                {
+                  "t": "دعني أُعد صياغة قولك حتى أتأكد أنّني فهمته.",
+                  "r": "daʿnī uʿid ṣiyāghat qawlik ḥattā ataʾakkad annanī fahimtuhu.",
+                  "en": "Let me restate your point to be sure I understood it."
+                },
+                {
+                  "t": "صحيح أنّ الأرقام دقيقة، إلا أنّ تفسيرها محلّ نقاش.",
+                  "r": "ṣaḥīḥ anna al-arqām daqīqa, illā anna tafsīrahā maḥall niqāsh.",
+                  "en": "True, the figures are accurate — but their interpretation is open to debate."
+                }
+              ],
+              "mistakes": [
+                {
+                  "wrong": "أنت مخطئ تماماً.",
+                  "right": "دعني أفهم: تقصد أنّ… هل هذا دقيق؟",
+                  "why": "A flat contradiction forfeits the room; the staircase keeps the claim and the person separate."
+                },
+                {
+                  "wrong": "لا أختلف معك في التشخيص، لكن في العلاج.",
+                  "right": "لا أختلف معك في التشخيص، بل في العلاج.",
+                  "why": "After a negation, the correct contrast is بل, not لكن."
+                }
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "الخبير",
+                "t": "إذاً الحلّ بسيط وواضح.",
+                "r": "idhan al-ḥall basīṭ wa-wāḍiḥ.",
+                "en": "So the solution is simple and clear."
+              },
+              {
+                "sp": "المدير",
+                "t": "دعني أُعد صياغة قولك: ترى أنّ السبب واحد.",
+                "r": "daʿnī uʿid ṣiyāghat qawlik: tarā anna al-sabab wāḥid.",
+                "en": "Let me restate your point: you believe there is one cause."
+              },
+              {
+                "sp": "الخبير",
+                "t": "تماماً.",
+                "r": "tamāman.",
+                "en": "Exactly."
+              },
+              {
+                "sp": "المدير",
+                "t": "لا أختلف معك في تحليلك، بل في أنّه يغطّي كل الحالات.",
+                "r": "lā akhtalif maʿak fī taḥlīlik, bal fī annahu yughaṭṭī kull al-ḥālāt.",
+                "en": "I don't disagree with your analysis, but with whether it covers all cases."
+              }
+            ],
+            "practice": [
+              {
+                "type": "multiple_choice",
+                "q": "Practice 1: [multiple choice] Correcting an expert without losing them — Choose the meaning of استدراك (istidrāk) in this lesson.",
+                "answer": "correction, emendation",
+                "skill_target": "Arabic: right-to-left script, root-and-pattern reading, case and agreement, formal fuṣḥā versus the spoken register learners actually hear",
+                "options": [
+                  "correction, emendation",
+                  "let me restate",
+                  "I don't disagree with you on",
+                  "substance, essence"
+                ]
+              },
+              {
+                "type": "fill_in_the_blank",
+                "q": "Practice 2: [fill in the blank] Correcting an expert without losing them — Type the Arabic expression meaning “let me restate”.",
+                "answer": "أعيد الصياغة",
+                "skill_target": "Arabic: right-to-left script, root-and-pattern reading, case and agreement, formal fuṣḥā versus the spoken register learners actually hear"
+              },
+              {
+                "type": "translation",
+                "q": "Practice 3: [translation] Correcting an expert without losing them — Interpret the Arabic script in context: لا أختلف معك في التشخيص، بل في العلاج. (lā akhtalif maʿak fī al-tashkhīṣ, bal fī al-ʿilāj.).",
+                "answer": "I don't disagree with the diagnosis, but with the treatment.",
+                "skill_target": "Arabic: right-to-left script, root-and-pattern reading, case and agreement, formal fuṣḥā versus the spoken register learners actually hear"
+              },
+              {
+                "type": "reverse_translation",
+                "q": "Practice 4: [reverse translation] Correcting an expert without losing them — Write in Arabic script: Let me restate your point to be sure I understood it..",
+                "answer": "دعني أُعد صياغة قولك حتى أتأكد أنّني فهمته.",
+                "skill_target": "Arabic: right-to-left script, root-and-pattern reading, case and agreement, formal fuṣḥā versus the spoken register learners actually hear"
+              },
+              {
+                "type": "matching",
+                "q": "Practice 5: [matching] Correcting an expert without losing them — Match لستُ أختلف معك في to its lesson meaning.",
+                "answer": "I don't disagree with you on",
+                "skill_target": "Arabic: right-to-left script, root-and-pattern reading, case and agreement, formal fuṣḥā versus the spoken register learners actually hear",
+                "options": [
+                  "I don't disagree with you on",
+                  "correction, emendation",
+                  "let me restate"
+                ]
+              },
+              {
+                "type": "reorder",
+                "q": "Practice 6: [reorder] Correcting an expert without losing them — Reconstruct the lesson model in coherent Arabic: True, the figures are accurate — but their interpretation is open to debate..",
+                "answer": "صحيح أنّ الأرقام دقيقة، إلا أنّ تفسيرها محلّ نقاش.",
+                "skill_target": "Arabic: right-to-left script, root-and-pattern reading, case and agreement, formal fuṣḥā versus the spoken register learners actually hear"
+              },
+              {
+                "type": "sentence_building",
+                "q": "Practice 7: [sentence building] Correcting an expert without losing them — Build the sentence with the lesson pattern (nʿam, lākin… → ṣaḥīḥ anna…, illā anna… → lastu akhtalif fī…, bal → uʿīd al-ṣiyāgha): I don't disagree with the diagnosis, but with the treatment..",
+                "answer": "لا أختلف معك في التشخيص، بل في العلاج.",
+                "skill_target": "Arabic: right-to-left script, root-and-pattern reading, case and agreement, formal fuṣḥā versus the spoken register learners actually hear"
+              },
+              {
+                "type": "word_selection",
+                "q": "Practice 8: [word selection] Correcting an expert without losing them — Select the Arabic form for “substance, essence”.",
+                "answer": "جوهر",
+                "skill_target": "Arabic: right-to-left script, root-and-pattern reading, case and agreement, formal fuṣḥā versus the spoken register learners actually hear",
+                "options": [
+                  "جوهر",
+                  "تلطّف"
+                ]
+              },
+              {
+                "type": "error_correction",
+                "q": "Practice 9: [error correction] Correcting an expert without losing them — Correct the model the lesson warns about: أنت مخطئ تماماً.",
+                "answer": "دعني أفهم: تقصد أنّ… هل هذا دقيق؟",
+                "skill_target": "Arabic: right-to-left script, root-and-pattern reading, case and agreement, formal fuṣḥā versus the spoken register learners actually hear"
+              },
+              {
+                "type": "dialogue_completion",
+                "q": "Practice 10: [dialogue completion] Correcting an expert without losing them — Complete the exchange with the studied response to: So the solution is simple and clear.",
+                "answer": "دعني أُعد صياغة قولك: ترى أنّ السبب واحد.",
+                "skill_target": "Arabic: right-to-left script, root-and-pattern reading, case and agreement, formal fuṣḥā versus the spoken register learners actually hear"
+              },
+              {
+                "type": "reading_comprehension",
+                "q": "Practice 11: [reading comprehension] Correcting an expert without losing them — Read “تماماً.” (tamāman.). What does it mean?",
+                "answer": "Exactly.",
+                "skill_target": "Arabic: right-to-left script, root-and-pattern reading, case and agreement, formal fuṣḥā versus the spoken register learners actually hear"
+              },
+              {
+                "type": "paragraph_comprehension",
+                "q": "Practice 12: [paragraph comprehension] Correcting an expert without losing them — Read the lesson dialogue as a whole and give its key move: I don't disagree with your analysis, but with whether it covers all cases.",
+                "answer": "لا أختلف معك في تحليلك، بل في أنّه يغطّي كل الحالات.",
+                "skill_target": "Arabic: right-to-left script, root-and-pattern reading, case and agreement, formal fuṣḥā versus the spoken register learners actually hear"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "Which meaning best fits استدراك?",
+                "options": [
+                  "correction, emendation",
+                  "let me restate",
+                  "I don't disagree with you on",
+                  "substance, essence"
+                ],
+                "answer": 0,
+                "why": "استدراك (istidrāk) means correction, emendation in this lesson."
+              },
+              {
+                "q": "Which meaning best fits أعيد الصياغة?",
+                "options": [
+                  "let me restate",
+                  "correction, emendation",
+                  "I don't disagree with you on",
+                  "substance, essence"
+                ],
+                "answer": 0,
+                "why": "أعيد الصياغة (uʿīd al-ṣiyāgha) means let me restate in this lesson."
+              },
+              {
+                "q": "Which meaning best fits لستُ أختلف معك في?",
+                "options": [
+                  "I don't disagree with you on",
+                  "correction, emendation",
+                  "let me restate",
+                  "substance, essence"
+                ],
+                "answer": 0,
+                "why": "لستُ أختلف معك في (lastu akhtalif maʿak fī) means I don't disagree with you on in this lesson."
+              },
+              {
+                "q": "Which meaning best fits جوهر?",
+                "options": [
+                  "substance, essence",
+                  "correction, emendation",
+                  "let me restate",
+                  "I don't disagree with you on"
+                ],
+                "answer": 0,
+                "why": "جوهر (jawhar) means substance, essence in this lesson."
+              },
+              {
+                "q": "Which meaning best fits تلطّف?",
+                "options": [
+                  "tact, gentle handling",
+                  "correction, emendation",
+                  "let me restate",
+                  "I don't disagree with you on"
+                ],
+                "answer": 0,
+                "why": "تلطّف (talaṭṭuf) means tact, gentle handling in this lesson."
+              }
+            ],
+            "flashcards": "auto:vocab",
+            "worksheet": {
+              "title": "Correction worksheet",
+              "tasks": [
+                {
+                  "instruction": "Climb the staircase.",
+                  "items": [
+                    "You are wrong about the cost.",
+                    "That number cannot be right."
+                  ],
+                  "key": [
+                    "صحيح أنّ التكلفة محلّ نقاش، إلا أنّ الأرقام تدعم تقديرنا",
+                    "دعني أفهم مصدر الرقم؛ يبدو أنّ هناك فرقاً في التقدير"
+                  ]
+                },
+                {
+                  "instruction": "Separate person from claim.",
+                  "items": [
+                    "He ignores the data.",
+                    "His plan will fail."
+                  ],
+                  "key": [
+                    "لا أختلف معه في قراءة البيانات، بل في وزنها",
+                    "أتفق مع الهدف، وأختلف في توقيت التنفيذ"
+                  ]
+                },
+                {
+                  "instruction": "Integrated offline practice: read the first model, transform or extend it in Arabic script, then rehearse it as a dialogue. Self-check meaning, grammar, and register.",
+                  "items": [
+                    "لا أختلف معك في التشخيص، بل في العلاج.",
+                    "إذاً الحلّ بسيط وواضح."
+                  ],
+                  "key": [
+                    "I don't disagree with the diagnosis, but with the treatment.",
+                    "So the solution is simple and clear."
+                  ]
+                }
+              ]
+            },
+            "srs_candidates": [
+              "استدراك",
+              "أعيد الصياغة",
+              "لستُ أختلف معك في",
+              "جوهر"
+            ],
+            "srs_policy": "Only these four high-value terms are preselected; lesson mistakes and productive patterns may enter personalized review after an actual error."
           }
         ]
       }
@@ -1873,6 +2740,95 @@
           "answer": "Use the Arabic patterns from all six lessons and justify evidence, implication, cohesion, and audience."
         }
       ]
+    },
+    "extra": {
+      "culture": {
+        "text": "Arabic rhetoric names its own figures: جناس (paronomasia, a play on two similar roots), طباق (antithesis, pairing opposites), and سجع (rhymed prose that closes a line with a matching cadence). A C2 reader hears them in a political speech and in a news headline alike. They are not decoration: a speaker who sets up طباق has already framed the argument as a choice between two named things, and the audience is expected to feel it.",
+        "source_url": "https://en.wikipedia.org/wiki/Arabic_poetry"
+      },
+      "reading": {
+        "text": "عاد وفد المفاوضات بخفي حنين، فقد دخل إلى القاعة بوعودٍ عريضة وخرج بشروطٍ أعرج. يرى أنصار الاتفاق أنّ الخروج بأيّ اتفاق أفضل من حربٍ لا يعرف أحدٌ آخر فصولها، بينما يرى خصومه أنّ الذي يُنصف نصف ميزانٍ يظنّ نفسه عادلاً. وبين المطرقة والسندان، يقف المواطن الذي لا يصوّت على الحرب ولا على الصلح، بل يدفع الثمن وحده.",
+        "gloss": "The negotiating delegation returned empty-handed: it entered the hall with broad promises and left with lame terms. Supporters of the agreement believe that coming out with any deal is better than a war whose last chapters no one knows, while its opponents believe that one who does justice by half a scale imagines himself just. Between the hammer and the anvil stands the citizen, who votes on neither war nor reconciliation, but pays the price alone.",
+        "original": true
+      },
+      "listening": {
+        "script": "أ: كيف تقرأ النتائج؟ <br>ب: التقرير صحيحٌ في أرقامه، مضلِّلٌ في ترتيبها.<br>أ: أيّ ترتيب؟<br>ب: قدّم الفصل العاطفي على الجدول الزمني، فصار القارئ يرى الرمز لا السبب.",
+        "gloss": "A: How do you read the findings? B: The report is correct in its numbers, misleading in their ordering. A: Which ordering? B: It put the emotional chapter before the timeline, so the reader sees the symbol and not the cause.",
+        "voice_tag": "ar-SA"
+      },
+      "idioms": [
+        {
+          "t": "بخفي حنين",
+          "literal": "with Hunayn's two sandals",
+          "meaning": "empty-handed after high expectations"
+        },
+        {
+          "t": "بين المطرقة والسندان",
+          "literal": "between the hammer and the anvil",
+          "meaning": "caught with no good option"
+        },
+        {
+          "t": "القشة التي قصمت ظهر البعير",
+          "literal": "the straw that broke the camel's back",
+          "meaning": "the small last burden"
+        },
+        {
+          "t": "صبّ الزيت على النار",
+          "literal": "poured oil on the fire",
+          "meaning": "made a conflict worse"
+        },
+        {
+          "t": "وضع العصا في العجلة",
+          "literal": "put a stick in the wheel",
+          "meaning": "deliberately obstructed"
+        },
+        {
+          "t": "ضرب أخماساً بأسداس",
+          "literal": "multiplied fives into sixes",
+          "meaning": "floundered in confusion"
+        },
+        {
+          "t": "سبق السيف العذل",
+          "literal": "the sword outran the blame",
+          "meaning": "too late for reproach"
+        },
+        {
+          "t": "لا يُلدغ المؤمن من جحر مرتين",
+          "literal": "the believer is not stung from one hole twice",
+          "meaning": "once learned, never again"
+        },
+        {
+          "t": "جاء بقضّه وقضيضه",
+          "literal": "came with his breaking and his crashing",
+          "meaning": "arrived with everything he had"
+        },
+        {
+          "t": "في نهاية المطاف",
+          "literal": "at the end of the path",
+          "meaning": "ultimately, when all is done"
+        }
+      ],
+      "mistakes": [
+        {
+          "wrong": "الفكرة أعمق وأدقّ.",
+          "right": "الفكرة أعمقُ وأدقُّ.",
+          "why": "Comparative adjectives carry the case their position demands; dropping both endings flattens formal prose."
+        },
+        {
+          "wrong": "هذا يثبت أنّ التقرير كاذب.",
+          "right": "هذا يرجّح أنّ التقرير مضلِّل.",
+          "why": "يثبت claims certainty; a single order of presentation supports a suspicion, not a proof."
+        },
+        {
+          "wrong": "الحرب والسلام قضية واحدة.",
+          "right": "الحرب والسلام وجهان لقضية واحدة.",
+          "why": "طباق pairs two named opposites; without a frame (وجهان لـ) the line is a list, not a figure."
+        }
+      ],
+      "task": {
+        "title": "Name the figure, then write it",
+        "instructions": "Take a headline you have seen this week in Arabic. Identify its figure (طباق، جناس، سجع، كناية) in one sentence, then rewrite the headline three ways: with the figure removed, with it doubled, and with it turned against its own argument. Then read all four aloud and keep the one you would actually print."
+      }
     }
   }
 }

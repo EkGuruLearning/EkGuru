@@ -102,25 +102,25 @@
             },
             "dialogue": [
               {
-                "sp": "Analyst",
+                "sp": "Analista",
                 "t": "Los datos indican una tendencia, pero no permiten constatar su causa.",
                 "r": "los datos indikan una tendensia pero no permiten konstatar su kausa",
                 "en": "The data indicate a trend but do not establish its cause."
               },
               {
-                "sp": "Editor",
+                "sp": "Editora",
                 "t": "No parece que la medida haya reducido la desigualdad.",
                 "r": "no parese ke la medida aya redusido la desigualdad",
                 "en": "The measure does not appear to have reduced inequality."
               },
               {
-                "sp": "Colleague",
+                "sp": "Colega",
                 "t": "Cabe señalar que el resultado depende del período analizado.",
                 "r": "kabe senyalar ke el resultado depende del periodo analisado",
                 "en": "It should be noted that the result depends on the period analysed."
               },
               {
-                "sp": "Chair",
+                "sp": "Moderador",
                 "t": "Los datos indican una tendencia, pero no permiten constatar su causa.",
                 "r": "los datos indikan una tendensia pero no permiten konstatar su kausa",
                 "en": "The data indicate a trend but do not establish its cause."
@@ -400,25 +400,25 @@
             },
             "dialogue": [
               {
-                "sp": "Analyst",
+                "sp": "Analista",
                 "t": "La autora sostiene que el cambio es viable; ahora bien, reconoce dos límites.",
                 "r": "la autora sostyene ke el kambyo es vyable aora byen rekonose dos limites",
                 "en": "The author argues that the change is viable; however, she acknowledges two limits."
               },
               {
-                "sp": "Editor",
+                "sp": "Editora",
                 "t": "Dicho planteamiento fue rebatido por falta de evidencia comparable.",
                 "r": "dicho planteamyento fue rebatido por falta de evidensia komparable",
                 "en": "That approach was rebutted for lack of comparable evidence."
               },
               {
-                "sp": "Colleague",
+                "sp": "Colega",
                 "t": "A este respecto, conviene distinguir la objeción del contraargumento.",
                 "r": "a este respecto konvyene distinguir la objesion del kontraargumento",
                 "en": "In this regard, the objection should be distinguished from the counterargument."
               },
               {
-                "sp": "Chair",
+                "sp": "Moderador",
                 "t": "La autora sostiene que el cambio es viable; ahora bien, reconoce dos límites.",
                 "r": "la autora sostyene ke el kambyo es vyable aora byen rekonose dos limites",
                 "en": "The author argues that the change is viable; however, she acknowledges two limits."
@@ -614,6 +614,297 @@
                 }
               ]
             }
+          },
+          {
+            "id": "es-c1-l7",
+            "title": "Atribución sin aval: al parecer, presuntamente, según fuentes",
+            "learn": "Spanish distances a claim with adverbs and frames: AL PARECER, PRESUNTAMENTE, AL PARECER QUE, SEGÚN FUENTES, AL PARECER HABRÍA. The frame says who owns the claim — and the conditional keeps it a report.",
+            "vocab": [
+              {
+                "t": "al parecer",
+                "r": "al pah-reh-SEHR",
+                "en": "apparently",
+                "pos": "phrase"
+              },
+              {
+                "t": "presuntamente",
+                "r": "preh-soon-tah-MEN-teh",
+                "en": "allegedly",
+                "pos": "adverb"
+              },
+              {
+                "t": "según fuentes",
+                "r": "seh-GOON FWEHN-tehs",
+                "en": "according to sources",
+                "pos": "phrase"
+              },
+              {
+                "t": "supuestamente",
+                "r": "soo-pwehs-tah-MEN-teh",
+                "en": "supposedly",
+                "pos": "adverb"
+              },
+              {
+                "t": "la atribución",
+                "r": "lah ah-tree-boo-SYOHN",
+                "en": "attribution",
+                "pos": "noun"
+              }
+            ],
+            "grammar": {
+              "title": "Evidential frames",
+              "pattern": "al parecer + indicative · al parecer, habría + participle · presuntamente + fact",
+              "explain": "Al parecer, el ministro habría dimitido. Presuntamente se pagaron comisiones. The conditional (habría dimitido) labels the news as unconfirmed — dropping it turns the sentence into an assertion.",
+              "examples": [
+                {
+                  "t": "Al parecer, el ministro habría dimitido.",
+                  "r": "al pah-reh-SEHR, el mee-NEES-troh ah-BREE-ah dee-mee-TEE-doh.",
+                  "en": "Apparently the minister has stepped down."
+                },
+                {
+                  "t": "Presuntamente se pagaron comisiones.",
+                  "r": "preh-soon-tah-MEN-teh seh pah-GAH-rohn koh-mee-SYOH-nehs.",
+                  "en": "Commissions were allegedly paid."
+                },
+                {
+                  "t": "Según fuentes del partido, habrá elecciones.",
+                  "r": "seh-GOON FWEHN-tehs del par-TEE-doh, ah-BRAH eh-lek-SYOH-nehs.",
+                  "en": "According to party sources, there will be elections."
+                }
+              ],
+              "mistakes": [
+                {
+                  "wrong": "Al parecer, el ministro dimitió. (unconfirmed)",
+                  "right": "Al parecer, el ministro habría dimitido.",
+                  "why": "The conditional carries the distance."
+                },
+                {
+                  "wrong": "Presuntamente, seguro que fue él.",
+                  "right": "Presuntamente fue él.",
+                  "why": "One evidential per claim; certainty cancels the hedge."
+                }
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "Redactor",
+                "t": "¿Publicamos que dimitió?",
+                "r": "pool-lee-KAH-mohs keh dee-mee-TYOH?",
+                "en": "Do we publish that he resigned?"
+              },
+              {
+                "sp": "Editora",
+                "t": "No. Al parecer habría dimitido — dos fuentes, ninguna oficial.",
+                "r": "noh. al pah-reh-SEHR ah-BREE-ah dee-mee-TEE-doh — dohs FWEHN-tehs, neen-GOO-nah oh-fee-SYAL.",
+                "en": "No. Apparently he has resigned — two sources, none official."
+              },
+              {
+                "sp": "Redactor",
+                "t": "¿Y el titular?",
+                "r": "ee el tee-too-LAR?",
+                "en": "And the headline?"
+              },
+              {
+                "sp": "Editora",
+                "t": "«Al parecer, el ministro habría dimitido» — con la atribución dentro.",
+                "r": "al pah-reh-SEHR, el mee-NEES-troh ah-BREE-ah dee-mee-TEE-doh — kohn lah ah-tree-boo-SYOHN DEN-troh.",
+                "en": "'Apparently the minister has stepped down' — with the attribution inside it."
+              }
+            ],
+            "practice": [
+              {
+                "type": "multiple_choice",
+                "q": "Practice 1: [multiple choice] Atribución sin aval: al parecer, presuntamente, según fuentes — Choose the meaning of al parecer (al pah-reh-SEHR) in this lesson.",
+                "answer": "apparently",
+                "skill_target": "Spanish: verb conjugation across three moods, ser/estar and por/para splits, object-pronoun placement, subjunctive in subordinate clauses, and the tú/usted register decision — measured by choosing the right form before producing the sentence.",
+                "options": [
+                  "apparently",
+                  "allegedly",
+                  "according to sources",
+                  "supposedly"
+                ]
+              },
+              {
+                "type": "fill_in_the_blank",
+                "q": "Practice 2: [fill in the blank] Atribución sin aval: al parecer, presuntamente, según fuentes — Type the Spanish expression meaning “allegedly”.",
+                "answer": "presuntamente",
+                "skill_target": "Spanish: verb conjugation across three moods, ser/estar and por/para splits, object-pronoun placement, subjunctive in subordinate clauses, and the tú/usted register decision — measured by choosing the right form before producing the sentence."
+              },
+              {
+                "type": "translation",
+                "q": "Practice 3: [translation] Atribución sin aval: al parecer, presuntamente, según fuentes — Interpret the Spanish in context: Al parecer, el ministro habría dimitido. (al pah-reh-SEHR, el mee-NEES-troh ah-BREE-ah dee-mee-TEE-doh.).",
+                "answer": "Apparently the minister has stepped down.",
+                "skill_target": "Spanish: verb conjugation across three moods, ser/estar and por/para splits, object-pronoun placement, subjunctive in subordinate clauses, and the tú/usted register decision — measured by choosing the right form before producing the sentence."
+              },
+              {
+                "type": "reverse_translation",
+                "q": "Practice 4: [reverse translation] Atribución sin aval: al parecer, presuntamente, según fuentes — Write in Spanish: Commissions were allegedly paid..",
+                "answer": "Presuntamente se pagaron comisiones.",
+                "skill_target": "Spanish: verb conjugation across three moods, ser/estar and por/para splits, object-pronoun placement, subjunctive in subordinate clauses, and the tú/usted register decision — measured by choosing the right form before producing the sentence."
+              },
+              {
+                "type": "matching",
+                "q": "Practice 5: [matching] Atribución sin aval: al parecer, presuntamente, según fuentes — Match según fuentes to its lesson meaning.",
+                "answer": "according to sources",
+                "skill_target": "Spanish: verb conjugation across three moods, ser/estar and por/para splits, object-pronoun placement, subjunctive in subordinate clauses, and the tú/usted register decision — measured by choosing the right form before producing the sentence.",
+                "options": [
+                  "according to sources",
+                  "apparently",
+                  "allegedly"
+                ]
+              },
+              {
+                "type": "reorder",
+                "q": "Practice 6: [reorder] Atribución sin aval: al parecer, presuntamente, según fuentes — Reconstruct the lesson model in coherent Spanish: According to party sources, there will be elections..",
+                "answer": "Según fuentes del partido, habrá elecciones.",
+                "skill_target": "Spanish: verb conjugation across three moods, ser/estar and por/para splits, object-pronoun placement, subjunctive in subordinate clauses, and the tú/usted register decision — measured by choosing the right form before producing the sentence."
+              },
+              {
+                "type": "sentence_building",
+                "q": "Practice 7: [sentence building] Atribución sin aval: al parecer, presuntamente, según fuentes — Build the sentence with the lesson pattern (al parecer + indicative · al parecer, habría + participle · presuntamente + fact): Apparently the minister has stepped down..",
+                "answer": "Al parecer, el ministro habría dimitido.",
+                "skill_target": "Spanish: verb conjugation across three moods, ser/estar and por/para splits, object-pronoun placement, subjunctive in subordinate clauses, and the tú/usted register decision — measured by choosing the right form before producing the sentence."
+              },
+              {
+                "type": "word_selection",
+                "q": "Practice 8: [word selection] Atribución sin aval: al parecer, presuntamente, según fuentes — Select the Spanish form for “supposedly”.",
+                "answer": "supuestamente",
+                "skill_target": "Spanish: verb conjugation across three moods, ser/estar and por/para splits, object-pronoun placement, subjunctive in subordinate clauses, and the tú/usted register decision — measured by choosing the right form before producing the sentence.",
+                "options": [
+                  "supuestamente",
+                  "la atribución"
+                ]
+              },
+              {
+                "type": "error_correction",
+                "q": "Practice 9: [error correction] Atribución sin aval: al parecer, presuntamente, según fuentes — Correct the model the lesson warns about: Al parecer, el ministro dimitió. (unconfirmed)",
+                "answer": "Al parecer, el ministro habría dimitido.",
+                "skill_target": "Spanish: verb conjugation across three moods, ser/estar and por/para splits, object-pronoun placement, subjunctive in subordinate clauses, and the tú/usted register decision — measured by choosing the right form before producing the sentence."
+              },
+              {
+                "type": "dialogue_completion",
+                "q": "Practice 10: [dialogue completion] Atribución sin aval: al parecer, presuntamente, según fuentes — Complete the exchange with the studied response to: Do we publish that he resigned?",
+                "answer": "No. Al parecer habría dimitido — dos fuentes, ninguna oficial.",
+                "skill_target": "Spanish: verb conjugation across three moods, ser/estar and por/para splits, object-pronoun placement, subjunctive in subordinate clauses, and the tú/usted register decision — measured by choosing the right form before producing the sentence."
+              },
+              {
+                "type": "reading_comprehension",
+                "q": "Practice 11: [reading comprehension] Atribución sin aval: al parecer, presuntamente, según fuentes — Read “¿Y el titular?” (ee el tee-too-LAR?). What does it mean?",
+                "answer": "And the headline?",
+                "skill_target": "Spanish: verb conjugation across three moods, ser/estar and por/para splits, object-pronoun placement, subjunctive in subordinate clauses, and the tú/usted register decision — measured by choosing the right form before producing the sentence."
+              },
+              {
+                "type": "paragraph_comprehension",
+                "q": "Practice 12: [paragraph comprehension] Atribución sin aval: al parecer, presuntamente, según fuentes — Read the lesson dialogue as a whole and give its key move: 'Apparently the minister has stepped down' — with the attribution inside it.",
+                "answer": "«Al parecer, el ministro habría dimitido» — con la atribución dentro.",
+                "skill_target": "Spanish: verb conjugation across three moods, ser/estar and por/para splits, object-pronoun placement, subjunctive in subordinate clauses, and the tú/usted register decision — measured by choosing the right form before producing the sentence."
+              }
+            ],
+            "quiz": [
+              {
+                "q": "Which meaning best fits al parecer?",
+                "options": [
+                  "apparently",
+                  "allegedly",
+                  "according to sources",
+                  "supposedly"
+                ],
+                "answer": 0,
+                "why": "al parecer (al pah-reh-SEHR) means apparently in this lesson."
+              },
+              {
+                "q": "Which meaning best fits presuntamente?",
+                "options": [
+                  "allegedly",
+                  "apparently",
+                  "according to sources",
+                  "supposedly"
+                ],
+                "answer": 0,
+                "why": "presuntamente (preh-soon-tah-MEN-teh) means allegedly in this lesson."
+              },
+              {
+                "q": "Which meaning best fits según fuentes?",
+                "options": [
+                  "according to sources",
+                  "apparently",
+                  "allegedly",
+                  "supposedly"
+                ],
+                "answer": 0,
+                "why": "según fuentes (seh-GOON FWEHN-tehs) means according to sources in this lesson."
+              },
+              {
+                "q": "Which meaning best fits supuestamente?",
+                "options": [
+                  "supposedly",
+                  "apparently",
+                  "allegedly",
+                  "according to sources"
+                ],
+                "answer": 0,
+                "why": "supuestamente (soo-pwehs-tah-MEN-teh) means supposedly in this lesson."
+              },
+              {
+                "q": "Which meaning best fits la atribución?",
+                "options": [
+                  "attribution",
+                  "apparently",
+                  "allegedly",
+                  "according to sources"
+                ],
+                "answer": 0,
+                "why": "la atribución (lah ah-tree-boo-SYOHN) means attribution in this lesson."
+              }
+            ],
+            "flashcards": "auto:vocab",
+            "worksheet": {
+              "title": "Evidential worksheet",
+              "tasks": [
+                {
+                  "instruction": "Put it at arm's length.",
+                  "items": [
+                    "he resigned (unconfirmed)",
+                    "commissions were paid (alleged)",
+                    "there will be elections (sources)"
+                  ],
+                  "key": [
+                    "Al parecer, habría dimitido.",
+                    "Presuntamente se pagaron comisiones.",
+                    "Según fuentes, habrá elecciones."
+                  ]
+                },
+                {
+                  "instruction": "Say what the source is.",
+                  "items": [
+                    "two sources, none official",
+                    "party sources"
+                  ],
+                  "key": [
+                    "dos fuentes, ninguna oficial",
+                    "fuentes del partido"
+                  ]
+                },
+                {
+                  "instruction": "Integrated offline practice: read the first model, transform or extend it in Spanish, then rehearse it as a dialogue. Self-check meaning, grammar, and register.",
+                  "items": [
+                    "Al parecer, el ministro habría dimitido.",
+                    "¿Publicamos que dimitió?"
+                  ],
+                  "key": [
+                    "Apparently the minister has stepped down.",
+                    "Do we publish that he resigned?"
+                  ]
+                }
+              ]
+            },
+            "srs_candidates": [
+              "al parecer",
+              "presuntamente",
+              "según fuentes",
+              "supuestamente"
+            ],
+            "srs_policy": "Only these four high-value terms are preselected; lesson mistakes and productive patterns may enter personalized review after an actual error."
           }
         ]
       },
@@ -702,25 +993,25 @@
             },
             "dialogue": [
               {
-                "sp": "Analyst",
+                "sp": "Analista",
                 "t": "Le agradecería que enviara la versión revisada antes del jueves.",
                 "r": "le agradeseria ke envyara la version revisada antes del jueves",
                 "en": "I would appreciate it if you sent the revised version before Thursday."
               },
               {
-                "sp": "Editor",
+                "sp": "Editora",
                 "t": "Sería conveniente dejar constancia de la discrepancia en el acta.",
                 "r": "seria konvenyente dejar konstansia de la diskrepansia en el akta",
                 "en": "It would be advisable to record the disagreement in the minutes."
               },
               {
-                "sp": "Colleague",
+                "sp": "Colega",
                 "t": "Podríamos aceptar la contrapropuesta siempre que se mantuviera el plazo.",
                 "r": "podriamos aseptar la kontrapropuesta syempre ke se mantuvyera el plaso",
                 "en": "We could accept the counterproposal provided the deadline remained."
               },
               {
-                "sp": "Chair",
+                "sp": "Moderador",
                 "t": "Le agradecería que enviara la versión revisada antes del jueves.",
                 "r": "le agradeseria ke envyara la version revisada antes del jueves",
                 "en": "I would appreciate it if you sent the revised version before Thursday."
@@ -985,25 +1276,25 @@
             },
             "dialogue": [
               {
-                "sp": "Analyst",
+                "sp": "Analista",
                 "t": "La conclusión se limita a la muestra urbana estudiada.",
                 "r": "la konklusion se limita a la muestra urbana estudyada",
                 "en": "The conclusion is limited to the urban sample studied."
               },
               {
-                "sp": "Editor",
+                "sp": "Editora",
                 "t": "La correlación observada no demuestra por sí sola causalidad.",
                 "r": "la korrelasion observada no demuestra por si sola kausalidad",
                 "en": "The observed correlation does not by itself demonstrate causality."
               },
               {
-                "sp": "Colleague",
+                "sp": "Colega",
                 "t": "En otras palabras, aumentó el promedio, no cada uno de los valores.",
                 "r": "en otras palabras aumento el promedyo no kada uno de los valores",
                 "en": "In other words, the average increased, not every value."
               },
               {
-                "sp": "Chair",
+                "sp": "Moderador",
                 "t": "La conclusión se limita a la muestra urbana estudiada.",
                 "r": "la konklusion se limita a la muestra urbana estudyada",
                 "en": "The conclusion is limited to the urban sample studied."
@@ -1201,6 +1492,297 @@
                 }
               ]
             }
+          },
+          {
+            "id": "es-c1-l8",
+            "title": "Causalidad graduada: contribuye a, podría explicar, apunta a que",
+            "learn": "Careful Spanish causal prose grades the link: CONTRIBUYE A (contributes), PODRÍA EXPLICAR (may explain), APUNTA A QUE (points to), NO BASTA PARA (is not enough to). Each verb states how strong the link is.",
+            "vocab": [
+              {
+                "t": "contribuir a",
+                "r": "kohn-tree-BWEER ah",
+                "en": "to contribute to",
+                "pos": "verb"
+              },
+              {
+                "t": "podría explicar",
+                "r": "poh-DREE-ah eks-plee-KAR",
+                "en": "could explain",
+                "pos": "phrase"
+              },
+              {
+                "t": "apuntar a que",
+                "r": "ah-poon-TAR ah keh",
+                "en": "to point to",
+                "pos": "verb"
+              },
+              {
+                "t": "bastar para",
+                "r": "bahs-TAR PAH-rah",
+                "en": "to be enough to",
+                "pos": "verb"
+              },
+              {
+                "t": "la correlación",
+                "r": "lah koh-rreh-lah-SYOHN",
+                "en": "correlation",
+                "pos": "noun"
+              }
+            ],
+            "grammar": {
+              "title": "Calibrated cause",
+              "pattern": "contribuye a · podría explicar · apunta a que · no basta para",
+              "explain": "La demanda contribuye al aumento, pero no basta para explicarlo. The sentence holds a mechanism and its limit in one clause pair — the signature of Spanish academic prose.",
+              "examples": [
+                {
+                  "t": "La sequía podría explicar la subida.",
+                  "r": "lah seh-KEE-ah poh-DREE-ah eks-plee-KAR lah soo-BEE-dah.",
+                  "en": "The drought could explain the rise."
+                },
+                {
+                  "t": "Los datos apuntan a que el mercado se recupera.",
+                  "r": "lohs DAH-tohs ah-POON-tahn ah keh el mer-KAH-doh seh reh-koo-peh-RAH.",
+                  "en": "The data points to the market recovering."
+                },
+                {
+                  "t": "Una correlación no basta para afirmar una causa.",
+                  "r": "OO-nah koh-rreh-lah-SYOHN noh BAHS-tah PAH-rah ah-feer-MAR OO-nah KOW-sah.",
+                  "en": "A correlation is not enough to assert a cause."
+                }
+              ],
+              "mistakes": [
+                {
+                  "wrong": "La sequía explica la subida. (correlation)",
+                  "right": "La sequía podría explicar la subida.",
+                  "why": "podría marks the inference."
+                },
+                {
+                  "wrong": "Los datos apuntan que sube.",
+                  "right": "Los datos apuntan a que sube.",
+                  "why": "apuntar a que needs the preposition."
+                }
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "Ana",
+                "t": "¿Por qué suben los precios?",
+                "r": "por keh SOO-behn lohs PREH-syohs?",
+                "en": "Why are prices rising?"
+              },
+              {
+                "sp": "Analista",
+                "t": "La demanda contribuye, pero no basta para explicarlo.",
+                "r": "lah deh-MAHN-dah kohn-tree-BWEH-yeh, PEH-roh noh BAHS-tah PAH-rah eks-plee-KAR-loh.",
+                "en": "Demand contributes, but it is not enough to explain it."
+              },
+              {
+                "sp": "Ana",
+                "t": "¿Y la energía?",
+                "r": "ee lah eh-ner-HEE-ah?",
+                "en": "And energy?"
+              },
+              {
+                "sp": "Analista",
+                "t": "También apunta a que hay presión — pero es una correlación.",
+                "r": "tahm-BYEHN ah-POON-tah ah keh eye preh-SYOHN — PEH-roh es OO-nah koh-rreh-lah-SYOHN.",
+                "en": "It also points to pressure — but it is a correlation."
+              }
+            ],
+            "practice": [
+              {
+                "type": "multiple_choice",
+                "q": "Practice 1: [multiple choice] Causalidad graduada: contribuye a, podría explicar, apunta a que — Choose the meaning of contribuir a (kohn-tree-BWEER ah) in this lesson.",
+                "answer": "to contribute to",
+                "skill_target": "Spanish: verb conjugation across three moods, ser/estar and por/para splits, object-pronoun placement, subjunctive in subordinate clauses, and the tú/usted register decision — measured by choosing the right form before producing the sentence.",
+                "options": [
+                  "to contribute to",
+                  "could explain",
+                  "to point to",
+                  "to be enough to"
+                ]
+              },
+              {
+                "type": "fill_in_the_blank",
+                "q": "Practice 2: [fill in the blank] Causalidad graduada: contribuye a, podría explicar, apunta a que — Type the Spanish expression meaning “could explain”.",
+                "answer": "podría explicar",
+                "skill_target": "Spanish: verb conjugation across three moods, ser/estar and por/para splits, object-pronoun placement, subjunctive in subordinate clauses, and the tú/usted register decision — measured by choosing the right form before producing the sentence."
+              },
+              {
+                "type": "translation",
+                "q": "Practice 3: [translation] Causalidad graduada: contribuye a, podría explicar, apunta a que — Interpret the Spanish in context: La sequía podría explicar la subida. (lah seh-KEE-ah poh-DREE-ah eks-plee-KAR lah soo-BEE-dah.).",
+                "answer": "The drought could explain the rise.",
+                "skill_target": "Spanish: verb conjugation across three moods, ser/estar and por/para splits, object-pronoun placement, subjunctive in subordinate clauses, and the tú/usted register decision — measured by choosing the right form before producing the sentence."
+              },
+              {
+                "type": "reverse_translation",
+                "q": "Practice 4: [reverse translation] Causalidad graduada: contribuye a, podría explicar, apunta a que — Write in Spanish: The data points to the market recovering..",
+                "answer": "Los datos apuntan a que el mercado se recupera.",
+                "skill_target": "Spanish: verb conjugation across three moods, ser/estar and por/para splits, object-pronoun placement, subjunctive in subordinate clauses, and the tú/usted register decision — measured by choosing the right form before producing the sentence."
+              },
+              {
+                "type": "matching",
+                "q": "Practice 5: [matching] Causalidad graduada: contribuye a, podría explicar, apunta a que — Match apuntar a que to its lesson meaning.",
+                "answer": "to point to",
+                "skill_target": "Spanish: verb conjugation across three moods, ser/estar and por/para splits, object-pronoun placement, subjunctive in subordinate clauses, and the tú/usted register decision — measured by choosing the right form before producing the sentence.",
+                "options": [
+                  "to point to",
+                  "to contribute to",
+                  "could explain"
+                ]
+              },
+              {
+                "type": "reorder",
+                "q": "Practice 6: [reorder] Causalidad graduada: contribuye a, podría explicar, apunta a que — Reconstruct the lesson model in coherent Spanish: A correlation is not enough to assert a cause..",
+                "answer": "Una correlación no basta para afirmar una causa.",
+                "skill_target": "Spanish: verb conjugation across three moods, ser/estar and por/para splits, object-pronoun placement, subjunctive in subordinate clauses, and the tú/usted register decision — measured by choosing the right form before producing the sentence."
+              },
+              {
+                "type": "sentence_building",
+                "q": "Practice 7: [sentence building] Causalidad graduada: contribuye a, podría explicar, apunta a que — Build the sentence with the lesson pattern (contribuye a · podría explicar · apunta a que · no basta para): The drought could explain the rise..",
+                "answer": "La sequía podría explicar la subida.",
+                "skill_target": "Spanish: verb conjugation across three moods, ser/estar and por/para splits, object-pronoun placement, subjunctive in subordinate clauses, and the tú/usted register decision — measured by choosing the right form before producing the sentence."
+              },
+              {
+                "type": "word_selection",
+                "q": "Practice 8: [word selection] Causalidad graduada: contribuye a, podría explicar, apunta a que — Select the Spanish form for “to be enough to”.",
+                "answer": "bastar para",
+                "skill_target": "Spanish: verb conjugation across three moods, ser/estar and por/para splits, object-pronoun placement, subjunctive in subordinate clauses, and the tú/usted register decision — measured by choosing the right form before producing the sentence.",
+                "options": [
+                  "bastar para",
+                  "la correlación"
+                ]
+              },
+              {
+                "type": "error_correction",
+                "q": "Practice 9: [error correction] Causalidad graduada: contribuye a, podría explicar, apunta a que — Correct the model the lesson warns about: La sequía explica la subida. (correlation)",
+                "answer": "La sequía podría explicar la subida.",
+                "skill_target": "Spanish: verb conjugation across three moods, ser/estar and por/para splits, object-pronoun placement, subjunctive in subordinate clauses, and the tú/usted register decision — measured by choosing the right form before producing the sentence."
+              },
+              {
+                "type": "dialogue_completion",
+                "q": "Practice 10: [dialogue completion] Causalidad graduada: contribuye a, podría explicar, apunta a que — Complete the exchange with the studied response to: Why are prices rising?",
+                "answer": "La demanda contribuye, pero no basta para explicarlo.",
+                "skill_target": "Spanish: verb conjugation across three moods, ser/estar and por/para splits, object-pronoun placement, subjunctive in subordinate clauses, and the tú/usted register decision — measured by choosing the right form before producing the sentence."
+              },
+              {
+                "type": "reading_comprehension",
+                "q": "Practice 11: [reading comprehension] Causalidad graduada: contribuye a, podría explicar, apunta a que — Read “¿Y la energía?” (ee lah eh-ner-HEE-ah?). What does it mean?",
+                "answer": "And energy?",
+                "skill_target": "Spanish: verb conjugation across three moods, ser/estar and por/para splits, object-pronoun placement, subjunctive in subordinate clauses, and the tú/usted register decision — measured by choosing the right form before producing the sentence."
+              },
+              {
+                "type": "paragraph_comprehension",
+                "q": "Practice 12: [paragraph comprehension] Causalidad graduada: contribuye a, podría explicar, apunta a que — Read the lesson dialogue as a whole and give its key move: It also points to pressure — but it is a correlation.",
+                "answer": "También apunta a que hay presión — pero es una correlación.",
+                "skill_target": "Spanish: verb conjugation across three moods, ser/estar and por/para splits, object-pronoun placement, subjunctive in subordinate clauses, and the tú/usted register decision — measured by choosing the right form before producing the sentence."
+              }
+            ],
+            "quiz": [
+              {
+                "q": "Which meaning best fits contribuir a?",
+                "options": [
+                  "to contribute to",
+                  "could explain",
+                  "to point to",
+                  "to be enough to"
+                ],
+                "answer": 0,
+                "why": "contribuir a (kohn-tree-BWEER ah) means to contribute to in this lesson."
+              },
+              {
+                "q": "Which meaning best fits podría explicar?",
+                "options": [
+                  "could explain",
+                  "to contribute to",
+                  "to point to",
+                  "to be enough to"
+                ],
+                "answer": 0,
+                "why": "podría explicar (poh-DREE-ah eks-plee-KAR) means could explain in this lesson."
+              },
+              {
+                "q": "Which meaning best fits apuntar a que?",
+                "options": [
+                  "to point to",
+                  "to contribute to",
+                  "could explain",
+                  "to be enough to"
+                ],
+                "answer": 0,
+                "why": "apuntar a que (ah-poon-TAR ah keh) means to point to in this lesson."
+              },
+              {
+                "q": "Which meaning best fits bastar para?",
+                "options": [
+                  "to be enough to",
+                  "to contribute to",
+                  "could explain",
+                  "to point to"
+                ],
+                "answer": 0,
+                "why": "bastar para (bahs-TAR PAH-rah) means to be enough to in this lesson."
+              },
+              {
+                "q": "Which meaning best fits la correlación?",
+                "options": [
+                  "correlation",
+                  "to contribute to",
+                  "could explain",
+                  "to point to"
+                ],
+                "answer": 0,
+                "why": "la correlación (lah koh-rreh-lah-SYOHN) means correlation in this lesson."
+              }
+            ],
+            "flashcards": "auto:vocab",
+            "worksheet": {
+              "title": "Causality worksheet",
+              "tasks": [
+                {
+                  "instruction": "Grade the link.",
+                  "items": [
+                    "could explain",
+                    "contributes to",
+                    "points to"
+                  ],
+                  "key": [
+                    "podría explicar",
+                    "contribuye a",
+                    "apunta a que"
+                  ]
+                },
+                {
+                  "instruction": "State the limit.",
+                  "items": [
+                    "this alone is not enough",
+                    "correlation is not cause"
+                  ],
+                  "key": [
+                    "Esto solo no basta.",
+                    "Una correlación no es una causa."
+                  ]
+                },
+                {
+                  "instruction": "Integrated offline practice: read the first model, transform or extend it in Spanish, then rehearse it as a dialogue. Self-check meaning, grammar, and register.",
+                  "items": [
+                    "La sequía podría explicar la subida.",
+                    "¿Por qué suben los precios?"
+                  ],
+                  "key": [
+                    "The drought could explain the rise.",
+                    "Why are prices rising?"
+                  ]
+                }
+              ]
+            },
+            "srs_candidates": [
+              "contribuir a",
+              "podría explicar",
+              "apuntar a que",
+              "bastar para"
+            ],
+            "srs_policy": "Only these four high-value terms are preselected; lesson mistakes and productive patterns may enter personalized review after an actual error."
           }
         ]
       },
@@ -1289,25 +1871,25 @@
             },
             "dialogue": [
               {
-                "sp": "Analyst",
+                "sp": "Analista",
                 "t": "En gran parte de América, ustedes cubre tanto el plural formal como el familiar.",
                 "r": "en gran parte de amerika ustedes kubre tanto el plural formal komo el familyar",
                 "en": "In much of the Americas, ustedes covers both formal and familiar plural."
               },
               {
-                "sp": "Editor",
+                "sp": "Editora",
                 "t": "El uso de vos es plenamente sistemático en numerosas comunidades.",
                 "r": "el uso de vos es plenamente sistematiko en numerosas komunidades",
                 "en": "The use of vos is fully systematic in numerous communities."
               },
               {
-                "sp": "Colleague",
+                "sp": "Colega",
                 "t": "Una forma regional no es incorrecta, pero puede resultar marcada fuera de su contexto.",
                 "r": "una forma rehyonal no es inkorrekta pero puede resultar markada fuera de su konteksto",
                 "en": "A regional form is not incorrect, but may sound marked outside its context."
               },
               {
-                "sp": "Chair",
+                "sp": "Moderador",
                 "t": "En gran parte de América, ustedes cubre tanto el plural formal como el familiar.",
                 "r": "en gran parte de amerika ustedes kubre tanto el plural formal komo el familyar",
                 "en": "In much of the Americas, ustedes covers both formal and familiar plural."
@@ -1582,25 +2164,25 @@
             },
             "dialogue": [
               {
-                "sp": "Analyst",
+                "sp": "Analista",
                 "t": "Ambos estudios convergen en la dirección del efecto, aunque discrepan sobre su magnitud.",
                 "r": "ambos estudyos konverhen en la direksion del efekto aunke diskrepan sobre su magnitud",
                 "en": "Both studies converge on the direction of the effect, although they disagree on its magnitude."
               },
               {
-                "sp": "Editor",
+                "sp": "Editora",
                 "t": "La síntesis debe conservar las salvedades metodológicas de cada fuente.",
                 "r": "la sintesis debe konserva las salvedades metodolohikas de kada fuente",
                 "en": "The synthesis must preserve each source’s methodological caveats."
               },
               {
-                "sp": "Colleague",
+                "sp": "Colega",
                 "t": "Para el público general, reformularemos el hallazgo sin presentarlo como certeza.",
                 "r": "para el publiko heneral reformularemos el ayasgo sin presentarlo komo sertesa",
                 "en": "For the general public, we will reformulate the finding without presenting it as certainty."
               },
               {
-                "sp": "Chair",
+                "sp": "Moderador",
                 "t": "Ambos estudios convergen en la dirección del efecto, aunque discrepan sobre su magnitud.",
                 "r": "ambos estudyos konverhen en la direksion del efekto aunke diskrepan sobre su magnitud",
                 "en": "Both studies converge on the direction of the effect, although they disagree on its magnitude."
@@ -1786,6 +2368,293 @@
                 }
               ]
             }
+          },
+          {
+            "id": "es-c1-l9",
+            "title": "Síntesis: dos fuentes en un párrafo",
+            "learn": "Synthesis names the sources and then speaks with one voice: SEGÚN EL INSTITUTO …, LA PATRONAL SEÑALA POR SU LADO … — EN LO QUE AMBAS COINCIDEN ES EN QUE … The third sentence is the synthesis.",
+            "vocab": [
+              {
+                "t": "señalar",
+                "r": "seh-nyah-LAR",
+                "en": "to point out",
+                "pos": "verb"
+              },
+              {
+                "t": "por su lado",
+                "r": "por soo LAH-doh",
+                "en": "on its side",
+                "pos": "phrase"
+              },
+              {
+                "t": "coincidir en",
+                "r": "koh-een-see-DEER en",
+                "en": "to agree on",
+                "pos": "verb"
+              },
+              {
+                "t": "el instituto",
+                "r": "el een-stee-TOO-toh",
+                "en": "institute",
+                "pos": "noun"
+              },
+              {
+                "t": "la patronal",
+                "r": "lah pah-troh-NAL",
+                "en": "employers' association",
+                "pos": "noun"
+              }
+            ],
+            "grammar": {
+              "title": "Source sandwich",
+              "pattern": "según A … · B señala por su lado … · en lo que ambos coinciden es en que …",
+              "explain": "Según el instituto, la cifra es estable. La patronal señala por su lado riesgos. En lo que ambos coinciden es en que faltan datos. Three sentences, two positions, one honest conclusion.",
+              "examples": [
+                {
+                  "t": "Según el instituto, la cifra es estable.",
+                  "r": "seh-GOON el een-stee-TOO-toh, lah SEE-frah es es-TAH-bleh.",
+                  "en": "According to the institute the figure is stable."
+                },
+                {
+                  "t": "La patronal señala riesgos por su lado.",
+                  "r": "lah pah-troh-NAL seh-NYAH-lah RYEH-sgohs por soo LAH-doh.",
+                  "en": "The employers' association points to risks on its side."
+                },
+                {
+                  "t": "En lo que ambos coinciden es en que faltan datos.",
+                  "r": "en loh keh AHM-bohs koh-een-SEE-dehn es en keh FAHL-tahn DAH-tohs.",
+                  "en": "What both agree on is that data is missing."
+                }
+              ],
+              "mistakes": [
+                {
+                  "wrong": "Ambos dicen lo mismo, pero lo contrario.",
+                  "right": "Ambos ven cosas distintas y coinciden en el diagnóstico.",
+                  "why": "A synthesis states difference and shared ground; it cannot merge them."
+                },
+                {
+                  "wrong": "Coinciden en que los datos.",
+                  "right": "Coinciden en que faltan datos.",
+                  "why": "The shared point is a clause, not a noun phrase."
+                }
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "Ana",
+                "t": "¿Cómo resumo las dos fuentes?",
+                "r": "KOH-moh reh-SOO-moh lah dohs FWEHN-tehs?",
+                "en": "How do I summarise the two sources?"
+              },
+              {
+                "sp": "Ben",
+                "t": "Primero cada una, después el punto común.",
+                "r": "pree-MEH-roh KAH-dah OO-nah, des-PWEHS el POON-toh koh-MOON.",
+                "en": "First each one, then the common point."
+              },
+              {
+                "sp": "Ana",
+                "t": "«Según el instituto es estable; la patronal señala riesgos…»",
+                "r": "seh-GOON el een-stee-TOO-toh es es-TAH-bleh; lah pah-troh-NAL seh-NYAH-lah RYEH-sgohs…",
+                "en": "'According to the institute it is stable; the employers point to risks…'"
+              },
+              {
+                "sp": "Ben",
+                "t": "…y «en lo que coinciden es en que faltan datos». Perfecto.",
+                "r": "ee en loh keh koh-een-SEE-dehn es en keh FAHL-tahn DAH-tohs. per-FEK-toh.",
+                "en": "…and 'what they agree on is that data is missing'. Perfect."
+              }
+            ],
+            "practice": [
+              {
+                "type": "multiple_choice",
+                "q": "Practice 1: [multiple choice] Síntesis: dos fuentes en un párrafo — Choose the meaning of señalar (seh-nyah-LAR) in this lesson.",
+                "answer": "to point out",
+                "skill_target": "Spanish: verb conjugation across three moods, ser/estar and por/para splits, object-pronoun placement, subjunctive in subordinate clauses, and the tú/usted register decision — measured by choosing the right form before producing the sentence.",
+                "options": [
+                  "to point out",
+                  "on its side",
+                  "to agree on",
+                  "institute"
+                ]
+              },
+              {
+                "type": "fill_in_the_blank",
+                "q": "Practice 2: [fill in the blank] Síntesis: dos fuentes en un párrafo — Type the Spanish expression meaning “on its side”.",
+                "answer": "por su lado",
+                "skill_target": "Spanish: verb conjugation across three moods, ser/estar and por/para splits, object-pronoun placement, subjunctive in subordinate clauses, and the tú/usted register decision — measured by choosing the right form before producing the sentence."
+              },
+              {
+                "type": "translation",
+                "q": "Practice 3: [translation] Síntesis: dos fuentes en un párrafo — Interpret the Spanish in context: Según el instituto, la cifra es estable. (seh-GOON el een-stee-TOO-toh, lah SEE-frah es es-TAH-bleh.).",
+                "answer": "According to the institute the figure is stable.",
+                "skill_target": "Spanish: verb conjugation across three moods, ser/estar and por/para splits, object-pronoun placement, subjunctive in subordinate clauses, and the tú/usted register decision — measured by choosing the right form before producing the sentence."
+              },
+              {
+                "type": "reverse_translation",
+                "q": "Practice 4: [reverse translation] Síntesis: dos fuentes en un párrafo — Write in Spanish: The employers' association points to risks on its side..",
+                "answer": "La patronal señala riesgos por su lado.",
+                "skill_target": "Spanish: verb conjugation across three moods, ser/estar and por/para splits, object-pronoun placement, subjunctive in subordinate clauses, and the tú/usted register decision — measured by choosing the right form before producing the sentence."
+              },
+              {
+                "type": "matching",
+                "q": "Practice 5: [matching] Síntesis: dos fuentes en un párrafo — Match coincidir en to its lesson meaning.",
+                "answer": "to agree on",
+                "skill_target": "Spanish: verb conjugation across three moods, ser/estar and por/para splits, object-pronoun placement, subjunctive in subordinate clauses, and the tú/usted register decision — measured by choosing the right form before producing the sentence.",
+                "options": [
+                  "to agree on",
+                  "to point out",
+                  "on its side"
+                ]
+              },
+              {
+                "type": "reorder",
+                "q": "Practice 6: [reorder] Síntesis: dos fuentes en un párrafo — Reconstruct the lesson model in coherent Spanish: What both agree on is that data is missing..",
+                "answer": "En lo que ambos coinciden es en que faltan datos.",
+                "skill_target": "Spanish: verb conjugation across three moods, ser/estar and por/para splits, object-pronoun placement, subjunctive in subordinate clauses, and the tú/usted register decision — measured by choosing the right form before producing the sentence."
+              },
+              {
+                "type": "sentence_building",
+                "q": "Practice 7: [sentence building] Síntesis: dos fuentes en un párrafo — Build the sentence with the lesson pattern (según A … · B señala por su lado … · en lo que ambos coinciden es en que …): According to the institute the figure is stable..",
+                "answer": "Según el instituto, la cifra es estable.",
+                "skill_target": "Spanish: verb conjugation across three moods, ser/estar and por/para splits, object-pronoun placement, subjunctive in subordinate clauses, and the tú/usted register decision — measured by choosing the right form before producing the sentence."
+              },
+              {
+                "type": "word_selection",
+                "q": "Practice 8: [word selection] Síntesis: dos fuentes en un párrafo — Select the Spanish form for “institute”.",
+                "answer": "el instituto",
+                "skill_target": "Spanish: verb conjugation across three moods, ser/estar and por/para splits, object-pronoun placement, subjunctive in subordinate clauses, and the tú/usted register decision — measured by choosing the right form before producing the sentence.",
+                "options": [
+                  "el instituto",
+                  "la patronal"
+                ]
+              },
+              {
+                "type": "error_correction",
+                "q": "Practice 9: [error correction] Síntesis: dos fuentes en un párrafo — Correct the model the lesson warns about: Ambos dicen lo mismo, pero lo contrario.",
+                "answer": "Ambos ven cosas distintas y coinciden en el diagnóstico.",
+                "skill_target": "Spanish: verb conjugation across three moods, ser/estar and por/para splits, object-pronoun placement, subjunctive in subordinate clauses, and the tú/usted register decision — measured by choosing the right form before producing the sentence."
+              },
+              {
+                "type": "dialogue_completion",
+                "q": "Practice 10: [dialogue completion] Síntesis: dos fuentes en un párrafo — Complete the exchange with the studied response to: How do I summarise the two sources?",
+                "answer": "Primero cada una, después el punto común.",
+                "skill_target": "Spanish: verb conjugation across three moods, ser/estar and por/para splits, object-pronoun placement, subjunctive in subordinate clauses, and the tú/usted register decision — measured by choosing the right form before producing the sentence."
+              },
+              {
+                "type": "reading_comprehension",
+                "q": "Practice 11: [reading comprehension] Síntesis: dos fuentes en un párrafo — Read “«Según el instituto es estable; la patronal señala riesgos…»” (seh-GOON el een-stee-TOO-toh es es-TAH-bleh; lah pah-troh-NAL seh-NYAH-lah RYEH-sgohs…). What does it mean?",
+                "answer": "'According to the institute it is stable; the employers point to risks…'",
+                "skill_target": "Spanish: verb conjugation across three moods, ser/estar and por/para splits, object-pronoun placement, subjunctive in subordinate clauses, and the tú/usted register decision — measured by choosing the right form before producing the sentence."
+              },
+              {
+                "type": "paragraph_comprehension",
+                "q": "Practice 12: [paragraph comprehension] Síntesis: dos fuentes en un párrafo — Read the lesson dialogue as a whole and give its key move: …and 'what they agree on is that data is missing'. Perfect.",
+                "answer": "…y «en lo que coinciden es en que faltan datos». Perfecto.",
+                "skill_target": "Spanish: verb conjugation across three moods, ser/estar and por/para splits, object-pronoun placement, subjunctive in subordinate clauses, and the tú/usted register decision — measured by choosing the right form before producing the sentence."
+              }
+            ],
+            "quiz": [
+              {
+                "q": "Which meaning best fits señalar?",
+                "options": [
+                  "to point out",
+                  "on its side",
+                  "to agree on",
+                  "institute"
+                ],
+                "answer": 0,
+                "why": "señalar (seh-nyah-LAR) means to point out in this lesson."
+              },
+              {
+                "q": "Which meaning best fits por su lado?",
+                "options": [
+                  "on its side",
+                  "to point out",
+                  "to agree on",
+                  "institute"
+                ],
+                "answer": 0,
+                "why": "por su lado (por soo LAH-doh) means on its side in this lesson."
+              },
+              {
+                "q": "Which meaning best fits coincidir en?",
+                "options": [
+                  "to agree on",
+                  "to point out",
+                  "on its side",
+                  "institute"
+                ],
+                "answer": 0,
+                "why": "coincidir en (koh-een-see-DEER en) means to agree on in this lesson."
+              },
+              {
+                "q": "Which meaning best fits el instituto?",
+                "options": [
+                  "institute",
+                  "to point out",
+                  "on its side",
+                  "to agree on"
+                ],
+                "answer": 0,
+                "why": "el instituto (el een-stee-TOO-toh) means institute in this lesson."
+              },
+              {
+                "q": "Which meaning best fits la patronal?",
+                "options": [
+                  "employers' association",
+                  "to point out",
+                  "on its side",
+                  "to agree on"
+                ],
+                "answer": 0,
+                "why": "la patronal (lah pah-troh-NAL) means employers' association in this lesson."
+              }
+            ],
+            "flashcards": "auto:vocab",
+            "worksheet": {
+              "title": "Synthesis worksheet",
+              "tasks": [
+                {
+                  "instruction": "Line the sources up.",
+                  "items": [
+                    "according to the institute",
+                    "the association, on its side"
+                  ],
+                  "key": [
+                    "según el instituto",
+                    "la patronal, por su lado"
+                  ]
+                },
+                {
+                  "instruction": "Write the synthesis.",
+                  "items": [
+                    "what both agree on"
+                  ],
+                  "key": [
+                    "En lo que ambos coinciden es en que …"
+                  ]
+                },
+                {
+                  "instruction": "Integrated offline practice: read the first model, transform or extend it in Spanish, then rehearse it as a dialogue. Self-check meaning, grammar, and register.",
+                  "items": [
+                    "Según el instituto, la cifra es estable.",
+                    "¿Cómo resumo las dos fuentes?"
+                  ],
+                  "key": [
+                    "According to the institute the figure is stable.",
+                    "How do I summarise the two sources?"
+                  ]
+                }
+              ]
+            },
+            "srs_candidates": [
+              "señalar",
+              "por su lado",
+              "coincidir en",
+              "el instituto"
+            ],
+            "srs_policy": "Only these four high-value terms are preselected; lesson mistakes and productive patterns may enter personalized review after an actual error."
           }
         ]
       }
@@ -1853,6 +2722,95 @@
           ]
         }
       ]
+    },
+    "extra": {
+      "culture": {
+        "text": "Spanish bureaucratic prose runs on the passive-reflexive and on nominalisation: «se procederá a la revisión de las solicitudes presentadas en plazo». It is not decoration; it is how the administration compresses a procedure into something that can be referenced later. C1 is the level where you learn to read it without parsing twice — and to rewrite it as a sentence with a subject when a human has to act on it.",
+        "source_url": "https://en.wikipedia.org/wiki/Spanish_grammar"
+      },
+      "reading": {
+        "text": "«Se procederá a la revisión de las solicitudes presentadas en plazo», dice la resolución. La frase contiene dos acciones dentro de dos sustantivos y ningún responsable. Quien la traduce a lenguaje claro escribe: «Vamos a revisar las solicitudes que llegaron a tiempo.» El mismo contenido, un tercio de las palabras y un sujeto. Esa traducción es el trabajo de C1.",
+        "gloss": "'The review of applications submitted on time will be proceeded with,' says the resolution. The sentence contains two actions inside two nouns and no one responsible. Anyone who translates it into plain language writes: 'We are going to review the applications that arrived on time.' The same content, a third of the words and a subject. That translation is the work of C1.",
+        "original": true
+      },
+      "listening": {
+        "script": "Funcionario: Se denegó la solicitud porque no se aportó la documentación.<br>Ciudadana: ¿Puede decirlo de otra manera?<br>Funcionario: Sí: faltaba un papel y por eso no la aceptamos.<br>Ciudadana: Gracias — así se entiende.",
+        "gloss": "Officer: The application was refused because the documentation was not provided. Citizen: Can you say it another way? Officer: Yes: a paper was missing and that is why we did not accept it. Citizen: Thanks — that way it is understandable.",
+        "voice_tag": "es-ES"
+      },
+      "idioms": [
+        {
+          "t": "A grandes rasgos",
+          "literal": "at large strokes",
+          "meaning": "broadly speaking"
+        },
+        {
+          "t": "En aras de",
+          "literal": "in the interests of",
+          "meaning": "for the sake of"
+        },
+        {
+          "t": "Sentar precedente",
+          "literal": "to set precedent",
+          "meaning": "to set a precedent"
+        },
+        {
+          "t": "A la vista de",
+          "literal": "in view of",
+          "meaning": "in view of"
+        },
+        {
+          "t": "No obstante",
+          "literal": "not obstructing",
+          "meaning": "nevertheless"
+        },
+        {
+          "t": "En su caso",
+          "literal": "in its case",
+          "meaning": "where applicable"
+        },
+        {
+          "t": "De cara a",
+          "literal": "facing",
+          "meaning": "with a view to"
+        },
+        {
+          "t": "De ahí que",
+          "literal": "from there that",
+          "meaning": "hence"
+        },
+        {
+          "t": "Cabe señalar",
+          "literal": "it fits to point out",
+          "meaning": "it should be noted"
+        },
+        {
+          "t": "A efectos de",
+          "literal": "to the effects of",
+          "meaning": "for the purposes of"
+        }
+      ],
+      "mistakes": [
+        {
+          "wrong": "Se procederá a revisar las solicitudes, y se procederá a decidir después.",
+          "right": "Se revisarán las solicitudes y se decidirá después.",
+          "why": "Two nominalisations of the same verb are a draft problem, not a register."
+        },
+        {
+          "wrong": "El informe fue redactado por mí mismo ayer por la tarde.",
+          "right": "El informe lo redacté yo ayer por la tarde.",
+          "why": "Spanish turns a stiff passive into an active sentence with a pronoun."
+        },
+        {
+          "wrong": "Cabe señalar que es necesario que se debe de revisar.",
+          "right": "Cabe señalar que conviene revisarlo.",
+          "why": "Stacked periphrases; one modal is enough."
+        }
+      ],
+      "task": {
+        "title": "Un-nominalise one paragraph",
+        "instructions": "Find one paragraph of Spanish administrative or academic prose — a form letter, a handbook page, an abstract — and rewrite it twice: once with the verbs restored and one subject per sentence, once for a reader who has ninety seconds. Then put the original and both versions side by side and mark the nouns that turned back into verbs. That list is the C1 vocabulary."
+      }
     }
   }
 }
