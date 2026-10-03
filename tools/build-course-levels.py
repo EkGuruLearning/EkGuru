@@ -403,6 +403,90 @@ def worksheet_block(ws):
             + "</tbody></table></div>") % _clean((ws or {}).get("title", ""))
 
 
+def extra_block(ex, name, level, lang="und"):
+    """The `extra` block of a course file, rendered.
+
+    `level.extra` is required by the schema (culture, reading, listening,
+    idioms, mistakes, task) but nothing on the site read it until PHASE 1, so
+    the data could not be seen by a reader. Every part is optional here: a
+    course file that predates the block simply renders nothing.
+    """
+    if not isinstance(ex, dict):
+        return ""
+    out = []
+    culture = ex.get("culture") or {}
+    reading = ex.get("reading") or {}
+    listening = ex.get("listening") or {}
+    idioms = ex.get("idioms") or []
+    mistakes = ex.get("mistakes") or []
+    task = ex.get("task") or {}
+    if not any((culture.get("text"), reading.get("text"), listening.get("script"),
+                idioms, mistakes, task.get("instructions"))):
+        return ""
+    out.append('<h2 id="extra">%s %s beyond the drills — culture, reading, listening, idioms</h2>'
+               % (_clean(name), _clean(level)))
+    out.append('<p class="note">These sections are written for %s %s specifically. The reading text '
+               "is EkGuru's own; the culture note cites where its facts come from; the idioms and "
+               "the mistakes list are the ones this level actually trips over.</p>"
+               % (_clean(name), _clean(level)))
+    if culture.get("text"):
+        out.append("<h3>Culture note</h3>")
+        out.append("<p>%s</p>" % _clean(culture["text"]))
+        url = str(culture.get("source_url") or "")
+        if url.startswith("http"):
+            # The public surface is closed to outbound hosts outside the
+            # calibrated allowlist (tools/test-no-competitor-attribution.js),
+            # so the source is named, not linked. The URL stays in the course
+            # data as provenance.
+            tail = url.split("//", 1)[-1]
+            host = tail.split("/", 1)[0].removeprefix("www.")
+            slug = tail.split("/wiki/", 1)[-1].replace("_", " ") if "/wiki/" in tail else ""
+            name = "%s%s" % (host, (", the article “%s”" % slug) if slug else "")
+            out.append('<p class="note">Source (named, not linked): %s.</p>' % _clean(name))
+    if reading.get("text"):
+        out.append("<h3>Reading — read this aloud, slowly</h3>")
+        out.append('<div class="lv-read"><p lang="%s" dir="auto">%s</p></div>'
+                   % (_clean(lang), _clean(reading["text"])))
+        if reading.get("gloss"):
+            out.append('<p class="note" lang="en"><b>What it says:</b> %s</p>' % _clean(reading["gloss"]))
+    if listening.get("script"):
+        out.append("<h3>Listening — one voice, one text</h3>")
+        out.append('<p class="note">Read by the voice pack tagged <code>%s</code>; with the voice '
+                   "layer on, this text is spoken. With it off, read it aloud yourself — the "
+                   "rhythm is the point.</p>" % _clean(listening.get("voice_tag", "")))
+        script = _clean(listening["script"]).replace("\n", "<br>")
+        out.append('<div class="lv-listen"><p lang="%s" dir="auto">%s</p></div>'
+                   % (_clean(lang), script))
+        if listening.get("gloss"):
+            out.append('<p class="note" lang="en"><b>What it says:</b> %s</p>'
+                       % _clean(listening["gloss"]).replace("\n", "<br>"))
+    if idioms:
+        out.append("<h3>%d idioms and fixed phrases</h3>" % len(idioms))
+        rows = []
+        for it in idioms:
+            rows.append('<tr><td data-h="Idiom" lang="%s" dir="auto"><b>%s</b></td>'
+                        '<td data-h="Word for word">%s</td><td data-h="What it means">%s</td></tr>'
+                        % (_clean(lang), _clean(it.get("t", "")), _clean(it.get("literal", "")),
+                           _clean(it.get("meaning", ""))))
+        out.append('<div class="lv-wrap"><table><thead><tr><th>Idiom</th><th>Word for word</th>'
+                   "<th>What it means</th></tr></thead><tbody>" + "".join(rows) + "</tbody></table></div>")
+    if mistakes:
+        out.append("<h3>The %d mistakes this level makes</h3>" % len(mistakes))
+        items = []
+        for m in mistakes:
+            if isinstance(m, dict):
+                items.append("<li><b>%s</b> → %s%s</li>"
+                             % (_clean(m.get("wrong", "")), _clean(m.get("right", "")),
+                                (" <span class=\"muted\">%s</span>" % _clean(m["why"])) if m.get("why") else ""))
+            else:
+                items.append("<li>%s</li>" % _clean(m))
+        out.append('<ul class="lv-mistakes">%s</ul>' % "".join(items))
+    if task.get("instructions"):
+        out.append("<h3>Your task</h3>")
+        out.append("<p><b>%s</b> %s</p>" % (_clean(task.get("title", "Task")), _clean(task["instructions"])))
+    return "".join(out)
+
+
 def drills_for(lesson, name):
     """Two asks per word — recognition and production. Re-ordering, not authoring."""
     out = []
@@ -655,6 +739,8 @@ def level_page(code, course, level, data, rungmap, figs, levels):
                        if level in levels and levels.index(level) < len(levels) - 1
                        else "the next level"))
         body.append('<ol class="test">%s</ol>' % "".join(practice_item(i, k) for k, i in enumerate(test)))
+
+    body.append(extra_block(lv.get("extra"), name, level))
 
     nxt = NEXT_RUNG.get(level, "")
     nxt_rung = rungmap.get(nxt) if nxt else None

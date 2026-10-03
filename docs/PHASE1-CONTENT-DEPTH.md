@@ -48,9 +48,16 @@ python3 tools/audit-phase1-gap.py            # report
 python3 tools/audit-phase1-gap.py --check    # exit 1 while gaps remain
 ```
 
-2026-10-03: **90 rung files to author · 108 rung(s) missing `extra` · 108
-unit(s) short of the 3rd lesson**, spread evenly (5 rungs / 6 extras / 6 short
-units per language).
+2026-10-03 (start): **90 rung files to author · 108 rung(s) missing `extra` ·
+108 unit(s) short of the 3rd lesson**, spread evenly (5 rungs / 6 extras / 6
+short units per language).
+
+2026-10-03 (after the Hindi pilot): **90 rung files · 102 `extra` blocks · 108
+short units**. Hindi's six CEFR rungs now carry the block:
+`tools/author-hindi-levels.py` holds the authored content, and
+`tools/build-course-levels.py` renders it (`extra_block()`), which the page
+builder did not do before — until this change no course file carried `extra` and
+no tool read it, so the schema had required a block that could not be seen.
 
 ## Acceptance (from the command doc)
 
@@ -67,6 +74,28 @@ already flags five languages with `unique_text_below_85` for exactly that. A
 generated file that satisfies the schema but repeats another language's
 sentences is not a PHASE 1 completion — see PART F (golden rules) and the
 "no templated intros" gate.
+
+## What the pilot settled
+
+- The `extra` block renders as a real page section: culture note (source **named,
+  not linked** — the public surface is closed to outbound hosts outside the
+  calibrated allowlist in `tools/test-no-competitor-attribution.js`), an
+  original reading text with a plain-English gloss, a listening script tagged
+  `hi-IN`, ten idioms, the level's own mistakes, and a task.
+- Level-page word counts rose by roughly 600 words each: Hindi A1 6,799 →
+  7,310, B2 7,149 → 7,814, C2 10,401 → 10,768.
+- The language gate's `t1:extra_content_missing` reason is gone for Hindi.
+- Level pages are regenerated with **docs/REGENERATING-LEVEL-PAGES.md**, not the
+  course recipe: `apply-ultra --strip` → `build-course-levels` → `inject-ads` →
+  `build-legacy-pages` (before the shell) → `build-page-layer` → `build-shell` →
+  `dedupe-script-tags` → `apply-ultra`, then the copy-index window and
+  `update-editorial-metadata`, then `git checkout -- 'languages/*/level/index.html'`
+  for the 18 known `twitter:title` ladder pages. Running `build-course-levels`
+  twice, or without `build-legacy-pages`, silently drops the shell or the
+  `pw-bands`.
+- After any `data/courses/**` change, `data/quality/language-gate.json` must be
+  regenerated (`python3 tools/language-gate.py`) or `build-all.py check` stops on
+  the stale gate report.
 
 ## Work order
 
