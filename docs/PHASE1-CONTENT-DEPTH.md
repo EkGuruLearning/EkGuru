@@ -78,6 +78,12 @@ only, `unique_text_ratio` 0.976 and `script_mismatch` 0 against 0.85 and 0 for t
 flags. Two defects surfaced while authoring it and were fixed rather than worked
 around: the English speaker labels (see the fifth trap below) and a script range
 too narrow to recognise Korean stem patterns (`tools/lib/text.py`, sixth trap).
+Marathi's dialogue roles were localised in the same pass — 144 `sp` labels and
+the ten practice prompts that referenced them — with `tools/localise-speaker-labels.py`,
+which carries the role map for the courses that shipped English labels. That
+clears mr from the audit's English-label count (452 to 308: pa 48 · ta 104 ·
+te 128 · ur 28 remain, each until its own authoring pass).
+
 The modules are `tools/depth-content/{ar,bn,de,es,fr,gu,it,ja,ko}.py`; the five
 half-step rungs of ko pick their own themes — a day and a call, bank and phone
 shop, CV and interview, contract and negotiation, synthesis and citation — so

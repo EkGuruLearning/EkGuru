@@ -298,8 +298,8 @@ EXTRAS["C2"] = EXTRA(
                    "quotes in order to contradict. Whoever does not hear the allusion reads only a "
                    "claim. Whoever hears it reads a movement: first the borrowed formula, then its "
                    "reversal, then the reasoning."),
-    listening=("Autorin: Ihr Text zitiert Goethe und widerspricht ihm.<br>Interviewer: Ist das nicht riskant?<br>"
-               "Autorin: Nein — nur wenn man den Satz nur noch als Zitat liest.<br>Interviewer: Also rechnen Sie mit Lesern, die ihn kennen."),
+    listening=("Autorin: Ihr Text zitiert Goethe und widerspricht ihm.<br>Interviewerin: Ist das nicht riskant?<br>"
+               "Autorin: Nein — nur wenn man den Satz nur noch als Zitat liest.<br>Interviewerin: Also rechnen Sie mit Lesern, die ihn kennen."),
     listening_gloss=("Author: Your text quotes Goethe and contradicts him. Interviewer: Isn't that "
                      "risky? Author: No — only if one still reads the sentence merely as a "
                      "quotation. Interviewer: So you count on readers who know it."),
@@ -805,9 +805,9 @@ THIRD["C2"] = [
            X("Diese Voraussetzung weise ich zurück.", "DEE-zuh fohr-OWS-zeh-tsoong VY-zuh ikh tsoo-REWK.", "I reject that presupposition.")],
           [("Warum haben Sie das ignoriert?", "Warum sollten Sie das ignorieren? — or name the presupposition first.", "The question smuggles in the answer; in argument one must break the frame before answering."),
            ("Der Satz impliziert, dass es so war.", "Der Satz legt nahe, dass es so war.", "legen nahe states an implication without asserting it — implizieren claims a logical link that must then be defended.")]),
-        [D("Interviewer", "Warum haben Sie die Regel ignoriert?", "var-OOM HAH-ben zee dee RAY-gel i-gno-REERT?", "Why did you ignore the rule?"),
+        [D("Interviewerin", "Warum haben Sie die Regel ignoriert?", "var-OOM HAH-ben zee dee RAY-gel i-gno-REERT?", "Why did you ignore the rule?"),
          D("Sprecherin", "Diese Frage unterstellt, dass ich sie ignoriert habe.", "DEE-zuh FRAH-guh OON-ter-shtelt, das ikh zee i-gno-REERT HAH-buh.", "That question presupposes that I ignored it."),
-         D("Interviewer", "Haben Sie denn nicht?", "HAH-ben zee den nikht?", "Didn't you?"),
+         D("Interviewerin", "Haben Sie denn nicht?", "HAH-ben zee den nikht?", "Didn't you?"),
          D("Sprecherin", "Der Vorgang ist ungeklärt. Bevor ich antworte, klären wir das.", "dair FOHR-gang ist OON-ge-klairt. beh-FOHR ikh ANT-vor-tuh, KLAY-ren veer das.", "The matter is unresolved. Before I answer, we settle that.")],
         WS("Presupposition worksheet", [
             T("Name what is assumed.", ["the question presupposes that everyone knew", "the sentence implies a breach"],
