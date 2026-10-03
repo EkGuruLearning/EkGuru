@@ -22,6 +22,7 @@ Run: python3 tools/build-world-course.py            # all data modules
      python3 tools/build-world-course.py fr       # one language only (manifest keeps ALL)
 """
 import importlib.util, json, os, sys, time, glob
+from lib.speech_tags import speech_tag   # canonical BCP-47 tags
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 os.chdir(ROOT)
@@ -59,7 +60,7 @@ def cfg_of(m):
         "code": code,
         "name": c["name"],
         "native": c.get("native", c["name"]),
-        "speech": c.get("speechTag", code + "-" + code.upper()),
+        "speech": c.get("speechTag") or speech_tag(code),
         "note": c["note"],
         "jsvar": "EKGURU_COURSE_" + code.upper(),
         "bankfile": "js/course-%s.js" % code,

@@ -11,8 +11,8 @@ CEFR rungs, `ja-c1-u1` for C1/C2); half-step rungs use `<rung>-U1`.
 
 Register note: the A1-B1 rungs stay in the polite です・ます register the
 shipped course teaches, and keigo is recognised in B2 and used deliberately
-in C1/C2 — never mixed into a plain sentence. The voice tag is the site's own
-`ja-JA` (see `js/voice-languages.js`).
+in C1/C2 — never mixed into a plain sentence. The voice tag is the canonical `ja-JP`
+(`tools/lib/speech_tags.py`, mirrored in `js/voice-languages.js`).
 """
 from __future__ import annotations
 
@@ -27,7 +27,7 @@ NAME = "Japanese"
 NATIVE = "日本語"
 PHASE = 1
 SCRIPT = "Japanese script"
-VOICE = "ja-JA"
+VOICE = "ja-JP"
 SKILL = ("Japanese: kana and kanji, particles は/が/を/に, です・ます politeness, "
          "verb-final order, counters and keigo")
 

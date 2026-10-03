@@ -14,6 +14,7 @@ Generates (never hand-edit; rerun this tool):
 Run:  python3 tools/build-lang-packs.py
 """
 import json, os, re, time, unicodedata
+from lib.speech_tags import speech_tag   # canonical BCP-47 tags
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 os.chdir(ROOT)
@@ -760,7 +761,7 @@ def build_manifest():
             "nativeName": meta.get("nativeName") or "",
             "script": meta.get("script") or "",
             "direction": meta.get("direction") or "ltr",
-            "speechTag": meta.get("speechTag") or (code + "-" + code.upper()),
+            "speechTag": meta.get("speechTag") or speech_tag(code),
             "status": "BETA",
             "scope": d.get("scope", STD_SCOPE),
             "honestNote": STD_NOTE,

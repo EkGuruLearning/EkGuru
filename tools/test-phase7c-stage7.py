@@ -16,6 +16,7 @@ Verifies, in real Chromium, every course in data/courses.json:
 Output: reports/phase7c-stage7-test.json
 """
 import json, os, time
+from lib.speech_tags import speech_tag   # canonical BCP-47 tags
 from playwright.sync_api import sync_playwright
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -68,7 +69,7 @@ with sync_playwright() as p:
     for course in COURSES:
         code = course["lang"]
         name = course["name"]
-        speech = course.get("speechTag", code + "-" + code.upper())
+        speech = course.get("speechTag") or speech_tag(code)
         jsvar = "EKGURU_COURSE_" + code.upper()
         tag = code
 

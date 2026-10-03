@@ -20,7 +20,8 @@ Honesty rules enforced here:
 
 Run:  python3 tools/build-phase7-registries.py
 """
-import json, os, re, time, urllib.request
+import json, os, re, time
+from lib.speech_tags import speech_tag as _canonical_speech_tag   # canonical BCP-47 tags, urllib.request
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 os.chdir(ROOT)
@@ -68,11 +69,7 @@ LANGUAGES = [
 # browser TTS (speechSynthesis) BCP-47 tags — standard tags every modern
 # browser ships for these languages; RECORDED audio is none anywhere.
 def speech_tag(iso):
-    return {"zh": "zh-CN", "pt": "pt-BR", "sw": "sw-KE", "en": "en-IN",
-            "hi": "hi-IN", "bn": "bn-IN", "ta": "ta-IN", "te": "te-IN", "mr": "mr-IN",
-            "gu": "gu-IN", "pa": "pa-IN", "ur": "ur-PK", "ar": "ar-SA",
-            "fa": "fa-IR", "he": "he-IL", "ms": "ms-MY", "ja": "ja-JP", "ko": "ko-KR",
-            "uk": "uk-UA", "vi": "vi-VN"}.get(iso, iso + "-" + iso.upper())
+    return _canonical_speech_tag(iso)
 
 # Phase 7C Stage 5 — authored starter packs mark a language BETA (starter
 # reference content), never PRODUCTION. Load the pack manifest if it exists

@@ -72,7 +72,7 @@ review is the one reason that cannot be generated. The modules are
 rather than assumed, and all 12 new rung files landed in `data/courses/phase-2/`
 with no change to the tool.
 
-Three traps worth recording, all found by authoring Spanish, French and Italian:
+Four traps worth recording, all found by authoring Spanish, French and Italian:
 
 - the gate's capitalised `\bTODO\b` marker matched Spanish `TODO` inside
   all-caps emphasis (`SIGA TODO RECTO`, `POR TODO LO ANTERIOR`, `EN TODO CASO`)
@@ -105,6 +105,19 @@ half-step rung files** (45 lessons). One language per commit, end to end:
 content module → `author-depth.py --lang <code>` → the level-page recipe → the
 stale chain → `build-all.py check` → gate + audit → commit.
 
+- **A fabricated BCP-47 region tag.** `tools/build-lang-packs.py` defaulted a
+  missing speech tag to `code + "-" + code.upper()`, writing `ja-JA`, `ko-KO`,
+  `uk-UK` and `vi-VI` into `data/language-packs.json`. The language registry
+  prefers a pack tag over `js/course-player.js`'s (correct) `TTS_LANG`, so the
+  invented regions reached `js/voice-languages.js` and every page that inlines
+  it — a device-voice request no browser can match, with no gate failing,
+  because the tag is still shaped like a tag. The canonical map now lives in
+  `tools/lib/speech_tags.py` and `speech_tag()` falls back to the bare language
+  code (valid BCP-47) instead of inventing a region; `build-lang-packs.py`,
+  `build-world-course.py`, `build-phase7-registries.py` and
+  `test-phase7c-stage7.py` all use it. `build-voice-languages.py` also corrects
+  an existing *empty* manifest whose `lang` drifted — a manifest with entries is
+  owner-supplied and is reported, never rewritten.
 ## Acceptance (from the command doc)
 
 - `python3 tools/build-all.py check` green
