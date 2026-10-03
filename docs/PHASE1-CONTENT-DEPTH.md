@@ -59,22 +59,31 @@ short units**. Hindi's six CEFR rungs now carry the block:
 builder did not do before — until this change no course file carried `extra` and
 no tool read it, so the schema had required a block that could not be seen.
 
-2026-10-03 (after Arabic, Bengali, German and Spanish — 5 of 18): **65 rung
-files · 78 `extra` blocks · 78 short units**. Ar, bn, de and es were authored
-through the generic `tools/author-depth.py` from
-`tools/depth-content/{ar,bn,de,es}.py`, and the audit reads all four at
+2026-10-03 (after Arabic, Bengali, German, Spanish and French — 6 of 18): **60
+rung files · 72 `extra` blocks · 72 short units**. Ar, bn, de, es and fr were
+authored through the generic `tools/author-depth.py` from
+`tools/depth-content/{ar,bn,de,es,fr}.py`, and the audit reads all five at
 `11/11`. The gate row for each is `FAIL ['no_native_review']` only —
-`unique_text_ratio` 0.947 (ar) / 0.912 (bn) / 0.907 (de) / 0.948 (es),
-`script_mismatch` 0 — against 0.85 for the flag, which is the mechanical part of
-"no templated intros"; native review is the one reason that cannot be
+`unique_text_ratio` 0.946 (ar) / 0.912 (bn) / 0.906 (de) / 0.929 (es) / 0.927
+(fr), `script_mismatch` 0 — against 0.85 for the flag, which is the mechanical
+part of "no templated intros"; native review is the one reason that cannot be
 generated.
 
-One trap worth recording: the gate's capitalised `\bTODO\b` marker matched
-Spanish `TODO` inside all-caps emphasis (`SIGA TODO RECTO`, `POR TODO LO
-ANTERIOR`, `EN TODO CASO`) and failed the whole course with
-`placeholder_text`. The content module now keeps `todo` lowercase inside
-emphasised phrases, and `grep -E '\bTODO\b|\bTBD\b' data/courses/**/*.json`
-must stay empty after every Spanish run.
+Two traps worth recording, both found by authoring Spanish and French:
+
+- the gate's capitalised `\bTODO\b` marker matched Spanish `TODO` inside
+  all-caps emphasis (`SIGA TODO RECTO`, `POR TODO LO ANTERIOR`, `EN TODO CASO`)
+  and failed the whole course with `placeholder_text`. The content module now
+  keeps `todo` lowercase inside emphasised phrases, and
+  `grep -E '\bTODO\b|\bTBD\b' data/courses/**/*.json` must stay empty after
+  every Spanish run.
+- `build-course-levels.py`'s `worksheet_block()` used to splice the task rows
+  into its table template and then apply one `%`-format to the whole string, so
+  a worksheet key containing a percent sign (French `en hausse de 4 %`) made the
+  builder abort with `TypeError: not enough arguments for format string`
+  mid-run, leaving the level pages half written. The heading is now formatted
+  before the rows are spliced in, which is output-neutral for every other
+  language.
 
 Each remaining language costs **6 `extra` blocks, 18 third lessons and 5
 half-step rung files** (45 lessons). One language per commit, end to end:

@@ -398,9 +398,13 @@ def worksheet_block(ws):
                     % (_clean(t.get("instruction", "")),
                        "<br>".join(_clean(i) for i in (t.get("items") or [])) or "—",
                        "<br>".join(_clean(k) for k in (t.get("key") or [])) or "—"))
-    return ('<h4>Worksheet: %s</h4><div class="lv-wrap"><table><thead><tr><th>Task</th>'
-            "<th>Prompts</th><th>Key</th></tr></thead><tbody>" + "".join(rows)
-            + "</tbody></table></div>") % _clean((ws or {}).get("title", ""))
+    # Format the heading BEFORE the rows are spliced in: a worksheet key may
+    # legitimately contain a percent sign (French "en hausse de 4 %"), and a
+    # later `%`-format would then read it as a specifier and abort the build.
+    head = ('<h4>Worksheet: %s</h4><div class="lv-wrap"><table><thead><tr><th>Task</th>'
+            "<th>Prompts</th><th>Key</th></tr></thead><tbody>"
+            % _clean((ws or {}).get("title", "")))
+    return head + "".join(rows) + "</tbody></table></div>"
 
 
 def extra_block(ex, name, level, lang="und"):
