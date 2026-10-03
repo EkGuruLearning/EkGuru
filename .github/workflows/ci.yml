@@ -38,6 +38,7 @@ jobs:
         run: |
           python3 tools/audit-adsense-readiness.py --selftest
           python3 tools/audit-adsense-readiness.py
+          python3 tools/language-gate.py --selftest
           node tools/adsready.js --local
 
       - name: Page inventory (SEO/sitemap/noindex gates)
