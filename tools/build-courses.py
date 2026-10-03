@@ -264,11 +264,17 @@ def main():
         for fn in sorted(os.listdir(pdir)):
             if not fn.endswith(".json") or fn.startswith("_"):
                 continue
-            m = re.match(r"^([a-z]{2,3})_(A1|A2|B1|B2|C1|C2)\.json$", fn)
+            # The schema validator (data/schemas/course-t1.schema.json via
+            # tools/lib/validate-language-schema.mjs) knows all eleven rungs —
+            # the six CEFR levels plus the half-steps A1+ to C1+. This legacy
+            # check learned only the six, so a real A1+ file was reported as a
+            # filename error. Half-steps are listed first so the alternation
+            # prefers A1+ over A1.
+            m = re.match(r"^([a-z]{2,3})_(A1\+|A2\+|B1\+|B2\+|C1\+|A1|A2|B1|B2|C1|C2)\.json$", fn)
             fpath = os.path.join(pdir, fn)
             cpath = f"{phase}/{fn}"
             if not m:
-                err(cpath, "filename must be <code>_<A1|A2|B1|B2|C1|C2>.json"); continue
+                err(cpath, "filename must be <code>_<A1|A2|B1|B2|C1|C2|A1+|A2+|B1+|B2+|C1+>.json"); continue
             code, lv = m.group(1), m.group(2)
             errors_before = len(ERRORS)
             try:

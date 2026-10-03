@@ -97,6 +97,33 @@ sentences is not a PHASE 1 completion — see PART F (golden rules) and the
   regenerated (`python3 tools/language-gate.py`) or `build-all.py check` stops on
   the stale gate report.
 
+## The half-step rungs (A1+ A2+ B1+ B2+ C1+)
+
+The eleven rungs are the six CEFR levels plus the half-step after each of the
+first five; `data/levels.json` argues for them (A1+ is what language schools
+write) and every CEFR level page already describes its own half-step in the
+"After A1: the A1+ checkpoint" section. What was missing was the data.
+
+A half-step rung file is a **level, not a page stub**: the player resolves
+`data/courses/<phase>/<code>_<level>.json` by name (js/course-player.js
+`fetchLevel`), so authoring the file makes it playable at `/courses/#/hi/A1+`
+while the static level pages stay the six CEFR ones. Two things follow:
+
+- `hi.levels` in `data/courses/index.json` keeps the six CEFR keys — that dict
+  drives hub link rendering, and a level with no page would produce a dead link.
+  Only `hi.files` lists the half-step, which is a manifest of what is on disk.
+- Building static pages for half-steps is a separate decision (paths like
+  `languages/hi/level/a1p/`, rails, ladder links). It is not needed for the rung
+  to be real and playable.
+
+`tools/build-courses.py` (the legacy six-level validator) learned the half-step
+filenames so a real A1+ file stops being reported as a filename error. It still
+exits 1 on the pre-existing `A3/B3/C3/C4/C5` extension files, so its manifest
+write does not run; the manifest entry is maintained by hand until that is fixed.
+
+Authoring is `tools/author-hindi-halfsteps.py` (see the pattern for adding the
+next rung to `HALF_STEPS`).
+
 ## Work order
 
 1. One language end to end as a pilot: author `A1+`, patch the five existing
