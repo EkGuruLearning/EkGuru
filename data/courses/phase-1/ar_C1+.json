@@ -1,0 +1,2811 @@
+{
+  "code": "ar",
+  "name": "Arabic",
+  "native": "العربية",
+  "phase": 1,
+  "medium": "en",
+  "file_level": "C1+",
+  "level": {
+    "title": "Arabic C1+ — Almost native",
+    "goals": [
+      "Architect a work report and cut institutional Arabic down to what it needs",
+      "Translate with a chosen register, catch calques and check by back-translation",
+      "Teach a beginner a rule, correct kindly, and work from the root rather than by rote"
+    ],
+    "units": [
+      {
+        "id": "C1+-U1",
+        "title": "Writing for work",
+        "lessons": [
+          {
+            "id": "C1+-U1-L1",
+            "title": "Report architecture: ملخّص، نتائج، توصيات",
+            "learn": "A formal Arabic report has four rooms: ملخّص تنفيذي (executive summary), نتائج (findings), توصيات (recommendations), ملحق (annex). Each has its own verb mood — findings report, recommendations propose, and neither argues.",
+            "vocab": [
+              {
+                "t": "ملخّص تنفيذي",
+                "r": "mulakhkhaṣ tanfīdhī",
+                "en": "executive summary",
+                "pos": "noun"
+              },
+              {
+                "t": "نتائج",
+                "r": "natāʾij",
+                "en": "findings",
+                "pos": "noun"
+              },
+              {
+                "t": "توصيات",
+                "r": "tawṣiyāt",
+                "en": "recommendations",
+                "pos": "noun"
+              },
+              {
+                "t": "ملحق",
+                "r": "mulḥaq",
+                "en": "annex",
+                "pos": "noun"
+              },
+              {
+                "t": "منهجية",
+                "r": "manhajiyya",
+                "en": "methodology",
+                "pos": "noun"
+              }
+            ],
+            "grammar": {
+              "title": "Four rooms, three moods",
+              "pattern": "findings: tadullu / tushīr · recommendations: nawṣī bi- / yuqtaraḥ · summary: khulāṣa",
+              "explain": "النتائج: تدلّ الأرقام على تحسّن محدود. التوصيات: نوصي بتمديد المهلة شهراً. Neither section should contain the other's sentences — that is the most common structural fault in Arabic reports.",
+              "examples": [
+                {
+                  "t": "يستعرض الملخّص التنفيذي أهمّ ثلاث نتائج.",
+                  "r": "yastaʿriḍ al-mulakhkhaṣ al-tanfīdhī ahamm thalāth natāʾij.",
+                  "en": "The executive summary presents the three key findings."
+                },
+                {
+                  "t": "نوصي بتوسيع العيّنة في المرحلة الثانية.",
+                  "r": "nawṣī bi-tawṣīʿ al-ʿayyina fī al-marḥala al-thāniya.",
+                  "en": "We recommend widening the sample in the second phase."
+                },
+                {
+                  "t": "تجدون التفاصيل في الملحق الثاني.",
+                  "r": "tajidūn al-tafāṣīl fī al-mulḥaq al-thānī.",
+                  "en": "You will find the details in annex two."
+                }
+              ],
+              "mistakes": [
+                {
+                  "wrong": "النتائج: نوصي بتغيير الخطة.",
+                  "right": "التوصيات: نوصي بتغيير الخطة.",
+                  "why": "A recommendation recorded under findings blurs the document's authority."
+                },
+                {
+                  "wrong": "نوصي بتمديد المهلة شهراً، لذلك يجب…",
+                  "right": "(recommendation stops at the proposal)",
+                  "why": "The recommendation section proposes; the argument belongs to the summary."
+                }
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "مدير",
+                "t": "أريد المسودّة الليلة: ملخّص ونتائج وتوصيات.",
+                "r": "urīd al-musawwada al-layla: mulakhkhaṣ wa-natāʾij wa-tawṣiyāt.",
+                "en": "I want the draft tonight: summary, findings, recommendations."
+              },
+              {
+                "sp": "كاتب",
+                "t": "هل أضع التوصيات في الملخّص التنفيذي؟",
+                "r": "hal aḍaʿ al-tawṣiyāt fī al-mulakhkhaṣ al-tanfīdhī?",
+                "en": "Do I put the recommendations in the executive summary?"
+              },
+              {
+                "sp": "مدير",
+                "t": "إشارة فقط، والباقي في قسمه.",
+                "r": "ishāra faqaṭ, wa-l-bāqī fī qismihi.",
+                "en": "A signpost only — the rest in its own section."
+              },
+              {
+                "sp": "كاتب",
+                "t": "والتفاصيل التقنية؟",
+                "r": "wa-l-tafāṣīl al-tiqniyya?",
+                "en": "And the technical details?"
+              },
+              {
+                "sp": "مدير",
+                "t": "في الملحق؛ لا تُثقل الملخّص.",
+                "r": "fī al-mulḥaq; lā tuthqil al-mulakhkhaṣ.",
+                "en": "In the annex; don't weigh down the summary."
+              }
+            ],
+            "practice": [
+              {
+                "type": "multiple_choice",
+                "q": "Practice 1: [multiple choice] Report architecture: ملخّص، نتائج، توصيات — Choose the meaning of ملخّص تنفيذي (mulakhkhaṣ tanfīdhī) in this lesson.",
+                "answer": "executive summary",
+                "skill_target": "Arabic: right-to-left script, root-and-pattern reading, case and agreement, formal fuṣḥā versus the spoken register learners actually hear",
+                "options": [
+                  "executive summary",
+                  "findings",
+                  "recommendations",
+                  "annex"
+                ]
+              },
+              {
+                "type": "fill_in_the_blank",
+                "q": "Practice 2: [fill in the blank] Report architecture: ملخّص، نتائج، توصيات — Type the Arabic expression meaning “findings”.",
+                "answer": "نتائج",
+                "skill_target": "Arabic: right-to-left script, root-and-pattern reading, case and agreement, formal fuṣḥā versus the spoken register learners actually hear"
+              },
+              {
+                "type": "translation",
+                "q": "Practice 3: [translation] Report architecture: ملخّص، نتائج، توصيات — Interpret the Arabic script in context: يستعرض الملخّص التنفيذي أهمّ ثلاث نتائج. (yastaʿriḍ al-mulakhkhaṣ al-tanfīdhī ahamm thalāth natāʾij.).",
+                "answer": "The executive summary presents the three key findings.",
+                "skill_target": "Arabic: right-to-left script, root-and-pattern reading, case and agreement, formal fuṣḥā versus the spoken register learners actually hear"
+              },
+              {
+                "type": "reverse_translation",
+                "q": "Practice 4: [reverse translation] Report architecture: ملخّص، نتائج، توصيات — Write in Arabic script: We recommend widening the sample in the second phase..",
+                "answer": "نوصي بتوسيع العيّنة في المرحلة الثانية.",
+                "skill_target": "Arabic: right-to-left script, root-and-pattern reading, case and agreement, formal fuṣḥā versus the spoken register learners actually hear"
+              },
+              {
+                "type": "matching",
+                "q": "Practice 5: [matching] Report architecture: ملخّص، نتائج، توصيات — Match توصيات to its lesson meaning.",
+                "answer": "recommendations",
+                "skill_target": "Arabic: right-to-left script, root-and-pattern reading, case and agreement, formal fuṣḥā versus the spoken register learners actually hear",
+                "options": [
+                  "recommendations",
+                  "executive summary",
+                  "findings"
+                ]
+              },
+              {
+                "type": "reorder",
+                "q": "Practice 6: [reorder] Report architecture: ملخّص، نتائج، توصيات — Reconstruct the lesson model in coherent Arabic: You will find the details in annex two..",
+                "answer": "تجدون التفاصيل في الملحق الثاني.",
+                "skill_target": "Arabic: right-to-left script, root-and-pattern reading, case and agreement, formal fuṣḥā versus the spoken register learners actually hear"
+              },
+              {
+                "type": "sentence_building",
+                "q": "Practice 7: [sentence building] Report architecture: ملخّص، نتائج، توصيات — Build the sentence with the lesson pattern (findings: tadullu / tushīr · recommendations: nawṣī bi- / yuqtaraḥ · summary: khulāṣa): The executive summary presents the three key findings..",
+                "answer": "يستعرض الملخّص التنفيذي أهمّ ثلاث نتائج.",
+                "skill_target": "Arabic: right-to-left script, root-and-pattern reading, case and agreement, formal fuṣḥā versus the spoken register learners actually hear"
+              },
+              {
+                "type": "word_selection",
+                "q": "Practice 8: [word selection] Report architecture: ملخّص، نتائج، توصيات — Select the Arabic form for “annex”.",
+                "answer": "ملحق",
+                "skill_target": "Arabic: right-to-left script, root-and-pattern reading, case and agreement, formal fuṣḥā versus the spoken register learners actually hear",
+                "options": [
+                  "ملحق",
+                  "منهجية"
+                ]
+              },
+              {
+                "type": "error_correction",
+                "q": "Practice 9: [error correction] Report architecture: ملخّص، نتائج، توصيات — Correct the model the lesson warns about: النتائج: نوصي بتغيير الخطة.",
+                "answer": "التوصيات: نوصي بتغيير الخطة.",
+                "skill_target": "Arabic: right-to-left script, root-and-pattern reading, case and agreement, formal fuṣḥā versus the spoken register learners actually hear"
+              },
+              {
+                "type": "dialogue_completion",
+                "q": "Practice 10: [dialogue completion] Report architecture: ملخّص، نتائج، توصيات — Complete the exchange with the studied response to: I want the draft tonight: summary, findings, recommendations.",
+                "answer": "هل أضع التوصيات في الملخّص التنفيذي؟",
+                "skill_target": "Arabic: right-to-left script, root-and-pattern reading, case and agreement, formal fuṣḥā versus the spoken register learners actually hear"
+              },
+              {
+                "type": "reading_comprehension",
+                "q": "Practice 11: [reading comprehension] Report architecture: ملخّص، نتائج، توصيات — Read “إشارة فقط، والباقي في قسمه.” (ishāra faqaṭ, wa-l-bāqī fī qismihi.). What does it mean?",
+                "answer": "A signpost only — the rest in its own section.",
+                "skill_target": "Arabic: right-to-left script, root-and-pattern reading, case and agreement, formal fuṣḥā versus the spoken register learners actually hear"
+              },
+              {
+                "type": "paragraph_comprehension",
+                "q": "Practice 12: [paragraph comprehension] Report architecture: ملخّص، نتائج، توصيات — Read the lesson dialogue as a whole and give its key move: And the technical details?",
+                "answer": "والتفاصيل التقنية؟",
+                "skill_target": "Arabic: right-to-left script, root-and-pattern reading, case and agreement, formal fuṣḥā versus the spoken register learners actually hear"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "Which meaning best fits ملخّص تنفيذي?",
+                "options": [
+                  "executive summary",
+                  "findings",
+                  "recommendations",
+                  "annex"
+                ],
+                "answer": 0,
+                "why": "ملخّص تنفيذي (mulakhkhaṣ tanfīdhī) means executive summary in this lesson."
+              },
+              {
+                "q": "Which meaning best fits نتائج?",
+                "options": [
+                  "findings",
+                  "executive summary",
+                  "recommendations",
+                  "annex"
+                ],
+                "answer": 0,
+                "why": "نتائج (natāʾij) means findings in this lesson."
+              },
+              {
+                "q": "Which meaning best fits توصيات?",
+                "options": [
+                  "recommendations",
+                  "executive summary",
+                  "findings",
+                  "annex"
+                ],
+                "answer": 0,
+                "why": "توصيات (tawṣiyāt) means recommendations in this lesson."
+              },
+              {
+                "q": "Which meaning best fits ملحق?",
+                "options": [
+                  "annex",
+                  "executive summary",
+                  "findings",
+                  "recommendations"
+                ],
+                "answer": 0,
+                "why": "ملحق (mulḥaq) means annex in this lesson."
+              },
+              {
+                "q": "Which meaning best fits منهجية?",
+                "options": [
+                  "methodology",
+                  "executive summary",
+                  "findings",
+                  "recommendations"
+                ],
+                "answer": 0,
+                "why": "منهجية (manhajiyya) means methodology in this lesson."
+              }
+            ],
+            "flashcards": "auto:vocab",
+            "worksheet": {
+              "title": "Report worksheet",
+              "tasks": [
+                {
+                  "instruction": "Label the section.",
+                  "items": [
+                    "a figure that shows improvement",
+                    "we suggest a delay",
+                    "raw tables"
+                  ],
+                  "key": [
+                    "النتائج",
+                    "التوصيات",
+                    "الملحق"
+                  ]
+                },
+                {
+                  "instruction": "Write a signpost.",
+                  "items": [
+                    "point to annex two",
+                    "point to three findings"
+                  ],
+                  "key": [
+                    "تجدون التفاصيل في الملحق الثاني",
+                    "يستعرض الملخّص ثلاث نتائج"
+                  ]
+                },
+                {
+                  "instruction": "Integrated offline practice: read the first model, transform or extend it in Arabic script, then rehearse it as a dialogue. Self-check meaning, grammar, and register.",
+                  "items": [
+                    "يستعرض الملخّص التنفيذي أهمّ ثلاث نتائج.",
+                    "أريد المسودّة الليلة: ملخّص ونتائج وتوصيات."
+                  ],
+                  "key": [
+                    "The executive summary presents the three key findings.",
+                    "I want the draft tonight: summary, findings, recommendations."
+                  ]
+                }
+              ]
+            },
+            "srs_candidates": [
+              "ملخّص تنفيذي",
+              "نتائج",
+              "توصيات",
+              "ملحق"
+            ],
+            "srs_policy": "Only these four high-value terms are preselected; lesson mistakes and productive patterns may enter personalized review after an actual error."
+          },
+          {
+            "id": "C1+-U1-L2",
+            "title": "Trimming institutional prose",
+            "learn": "Institutional Arabic pads itself with قام بـ (carried out the doing of), تجدر الإشارة (it deserves noting), في إطار (within the framework of). A C1+ writer cuts them: the verb comes back, and the document gets shorter and stronger.",
+            "vocab": [
+              {
+                "t": "الحشو",
+                "r": "al-ḥashw",
+                "en": "padding, filler",
+                "pos": "noun"
+              },
+              {
+                "t": "قام بـ",
+                "r": "qāma bi-",
+                "en": "carried out (padding frame)",
+                "pos": "phrase"
+              },
+              {
+                "t": "تجدر الإشارة",
+                "r": "tajdur al-ishāra",
+                "en": "it is worth noting (padding)",
+                "pos": "phrase"
+              },
+              {
+                "t": "في إطار",
+                "r": "fī iṭār",
+                "en": "within the framework of (padding)",
+                "pos": "phrase"
+              },
+              {
+                "t": "صياغة رشيقة",
+                "r": "ṣiyāgha rashīqa",
+                "en": "lean prose",
+                "pos": "phrase"
+              }
+            ],
+            "grammar": {
+              "title": "Cut the frame, keep the verb",
+              "pattern": "qāma bi- + verbal noun → the verb itself · fī iṭār + verbal noun → the noun",
+              "explain": "قامت الوزارة بتنفيذ الخطة → نفّذت الوزارة الخطة. في إطار تحسين الخدمات، أطلقنا → حسّنّا الخدمات وأطلقنا. Each cut returns a verb to the sentence.",
+              "examples": [
+                {
+                  "t": "نفّذت الوزارة الخطة قبل موعدها.",
+                  "r": "naffadhat al-wizāra al-khuṭṭa qabla mawʿidihā.",
+                  "en": "The ministry implemented the plan ahead of time."
+                },
+                {
+                  "t": "حسّنّا الخدمات وأطلقنا منصة جديدة.",
+                  "r": "ḥassannā al-khadamāt wa-aṭlaqnā mannaṣṣa jadīda.",
+                  "en": "We improved the services and launched a new platform."
+                },
+                {
+                  "t": "يبدأ التنفيذ في مارس.",
+                  "r": "yabdā al-tanfīdh fī Mārs.",
+                  "en": "Implementation begins in March."
+                }
+              ],
+              "mistakes": [
+                {
+                  "wrong": "قامت الوزارة بتنفيذ الخطة.",
+                  "right": "نفّذت الوزارة الخطة.",
+                  "why": "قام بـ adds a verb and removes one; the sentence loses a syllable and gains a subject."
+                },
+                {
+                  "wrong": "تجدر الإشارة إلى أنّ الزراعة تحسّنت.",
+                  "right": "تحسّنت الزراعة.",
+                  "why": "If the sentence is worth writing, it is worth asserting."
+                }
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "محرّر",
+                "t": "هذه الفقرة طويلة جداً.",
+                "r": "hādhihi al-faqra ṭawīla jiddan.",
+                "en": "This paragraph is very long."
+              },
+              {
+                "sp": "كاتب",
+                "t": "تحتوي على صياغة رسمية فقط.",
+                "r": "taḥtawī ʿalā ṣiyāgha rasmīyya faqaṭ.",
+                "en": "It only contains formal phrasing."
+              },
+              {
+                "sp": "محرّر",
+                "t": "اقلع الحشو: من «قامت بـ» إلى الفعل مباشرة.",
+                "r": "iqlaʿ al-ḥashw: min «qāmat bi-» ilā al-fiʿl mubāsharatan.",
+                "en": "Cut the padding: from 'carried out' straight to the verb."
+              },
+              {
+                "sp": "كاتب",
+                "t": "إذاً: «نفّذت الوزارة الخطة». أقصر وأقوى.",
+                "r": "idhan: «naffadhat al-wizāra al-khuṭṭa». aqṣar wa-aqwā.",
+                "en": "So: 'The ministry implemented the plan.' Shorter and stronger."
+              }
+            ],
+            "practice": [
+              {
+                "type": "multiple_choice",
+                "q": "Practice 1: [multiple choice] Trimming institutional prose — Choose the meaning of الحشو (al-ḥashw) in this lesson.",
+                "answer": "padding, filler",
+                "skill_target": "Arabic: right-to-left script, root-and-pattern reading, case and agreement, formal fuṣḥā versus the spoken register learners actually hear",
+                "options": [
+                  "padding, filler",
+                  "carried out (padding frame)",
+                  "it is worth noting (padding)",
+                  "within the framework of (padding)"
+                ]
+              },
+              {
+                "type": "fill_in_the_blank",
+                "q": "Practice 2: [fill in the blank] Trimming institutional prose — Type the Arabic expression meaning “carried out (padding frame)”.",
+                "answer": "قام بـ",
+                "skill_target": "Arabic: right-to-left script, root-and-pattern reading, case and agreement, formal fuṣḥā versus the spoken register learners actually hear"
+              },
+              {
+                "type": "translation",
+                "q": "Practice 3: [translation] Trimming institutional prose — Interpret the Arabic script in context: نفّذت الوزارة الخطة قبل موعدها. (naffadhat al-wizāra al-khuṭṭa qabla mawʿidihā.).",
+                "answer": "The ministry implemented the plan ahead of time.",
+                "skill_target": "Arabic: right-to-left script, root-and-pattern reading, case and agreement, formal fuṣḥā versus the spoken register learners actually hear"
+              },
+              {
+                "type": "reverse_translation",
+                "q": "Practice 4: [reverse translation] Trimming institutional prose — Write in Arabic script: We improved the services and launched a new platform..",
+                "answer": "حسّنّا الخدمات وأطلقنا منصة جديدة.",
+                "skill_target": "Arabic: right-to-left script, root-and-pattern reading, case and agreement, formal fuṣḥā versus the spoken register learners actually hear"
+              },
+              {
+                "type": "matching",
+                "q": "Practice 5: [matching] Trimming institutional prose — Match تجدر الإشارة to its lesson meaning.",
+                "answer": "it is worth noting (padding)",
+                "skill_target": "Arabic: right-to-left script, root-and-pattern reading, case and agreement, formal fuṣḥā versus the spoken register learners actually hear",
+                "options": [
+                  "it is worth noting (padding)",
+                  "padding, filler",
+                  "carried out (padding frame)"
+                ]
+              },
+              {
+                "type": "reorder",
+                "q": "Practice 6: [reorder] Trimming institutional prose — Reconstruct the lesson model in coherent Arabic: Implementation begins in March..",
+                "answer": "يبدأ التنفيذ في مارس.",
+                "skill_target": "Arabic: right-to-left script, root-and-pattern reading, case and agreement, formal fuṣḥā versus the spoken register learners actually hear"
+              },
+              {
+                "type": "sentence_building",
+                "q": "Practice 7: [sentence building] Trimming institutional prose — Build the sentence with the lesson pattern (qāma bi- + verbal noun → the verb itself · fī iṭār + verbal noun → the noun): The ministry implemented the plan ahead of time..",
+                "answer": "نفّذت الوزارة الخطة قبل موعدها.",
+                "skill_target": "Arabic: right-to-left script, root-and-pattern reading, case and agreement, formal fuṣḥā versus the spoken register learners actually hear"
+              },
+              {
+                "type": "word_selection",
+                "q": "Practice 8: [word selection] Trimming institutional prose — Select the Arabic form for “within the framework of (padding)”.",
+                "answer": "في إطار",
+                "skill_target": "Arabic: right-to-left script, root-and-pattern reading, case and agreement, formal fuṣḥā versus the spoken register learners actually hear",
+                "options": [
+                  "في إطار",
+                  "صياغة رشيقة"
+                ]
+              },
+              {
+                "type": "error_correction",
+                "q": "Practice 9: [error correction] Trimming institutional prose — Correct the model the lesson warns about: قامت الوزارة بتنفيذ الخطة.",
+                "answer": "نفّذت الوزارة الخطة.",
+                "skill_target": "Arabic: right-to-left script, root-and-pattern reading, case and agreement, formal fuṣḥā versus the spoken register learners actually hear"
+              },
+              {
+                "type": "dialogue_completion",
+                "q": "Practice 10: [dialogue completion] Trimming institutional prose — Complete the exchange with the studied response to: This paragraph is very long.",
+                "answer": "تحتوي على صياغة رسمية فقط.",
+                "skill_target": "Arabic: right-to-left script, root-and-pattern reading, case and agreement, formal fuṣḥā versus the spoken register learners actually hear"
+              },
+              {
+                "type": "reading_comprehension",
+                "q": "Practice 11: [reading comprehension] Trimming institutional prose — Read “اقلع الحشو: من «قامت بـ» إلى الفعل مباشرة.” (iqlaʿ al-ḥashw: min «qāmat bi-» ilā al-fiʿl mubāsharatan.). What does it mean?",
+                "answer": "Cut the padding: from 'carried out' straight to the verb.",
+                "skill_target": "Arabic: right-to-left script, root-and-pattern reading, case and agreement, formal fuṣḥā versus the spoken register learners actually hear"
+              },
+              {
+                "type": "paragraph_comprehension",
+                "q": "Practice 12: [paragraph comprehension] Trimming institutional prose — Read the lesson dialogue as a whole and give its key move: So: 'The ministry implemented the plan.' Shorter and stronger.",
+                "answer": "إذاً: «نفّذت الوزارة الخطة». أقصر وأقوى.",
+                "skill_target": "Arabic: right-to-left script, root-and-pattern reading, case and agreement, formal fuṣḥā versus the spoken register learners actually hear"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "Which meaning best fits الحشو?",
+                "options": [
+                  "padding, filler",
+                  "carried out (padding frame)",
+                  "it is worth noting (padding)",
+                  "within the framework of (padding)"
+                ],
+                "answer": 0,
+                "why": "الحشو (al-ḥashw) means padding, filler in this lesson."
+              },
+              {
+                "q": "Which meaning best fits قام بـ?",
+                "options": [
+                  "carried out (padding frame)",
+                  "padding, filler",
+                  "it is worth noting (padding)",
+                  "within the framework of (padding)"
+                ],
+                "answer": 0,
+                "why": "قام بـ (qāma bi-) means carried out (padding frame) in this lesson."
+              },
+              {
+                "q": "Which meaning best fits تجدر الإشارة?",
+                "options": [
+                  "it is worth noting (padding)",
+                  "padding, filler",
+                  "carried out (padding frame)",
+                  "within the framework of (padding)"
+                ],
+                "answer": 0,
+                "why": "تجدر الإشارة (tajdur al-ishāra) means it is worth noting (padding) in this lesson."
+              },
+              {
+                "q": "Which meaning best fits في إطار?",
+                "options": [
+                  "within the framework of (padding)",
+                  "padding, filler",
+                  "carried out (padding frame)",
+                  "it is worth noting (padding)"
+                ],
+                "answer": 0,
+                "why": "في إطار (fī iṭār) means within the framework of (padding) in this lesson."
+              },
+              {
+                "q": "Which meaning best fits صياغة رشيقة?",
+                "options": [
+                  "lean prose",
+                  "padding, filler",
+                  "carried out (padding frame)",
+                  "it is worth noting (padding)"
+                ],
+                "answer": 0,
+                "why": "صياغة رشيقة (ṣiyāgha rashīqa) means lean prose in this lesson."
+              }
+            ],
+            "flashcards": "auto:vocab",
+            "worksheet": {
+              "title": "Trimming worksheet",
+              "tasks": [
+                {
+                  "instruction": "Cut the frame.",
+                  "items": [
+                    "قامت الشركة بإطلاق الخدمة.",
+                    "تجدر الإشارة إلى أنّ الطلب ارتفع."
+                  ],
+                  "key": [
+                    "أطلقت الشركة الخدمة",
+                    "ارتفع الطلب"
+                  ]
+                },
+                {
+                  "instruction": "Cut to the noun.",
+                  "items": [
+                    "في إطار تحسين الجودة",
+                    "في إطار خطة التحوّل الرقمي"
+                  ],
+                  "key": [
+                    "لتحسين الجودة / بتحسين الجودة",
+                    "في خطة التحوّل الرقمي"
+                  ]
+                },
+                {
+                  "instruction": "Integrated offline practice: read the first model, transform or extend it in Arabic script, then rehearse it as a dialogue. Self-check meaning, grammar, and register.",
+                  "items": [
+                    "نفّذت الوزارة الخطة قبل موعدها.",
+                    "هذه الفقرة طويلة جداً."
+                  ],
+                  "key": [
+                    "The ministry implemented the plan ahead of time.",
+                    "This paragraph is very long."
+                  ]
+                }
+              ]
+            },
+            "srs_candidates": [
+              "الحشو",
+              "قام بـ",
+              "تجدر الإشارة",
+              "في إطار"
+            ],
+            "srs_policy": "Only these four high-value terms are preselected; lesson mistakes and productive patterns may enter personalized review after an actual error."
+          },
+          {
+            "id": "C1+-U1-L3",
+            "title": "Editing protocol: suggest, don't rewrite",
+            "learn": "Editing someone's Arabic in a team has a protocol: هذا اقتراح تعديل (this is a suggested edit), هل يمكن أن نعيد الصياغة؟ (may we rephrase?), التعليق في الهامش (comment in the margin), and mark whose text it is. The writer stays the owner; the editor stays honest.",
+            "vocab": [
+              {
+                "t": "اقتراح تعديل",
+                "r": "iqtirāḥ taʿdīl",
+                "en": "a suggested edit",
+                "pos": "phrase"
+              },
+              {
+                "t": "الهامش",
+                "r": "al-hāmish",
+                "en": "the margin",
+                "pos": "noun"
+              },
+              {
+                "t": "أعيد الصياغة",
+                "r": "uʿīd al-ṣiyāgha",
+                "en": "let me rephrase",
+                "pos": "phrase"
+              },
+              {
+                "t": "تعليق",
+                "r": "taʿlīq",
+                "en": "comment",
+                "pos": "noun"
+              },
+              {
+                "t": "نسخة نظيفة",
+                "r": "nuskha naḍīfa",
+                "en": "a clean copy",
+                "pos": "phrase"
+              }
+            ],
+            "grammar": {
+              "title": "Suggest, explain, release",
+              "pattern": "hādhā iqtirāḥ taʿdīl · hal yumkin an nuʿīd al-ṣiyāgha? · al-taʿlīq fī al-hāmish",
+              "explain": "اقتراح: الفعل «أفاد» أوضح من «قال» هنا. التعليل: لأنّ النصّ خبر رسمي. Then leave it to the writer — an edit without an explanation is a demand.",
+              "examples": [
+                {
+                  "t": "هذا اقتراح تعديل، والتعديل النهائي لك.",
+                  "r": "hādhā iqtirāḥ taʿdīl, wa-l-taʿdīl al-nihāʾī lak.",
+                  "en": "This is a suggested edit; the final call is yours."
+                },
+                {
+                  "t": "هل يمكن أن نعيد صياغة الجملة الأولى؟",
+                  "r": "hal yumkin an nuʿīd ṣiyāghat al-jumla al-ūlā?",
+                  "en": "May we rephrase the first sentence?"
+                },
+                {
+                  "t": "تركتُ تعليقاً في الهامش مع السبب.",
+                  "r": "taraktu taʿlīqan fī al-hāmish maʿa al-sabab.",
+                  "en": "I left a comment in the margin with the reason."
+                }
+              ],
+              "mistakes": [
+                {
+                  "wrong": "أعدتُ كتابة نصّك.",
+                  "right": "اقترحتُ تعديلاً وتركتُ القرار لك.",
+                  "why": "Rewriting the writer's text takes ownership that is not the editor's."
+                },
+                {
+                  "wrong": "هذا خطأ، صحّحه.",
+                  "right": "هل يمكن أن نعيد الصياغة؟ السبب أنّ…",
+                  "why": "In a professional edit, name the reason and let the writer decide."
+                }
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "محرّر",
+                "t": "أعدتُ صياغة الفقرة الثالثة، هل تسمح؟",
+                "r": "aʿadtu ṣiyāghat al-faqra al-thālitha, hal tasmaḥ?",
+                "en": "I rephrased the third paragraph — may I?"
+              },
+              {
+                "sp": "كاتب",
+                "t": "أفضّل أن يكون اقتراحاً، لا تعديلاً مباشراً.",
+                "r": "ufaḍḍil an yakūn iqtirāḥan, lā taʿdīlan mubāshiran.",
+                "en": "I prefer a suggestion rather than a direct edit."
+              },
+              {
+                "sp": "محرّر",
+                "t": "منطقي، سأكتب السبب في الهامش.",
+                "r": "manṭiqī, sa-aktub al-sabab fī al-hāmish.",
+                "en": "Reasonable — I'll write the reason in the margin."
+              },
+              {
+                "sp": "كاتب",
+                "t": "وشكراً لأنّك حفظتَ نسخة نظيفة.",
+                "r": "wa-shukran li-annaka ḥafiẓta nuskha naḍīfa.",
+                "en": "And thank you for keeping a clean copy."
+              }
+            ],
+            "practice": [
+              {
+                "type": "multiple_choice",
+                "q": "Practice 1: [multiple choice] Editing protocol: suggest, don't rewrite — Choose the meaning of اقتراح تعديل (iqtirāḥ taʿdīl) in this lesson.",
+                "answer": "a suggested edit",
+                "skill_target": "Arabic: right-to-left script, root-and-pattern reading, case and agreement, formal fuṣḥā versus the spoken register learners actually hear",
+                "options": [
+                  "a suggested edit",
+                  "the margin",
+                  "let me rephrase",
+                  "comment"
+                ]
+              },
+              {
+                "type": "fill_in_the_blank",
+                "q": "Practice 2: [fill in the blank] Editing protocol: suggest, don't rewrite — Type the Arabic expression meaning “the margin”.",
+                "answer": "الهامش",
+                "skill_target": "Arabic: right-to-left script, root-and-pattern reading, case and agreement, formal fuṣḥā versus the spoken register learners actually hear"
+              },
+              {
+                "type": "translation",
+                "q": "Practice 3: [translation] Editing protocol: suggest, don't rewrite — Interpret the Arabic script in context: هذا اقتراح تعديل، والتعديل النهائي لك. (hādhā iqtirāḥ taʿdīl, wa-l-taʿdīl al-nihāʾī lak.).",
+                "answer": "This is a suggested edit; the final call is yours.",
+                "skill_target": "Arabic: right-to-left script, root-and-pattern reading, case and agreement, formal fuṣḥā versus the spoken register learners actually hear"
+              },
+              {
+                "type": "reverse_translation",
+                "q": "Practice 4: [reverse translation] Editing protocol: suggest, don't rewrite — Write in Arabic script: May we rephrase the first sentence?.",
+                "answer": "هل يمكن أن نعيد صياغة الجملة الأولى؟",
+                "skill_target": "Arabic: right-to-left script, root-and-pattern reading, case and agreement, formal fuṣḥā versus the spoken register learners actually hear"
+              },
+              {
+                "type": "matching",
+                "q": "Practice 5: [matching] Editing protocol: suggest, don't rewrite — Match أعيد الصياغة to its lesson meaning.",
+                "answer": "let me rephrase",
+                "skill_target": "Arabic: right-to-left script, root-and-pattern reading, case and agreement, formal fuṣḥā versus the spoken register learners actually hear",
+                "options": [
+                  "let me rephrase",
+                  "a suggested edit",
+                  "the margin"
+                ]
+              },
+              {
+                "type": "reorder",
+                "q": "Practice 6: [reorder] Editing protocol: suggest, don't rewrite — Reconstruct the lesson model in coherent Arabic: I left a comment in the margin with the reason..",
+                "answer": "تركتُ تعليقاً في الهامش مع السبب.",
+                "skill_target": "Arabic: right-to-left script, root-and-pattern reading, case and agreement, formal fuṣḥā versus the spoken register learners actually hear"
+              },
+              {
+                "type": "sentence_building",
+                "q": "Practice 7: [sentence building] Editing protocol: suggest, don't rewrite — Build the sentence with the lesson pattern (hādhā iqtirāḥ taʿdīl · hal yumkin an nuʿīd al-ṣiyāgha? · al-taʿlīq fī al-hāmish): This is a suggested edit; the final call is yours..",
+                "answer": "هذا اقتراح تعديل، والتعديل النهائي لك.",
+                "skill_target": "Arabic: right-to-left script, root-and-pattern reading, case and agreement, formal fuṣḥā versus the spoken register learners actually hear"
+              },
+              {
+                "type": "word_selection",
+                "q": "Practice 8: [word selection] Editing protocol: suggest, don't rewrite — Select the Arabic form for “comment”.",
+                "answer": "تعليق",
+                "skill_target": "Arabic: right-to-left script, root-and-pattern reading, case and agreement, formal fuṣḥā versus the spoken register learners actually hear",
+                "options": [
+                  "تعليق",
+                  "نسخة نظيفة"
+                ]
+              },
+              {
+                "type": "error_correction",
+                "q": "Practice 9: [error correction] Editing protocol: suggest, don't rewrite — Correct the model the lesson warns about: أعدتُ كتابة نصّك.",
+                "answer": "اقترحتُ تعديلاً وتركتُ القرار لك.",
+                "skill_target": "Arabic: right-to-left script, root-and-pattern reading, case and agreement, formal fuṣḥā versus the spoken register learners actually hear"
+              },
+              {
+                "type": "dialogue_completion",
+                "q": "Practice 10: [dialogue completion] Editing protocol: suggest, don't rewrite — Complete the exchange with the studied response to: I rephrased the third paragraph — may I?",
+                "answer": "أفضّل أن يكون اقتراحاً، لا تعديلاً مباشراً.",
+                "skill_target": "Arabic: right-to-left script, root-and-pattern reading, case and agreement, formal fuṣḥā versus the spoken register learners actually hear"
+              },
+              {
+                "type": "reading_comprehension",
+                "q": "Practice 11: [reading comprehension] Editing protocol: suggest, don't rewrite — Read “منطقي، سأكتب السبب في الهامش.” (manṭiqī, sa-aktub al-sabab fī al-hāmish.). What does it mean?",
+                "answer": "Reasonable — I'll write the reason in the margin.",
+                "skill_target": "Arabic: right-to-left script, root-and-pattern reading, case and agreement, formal fuṣḥā versus the spoken register learners actually hear"
+              },
+              {
+                "type": "paragraph_comprehension",
+                "q": "Practice 12: [paragraph comprehension] Editing protocol: suggest, don't rewrite — Read the lesson dialogue as a whole and give its key move: And thank you for keeping a clean copy.",
+                "answer": "وشكراً لأنّك حفظتَ نسخة نظيفة.",
+                "skill_target": "Arabic: right-to-left script, root-and-pattern reading, case and agreement, formal fuṣḥā versus the spoken register learners actually hear"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "Which meaning best fits اقتراح تعديل?",
+                "options": [
+                  "a suggested edit",
+                  "the margin",
+                  "let me rephrase",
+                  "comment"
+                ],
+                "answer": 0,
+                "why": "اقتراح تعديل (iqtirāḥ taʿdīl) means a suggested edit in this lesson."
+              },
+              {
+                "q": "Which meaning best fits الهامش?",
+                "options": [
+                  "the margin",
+                  "a suggested edit",
+                  "let me rephrase",
+                  "comment"
+                ],
+                "answer": 0,
+                "why": "الهامش (al-hāmish) means the margin in this lesson."
+              },
+              {
+                "q": "Which meaning best fits أعيد الصياغة?",
+                "options": [
+                  "let me rephrase",
+                  "a suggested edit",
+                  "the margin",
+                  "comment"
+                ],
+                "answer": 0,
+                "why": "أعيد الصياغة (uʿīd al-ṣiyāgha) means let me rephrase in this lesson."
+              },
+              {
+                "q": "Which meaning best fits تعليق?",
+                "options": [
+                  "comment",
+                  "a suggested edit",
+                  "the margin",
+                  "let me rephrase"
+                ],
+                "answer": 0,
+                "why": "تعليق (taʿlīq) means comment in this lesson."
+              },
+              {
+                "q": "Which meaning best fits نسخة نظيفة?",
+                "options": [
+                  "a clean copy",
+                  "a suggested edit",
+                  "the margin",
+                  "let me rephrase"
+                ],
+                "answer": 0,
+                "why": "نسخة نظيفة (nuskha naḍīfa) means a clean copy in this lesson."
+              }
+            ],
+            "flashcards": "auto:vocab",
+            "worksheet": {
+              "title": "Edit worksheet",
+              "tasks": [
+                {
+                  "instruction": "Suggest, with a reason.",
+                  "items": [
+                    "change «قال» to «أفاد»",
+                    "shorten the first sentence"
+                  ],
+                  "key": [
+                    "اقتراح: «أفاد» أوضح هنا، لأنّ النصّ خبر رسمي",
+                    "اقتراح: اختصار الجملة الأولى يحفظ المعنى"
+                  ]
+                },
+                {
+                  "instruction": "Hand it back.",
+                  "items": [
+                    "the writer decides",
+                    "leave a margin comment"
+                  ],
+                  "key": [
+                    "القرار النهائي لك",
+                    "تركتُ تعليقاً في الهامش مع السبب"
+                  ]
+                },
+                {
+                  "instruction": "Integrated offline practice: read the first model, transform or extend it in Arabic script, then rehearse it as a dialogue. Self-check meaning, grammar, and register.",
+                  "items": [
+                    "هذا اقتراح تعديل، والتعديل النهائي لك.",
+                    "أعدتُ صياغة الفقرة الثالثة، هل تسمح؟"
+                  ],
+                  "key": [
+                    "This is a suggested edit; the final call is yours.",
+                    "I rephrased the third paragraph — may I?"
+                  ]
+                }
+              ]
+            },
+            "srs_candidates": [
+              "اقتراح تعديل",
+              "الهامش",
+              "أعيد الصياغة",
+              "تعليق"
+            ],
+            "srs_policy": "Only these four high-value terms are preselected; lesson mistakes and productive patterns may enter personalized review after an actual error."
+          }
+        ]
+      },
+      {
+        "id": "C1+-U2",
+        "title": "Translation and register",
+        "lessons": [
+          {
+            "id": "C1+-U2-L1",
+            "title": "Choosing a register before you translate",
+            "learn": "Before the first word, decide the register: فصحى معاصرة (contemporary written), فصحى تراثية (classical, for legal and religious registers), or عامية for a subtitle. The same sentence has three correct translations and only one right one per job.",
+            "vocab": [
+              {
+                "t": "فصحى معاصرة",
+                "r": "fuṣḥā muʿāṣira",
+                "en": "contemporary standard Arabic",
+                "pos": "noun"
+              },
+              {
+                "t": "تراثية",
+                "r": "turāthiyya",
+                "en": "classical, heritage register",
+                "pos": "noun"
+              },
+              {
+                "t": "المخاطَب",
+                "r": "al-mukhāṭab",
+                "en": "the addressee, audience",
+                "pos": "noun"
+              },
+              {
+                "t": "مقصد",
+                "r": "maqṣad",
+                "en": "purpose, intent",
+                "pos": "noun"
+              },
+              {
+                "t": "أسلوب",
+                "r": "uslūb",
+                "en": "style",
+                "pos": "noun"
+              }
+            ],
+            "grammar": {
+              "title": "Register first, then words",
+              "pattern": "mukhāṭab + maqṣad → register → sentence",
+              "explain": "«Please find attached» → للمخاطب الرسمي: نرفق لكم؛ لرسالة ودّية: أرسل لك المرفق. The audience and the purpose pick the register; the dictionary does not.",
+              "examples": [
+                {
+                  "t": "للمخاطب الرسمي: نرفق لكم نسخة من الاتفاق.",
+                  "r": "li-l-mukhāṭab al-rasmī: nurfiq lakum nuskha min al-ittifāq.",
+                  "en": "For the formal addressee: we attach a copy of the agreement."
+                },
+                {
+                  "t": "لرسالة ودّية: أرسل لك الملف، راجعه وقت ما تحبّ.",
+                  "r": "li-risāla wuddiyya: ursil lak al-milaff, rājiʿhu waqt mā tuḥibb.",
+                  "en": "For a friendly message: here's the file, review it whenever you like."
+                },
+                {
+                  "t": "للترجمة القانونية: يُرفق طيّه نسخة موقّعة.",
+                  "r": "li-l-tarjama al-qānūniyya: yurfaq ṭayyah nuskha muwaqqaʿa.",
+                  "en": "For a legal translation: a signed copy is attached hereto."
+                }
+              ],
+              "mistakes": [
+                {
+                  "wrong": "مترجم واحد لكل السياقات بأسلوب واحد.",
+                  "right": "(register is chosen per job)",
+                  "why": "One style for every job is the mark of a machine translation, not a translator."
+                },
+                {
+                  "wrong": "ترجمة حرفية دائماً أسلوب واحد.",
+                  "right": "(name the mukhāṭab and maqṣad first)",
+                  "why": "Literal fidelity is a decision, not a default."
+                }
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "عميل",
+                "t": "أريد ترجمة الإعلان للمخاطب الخليجي.",
+                "r": "urīd tarjamat al-iʿlān li-l-mukhāṭab al-khalījī.",
+                "en": "I want the advertisement translated for a Gulf audience."
+              },
+              {
+                "sp": "مترجمة",
+                "t": "إذاً فصحى معاصرة، وليست تراثية.",
+                "r": "idhan fuṣḥā muʿāṣira, wa-laysat turāthiyya.",
+                "en": "Then contemporary standard Arabic, not classical."
+              },
+              {
+                "sp": "عميل",
+                "t": "وللعنوان؟",
+                "r": "wa-li-l-ʿunwān?",
+                "en": "And the headline?"
+              },
+              {
+                "sp": "مترجمة",
+                "t": "العنوان يسمح بالعامية، لكنّ النصّ رسمي.",
+                "r": "al-ʿunwān yasmah bi-l-ʿāmmiyya, lākinna al-naṣṣ rasmī.",
+                "en": "The headline can take colloquial, but the body stays formal."
+              }
+            ],
+            "practice": [
+              {
+                "type": "multiple_choice",
+                "q": "Practice 1: [multiple choice] Choosing a register before you translate — Choose the meaning of فصحى معاصرة (fuṣḥā muʿāṣira) in this lesson.",
+                "answer": "contemporary standard Arabic",
+                "skill_target": "Arabic: right-to-left script, root-and-pattern reading, case and agreement, formal fuṣḥā versus the spoken register learners actually hear",
+                "options": [
+                  "contemporary standard Arabic",
+                  "classical, heritage register",
+                  "the addressee, audience",
+                  "purpose, intent"
+                ]
+              },
+              {
+                "type": "fill_in_the_blank",
+                "q": "Practice 2: [fill in the blank] Choosing a register before you translate — Type the Arabic expression meaning “classical, heritage register”.",
+                "answer": "تراثية",
+                "skill_target": "Arabic: right-to-left script, root-and-pattern reading, case and agreement, formal fuṣḥā versus the spoken register learners actually hear"
+              },
+              {
+                "type": "translation",
+                "q": "Practice 3: [translation] Choosing a register before you translate — Interpret the Arabic script in context: للمخاطب الرسمي: نرفق لكم نسخة من الاتفاق. (li-l-mukhāṭab al-rasmī: nurfiq lakum nuskha min al-ittifāq.).",
+                "answer": "For the formal addressee: we attach a copy of the agreement.",
+                "skill_target": "Arabic: right-to-left script, root-and-pattern reading, case and agreement, formal fuṣḥā versus the spoken register learners actually hear"
+              },
+              {
+                "type": "reverse_translation",
+                "q": "Practice 4: [reverse translation] Choosing a register before you translate — Write in Arabic script: For a friendly message: here's the file, review it whenever you like..",
+                "answer": "لرسالة ودّية: أرسل لك الملف، راجعه وقت ما تحبّ.",
+                "skill_target": "Arabic: right-to-left script, root-and-pattern reading, case and agreement, formal fuṣḥā versus the spoken register learners actually hear"
+              },
+              {
+                "type": "matching",
+                "q": "Practice 5: [matching] Choosing a register before you translate — Match المخاطَب to its lesson meaning.",
+                "answer": "the addressee, audience",
+                "skill_target": "Arabic: right-to-left script, root-and-pattern reading, case and agreement, formal fuṣḥā versus the spoken register learners actually hear",
+                "options": [
+                  "the addressee, audience",
+                  "contemporary standard Arabic",
+                  "classical, heritage register"
+                ]
+              },
+              {
+                "type": "reorder",
+                "q": "Practice 6: [reorder] Choosing a register before you translate — Reconstruct the lesson model in coherent Arabic: For a legal translation: a signed copy is attached hereto..",
+                "answer": "للترجمة القانونية: يُرفق طيّه نسخة موقّعة.",
+                "skill_target": "Arabic: right-to-left script, root-and-pattern reading, case and agreement, formal fuṣḥā versus the spoken register learners actually hear"
+              },
+              {
+                "type": "sentence_building",
+                "q": "Practice 7: [sentence building] Choosing a register before you translate — Build the sentence with the lesson pattern (mukhāṭab + maqṣad → register → sentence): For the formal addressee: we attach a copy of the agreement..",
+                "answer": "للمخاطب الرسمي: نرفق لكم نسخة من الاتفاق.",
+                "skill_target": "Arabic: right-to-left script, root-and-pattern reading, case and agreement, formal fuṣḥā versus the spoken register learners actually hear"
+              },
+              {
+                "type": "word_selection",
+                "q": "Practice 8: [word selection] Choosing a register before you translate — Select the Arabic form for “purpose, intent”.",
+                "answer": "مقصد",
+                "skill_target": "Arabic: right-to-left script, root-and-pattern reading, case and agreement, formal fuṣḥā versus the spoken register learners actually hear",
+                "options": [
+                  "مقصد",
+                  "أسلوب"
+                ]
+              },
+              {
+                "type": "error_correction",
+                "q": "Practice 9: [error correction] Choosing a register before you translate — Correct the model the lesson warns about: مترجم واحد لكل السياقات بأسلوب واحد.",
+                "answer": "(register is chosen per job)",
+                "skill_target": "Arabic: right-to-left script, root-and-pattern reading, case and agreement, formal fuṣḥā versus the spoken register learners actually hear"
+              },
+              {
+                "type": "dialogue_completion",
+                "q": "Practice 10: [dialogue completion] Choosing a register before you translate — Complete the exchange with the studied response to: I want the advertisement translated for a Gulf audience.",
+                "answer": "إذاً فصحى معاصرة، وليست تراثية.",
+                "skill_target": "Arabic: right-to-left script, root-and-pattern reading, case and agreement, formal fuṣḥā versus the spoken register learners actually hear"
+              },
+              {
+                "type": "reading_comprehension",
+                "q": "Practice 11: [reading comprehension] Choosing a register before you translate — Read “وللعنوان؟” (wa-li-l-ʿunwān?). What does it mean?",
+                "answer": "And the headline?",
+                "skill_target": "Arabic: right-to-left script, root-and-pattern reading, case and agreement, formal fuṣḥā versus the spoken register learners actually hear"
+              },
+              {
+                "type": "paragraph_comprehension",
+                "q": "Practice 12: [paragraph comprehension] Choosing a register before you translate — Read the lesson dialogue as a whole and give its key move: The headline can take colloquial, but the body stays formal.",
+                "answer": "العنوان يسمح بالعامية، لكنّ النصّ رسمي.",
+                "skill_target": "Arabic: right-to-left script, root-and-pattern reading, case and agreement, formal fuṣḥā versus the spoken register learners actually hear"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "Which meaning best fits فصحى معاصرة?",
+                "options": [
+                  "contemporary standard Arabic",
+                  "classical, heritage register",
+                  "the addressee, audience",
+                  "purpose, intent"
+                ],
+                "answer": 0,
+                "why": "فصحى معاصرة (fuṣḥā muʿāṣira) means contemporary standard Arabic in this lesson."
+              },
+              {
+                "q": "Which meaning best fits تراثية?",
+                "options": [
+                  "classical, heritage register",
+                  "contemporary standard Arabic",
+                  "the addressee, audience",
+                  "purpose, intent"
+                ],
+                "answer": 0,
+                "why": "تراثية (turāthiyya) means classical, heritage register in this lesson."
+              },
+              {
+                "q": "Which meaning best fits المخاطَب?",
+                "options": [
+                  "the addressee, audience",
+                  "contemporary standard Arabic",
+                  "classical, heritage register",
+                  "purpose, intent"
+                ],
+                "answer": 0,
+                "why": "المخاطَب (al-mukhāṭab) means the addressee, audience in this lesson."
+              },
+              {
+                "q": "Which meaning best fits مقصد?",
+                "options": [
+                  "purpose, intent",
+                  "contemporary standard Arabic",
+                  "classical, heritage register",
+                  "the addressee, audience"
+                ],
+                "answer": 0,
+                "why": "مقصد (maqṣad) means purpose, intent in this lesson."
+              },
+              {
+                "q": "Which meaning best fits أسلوب?",
+                "options": [
+                  "style",
+                  "contemporary standard Arabic",
+                  "classical, heritage register",
+                  "the addressee, audience"
+                ],
+                "answer": 0,
+                "why": "أسلوب (uslūb) means style in this lesson."
+              }
+            ],
+            "flashcards": "auto:vocab",
+            "worksheet": {
+              "title": "Register worksheet",
+              "tasks": [
+                {
+                  "instruction": "Name the register.",
+                  "items": [
+                    "a legal contract",
+                    "a friendly client email",
+                    "a news headline"
+                  ],
+                  "key": [
+                    "فصحى تراثية / قانونية",
+                    "فصحى معاصرة ودّية",
+                    "فصحى معاصرة موجزة"
+                  ]
+                },
+                {
+                  "instruction": "Translate the frame.",
+                  "items": [
+                    "“please find attached” (formal)",
+                    "“here's the file” (friendly)"
+                  ],
+                  "key": [
+                    "نرفق لكم",
+                    "أرسل لك المرفق"
+                  ]
+                },
+                {
+                  "instruction": "Integrated offline practice: read the first model, transform or extend it in Arabic script, then rehearse it as a dialogue. Self-check meaning, grammar, and register.",
+                  "items": [
+                    "للمخاطب الرسمي: نرفق لكم نسخة من الاتفاق.",
+                    "أريد ترجمة الإعلان للمخاطب الخليجي."
+                  ],
+                  "key": [
+                    "For the formal addressee: we attach a copy of the agreement.",
+                    "I want the advertisement translated for a Gulf audience."
+                  ]
+                }
+              ]
+            },
+            "srs_candidates": [
+              "فصحى معاصرة",
+              "تراثية",
+              "المخاطَب",
+              "مقصد"
+            ],
+            "srs_policy": "Only these four high-value terms are preselected; lesson mistakes and productive patterns may enter personalized review after an actual error."
+          },
+          {
+            "id": "C1+-U2-L2",
+            "title": "Calques and false friends",
+            "learn": "Translation traps hide in ordinary words: 'actually' is في الواقع, not فعلياً (which means literally); 'eventually' is في النهاية, not أحياناً; 'to assume' is يفترض, not يتّهم (accuse). A calque is grammatically correct and still not Arabic.",
+            "vocab": [
+              {
+                "t": "في الواقع",
+                "r": "fī al-wāqiʿ",
+                "en": "actually, in fact",
+                "pos": "phrase"
+              },
+              {
+                "t": "فعلياً",
+                "r": "fiʿliyyan",
+                "en": "in practice, de facto",
+                "pos": "adverb"
+              },
+              {
+                "t": "يفترض",
+                "r": "yaftariḍ",
+                "en": "assumes",
+                "pos": "verb"
+              },
+              {
+                "t": "يتّهم",
+                "r": "yattahim",
+                "en": "accuses",
+                "pos": "verb"
+              },
+              {
+                "t": "ترجمة حرفية",
+                "r": "tarjama ḥarfiyya",
+                "en": "a literal translation",
+                "pos": "phrase"
+              }
+            ],
+            "grammar": {
+              "title": "False friends to check",
+              "pattern": "actually → fī al-wāqiʿ · eventually → fī al-nihāya · assume → yaftariḍ · concrete (adj) → māddī",
+              "explain": "هو في الواقع محقّ (he is actually right). في النهاية وصلنا (eventually we arrived). الخرسانة is concrete the material; ملموس is concrete as an adjective.",
+              "examples": [
+                {
+                  "t": "في الواقع، لم يصل التقرير بعد.",
+                  "r": "fī al-wāqiʿ, lam yaṣil al-taqrīr baʿd.",
+                  "en": "Actually, the report has not arrived yet."
+                },
+                {
+                  "t": "في النهاية، اتّفقنا على سعر أقلّ.",
+                  "r": "fī al-nihāya, ittafaqnā ʿalā siʿr aqall.",
+                  "en": "Eventually we agreed on a lower price."
+                },
+                {
+                  "t": "لنفترض أنّ الأرقام صحيحة.",
+                  "r": "li-naftariḍ anna al-arqām ṣaḥīḥa.",
+                  "en": "Let us assume the figures are correct."
+                }
+              ],
+              "mistakes": [
+                {
+                  "wrong": "فعلياً، لم يصل التقرير.",
+                  "right": "في الواقع، لم يصل التقرير.",
+                  "why": "فعلياً means 'in practice, de facto'; 'actually' is في الواقع."
+                },
+                {
+                  "wrong": "أحياناً وصلنا.",
+                  "right": "في النهاية وصلنا.",
+                  "why": "'Eventually' is not أحياناً (sometimes); it is في النهاية."
+                }
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "مترجم",
+                "t": "كتبتُ: «هو في الواقع محقّ».",
+                "r": "katabtu: «huwa fī al-wāqiʿ muḥiqq».",
+                "en": "I wrote: 'he is actually right'."
+              },
+              {
+                "sp": "محرّر",
+                "t": "جيدة، لكن لا تكتب فعلياً هنا.",
+                "r": "jayyida, lākin lā taktub fiʿliyyan hunā.",
+                "en": "Good — but don't write فعلياً here."
+              },
+              {
+                "sp": "مترجم",
+                "t": "الفرق أنّ فعلياً تعني عملياً، صحيح؟",
+                "r": "al-farq anna fiʿliyyan taʿnī ʿamaliyyan, ṣaḥīḥ?",
+                "en": "The difference is that فعلياً means practically, right?"
+              },
+              {
+                "sp": "محرّر",
+                "t": "تماماً، وفي الترجمة القانونية الفرق جوهر.",
+                "r": "tamāman, wa-fī al-tarjama al-qānūniyya al-farq jawhar.",
+                "en": "Exactly — and in legal translation the difference is the substance."
+              }
+            ],
+            "practice": [
+              {
+                "type": "multiple_choice",
+                "q": "Practice 1: [multiple choice] Calques and false friends — Choose the meaning of في الواقع (fī al-wāqiʿ) in this lesson.",
+                "answer": "actually, in fact",
+                "skill_target": "Arabic: right-to-left script, root-and-pattern reading, case and agreement, formal fuṣḥā versus the spoken register learners actually hear",
+                "options": [
+                  "actually, in fact",
+                  "in practice, de facto",
+                  "assumes",
+                  "accuses"
+                ]
+              },
+              {
+                "type": "fill_in_the_blank",
+                "q": "Practice 2: [fill in the blank] Calques and false friends — Type the Arabic expression meaning “in practice, de facto”.",
+                "answer": "فعلياً",
+                "skill_target": "Arabic: right-to-left script, root-and-pattern reading, case and agreement, formal fuṣḥā versus the spoken register learners actually hear"
+              },
+              {
+                "type": "translation",
+                "q": "Practice 3: [translation] Calques and false friends — Interpret the Arabic script in context: في الواقع، لم يصل التقرير بعد. (fī al-wāqiʿ, lam yaṣil al-taqrīr baʿd.).",
+                "answer": "Actually, the report has not arrived yet.",
+                "skill_target": "Arabic: right-to-left script, root-and-pattern reading, case and agreement, formal fuṣḥā versus the spoken register learners actually hear"
+              },
+              {
+                "type": "reverse_translation",
+                "q": "Practice 4: [reverse translation] Calques and false friends — Write in Arabic script: Eventually we agreed on a lower price..",
+                "answer": "في النهاية، اتّفقنا على سعر أقلّ.",
+                "skill_target": "Arabic: right-to-left script, root-and-pattern reading, case and agreement, formal fuṣḥā versus the spoken register learners actually hear"
+              },
+              {
+                "type": "matching",
+                "q": "Practice 5: [matching] Calques and false friends — Match يفترض to its lesson meaning.",
+                "answer": "assumes",
+                "skill_target": "Arabic: right-to-left script, root-and-pattern reading, case and agreement, formal fuṣḥā versus the spoken register learners actually hear",
+                "options": [
+                  "assumes",
+                  "actually, in fact",
+                  "in practice, de facto"
+                ]
+              },
+              {
+                "type": "reorder",
+                "q": "Practice 6: [reorder] Calques and false friends — Reconstruct the lesson model in coherent Arabic: Let us assume the figures are correct..",
+                "answer": "لنفترض أنّ الأرقام صحيحة.",
+                "skill_target": "Arabic: right-to-left script, root-and-pattern reading, case and agreement, formal fuṣḥā versus the spoken register learners actually hear"
+              },
+              {
+                "type": "sentence_building",
+                "q": "Practice 7: [sentence building] Calques and false friends — Build the sentence with the lesson pattern (actually → fī al-wāqiʿ · eventually → fī al-nihāya · assume → yaftariḍ · concrete (adj) → māddī): Actually, the report has not arrived yet..",
+                "answer": "في الواقع، لم يصل التقرير بعد.",
+                "skill_target": "Arabic: right-to-left script, root-and-pattern reading, case and agreement, formal fuṣḥā versus the spoken register learners actually hear"
+              },
+              {
+                "type": "word_selection",
+                "q": "Practice 8: [word selection] Calques and false friends — Select the Arabic form for “accuses”.",
+                "answer": "يتّهم",
+                "skill_target": "Arabic: right-to-left script, root-and-pattern reading, case and agreement, formal fuṣḥā versus the spoken register learners actually hear",
+                "options": [
+                  "يتّهم",
+                  "ترجمة حرفية"
+                ]
+              },
+              {
+                "type": "error_correction",
+                "q": "Practice 9: [error correction] Calques and false friends — Correct the model the lesson warns about: فعلياً، لم يصل التقرير.",
+                "answer": "في الواقع، لم يصل التقرير.",
+                "skill_target": "Arabic: right-to-left script, root-and-pattern reading, case and agreement, formal fuṣḥā versus the spoken register learners actually hear"
+              },
+              {
+                "type": "dialogue_completion",
+                "q": "Practice 10: [dialogue completion] Calques and false friends — Complete the exchange with the studied response to: I wrote: 'he is actually right'.",
+                "answer": "جيدة، لكن لا تكتب فعلياً هنا.",
+                "skill_target": "Arabic: right-to-left script, root-and-pattern reading, case and agreement, formal fuṣḥā versus the spoken register learners actually hear"
+              },
+              {
+                "type": "reading_comprehension",
+                "q": "Practice 11: [reading comprehension] Calques and false friends — Read “الفرق أنّ فعلياً تعني عملياً، صحيح؟” (al-farq anna fiʿliyyan taʿnī ʿamaliyyan, ṣaḥīḥ?). What does it mean?",
+                "answer": "The difference is that فعلياً means practically, right?",
+                "skill_target": "Arabic: right-to-left script, root-and-pattern reading, case and agreement, formal fuṣḥā versus the spoken register learners actually hear"
+              },
+              {
+                "type": "paragraph_comprehension",
+                "q": "Practice 12: [paragraph comprehension] Calques and false friends — Read the lesson dialogue as a whole and give its key move: Exactly — and in legal translation the difference is the substance.",
+                "answer": "تماماً، وفي الترجمة القانونية الفرق جوهر.",
+                "skill_target": "Arabic: right-to-left script, root-and-pattern reading, case and agreement, formal fuṣḥā versus the spoken register learners actually hear"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "Which meaning best fits في الواقع?",
+                "options": [
+                  "actually, in fact",
+                  "in practice, de facto",
+                  "assumes",
+                  "accuses"
+                ],
+                "answer": 0,
+                "why": "في الواقع (fī al-wāqiʿ) means actually, in fact in this lesson."
+              },
+              {
+                "q": "Which meaning best fits فعلياً?",
+                "options": [
+                  "in practice, de facto",
+                  "actually, in fact",
+                  "assumes",
+                  "accuses"
+                ],
+                "answer": 0,
+                "why": "فعلياً (fiʿliyyan) means in practice, de facto in this lesson."
+              },
+              {
+                "q": "Which meaning best fits يفترض?",
+                "options": [
+                  "assumes",
+                  "actually, in fact",
+                  "in practice, de facto",
+                  "accuses"
+                ],
+                "answer": 0,
+                "why": "يفترض (yaftariḍ) means assumes in this lesson."
+              },
+              {
+                "q": "Which meaning best fits يتّهم?",
+                "options": [
+                  "accuses",
+                  "actually, in fact",
+                  "in practice, de facto",
+                  "assumes"
+                ],
+                "answer": 0,
+                "why": "يتّهم (yattahim) means accuses in this lesson."
+              },
+              {
+                "q": "Which meaning best fits ترجمة حرفية?",
+                "options": [
+                  "a literal translation",
+                  "actually, in fact",
+                  "in practice, de facto",
+                  "assumes"
+                ],
+                "answer": 0,
+                "why": "ترجمة حرفية (tarjama ḥarfiyya) means a literal translation in this lesson."
+              }
+            ],
+            "flashcards": "auto:vocab",
+            "worksheet": {
+              "title": "False-friend worksheet",
+              "tasks": [
+                {
+                  "instruction": "Correct the calque.",
+                  "items": [
+                    "فعلياً، أنا موافق.",
+                    "أحياناً سنصل غداً.",
+                    "يتّهم أنّ الأرقام صحيحة."
+                  ],
+                  "key": [
+                    "في الواقع، أنا موافق",
+                    "في النهاية سنصل غداً",
+                    "يفترض أنّ الأرقام صحيحة"
+                  ]
+                },
+                {
+                  "instruction": "Choose the word.",
+                  "items": [
+                    "concrete evidence",
+                    "concrete the material",
+                    "a concrete proposal"
+                  ],
+                  "key": [
+                    "أدلّة ملموسة",
+                    "الخرسانة",
+                    "اقتراح محدّد / ملموس"
+                  ]
+                },
+                {
+                  "instruction": "Integrated offline practice: read the first model, transform or extend it in Arabic script, then rehearse it as a dialogue. Self-check meaning, grammar, and register.",
+                  "items": [
+                    "في الواقع، لم يصل التقرير بعد.",
+                    "كتبتُ: «هو في الواقع محقّ»."
+                  ],
+                  "key": [
+                    "Actually, the report has not arrived yet.",
+                    "I wrote: 'he is actually right'."
+                  ]
+                }
+              ]
+            },
+            "srs_candidates": [
+              "في الواقع",
+              "فعلياً",
+              "يفترض",
+              "يتّهم"
+            ],
+            "srs_policy": "Only these four high-value terms are preselected; lesson mistakes and productive patterns may enter personalized review after an actual error."
+          },
+          {
+            "id": "C1+-U2-L3",
+            "title": "Back-translation as a check",
+            "learn": "The professional habit: translate your Arabic back into English and see what survived. If the back-translation drifts — certainty grew, politeness vanished, an actor appeared from nowhere — the first translation is wrong, not the second.",
+            "vocab": [
+              {
+                "t": "الترجمة العكسية",
+                "r": "al-tarjama al-ʿaksiyya",
+                "en": "back-translation",
+                "pos": "noun"
+              },
+              {
+                "t": "الأمانة",
+                "r": "al-amāna",
+                "en": "fidelity",
+                "pos": "noun"
+              },
+              {
+                "t": "انحراف",
+                "r": "inḥirāf",
+                "en": "drift, deviation",
+                "pos": "noun"
+              },
+              {
+                "t": "درجة اليقين",
+                "r": "darajat al-yaqīn",
+                "en": "degree of certainty",
+                "pos": "noun"
+              },
+              {
+                "t": "مراجعة",
+                "r": "murājaʿa",
+                "en": "review, check",
+                "pos": "noun"
+              }
+            ],
+            "grammar": {
+              "title": "Back-translate and compare",
+              "pattern": "translate → back-translate → compare certainty, politeness, actor",
+              "explain": "نرجو التكرم بالاطلاع → 'we request you kindly review' → back: 'we request you kindly review' ✓. If 'perhaps' comes back as 'certainly', the drift is in the first direction.",
+              "examples": [
+                {
+                  "t": "رجعتُ بالترجمة للتحقّق من درجة اليقين.",
+                  "r": "rajaʿtu bi-l-tarjama li-l-taḥaqquq min darajat al-yaqīn.",
+                  "en": "I back-translated to check the degree of certainty."
+                },
+                {
+                  "t": "لم يتغيّر المعنى، لكن تغيّرت النبرة.",
+                  "r": "lam yataghayyar al-maʿnā, lākin taghayyarat al-nabra.",
+                  "en": "The meaning did not change, but the tone did."
+                },
+                {
+                  "t": "هذا انحراف مقصود في العنوان، لا خطأ.",
+                  "r": "hādhā inḥirāf maqṣūd fī al-ʿunwān, lā khaṭaʾ.",
+                  "en": "This is a deliberate drift in the headline, not an error."
+                }
+              ],
+              "mistakes": [
+                {
+                  "wrong": "الترجمة العكسية تحتاج قاموساً فقط.",
+                  "right": "الترجمة العكسية تقارن النبرة ودرجة اليقين، لا المفردات فقط.",
+                  "why": "Words survive back-translation easily; stance is what drifts."
+                },
+                {
+                  "wrong": "أعدتُ الترجمة، إذاً الترجمة صحيحة.",
+                  "right": "أعدتُ الترجمة وقارنت ثلاث نقاط: اليقين، اللباقة، الفاعل.",
+                  "why": "A back-translation is only useful with a checklist."
+                }
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "محرّر",
+                "t": "هل راجعتِ الترجمة؟",
+                "r": "hal rājaʿti al-tarjama?",
+                "en": "Did you review the translation?"
+              },
+              {
+                "sp": "مترجمة",
+                "t": "راجعتها بترجمة عكسية.",
+                "r": "rājaʿtuhā bi-tarjama ʿaksiyya.",
+                "en": "I reviewed it with a back-translation."
+              },
+              {
+                "sp": "محرّر",
+                "t": "وماذا وجدتِ؟",
+                "r": "wa-mādhā wajadt?",
+                "en": "And what did you find?"
+              },
+              {
+                "sp": "مترجمة",
+                "t": "المعنى سليم، لكن درجة اليقين ارتفعت في السطر الخامس.",
+                "r": "al-maʿnā salīm, lākin darajat al-yaqīn irtafaʿat fī al-saṭr al-khāmis.",
+                "en": "The meaning is sound, but the certainty rose in the fifth line."
+              }
+            ],
+            "practice": [
+              {
+                "type": "multiple_choice",
+                "q": "Practice 1: [multiple choice] Back-translation as a check — Choose the meaning of الترجمة العكسية (al-tarjama al-ʿaksiyya) in this lesson.",
+                "answer": "back-translation",
+                "skill_target": "Arabic: right-to-left script, root-and-pattern reading, case and agreement, formal fuṣḥā versus the spoken register learners actually hear",
+                "options": [
+                  "back-translation",
+                  "fidelity",
+                  "drift, deviation",
+                  "degree of certainty"
+                ]
+              },
+              {
+                "type": "fill_in_the_blank",
+                "q": "Practice 2: [fill in the blank] Back-translation as a check — Type the Arabic expression meaning “fidelity”.",
+                "answer": "الأمانة",
+                "skill_target": "Arabic: right-to-left script, root-and-pattern reading, case and agreement, formal fuṣḥā versus the spoken register learners actually hear"
+              },
+              {
+                "type": "translation",
+                "q": "Practice 3: [translation] Back-translation as a check — Interpret the Arabic script in context: رجعتُ بالترجمة للتحقّق من درجة اليقين. (rajaʿtu bi-l-tarjama li-l-taḥaqquq min darajat al-yaqīn.).",
+                "answer": "I back-translated to check the degree of certainty.",
+                "skill_target": "Arabic: right-to-left script, root-and-pattern reading, case and agreement, formal fuṣḥā versus the spoken register learners actually hear"
+              },
+              {
+                "type": "reverse_translation",
+                "q": "Practice 4: [reverse translation] Back-translation as a check — Write in Arabic script: The meaning did not change, but the tone did..",
+                "answer": "لم يتغيّر المعنى، لكن تغيّرت النبرة.",
+                "skill_target": "Arabic: right-to-left script, root-and-pattern reading, case and agreement, formal fuṣḥā versus the spoken register learners actually hear"
+              },
+              {
+                "type": "matching",
+                "q": "Practice 5: [matching] Back-translation as a check — Match انحراف to its lesson meaning.",
+                "answer": "drift, deviation",
+                "skill_target": "Arabic: right-to-left script, root-and-pattern reading, case and agreement, formal fuṣḥā versus the spoken register learners actually hear",
+                "options": [
+                  "drift, deviation",
+                  "back-translation",
+                  "fidelity"
+                ]
+              },
+              {
+                "type": "reorder",
+                "q": "Practice 6: [reorder] Back-translation as a check — Reconstruct the lesson model in coherent Arabic: This is a deliberate drift in the headline, not an error..",
+                "answer": "هذا انحراف مقصود في العنوان، لا خطأ.",
+                "skill_target": "Arabic: right-to-left script, root-and-pattern reading, case and agreement, formal fuṣḥā versus the spoken register learners actually hear"
+              },
+              {
+                "type": "sentence_building",
+                "q": "Practice 7: [sentence building] Back-translation as a check — Build the sentence with the lesson pattern (translate → back-translate → compare certainty, politeness, actor): I back-translated to check the degree of certainty..",
+                "answer": "رجعتُ بالترجمة للتحقّق من درجة اليقين.",
+                "skill_target": "Arabic: right-to-left script, root-and-pattern reading, case and agreement, formal fuṣḥā versus the spoken register learners actually hear"
+              },
+              {
+                "type": "word_selection",
+                "q": "Practice 8: [word selection] Back-translation as a check — Select the Arabic form for “degree of certainty”.",
+                "answer": "درجة اليقين",
+                "skill_target": "Arabic: right-to-left script, root-and-pattern reading, case and agreement, formal fuṣḥā versus the spoken register learners actually hear",
+                "options": [
+                  "درجة اليقين",
+                  "مراجعة"
+                ]
+              },
+              {
+                "type": "error_correction",
+                "q": "Practice 9: [error correction] Back-translation as a check — Correct the model the lesson warns about: الترجمة العكسية تحتاج قاموساً فقط.",
+                "answer": "الترجمة العكسية تقارن النبرة ودرجة اليقين، لا المفردات فقط.",
+                "skill_target": "Arabic: right-to-left script, root-and-pattern reading, case and agreement, formal fuṣḥā versus the spoken register learners actually hear"
+              },
+              {
+                "type": "dialogue_completion",
+                "q": "Practice 10: [dialogue completion] Back-translation as a check — Complete the exchange with the studied response to: Did you review the translation?",
+                "answer": "راجعتها بترجمة عكسية.",
+                "skill_target": "Arabic: right-to-left script, root-and-pattern reading, case and agreement, formal fuṣḥā versus the spoken register learners actually hear"
+              },
+              {
+                "type": "reading_comprehension",
+                "q": "Practice 11: [reading comprehension] Back-translation as a check — Read “وماذا وجدتِ؟” (wa-mādhā wajadt?). What does it mean?",
+                "answer": "And what did you find?",
+                "skill_target": "Arabic: right-to-left script, root-and-pattern reading, case and agreement, formal fuṣḥā versus the spoken register learners actually hear"
+              },
+              {
+                "type": "paragraph_comprehension",
+                "q": "Practice 12: [paragraph comprehension] Back-translation as a check — Read the lesson dialogue as a whole and give its key move: The meaning is sound, but the certainty rose in the fifth line.",
+                "answer": "المعنى سليم، لكن درجة اليقين ارتفعت في السطر الخامس.",
+                "skill_target": "Arabic: right-to-left script, root-and-pattern reading, case and agreement, formal fuṣḥā versus the spoken register learners actually hear"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "Which meaning best fits الترجمة العكسية?",
+                "options": [
+                  "back-translation",
+                  "fidelity",
+                  "drift, deviation",
+                  "degree of certainty"
+                ],
+                "answer": 0,
+                "why": "الترجمة العكسية (al-tarjama al-ʿaksiyya) means back-translation in this lesson."
+              },
+              {
+                "q": "Which meaning best fits الأمانة?",
+                "options": [
+                  "fidelity",
+                  "back-translation",
+                  "drift, deviation",
+                  "degree of certainty"
+                ],
+                "answer": 0,
+                "why": "الأمانة (al-amāna) means fidelity in this lesson."
+              },
+              {
+                "q": "Which meaning best fits انحراف?",
+                "options": [
+                  "drift, deviation",
+                  "back-translation",
+                  "fidelity",
+                  "degree of certainty"
+                ],
+                "answer": 0,
+                "why": "انحراف (inḥirāf) means drift, deviation in this lesson."
+              },
+              {
+                "q": "Which meaning best fits درجة اليقين?",
+                "options": [
+                  "degree of certainty",
+                  "back-translation",
+                  "fidelity",
+                  "drift, deviation"
+                ],
+                "answer": 0,
+                "why": "درجة اليقين (darajat al-yaqīn) means degree of certainty in this lesson."
+              },
+              {
+                "q": "Which meaning best fits مراجعة?",
+                "options": [
+                  "review, check",
+                  "back-translation",
+                  "fidelity",
+                  "drift, deviation"
+                ],
+                "answer": 0,
+                "why": "مراجعة (murājaʿa) means review, check in this lesson."
+              }
+            ],
+            "flashcards": "auto:vocab",
+            "worksheet": {
+              "title": "Back-translation worksheet",
+              "tasks": [
+                {
+                  "instruction": "Check three things.",
+                  "items": [
+                    "certainty",
+                    "politeness",
+                    "who acts"
+                  ],
+                  "key": [
+                    "درجة اليقين",
+                    "اللباقة",
+                    "الفاعل"
+                  ]
+                },
+                {
+                  "instruction": "Say what drifted.",
+                  "items": [
+                    "the tone changed",
+                    "the actor disappeared",
+                    "certainty grew"
+                  ],
+                  "key": [
+                    "تغيّرت النبرة",
+                    "اختفى الفاعل في الترجمة",
+                    "ارتفعت درجة اليقين"
+                  ]
+                },
+                {
+                  "instruction": "Integrated offline practice: read the first model, transform or extend it in Arabic script, then rehearse it as a dialogue. Self-check meaning, grammar, and register.",
+                  "items": [
+                    "رجعتُ بالترجمة للتحقّق من درجة اليقين.",
+                    "هل راجعتِ الترجمة؟"
+                  ],
+                  "key": [
+                    "I back-translated to check the degree of certainty.",
+                    "Did you review the translation?"
+                  ]
+                }
+              ]
+            },
+            "srs_candidates": [
+              "الترجمة العكسية",
+              "الأمانة",
+              "انحراف",
+              "درجة اليقين"
+            ],
+            "srs_policy": "Only these four high-value terms are preselected; lesson mistakes and productive patterns may enter personalized review after an actual error."
+          }
+        ]
+      },
+      {
+        "id": "C1+-U3",
+        "title": "Teaching what you know",
+        "lessons": [
+          {
+            "id": "C1+-U3-L1",
+            "title": "Explain a rule: القاعدة، مثال، ملاحظة",
+            "learn": "A rule explained in three moves sticks: القاعدة (the rule), مثال (an example), ملاحظة (the exception or warning). Arabic teaching texts, from the old grammars to a modern textbook, run on exactly this order.",
+            "vocab": [
+              {
+                "t": "القاعدة",
+                "r": "al-qāʿida",
+                "en": "the rule",
+                "pos": "noun"
+              },
+              {
+                "t": "مثال",
+                "r": "mithāl",
+                "en": "an example",
+                "pos": "noun"
+              },
+              {
+                "t": "ملاحظة",
+                "r": "mulāḥaẓa",
+                "en": "a note, remark",
+                "pos": "noun"
+              },
+              {
+                "t": "استثناء",
+                "r": "istithnāʾ",
+                "en": "an exception",
+                "pos": "noun"
+              },
+              {
+                "t": "تمرين",
+                "r": "tamrīn",
+                "en": "an exercise",
+                "pos": "noun"
+              }
+            ],
+            "grammar": {
+              "title": "Rule → example → note",
+              "pattern": "al-qāʿida: … · mithāl: … · mulāḥaẓa: …",
+              "explain": "القاعدة: الفعل بعد لم يكون مجزوماً. مثال: لم يذهبْ. ملاحظة: لا تظهر السكون في الكتابة، لكنّها تُسمع في القراءة. Three lines, and the learner can use it before understanding it fully.",
+              "examples": [
+                {
+                  "t": "القاعدة: أنّ تفتح الجملة بعد أفعال القول.",
+                  "r": "al-qāʿida: أنّ tafthaḥ al-jumla baʿda afʿāl al-qawl.",
+                  "en": "The rule: أنّ opens the clause after verbs of speech."
+                },
+                {
+                  "t": "مثال: قال إنّ الاجتماع تأجّل.",
+                  "r": "mithāl: qāla inna al-ijtimāʿ taʾajjal.",
+                  "en": "Example: he said that the meeting was postponed."
+                },
+                {
+                  "t": "ملاحظة: بعد «قال» تُستخدم إنّ، وبعد «أفاد» تُستخدم بأنّ.",
+                  "r": "mulāḥaẓa: baʿda «qāla» tustakhdam inn, wa-baʿda «afāda» tustakhdam bi-ann.",
+                  "en": "Note: after قال use إنّ; after أفاد use بأنّ."
+                }
+              ],
+              "mistakes": [
+                {
+                  "wrong": "القاعدة: القاعدة صعبة.",
+                  "right": "القاعدة: الفعل بعد لم يكون مجزوماً.",
+                  "why": "A rule must state a pattern, not an opinion about the pattern."
+                },
+                {
+                  "wrong": "مثال: قال إنّ، ملاحظة: إنّ، وهكذا.",
+                  "right": "(one worked example)",
+                  "why": "Listing markers is not teaching; the example has to be a sentence."
+                }
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "متعلّم",
+                "t": "ما الفرق بين إنّ وأنّ؟",
+                "r": "mā al-farq bayna inn wa-ann?",
+                "en": "What is the difference between إنّ and أنّ?"
+              },
+              {
+                "sp": "معلّمة",
+                "t": "القاعدة: إنّ تفتح جملة مستقلّة، وأنّ تعمل داخل الجملة.",
+                "r": "al-qāʿida: inn tafthaḥ jumla mustaqilla, wa-ann taʿmal dākhil al-jumla.",
+                "en": "The rule: إنّ opens an independent sentence; أنّ works inside it."
+              },
+              {
+                "sp": "متعلّم",
+                "t": "مثال؟",
+                "r": "mithāl?",
+                "en": "An example?"
+              },
+              {
+                "sp": "معلّمة",
+                "t": "إنّ الجوّ جميل. أعلم أنّ الجوّ جميل.",
+                "r": "inna al-jaww jamīl. aʿlam anna al-jaww jamīl.",
+                "en": "إنّ الجوّ جميل. أعلم أنّ الجوّ جميل."
+              }
+            ],
+            "practice": [
+              {
+                "type": "multiple_choice",
+                "q": "Practice 1: [multiple choice] Explain a rule: القاعدة، مثال، ملاحظة — Choose the meaning of القاعدة (al-qāʿida) in this lesson.",
+                "answer": "the rule",
+                "skill_target": "Arabic: right-to-left script, root-and-pattern reading, case and agreement, formal fuṣḥā versus the spoken register learners actually hear",
+                "options": [
+                  "the rule",
+                  "an example",
+                  "a note, remark",
+                  "an exception"
+                ]
+              },
+              {
+                "type": "fill_in_the_blank",
+                "q": "Practice 2: [fill in the blank] Explain a rule: القاعدة، مثال، ملاحظة — Type the Arabic expression meaning “an example”.",
+                "answer": "مثال",
+                "skill_target": "Arabic: right-to-left script, root-and-pattern reading, case and agreement, formal fuṣḥā versus the spoken register learners actually hear"
+              },
+              {
+                "type": "translation",
+                "q": "Practice 3: [translation] Explain a rule: القاعدة، مثال، ملاحظة — Interpret the Arabic script in context: القاعدة: أنّ تفتح الجملة بعد أفعال القول. (al-qāʿida: أنّ tafthaḥ al-jumla baʿda afʿāl al-qawl.).",
+                "answer": "The rule: أنّ opens the clause after verbs of speech.",
+                "skill_target": "Arabic: right-to-left script, root-and-pattern reading, case and agreement, formal fuṣḥā versus the spoken register learners actually hear"
+              },
+              {
+                "type": "reverse_translation",
+                "q": "Practice 4: [reverse translation] Explain a rule: القاعدة، مثال، ملاحظة — Write in Arabic script: Example: he said that the meeting was postponed..",
+                "answer": "مثال: قال إنّ الاجتماع تأجّل.",
+                "skill_target": "Arabic: right-to-left script, root-and-pattern reading, case and agreement, formal fuṣḥā versus the spoken register learners actually hear"
+              },
+              {
+                "type": "matching",
+                "q": "Practice 5: [matching] Explain a rule: القاعدة، مثال، ملاحظة — Match ملاحظة to its lesson meaning.",
+                "answer": "a note, remark",
+                "skill_target": "Arabic: right-to-left script, root-and-pattern reading, case and agreement, formal fuṣḥā versus the spoken register learners actually hear",
+                "options": [
+                  "a note, remark",
+                  "the rule",
+                  "an example"
+                ]
+              },
+              {
+                "type": "reorder",
+                "q": "Practice 6: [reorder] Explain a rule: القاعدة، مثال، ملاحظة — Reconstruct the lesson model in coherent Arabic: Note: after قال use إنّ; after أفاد use بأنّ..",
+                "answer": "ملاحظة: بعد «قال» تُستخدم إنّ، وبعد «أفاد» تُستخدم بأنّ.",
+                "skill_target": "Arabic: right-to-left script, root-and-pattern reading, case and agreement, formal fuṣḥā versus the spoken register learners actually hear"
+              },
+              {
+                "type": "sentence_building",
+                "q": "Practice 7: [sentence building] Explain a rule: القاعدة، مثال، ملاحظة — Build the sentence with the lesson pattern (al-qāʿida: … · mithāl: … · mulāḥaẓa: …): The rule: أنّ opens the clause after verbs of speech..",
+                "answer": "القاعدة: أنّ تفتح الجملة بعد أفعال القول.",
+                "skill_target": "Arabic: right-to-left script, root-and-pattern reading, case and agreement, formal fuṣḥā versus the spoken register learners actually hear"
+              },
+              {
+                "type": "word_selection",
+                "q": "Practice 8: [word selection] Explain a rule: القاعدة، مثال، ملاحظة — Select the Arabic form for “an exception”.",
+                "answer": "استثناء",
+                "skill_target": "Arabic: right-to-left script, root-and-pattern reading, case and agreement, formal fuṣḥā versus the spoken register learners actually hear",
+                "options": [
+                  "استثناء",
+                  "تمرين"
+                ]
+              },
+              {
+                "type": "error_correction",
+                "q": "Practice 9: [error correction] Explain a rule: القاعدة، مثال، ملاحظة — Correct the model the lesson warns about: القاعدة: القاعدة صعبة.",
+                "answer": "القاعدة: الفعل بعد لم يكون مجزوماً.",
+                "skill_target": "Arabic: right-to-left script, root-and-pattern reading, case and agreement, formal fuṣḥā versus the spoken register learners actually hear"
+              },
+              {
+                "type": "dialogue_completion",
+                "q": "Practice 10: [dialogue completion] Explain a rule: القاعدة، مثال، ملاحظة — Complete the exchange with the studied response to: What is the difference between إنّ and أنّ?",
+                "answer": "القاعدة: إنّ تفتح جملة مستقلّة، وأنّ تعمل داخل الجملة.",
+                "skill_target": "Arabic: right-to-left script, root-and-pattern reading, case and agreement, formal fuṣḥā versus the spoken register learners actually hear"
+              },
+              {
+                "type": "reading_comprehension",
+                "q": "Practice 11: [reading comprehension] Explain a rule: القاعدة، مثال، ملاحظة — Read “مثال؟” (mithāl?). What does it mean?",
+                "answer": "An example?",
+                "skill_target": "Arabic: right-to-left script, root-and-pattern reading, case and agreement, formal fuṣḥā versus the spoken register learners actually hear"
+              },
+              {
+                "type": "paragraph_comprehension",
+                "q": "Practice 12: [paragraph comprehension] Explain a rule: القاعدة، مثال، ملاحظة — Read the lesson dialogue as a whole and give its key move: إنّ الجوّ جميل. أعلم أنّ الجوّ جميل.",
+                "answer": "إنّ الجوّ جميل. أعلم أنّ الجوّ جميل.",
+                "skill_target": "Arabic: right-to-left script, root-and-pattern reading, case and agreement, formal fuṣḥā versus the spoken register learners actually hear"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "Which meaning best fits القاعدة?",
+                "options": [
+                  "the rule",
+                  "an example",
+                  "a note, remark",
+                  "an exception"
+                ],
+                "answer": 0,
+                "why": "القاعدة (al-qāʿida) means the rule in this lesson."
+              },
+              {
+                "q": "Which meaning best fits مثال?",
+                "options": [
+                  "an example",
+                  "the rule",
+                  "a note, remark",
+                  "an exception"
+                ],
+                "answer": 0,
+                "why": "مثال (mithāl) means an example in this lesson."
+              },
+              {
+                "q": "Which meaning best fits ملاحظة?",
+                "options": [
+                  "a note, remark",
+                  "the rule",
+                  "an example",
+                  "an exception"
+                ],
+                "answer": 0,
+                "why": "ملاحظة (mulāḥaẓa) means a note, remark in this lesson."
+              },
+              {
+                "q": "Which meaning best fits استثناء?",
+                "options": [
+                  "an exception",
+                  "the rule",
+                  "an example",
+                  "a note, remark"
+                ],
+                "answer": 0,
+                "why": "استثناء (istithnāʾ) means an exception in this lesson."
+              },
+              {
+                "q": "Which meaning best fits تمرين?",
+                "options": [
+                  "an exercise",
+                  "the rule",
+                  "an example",
+                  "a note, remark"
+                ],
+                "answer": 0,
+                "why": "تمرين (tamrīn) means an exercise in this lesson."
+              }
+            ],
+            "flashcards": "auto:vocab",
+            "worksheet": {
+              "title": "Teaching worksheet",
+              "tasks": [
+                {
+                  "instruction": "Teach it in three moves.",
+                  "items": [
+                    "لم + jussive",
+                    "b- after أرجو",
+                    "duals"
+                  ],
+                  "key": [
+                    "القاعدة: الفعل بعد لم مجزوم · مثال: لم يذهبْ · ملاحظة: السكون لا يُكتب",
+                    "القاعدة: أرجو أن + فعل · مثال: أرجو أن تصل · ملاحظة: لا تُستخدم مع اسم",
+                    "القاعدة: المثنّى بـ -ان · مثال: كتابان · ملاحظة: -ين بعد الفعل"
+                  ]
+                },
+                {
+                  "instruction": "Write the exercise.",
+                  "items": [
+                    "three sentences to fix",
+                    "two to complete"
+                  ],
+                  "key": [
+                    "صحّح: لم يذهبُ…",
+                    "أكمل: أرجو أن…"
+                  ]
+                },
+                {
+                  "instruction": "Integrated offline practice: read the first model, transform or extend it in Arabic script, then rehearse it as a dialogue. Self-check meaning, grammar, and register.",
+                  "items": [
+                    "القاعدة: أنّ تفتح الجملة بعد أفعال القول.",
+                    "ما الفرق بين إنّ وأنّ؟"
+                  ],
+                  "key": [
+                    "The rule: أنّ opens the clause after verbs of speech.",
+                    "What is the difference between إنّ and أنّ?"
+                  ]
+                }
+              ]
+            },
+            "srs_candidates": [
+              "القاعدة",
+              "مثال",
+              "ملاحظة",
+              "استثناء"
+            ],
+            "srs_policy": "Only these four high-value terms are preselected; lesson mistakes and productive patterns may enter personalized review after an actual error."
+          },
+          {
+            "id": "C1+-U3-L2",
+            "title": "Correct kindly: أحسنت، وهناك ملاحظة",
+            "learn": "Correction that lands starts with what is right: أحسنت (well done), صحيح تقريباً, ثمّ ملاحظة صغيرة. Name the error once, show the fixed form, and let the learner say it back.",
+            "vocab": [
+              {
+                "t": "أحسنت",
+                "r": "aḥsant",
+                "en": "well done",
+                "pos": "phrase"
+              },
+              {
+                "t": "صحيح تقريباً",
+                "r": "ṣaḥīḥ taqrīban",
+                "en": "almost right",
+                "pos": "phrase"
+              },
+              {
+                "t": "ملاحظة صغيرة",
+                "r": "mulāḥaẓa ṣaghīra",
+                "en": "a small note",
+                "pos": "phrase"
+              },
+              {
+                "t": "أعد من فضلك",
+                "r": "aʿid min faḍlik",
+                "en": "say it again please",
+                "pos": "phrase"
+              },
+              {
+                "t": "هذا أفضل",
+                "r": "hādhā afḍal",
+                "en": "that is better",
+                "pos": "phrase"
+              }
+            ],
+            "grammar": {
+              "title": "Correction sandwich",
+              "pattern": "aḥsant → mulāḥaẓa ṣaghīra + the fix → aʿid min faḍlik → hādhā afḍal",
+              "explain": "أحسنت! الجملة واضحة. ملاحظة صغيرة: نقول «ذهبتُ» لا «ذهبتُ أنا». أعد من فضلك. — هذا أفضل. The learner says the correct form out loud; that is the whole exercise.",
+              "examples": [
+                {
+                  "t": "أحسنت، الفكرة وصلت بوضوح.",
+                  "r": "aḥsant, al-fikra waṣalat bi-wuḍūḥ.",
+                  "en": "Well done — the idea came across clearly."
+                },
+                {
+                  "t": "ملاحظة صغيرة: الترتيب يحتاج «إلى».",
+                  "r": "mulāḥaẓa ṣaghīra: al-tartīb yaḥtāj «ilā».",
+                  "en": "A small note: the structure needs إلى."
+                },
+                {
+                  "t": "أعد الجملة كاملة، ثمّ هذه أفضل.",
+                  "r": "aʿid al-jumla kāmila, thumma hādhā afḍal.",
+                  "en": "Say the whole sentence again — then that is better."
+                }
+              ],
+              "mistakes": [
+                {
+                  "wrong": "خطأ، لم تفهم.",
+                  "right": "صحيح تقريباً، ملاحظة صغيرة: …",
+                  "why": "Naming a failure stops the learner; naming the fix moves them."
+                },
+                {
+                  "wrong": "أحسنت، لكن كل شيء خطأ.",
+                  "right": "أحسنت في البدء، والملاحظة في الترتيب فقط.",
+                  "why": "Praise followed by global contradiction cancels the praise."
+                }
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "متعلّم",
+                "t": "ذهبتُ أنا إلى السوق أمس.",
+                "r": "dhahabtu anā ilā al-sūq ams.",
+                "en": "I went to the market yesterday."
+              },
+              {
+                "sp": "معلّمة",
+                "t": "أحسنت! ملاحظة صغيرة: نقول «ذهبتُ» دون «أنا».",
+                "r": "aḥsant! mulāḥaẓa ṣaghīra: naqūl «dhahabtu» dūn «anā».",
+                "en": "Well done! A small note: we say ذهبتُ without أنا."
+              },
+              {
+                "sp": "متعلّم",
+                "t": "ذهبتُ إلى السوق أمس.",
+                "r": "dhahabtu ilā al-sūq ams.",
+                "en": "I went to the market yesterday."
+              },
+              {
+                "sp": "معلّمة",
+                "t": "هذا أفضل، أعدها مرة أخيرة بصوت واضح.",
+                "r": "hādhā afḍal, aʿidhā marra akhīra bi-ṣawt wāḍiḥ.",
+                "en": "That's better — say it one last time clearly."
+              }
+            ],
+            "practice": [
+              {
+                "type": "multiple_choice",
+                "q": "Practice 1: [multiple choice] Correct kindly: أحسنت، وهناك ملاحظة — Choose the meaning of أحسنت (aḥsant) in this lesson.",
+                "answer": "well done",
+                "skill_target": "Arabic: right-to-left script, root-and-pattern reading, case and agreement, formal fuṣḥā versus the spoken register learners actually hear",
+                "options": [
+                  "well done",
+                  "almost right",
+                  "a small note",
+                  "say it again please"
+                ]
+              },
+              {
+                "type": "fill_in_the_blank",
+                "q": "Practice 2: [fill in the blank] Correct kindly: أحسنت، وهناك ملاحظة — Type the Arabic expression meaning “almost right”.",
+                "answer": "صحيح تقريباً",
+                "skill_target": "Arabic: right-to-left script, root-and-pattern reading, case and agreement, formal fuṣḥā versus the spoken register learners actually hear"
+              },
+              {
+                "type": "translation",
+                "q": "Practice 3: [translation] Correct kindly: أحسنت، وهناك ملاحظة — Interpret the Arabic script in context: أحسنت، الفكرة وصلت بوضوح. (aḥsant, al-fikra waṣalat bi-wuḍūḥ.).",
+                "answer": "Well done — the idea came across clearly.",
+                "skill_target": "Arabic: right-to-left script, root-and-pattern reading, case and agreement, formal fuṣḥā versus the spoken register learners actually hear"
+              },
+              {
+                "type": "reverse_translation",
+                "q": "Practice 4: [reverse translation] Correct kindly: أحسنت، وهناك ملاحظة — Write in Arabic script: A small note: the structure needs إلى..",
+                "answer": "ملاحظة صغيرة: الترتيب يحتاج «إلى».",
+                "skill_target": "Arabic: right-to-left script, root-and-pattern reading, case and agreement, formal fuṣḥā versus the spoken register learners actually hear"
+              },
+              {
+                "type": "matching",
+                "q": "Practice 5: [matching] Correct kindly: أحسنت، وهناك ملاحظة — Match ملاحظة صغيرة to its lesson meaning.",
+                "answer": "a small note",
+                "skill_target": "Arabic: right-to-left script, root-and-pattern reading, case and agreement, formal fuṣḥā versus the spoken register learners actually hear",
+                "options": [
+                  "a small note",
+                  "well done",
+                  "almost right"
+                ]
+              },
+              {
+                "type": "reorder",
+                "q": "Practice 6: [reorder] Correct kindly: أحسنت، وهناك ملاحظة — Reconstruct the lesson model in coherent Arabic: Say the whole sentence again — then that is better..",
+                "answer": "أعد الجملة كاملة، ثمّ هذه أفضل.",
+                "skill_target": "Arabic: right-to-left script, root-and-pattern reading, case and agreement, formal fuṣḥā versus the spoken register learners actually hear"
+              },
+              {
+                "type": "sentence_building",
+                "q": "Practice 7: [sentence building] Correct kindly: أحسنت، وهناك ملاحظة — Build the sentence with the lesson pattern (aḥsant → mulāḥaẓa ṣaghīra + the fix → aʿid min faḍlik → hādhā afḍal): Well done — the idea came across clearly..",
+                "answer": "أحسنت، الفكرة وصلت بوضوح.",
+                "skill_target": "Arabic: right-to-left script, root-and-pattern reading, case and agreement, formal fuṣḥā versus the spoken register learners actually hear"
+              },
+              {
+                "type": "word_selection",
+                "q": "Practice 8: [word selection] Correct kindly: أحسنت، وهناك ملاحظة — Select the Arabic form for “say it again please”.",
+                "answer": "أعد من فضلك",
+                "skill_target": "Arabic: right-to-left script, root-and-pattern reading, case and agreement, formal fuṣḥā versus the spoken register learners actually hear",
+                "options": [
+                  "أعد من فضلك",
+                  "هذا أفضل"
+                ]
+              },
+              {
+                "type": "error_correction",
+                "q": "Practice 9: [error correction] Correct kindly: أحسنت، وهناك ملاحظة — Correct the model the lesson warns about: خطأ، لم تفهم.",
+                "answer": "صحيح تقريباً، ملاحظة صغيرة: …",
+                "skill_target": "Arabic: right-to-left script, root-and-pattern reading, case and agreement, formal fuṣḥā versus the spoken register learners actually hear"
+              },
+              {
+                "type": "dialogue_completion",
+                "q": "Practice 10: [dialogue completion] Correct kindly: أحسنت، وهناك ملاحظة — Complete the exchange with the studied response to: I went to the market yesterday.",
+                "answer": "أحسنت! ملاحظة صغيرة: نقول «ذهبتُ» دون «أنا».",
+                "skill_target": "Arabic: right-to-left script, root-and-pattern reading, case and agreement, formal fuṣḥā versus the spoken register learners actually hear"
+              },
+              {
+                "type": "reading_comprehension",
+                "q": "Practice 11: [reading comprehension] Correct kindly: أحسنت، وهناك ملاحظة — Read “ذهبتُ إلى السوق أمس.” (dhahabtu ilā al-sūq ams.). What does it mean?",
+                "answer": "I went to the market yesterday.",
+                "skill_target": "Arabic: right-to-left script, root-and-pattern reading, case and agreement, formal fuṣḥā versus the spoken register learners actually hear"
+              },
+              {
+                "type": "paragraph_comprehension",
+                "q": "Practice 12: [paragraph comprehension] Correct kindly: أحسنت، وهناك ملاحظة — Read the lesson dialogue as a whole and give its key move: That's better — say it one last time clearly.",
+                "answer": "هذا أفضل، أعدها مرة أخيرة بصوت واضح.",
+                "skill_target": "Arabic: right-to-left script, root-and-pattern reading, case and agreement, formal fuṣḥā versus the spoken register learners actually hear"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "Which meaning best fits أحسنت?",
+                "options": [
+                  "well done",
+                  "almost right",
+                  "a small note",
+                  "say it again please"
+                ],
+                "answer": 0,
+                "why": "أحسنت (aḥsant) means well done in this lesson."
+              },
+              {
+                "q": "Which meaning best fits صحيح تقريباً?",
+                "options": [
+                  "almost right",
+                  "well done",
+                  "a small note",
+                  "say it again please"
+                ],
+                "answer": 0,
+                "why": "صحيح تقريباً (ṣaḥīḥ taqrīban) means almost right in this lesson."
+              },
+              {
+                "q": "Which meaning best fits ملاحظة صغيرة?",
+                "options": [
+                  "a small note",
+                  "well done",
+                  "almost right",
+                  "say it again please"
+                ],
+                "answer": 0,
+                "why": "ملاحظة صغيرة (mulāḥaẓa ṣaghīra) means a small note in this lesson."
+              },
+              {
+                "q": "Which meaning best fits أعد من فضلك?",
+                "options": [
+                  "say it again please",
+                  "well done",
+                  "almost right",
+                  "a small note"
+                ],
+                "answer": 0,
+                "why": "أعد من فضلك (aʿid min faḍlik) means say it again please in this lesson."
+              },
+              {
+                "q": "Which meaning best fits هذا أفضل?",
+                "options": [
+                  "that is better",
+                  "well done",
+                  "almost right",
+                  "a small note"
+                ],
+                "answer": 0,
+                "why": "هذا أفضل (hādhā afḍal) means that is better in this lesson."
+              }
+            ],
+            "flashcards": "auto:vocab",
+            "worksheet": {
+              "title": "Correction worksheet",
+              "tasks": [
+                {
+                  "instruction": "Correct kindly.",
+                  "items": [
+                    "«أنا اسمي منى أنا»",
+                    "«مرحبا عليكم»"
+                  ],
+                  "key": [
+                    "أحسنت، ملاحظة صغيرة: اسمي منى — دون «أنا» الثانية",
+                    "أحسنت، لكن التحية الزوجية: السلام عليكم"
+                  ]
+                },
+                {
+                  "instruction": "Close the loop.",
+                  "items": [
+                    "ask them to repeat",
+                    "praise the fix"
+                  ],
+                  "key": [
+                    "أعد من فضلك",
+                    "هذا أفضل، ممتاز"
+                  ]
+                },
+                {
+                  "instruction": "Integrated offline practice: read the first model, transform or extend it in Arabic script, then rehearse it as a dialogue. Self-check meaning, grammar, and register.",
+                  "items": [
+                    "أحسنت، الفكرة وصلت بوضوح.",
+                    "ذهبتُ أنا إلى السوق أمس."
+                  ],
+                  "key": [
+                    "Well done — the idea came across clearly.",
+                    "I went to the market yesterday."
+                  ]
+                }
+              ]
+            },
+            "srs_candidates": [
+              "أحسنت",
+              "صحيح تقريباً",
+              "ملاحظة صغيرة",
+              "أعد من فضلك"
+            ],
+            "srs_policy": "Only these four high-value terms are preselected; lesson mistakes and productive patterns may enter personalized review after an actual error."
+          },
+          {
+            "id": "C1+-U3-L3",
+            "title": "Roots and patterns instead of rote",
+            "learn": "Arabic rewards the learner who sees the root. ك-ت-ب gives كتب، كاتب، مكتوب، كتاب، مكتبة. Teach the root once and the vocabulary multiplies — and warn about the trap: Latin transliteration cannot carry what the script already does.",
+            "vocab": [
+              {
+                "t": "الجذر",
+                "r": "al-jadhr",
+                "en": "the root",
+                "pos": "noun"
+              },
+              {
+                "t": "الوزن",
+                "r": "al-wazn",
+                "en": "the pattern",
+                "pos": "noun"
+              },
+              {
+                "t": "مشتقّات",
+                "r": "mushtaqqāt",
+                "en": "derived forms",
+                "pos": "noun"
+              },
+              {
+                "t": "مفردات",
+                "r": "mufradāt",
+                "en": "vocabulary",
+                "pos": "noun"
+              },
+              {
+                "t": "حروف لاتينية",
+                "r": "ḥurūf lātīniyya",
+                "en": "Latin letters",
+                "pos": "phrase"
+              }
+            ],
+            "grammar": {
+              "title": "Root + pattern = family",
+              "pattern": "jadhr k-t-b: kataba (write) · kātib (writer) · maktūb (written) · kitāb (book) · maktaba (library)",
+              "explain": "علّم الجذر مرة، وستحصل على عائلة كاملة. And the warning: كتابة العربية بالحروف اللاتينية تفقد التمييز بين حروف لا تفرّقها اللاتينية — ت and ط, س and ص, ح and ه.",
+              "examples": [
+                {
+                  "t": "الجذر ك-ت-ب يعطي عائلة كاملة من الكلمات.",
+                  "r": "al-jadhr k-t-b yuʿṭī ʿāʾila kāmila min al-kalimāt.",
+                  "en": "The root k-t-b gives a whole family of words."
+                },
+                {
+                  "t": "الوزن مفعول يعطي اسم المفعول.",
+                  "r": "al-wazn mafʿūl yuʿṭī ism al-mafʿūl.",
+                  "en": "The pattern mafʿūl gives the passive participle."
+                },
+                {
+                  "t": "لا تعلّم بالحروف اللاتينية من البداية.",
+                  "r": "lā tuʿallim bi-l-ḥurūf al-lātīniyya min al-bidāya.",
+                  "en": "Don't teach with Latin letters from the start."
+                }
+              ],
+              "mistakes": [
+                {
+                  "wrong": "تعلّم كل كلمة على حدة.",
+                  "right": "تعلّم الجذر والعائلة.",
+                  "why": "Word-by-word learning is slow; the root multiplies by five."
+                },
+                {
+                  "wrong": "اكتب العربية بالحروف اللاتينية ليتعلّم أسرع.",
+                  "right": "ابدأ بالحروف العربية، واستخدم النطق مساعداً فقط.",
+                  "why": "Latin transliteration hides the distinctions the script teaches."
+                }
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "متعلّم",
+                "t": "كيف أحفظ المفردات؟",
+                "r": "kayfa aḥfaẓ al-mufradāt?",
+                "en": "How do I memorise vocabulary?"
+              },
+              {
+                "sp": "معلّمة",
+                "t": "ابدأ من الجذر، لا من الكلمة وحدها.",
+                "r": "ibdaʾ min al-jadhr, lā min al-kalima waḥdahā.",
+                "en": "Start from the root, not from the word alone."
+              },
+              {
+                "sp": "متعلّم",
+                "t": "مثال؟",
+                "r": "mithāl?",
+                "en": "For example?"
+              },
+              {
+                "sp": "معلّمة",
+                "t": "ك-ت-ب: كتاب، كاتب، مكتبة، مكتوب — عائلة واحدة.",
+                "r": "k-t-b: kitāb, kātib, maktaba, maktūb — ʿāʾila wāḥida.",
+                "en": "k-t-b: book, writer, library, written — one family."
+              }
+            ],
+            "practice": [
+              {
+                "type": "multiple_choice",
+                "q": "Practice 1: [multiple choice] Roots and patterns instead of rote — Choose the meaning of الجذر (al-jadhr) in this lesson.",
+                "answer": "the root",
+                "skill_target": "Arabic: right-to-left script, root-and-pattern reading, case and agreement, formal fuṣḥā versus the spoken register learners actually hear",
+                "options": [
+                  "the root",
+                  "the pattern",
+                  "derived forms",
+                  "vocabulary"
+                ]
+              },
+              {
+                "type": "fill_in_the_blank",
+                "q": "Practice 2: [fill in the blank] Roots and patterns instead of rote — Type the Arabic expression meaning “the pattern”.",
+                "answer": "الوزن",
+                "skill_target": "Arabic: right-to-left script, root-and-pattern reading, case and agreement, formal fuṣḥā versus the spoken register learners actually hear"
+              },
+              {
+                "type": "translation",
+                "q": "Practice 3: [translation] Roots and patterns instead of rote — Interpret the Arabic script in context: الجذر ك-ت-ب يعطي عائلة كاملة من الكلمات. (al-jadhr k-t-b yuʿṭī ʿāʾila kāmila min al-kalimāt.).",
+                "answer": "The root k-t-b gives a whole family of words.",
+                "skill_target": "Arabic: right-to-left script, root-and-pattern reading, case and agreement, formal fuṣḥā versus the spoken register learners actually hear"
+              },
+              {
+                "type": "reverse_translation",
+                "q": "Practice 4: [reverse translation] Roots and patterns instead of rote — Write in Arabic script: The pattern mafʿūl gives the passive participle..",
+                "answer": "الوزن مفعول يعطي اسم المفعول.",
+                "skill_target": "Arabic: right-to-left script, root-and-pattern reading, case and agreement, formal fuṣḥā versus the spoken register learners actually hear"
+              },
+              {
+                "type": "matching",
+                "q": "Practice 5: [matching] Roots and patterns instead of rote — Match مشتقّات to its lesson meaning.",
+                "answer": "derived forms",
+                "skill_target": "Arabic: right-to-left script, root-and-pattern reading, case and agreement, formal fuṣḥā versus the spoken register learners actually hear",
+                "options": [
+                  "derived forms",
+                  "the root",
+                  "the pattern"
+                ]
+              },
+              {
+                "type": "reorder",
+                "q": "Practice 6: [reorder] Roots and patterns instead of rote — Reconstruct the lesson model in coherent Arabic: Don't teach with Latin letters from the start..",
+                "answer": "لا تعلّم بالحروف اللاتينية من البداية.",
+                "skill_target": "Arabic: right-to-left script, root-and-pattern reading, case and agreement, formal fuṣḥā versus the spoken register learners actually hear"
+              },
+              {
+                "type": "sentence_building",
+                "q": "Practice 7: [sentence building] Roots and patterns instead of rote — Build the sentence with the lesson pattern (jadhr k-t-b: kataba (write) · kātib (writer) · maktūb (written) · kitāb (book) · maktaba (library)): The root k-t-b gives a whole family of words..",
+                "answer": "الجذر ك-ت-ب يعطي عائلة كاملة من الكلمات.",
+                "skill_target": "Arabic: right-to-left script, root-and-pattern reading, case and agreement, formal fuṣḥā versus the spoken register learners actually hear"
+              },
+              {
+                "type": "word_selection",
+                "q": "Practice 8: [word selection] Roots and patterns instead of rote — Select the Arabic form for “vocabulary”.",
+                "answer": "مفردات",
+                "skill_target": "Arabic: right-to-left script, root-and-pattern reading, case and agreement, formal fuṣḥā versus the spoken register learners actually hear",
+                "options": [
+                  "مفردات",
+                  "حروف لاتينية"
+                ]
+              },
+              {
+                "type": "error_correction",
+                "q": "Practice 9: [error correction] Roots and patterns instead of rote — Correct the model the lesson warns about: تعلّم كل كلمة على حدة.",
+                "answer": "تعلّم الجذر والعائلة.",
+                "skill_target": "Arabic: right-to-left script, root-and-pattern reading, case and agreement, formal fuṣḥā versus the spoken register learners actually hear"
+              },
+              {
+                "type": "dialogue_completion",
+                "q": "Practice 10: [dialogue completion] Roots and patterns instead of rote — Complete the exchange with the studied response to: How do I memorise vocabulary?",
+                "answer": "ابدأ من الجذر، لا من الكلمة وحدها.",
+                "skill_target": "Arabic: right-to-left script, root-and-pattern reading, case and agreement, formal fuṣḥā versus the spoken register learners actually hear"
+              },
+              {
+                "type": "reading_comprehension",
+                "q": "Practice 11: [reading comprehension] Roots and patterns instead of rote — Read “مثال؟” (mithāl?). What does it mean?",
+                "answer": "For example?",
+                "skill_target": "Arabic: right-to-left script, root-and-pattern reading, case and agreement, formal fuṣḥā versus the spoken register learners actually hear"
+              },
+              {
+                "type": "paragraph_comprehension",
+                "q": "Practice 12: [paragraph comprehension] Roots and patterns instead of rote — Read the lesson dialogue as a whole and give its key move: k-t-b: book, writer, library, written — one family.",
+                "answer": "ك-ت-ب: كتاب، كاتب، مكتبة، مكتوب — عائلة واحدة.",
+                "skill_target": "Arabic: right-to-left script, root-and-pattern reading, case and agreement, formal fuṣḥā versus the spoken register learners actually hear"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "Which meaning best fits الجذر?",
+                "options": [
+                  "the root",
+                  "the pattern",
+                  "derived forms",
+                  "vocabulary"
+                ],
+                "answer": 0,
+                "why": "الجذر (al-jadhr) means the root in this lesson."
+              },
+              {
+                "q": "Which meaning best fits الوزن?",
+                "options": [
+                  "the pattern",
+                  "the root",
+                  "derived forms",
+                  "vocabulary"
+                ],
+                "answer": 0,
+                "why": "الوزن (al-wazn) means the pattern in this lesson."
+              },
+              {
+                "q": "Which meaning best fits مشتقّات?",
+                "options": [
+                  "derived forms",
+                  "the root",
+                  "the pattern",
+                  "vocabulary"
+                ],
+                "answer": 0,
+                "why": "مشتقّات (mushtaqqāt) means derived forms in this lesson."
+              },
+              {
+                "q": "Which meaning best fits مفردات?",
+                "options": [
+                  "vocabulary",
+                  "the root",
+                  "the pattern",
+                  "derived forms"
+                ],
+                "answer": 0,
+                "why": "مفردات (mufradāt) means vocabulary in this lesson."
+              },
+              {
+                "q": "Which meaning best fits حروف لاتينية?",
+                "options": [
+                  "Latin letters",
+                  "the root",
+                  "the pattern",
+                  "derived forms"
+                ],
+                "answer": 0,
+                "why": "حروف لاتينية (ḥurūf lātīniyya) means Latin letters in this lesson."
+              }
+            ],
+            "flashcards": "auto:vocab",
+            "worksheet": {
+              "title": "Root worksheet",
+              "tasks": [
+                {
+                  "instruction": "Build the family.",
+                  "items": [
+                    "root د-ر-س",
+                    "root ع-ل-م"
+                  ],
+                  "key": [
+                    "درس، مدرسة، مدرّس، دراسة",
+                    "علم، معلومة، معلّم، تعليم"
+                  ]
+                },
+                {
+                  "instruction": "Warn about the trap.",
+                  "items": [
+                    "Latin letters and ت/ط",
+                    "Latin letters and س/ص"
+                  ],
+                  "key": [
+                    "اللاتينية لا تفرّق بين ت وط",
+                    "اللاتينية لا تفرّق بين س وص"
+                  ]
+                },
+                {
+                  "instruction": "Integrated offline practice: read the first model, transform or extend it in Arabic script, then rehearse it as a dialogue. Self-check meaning, grammar, and register.",
+                  "items": [
+                    "الجذر ك-ت-ب يعطي عائلة كاملة من الكلمات.",
+                    "كيف أحفظ المفردات؟"
+                  ],
+                  "key": [
+                    "The root k-t-b gives a whole family of words.",
+                    "How do I memorise vocabulary?"
+                  ]
+                }
+              ]
+            },
+            "srs_candidates": [
+              "الجذر",
+              "الوزن",
+              "مشتقّات",
+              "مفردات"
+            ],
+            "srs_policy": "Only these four high-value terms are preselected; lesson mistakes and productive patterns may enter personalized review after an actual error."
+          }
+        ]
+      }
+    ],
+    "test": {
+      "title": "Arabic C1+ Checkpoint Test",
+      "items": [
+        {
+          "type": "translate_en",
+          "q": "Say: This is a suggested edit; the final call is yours.",
+          "answer": "هذا اقتراح تعديل، والتعديل النهائي لك."
+        },
+        {
+          "type": "translate_ar",
+          "q": "لا يسري هذا الحكم على العقود السابقة.",
+          "answer": "This provision does not apply to previous contracts."
+        },
+        {
+          "type": "multiple_choice",
+          "q": "Which section proposes?",
+          "answer": "التوصيات"
+        },
+        {
+          "type": "fill_in_the_blank",
+          "q": "اقتراح: «أفاد» أوضح ___ «قال» هنا. (than)",
+          "answer": "من"
+        },
+        {
+          "type": "word_selection",
+          "q": "Select the Arabic for 'actually'.",
+          "answer": "في الواقع"
+        },
+        {
+          "type": "error_correction",
+          "q": "قامت الوزارة بتنفيذ الخطة.",
+          "answer": "نفّذت الوزارة الخطة."
+        },
+        {
+          "type": "dialogue_completion",
+          "q": "Complete: ملاحظة صغيرة: ___ (the verb and the silence)",
+          "answer": "يكون مجزوماً بعد لم"
+        },
+        {
+          "type": "matching",
+          "q": "Match الترجمة العكسية to its meaning.",
+          "answer": "back-translation"
+        },
+        {
+          "type": "reading_comprehension",
+          "q": "«تؤكّد الوزارة» غير «تشير مصادر». Which is stronger?",
+          "answer": "the ministry confirms"
+        },
+        {
+          "type": "inference",
+          "q": "«العنوان يسمح بحرية أكبر، بشرط ألّا يوحي بما لا يقوله النصّ» — what is the limit?",
+          "answer": "the headline must not imply more than the text says"
+        },
+        {
+          "type": "main_idea",
+          "q": "القاعدة: إنّ تفتح جملة مستقلّة. What is being taught?",
+          "answer": "the difference between إنّ and أنّ"
+        },
+        {
+          "type": "detail_identification",
+          "q": "الجذر ك-ت-ب يعطي: كتاب، كاتب، مكتبة. What is the teaching point?",
+          "answer": "one root yields a family of words"
+        }
+      ]
+    },
+    "extra": {
+      "culture": {
+        "text": "Arabic writing for work is a craft with its own etiquette: formulas open and close the text, the passive and the verbal noun carry institutional distance, and a translator is expected to choose a register before choosing words. The oldest continuous translation tradition in the region — Baghdad's House of Wisdom — is remembered for exactly the habit this level teaches: render the meaning, then argue about the wording.",
+        "source_url": "https://en.wikipedia.org/wiki/House_of_Wisdom"
+      },
+      "reading": {
+        "text": "تجدر الإشارة إلى أنّ نصّ البيان يحتاج ضبطاً في درجة اليقين: «تؤكّد الوزارة» غير «تشير مصادر». وقد لاحظ المراجع أنّ الفعل «قال» تكرّر خمس مرّات، والأفضل تنويعه: أفاد، صرّح، نقل عن. أمّا العنوان فيسمح بحرية أكبر، بشرط ألّا يوحي بما لا يقوله النصّ.",
+        "gloss": "It is worth noting that the text of the statement needs its degree of certainty fixed: 'the ministry confirms' is not 'sources indicate'. The reviewer observed that the verb 'said' was repeated five times, and it is better to vary it: reported, declared, quoted. The headline, however, allows more freedom — provided it does not suggest what the text does not say.",
+        "original": true
+      },
+      "listening": {
+        "script": "أ: لماذا غيّرتَ «أحسنت» في التعليق؟<br>ب: لأنّ المتعلّم أخطأ في الترتيب فقط، والمدح العامّ لا يعلّمه.<br>أ: إذاً تدريج: قاعدة، مثال، ملاحظة.<br>ب: تماماً، ومع تكرار المتعلّم للصيغة الصحيحة.",
+        "gloss": "A: Why did you change 'well done' in the comment? B: Because the learner only erred in word order, and blanket praise does not teach. A: So the ladder: rule, example, note. B: Exactly — with the learner repeating the correct form.",
+        "voice_tag": "ar-SA"
+      },
+      "idioms": [
+        {
+          "t": "حسن الصياغة",
+          "literal": "goodness of wording",
+          "meaning": "well put"
+        },
+        {
+          "t": "على قياس واحد",
+          "literal": "on one measure",
+          "meaning": "by the same standard"
+        },
+        {
+          "t": "في هذا السياق",
+          "literal": "in this context",
+          "meaning": "in this connection"
+        },
+        {
+          "t": "من باب الدقّة",
+          "literal": "from the door of precision",
+          "meaning": "for precision's sake"
+        },
+        {
+          "t": "لا يخلو من صواب",
+          "literal": "it is not free of correctness",
+          "meaning": "there is something to it"
+        },
+        {
+          "t": "ربّ قائل",
+          "literal": "many a speaker",
+          "meaning": "many a person says"
+        },
+        {
+          "t": "على حدّ علمي",
+          "literal": "to the limit of my knowledge",
+          "meaning": "to the best of my knowledge"
+        },
+        {
+          "t": "بحسب ما وصلني",
+          "literal": "according to what reached me",
+          "meaning": "as far as I have heard"
+        },
+        {
+          "t": "بأمانة",
+          "literal": "with fidelity",
+          "meaning": "faithfully, honestly"
+        },
+        {
+          "t": "كما هو معروف",
+          "literal": "as is known",
+          "meaning": "as is well known"
+        }
+      ],
+      "mistakes": [
+        {
+          "wrong": "أعدتُ كتابة نصّك لأنه ضعيف.",
+          "right": "اقترحتُ تعديلاً مع السبب، والقرار لك.",
+          "why": "An edit without consent takes ownership the editor does not have."
+        },
+        {
+          "wrong": "فعلياً، لم يصل التقرير.",
+          "right": "في الواقع، لم يصل التقرير.",
+          "why": "'Actually' is في الواقع; فعلياً means in practice, de facto."
+        },
+        {
+          "wrong": "تعلّم المفردات كلمة كلمة أسرع.",
+          "right": "تعلّم من الجذر: ك-ت-ب يعطي عائلة كاملة.",
+          "why": "Root-based learning multiplies vocabulary; single words have to be memorised one by one."
+        }
+      ],
+      "task": {
+        "title": "Teach the lesson you learned last week",
+        "instructions": "Take one Arabic rule you learned this month. Write it as القاعدة / مثال / ملاحظة, add one exercise with three items, and one correction script that starts with أحسنت. Then teach it out loud to someone for five minutes and watch where they stumble — that sentence, not your note, is the lesson."
+      }
+    }
+  }
+}
