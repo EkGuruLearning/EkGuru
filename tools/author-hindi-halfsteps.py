@@ -21,6 +21,7 @@ Run:  python3 tools/author-hindi-halfsteps.py           write
 """
 from __future__ import annotations
 
+import importlib.util
 import json
 import sys
 from pathlib import Path
@@ -507,15 +508,7 @@ A1P_EXTRA = {
     },
 }
 
-HALF_STEPS = {
-    "A1+": {"title": "Getting around", "native": "हिन्दी", "goals": [
-        "Ask for directions, tickets and things you need",
-        "Give a phone number, an address and a price",
-        "Make a plan and refuse one politely",
-    ], "units": A1P_UNITS, "extra": A1P_EXTRA},
-}
-
-TEST_ITEMS = [
+A1P_TEST = [
     ("multiple_choice", "Choose the polite direction to a stranger: turn left.", "बाएँ मुड़िए"),
     ("fill_in_the_blank", "सीधे ___ , फिर बाएँ मुड़िए। (go straight)", "जाइए"),
     ("translation", "मुझे दो टिकट चाहिए।", "I need two tickets."),
@@ -531,28 +524,56 @@ TEST_ITEMS = [
 ]
 
 
+HALF_STEPS = {
+    "A1+": {"title": "Getting around", "native": "हिन्दी", "goals": [
+        "Ask for directions, tickets and things you need",
+        "Give a phone number, an address and a price",
+        "Make a plan and refuse one politely",
+    ], "units": A1P_UNITS, "extra": A1P_EXTRA, "test": A1P_TEST},
+}
+
+
+
+
+
+
+# A2+ and B1+ live in their own module: the content is data, the machinery is
+# here. A unit whose lessons already carry `practice` was built by this file's
+# builders (A1+); a unit of raw lesson specs is built below.
+_spec = importlib.util.spec_from_file_location("hhc", ROOT / "tools/hindi-halfsteps-content.py")
+hhc = importlib.util.module_from_spec(_spec)
+_spec.loader.exec_module(hhc)
+for _level, _spec_dict in hhc.LEVELS.items():
+    HALF_STEPS[_level] = _spec_dict
+
+
 def main() -> int:
     check = "--check" in sys.argv
     written = stale = 0
     for level, spec in HALF_STEPS.items():
         path = ROOT / f"data/courses/phase-2/hi_{level}.json"
+        units = []
+        for u in spec["units"]:
+            lessons = []
+            for i, l in enumerate(u["lessons"], start=1):
+                lessons.append(l if "practice" in l else lesson(u["id"], i, l))
+            units.append({"id": u["id"], "title": u["title"], "lessons": lessons})
         doc = {
-            "code": "hi", "name": "Hindi", "native": spec["native"], "phase": 2, "medium": "en",
+            "code": "hi", "name": "Hindi", "native": spec.get("native", "हिन्दी"), "phase": 2, "medium": "en",
             "file_level": level,
             "level": {
                 "title": "Hindi %s — %s" % (level, spec["title"]),
                 "goals": spec["goals"],
-                "units": spec["units"],
+                "units": units,
                 "test": {"title": "Hindi %s Checkpoint Test" % level,
-                         "items": [{"type": t, "q": q, "answer": a} for t, q, a in TEST_ITEMS]},
+                         "items": [{"type": t, "q": q, "answer": a} for t, q, a in spec["test"]]},
                 "extra": spec["extra"],
             },
         }
         body = json.dumps(doc, ensure_ascii=False, indent=2)
         old = path.read_text(encoding="utf-8") if path.exists() else None
         if old == body:
-            print("  hi %-4s already current (%d units, %d lessons)"
-                  % (level, len(spec["units"]), sum(len(u["lessons"]) for u in spec["units"])))
+            print("  hi %-4s already current" % level)
             continue
         if check:
             print("  hi %-4s STALE" % level)
@@ -560,8 +581,8 @@ def main() -> int:
             continue
         path.write_text(body, encoding="utf-8")
         print("  hi %-4s written — %d units, %d lessons, %d idioms, %d test items"
-              % (level, len(spec["units"]), sum(len(u["lessons"]) for u in spec["units"]),
-                 len(spec["extra"]["idioms"]), len(TEST_ITEMS)))
+              % (level, len(units), sum(len(u["lessons"]) for u in units),
+                 len(spec["extra"]["idioms"]), len(spec["test"])))
         written += 1
     print("%s: %d written, %d stale" % ("CHECK" if check else "written", written, stale))
     return 1 if (check and (written or stale)) else 0

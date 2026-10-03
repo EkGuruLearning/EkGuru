@@ -1,0 +1,2920 @@
+{
+  "code": "hi",
+  "name": "Hindi",
+  "native": "हिन्दी",
+  "phase": 2,
+  "medium": "en",
+  "file_level": "C1+",
+  "level": {
+    "title": "Hindi C1+ — Almost native",
+    "goals": [
+      "Architect a work report and cut institutional Hindi down to what it needs",
+      "Translate with a register, handle idioms and false friends, and check by back-translation",
+      "Teach a beginner a rule, correct kindly, and start from Devanagari rather than Roman"
+    ],
+    "units": [
+      {
+        "id": "C1P-U1",
+        "title": "Writing for work",
+        "lessons": [
+          {
+            "id": "C1P-U1-L1",
+            "title": "Report architecture: सारांश, निष्कर्ष, सिफ़ारिश",
+            "learn": "A Hindi report is read from the top and trusted from the bottom: सारांश (summary) first, then विधि/आधार, निष्कर्ष (findings), सिफ़ारिश (recommendation), and परिशिष्ट (annexure) for the evidence. The summary is written last and placed first, and it must be readable on its own — that is the whole test of the form.",
+            "vocab": [
+              {
+                "t": "सारांश",
+                "r": "sārāṅś",
+                "en": "summary",
+                "pos": "noun"
+              },
+              {
+                "t": "निष्कर्ष",
+                "r": "niṣkarṣ",
+                "en": "finding / conclusion",
+                "pos": "noun"
+              },
+              {
+                "t": "सिफ़ारिश",
+                "r": "sifāriś",
+                "en": "recommendation",
+                "pos": "noun"
+              },
+              {
+                "t": "परिशिष्ट",
+                "r": "pariśiṣṭ",
+                "en": "annexure",
+                "pos": "noun"
+              },
+              {
+                "t": "विधि",
+                "r": "vidhi",
+                "en": "method",
+                "pos": "noun"
+              },
+              {
+                "t": "आधार",
+                "r": "ādhār",
+                "en": "basis",
+                "pos": "noun"
+              },
+              {
+                "t": "प्रस्तुत करना",
+                "r": "prastut karnā",
+                "en": "to present",
+                "pos": "phrase"
+              },
+              {
+                "t": "संक्षिप्त",
+                "r": "saṅkṣipt",
+                "en": "concise",
+                "pos": "phrase"
+              }
+            ],
+            "grammar": {
+              "title": "Summary first, evidence last",
+              "explain": "The architecture is fixed: सारांश → आधार → निष्कर्ष → सिफ़ारिश → परिशिष्ट. Each section opens with its own one-line statement — इस रिपोर्ट में … (this report …), निष्कर्ष यह है कि … (the finding is that …), सिफ़ारिश है कि … (the recommendation is that …). A report without सिफ़ारिश is a description, not a report.",
+              "pattern": "इस रिपोर्ट में … · निष्कर्ष यह है कि … · सिफ़ारिश है कि …",
+              "examples": [
+                {
+                  "t": "इस रिपोर्ट में तीन निष्कर्ष हैं।",
+                  "r": "is riporṭ meṅ tīn niṣkarṣ haiṅ.",
+                  "en": "This report has three findings."
+                },
+                {
+                  "t": "निष्कर्ष यह है कि माँग बढ़ रही है।",
+                  "r": "niṣkarṣ yah hai ki māṅg baṛh rahī hai.",
+                  "en": "The finding is that demand is growing."
+                },
+                {
+                  "t": "सिफ़ारिश है कि पहले आधा काम शुरू किया जाए।",
+                  "r": "sifāriś hai ki pahle ādhā kām śurū kiyā jāe.",
+                  "en": "The recommendation is that half the work be started first."
+                }
+              ],
+              "mistakes": [
+                {
+                  "wrong": "रिपोर्ट में सब कुछ लिखा है, आप पढ़ लीजिए।",
+                  "right": "सारांश पहले पेज पर है; निष्कर्ष और सिफ़ारिश अलग-अलग दिए हैं।",
+                  "why": "a report nobody can enter is a report nobody reads. The summary is a service to the reader, and at C1+ the architecture is the writing."
+                }
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "प्रबंधक",
+                "t": "रिपोर्ट कहाँ तक पहुँची?",
+                "r": "riporṭ kahāṅ tak pahuṅcī?",
+                "en": "How far has the report got?"
+              },
+              {
+                "sp": "लेखक",
+                "t": "सारांश और निष्कर्ष तैयार हैं। सिफ़ारिश बाक़ी है।",
+                "r": "sārāṅś aur niṣkarṣ taiyār haiṅ. sifāriś bāqī hai.",
+                "en": "The summary and findings are ready. The recommendation is left."
+              },
+              {
+                "sp": "प्रबंधक",
+                "t": "सिफ़ारिश के बिना रिपोर्ट अधूरी है।",
+                "r": "sifāriś ke binā riporṭ adhūrī hai.",
+                "en": "Without a recommendation the report is incomplete."
+              },
+              {
+                "sp": "लेखक",
+                "t": "सही बात है — कल तक दो सिफ़ारिशें जोड़ दूँगा।",
+                "r": "sahī bāt hai — kal tak do sifāriśeṅ joṛ dūṅgā.",
+                "en": "Fair point — I will add two recommendations by tomorrow."
+              }
+            ],
+            "practice": [
+              {
+                "type": "multiple_choice",
+                "q": "Practice 1: [multiple choice] Report architecture: सारांश, निष्कर्ष, सिफ़ारिश — Choose the meaning of सारांश (sārāṅś) in this lesson.",
+                "answer": "summary",
+                "skill_target": "multiple choice",
+                "options": [
+                  "summary",
+                  "finding / conclusion",
+                  "recommendation",
+                  "annexure"
+                ]
+              },
+              {
+                "type": "fill_in_the_blank",
+                "q": "Practice 2: [fill in the blank] Report architecture: सारांश, निष्कर्ष, सिफ़ारिश — Type the Hindi expression meaning “finding / conclusion”.",
+                "answer": "निष्कर्ष",
+                "skill_target": "fill in the blank"
+              },
+              {
+                "type": "translation",
+                "q": "Practice 3: [translation] Report architecture: सारांश, निष्कर्ष, सिफ़ारिश — Interpret the Devanagari in context: इस रिपोर्ट में तीन निष्कर्ष हैं। (is riporṭ meṅ tīn niṣkarṣ haiṅ.).",
+                "answer": "This report has three findings.",
+                "skill_target": "translation"
+              },
+              {
+                "type": "reverse_translation",
+                "q": "Practice 4: [reverse translation] Report architecture: सारांश, निष्कर्ष, सिफ़ारिश — Write in Devanagari: The finding is that demand is growing..",
+                "answer": "निष्कर्ष यह है कि माँग बढ़ रही है।",
+                "skill_target": "reverse translation"
+              },
+              {
+                "type": "matching",
+                "q": "Practice 5: [matching] Report architecture: सारांश, निष्कर्ष, सिफ़ारिश — Match सिफ़ारिश to its lesson meaning.",
+                "answer": "recommendation",
+                "skill_target": "matching",
+                "options": [
+                  "recommendation",
+                  "summary",
+                  "finding / conclusion"
+                ]
+              },
+              {
+                "type": "reorder",
+                "q": "Practice 6: [reorder] Report architecture: सारांश, निष्कर्ष, सिफ़ारिश — Reconstruct the lesson model in coherent Hindi: The recommendation is that half the work be started first..",
+                "answer": "सिफ़ारिश है कि पहले आधा काम शुरू किया जाए।",
+                "skill_target": "reorder"
+              },
+              {
+                "type": "sentence_building",
+                "q": "Practice 7: [sentence building] Report architecture: सारांश, निष्कर्ष, सिफ़ारिश — Build the sentence with the lesson pattern (इस रिपोर्ट में … · निष्कर्ष यह है कि … · सिफ़ारिश है कि …): This report has three findings..",
+                "answer": "इस रिपोर्ट में तीन निष्कर्ष हैं।",
+                "skill_target": "sentence building"
+              },
+              {
+                "type": "word_selection",
+                "q": "Practice 8: [word selection] Report architecture: सारांश, निष्कर्ष, सिफ़ारिश — Select the Hindi form for “annexure”.",
+                "answer": "परिशिष्ट",
+                "skill_target": "word selection",
+                "options": [
+                  "परिशिष्ट",
+                  "विधि",
+                  "आधार"
+                ]
+              },
+              {
+                "type": "error_correction",
+                "q": "Practice 9: [error correction] Report architecture: सारांश, निष्कर्ष, सिफ़ारिश — Correct the model the lesson warns about: रिपोर्ट में सब कुछ लिखा है, आप पढ़ लीजिए।",
+                "answer": "सारांश पहले पेज पर है; निष्कर्ष और सिफ़ारिश अलग-अलग दिए हैं।",
+                "skill_target": "error correction"
+              },
+              {
+                "type": "dialogue_completion",
+                "q": "Practice 10: [dialogue completion] Report architecture: सारांश, निष्कर्ष, सिफ़ारिश — Complete the exchange with the studied response to: How far has the report got?",
+                "answer": "सारांश और निष्कर्ष तैयार हैं। सिफ़ारिश बाक़ी है।",
+                "skill_target": "dialogue completion"
+              },
+              {
+                "type": "reading_comprehension",
+                "q": "Practice 11: [reading comprehension] Report architecture: सारांश, निष्कर्ष, सिफ़ारिश — Read “सिफ़ारिश के बिना रिपोर्ट अधूरी है।” (sifāriś ke binā riporṭ adhūrī hai.). What does it mean?",
+                "answer": "Without a recommendation the report is incomplete.",
+                "skill_target": "reading comprehension"
+              },
+              {
+                "type": "paragraph_comprehension",
+                "q": "Practice 12: [paragraph comprehension] Report architecture: सारांश, निष्कर्ष, सिफ़ारिश — Read the lesson dialogue as a whole and give its key move: Fair point — I will add two recommendations by tomorrow.",
+                "answer": "सही बात है — कल तक दो सिफ़ारिशें जोड़ दूँगा।",
+                "skill_target": "paragraph comprehension"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "Which meaning best fits सारांश?",
+                "options": [
+                  "summary",
+                  "finding / conclusion",
+                  "recommendation",
+                  "annexure"
+                ],
+                "answer": 0,
+                "why": "सारांश (sārāṅś) means summary in this lesson."
+              },
+              {
+                "q": "Which meaning best fits निष्कर्ष?",
+                "options": [
+                  "finding / conclusion",
+                  "summary",
+                  "recommendation",
+                  "annexure"
+                ],
+                "answer": 0,
+                "why": "निष्कर्ष (niṣkarṣ) means finding / conclusion in this lesson."
+              },
+              {
+                "q": "Which meaning best fits सिफ़ारिश?",
+                "options": [
+                  "recommendation",
+                  "summary",
+                  "finding / conclusion",
+                  "annexure"
+                ],
+                "answer": 0,
+                "why": "सिफ़ारिश (sifāriś) means recommendation in this lesson."
+              },
+              {
+                "q": "Which meaning best fits परिशिष्ट?",
+                "options": [
+                  "annexure",
+                  "summary",
+                  "finding / conclusion",
+                  "recommendation"
+                ],
+                "answer": 0,
+                "why": "परिशिष्ट (pariśiṣṭ) means annexure in this lesson."
+              },
+              {
+                "q": "Which meaning best fits विधि?",
+                "options": [
+                  "method",
+                  "summary",
+                  "finding / conclusion",
+                  "recommendation"
+                ],
+                "answer": 0,
+                "why": "विधि (vidhi) means method in this lesson."
+              }
+            ],
+            "flashcards": "auto:vocab",
+            "worksheet": {
+              "title": "Report worksheet",
+              "tasks": [
+                {
+                  "instruction": "Name the five sections in order.",
+                  "items": [
+                    "summary",
+                    "basis",
+                    "findings",
+                    "recommendation",
+                    "annexure"
+                  ],
+                  "key": [
+                    "सारांश, आधार, निष्कर्ष, सिफ़ारिश, परिशिष्ट"
+                  ]
+                },
+                {
+                  "instruction": "Open each section with its line.",
+                  "items": [
+                    "The finding is that …",
+                    "The recommendation is that …"
+                  ],
+                  "key": [
+                    "निष्कर्ष यह है कि …",
+                    "सिफ़ारिश है कि …"
+                  ]
+                },
+                {
+                  "instruction": "Integrated offline practice: read the first model, transform or extend it in Devanagari, then rehearse it as a dialogue. Self-check meaning, grammar, and register.",
+                  "items": [
+                    "इस रिपोर्ट में तीन निष्कर्ष हैं।",
+                    "रिपोर्ट कहाँ तक पहुँची?"
+                  ],
+                  "key": [
+                    "This report has three findings.",
+                    "How far has the report got?"
+                  ]
+                }
+              ]
+            },
+            "srs_candidates": [
+              "सारांश",
+              "निष्कर्ष",
+              "सिफ़ारिश",
+              "परिशिष्ट"
+            ],
+            "srs_policy": "Only these four high-value terms are preselected; lesson mistakes and productive patterns may enter personalized review after an actual error."
+          },
+          {
+            "id": "C1P-U1-L2",
+            "title": "Concise institutional prose",
+            "learn": "Institutional Hindi becomes unreadable by piling up nouns: समस्त प्रकार की व्यवस्थाओं का यथाशीघ्र क्रियान्वयन किया जाएगा. The fix is a verb, a subject and fewer words: जल्दी लागू किया जाएगा. C1+ writing is judged on what has been removed — यथाशीघ्र, समस्त, प्रकार की, संबंधी are the usual four to cut.",
+            "vocab": [
+              {
+                "t": "यथाशीघ्र",
+                "r": "yathāśīghra",
+                "en": "as soon as possible (legalese)",
+                "pos": "phrase"
+              },
+              {
+                "t": "समस्त",
+                "r": "samast",
+                "en": "all / entire (legalese)",
+                "pos": "phrase"
+              },
+              {
+                "t": "अनावश्यक",
+                "r": "anāvaśyak",
+                "en": "unnecessary",
+                "pos": "phrase"
+              },
+              {
+                "t": "क्रियान्वयन",
+                "r": "kriyānvayan",
+                "en": "implementation",
+                "pos": "noun"
+              },
+              {
+                "t": "संबंधी",
+                "r": "sambandhī",
+                "en": "relating to (overused)",
+                "pos": "phrase"
+              },
+              {
+                "t": "जल्दी",
+                "r": "jaldī",
+                "en": "soon / quickly",
+                "pos": "phrase"
+              },
+              {
+                "t": "लागू करना",
+                "r": "lāgū karnā",
+                "en": "to implement / apply",
+                "pos": "phrase"
+              },
+              {
+                "t": "संक्षिप्त कीजिए",
+                "r": "saṅkṣipt kījie",
+                "en": "please shorten",
+                "pos": "phrase"
+              }
+            ],
+            "grammar": {
+              "title": "Cut the noun pile, restore the verb",
+              "explain": "Legalese stacks nouns and hides the verb at the end: व्यवस्थाओं का क्रियान्वयन किया जाएगा. Concise institutional Hindi puts the verb in plain sight and keeps the noun count low: जल्दी लागू किया जाएगा. The passive किया जाएगा is still right for an impersonal order — what changes is the weight in front of it, not the grammar.",
+              "pattern": "… किया जाएगा · … जल्दी लागू होगा · संक्षिप्त कीजिए",
+              "examples": [
+                {
+                  "t": "यह प्रक्रिया जल्दी लागू की जाएगी।",
+                  "r": "yah prakriyā jaldī lāgū kī jāegī.",
+                  "en": "This procedure will be implemented soon."
+                },
+                {
+                  "t": "अनावश्यक शब्द हटा दीजिए।",
+                  "r": "anāvaśyak śabd haṭā dījie.",
+                  "en": "Remove the unnecessary words."
+                },
+                {
+                  "t": "संक्षिप्त कीजिए — पाठक को समय चाहिए।",
+                  "r": "saṅkṣipt kījie — pāṭhak ko samay cāhie.",
+                  "en": "Shorten it — the reader needs time."
+                }
+              ],
+              "mistakes": [
+                {
+                  "wrong": "समस्त प्रकार की व्यवस्थाओं का यथाशीघ्र क्रियान्वयन किया जाएगा।",
+                  "right": "यह प्रक्रिया जल्दी लागू की जाएगी।",
+                  "why": "समस्त, प्रकार की and यथाशीघ्र add no information and cost the reader a sentence. In institutional Hindi the shorter sentence is not less official — it is more enforceable."
+                }
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "संपादक",
+                "t": "यह वाक्य बहुत भारी है।",
+                "r": "yah vākya bahut bhārī hai.",
+                "en": "This sentence is very heavy."
+              },
+              {
+                "sp": "लेखक",
+                "t": "सही है — चार शब्द हटा दूँ?",
+                "r": "sahī hai — cār śabd haṭā dūṅ?",
+                "en": "True — shall I remove four words?"
+              },
+              {
+                "sp": "संपादक",
+                "t": "पूरा वाक्य फिर से लिखिए — क्रिया सामने रखिए।",
+                "r": "pūrā vākya phir se likhie — kriyā sāmne rakhiye.",
+                "en": "Rewrite the whole sentence — put the verb in front."
+              },
+              {
+                "sp": "लेखक",
+                "t": "“यह प्रक्रिया जल्दी लागू की जाएगी।” — अब ठीक है?",
+                "r": "“yah prakriyā jaldī lāgū kī jāegī.” — ab ṭhīk hai?",
+                "en": "“This procedure will be implemented soon.” — is that better?"
+              }
+            ],
+            "practice": [
+              {
+                "type": "multiple_choice",
+                "q": "Practice 1: [multiple choice] Concise institutional prose — Choose the meaning of यथाशीघ्र (yathāśīghra) in this lesson.",
+                "answer": "as soon as possible (legalese)",
+                "skill_target": "multiple choice",
+                "options": [
+                  "as soon as possible (legalese)",
+                  "all / entire (legalese)",
+                  "unnecessary",
+                  "implementation"
+                ]
+              },
+              {
+                "type": "fill_in_the_blank",
+                "q": "Practice 2: [fill in the blank] Concise institutional prose — Type the Hindi expression meaning “all / entire (legalese)”.",
+                "answer": "समस्त",
+                "skill_target": "fill in the blank"
+              },
+              {
+                "type": "translation",
+                "q": "Practice 3: [translation] Concise institutional prose — Interpret the Devanagari in context: यह प्रक्रिया जल्दी लागू की जाएगी। (yah prakriyā jaldī lāgū kī jāegī.).",
+                "answer": "This procedure will be implemented soon.",
+                "skill_target": "translation"
+              },
+              {
+                "type": "reverse_translation",
+                "q": "Practice 4: [reverse translation] Concise institutional prose — Write in Devanagari: Remove the unnecessary words..",
+                "answer": "अनावश्यक शब्द हटा दीजिए।",
+                "skill_target": "reverse translation"
+              },
+              {
+                "type": "matching",
+                "q": "Practice 5: [matching] Concise institutional prose — Match अनावश्यक to its lesson meaning.",
+                "answer": "unnecessary",
+                "skill_target": "matching",
+                "options": [
+                  "unnecessary",
+                  "as soon as possible (legalese)",
+                  "all / entire (legalese)"
+                ]
+              },
+              {
+                "type": "reorder",
+                "q": "Practice 6: [reorder] Concise institutional prose — Reconstruct the lesson model in coherent Hindi: Shorten it — the reader needs time..",
+                "answer": "संक्षिप्त कीजिए — पाठक को समय चाहिए।",
+                "skill_target": "reorder"
+              },
+              {
+                "type": "sentence_building",
+                "q": "Practice 7: [sentence building] Concise institutional prose — Build the sentence with the lesson pattern (… किया जाएगा · … जल्दी लागू होगा · संक्षिप्त कीजिए): This procedure will be implemented soon..",
+                "answer": "यह प्रक्रिया जल्दी लागू की जाएगी।",
+                "skill_target": "sentence building"
+              },
+              {
+                "type": "word_selection",
+                "q": "Practice 8: [word selection] Concise institutional prose — Select the Hindi form for “implementation”.",
+                "answer": "क्रियान्वयन",
+                "skill_target": "word selection",
+                "options": [
+                  "क्रियान्वयन",
+                  "संबंधी",
+                  "जल्दी"
+                ]
+              },
+              {
+                "type": "error_correction",
+                "q": "Practice 9: [error correction] Concise institutional prose — Correct the model the lesson warns about: समस्त प्रकार की व्यवस्थाओं का यथाशीघ्र क्रियान्वयन किया जाएगा।",
+                "answer": "यह प्रक्रिया जल्दी लागू की जाएगी।",
+                "skill_target": "error correction"
+              },
+              {
+                "type": "dialogue_completion",
+                "q": "Practice 10: [dialogue completion] Concise institutional prose — Complete the exchange with the studied response to: This sentence is very heavy.",
+                "answer": "सही है — चार शब्द हटा दूँ?",
+                "skill_target": "dialogue completion"
+              },
+              {
+                "type": "reading_comprehension",
+                "q": "Practice 11: [reading comprehension] Concise institutional prose — Read “पूरा वाक्य फिर से लिखिए — क्रिया सामने रखिए।” (pūrā vākya phir se likhie — kriyā sāmne rakhiye.). What does it mean?",
+                "answer": "Rewrite the whole sentence — put the verb in front.",
+                "skill_target": "reading comprehension"
+              },
+              {
+                "type": "paragraph_comprehension",
+                "q": "Practice 12: [paragraph comprehension] Concise institutional prose — Read the lesson dialogue as a whole and give its key move: “This procedure will be implemented soon.” — is that better?",
+                "answer": "“यह प्रक्रिया जल्दी लागू की जाएगी।” — अब ठीक है?",
+                "skill_target": "paragraph comprehension"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "Which meaning best fits यथाशीघ्र?",
+                "options": [
+                  "as soon as possible (legalese)",
+                  "all / entire (legalese)",
+                  "unnecessary",
+                  "implementation"
+                ],
+                "answer": 0,
+                "why": "यथाशीघ्र (yathāśīghra) means as soon as possible (legalese) in this lesson."
+              },
+              {
+                "q": "Which meaning best fits समस्त?",
+                "options": [
+                  "all / entire (legalese)",
+                  "as soon as possible (legalese)",
+                  "unnecessary",
+                  "implementation"
+                ],
+                "answer": 0,
+                "why": "समस्त (samast) means all / entire (legalese) in this lesson."
+              },
+              {
+                "q": "Which meaning best fits अनावश्यक?",
+                "options": [
+                  "unnecessary",
+                  "as soon as possible (legalese)",
+                  "all / entire (legalese)",
+                  "implementation"
+                ],
+                "answer": 0,
+                "why": "अनावश्यक (anāvaśyak) means unnecessary in this lesson."
+              },
+              {
+                "q": "Which meaning best fits क्रियान्वयन?",
+                "options": [
+                  "implementation",
+                  "as soon as possible (legalese)",
+                  "all / entire (legalese)",
+                  "unnecessary"
+                ],
+                "answer": 0,
+                "why": "क्रियान्वयन (kriyānvayan) means implementation in this lesson."
+              },
+              {
+                "q": "Which meaning best fits संबंधी?",
+                "options": [
+                  "relating to (overused)",
+                  "as soon as possible (legalese)",
+                  "all / entire (legalese)",
+                  "unnecessary"
+                ],
+                "answer": 0,
+                "why": "संबंधी (sambandhī) means relating to (overused) in this lesson."
+              }
+            ],
+            "flashcards": "auto:vocab",
+            "worksheet": {
+              "title": "Concision worksheet",
+              "tasks": [
+                {
+                  "instruction": "Rewrite without the noun pile.",
+                  "items": [
+                    "समस्त प्रकार की व्यवस्थाओं का यथाशीघ्र क्रियान्वयन किया जाएगा।"
+                  ],
+                  "key": [
+                    "यह प्रक्रिया जल्दी लागू की जाएगी।"
+                  ]
+                },
+                {
+                  "instruction": "Cut the four usual words.",
+                  "items": [
+                    "यथाशीघ्र",
+                    "समस्त",
+                    "प्रकार की",
+                    "संबंधी"
+                  ],
+                  "key": [
+                    "जल्दी / सब / (delete) / (delete)"
+                  ]
+                },
+                {
+                  "instruction": "Integrated offline practice: read the first model, transform or extend it in Devanagari, then rehearse it as a dialogue. Self-check meaning, grammar, and register.",
+                  "items": [
+                    "यह प्रक्रिया जल्दी लागू की जाएगी।",
+                    "यह वाक्य बहुत भारी है।"
+                  ],
+                  "key": [
+                    "This procedure will be implemented soon.",
+                    "This sentence is very heavy."
+                  ]
+                }
+              ]
+            },
+            "srs_candidates": [
+              "यथाशीघ्र",
+              "समस्त",
+              "अनावश्यक",
+              "क्रियान्वयन"
+            ],
+            "srs_policy": "Only these four high-value terms are preselected; lesson mistakes and productive patterns may enter personalized review after an actual error."
+          },
+          {
+            "id": "C1P-U1-L3",
+            "title": "Editing someone else's draft",
+            "learn": "Editing in Hindi is a protocol as much as a skill: पहले पढ़ लीजिए, फिर बदलिए (read first, then change), सुझाव दीजिए, आदेश नहीं (suggest, do not order), and मूल भाव बना रहे (the original sense must survive). Say what a change buys: बदलाव से अर्थ साफ़ होगा.",
+            "vocab": [
+              {
+                "t": "संपादन",
+                "r": "sampādan",
+                "en": "editing",
+                "pos": "noun"
+              },
+              {
+                "t": "सुझाव",
+                "r": "sujhāv",
+                "en": "suggestion",
+                "pos": "noun"
+              },
+              {
+                "t": "मूल भाव",
+                "r": "mūl bhāv",
+                "en": "the original sense",
+                "pos": "noun"
+              },
+              {
+                "t": "संतुलन",
+                "r": "santulan",
+                "en": "balance",
+                "pos": "noun"
+              },
+              {
+                "t": "भाषा-शैली",
+                "r": "bhāṣā-śailī",
+                "en": "language and style",
+                "pos": "noun"
+              },
+              {
+                "t": "बदलाव",
+                "r": "badlāv",
+                "en": "change",
+                "pos": "noun"
+              },
+              {
+                "t": "स्पष्टता",
+                "r": "spaṣṭatā",
+                "en": "clarity",
+                "pos": "noun"
+              },
+              {
+                "t": "स्वर",
+                "r": "svar",
+                "en": "tone / voice",
+                "pos": "noun"
+              }
+            ],
+            "grammar": {
+              "title": "सुझाव दीजिए, आदेश नहीं",
+              "explain": "Comment on a draft with suggestions, not corrections: यहाँ बदलाव से अर्थ साफ़ होगा (a change here will make the meaning clear), शायद यह वाक्य छोटा किया जा सके (this sentence could perhaps be shortened). मूल भाव बना रहे is the constraint that governs every suggestion, and स्वर (tone) is what an edit most easily damages.",
+              "pattern": "यहाँ बदलाव से … होगा · शायद … किया जा सके · मूल भाव बना रहे",
+              "examples": [
+                {
+                  "t": "यहाँ बदलाव से अर्थ साफ़ होगा।",
+                  "r": "yahāṅ badlāv se arth sāf hogā.",
+                  "en": "A change here will make the meaning clear."
+                },
+                {
+                  "t": "शायद यह वाक्य छोटा किया जा सके।",
+                  "r": "śāyad yah vākya chhoṭā kiyā jā sake.",
+                  "en": "Perhaps this sentence could be shortened."
+                },
+                {
+                  "t": "मूल भाव बना रहे — स्वर न बदले।",
+                  "r": "mūl bhāv banā rahe — svar na badle.",
+                  "en": "Let the original sense survive — do not change the tone."
+                }
+              ],
+              "mistakes": [
+                {
+                  "wrong": "यह वाक्य ग़लत है, ऐसे लिखिए।",
+                  "right": "यहाँ बदलाव से अर्थ साफ़ होगा — ऐसा लिखें तो?",
+                  "why": "यह ग़लत है comments on the writer; the suggestion form comments on the sentence. In an editorial round the difference decides whether the writer can receive the note."
+                }
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "लेखक",
+                "t": "यह मेरा ड्राफ़्ट है। ज़रा देखिए।",
+                "r": "yah merā ḍrāfṭ hai. zarā dekhie.",
+                "en": "This is my draft. Have a look."
+              },
+              {
+                "sp": "संपादक",
+                "t": "पढ़ लिया। एक जगह बदलाव से अर्थ साफ़ होगा।",
+                "r": "paṛh liyā. ek jagah badlāv se arth sāf hogā.",
+                "en": "I have read it. In one place a change will make the meaning clear."
+              },
+              {
+                "sp": "लेखक",
+                "t": "कहाँ? और क्या बदले?",
+                "r": "kahāṅ? aur kyā badle?",
+                "en": "Where? And what should change?"
+              },
+              {
+                "sp": "संपादक",
+                "t": "दूसरा वाक्य छोटा कीजिए — मूल भाव बना रहे, बस स्वर हल्का हो जाए।",
+                "r": "dūsrā vākya chhoṭā kījie — mūl bhāv banā rahe, bas svar halkā ho jāe.",
+                "en": "Shorten the second sentence — let the sense survive, only let the tone lighten."
+              }
+            ],
+            "practice": [
+              {
+                "type": "multiple_choice",
+                "q": "Practice 1: [multiple choice] Editing someone else's draft — Choose the meaning of संपादन (sampādan) in this lesson.",
+                "answer": "editing",
+                "skill_target": "multiple choice",
+                "options": [
+                  "editing",
+                  "suggestion",
+                  "the original sense",
+                  "balance"
+                ]
+              },
+              {
+                "type": "fill_in_the_blank",
+                "q": "Practice 2: [fill in the blank] Editing someone else's draft — Type the Hindi expression meaning “suggestion”.",
+                "answer": "सुझाव",
+                "skill_target": "fill in the blank"
+              },
+              {
+                "type": "translation",
+                "q": "Practice 3: [translation] Editing someone else's draft — Interpret the Devanagari in context: यहाँ बदलाव से अर्थ साफ़ होगा। (yahāṅ badlāv se arth sāf hogā.).",
+                "answer": "A change here will make the meaning clear.",
+                "skill_target": "translation"
+              },
+              {
+                "type": "reverse_translation",
+                "q": "Practice 4: [reverse translation] Editing someone else's draft — Write in Devanagari: Perhaps this sentence could be shortened..",
+                "answer": "शायद यह वाक्य छोटा किया जा सके।",
+                "skill_target": "reverse translation"
+              },
+              {
+                "type": "matching",
+                "q": "Practice 5: [matching] Editing someone else's draft — Match मूल भाव to its lesson meaning.",
+                "answer": "the original sense",
+                "skill_target": "matching",
+                "options": [
+                  "the original sense",
+                  "editing",
+                  "suggestion"
+                ]
+              },
+              {
+                "type": "reorder",
+                "q": "Practice 6: [reorder] Editing someone else's draft — Reconstruct the lesson model in coherent Hindi: Let the original sense survive — do not change the tone..",
+                "answer": "मूल भाव बना रहे — स्वर न बदले।",
+                "skill_target": "reorder"
+              },
+              {
+                "type": "sentence_building",
+                "q": "Practice 7: [sentence building] Editing someone else's draft — Build the sentence with the lesson pattern (यहाँ बदलाव से … होगा · शायद … किया जा सके · मूल भाव बना रहे): A change here will make the meaning clear..",
+                "answer": "यहाँ बदलाव से अर्थ साफ़ होगा।",
+                "skill_target": "sentence building"
+              },
+              {
+                "type": "word_selection",
+                "q": "Practice 8: [word selection] Editing someone else's draft — Select the Hindi form for “balance”.",
+                "answer": "संतुलन",
+                "skill_target": "word selection",
+                "options": [
+                  "संतुलन",
+                  "भाषा-शैली",
+                  "बदलाव"
+                ]
+              },
+              {
+                "type": "error_correction",
+                "q": "Practice 9: [error correction] Editing someone else's draft — Correct the model the lesson warns about: यह वाक्य ग़लत है, ऐसे लिखिए।",
+                "answer": "यहाँ बदलाव से अर्थ साफ़ होगा — ऐसा लिखें तो?",
+                "skill_target": "error correction"
+              },
+              {
+                "type": "dialogue_completion",
+                "q": "Practice 10: [dialogue completion] Editing someone else's draft — Complete the exchange with the studied response to: This is my draft. Have a look.",
+                "answer": "पढ़ लिया। एक जगह बदलाव से अर्थ साफ़ होगा।",
+                "skill_target": "dialogue completion"
+              },
+              {
+                "type": "reading_comprehension",
+                "q": "Practice 11: [reading comprehension] Editing someone else's draft — Read “कहाँ? और क्या बदले?” (kahāṅ? aur kyā badle?). What does it mean?",
+                "answer": "Where? And what should change?",
+                "skill_target": "reading comprehension"
+              },
+              {
+                "type": "paragraph_comprehension",
+                "q": "Practice 12: [paragraph comprehension] Editing someone else's draft — Read the lesson dialogue as a whole and give its key move: Shorten the second sentence — let the sense survive, only let the tone lighten.",
+                "answer": "दूसरा वाक्य छोटा कीजिए — मूल भाव बना रहे, बस स्वर हल्का हो जाए।",
+                "skill_target": "paragraph comprehension"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "Which meaning best fits संपादन?",
+                "options": [
+                  "editing",
+                  "suggestion",
+                  "the original sense",
+                  "balance"
+                ],
+                "answer": 0,
+                "why": "संपादन (sampādan) means editing in this lesson."
+              },
+              {
+                "q": "Which meaning best fits सुझाव?",
+                "options": [
+                  "suggestion",
+                  "editing",
+                  "the original sense",
+                  "balance"
+                ],
+                "answer": 0,
+                "why": "सुझाव (sujhāv) means suggestion in this lesson."
+              },
+              {
+                "q": "Which meaning best fits मूल भाव?",
+                "options": [
+                  "the original sense",
+                  "editing",
+                  "suggestion",
+                  "balance"
+                ],
+                "answer": 0,
+                "why": "मूल भाव (mūl bhāv) means the original sense in this lesson."
+              },
+              {
+                "q": "Which meaning best fits संतुलन?",
+                "options": [
+                  "balance",
+                  "editing",
+                  "suggestion",
+                  "the original sense"
+                ],
+                "answer": 0,
+                "why": "संतुलन (santulan) means balance in this lesson."
+              },
+              {
+                "q": "Which meaning best fits भाषा-शैली?",
+                "options": [
+                  "language and style",
+                  "editing",
+                  "suggestion",
+                  "the original sense"
+                ],
+                "answer": 0,
+                "why": "भाषा-शैली (bhāṣā-śailī) means language and style in this lesson."
+              }
+            ],
+            "flashcards": "auto:vocab",
+            "worksheet": {
+              "title": "Editing worksheet",
+              "tasks": [
+                {
+                  "instruction": "Turn a correction into a suggestion.",
+                  "items": [
+                    "यह वाक्य ग़लत है।",
+                    "यह बहुत लंबा है।"
+                  ],
+                  "key": [
+                    "यहाँ बदलाव से अर्थ साफ़ होगा।",
+                    "शायद यह वाक्य छोटा किया जा सके।"
+                  ]
+                },
+                {
+                  "instruction": "State the constraint.",
+                  "items": [
+                    "do not change the tone"
+                  ],
+                  "key": [
+                    "मूल भाव बना रहे — स्वर न बदले।"
+                  ]
+                },
+                {
+                  "instruction": "Integrated offline practice: read the first model, transform or extend it in Devanagari, then rehearse it as a dialogue. Self-check meaning, grammar, and register.",
+                  "items": [
+                    "यहाँ बदलाव से अर्थ साफ़ होगा।",
+                    "यह मेरा ड्राफ़्ट है। ज़रा देखिए।"
+                  ],
+                  "key": [
+                    "A change here will make the meaning clear.",
+                    "This is my draft. Have a look."
+                  ]
+                }
+              ]
+            },
+            "srs_candidates": [
+              "संपादन",
+              "सुझाव",
+              "मूल भाव",
+              "संतुलन"
+            ],
+            "srs_policy": "Only these four high-value terms are preselected; lesson mistakes and productive patterns may enter personalized review after an actual error."
+          }
+        ]
+      },
+      {
+        "id": "C1P-U2",
+        "title": "Translating between Hindi and English",
+        "lessons": [
+          {
+            "id": "C1P-U2-L1",
+            "title": "Register matching, not word matching",
+            "learn": "Translation chooses a register and keeps it. तत्सम words (आवश्यकता, सूचना, धन्यवाद) sit in formal text; तद्भव words (ज़रूरत, ख़बर, शुक्रिया) sit in speech. Putting one in the other's place is what makes a translation sound like a dictionary: the English is right word by word and wrong in the room.",
+            "vocab": [
+              {
+                "t": "कार्यालयीन",
+                "r": "kāryālayīn",
+                "en": "official / office register",
+                "pos": "phrase"
+              },
+              {
+                "t": "बोलचाल",
+                "r": "bolcāl",
+                "en": "colloquial speech",
+                "pos": "noun"
+              },
+              {
+                "t": "तत्सम",
+                "r": "tatsam",
+                "en": "Sanskrit-derived (formal layer)",
+                "pos": "phrase"
+              },
+              {
+                "t": "तद्भव",
+                "r": "tadbhav",
+                "en": "Sanskrit-derived (evolved layer)",
+                "pos": "phrase"
+              },
+              {
+                "t": "अनुवाद",
+                "r": "anuvād",
+                "en": "translation",
+                "pos": "noun"
+              },
+              {
+                "t": "मूल",
+                "r": "mūl",
+                "en": "original / source",
+                "pos": "noun"
+              },
+              {
+                "t": "लक्ष्य भाषा",
+                "r": "lakṣya bhāṣā",
+                "en": "target language",
+                "pos": "noun"
+              },
+              {
+                "t": "शैली",
+                "r": "śailī",
+                "en": "style",
+                "pos": "noun"
+              }
+            ],
+            "grammar": {
+              "title": "One register, kept to the end",
+              "explain": "The translator reads the source for its register first, then picks the Hindi layer and stays there — a नोटिस uses आवश्यकता and सूचित, a WhatsApp message uses ज़रूरत and बता देना. Mixed registers inside one paragraph are what reveal a translation; the grammar can be perfect and the text still reads wrong.",
+              "pattern": "formal source → तत्सम layer · conversational source → तद्भव layer",
+              "examples": [
+                {
+                  "t": "Notice: “You are required to submit the form.” → फ़ॉर्म जमा करना आवश्यक है।",
+                  "r": "fŏrm jamā karnā āvaśyak hai.",
+                  "en": "the formal layer"
+                },
+                {
+                  "t": "Message: “You need to send it.” → यह भेज दीजिए, ज़रूरत है।",
+                  "r": "yah bhej dījie, zarūrat hai.",
+                  "en": "the conversational layer"
+                },
+                {
+                  "t": "दोनों सही हैं — पर एक ही अनुच्छेद में नहीं।",
+                  "r": "donoṅ sahī haiṅ — par ek hī anucched meṅ nahīṅ.",
+                  "en": "both are right — but not in the same paragraph"
+                }
+              ],
+              "mistakes": [
+                {
+                  "wrong": "फ़ॉर्म जमा करना ज़रूरत है। / यह भेज दीजिए, आवश्यकता है।",
+                  "right": "फ़ॉर्म जमा करना आवश्यक है। / यह भेज दीजिए, ज़रूरत है।",
+                  "why": "ज़रूरत is a noun people use with है in speech; आवश्यकता belongs to written formal Hindi. Both pairings above are grammatical and each is wrong for its register."
+                }
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "संपादक",
+                "t": "यह अनुवाद कैसा है?",
+                "r": "yah anuvād kaisā hai?",
+                "en": "How is this translation?"
+              },
+              {
+                "sp": "अनुवादक",
+                "t": "शब्द सही हैं, पर शैली मिली हुई है।",
+                "r": "śabd sahī haiṅ, par śailī milī huī hai.",
+                "en": "The words are right, but the register is mixed."
+              },
+              {
+                "sp": "संपादक",
+                "t": "मतलब?",
+                "r": "matlab?",
+                "en": "Meaning?"
+              },
+              {
+                "sp": "अनुवादक",
+                "t": "पहला वाक्य कार्यालयीन है, दूसरा बोलचाल का — दोनों को एक परत में लाना होगा।",
+                "r": "pahlā vākya kāryālayīn hai, dūsrā bolcāl kā — donoṅ ko ek parat meṅ lānā hogā.",
+                "en": "The first sentence is official, the second colloquial — both have to be brought to one layer."
+              }
+            ],
+            "practice": [
+              {
+                "type": "multiple_choice",
+                "q": "Practice 1: [multiple choice] Register matching, not word matching — Choose the meaning of कार्यालयीन (kāryālayīn) in this lesson.",
+                "answer": "official / office register",
+                "skill_target": "multiple choice",
+                "options": [
+                  "official / office register",
+                  "colloquial speech",
+                  "Sanskrit-derived (formal layer)",
+                  "Sanskrit-derived (evolved layer)"
+                ]
+              },
+              {
+                "type": "fill_in_the_blank",
+                "q": "Practice 2: [fill in the blank] Register matching, not word matching — Type the Hindi expression meaning “colloquial speech”.",
+                "answer": "बोलचाल",
+                "skill_target": "fill in the blank"
+              },
+              {
+                "type": "translation",
+                "q": "Practice 3: [translation] Register matching, not word matching — Interpret the Devanagari in context: Notice: “You are required to submit the form.” → फ़ॉर्म जमा करना आवश्यक है। (fŏrm jamā karnā āvaśyak hai.).",
+                "answer": "the formal layer",
+                "skill_target": "translation"
+              },
+              {
+                "type": "reverse_translation",
+                "q": "Practice 4: [reverse translation] Register matching, not word matching — Write in Devanagari: the conversational layer.",
+                "answer": "Message: “You need to send it.” → यह भेज दीजिए, ज़रूरत है।",
+                "skill_target": "reverse translation"
+              },
+              {
+                "type": "matching",
+                "q": "Practice 5: [matching] Register matching, not word matching — Match तत्सम to its lesson meaning.",
+                "answer": "Sanskrit-derived (formal layer)",
+                "skill_target": "matching",
+                "options": [
+                  "Sanskrit-derived (formal layer)",
+                  "official / office register",
+                  "colloquial speech"
+                ]
+              },
+              {
+                "type": "reorder",
+                "q": "Practice 6: [reorder] Register matching, not word matching — Reconstruct the lesson model in coherent Hindi: both are right — but not in the same paragraph.",
+                "answer": "दोनों सही हैं — पर एक ही अनुच्छेद में नहीं।",
+                "skill_target": "reorder"
+              },
+              {
+                "type": "sentence_building",
+                "q": "Practice 7: [sentence building] Register matching, not word matching — Build the sentence with the lesson pattern (formal source → तत्सम layer · conversational source → तद्भव layer): the formal layer.",
+                "answer": "Notice: “You are required to submit the form.” → फ़ॉर्म जमा करना आवश्यक है।",
+                "skill_target": "sentence building"
+              },
+              {
+                "type": "word_selection",
+                "q": "Practice 8: [word selection] Register matching, not word matching — Select the Hindi form for “Sanskrit-derived (evolved layer)”.",
+                "answer": "तद्भव",
+                "skill_target": "word selection",
+                "options": [
+                  "तद्भव",
+                  "अनुवाद",
+                  "मूल"
+                ]
+              },
+              {
+                "type": "error_correction",
+                "q": "Practice 9: [error correction] Register matching, not word matching — Correct the model the lesson warns about: फ़ॉर्म जमा करना ज़रूरत है। / यह भेज दीजिए, आवश्यकता है।",
+                "answer": "फ़ॉर्म जमा करना आवश्यक है। / यह भेज दीजिए, ज़रूरत है।",
+                "skill_target": "error correction"
+              },
+              {
+                "type": "dialogue_completion",
+                "q": "Practice 10: [dialogue completion] Register matching, not word matching — Complete the exchange with the studied response to: How is this translation?",
+                "answer": "शब्द सही हैं, पर शैली मिली हुई है।",
+                "skill_target": "dialogue completion"
+              },
+              {
+                "type": "reading_comprehension",
+                "q": "Practice 11: [reading comprehension] Register matching, not word matching — Read “मतलब?” (matlab?). What does it mean?",
+                "answer": "Meaning?",
+                "skill_target": "reading comprehension"
+              },
+              {
+                "type": "paragraph_comprehension",
+                "q": "Practice 12: [paragraph comprehension] Register matching, not word matching — Read the lesson dialogue as a whole and give its key move: The first sentence is official, the second colloquial — both have to be brought to one layer.",
+                "answer": "पहला वाक्य कार्यालयीन है, दूसरा बोलचाल का — दोनों को एक परत में लाना होगा।",
+                "skill_target": "paragraph comprehension"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "Which meaning best fits कार्यालयीन?",
+                "options": [
+                  "official / office register",
+                  "colloquial speech",
+                  "Sanskrit-derived (formal layer)",
+                  "Sanskrit-derived (evolved layer)"
+                ],
+                "answer": 0,
+                "why": "कार्यालयीन (kāryālayīn) means official / office register in this lesson."
+              },
+              {
+                "q": "Which meaning best fits बोलचाल?",
+                "options": [
+                  "colloquial speech",
+                  "official / office register",
+                  "Sanskrit-derived (formal layer)",
+                  "Sanskrit-derived (evolved layer)"
+                ],
+                "answer": 0,
+                "why": "बोलचाल (bolcāl) means colloquial speech in this lesson."
+              },
+              {
+                "q": "Which meaning best fits तत्सम?",
+                "options": [
+                  "Sanskrit-derived (formal layer)",
+                  "official / office register",
+                  "colloquial speech",
+                  "Sanskrit-derived (evolved layer)"
+                ],
+                "answer": 0,
+                "why": "तत्सम (tatsam) means Sanskrit-derived (formal layer) in this lesson."
+              },
+              {
+                "q": "Which meaning best fits तद्भव?",
+                "options": [
+                  "Sanskrit-derived (evolved layer)",
+                  "official / office register",
+                  "colloquial speech",
+                  "Sanskrit-derived (formal layer)"
+                ],
+                "answer": 0,
+                "why": "तद्भव (tadbhav) means Sanskrit-derived (evolved layer) in this lesson."
+              },
+              {
+                "q": "Which meaning best fits अनुवाद?",
+                "options": [
+                  "translation",
+                  "official / office register",
+                  "colloquial speech",
+                  "Sanskrit-derived (formal layer)"
+                ],
+                "answer": 0,
+                "why": "अनुवाद (anuvād) means translation in this lesson."
+              }
+            ],
+            "flashcards": "auto:vocab",
+            "worksheet": {
+              "title": "Register worksheet",
+              "tasks": [
+                {
+                  "instruction": "Choose the layer and stay there.",
+                  "items": [
+                    "Notice: I need the form.",
+                    "Message: I need the form."
+                  ],
+                  "key": [
+                    "फ़ॉर्म आवश्यक है।",
+                    "फ़ॉर्म चाहिए।"
+                  ]
+                },
+                {
+                  "instruction": "Name the layers.",
+                  "items": [
+                    "formal",
+                    "colloquial"
+                  ],
+                  "key": [
+                    "कार्यालयीन (तत्सम)",
+                    "बोलचाल (तद्भव)"
+                  ]
+                },
+                {
+                  "instruction": "Integrated offline practice: read the first model, transform or extend it in Devanagari, then rehearse it as a dialogue. Self-check meaning, grammar, and register.",
+                  "items": [
+                    "Notice: “You are required to submit the form.” → फ़ॉर्म जमा करना आवश्यक है।",
+                    "यह अनुवाद कैसा है?"
+                  ],
+                  "key": [
+                    "the formal layer",
+                    "How is this translation?"
+                  ]
+                }
+              ]
+            },
+            "srs_candidates": [
+              "कार्यालयीन",
+              "बोलचाल",
+              "तत्सम",
+              "तद्भव"
+            ],
+            "srs_policy": "Only these four high-value terms are preselected; lesson mistakes and productive patterns may enter personalized review after an actual error."
+          },
+          {
+            "id": "C1P-U2-L2",
+            "title": "Idioms, false friends and what not to translate",
+            "learn": "Idioms move by sense, not by word: मुँह में पानी आना is 'to make one's mouth water', and word-for-word it is nonsense in English. False friends are quieter and more dangerous: नुक़सान is loss, not nuisance; मतलब is meaning, not motive; आराम is rest, not comfort as furniture.",
+            "vocab": [
+              {
+                "t": "मुहावरा",
+                "r": "muhāvarā",
+                "en": "idiom",
+                "pos": "noun"
+              },
+              {
+                "t": "शब्दशः",
+                "r": "śabdaśaḥ",
+                "en": "literally / word for word",
+                "pos": "phrase"
+              },
+              {
+                "t": "भाव",
+                "r": "bhāv",
+                "en": "sense / meaning",
+                "pos": "noun"
+              },
+              {
+                "t": "झूठा मित्र",
+                "r": "jhūṭhā mitra",
+                "en": "false friend",
+                "pos": "noun"
+              },
+              {
+                "t": "नुक़सान",
+                "r": "nuqsān",
+                "en": "loss / damage",
+                "pos": "noun"
+              },
+              {
+                "t": "मतलब",
+                "r": "matlab",
+                "en": "meaning",
+                "pos": "noun"
+              },
+              {
+                "t": "आराम",
+                "r": "ārām",
+                "en": "rest",
+                "pos": "noun"
+              },
+              {
+                "t": "संदर्भ",
+                "r": "sandarbh",
+                "en": "context",
+                "pos": "noun"
+              }
+            ],
+            "grammar": {
+              "title": "Translate the भाव, not the शब्द",
+              "explain": "An idiom is replaced by the target language's idiom, or by its plain sense if there is none: मुँह में पानी आना → to make one's mouth water. शब्दशः translation is kept only for glosses, never for the text itself. False friends are checked in संदर्भ (context) rather than in a dictionary, because a dictionary gives the commonest sense, not the sense in front of you.",
+              "pattern": "idiom → target idiom · no target idiom → plain sense · check false friends in context",
+              "examples": [
+                {
+                  "t": "उसका खाना देखकर मुँह में पानी आ गया।",
+                  "r": "uskā khānā dekhkar muṅh meṅ pānī ā gayā.",
+                  "en": "Seeing his food, my mouth watered."
+                },
+                {
+                  "t": "यहाँ “नुक़सान” का मतलब घाटा है, nuisance नहीं।",
+                  "r": "yahāṅ “nuqsān” kā matlab ghāṭā hai, nuisance nahīṅ.",
+                  "en": "Here नुक़सान means loss, not nuisance."
+                },
+                {
+                  "t": "मुहावरे को शब्दशः मत लीजिए।",
+                  "r": "muhāvare ko śabdaśaḥ mat lījie.",
+                  "en": "Do not translate an idiom word for word."
+                }
+              ],
+              "mistakes": [
+                {
+                  "wrong": "“मेरा मतलब साफ़ है” → “My motive is clean.”",
+                  "right": "“मेरा मतलब साफ़ है” → “What I mean is clear.”",
+                  "why": "मतलब is meaning; motive is नीयत or इरादा. This is the classic false friend, and it is dangerous because both sentences are fluent English."
+                }
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "अनुवादक",
+                "t": "यह मुहावरा अँग्रेज़ी में नहीं है।",
+                "r": "yah muhāvarā aṅgrezī meṅ nahīṅ hai.",
+                "en": "This idiom does not exist in English."
+              },
+              {
+                "sp": "संपादक",
+                "t": "तो क्या करें?",
+                "r": "to kyā kareṅ?",
+                "en": "So what do we do?"
+              },
+              {
+                "sp": "अनुवादक",
+                "t": "भाव ले लें — शब्द नहीं। “मुँह में पानी आना” → “to make one's mouth water”।",
+                "r": "bhāv le leṅ — śabd nahīṅ.",
+                "en": "Take the sense, not the words."
+              },
+              {
+                "sp": "संपादक",
+                "t": "और दूसरी जगह?",
+                "r": "aur dūsrī jagah?",
+                "en": "And the other place?"
+              },
+              {
+                "sp": "अनुवादक",
+                "t": "वहाँ “मतलब” का अनुवाद “motive” नहीं होगा — संदर्भ में वह meaning है।",
+                "r": "vahāṅ “matlab” kā anuvād “motive” nahīṅ hogā — sandarbh meṅ vah meaning hai.",
+                "en": "There मतलब will not be “motive” — in context it means meaning."
+              }
+            ],
+            "practice": [
+              {
+                "type": "multiple_choice",
+                "q": "Practice 1: [multiple choice] Idioms, false friends and what not to translate — Choose the meaning of मुहावरा (muhāvarā) in this lesson.",
+                "answer": "idiom",
+                "skill_target": "multiple choice",
+                "options": [
+                  "idiom",
+                  "literally / word for word",
+                  "sense / meaning",
+                  "false friend"
+                ]
+              },
+              {
+                "type": "fill_in_the_blank",
+                "q": "Practice 2: [fill in the blank] Idioms, false friends and what not to translate — Type the Hindi expression meaning “literally / word for word”.",
+                "answer": "शब्दशः",
+                "skill_target": "fill in the blank"
+              },
+              {
+                "type": "translation",
+                "q": "Practice 3: [translation] Idioms, false friends and what not to translate — Interpret the Devanagari in context: उसका खाना देखकर मुँह में पानी आ गया। (uskā khānā dekhkar muṅh meṅ pānī ā gayā.).",
+                "answer": "Seeing his food, my mouth watered.",
+                "skill_target": "translation"
+              },
+              {
+                "type": "reverse_translation",
+                "q": "Practice 4: [reverse translation] Idioms, false friends and what not to translate — Write in Devanagari: Here नुक़सान means loss, not nuisance..",
+                "answer": "यहाँ “नुक़सान” का मतलब घाटा है, nuisance नहीं।",
+                "skill_target": "reverse translation"
+              },
+              {
+                "type": "matching",
+                "q": "Practice 5: [matching] Idioms, false friends and what not to translate — Match भाव to its lesson meaning.",
+                "answer": "sense / meaning",
+                "skill_target": "matching",
+                "options": [
+                  "sense / meaning",
+                  "idiom",
+                  "literally / word for word"
+                ]
+              },
+              {
+                "type": "reorder",
+                "q": "Practice 6: [reorder] Idioms, false friends and what not to translate — Reconstruct the lesson model in coherent Hindi: Do not translate an idiom word for word..",
+                "answer": "मुहावरे को शब्दशः मत लीजिए।",
+                "skill_target": "reorder"
+              },
+              {
+                "type": "sentence_building",
+                "q": "Practice 7: [sentence building] Idioms, false friends and what not to translate — Build the sentence with the lesson pattern (idiom → target idiom · no target idiom → plain sense · check false friends in context): Seeing his food, my mouth watered..",
+                "answer": "उसका खाना देखकर मुँह में पानी आ गया।",
+                "skill_target": "sentence building"
+              },
+              {
+                "type": "word_selection",
+                "q": "Practice 8: [word selection] Idioms, false friends and what not to translate — Select the Hindi form for “false friend”.",
+                "answer": "झूठा मित्र",
+                "skill_target": "word selection",
+                "options": [
+                  "झूठा मित्र",
+                  "नुक़सान",
+                  "मतलब"
+                ]
+              },
+              {
+                "type": "error_correction",
+                "q": "Practice 9: [error correction] Idioms, false friends and what not to translate — Correct the model the lesson warns about: “मेरा मतलब साफ़ है” → “My motive is clean.”",
+                "answer": "“मेरा मतलब साफ़ है” → “What I mean is clear.”",
+                "skill_target": "error correction"
+              },
+              {
+                "type": "dialogue_completion",
+                "q": "Practice 10: [dialogue completion] Idioms, false friends and what not to translate — Complete the exchange with the studied response to: This idiom does not exist in English.",
+                "answer": "तो क्या करें?",
+                "skill_target": "dialogue completion"
+              },
+              {
+                "type": "reading_comprehension",
+                "q": "Practice 11: [reading comprehension] Idioms, false friends and what not to translate — Read “भाव ले लें — शब्द नहीं। “मुँह में पानी आना” → “to make one's mouth water”।” (bhāv le leṅ — śabd nahīṅ.). What does it mean?",
+                "answer": "Take the sense, not the words.",
+                "skill_target": "reading comprehension"
+              },
+              {
+                "type": "paragraph_comprehension",
+                "q": "Practice 12: [paragraph comprehension] Idioms, false friends and what not to translate — Read the lesson dialogue as a whole and give its key move: And the other place?",
+                "answer": "और दूसरी जगह?",
+                "skill_target": "paragraph comprehension"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "Which meaning best fits मुहावरा?",
+                "options": [
+                  "idiom",
+                  "literally / word for word",
+                  "sense / meaning",
+                  "false friend"
+                ],
+                "answer": 0,
+                "why": "मुहावरा (muhāvarā) means idiom in this lesson."
+              },
+              {
+                "q": "Which meaning best fits शब्दशः?",
+                "options": [
+                  "literally / word for word",
+                  "idiom",
+                  "sense / meaning",
+                  "false friend"
+                ],
+                "answer": 0,
+                "why": "शब्दशः (śabdaśaḥ) means literally / word for word in this lesson."
+              },
+              {
+                "q": "Which meaning best fits भाव?",
+                "options": [
+                  "sense / meaning",
+                  "idiom",
+                  "literally / word for word",
+                  "false friend"
+                ],
+                "answer": 0,
+                "why": "भाव (bhāv) means sense / meaning in this lesson."
+              },
+              {
+                "q": "Which meaning best fits झूठा मित्र?",
+                "options": [
+                  "false friend",
+                  "idiom",
+                  "literally / word for word",
+                  "sense / meaning"
+                ],
+                "answer": 0,
+                "why": "झूठा मित्र (jhūṭhā mitra) means false friend in this lesson."
+              },
+              {
+                "q": "Which meaning best fits नुक़सान?",
+                "options": [
+                  "loss / damage",
+                  "idiom",
+                  "literally / word for word",
+                  "sense / meaning"
+                ],
+                "answer": 0,
+                "why": "नुक़सान (nuqsān) means loss / damage in this lesson."
+              }
+            ],
+            "flashcards": "auto:vocab",
+            "worksheet": {
+              "title": "Idiom worksheet",
+              "tasks": [
+                {
+                  "instruction": "Translate the sense, not the words.",
+                  "items": [
+                    "मुँह में पानी आना",
+                    "आँखों का तारा"
+                  ],
+                  "key": [
+                    "to make one's mouth water",
+                    "the apple of someone's eye"
+                  ]
+                },
+                {
+                  "instruction": "Catch the false friend.",
+                  "items": [
+                    "मेरा मतलब साफ़ है",
+                    "इसमें नुक़सान हुआ"
+                  ],
+                  "key": [
+                    "What I mean is clear. (not motive)",
+                    "There was a loss. (not nuisance)"
+                  ]
+                },
+                {
+                  "instruction": "Integrated offline practice: read the first model, transform or extend it in Devanagari, then rehearse it as a dialogue. Self-check meaning, grammar, and register.",
+                  "items": [
+                    "उसका खाना देखकर मुँह में पानी आ गया।",
+                    "यह मुहावरा अँग्रेज़ी में नहीं है।"
+                  ],
+                  "key": [
+                    "Seeing his food, my mouth watered.",
+                    "This idiom does not exist in English."
+                  ]
+                }
+              ]
+            },
+            "srs_candidates": [
+              "मुहावरा",
+              "शब्दशः",
+              "भाव",
+              "झूठा मित्र"
+            ],
+            "srs_policy": "Only these four high-value terms are preselected; lesson mistakes and productive patterns may enter personalized review after an actual error."
+          },
+          {
+            "id": "C1P-U2-L3",
+            "title": "Back-translation as a check",
+            "learn": "The professional check is back-translation: पहले अनुवाद, फिर पुनःअनुवाद (translate, then translate back), and compare the two Hindi texts. Where they diverge, the first translation has either added or dropped something — यहाँ कुछ जुड़ गया (here something has been added), यहाँ अर्थ घट गया (here the meaning has shrunk).",
+            "vocab": [
+              {
+                "t": "पुनःअनुवाद",
+                "r": "punaḥ-anuvād",
+                "en": "back-translation",
+                "pos": "noun"
+              },
+              {
+                "t": "बारीक़ी",
+                "r": "bārīqī",
+                "en": "fine detail",
+                "pos": "noun"
+              },
+              {
+                "t": "जुड़ना",
+                "r": "juṛnā",
+                "en": "to get added",
+                "pos": "phrase"
+              },
+              {
+                "t": "घटना",
+                "r": "ghaṭnā",
+                "en": "to decrease / shrink",
+                "pos": "phrase"
+              },
+              {
+                "t": "तुलना",
+                "r": "tulnā",
+                "en": "comparison",
+                "pos": "noun"
+              },
+              {
+                "t": "दोहराना",
+                "r": "dohrānā",
+                "en": "to repeat",
+                "pos": "phrase"
+              },
+              {
+                "t": "सुधार",
+                "r": "sudhār",
+                "en": "correction / improvement",
+                "pos": "noun"
+              },
+              {
+                "t": "जाँच",
+                "r": "jāṅc",
+                "en": "check",
+                "pos": "noun"
+              }
+            ],
+            "grammar": {
+              "title": "अनुवाद → पुनःअनुवाद → तुलना",
+              "explain": "The method is mechanical, which is why it works: translate into Hindi, translate that Hindi back into English without looking at the source, then compare the two English texts. Extra information means the first pass explained too much (बारीक़ी जुड़ गई); lost information means it smoothed something over (अर्थ घट गया) — and smoothing is the commoner fault.",
+              "pattern": "अनुवाद → पुनःअनुवाद → दोनों की तुलना",
+              "examples": [
+                {
+                  "t": "यहाँ कुछ जुड़ गया — मूल में यह बात नहीं है।",
+                  "r": "yahāṅ kuchh juṛ gayā — mūl meṅ yah bāt nahīṅ hai.",
+                  "en": "Something has been added here — this is not in the original."
+                },
+                {
+                  "t": "यहाँ अर्थ घट गया — बारीक़ी छूट गई।",
+                  "r": "yahāṅ arth ghaṭ gayā — bārīqī chhūṭ gaī.",
+                  "en": "Here the meaning has shrunk — a fine detail was lost."
+                },
+                {
+                  "t": "पुनःअनुवाद से जाँच आसान हो जाती है।",
+                  "r": "punaḥ-anuvād se jāṅc āsān ho jātī hai.",
+                  "en": "Back-translation makes checking easier."
+                }
+              ],
+              "mistakes": [
+                {
+                  "wrong": "अनुवाद अच्छा लग रहा है, इसलिए ठीक होगा।",
+                  "right": "पुनःअनुवाद करके देखिए — जो जुड़ा या घटा, वह तुरंत दिखेगा।",
+                  "why": "a translation that reads smoothly is exactly the one that has quietly smoothed something away. The mechanical check catches what fluent reading hides."
+                }
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "संपादक",
+                "t": "यह अनुवाद भरोसेमंद है?",
+                "r": "yah anuvād bharosemand hai?",
+                "en": "Is this translation reliable?"
+              },
+              {
+                "sp": "अनुवादक",
+                "t": "पुनःअनुवाद कर लिया है — दो जगह अंतर मिला।",
+                "r": "punaḥ-anuvād kar liyā hai — do jagah antar milā.",
+                "en": "I have done the back-translation — two differences were found."
+              },
+              {
+                "sp": "संपादक",
+                "t": "कहाँ?",
+                "r": "kahāṅ?",
+                "en": "Where?"
+              },
+              {
+                "sp": "अनुवादक",
+                "t": "एक जगह बारीक़ी जुड़ गई, दूसरी जगह अर्थ घट गया — दोनों सुधार दिए हैं।",
+                "r": "ek jagah bārīqī juṛ gaī, dūsrī jagah arth ghaṭ gayā — donoṅ sudhār die haiṅ.",
+                "en": "In one place a detail was added, in another the meaning shrank — I have made both corrections."
+              }
+            ],
+            "practice": [
+              {
+                "type": "multiple_choice",
+                "q": "Practice 1: [multiple choice] Back-translation as a check — Choose the meaning of पुनःअनुवाद (punaḥ-anuvād) in this lesson.",
+                "answer": "back-translation",
+                "skill_target": "multiple choice",
+                "options": [
+                  "back-translation",
+                  "fine detail",
+                  "to get added",
+                  "to decrease / shrink"
+                ]
+              },
+              {
+                "type": "fill_in_the_blank",
+                "q": "Practice 2: [fill in the blank] Back-translation as a check — Type the Hindi expression meaning “fine detail”.",
+                "answer": "बारीक़ी",
+                "skill_target": "fill in the blank"
+              },
+              {
+                "type": "translation",
+                "q": "Practice 3: [translation] Back-translation as a check — Interpret the Devanagari in context: यहाँ कुछ जुड़ गया — मूल में यह बात नहीं है। (yahāṅ kuchh juṛ gayā — mūl meṅ yah bāt nahīṅ hai.).",
+                "answer": "Something has been added here — this is not in the original.",
+                "skill_target": "translation"
+              },
+              {
+                "type": "reverse_translation",
+                "q": "Practice 4: [reverse translation] Back-translation as a check — Write in Devanagari: Here the meaning has shrunk — a fine detail was lost..",
+                "answer": "यहाँ अर्थ घट गया — बारीक़ी छूट गई।",
+                "skill_target": "reverse translation"
+              },
+              {
+                "type": "matching",
+                "q": "Practice 5: [matching] Back-translation as a check — Match जुड़ना to its lesson meaning.",
+                "answer": "to get added",
+                "skill_target": "matching",
+                "options": [
+                  "to get added",
+                  "back-translation",
+                  "fine detail"
+                ]
+              },
+              {
+                "type": "reorder",
+                "q": "Practice 6: [reorder] Back-translation as a check — Reconstruct the lesson model in coherent Hindi: Back-translation makes checking easier..",
+                "answer": "पुनःअनुवाद से जाँच आसान हो जाती है।",
+                "skill_target": "reorder"
+              },
+              {
+                "type": "sentence_building",
+                "q": "Practice 7: [sentence building] Back-translation as a check — Build the sentence with the lesson pattern (अनुवाद → पुनःअनुवाद → दोनों की तुलना): Something has been added here — this is not in the original..",
+                "answer": "यहाँ कुछ जुड़ गया — मूल में यह बात नहीं है।",
+                "skill_target": "sentence building"
+              },
+              {
+                "type": "word_selection",
+                "q": "Practice 8: [word selection] Back-translation as a check — Select the Hindi form for “to decrease / shrink”.",
+                "answer": "घटना",
+                "skill_target": "word selection",
+                "options": [
+                  "घटना",
+                  "तुलना",
+                  "दोहराना"
+                ]
+              },
+              {
+                "type": "error_correction",
+                "q": "Practice 9: [error correction] Back-translation as a check — Correct the model the lesson warns about: अनुवाद अच्छा लग रहा है, इसलिए ठीक होगा।",
+                "answer": "पुनःअनुवाद करके देखिए — जो जुड़ा या घटा, वह तुरंत दिखेगा।",
+                "skill_target": "error correction"
+              },
+              {
+                "type": "dialogue_completion",
+                "q": "Practice 10: [dialogue completion] Back-translation as a check — Complete the exchange with the studied response to: Is this translation reliable?",
+                "answer": "पुनःअनुवाद कर लिया है — दो जगह अंतर मिला।",
+                "skill_target": "dialogue completion"
+              },
+              {
+                "type": "reading_comprehension",
+                "q": "Practice 11: [reading comprehension] Back-translation as a check — Read “कहाँ?” (kahāṅ?). What does it mean?",
+                "answer": "Where?",
+                "skill_target": "reading comprehension"
+              },
+              {
+                "type": "paragraph_comprehension",
+                "q": "Practice 12: [paragraph comprehension] Back-translation as a check — Read the lesson dialogue as a whole and give its key move: In one place a detail was added, in another the meaning shrank — I have made both corrections.",
+                "answer": "एक जगह बारीक़ी जुड़ गई, दूसरी जगह अर्थ घट गया — दोनों सुधार दिए हैं।",
+                "skill_target": "paragraph comprehension"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "Which meaning best fits पुनःअनुवाद?",
+                "options": [
+                  "back-translation",
+                  "fine detail",
+                  "to get added",
+                  "to decrease / shrink"
+                ],
+                "answer": 0,
+                "why": "पुनःअनुवाद (punaḥ-anuvād) means back-translation in this lesson."
+              },
+              {
+                "q": "Which meaning best fits बारीक़ी?",
+                "options": [
+                  "fine detail",
+                  "back-translation",
+                  "to get added",
+                  "to decrease / shrink"
+                ],
+                "answer": 0,
+                "why": "बारीक़ी (bārīqī) means fine detail in this lesson."
+              },
+              {
+                "q": "Which meaning best fits जुड़ना?",
+                "options": [
+                  "to get added",
+                  "back-translation",
+                  "fine detail",
+                  "to decrease / shrink"
+                ],
+                "answer": 0,
+                "why": "जुड़ना (juṛnā) means to get added in this lesson."
+              },
+              {
+                "q": "Which meaning best fits घटना?",
+                "options": [
+                  "to decrease / shrink",
+                  "back-translation",
+                  "fine detail",
+                  "to get added"
+                ],
+                "answer": 0,
+                "why": "घटना (ghaṭnā) means to decrease / shrink in this lesson."
+              },
+              {
+                "q": "Which meaning best fits तुलना?",
+                "options": [
+                  "comparison",
+                  "back-translation",
+                  "fine detail",
+                  "to get added"
+                ],
+                "answer": 0,
+                "why": "तुलना (tulnā) means comparison in this lesson."
+              }
+            ],
+            "flashcards": "auto:vocab",
+            "worksheet": {
+              "title": "Back-translation worksheet",
+              "tasks": [
+                {
+                  "instruction": "Name the three steps.",
+                  "items": [
+                    "translate",
+                    "back-translate",
+                    "compare"
+                  ],
+                  "key": [
+                    "अनुवाद, पुनःअनुवाद, तुलना"
+                  ]
+                },
+                {
+                  "instruction": "Diagnose the fault.",
+                  "items": [
+                    "Extra information appeared.",
+                    "A detail was lost."
+                  ],
+                  "key": [
+                    "यहाँ कुछ जुड़ गया।",
+                    "यहाँ अर्थ घट गया।"
+                  ]
+                },
+                {
+                  "instruction": "Integrated offline practice: read the first model, transform or extend it in Devanagari, then rehearse it as a dialogue. Self-check meaning, grammar, and register.",
+                  "items": [
+                    "यहाँ कुछ जुड़ गया — मूल में यह बात नहीं है।",
+                    "यह अनुवाद भरोसेमंद है?"
+                  ],
+                  "key": [
+                    "Something has been added here — this is not in the original.",
+                    "Is this translation reliable?"
+                  ]
+                }
+              ]
+            },
+            "srs_candidates": [
+              "पुनःअनुवाद",
+              "बारीक़ी",
+              "जुड़ना",
+              "घटना"
+            ],
+            "srs_policy": "Only these four high-value terms are preselected; lesson mistakes and productive patterns may enter personalized review after an actual error."
+          }
+        ]
+      },
+      {
+        "id": "C1P-U3",
+        "title": "Teaching a beginner",
+        "lessons": [
+          {
+            "id": "C1P-U3-L1",
+            "title": "Explaining a rule simply",
+            "learn": "Teaching is the last test of understanding. A rule is explained with one example first, then the rule, then a second example: देखिए — मैं जाता हूँ, वह जाता है. नियम यह है कि क्रिया कर्ता के साथ बदलती है. The beginner's question is never 'why' but 'which one do I say', so the answer is an example, not a table.",
+            "vocab": [
+              {
+                "t": "नियम",
+                "r": "niyam",
+                "en": "rule",
+                "pos": "noun"
+              },
+              {
+                "t": "उदाहरण",
+                "r": "udāharaṇ",
+                "en": "example",
+                "pos": "noun"
+              },
+              {
+                "t": "आसान भाषा",
+                "r": "āsān bhāṣā",
+                "en": "plain language",
+                "pos": "noun"
+              },
+              {
+                "t": "कर्ता",
+                "r": "kartā",
+                "en": "subject / doer",
+                "pos": "noun"
+              },
+              {
+                "t": "क्रिया",
+                "r": "kriyā",
+                "en": "verb",
+                "pos": "noun"
+              },
+              {
+                "t": "समझाना",
+                "r": "samjhānā",
+                "en": "to explain",
+                "pos": "phrase"
+              },
+              {
+                "t": "दोहराइए",
+                "r": "dohrāie",
+                "en": "please repeat",
+                "pos": "phrase"
+              },
+              {
+                "t": "अभ्यास",
+                "r": "abhyās",
+                "en": "practice",
+                "pos": "noun"
+              }
+            ],
+            "grammar": {
+              "title": "Example → rule → example",
+              "explain": "The teaching order is देखिए (look) → नियम यह है कि (the rule is) → अब आप कहिए (now you say it). Every rule is stated in one sentence with no jargon, and the learner's first attempt is answered with दोहराइए rather than a correction. क्रिया, कर्ता and कारक are taught only after the learner can use the thing.",
+              "pattern": "देखिए … → नियम यह है कि … → अब आप कहिए …",
+              "examples": [
+                {
+                  "t": "देखिए — मैं जाता हूँ, वह जाता है।",
+                  "r": "dekhie — main jātā hūṅ, vah jātā hai.",
+                  "en": "Look — I go, he goes."
+                },
+                {
+                  "t": "नियम यह है कि क्रिया कर्ता के साथ बदलती है।",
+                  "r": "niyam yah hai ki kriyā kartā ke sāth badaltī hai.",
+                  "en": "The rule is that the verb changes with the subject."
+                },
+                {
+                  "t": "अब आप कहिए — “आप जाते हैं।”",
+                  "r": "ab āp kahie — “āp jāte haiṅ.”",
+                  "en": "Now you say it — “you go” (respectful)."
+                }
+              ],
+              "mistakes": [
+                {
+                  "wrong": "सबसे पहले कारक और विभक्ति समझिए।",
+                  "right": "देखिए — यह वाक्य। अब आप ऐसा ही बनाइए।",
+                  "why": "grammar terminology before usage teaches the learner to talk about the language instead of using it. Terms come after the learner has said the sentence correctly three times."
+                }
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "शिक्षक",
+                "t": "देखिए — मैं जाता हूँ। वह जाता है।",
+                "r": "dekhie — main jātā hūṅ. vah jātā hai.",
+                "en": "Look — I go. He goes."
+              },
+              {
+                "sp": "शिक्षार्थी",
+                "t": "क्यों बदलता है?",
+                "r": "kyoṅ badaltā hai?",
+                "en": "Why does it change?"
+              },
+              {
+                "sp": "शिक्षक",
+                "t": "नियम यह है कि क्रिया कर्ता के साथ बदलती है। अब आप कहिए — “हम जाते हैं।”",
+                "r": "niyam yah hai ki kriyā kartā ke sāth badaltī hai. ab āp kahie — “ham jāte haiṅ.”",
+                "en": "The rule is that the verb changes with the subject. Now you say it — “we go”."
+              },
+              {
+                "sp": "शिक्षार्थी",
+                "t": "हम जाते हैं?",
+                "r": "ham jāte haiṅ?",
+                "en": "We go?"
+              },
+              {
+                "sp": "शिक्षक",
+                "t": "बिल्कुल सही! दोहराइए — और एक उदाहरण आप बनाइए।",
+                "r": "bilkul sahī! dohrāie — aur ek udāharaṇ āp banāie.",
+                "en": "Exactly right! Repeat it — and make one example yourself."
+              }
+            ],
+            "practice": [
+              {
+                "type": "multiple_choice",
+                "q": "Practice 1: [multiple choice] Explaining a rule simply — Choose the meaning of नियम (niyam) in this lesson.",
+                "answer": "rule",
+                "skill_target": "multiple choice",
+                "options": [
+                  "rule",
+                  "example",
+                  "plain language",
+                  "subject / doer"
+                ]
+              },
+              {
+                "type": "fill_in_the_blank",
+                "q": "Practice 2: [fill in the blank] Explaining a rule simply — Type the Hindi expression meaning “example”.",
+                "answer": "उदाहरण",
+                "skill_target": "fill in the blank"
+              },
+              {
+                "type": "translation",
+                "q": "Practice 3: [translation] Explaining a rule simply — Interpret the Devanagari in context: देखिए — मैं जाता हूँ, वह जाता है। (dekhie — main jātā hūṅ, vah jātā hai.).",
+                "answer": "Look — I go, he goes.",
+                "skill_target": "translation"
+              },
+              {
+                "type": "reverse_translation",
+                "q": "Practice 4: [reverse translation] Explaining a rule simply — Write in Devanagari: The rule is that the verb changes with the subject..",
+                "answer": "नियम यह है कि क्रिया कर्ता के साथ बदलती है।",
+                "skill_target": "reverse translation"
+              },
+              {
+                "type": "matching",
+                "q": "Practice 5: [matching] Explaining a rule simply — Match आसान भाषा to its lesson meaning.",
+                "answer": "plain language",
+                "skill_target": "matching",
+                "options": [
+                  "plain language",
+                  "rule",
+                  "example"
+                ]
+              },
+              {
+                "type": "reorder",
+                "q": "Practice 6: [reorder] Explaining a rule simply — Reconstruct the lesson model in coherent Hindi: Now you say it — “you go” (respectful)..",
+                "answer": "अब आप कहिए — “आप जाते हैं।”",
+                "skill_target": "reorder"
+              },
+              {
+                "type": "sentence_building",
+                "q": "Practice 7: [sentence building] Explaining a rule simply — Build the sentence with the lesson pattern (देखिए … → नियम यह है कि … → अब आप कहिए …): Look — I go, he goes..",
+                "answer": "देखिए — मैं जाता हूँ, वह जाता है।",
+                "skill_target": "sentence building"
+              },
+              {
+                "type": "word_selection",
+                "q": "Practice 8: [word selection] Explaining a rule simply — Select the Hindi form for “subject / doer”.",
+                "answer": "कर्ता",
+                "skill_target": "word selection",
+                "options": [
+                  "कर्ता",
+                  "क्रिया",
+                  "समझाना"
+                ]
+              },
+              {
+                "type": "error_correction",
+                "q": "Practice 9: [error correction] Explaining a rule simply — Correct the model the lesson warns about: सबसे पहले कारक और विभक्ति समझिए।",
+                "answer": "देखिए — यह वाक्य। अब आप ऐसा ही बनाइए।",
+                "skill_target": "error correction"
+              },
+              {
+                "type": "dialogue_completion",
+                "q": "Practice 10: [dialogue completion] Explaining a rule simply — Complete the exchange with the studied response to: Look — I go. He goes.",
+                "answer": "क्यों बदलता है?",
+                "skill_target": "dialogue completion"
+              },
+              {
+                "type": "reading_comprehension",
+                "q": "Practice 11: [reading comprehension] Explaining a rule simply — Read “नियम यह है कि क्रिया कर्ता के साथ बदलती है। अब आप कहिए — “हम जाते हैं।”” (niyam yah hai ki kriyā kartā ke sāth badaltī hai. ab āp kahie — “ham jāte haiṅ.”). What does it mean?",
+                "answer": "The rule is that the verb changes with the subject. Now you say it — “we go”.",
+                "skill_target": "reading comprehension"
+              },
+              {
+                "type": "paragraph_comprehension",
+                "q": "Practice 12: [paragraph comprehension] Explaining a rule simply — Read the lesson dialogue as a whole and give its key move: We go?",
+                "answer": "हम जाते हैं?",
+                "skill_target": "paragraph comprehension"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "Which meaning best fits नियम?",
+                "options": [
+                  "rule",
+                  "example",
+                  "plain language",
+                  "subject / doer"
+                ],
+                "answer": 0,
+                "why": "नियम (niyam) means rule in this lesson."
+              },
+              {
+                "q": "Which meaning best fits उदाहरण?",
+                "options": [
+                  "example",
+                  "rule",
+                  "plain language",
+                  "subject / doer"
+                ],
+                "answer": 0,
+                "why": "उदाहरण (udāharaṇ) means example in this lesson."
+              },
+              {
+                "q": "Which meaning best fits आसान भाषा?",
+                "options": [
+                  "plain language",
+                  "rule",
+                  "example",
+                  "subject / doer"
+                ],
+                "answer": 0,
+                "why": "आसान भाषा (āsān bhāṣā) means plain language in this lesson."
+              },
+              {
+                "q": "Which meaning best fits कर्ता?",
+                "options": [
+                  "subject / doer",
+                  "rule",
+                  "example",
+                  "plain language"
+                ],
+                "answer": 0,
+                "why": "कर्ता (kartā) means subject / doer in this lesson."
+              },
+              {
+                "q": "Which meaning best fits क्रिया?",
+                "options": [
+                  "verb",
+                  "rule",
+                  "example",
+                  "plain language"
+                ],
+                "answer": 0,
+                "why": "क्रिया (kriyā) means verb in this lesson."
+              }
+            ],
+            "flashcards": "auto:vocab",
+            "worksheet": {
+              "title": "Teaching worksheet",
+              "tasks": [
+                {
+                  "instruction": "Teach one rule in the three beats.",
+                  "items": [
+                    "verb agreement"
+                  ],
+                  "key": [
+                    "देखिए — मैं जाता हूँ, वह जाता है। → नियम यह है कि क्रिया कर्ता के साथ बदलती है। → अब आप कहिए।"
+                  ]
+                },
+                {
+                  "instruction": "Avoid the jargon.",
+                  "items": [
+                    "कर्ता, क्रिया, विभक्ति"
+                  ],
+                  "key": [
+                    "(say “who does it” and “the doing word” instead)"
+                  ]
+                },
+                {
+                  "instruction": "Integrated offline practice: read the first model, transform or extend it in Devanagari, then rehearse it as a dialogue. Self-check meaning, grammar, and register.",
+                  "items": [
+                    "देखिए — मैं जाता हूँ, वह जाता है।",
+                    "देखिए — मैं जाता हूँ। वह जाता है।"
+                  ],
+                  "key": [
+                    "Look — I go, he goes.",
+                    "Look — I go. He goes."
+                  ]
+                }
+              ]
+            },
+            "srs_candidates": [
+              "नियम",
+              "उदाहरण",
+              "आसान भाषा",
+              "कर्ता"
+            ],
+            "srs_policy": "Only these four high-value terms are preselected; lesson mistakes and productive patterns may enter personalized review after an actual error."
+          },
+          {
+            "id": "C1P-U3-L2",
+            "title": "Correcting kindly",
+            "learn": "Correction is delivered inside encouragement: बहुत अच्छा! बस एक चीज़ बदलिए (very good! just change one thing). Say the sentence back correctly rather than naming the mistake — कर्ता ग़लत है means nothing to a beginner, while saying the right sentence makes them hear it. ग़लती से सीखना (learning from the error) is the frame to give the learner.",
+            "vocab": [
+              {
+                "t": "सुधार",
+                "r": "sudhār",
+                "en": "correction",
+                "pos": "noun"
+              },
+              {
+                "t": "ग़लती",
+                "r": "ġalatī",
+                "en": "mistake",
+                "pos": "noun"
+              },
+              {
+                "t": "तारीफ़",
+                "r": "tārīf",
+                "en": "praise",
+                "pos": "noun"
+              },
+              {
+                "t": "बस एक चीज़",
+                "r": "bas ek cīz",
+                "en": "just one thing",
+                "pos": "phrase"
+              },
+              {
+                "t": "दोबारा कहिए",
+                "r": "dobārā kahie",
+                "en": "say it again",
+                "pos": "phrase"
+              },
+              {
+                "t": "शाबाश",
+                "r": "śābāś",
+                "en": "well done",
+                "pos": "phrase"
+              },
+              {
+                "t": "हिम्मत",
+                "r": "himmat",
+                "en": "courage",
+                "pos": "noun"
+              },
+              {
+                "t": "आत्मविश्वास",
+                "r": "ātmaviśvās",
+                "en": "confidence",
+                "pos": "noun"
+              }
+            ],
+            "grammar": {
+              "title": "प्रशंसा → सुधार → प्रशंसा",
+              "explain": "The correction sandwich is not decoration: शाबाश! … बस एक चीज़ — “आप जाते हैं” … हाँ, अब बिल्कुल सही! The middle part repeats the correct sentence instead of labelling the error, and it is kept to one item per turn — a learner given four corrections stops speaking altogether.",
+              "pattern": "शाबाश! · बस एक चीज़ — (correct sentence) · अब बिल्कुल सही!",
+              "examples": [
+                {
+                  "t": "बहुत अच्छा! बस एक चीज़ — “आप जाते हैं।”",
+                  "r": "bahut achchhā! bas ek cīz — “āp jāte haiṅ.”",
+                  "en": "Very good! Just one thing — “you go”."
+                },
+                {
+                  "t": "ग़लती से ही सीखते हैं — दोबारा कहिए।",
+                  "r": "ġalatī se hī sīkhte haiṅ — dobārā kahie.",
+                  "en": "We learn from mistakes — say it again."
+                },
+                {
+                  "t": "शाबाश! अब बिल्कुल सही।",
+                  "r": "śābāś! ab bilkul sahī.",
+                  "en": "Well done! Now it is exactly right."
+                }
+              ],
+              "mistakes": [
+                {
+                  "wrong": "कर्ता और क्रिया का मेल नहीं है। फिर से।",
+                  "right": "बहुत अच्छा! बस एक चीज़ — “आप जाते हैं।”",
+                  "why": "naming the grammatical category tells the learner what is wrong without telling them what to say. Repeating the correct sentence gives them something to copy, which is what a beginner can act on."
+                }
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "शिक्षार्थी",
+                "t": "मैं जाता है।",
+                "r": "main jātā hai.",
+                "en": "I go. (wrong ending)"
+              },
+              {
+                "sp": "शिक्षक",
+                "t": "बहुत अच्छा! बस एक चीज़ — “मैं जाता हूँ।”",
+                "r": "bahut achchhā! bas ek cīz — “main jātā hūṅ.”",
+                "en": "Very good! Just one thing — “I go”."
+              },
+              {
+                "sp": "शिक्षार्थी",
+                "t": "मैं जाता हूँ।",
+                "r": "main jātā hūṅ.",
+                "en": "I go."
+              },
+              {
+                "sp": "शिक्षक",
+                "t": "शाबाश! अब बिल्कुल सही। ग़लती से ही सीखते हैं — एक बार और।",
+                "r": "śābāś! ab bilkul sahī. ġalatī se hī sīkhte haiṅ — ek bār aur.",
+                "en": "Well done! Exactly right. We learn from mistakes — once more."
+              }
+            ],
+            "practice": [
+              {
+                "type": "multiple_choice",
+                "q": "Practice 1: [multiple choice] Correcting kindly — Choose the meaning of सुधार (sudhār) in this lesson.",
+                "answer": "correction",
+                "skill_target": "multiple choice",
+                "options": [
+                  "correction",
+                  "mistake",
+                  "praise",
+                  "just one thing"
+                ]
+              },
+              {
+                "type": "fill_in_the_blank",
+                "q": "Practice 2: [fill in the blank] Correcting kindly — Type the Hindi expression meaning “mistake”.",
+                "answer": "ग़लती",
+                "skill_target": "fill in the blank"
+              },
+              {
+                "type": "translation",
+                "q": "Practice 3: [translation] Correcting kindly — Interpret the Devanagari in context: बहुत अच्छा! बस एक चीज़ — “आप जाते हैं।” (bahut achchhā! bas ek cīz — “āp jāte haiṅ.”).",
+                "answer": "Very good! Just one thing — “you go”.",
+                "skill_target": "translation"
+              },
+              {
+                "type": "reverse_translation",
+                "q": "Practice 4: [reverse translation] Correcting kindly — Write in Devanagari: We learn from mistakes — say it again..",
+                "answer": "ग़लती से ही सीखते हैं — दोबारा कहिए।",
+                "skill_target": "reverse translation"
+              },
+              {
+                "type": "matching",
+                "q": "Practice 5: [matching] Correcting kindly — Match तारीफ़ to its lesson meaning.",
+                "answer": "praise",
+                "skill_target": "matching",
+                "options": [
+                  "praise",
+                  "correction",
+                  "mistake"
+                ]
+              },
+              {
+                "type": "reorder",
+                "q": "Practice 6: [reorder] Correcting kindly — Reconstruct the lesson model in coherent Hindi: Well done! Now it is exactly right..",
+                "answer": "शाबाश! अब बिल्कुल सही।",
+                "skill_target": "reorder"
+              },
+              {
+                "type": "sentence_building",
+                "q": "Practice 7: [sentence building] Correcting kindly — Build the sentence with the lesson pattern (शाबाश! · बस एक चीज़ — (correct sentence) · अब बिल्कुल सही!): Very good! Just one thing — “you go”..",
+                "answer": "बहुत अच्छा! बस एक चीज़ — “आप जाते हैं।”",
+                "skill_target": "sentence building"
+              },
+              {
+                "type": "word_selection",
+                "q": "Practice 8: [word selection] Correcting kindly — Select the Hindi form for “just one thing”.",
+                "answer": "बस एक चीज़",
+                "skill_target": "word selection",
+                "options": [
+                  "बस एक चीज़",
+                  "दोबारा कहिए",
+                  "शाबाश"
+                ]
+              },
+              {
+                "type": "error_correction",
+                "q": "Practice 9: [error correction] Correcting kindly — Correct the model the lesson warns about: कर्ता और क्रिया का मेल नहीं है। फिर से।",
+                "answer": "बहुत अच्छा! बस एक चीज़ — “आप जाते हैं।”",
+                "skill_target": "error correction"
+              },
+              {
+                "type": "dialogue_completion",
+                "q": "Practice 10: [dialogue completion] Correcting kindly — Complete the exchange with the studied response to: I go. (wrong ending)",
+                "answer": "बहुत अच्छा! बस एक चीज़ — “मैं जाता हूँ।”",
+                "skill_target": "dialogue completion"
+              },
+              {
+                "type": "reading_comprehension",
+                "q": "Practice 11: [reading comprehension] Correcting kindly — Read “मैं जाता हूँ।” (main jātā hūṅ.). What does it mean?",
+                "answer": "I go.",
+                "skill_target": "reading comprehension"
+              },
+              {
+                "type": "paragraph_comprehension",
+                "q": "Practice 12: [paragraph comprehension] Correcting kindly — Read the lesson dialogue as a whole and give its key move: Well done! Exactly right. We learn from mistakes — once more.",
+                "answer": "शाबाश! अब बिल्कुल सही। ग़लती से ही सीखते हैं — एक बार और।",
+                "skill_target": "paragraph comprehension"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "Which meaning best fits सुधार?",
+                "options": [
+                  "correction",
+                  "mistake",
+                  "praise",
+                  "just one thing"
+                ],
+                "answer": 0,
+                "why": "सुधार (sudhār) means correction in this lesson."
+              },
+              {
+                "q": "Which meaning best fits ग़लती?",
+                "options": [
+                  "mistake",
+                  "correction",
+                  "praise",
+                  "just one thing"
+                ],
+                "answer": 0,
+                "why": "ग़लती (ġalatī) means mistake in this lesson."
+              },
+              {
+                "q": "Which meaning best fits तारीफ़?",
+                "options": [
+                  "praise",
+                  "correction",
+                  "mistake",
+                  "just one thing"
+                ],
+                "answer": 0,
+                "why": "तारीफ़ (tārīf) means praise in this lesson."
+              },
+              {
+                "q": "Which meaning best fits बस एक चीज़?",
+                "options": [
+                  "just one thing",
+                  "correction",
+                  "mistake",
+                  "praise"
+                ],
+                "answer": 0,
+                "why": "बस एक चीज़ (bas ek cīz) means just one thing in this lesson."
+              },
+              {
+                "q": "Which meaning best fits दोबारा कहिए?",
+                "options": [
+                  "say it again",
+                  "correction",
+                  "mistake",
+                  "praise"
+                ],
+                "answer": 0,
+                "why": "दोबारा कहिए (dobārā kahie) means say it again in this lesson."
+              }
+            ],
+            "flashcards": "auto:vocab",
+            "worksheet": {
+              "title": "Correction worksheet",
+              "tasks": [
+                {
+                  "instruction": "Correct in the sandwich.",
+                  "items": [
+                    "शिक्षार्थी: “वह जाता हूँ।”"
+                  ],
+                  "key": [
+                    "बहुत अच्छा! बस एक चीज़ — “वह जाता है।” शाबाश!"
+                  ]
+                },
+                {
+                  "instruction": "Give the learner the frame.",
+                  "items": [
+                    "learning from errors"
+                  ],
+                  "key": [
+                    "ग़लती से ही सीखते हैं।"
+                  ]
+                },
+                {
+                  "instruction": "Integrated offline practice: read the first model, transform or extend it in Devanagari, then rehearse it as a dialogue. Self-check meaning, grammar, and register.",
+                  "items": [
+                    "बहुत अच्छा! बस एक चीज़ — “आप जाते हैं।”",
+                    "मैं जाता है।"
+                  ],
+                  "key": [
+                    "Very good! Just one thing — “you go”.",
+                    "I go. (wrong ending)"
+                  ]
+                }
+              ]
+            },
+            "srs_candidates": [
+              "सुधार",
+              "ग़लती",
+              "तारीफ़",
+              "बस एक चीज़"
+            ],
+            "srs_policy": "Only these four high-value terms are preselected; lesson mistakes and productive patterns may enter personalized review after an actual error."
+          },
+          {
+            "id": "C1P-U3-L3",
+            "title": "The first lesson, and the transliteration trap",
+            "learn": "A first Hindi lesson teaches three things and no more: नमस्ते, मेरा नाम … है, and आप कैसे हैं?. The trap is transliteration — 'namaste' hides that there is no 't' as in English, and 'main' is not 'mine'. लिप्यंतरण (transliteration) helps for a week and then becomes a spelling habit; देवनागरी should arrive by week two.",
+            "vocab": [
+              {
+                "t": "लिप्यंतरण",
+                "r": "lipyantaran",
+                "en": "transliteration",
+                "pos": "noun"
+              },
+              {
+                "t": "देवनागरी",
+                "r": "devnāgrī",
+                "en": "Devanagari",
+                "pos": "noun"
+              },
+              {
+                "t": "ध्वनि",
+                "r": "dhvani",
+                "en": "sound",
+                "pos": "noun"
+              },
+              {
+                "t": "उच्चारण",
+                "r": "uccāraṇ",
+                "en": "pronunciation",
+                "pos": "noun"
+              },
+              {
+                "t": "पहला पाठ",
+                "r": "pahlā pāṭh",
+                "en": "first lesson",
+                "pos": "noun"
+              },
+              {
+                "t": "आदत",
+                "r": "ādat",
+                "en": "habit",
+                "pos": "noun"
+              },
+              {
+                "t": "अभ्यास",
+                "r": "abhyās",
+                "en": "practice",
+                "pos": "noun"
+              },
+              {
+                "t": "धीरे-धीरे",
+                "r": "dhīre-dhīre",
+                "en": "little by little",
+                "pos": "phrase"
+              }
+            ],
+            "grammar": {
+              "title": "Three sentences, then the script",
+              "explain": "The first lesson's content is fixed: नमस्ते, मेरा नाम … है, आप कैसे हैं? — plus the answer मैं ठीक हूँ. Transliteration is a bridge with a date on it: it is used for a week and then replaced by देवनागरी, because the Roman spelling teaches the wrong vowels (main, namaste) and the wrong consonants (the retroflex ट/ड written as 't'/'d').",
+              "pattern": "नमस्ते · मेरा नाम … है · आप कैसे हैं? → then देवनागरी",
+              "examples": [
+                {
+                  "t": "पहले तीन वाक्य — और कुछ नहीं।",
+                  "r": "pahle tīn vākya — aur kuchh nahīṅ.",
+                  "en": "First three sentences — nothing more."
+                },
+                {
+                  "t": "लिप्यंतरण एक हफ़्ते के लिए है, आदत के लिए नहीं।",
+                  "r": "lipyantaran ek hafte ke lie hai, ādat ke lie nahīṅ.",
+                  "en": "Transliteration is for a week, not for a habit."
+                },
+                {
+                  "t": "धीरे-धीरे देवनागरी पर आइए।",
+                  "r": "dhīre-dhīre devnāgrī par āie.",
+                  "en": "Move to Devanagari little by little."
+                }
+              ],
+              "mistakes": [
+                {
+                  "wrong": "शिक्षार्थी को सिर्फ़ रोमन में लिखकर देना।",
+                  "right": "पहले हफ़्ते रोमन साथ रहे, दूसरे हफ़्ते से देवनागरी मुख्य हो।",
+                  "why": "Roman-only notes feel kind and set a spelling habit that has to be unlearned. Keeping the Roman as a support beside Devanagari — never instead of it — is the difference."
+                }
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "शिक्षार्थी",
+                "t": "क्या मैं रोमन में लिखूँ?",
+                "r": "kyā main roman meṅ likhūṅ?",
+                "en": "Should I write in Roman?"
+              },
+              {
+                "sp": "शिक्षक",
+                "t": "पहले हफ़्ते ठीक है — साथ में देवनागरी भी देखिए।",
+                "r": "pahle hafte ṭhīk hai — sāth meṅ devnāgrī bhī dekhie.",
+                "en": "For the first week that is fine — but look at the Devanagari alongside it."
+              },
+              {
+                "sp": "शिक्षार्थी",
+                "t": "“नमस्ते” में ‘t’ अँग्रेज़ी जैसा नहीं है?",
+                "r": "“namaste” meṅ ‘t’ aṅgrezī jaisā nahīṅ hai?",
+                "en": "In “namaste”, the ‘t’ is not like English?"
+              },
+              {
+                "sp": "शिक्षक",
+                "t": "बिल्कुल — जीभ तालू पर लगाइए। इसीलिए धीरे-धीरे देवनागरी पर आइए।",
+                "r": "bilkul — jībh tālū par lagāie. islie dhīre-dhīre devnāgrī par āie.",
+                "en": "Exactly — put the tongue on the roof of the mouth. That is why we move to Devanagari slowly."
+              }
+            ],
+            "practice": [
+              {
+                "type": "multiple_choice",
+                "q": "Practice 1: [multiple choice] The first lesson, and the transliteration trap — Choose the meaning of लिप्यंतरण (lipyantaran) in this lesson.",
+                "answer": "transliteration",
+                "skill_target": "multiple choice",
+                "options": [
+                  "transliteration",
+                  "Devanagari",
+                  "sound",
+                  "pronunciation"
+                ]
+              },
+              {
+                "type": "fill_in_the_blank",
+                "q": "Practice 2: [fill in the blank] The first lesson, and the transliteration trap — Type the Hindi expression meaning “Devanagari”.",
+                "answer": "देवनागरी",
+                "skill_target": "fill in the blank"
+              },
+              {
+                "type": "translation",
+                "q": "Practice 3: [translation] The first lesson, and the transliteration trap — Interpret the Devanagari in context: पहले तीन वाक्य — और कुछ नहीं। (pahle tīn vākya — aur kuchh nahīṅ.).",
+                "answer": "First three sentences — nothing more.",
+                "skill_target": "translation"
+              },
+              {
+                "type": "reverse_translation",
+                "q": "Practice 4: [reverse translation] The first lesson, and the transliteration trap — Write in Devanagari: Transliteration is for a week, not for a habit..",
+                "answer": "लिप्यंतरण एक हफ़्ते के लिए है, आदत के लिए नहीं।",
+                "skill_target": "reverse translation"
+              },
+              {
+                "type": "matching",
+                "q": "Practice 5: [matching] The first lesson, and the transliteration trap — Match ध्वनि to its lesson meaning.",
+                "answer": "sound",
+                "skill_target": "matching",
+                "options": [
+                  "sound",
+                  "transliteration",
+                  "Devanagari"
+                ]
+              },
+              {
+                "type": "reorder",
+                "q": "Practice 6: [reorder] The first lesson, and the transliteration trap — Reconstruct the lesson model in coherent Hindi: Move to Devanagari little by little..",
+                "answer": "धीरे-धीरे देवनागरी पर आइए।",
+                "skill_target": "reorder"
+              },
+              {
+                "type": "sentence_building",
+                "q": "Practice 7: [sentence building] The first lesson, and the transliteration trap — Build the sentence with the lesson pattern (नमस्ते · मेरा नाम … है · आप कैसे हैं? → then देवनागरी): First three sentences — nothing more..",
+                "answer": "पहले तीन वाक्य — और कुछ नहीं।",
+                "skill_target": "sentence building"
+              },
+              {
+                "type": "word_selection",
+                "q": "Practice 8: [word selection] The first lesson, and the transliteration trap — Select the Hindi form for “pronunciation”.",
+                "answer": "उच्चारण",
+                "skill_target": "word selection",
+                "options": [
+                  "उच्चारण",
+                  "पहला पाठ",
+                  "आदत"
+                ]
+              },
+              {
+                "type": "error_correction",
+                "q": "Practice 9: [error correction] The first lesson, and the transliteration trap — Correct the model the lesson warns about: शिक्षार्थी को सिर्फ़ रोमन में लिखकर देना।",
+                "answer": "पहले हफ़्ते रोमन साथ रहे, दूसरे हफ़्ते से देवनागरी मुख्य हो।",
+                "skill_target": "error correction"
+              },
+              {
+                "type": "dialogue_completion",
+                "q": "Practice 10: [dialogue completion] The first lesson, and the transliteration trap — Complete the exchange with the studied response to: Should I write in Roman?",
+                "answer": "पहले हफ़्ते ठीक है — साथ में देवनागरी भी देखिए।",
+                "skill_target": "dialogue completion"
+              },
+              {
+                "type": "reading_comprehension",
+                "q": "Practice 11: [reading comprehension] The first lesson, and the transliteration trap — Read ““नमस्ते” में ‘t’ अँग्रेज़ी जैसा नहीं है?” (“namaste” meṅ ‘t’ aṅgrezī jaisā nahīṅ hai?). What does it mean?",
+                "answer": "In “namaste”, the ‘t’ is not like English?",
+                "skill_target": "reading comprehension"
+              },
+              {
+                "type": "paragraph_comprehension",
+                "q": "Practice 12: [paragraph comprehension] The first lesson, and the transliteration trap — Read the lesson dialogue as a whole and give its key move: Exactly — put the tongue on the roof of the mouth. That is why we move to Devanagari slowly.",
+                "answer": "बिल्कुल — जीभ तालू पर लगाइए। इसीलिए धीरे-धीरे देवनागरी पर आइए।",
+                "skill_target": "paragraph comprehension"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "Which meaning best fits लिप्यंतरण?",
+                "options": [
+                  "transliteration",
+                  "Devanagari",
+                  "sound",
+                  "pronunciation"
+                ],
+                "answer": 0,
+                "why": "लिप्यंतरण (lipyantaran) means transliteration in this lesson."
+              },
+              {
+                "q": "Which meaning best fits देवनागरी?",
+                "options": [
+                  "Devanagari",
+                  "transliteration",
+                  "sound",
+                  "pronunciation"
+                ],
+                "answer": 0,
+                "why": "देवनागरी (devnāgrī) means Devanagari in this lesson."
+              },
+              {
+                "q": "Which meaning best fits ध्वनि?",
+                "options": [
+                  "sound",
+                  "transliteration",
+                  "Devanagari",
+                  "pronunciation"
+                ],
+                "answer": 0,
+                "why": "ध्वनि (dhvani) means sound in this lesson."
+              },
+              {
+                "q": "Which meaning best fits उच्चारण?",
+                "options": [
+                  "pronunciation",
+                  "transliteration",
+                  "Devanagari",
+                  "sound"
+                ],
+                "answer": 0,
+                "why": "उच्चारण (uccāraṇ) means pronunciation in this lesson."
+              },
+              {
+                "q": "Which meaning best fits पहला पाठ?",
+                "options": [
+                  "first lesson",
+                  "transliteration",
+                  "Devanagari",
+                  "sound"
+                ],
+                "answer": 0,
+                "why": "पहला पाठ (pahlā pāṭh) means first lesson in this lesson."
+              }
+            ],
+            "flashcards": "auto:vocab",
+            "worksheet": {
+              "title": "First lesson worksheet",
+              "tasks": [
+                {
+                  "instruction": "Teach the three first sentences.",
+                  "items": [
+                    "hello",
+                    "my name is …",
+                    "how are you?"
+                  ],
+                  "key": [
+                    "नमस्ते।",
+                    "मेरा नाम … है।",
+                    "आप कैसे हैं?"
+                  ]
+                },
+                {
+                  "instruction": "Explain the transliteration trap.",
+                  "items": [
+                    "why 'namaste' misleads"
+                  ],
+                  "key": [
+                    "‘t’ अँग्रेज़ी का नहीं, ट/त का है — इसलिए देवनागरी ज़रूरी है।"
+                  ]
+                },
+                {
+                  "instruction": "Integrated offline practice: read the first model, transform or extend it in Devanagari, then rehearse it as a dialogue. Self-check meaning, grammar, and register.",
+                  "items": [
+                    "पहले तीन वाक्य — और कुछ नहीं।",
+                    "क्या मैं रोमन में लिखूँ?"
+                  ],
+                  "key": [
+                    "First three sentences — nothing more.",
+                    "Should I write in Roman?"
+                  ]
+                }
+              ]
+            },
+            "srs_candidates": [
+              "लिप्यंतरण",
+              "देवनागरी",
+              "ध्वनि",
+              "उच्चारण"
+            ],
+            "srs_policy": "Only these four high-value terms are preselected; lesson mistakes and productive patterns may enter personalized review after an actual error."
+          }
+        ]
+      }
+    ],
+    "test": {
+      "title": "Hindi C1+ Checkpoint Test",
+      "items": [
+        {
+          "type": "multiple_choice",
+          "q": "Which opening belongs in a report's summary?",
+          "answer": "इस रिपोर्ट में तीन निष्कर्ष हैं।"
+        },
+        {
+          "type": "fill_in_the_blank",
+          "q": "सिफ़ारिश है ___ पहले आधा काम शुरू किया जाए। (that)",
+          "answer": "कि"
+        },
+        {
+          "type": "translation",
+          "q": "संशोधन लिखित रूप में ही मान्य होगा।",
+          "answer": "An amendment will be valid only in writing."
+        },
+        {
+          "type": "reverse_translation",
+          "q": "This procedure will be implemented soon.",
+          "answer": "यह प्रक्रिया जल्दी लागू की जाएगी।"
+        },
+        {
+          "type": "matching",
+          "q": "Match सारांश to its meaning.",
+          "answer": "summary"
+        },
+        {
+          "type": "word_selection",
+          "q": "Select the Hindi for 'back-translation'.",
+          "answer": "पुनःअनुवाद"
+        },
+        {
+          "type": "error_correction",
+          "q": "फ़ॉर्म जमा करना ज़रूरत है। (in an official notice)",
+          "answer": "फ़ॉर्म जमा करना आवश्यक है।"
+        },
+        {
+          "type": "dialogue_completion",
+          "q": "Complete: “रिपोर्ट कहाँ तक पहुँची?” — “सारांश तैयार है, ___ बाक़ी है।”",
+          "answer": "सिफ़ारिश"
+        },
+        {
+          "type": "reading_comprehension",
+          "q": "शब्दशः अनुवाद आसान था, पर वह किसी काम का नहीं था। Why not?",
+          "answer": "it read heavily and did not behave like the original"
+        },
+        {
+          "type": "inference",
+          "q": "“पुनःअनुवाद करके देखिए।” What is the speaker guarding against?",
+          "answer": "a translation that reads smoothly while dropping or adding meaning"
+        },
+        {
+          "type": "main_idea",
+          "q": "देखिए — मैं जाता हूँ। नियम यह है कि क्रिया कर्ता के साथ बदलती है। अब आप कहिए। What is this an example of?",
+          "answer": "teaching a rule through examples before naming it"
+        },
+        {
+          "type": "detail_identification",
+          "q": "एक जगह बारीक़ी जुड़ गई, दूसरी जगह अर्थ घट गया। What were the two faults?",
+          "answer": "an addition and a loss"
+        }
+      ]
+    },
+    "extra": {
+      "culture": {
+        "text": "Translation between Hindi and English has a direction problem. English into Hindi needs a register decision the source does not make for you — the same English sentence is आवश्यकता in a notice and ज़रूरत in a message. Hindi into English needs the opposite: the translator has to un-colloquialise, because spoken Hindi carries warmth (जी, अच्छा, ज़रा) that English flatly refuses to render, and losing it makes a warm speaker sound curt. Both directions are judged by the same test — whether the reader of the target text has the experience the reader of the source text had. That is why back-translation is taught here as a habit rather than a proofreading step.",
+        "source_url": "https://en.wikipedia.org/wiki/Translation"
+      },
+      "reading": {
+        "text": "पिछले महीने मुझे एक सरकारी सूचना का अनुवाद करना पड़ा। सूचना में लिखा था: “समस्त आवेदकों को यथाशीघ्र आवश्यक दस्तावेज़ प्रस्तुत करने होंगे।” शब्दशः अनुवाद आसान था, पर वह किसी काम का नहीं था — अँग्रेज़ी पढ़ने वाले को वह वाक्य भारी लगता। पहले मैंने शैली चुनी: यह सूचना है, इसलिए कार्यालयीन परत। फिर मैंने लिखा: “All applicants must submit the required documents as soon as possible.” इसके बाद पुनःअनुवाद किया, और दो जगह अंतर मिला — एक जगह मैंने “ज़रूरी” जोड़ दिया था जो मूल में नहीं था। दूसरी जगह “समस्त” छूट गया था, जिससे अर्थ घट गया। दोनों सुधारकर मैंने फिर से लिखा। अब वह अनुवाद भरोसेमंद था, क्योंकि वह मूल जैसा व्यवहार करता था।",
+        "gloss": "Last month I had to translate a government notice. The notice said: “All applicants must submit the required documents as soon as possible.” A word-for-word translation was easy, but it was of no use — the English reader would find that sentence heavy. First I chose the register: this is a notice, so the official layer. Then I wrote: “All applicants must submit the required documents as soon as possible.” After that I back-translated, and found two differences — in one place I had added “necessary” which was not in the source. In the other, “all” had been dropped, which shrank the meaning. I corrected both and wrote it again. Now the translation was reliable, because it behaved like the original.",
+        "original": true
+      },
+      "listening": {
+        "script": "— यह रिपोर्ट पढ़ने लायक है?\n— सारांश ठीक है, पर सिफ़ारिश नहीं है।\n— तो वह रिपोर्ट नहीं, विवरण है।\n— सही कहा। और शुरू के दो पैराग्राफ़ बहुत भारी हैं — “समस्त प्रकार की व्यवस्थाओं का यथाशीघ्र क्रियान्वयन” जैसी भाषा।\n— उसे छोटा कीजिए: “यह प्रक्रिया जल्दी लागू की जाएगी।”\n— मूल भाव बना रहेगा?\n— बना रहेगा — और पाठक पहले पैराग्राफ़ से ही समझ जाएगा।",
+        "gloss": "— Is this report worth reading?\n— The summary is fine, but there is no recommendation.\n— Then it is not a report, it is a description.\n— Well said. And the first two paragraphs are very heavy — language like “implementation of all kinds of arrangements at the earliest”.\n— Shorten it: “This procedure will be implemented soon.”\n— Will the original sense survive?\n— It will — and the reader will understand from the first paragraph itself.",
+        "voice_tag": "hi-IN"
+      },
+      "idioms": [
+        {
+          "t": "नौबत आना",
+          "literal": "for the turn to come",
+          "meaning": "for matters to reach that pass — usually said of a bad point"
+        },
+        {
+          "t": "कान खड़े होना",
+          "literal": "for the ears to stand up",
+          "meaning": "to become alert, to prick up one's ears"
+        },
+        {
+          "t": "बोलती बंद होना",
+          "literal": "for one's speech to close",
+          "meaning": "to be silenced completely"
+        },
+        {
+          "t": "दो कौड़ी का",
+          "literal": "worth two cowries",
+          "meaning": "of almost no value — said of a cheap thing or a cheap person"
+        },
+        {
+          "t": "दिल की बात",
+          "literal": "the matter of the heart",
+          "meaning": "what one really wanted to say"
+        },
+        {
+          "t": "ठगा-सा रह जाना",
+          "literal": "to be left as if robbed",
+          "meaning": "to be stunned into stillness"
+        },
+        {
+          "t": "मुँह न चुराना",
+          "literal": "not to turn the face away",
+          "meaning": "to face up to something rather than avoid it"
+        },
+        {
+          "t": "दम न लेना",
+          "literal": "not to take breath",
+          "meaning": "to work without pause; relentless"
+        },
+        {
+          "t": "हाथ लगाना",
+          "literal": "to put a hand to",
+          "meaning": "to touch — and, jokingly, to acquire"
+        },
+        {
+          "t": "सिर उठाना",
+          "literal": "to raise one's head",
+          "meaning": "to emerge, or to push back against pressure"
+        }
+      ],
+      "mistakes": [
+        {
+          "wrong": "“मेरा मतलब साफ़ है” → “My motive is clear.”",
+          "right": "“मेरा मतलब साफ़ है” → “What I mean is clear.”",
+          "why": "मतलब is meaning; नीयत or इरादा is motive. The false friend is dangerous because the wrong sentence is perfectly fluent English."
+        },
+        {
+          "wrong": "फ़ॉर्म जमा करना ज़रूरत है।",
+          "right": "फ़ॉर्म जमा करना आवश्यक है।",
+          "why": "ज़रूरत belongs to speech, आवश्यकता/आवश्यक to written official Hindi. The sentence is grammatical and still wrong — a register error, which is what C1+ is examined on."
+        },
+        {
+          "wrong": "रिपोर्ट में सब कुछ है। (no summary, no recommendation)",
+          "right": "सारांश और सिफ़ारिश अलग से दीजिए।",
+          "why": "a report that requires reading from the start to find anything is a description. The summary and the recommendation are the parts that make it usable."
+        }
+      ],
+      "task": {
+        "title": "Translate, back-translate, then teach it",
+        "instructions": "Take one paragraph of English — a notice, an email, a news paragraph — and do three things with it in Hindi: translate it choosing one register and staying in it; back-translate it without looking at the source and list every place the two differ, saying whether something was added or lost; then write four lines explaining to a beginner, in plain Hindi, the one rule your translation had to get right. The third step is the real test — if you cannot explain it simply, you made the choice by ear."
+      }
+    }
+  }
+}
