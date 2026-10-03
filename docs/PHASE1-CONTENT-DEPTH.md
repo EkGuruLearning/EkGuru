@@ -59,14 +59,22 @@ short units**. Hindi's six CEFR rungs now carry the block:
 builder did not do before — until this change no course file carried `extra` and
 no tool read it, so the schema had required a block that could not be seen.
 
-2026-10-03 (after Arabic, Bengali and German — 4 of 18): **70 rung files ·
-84 `extra` blocks · 84 short units**. Ar, bn and de were authored through the
-generic `tools/author-depth.py` from `tools/depth-content/{ar,bn,de}.py`, and
-the audit reads all three at `11/11`. The gate row for each is `FAIL
-['no_native_review']` only — `unique_text_ratio` 0.948 (ar) / 0.913 (bn) /
-0.923 (de), `script_mismatch` 0 — against 0.85 for the flag, which is the
-mechanical part of "no templated intros"; native review is the one reason that
-cannot be generated.
+2026-10-03 (after Arabic, Bengali, German and Spanish — 5 of 18): **65 rung
+files · 78 `extra` blocks · 78 short units**. Ar, bn, de and es were authored
+through the generic `tools/author-depth.py` from
+`tools/depth-content/{ar,bn,de,es}.py`, and the audit reads all four at
+`11/11`. The gate row for each is `FAIL ['no_native_review']` only —
+`unique_text_ratio` 0.947 (ar) / 0.912 (bn) / 0.907 (de) / 0.948 (es),
+`script_mismatch` 0 — against 0.85 for the flag, which is the mechanical part of
+"no templated intros"; native review is the one reason that cannot be
+generated.
+
+One trap worth recording: the gate's capitalised `\bTODO\b` marker matched
+Spanish `TODO` inside all-caps emphasis (`SIGA TODO RECTO`, `POR TODO LO
+ANTERIOR`, `EN TODO CASO`) and failed the whole course with
+`placeholder_text`. The content module now keeps `todo` lowercase inside
+emphasised phrases, and `grep -E '\bTODO\b|\bTBD\b' data/courses/**/*.json`
+must stay empty after every Spanish run.
 
 Each remaining language costs **6 `extra` blocks, 18 third lessons and 5
 half-step rung files** (45 lessons). One language per commit, end to end:
