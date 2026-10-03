@@ -230,9 +230,9 @@ EXTRAS["C1"] = EXTRA(
                    "whether the measure works, and the report does not say who. It is exactly that "
                    "vagueness that the summary note attacks: for every passive sentence, write the "
                    "verb, the subject and the date."),
-    listening=("Analyst: Sarebbe opportuno procedere a una verifica.<br>Reviewer: Concretamente?<br>"
-               "Analyst: Concretamente: due persone, quindici giorni, una nota di tre pagine.<br>"
-               "Reviewer: Questo è più chiaro."),
+    listening=("Analista: Sarebbe opportuno procedere a una verifica.<br>Revisore: Concretamente?<br>"
+               "Analista: Concretamente: due persone, quindici giorni, una nota di tre pagine.<br>"
+               "Revisore: Questo è più chiaro."),
     listening_gloss=("Analyst: It would be appropriate to proceed to a check. Reviewer: "
                      "Concretely? Analyst: Concretely: two people, fifteen days, a three-page note. "
                      "Reviewer: That is clearer."),
@@ -277,8 +277,8 @@ EXTRAS["C2"] = EXTRA(
                    "sentence. The commentary that follows quotes a press release — 'a favourable "
                    "outcome is conceivable' — and leaves it there, with no added quotation marks, "
                    "so that the reader hears the emptiness."),
-    listening=("Editor: Il suo testo cita il comunicato senza commentarlo.<br>Author: Lo lascio parlare.<br>"
-               "Editor: E il lettore sente?<br>Author: Sente la litote, se vuole."),
+    listening=("Redattore: Il suo testo cita il comunicato senza commentarlo.<br>Autore: Lo lascio parlare.<br>"
+               "Redattore: E il lettore sente?<br>Autore: Sente la litote, se vuole."),
     listening_gloss=("Editor: Your text quotes the press release without commenting on it. Author: "
                      "I let it speak. Editor: And the reader hears? Author: They hear the "
                      "understatement, if they care to."),
@@ -687,10 +687,10 @@ THIRD["C1"] = [
            X("Che sciocco era stato.", "keh SHOHK-koh EH-rah STAH-toh.", "What a fool he had been.")],
           [("Disse: sarebbe arrivato tardi.", "Sarebbe arrivato tardi, lo sapeva.", "Free indirect discourse drops the reporting verb and the colon; the viewpoint carries them."),
            ("Perché non ha chiamato prima? (inside a past narration)", "Perché non aveva chiamato prima?", "The character's question keeps the narration's tense.")]),
-        [D("Editor", "Come fai entrare il punto di vista senza virgolette?", "KOH-meh fehy ahn-TRAH-reh eel POON-toh dee VEES-tah SEN-tsah veer-GOHT-tseh?", "How do you let the viewpoint in without quotation marks?"),
-         D("Mediator", "Con il modo e il tempo: «sarebbe arrivato tardi, lo sapeva».", "kohn eel MOH-doh eh eel TEM-poh: sah-REB-beh ahr-ree-VAH-toh TAR-dee, loh sah-PEH-vah.", "With mood and tense: 'he would arrive late, he knew it'."),
-         D("Editor", "E la domanda?", "eh lah doh-MAHN-dah?", "And the question?"),
-         D("Reviewer", "Resta del personaggio, ma nel tempo del racconto: «perché non aveva chiamato?».", "RES-tah del per-soh-NAJ-joh, mah nel TEM-poh del rahk-KOHN-toh: per-KEH nohn ah-VEH-vah kyah-MAH-toh?", "It stays the character's, but in the narration's tense: 'why had he not called?'.")],
+        [D("Redattore", "Come fai entrare il punto di vista senza virgolette?", "KOH-meh fehy ahn-TRAH-reh eel POON-toh dee VEES-tah SEN-tsah veer-GOHT-tseh?", "How do you let the viewpoint in without quotation marks?"),
+         D("Mediatore", "Con il modo e il tempo: «sarebbe arrivato tardi, lo sapeva».", "kohn eel MOH-doh eh eel TEM-poh: sah-REB-beh ahr-ree-VAH-toh TAR-dee, loh sah-PEH-vah.", "With mood and tense: 'he would arrive late, he knew it'."),
+         D("Redattore", "E la domanda?", "eh lah doh-MAHN-dah?", "And the question?"),
+         D("Revisore", "Resta del personaggio, ma nel tempo del racconto: «perché non aveva chiamato?».", "RES-tah del per-soh-NAJ-joh, mah nel TEM-poh del rahk-KOHN-toh: per-KEH nohn ah-VEH-vah kyah-MAH-toh?", "It stays the character's, but in the narration's tense: 'why had he not called?'.")],
         WS("Voice worksheet", [
             T("Move the view inside.", ["he would arrive late, he knew it", "what a fool he had been"],
               ["Sarebbe arrivato tardi, lo sapeva.", "Che sciocco era stato."]),
@@ -718,10 +718,10 @@ THIRD["C1"] = [
            X("È fatto obbligo di comunicare la variazione.", "eh FAHT-toh oh-BLEE-goh dee koh-moo-nee-KAH-reh lah vah-ryah-TSYOH-neh.", "It is mandatory to notify the change.")],
           [("Secondo l'articolo 5, il termine è di trenta giorni.", "Ai sensi dell'articolo 5, il termine è di trenta giorni.", "ai sensi di cites the norm itself; secondo reports what someone says about it."),
            ("Fatto salvo di recedere dal contratto.", "Fatto salvo il diritto di recesso.", "fatto salvo takes a noun, not an infinitive.")]),
-        [D("Analyst", "Questo comma che cosa salva?", "KWES-toh KOH-mah keh KOH-zah SAHL-vah?", "What does this clause preserve?"),
-         D("Reviewer", "Il diritto di recesso: «fatto salvo il diritto di recesso».", "eel dee-REET-toh dee reh-CHES-soh: FAHT-toh SAHL-voh eel dee-REET-toh dee reh-CHES-soh.", "The right of withdrawal: 'without prejudice to the right of withdrawal'."),
-         D("Analyst", "E il termine?", "eh eel TER-mee-neh?", "And the deadline?"),
-         D("Reviewer", "«Ai sensi dell'articolo 5, trenta giorni»: la norma, non l'opinione.", "ahy SEN-see del-lar-TEE-koh-loh CHEEN-kweh, TREHN-tah JOR-nee: lah NOR-mah, nohn loh-pee-NYOH-neh.", "'Under article 5, thirty days': the norm, not an opinion.")],
+        [D("Analista", "Questo comma che cosa salva?", "KWES-toh KOH-mah keh KOH-zah SAHL-vah?", "What does this clause preserve?"),
+         D("Revisore", "Il diritto di recesso: «fatto salvo il diritto di recesso».", "eel dee-REET-toh dee reh-CHES-soh: FAHT-toh SAHL-voh eel dee-REET-toh dee reh-CHES-soh.", "The right of withdrawal: 'without prejudice to the right of withdrawal'."),
+         D("Analista", "E il termine?", "eh eel TER-mee-neh?", "And the deadline?"),
+         D("Revisore", "«Ai sensi dell'articolo 5, trenta giorni»: la norma, non l'opinione.", "ahy SEN-see del-lar-TEE-koh-loh CHEEN-kweh, TREHN-tah JOR-nee: lah NOR-mah, nohn loh-pee-NYOH-neh.", "'Under article 5, thirty days': the norm, not an opinion.")],
         WS("Normative worksheet", [
             T("Cite the norm.", ["under article 5", "without prejudice to the right of withdrawal"],
               ["Ai sensi dell'articolo 5,", "Fatto salvo il diritto di recesso,"]),
@@ -749,10 +749,10 @@ THIRD["C1"] = [
            X("La nota segnala ciò che si perde.", "lah NOH-tah seh-NYAH-lah choh keh see PER-deh.", "The note flags what is lost.")],
           [("In parole semplici, il dispositivo de quo entra in vigore.", "In parole semplici, la misura entra in vigore a gennaio.", "Plain language means plain: no residual jargon in the same sentence."),
            ("Ho reso tutto: non manca niente.", "Ho reso il testo accessibile e ho segnalato in nota ciò che resta intraducibile.", "A mediator records the loss instead of denying it.")]),
-        [D("Mediator", "Il committente vuole il testo in parole semplici.", "eel koh-MEET-ten-teh VWOH-leh eel TES-toh een pah-ROH-leh SEM-plee-chee.", "The client wants the text in plain words."),
-         D("Editor", "Allora togliamo «dispositivo» e mettiamo «misura».", "ahl-LOH-rah toh-LYAH-moh dee-spoh-zee-TEE-voh eh met-TYAH-moh mee-ZOO-rah.", "Then let us drop 'dispositivo' and put 'misura'."),
-         D("Mediator", "Sì, e in nota segnaliamo che il testo giuridico usa un'altra parola.", "see, eh een NOH-tah seh-NYAH-lyah-moh keh eel TES-toh joo-REE-dee-koh OO-zah oo-NAL-trah pah-ROH-lah.", "Yes, and in a note we flag that the legal text uses a different word."),
-         D("Reviewer", "Accessibile, ma con la traccia del compromesso.", "ah-ches-SEE-bee-leh, mah kohn lah TRAHT-chah del kohm-proh-MES-soh.", "Accessible, but with a trace of the compromise.")],
+        [D("Mediatore", "Il committente vuole il testo in parole semplici.", "eel koh-MEET-ten-teh VWOH-leh eel TES-toh een pah-ROH-leh SEM-plee-chee.", "The client wants the text in plain words."),
+         D("Redattore", "Allora togliamo «dispositivo» e mettiamo «misura».", "ahl-LOH-rah toh-LYAH-moh dee-spoh-zee-TEE-voh eh met-TYAH-moh mee-ZOO-rah.", "Then let us drop 'dispositivo' and put 'misura'."),
+         D("Mediatore", "Sì, e in nota segnaliamo che il testo giuridico usa un'altra parola.", "see, eh een NOH-tah seh-NYAH-lyah-moh keh eel TES-toh joo-REE-dee-koh OO-zah oo-NAL-trah pah-ROH-lah.", "Yes, and in a note we flag that the legal text uses a different word."),
+         D("Revisore", "Accessibile, ma con la traccia del compromesso.", "ah-ches-SEE-bee-leh, mah kohn lah TRAHT-chah del kohm-proh-MES-soh.", "Accessible, but with a trace of the compromise.")],
         WS("Mediation worksheet", [
             T("Make it usable.", ["in plain words", "the measure comes into force in January"],
               ["In parole semplici,", "la misura entra in vigore a gennaio."]),
@@ -782,10 +782,10 @@ THIRD["C2"] = [
            X("Vediamo cosa si può fare, senza promettere nulla.", "veh-DYAH-moh KOH-zah see pwoh FAH-reh, SEN-tsah proh-MET-teh-reh NOOL-lah.", "Let us see what can be done, without promising anything.")],
           [("No, non ci interessa. (formal first reply)", "Al momento non rientra nelle nostre priorità, ma La ringrazio.", "A bare no closes the exchange; the graded refusal keeps the relationship."),
            ("Ci pensiamo, ci risentiamo.", "Ci pensiamo e Le facciamo sapere entro venerdì.", "A hedge with a date is a deferral; without one it is a refusal.")]),
-        [D("Reviewer", "Hanno risposto «ci pensiamo».", "AHN-noh ree-SPOHS-toh chee pen-SYAH-moh.", "They replied 'we will think about it'."),
-         D("Analyst", "Senza data? Allora è un no.", "SEN-tsah DAH-tah? ahl-LOH-rah eh oon noh.", "With no date? Then it is a no."),
-         D("Reviewer", "Però hanno aggiunto «vediamo cosa si può fare».", "peh-ROH AHN-noh aj-JOON-toh veh-DYAH-moh KOH-zah see pwoh FAH-reh.", "But they added 'let us see what can be done'."),
-         D("Analyst", "Allora c'è un margine: mandiamo i numeri.", "ahl-LOH-rah cheh oon MAR-jee-neh: mahn-DYAH-moh ee NOO-meh-ree.", "Then there is room: let us send the figures.")],
+        [D("Revisore", "Hanno risposto «ci pensiamo».", "AHN-noh ree-SPOHS-toh chee pen-SYAH-moh.", "They replied 'we will think about it'."),
+         D("Analista", "Senza data? Allora è un no.", "SEN-tsah DAH-tah? ahl-LOH-rah eh oon noh.", "With no date? Then it is a no."),
+         D("Revisore", "Però hanno aggiunto «vediamo cosa si può fare».", "peh-ROH AHN-noh aj-JOON-toh veh-DYAH-moh KOH-zah see pwoh FAH-reh.", "But they added 'let us see what can be done'."),
+         D("Analista", "Allora c'è un margine: mandiamo i numeri.", "ahl-LOH-rah cheh oon MAR-jee-neh: mahn-DYAH-moh ee NOO-meh-ree.", "Then there is room: let us send the figures.")],
         WS("Hedge worksheet", [
             T("Read the hedge.", ["we will think about it (no date)", "we will see what can be done"],
               ["Ci pensiamo: è un no.", "Vediamo cosa si può fare: c'è un margine."]),
@@ -812,10 +812,10 @@ THIRD["C2"] = [
            X("Il verbo regge la frase; l'inciso la interrompe una volta sola.", "eel VER-boh REJ-jeh lah FRAH-zeh; leen-CHEE-zoh lah een-ter-ROHM-peh OO-nah VOHL-tah SOH-lah.", "The verb carries the sentence; the parenthesis interrupts it once.")],
           [("La misura, annunciata a gennaio, che tutti aspettavano, è entrata in vigore, dopo tante discussioni, in ritardo.", "La misura, annunciata a gennaio, è entrata in vigore lunedì.", "One inciso per sentence; the second breaks the reader's hold."),
            ("Il periodo lungo è elegante, quindi va usato.", "Il periodo lungo va usato quando la gerarchia delle idee lo richiede.", "Rhythm serves the meaning, not the other way round.")]),
-        [D("Editor", "Questa frase ha tre incisi.", "KWES-tah FRAH-zeh ah treh een-CHEE-zee.", "This sentence has three parentheses."),
-         D("Reviewer", "Allora ne togliamo due: il lettore deve respirare.", "ahl-LOH-rah neh toh-LYAH-moh DOO-eh: eel let-TOH-reh DEH-veh reh-spee-RAH-reh.", "Then we drop two: the reader has to breathe."),
-         D("Editor", "E il verbo dove lo mettiamo?", "eh eel VER-boh DOH-veh loh met-TYAH-moh?", "And where do we put the verb?"),
-         D("Reviewer", "Al posto che gli spetta: dopo l'inciso, non dentro.", "ahl POHS-toh keh ly SPEHT-tah: DOH-poh leen-CHEE-zoh, nohn DEN-troh.", "Where it belongs: after the parenthesis, not inside it.")],
+        [D("Redattore", "Questa frase ha tre incisi.", "KWES-tah FRAH-zeh ah treh een-CHEE-zee.", "This sentence has three parentheses."),
+         D("Revisore", "Allora ne togliamo due: il lettore deve respirare.", "ahl-LOH-rah neh toh-LYAH-moh DOO-eh: eel let-TOH-reh DEH-veh reh-spee-RAH-reh.", "Then we drop two: the reader has to breathe."),
+         D("Redattore", "E il verbo dove lo mettiamo?", "eh eel VER-boh DOH-veh loh met-TYAH-moh?", "And where do we put the verb?"),
+         D("Revisore", "Al posto che gli spetta: dopo l'inciso, non dentro.", "ahl POHS-toh keh ly SPEHT-tah: DOH-poh leen-CHEE-zoh, nohn DEN-troh.", "Where it belongs: after the parenthesis, not inside it.")],
         WS("Rhythm worksheet", [
             T("Keep the thread.", ["the measure, announced in January, came into force on Monday", "everyone was waiting for a date"],
               ["La misura, annunciata a gennaio, è entrata in vigore lunedì.", "Tutti aspettavano una data."]),
@@ -842,10 +842,10 @@ THIRD["C2"] = [
            X("La perdita si annota invece di nasconderla.", "lah PER-dee-tah see ahn-NOH-tah een-VEH-cheh dee nah-SKOHN-der-lah.", "The loss is annotated instead of hidden.")],
           [("Ho reso «municipio» con «town hall» e non ho segnalato nulla.", "Ho reso «municipio» con «town hall» e in nota ho chiarito la differenza.", "A cross-cultural gap that is not flagged reads as if it did not exist."),
            ("La nota del mediatore è un'ammissione di debolezza.", "La nota del mediatore è parte della resa.", "Mediation documents the compromise; it does not apologise for it.")]),
-        [D("Mediator", "«Municipio» non è soltanto l'edificio.", "moo-NEE-chee-poh nohn eh sohl-TAHN-toh leh-dee-FEE-choh.", "'Municipio' is not only the building."),
-         D("Analyst", "Allora in nota: l'ente che tiene i registri.", "ahl-LOH-rah een NOH-tah: LEN-teh keh TYEH-neh ee reh-JEES-tree.", "Then in a note: the body that keeps the registers."),
-         D("Mediator", "E il resto della frase?", "eh eel RES-toh DEL-lah FRAH-zeh?", "And the rest of the sentence?"),
-         D("Reviewer", "Regge: la perdita è dichiarata dove serve, non nascosta.", "REJ-jeh: lah PER-dee-tah eh dee-kyah-RAH-tah DOH-veh SER-veh, nohn nah-SKOH-stah.", "It holds: the loss is declared where it matters, not hidden.")],
+        [D("Mediatore", "«Municipio» non è soltanto l'edificio.", "moo-NEE-chee-poh nohn eh sohl-TAHN-toh leh-dee-FEE-choh.", "'Municipio' is not only the building."),
+         D("Analista", "Allora in nota: l'ente che tiene i registri.", "ahl-LOH-rah een NOH-tah: LEN-teh keh TYEH-neh ee reh-JEES-tree.", "Then in a note: the body that keeps the registers."),
+         D("Mediatore", "E il resto della frase?", "eh eel RES-toh DEL-lah FRAH-zeh?", "And the rest of the sentence?"),
+         D("Revisore", "Regge: la perdita è dichiarata dove serve, non nascosta.", "REJ-jeh: lah PER-dee-tah eh dee-kyah-RAH-tah DOH-veh SER-veh, nohn nah-SKOH-stah.", "It holds: the loss is declared where it matters, not hidden.")],
         WS("Resistance worksheet", [
             T("Declare the choice.", ["here 'municipio' means the body that keeps the registers", "the choice is declared in a note"],
               ["Qui «municipio» vale l'ente che tiene i registri.", "La scelta è dichiarata in nota."]),
@@ -2207,10 +2207,10 @@ HALFSTEPS["C1+"] = {
                  X("Non mi consta nulla di diverso.", "nohn mee KOHN-stah NOOL-lah dee dee-VER-soh.", "I have no record of anything different.")],
                 [("Mi consta che forse la pratica è chiusa.", "Mi risulta che la pratica sia chiusa.", "consta claims a record; if there is a forse, the claim is risulta."),
                  ("Non mi consta, quindi è falso.", "Non mi consta.", "non mi consta states an absence of record, not a verdict.")]),
-              [D("Analyst", "La pratica è chiusa?", "lah PRAH-tee-kah eh KYOO-zah?", "Is the file closed?"),
-               D("Reviewer", "Mi risulta di sì, ma non mi consta per iscritto.", "mee ree-ZOOL-tah dee see, mah nohn mee KOHN-stah per ee-SKREET-toh.", "I understand so, but I have no written record of it."),
-               D("Analyst", "Allora chiediamo la verifica.", "ahl-LOH-rah kyah-DYAH-moh lah veh-REE-fee-kah.", "Then let us ask for the verification."),
-               D("Reviewer", "Per quanto ne so, arriva domani.", "per KWAHN-toh neh SOH, ahr-REE-vah doh-MAH-nee.", "As far as I know, it arrives tomorrow.")],
+              [D("Analista", "La pratica è chiusa?", "lah PRAH-tee-kah eh KYOO-zah?", "Is the file closed?"),
+               D("Revisore", "Mi risulta di sì, ma non mi consta per iscritto.", "mee ree-ZOOL-tah dee see, mah nohn mee KOHN-stah per ee-SKREET-toh.", "I understand so, but I have no written record of it."),
+               D("Analista", "Allora chiediamo la verifica.", "ahl-LOH-rah kyah-DYAH-moh lah veh-REE-fee-kah.", "Then let us ask for the verification."),
+               D("Revisore", "Per quanto ne so, arriva domani.", "per KWAHN-toh neh SOH, ahr-REE-vah doh-MAH-nee.", "As far as I know, it arrives tomorrow.")],
               WS("Commitment worksheet", [
                   T("Grade the claim.", ["I understand that the file is closed", "I have it on record that the payment went out"],
                     ["Mi risulta che la pratica sia chiusa.", "Mi consta che il pagamento è partito."]),
@@ -2235,10 +2235,10 @@ HALFSTEPS["C1+"] = {
                  X("Conviene forse sentire il cliente.", "kohn-VYEH-neh FOR-seh sen-TEE-reh eel kly-EN-teh.", "It is perhaps worth hearing the client.")],
                 [("Devi verificare i dati.", "Sarebbe opportuno verificare i dati.", "The diplomatic conditional removes the personal obligation."),
                  ("Potremmo valutare, dovete farlo subito.", "Potremmo valutare due alternative.", "Mixing a soft modal with a hard imperative undoes the register.")]),
-              [D("Editor", "Il testo è pronto?", "eel TES-toh eh PROHN-toh?", "Is the text ready?"),
-               D("Mediator", "Sarebbe opportuno verificare i dati prima di decidere.", "sah-REB-beh ohp-por-TOO-noh veh-ree-fee-KAH-reh ee DAH-tee PREE-mah dee deh-CHEE-deh-reh.", "It would be advisable to check the figures before deciding."),
-               D("Editor", "Quanto tempo serve?", "KWAHN-toh TEM-poh SER-veh?", "How much time is needed?"),
-               D("Mediator", "Potremmo valutare due alternative in una settimana.", "poh-TREM-moh vah-loo-TAH-reh DOO-eh ahl-ter-nah-TEE-veh een OO-nah set-tee-MAH-nah.", "We could consider two alternatives within a week.")],
+              [D("Redattore", "Il testo è pronto?", "eel TES-toh eh PROHN-toh?", "Is the text ready?"),
+               D("Mediatore", "Sarebbe opportuno verificare i dati prima di decidere.", "sah-REB-beh ohp-por-TOO-noh veh-ree-fee-KAH-reh ee DAH-tee PREE-mah dee deh-CHEE-deh-reh.", "It would be advisable to check the figures before deciding."),
+               D("Redattore", "Quanto tempo serve?", "KWAHN-toh TEM-poh SER-veh?", "How much time is needed?"),
+               D("Mediatore", "Potremmo valutare due alternative in una settimana.", "poh-TREM-moh vah-loo-TAH-reh DOO-eh ahl-ter-nah-TEE-veh een OO-nah set-tee-MAH-nah.", "We could consider two alternatives within a week.")],
               WS("Diplomacy worksheet", [
                   T("Soften the request.", ["it would be advisable to check the figures", "we could consider two alternatives"],
                     ["Sarebbe opportuno verificare i dati.", "Potremmo valutare due alternative."]),
@@ -2263,10 +2263,10 @@ HALFSTEPS["C1+"] = {
                  X("Semmai, ne parliamo dopo la prova.", "sem-MAHY, neh par-LYAH-moh DOH-poh lah PROH-vah.", "If anything, we discuss it after the trial.")],
                 [("Il prezzo è caro, quindi è una truffa.", "Il prezzo è un po' caro rispetto al mercato.", "Attenuation keeps the comparison instead of the accusation."),
                  ("Semmai forse probabilmente potremmo…", "Semmai, ne parliamo dopo la prova.", "Three hedges in one sentence cancel each other.")]),
-              [D("Reviewer", "Il prezzo è un po' caro.", "eel PRET-tsoh eh oon poh KAH-roh.", "The price is a little high."),
-               D("Analyst", "Rispetto a cosa?", "rees-PET-toh ah KOH-zah?", "Relative to what?"),
-               D("Reviewer", "Al mercato. Direi piuttosto che il problema è il tempo.", "ahl mer-KAH-toh. dee-RAY pyoot-TOHS-toh keh eel proh-BLEH-mah eh eel TEM-poh.", "To the market. I would rather say the problem is the time."),
-               D("Analyst", "Semmai, ne parliamo dopo la prova.", "sem-MAHY, neh par-LYAH-moh DOH-poh lah PROH-vah.", "If anything, we discuss it after the trial.")],
+              [D("Revisore", "Il prezzo è un po' caro.", "eel PRET-tsoh eh oon poh KAH-roh.", "The price is a little high."),
+               D("Analista", "Rispetto a cosa?", "rees-PET-toh ah KOH-zah?", "Relative to what?"),
+               D("Revisore", "Al mercato. Direi piuttosto che il problema è il tempo.", "ahl mer-KAH-toh. dee-RAY pyoot-TOHS-toh keh eel proh-BLEH-mah eh eel TEM-poh.", "To the market. I would rather say the problem is the time."),
+               D("Analista", "Semmai, ne parliamo dopo la prova.", "sem-MAHY, neh par-LYAH-moh DOH-poh lah PROH-vah.", "If anything, we discuss it after the trial.")],
               WS("Attenuation worksheet", [
                   T("Lower the volume.", ["the price is a little high", "I would rather say the problem is the time"],
                     ["Il prezzo è un po' caro.", "Direi piuttosto che il problema è il tempo."]),
@@ -2294,10 +2294,10 @@ HALFSTEPS["C1+"] = {
                  X("Il perimetro si riduce di due reparti.", "eel peh-REE-meh-troh see ree-DOO-cheh dee DOO-eh reh-PAR-tee.", "The scope shrinks by two departments.")],
                 [("L'azienda ha annunciato una riorganizzazione per crescere.", "L'azienda chiude due reparti; quaranta persone cambiano mansione.", "An announcement about growth names no verb, no number and no date."),
                  ("Esuberi volontari.", "Escono quaranta persone: venti volontarie, venti no.", "The adjective hides the count; the count is the fact.")]),
-              [D("Analyst", "Come lo scrive l'azienda?", "KOH-meh loh SKREE-veh lahz-YEN-dah?", "How does the company write it?"),
-               D("Editor", "«Riorganizzazione con ricorso alla mobilità».", "ree-or-gah-nee-tsah-TSYOH-neh kohn ree-KOR-soh AHL-lah moh-bee-lee-TAH.", "'Reorganisation with recourse to redeployment'."),
-               D("Analyst", "E come lo diciamo noi?", "eh KOH-meh loh dee-CHAH-moh nohy?", "And how do we say it?"),
-               D("Editor", "Alcune persone cambiano mansione, altre escono; il perimetro si riduce di due reparti.", "ahl-KOO-neh per-SOH-neh KAHM-byah-noh mahn-SYOH-neh, AHL-treh EH-skoh-noh; eel peh-REE-meh-troh see ree-DOO-cheh dee DOO-eh reh-PAR-tee.", "Some people change role, others leave; the scope shrinks by two departments.")],
+              [D("Analista", "Come lo scrive l'azienda?", "KOH-meh loh SKREE-veh lahz-YEN-dah?", "How does the company write it?"),
+               D("Redattore", "«Riorganizzazione con ricorso alla mobilità».", "ree-or-gah-nee-tsah-TSYOH-neh kohn ree-KOR-soh AHL-lah moh-bee-lee-TAH.", "'Reorganisation with recourse to redeployment'."),
+               D("Analista", "E come lo diciamo noi?", "eh KOH-meh loh dee-CHAH-moh nohy?", "And how do we say it?"),
+               D("Redattore", "Alcune persone cambiano mansione, altre escono; il perimetro si riduce di due reparti.", "ahl-KOO-neh per-SOH-neh KAHM-byah-noh mahn-SYOH-neh, AHL-treh EH-skoh-noh; eel peh-REE-meh-troh see ree-DOO-cheh dee DOO-eh reh-PAR-tee.", "Some people change role, others leave; the scope shrinks by two departments.")],
               WS("Euphemism worksheet", [
                   T("Take the euphemism apart.", ["some people change role, others leave", "the scope shrinks by two departments"],
                     ["Alcune persone cambiano mansione, altre escono.", "Il perimetro si riduce di due reparti."]),
@@ -2322,10 +2322,10 @@ HALFSTEPS["C1+"] = {
                  X("Mi avvio a concludere.", "mee ahv-VEE-oh ah kohn-kloo-DEH-reh.", "I am coming to a close.")],
                 [("Allora, insomma, boh, cominciamo.", "Signore e signori, vi ringrazio.", "The formal opening thanks the room before the first content sentence."),
                  ("Ho finito.", "Mi avvio a concludere.", "A close is announced before it arrives.")]),
-              [D("Editor", "Come apro l'intervento?", "KOH-meh AH-proh leen-ter-VEN-toh?", "How do I open the talk?"),
-               D("Mediator", "«Signore e signori, vi ringrazio. Il tema di oggi è il margine.»", "see-NYOH-reh eh see-NYOH-ree, vee reen-GRAH-tsyoh. eel TEH-mah dee OJ-jee eh eel MAR-jee-neh.", "'Ladies and gentlemen, thank you. Today's theme is the margin.'"),
-               D("Editor", "E per chiudere?", "eh per KYOO-deh-reh?", "And to close?"),
-               D("Mediator", "«Mi avvio a concludere: tre dati, una raccomandazione.»", "mee ahv-VEE-oh ah kohn-kloo-DEH-reh: treh DAH-tee, OO-nah rahk-koh-mahn-dah-TSYOH-neh.", "'I am coming to a close: three figures, one recommendation.'")],
+              [D("Redattore", "Come apro l'intervento?", "KOH-meh AH-proh leen-ter-VEN-toh?", "How do I open the talk?"),
+               D("Mediatore", "«Signore e signori, vi ringrazio. Il tema di oggi è il margine.»", "see-NYOH-reh eh see-NYOH-ree, vee reen-GRAH-tsyoh. eel TEH-mah dee OJ-jee eh eel MAR-jee-neh.", "'Ladies and gentlemen, thank you. Today's theme is the margin.'"),
+               D("Redattore", "E per chiudere?", "eh per KYOO-deh-reh?", "And to close?"),
+               D("Mediatore", "«Mi avvio a concludere: tre dati, una raccomandazione.»", "mee ahv-VEE-oh ah kohn-kloo-DEH-reh: treh DAH-tee, OO-nah rahk-koh-mahn-dah-TSYOH-neh.", "'I am coming to a close: three figures, one recommendation.'")],
               WS("Talk worksheet", [
                   T("Open the talk.", ["thank you, ladies and gentlemen", "today's theme is the margin"],
                     ["Vi ringrazio, signore e signori.", "Il tema di oggi è il margine."]),
@@ -2350,10 +2350,10 @@ HALFSTEPS["C1+"] = {
                  X("Secondo l'ISTAT.", "seh-KOHN-doh lees-TAHT.", "According to ISTAT.")],
                 [("Il titolo dice tutto: disoccupazione in calo, quindi è tutto risolto.", "Titolo e rapporto dicono due cose diverse: il titolo annuncia, il rapporto misura.", "A headline is a direction; the report is a number, a period and a source."),
                  ("Il tasso è sceso del 0,4% nel secondo trimestre, perché c'è la ripresa.", "Il tasso è sceso dello 0,4% nel secondo trimestre.", "The report states the variation; the cause is a separate sentence.")]),
-              [D("Analyst", "Il titolo dice «disoccupazione in calo».", "eel TEE-toh-loh DEE-cheh dee-zoh-koo-pah-TSYOH-neh een KAH-loh.", "The headline says 'unemployment falling'."),
-               D("Reviewer", "Il rapporto invece dà variazione, periodo e fonte.", "eel rahp-POR-toh een-VEH-cheh dah vah-ryah-TSYOH-neh, peh-RYOH-doh eh FOHN-teh.", "The report gives the change, the period and the source."),
-               D("Analyst", "Quindi riscriviamo: «il tasso è sceso dello 0,4% nel secondo trimestre».", "KWEEN-dee ree-skree-VYAH-moh: eel TAHS-soh eh SHEH-zoh DEL-loh ZEH-roh VIR-goh-lah KWAT-tro per CHEN-toh nel seh-KOHN-doh tree-MES-treh.", "So we rewrite it: 'the rate fell by 0.4% in the second quarter'."),
-               D("Reviewer", "Secondo l'ISTAT: senza fonte, il numero non entra.", "seh-KOHN-doh lees-TAHT: SEN-tsah FOHN-teh, eel NOO-meh-roh nohn EN-trah.", "According to ISTAT: without a source the number does not go in.")],
+              [D("Analista", "Il titolo dice «disoccupazione in calo».", "eel TEE-toh-loh DEE-cheh dee-zoh-koo-pah-TSYOH-neh een KAH-loh.", "The headline says 'unemployment falling'."),
+               D("Revisore", "Il rapporto invece dà variazione, periodo e fonte.", "eel rahp-POR-toh een-VEH-cheh dah vah-ryah-TSYOH-neh, peh-RYOH-doh eh FOHN-teh.", "The report gives the change, the period and the source."),
+               D("Analista", "Quindi riscriviamo: «il tasso è sceso dello 0,4% nel secondo trimestre».", "KWEEN-dee ree-skree-VYAH-moh: eel TAHS-soh eh SHEH-zoh DEL-loh ZEH-roh VIR-goh-lah KWAT-tro per CHEN-toh nel seh-KOHN-doh tree-MES-treh.", "So we rewrite it: 'the rate fell by 0.4% in the second quarter'."),
+               D("Revisore", "Secondo l'ISTAT: senza fonte, il numero non entra.", "seh-KOHN-doh lees-TAHT: SEN-tsah FOHN-teh, eel NOO-meh-roh nohn EN-trah.", "According to ISTAT: without a source the number does not go in.")],
               WS("Register worksheet", [
                   T("Turn the headline into a report sentence.", ["unemployment falling", "prices rising"],
                     ["Il tasso di disoccupazione è sceso dello 0,4% nel secondo trimestre.", "I prezzi sono aumentati dell'1,2% nel trimestre."]),
@@ -2380,10 +2380,10 @@ HALFSTEPS["C1+"] = {
                  X("Il rilievo non è sul merito.", "eel ree-LYEH-voh nohn eh sool MEH-ree-toh.", "The objection is not on the substance.")],
                 [("Con tutto il rispetto, lei non capisce niente.", "Con tutto il rispetto, mi permetto di dissentire su un punto.", "The formula opens a disagreement; it does not license an insult."),
                  ("Mi permetto dissentire.", "Mi permetto di dissentire.", "The phrase is permettersi di + infinitive.")]),
-              [D("Reviewer", "Con tutto il rispetto, mi permetto di dissentire.", "kohn TOOT-toh eel ree-SPET-toh, mee per-MET-toh dee dees-sen-TEE-reh.", "With all due respect, I take the liberty of dissenting."),
-               D("Editor", "Su quale punto?", "soo KWAH-leh POON-toh?", "On which point?"),
-               D("Reviewer", "Se mi è consentito, il rilievo non è sul merito ma sui tempi.", "seh mee eh kohn-SEN-tee-toh, eel ree-LYEH-voh nohn eh sool MEH-ree-toh mah soo ee TEM-pee.", "If I may, the objection is not on the substance but on the timing."),
-               D("Editor", "Allora rivediamo il calendario.", "ahl-LOH-rah ree-veh-DYAH-moh eel kah-len-DAH-ryoh.", "Then let us revise the schedule.")],
+              [D("Revisore", "Con tutto il rispetto, mi permetto di dissentire.", "kohn TOOT-toh eel ree-SPET-toh, mee per-MET-toh dee dees-sen-TEE-reh.", "With all due respect, I take the liberty of dissenting."),
+               D("Redattore", "Su quale punto?", "soo KWAH-leh POON-toh?", "On which point?"),
+               D("Revisore", "Se mi è consentito, il rilievo non è sul merito ma sui tempi.", "seh mee eh kohn-SEN-tee-toh, eel ree-LYEH-voh nohn eh sool MEH-ree-toh mah soo ee TEM-pee.", "If I may, the objection is not on the substance but on the timing."),
+               D("Redattore", "Allora rivediamo il calendario.", "ahl-LOH-rah ree-veh-DYAH-moh eel kah-len-DAH-ryoh.", "Then let us revise the schedule.")],
               WS("Dissent worksheet", [
                   T("Dissent elegantly.", ["with all due respect, I take the liberty of dissenting", "if I may, an objection on the timing"],
                     ["Con tutto il rispetto, mi permetto di dissentire.", "Se mi è consentito, un rilievo sui tempi."]),
@@ -2408,10 +2408,10 @@ HALFSTEPS["C1+"] = {
                  X("Il destinatario è la direzione.", "eel des-tee-nah-TAH-ryoh eh lah dee-reh-TSYOH-neh.", "The addressee is the management.")],
                 [("Conclusioni: tutto sembra positivo e interessante.", "Conclusioni: l'evidenza sostiene la prova su due reparti.", "A conclusion states what the evidence supports, not an impression."),
                  ("Raccomandazioni: valutare possibili azioni future.", "Raccomandazioni: partire con due persone entro marzo.", "A recommendation names an action and a date.")]),
-              [D("Mediator", "Come chiudo la nota?", "KOH-meh KYOO-doh lah NOH-tah?", "How do I close the note?"),
-               D("Analyst", "Con due paragrafi: conclusioni e raccomandazioni.", "kohn DOO-eh pah-RAH-grah-fee: kohn-kloo-ZYOH-nee eh rahk-koh-mahn-dah-TSYOH-nee.", "With two paragraphs: conclusions and recommendations."),
-               D("Mediator", "E il destinatario?", "eh eel des-tee-nah-TAH-ryoh?", "And the addressee?"),
-               D("Analyst", "La direzione, con una data: entro marzo.", "lah dee-reh-TSYOH-neh, kohn OO-nah DAH-tah: EN-troh MAR-tsoh.", "Management, with a date: by March.")],
+              [D("Mediatore", "Come chiudo la nota?", "KOH-meh KYOO-doh lah NOH-tah?", "How do I close the note?"),
+               D("Analista", "Con due paragrafi: conclusioni e raccomandazioni.", "kohn DOO-eh pah-RAH-grah-fee: kohn-kloo-ZYOH-nee eh rahk-koh-mahn-dah-TSYOH-nee.", "With two paragraphs: conclusions and recommendations."),
+               D("Mediatore", "E il destinatario?", "eh eel des-tee-nah-TAH-ryoh?", "And the addressee?"),
+               D("Analista", "La direzione, con una data: entro marzo.", "lah dee-reh-TSYOH-neh, kohn OO-nah DAH-tah: EN-troh MAR-tsoh.", "Management, with a date: by March.")],
               WS("Note worksheet", [
                   T("Write the conclusions.", ["the evidence supports the trial", "on two departments"],
                     ["L'evidenza sostiene la prova.", "su due reparti"]),
@@ -2436,10 +2436,10 @@ HALFSTEPS["C1+"] = {
                  X("È emerso un punto comune.", "eh eh-MER-soh oon POON-toh koh-MOO-neh.", "A common ground emerged.")],
                 [("Tutti hanno detto che va bene.", "L'analista ha rilevato che il margine è sottile; l'editor ha obiettato che i tempi sono lunghi.", "A summary attributes; «everyone agreed» is not a summary."),
                  ("È emerso un punto comune: secondo me bisogna partire.", "È emerso un punto comune: partire con una prova.", "The summary reports the room, not the writer's opinion.")]),
-              [D("Mediator", "Come riassumo la tavola rotonda?", "KOH-meh ree-AHS-soo-moh lah TAH-voh-lah roh-TOHN-dah?", "How do I summarise the round table?"),
-               D("Reviewer", "Attribuisci: «l'analista ha rilevato che …».", "aht-tree-BWEES-shee: lah-NAH-lees-tah ah ree-leh-VAH-toh keh.", "Attribute: 'the analyst noted that …'."),
-               D("Mediator", "E se non sono d'accordo?", "eh seh nohn SOH-noh dahk-KOR-doh?", "And if I disagree?"),
-               D("Reviewer", "Lo scrivi in una nota tua, non nella sintesi.", "loh SKREE-vee een OO-nah NOH-tah TOO-ah, nohn NEL-lah SEEN-teh-zee.", "You write that in your own note, not in the summary.")],
+              [D("Mediatore", "Come riassumo la tavola rotonda?", "KOH-meh ree-AHS-soo-moh lah TAH-voh-lah roh-TOHN-dah?", "How do I summarise the round table?"),
+               D("Revisore", "Attribuisci: «l'analista ha rilevato che …».", "aht-tree-BWEES-shee: lah-NAH-lees-tah ah ree-leh-VAH-toh keh.", "Attribute: 'the analyst noted that …'."),
+               D("Mediatore", "E se non sono d'accordo?", "eh seh nohn SOH-noh dahk-KOR-doh?", "And if I disagree?"),
+               D("Revisore", "Lo scrivi in una nota tua, non nella sintesi.", "loh SKREE-vee een OO-nah NOH-tah TOO-ah, nohn NEL-lah SEEN-teh-zee.", "You write that in your own note, not in the summary.")],
               WS("Round-table worksheet", [
                   T("Attribute the points.", ["the analyst noted that the margin is thin", "the editor objected that the timelines are long"],
                     ["L'analista ha rilevato che il margine è sottile.", "L'editor ha obiettato che i tempi sono lunghi."]),
@@ -2467,9 +2467,9 @@ HALFSTEPS["C1+"] = {
                        "the margin fell by one point; in summary, the objection is not on the substance "
                        "but on the timing. I am coming to a close: conclusions and recommendations are "
                        "two separate paragraphs, with a date and an addressee."),
-        listening=("Editor: Con tutto il rispetto, mi permetto di dissentire.<br>Reviewer: Su quale "
-                   "punto?<br>Editor: Se mi è consentito, il rilievo non è sul merito ma sui tempi: "
-                   "sarebbe opportuno verificare i dati prima della riunione.<br>Reviewer: D'accordo; "
+        listening=("Redattore: Con tutto il rispetto, mi permetto di dissentire.<br>Revisore: Su quale "
+                   "punto?<br>Redattore: Se mi è consentito, il rilievo non è sul merito ma sui tempi: "
+                   "sarebbe opportuno verificare i dati prima della riunione.<br>Revisore: D'accordo; "
                    "allora mi avvio a concludere con due raccomandazioni."),
         listening_gloss=("Editor: With all due respect, I take the liberty of dissenting. Reviewer: On "
                          "which point? Editor: If I may, the objection is not on the substance but on "

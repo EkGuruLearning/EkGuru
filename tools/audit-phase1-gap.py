@@ -22,7 +22,10 @@ validator the language gate itself uses:
 The schema cannot see content defects, so one more check lives here: a mistake
 entry whose `wrong` text is itself marked correct (`✓`, `(correct)`, `(fine)`) or
 whose `why` opens with "Correct as written" / "Both are correct" is a pair the
-learner cannot act on — it is counted as a gap.
+learner cannot act on — it is counted as a gap, and so is a dialogue speaker
+label left in English ("Analyst", "Reviewer") inside a course taught in
+another language: every other lesson of that rung labels the same roles in the
+course language, and the label is rendered, so the learner sees both.
 
 Run:  python3 tools/audit-phase1-gap.py            report
       python3 tools/audit-phase1-gap.py --check    exit 1 while gaps remain
@@ -110,6 +113,57 @@ def content_defects(code: str, phase: str) -> list[tuple[str, str, str]]:
     return found
 
 
+# Speaker labels are content, not chrome: they are rendered next to the line.
+# The factory wrote English role words into many non-English CEFR courses while
+# the same files label other lessons natively (and the Hindi pilot, ja and ko
+# label natively throughout), so an English label here is a mixed-language
+# dialogue. Written as a closed vocabulary on purpose — free-form names such as
+# "Lena" or "Ana" are not roles and must never be flagged.
+ENGLISH_ROLE_LABELS = {
+    "Analyst", "Editor", "Mediator", "Reviewer", "Chair", "Colleague", "Author",
+    "Specialist", "Writer", "Officer", "Supervisor", "Translator", "Coach", "Speaker",
+    "Critic", "Representative", "Community representative", "Client", "Director",
+    "Researcher", "Presenter", "Manager", "Doctor", "Teacher", "Student", "Patient",
+    "Neighbour", "Newcomer", "Guest", "Host", "Reporter", "Interviewer", "Mother",
+    "Father", "Sister", "Brother", "Son", "Daughter", "Grandmother", "Grandfather",
+    "Granddaughter", "Girl", "Boy",
+}
+# Words above that are ordinary words in the target language too (German
+# Reporter/Interviewer/Manager/Student/Patient, Portuguese editor, ...). They
+# stay, because a German course saying "Reporter" is not speaking English.
+NATIVE_LABEL_ALLOW = {
+    "de": {"Analyst", "Analystin", "Editor", "Mediator", "Interviewer", "Reporter",
+           "Manager", "Student", "Patient", "Kollege", "Referent", "Autor", "Chef"},
+    "pt": {"Editor", "Autor", "Reporter", "Gerente"},
+    "nl": {"Manager", "Student", "Patient", "Reporter", "Editor"},
+    "pl": {"Student", "Pacjent", "Manager", "Reporter", "Autor"},
+    "ro": {"Student", "Pacient", "Manager", "Reporter", "Autor", "Editor"},
+    "tr": {"Student", "Doktor", "Müdür", "Reporter", "Editör"},
+    "id": {"Editor", "Reporter", "Manajer", "Dokter", "Pasien", "Guru", "Murid"},
+    "sw": {"Daktari", "Mwalimu", "Mwanafunzi", "Meneja", "Mgeni", "Mwandishi"},
+}
+
+
+def label_defects(code: str, phase: str) -> list[tuple[str, str, str]]:
+    """English speaker labels inside a course that is taught in another language."""
+    if code == "en":
+        return []
+    allow = NATIVE_LABEL_ALLOW.get(code, set())
+    found: list[tuple[str, str, str]] = []
+    for rung in RUNGS:
+        path = ROOT / f"data/courses/{phase}/{code}_{rung}.json"
+        if not path.exists():
+            continue
+        data = json.loads(path.read_text(encoding="utf-8"))
+        for unit in data.get("level", {}).get("units", []):
+            for lesson in unit.get("lessons", []):
+                for line in lesson.get("dialogue", []):
+                    sp = line.get("sp")
+                    if sp in ENGLISH_ROLE_LABELS and sp not in allow:
+                        found.append((path.name, str(lesson.get("id", "?")), sp))
+    return found
+
+
 def main() -> int:
     check = "--check" in sys.argv
     codes = published_codes()
@@ -117,7 +171,9 @@ def main() -> int:
     print(f"PHASE 1 — content depth for the {len(codes)} published language(s)\n")
     print(f"  {'lang':4s} {'rungs':>7s}  {'missing rungs':28s} {'extra':>5s} {'<3 lessons':>10s} {'test':>5s}")
     total_missing = total_extra = total_lessons = total_test = total_defects = 0
+    total_labels = 0
     defects: list[tuple[str, str, str]] = []
+    labels: list[tuple[str, str, str]] = []
     work = []
     for code in codes:
         phase = course_phase(code)
@@ -135,12 +191,20 @@ def main() -> int:
         found = content_defects(code, phase)
         total_defects += len(found)
         defects.extend((code, *f) for f in found)
+        left = label_defects(code, phase)
+        total_labels += len(left)
+        labels.extend((code, *f) for f in left)
         work.append((code, missing))
         print(f"  {code:4s} {len(present):3d}/11  {','.join(missing) or '-':28s} {extra:5d} {short:10d} {test:5d}")
     print()
     for code, name, where, detail in defects:
         print(f"  defect {code} {name} {where}: {detail}")
     print(f"  self-asserting mistake entries (wrong text marked correct): {total_defects}")
+    for code, name, where, detail in labels[:12]:
+        print(f"  label    {code} {name} {where}: {detail}")
+    if len(labels) > 12:
+        print(f"  label    ... and {len(labels) - 12} more")
+    print(f"  English speaker labels left in a non-English course: {total_labels}")
     print(f"  totals: {total_missing} rung files to author · "
           f"{total_extra} rung(s) missing `extra` · {total_lessons} unit(s) short of 3 lessons · "
           f"{total_test} file(s) with test items out of range")
@@ -150,10 +214,11 @@ def main() -> int:
           "no rung carries the `extra` block, and units hold 2 lessons where the schema wants 3-5.")
     print("  Acceptance for PHASE 1 (from the command doc): at least A1-B2 published per language, "
           "500+ words of unique content per level page, voice tags on vocabulary, no templated intros.")
-    gaps = total_missing or total_extra or total_lessons or total_test or total_defects
+    gaps = total_missing or total_extra or total_lessons or total_test or total_defects or total_labels
     if gaps:
         print("\nPHASE 1 OPEN — %d rung file(s), %d extra block(s), %d short unit(s) to author, "
-              "%d content defect(s)." % (total_missing, total_extra, total_lessons, total_defects))
+              "%d content defect(s), %d English label(s)."
+              % (total_missing, total_extra, total_lessons, total_defects, total_labels))
         return 1 if check else 0
     print("\nPHASE 1 COMPLETE — every published course carries all 11 rungs with `extra` and 3-5 lessons.")
     return 0

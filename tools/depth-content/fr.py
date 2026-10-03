@@ -227,9 +227,9 @@ EXTRAS["C1"] = EXTRA(
                    "check whether the measure works, and the report does not say who. It is "
                    "exactly that vagueness that the summary note attacks: for every passive "
                    "sentence, write the verb, the subject and the date."),
-    listening=("Analyst: Il conviendrait de procéder à un réexamen.<br>Chair: Concrètement ?<br>"
-               "Analyst: Concrètement : deux personnes, quinze jours, une note de trois pages.<br>"
-               "Chair: Voilà qui est plus clair."),
+    listening=("Analyste: Il conviendrait de procéder à un réexamen.<br>Président: Concrètement ?<br>"
+               "Analyste: Concrètement : deux personnes, quinze jours, une note de trois pages.<br>"
+               "Président: Voilà qui est plus clair."),
     listening_gloss=("Analyst: It would be advisable to carry out a review. Chair: Concretely? "
                      "Analyst: Concretely: two people, two weeks, a three-page note. Chair: That "
                      "is clearer."),
@@ -274,8 +274,8 @@ EXTRAS["C2"] = EXTRA(
                    "sentence. The commentary that follows quotes a press release — 'a favourable "
                    "outcome is conceivable' — and leaves it there, with no added quotation marks, "
                    "so that the reader hears the emptiness."),
-    listening=("Editor: Votre texte cite le communiqué sans le commenter.<br>Author: Je le laisse parler.<br>"
-               "Editor: Et le lecteur entend ?<br>Author: Il entend la litote, s'il veut bien."),
+    listening=("Rédacteur: Votre texte cite le communiqué sans le commenter.<br>Auteur: Je le laisse parler.<br>"
+               "Rédacteur: Et le lecteur entend ?<br>Auteur: Il entend la litote, s'il veut bien."),
     listening_gloss=("Editor: Your text quotes the press release without commenting on it. "
                      "Author: I let it speak. Editor: And the reader hears? Author: They hear the "
                      "understatement, if they care to."),
@@ -1010,10 +1010,10 @@ THIRD["C1"] = [
            X("Il semblerait que le ministre ait changé d'avis.", "eel sah(n)-bluh-RAY kuh luh mee-NEESTR ay shah(n)-ZHAY dah-VEE.", "It would seem the minister has changed his mind.")],
           [("Selon le journal dit que le dossier est bloqué.", "Selon le journal, le dossier serait bloqué.", "selon takes a source phrase, not a finite clause."),
            ("Il semblerait que le ministre a changé d'avis.", "Il semblerait que le ministre ait changé d'avis.", "il semblerait que takes the subjunctive.")]),
-        [D("Analyst", "Que sait-on au juste ?", "kuh seh-TOH(N) oh ZHÜST ?", "What do we actually know?"),
-         D("Colleague", "Selon deux sources, le dossier serait bloqué.", "suh-LOH(N) duh SOORS, luh doh-SYAY suh-RAY bloh-KAY.", "According to two sources, the file is reportedly blocked."),
-         D("Analyst", "Et la décision ?", "ay lah day-see-ZYOH(N) ?", "And the decision?"),
-         D("Colleague", "D'après l'AFP, elle serait reportée — rien d'officiel.", "dah-PREH lah-ef-PAY, el suh-RAY ruh-por-TAY — rya(n) doh-fee-SYEL.", "According to AFP it is reportedly postponed — nothing official.")],
+        [D("Analyste", "Que sait-on au juste ?", "kuh seh-TOH(N) oh ZHÜST ?", "What do we actually know?"),
+         D("Collègue", "Selon deux sources, le dossier serait bloqué.", "suh-LOH(N) duh SOORS, luh doh-SYAY suh-RAY bloh-KAY.", "According to two sources, the file is reportedly blocked."),
+         D("Analyste", "Et la décision ?", "ay lah day-see-ZYOH(N) ?", "And the decision?"),
+         D("Collègue", "D'après l'AFP, elle serait reportée — rien d'officiel.", "dah-PREH lah-ef-PAY, el suh-RAY ruh-por-TAY — rya(n) doh-fee-SYEL.", "According to AFP it is reportedly postponed — nothing official.")],
         WS("Attribution worksheet", [
             T("Put the claim at arm's length.", ["the file is blocked (two sources)", "the decision is postponed (AFP)"],
               ["Selon deux sources, le dossier serait bloqué.", "D'après l'AFP, la décision serait reportée."]),
@@ -1039,10 +1039,10 @@ THIRD["C1"] = [
            X("Une corrélation n'est pas une cause.", "ün koh-ray-lah-SYOH(N) nay pah zün KOHZ.", "A correlation is not a cause.")],
           [("La sécheresse explique la hausse à cent pour cent.", "La sécheresse contribue à la hausse.", "Grade the link: contributing is not causing."),
            ("Une corrélation explique une cause.", "Une corrélation ne suffit pas à établir une cause.", "Name the limit of the evidence.")]),
-        [D("Chair", "Pourquoi cette hausse ?", "poor-KWAH set OHS ?", "Why this rise?"),
-         D("Analyst", "La sécheresse contribue à la hausse.", "lah say-SHRESS koh(n)-tree-BÜ ah lah OHS.", "The drought contributes to the rise."),
-         D("Chair", "C'est la cause ?", "say lah KOHZ ?", "Is that the cause?"),
-         D("Analyst", "Elle l'explique en partie. Le reste tient aux coûts de l'énergie.", "el lek-spleek ah(n) par-TEE. luh REST tya(n) oh koo duh lay-ner-ZHEE.", "It partly explains it. The rest is down to energy costs.")],
+        [D("Président", "Pourquoi cette hausse ?", "poor-KWAH set OHS ?", "Why this rise?"),
+         D("Analyste", "La sécheresse contribue à la hausse.", "lah say-SHRESS koh(n)-tree-BÜ ah lah OHS.", "The drought contributes to the rise."),
+         D("Président", "C'est la cause ?", "say lah KOHZ ?", "Is that the cause?"),
+         D("Analyste", "Elle l'explique en partie. Le reste tient aux coûts de l'énergie.", "el lek-spleek ah(n) par-TEE. luh REST tya(n) oh koo duh lay-ner-ZHEE.", "It partly explains it. The rest is down to energy costs.")],
         WS("Causality worksheet", [
             T("Grade the link.", ["contributes to", "partly explains", "is not enough to"],
               ["contribue à", "explique en partie", "ne suffit pas à"]),
@@ -1068,10 +1068,10 @@ THIRD["C1"] = [
            X("Sur ce point, ils divergent.", "sür suh PWA(N), eel dee-ver-ZH.", "On this point they diverge.")],
           [("Les deux disent la même chose et l'inverse.", "Ce qui les réunit, c'est que les données manquent.", "A synthesis names shared ground and difference separately."),
            ("Selon les deux, de son côté.", "Selon l'institut ; le syndicat, de son côté, …", "One source per clause.")]),
-        [D("Chair", "Une synthèse, s'il vous plaît.", "ün sa(n)-TEHZ, seel voo PLAY.", "A summary, please."),
-         D("Analyst", "Selon l'institut, la tendance est stable ; le syndicat, de son côté, signale des risques.", "suh-LOH(N) la(n)-stee-TÜ, lah tah(n)-DAH(N)S ay stah-BL ; luh sa(n)-dee-KAH, duh soh(n) koh-TAY, see-NYAL day REESK.", "According to the institute the trend is stable; the union, for its part, points to risks."),
-         D("Chair", "Et le terrain commun ?", "ay luh teh-RA(N) koh-MÜ(N) ?", "And the common ground?"),
-         D("Analyst", "Ce qui les réunit, c'est que les données manquent.", "suh kee lay ray-ü-NEE, say kuh lay doh-NAY MAH(N)K.", "What brings them together is that the data is missing.")],
+        [D("Président", "Une synthèse, s'il vous plaît.", "ün sa(n)-TEHZ, seel voo PLAY.", "A summary, please."),
+         D("Analyste", "Selon l'institut, la tendance est stable ; le syndicat, de son côté, signale des risques.", "suh-LOH(N) la(n)-stee-TÜ, lah tah(n)-DAH(N)S ay stah-BL ; luh sa(n)-dee-KAH, duh soh(n) koh-TAY, see-NYAL day REESK.", "According to the institute the trend is stable; the union, for its part, points to risks."),
+         D("Président", "Et le terrain commun ?", "ay luh teh-RA(N) koh-MÜ(N) ?", "And the common ground?"),
+         D("Analyste", "Ce qui les réunit, c'est que les données manquent.", "suh kee lay ray-ü-NEE, say kuh lay doh-NAY MAH(N)K.", "What brings them together is that the data is missing.")],
         WS("Synthesis worksheet", [
             T("Line the sources up.", ["according to the institute", "the union, for its part"],
               ["Selon l'institut, …", "Le syndicat, de son côté, …"]),
@@ -1101,10 +1101,10 @@ THIRD["C2"] = [
            X("Et puis il y avait le travail.", "ay pwee eel yah-VAY luh trah-VAHY.", "And then there was the job.")],
           [("Il hésitait et il pensait : « partir ou rester ? » (with quotes).", "Il hésitait. Partir ? Rester ?", "The free form drops the quotation marks and the reporting verb."),
            ("Il hésite. Partir ? Rester ? (in a past narrative).", "Il hésitait. Partir ? Rester ?", "The narrative tense stays in the past.")]),
-        [D("Editor", "Cette phrase, c'est vous ou lui ?", "set FREZ, say voo oo LWEE ?", "That sentence — is it you or him?"),
-         D("Author", "C'est lui. Sans guillemets, c'est le discours indirect libre.", "say LWEE. sah(n) gee-YEH, say luh dees-KOOR a(n)-dee-REKT LEEBR.", "It's him. Without quotation marks, it's free indirect discourse."),
-         D("Editor", "Et le lecteur ne se perd pas ?", "ay luh lek-TUHR nuh suh PAIR pah ?", "And the reader doesn't get lost?"),
-         D("Author", "Si le vocabulaire est à lui, non. « Et puis » signale sa voix.", "see luh voh-kah-bü-LEHR ay tah LWEE, noh(n). ay pwee see-NYAL sah VWAH.", "If the vocabulary is his, no. 'And then' signals his voice.")],
+        [D("Rédacteur", "Cette phrase, c'est vous ou lui ?", "set FREZ, say voo oo LWEE ?", "That sentence — is it you or him?"),
+         D("Auteur", "C'est lui. Sans guillemets, c'est le discours indirect libre.", "say LWEE. sah(n) gee-YEH, say luh dees-KOOR a(n)-dee-REKT LEEBR.", "It's him. Without quotation marks, it's free indirect discourse."),
+         D("Rédacteur", "Et le lecteur ne se perd pas ?", "ay luh lek-TUHR nuh suh PAIR pah ?", "And the reader doesn't get lost?"),
+         D("Auteur", "Si le vocabulaire est à lui, non. « Et puis » signale sa voix.", "see luh voh-kah-bü-LEHR ay tah LWEE, noh(n). ay pwee see-NYAL sah VWAH.", "If the vocabulary is his, no. 'And then' signals his voice.")],
         WS("Free indirect worksheet", [
             T("Turn the quotation into free indirect style.", ["He said: ‘Should I leave?'", "She thought: ‘The city is too expensive.'"],
               ["Il hésitait. Partir ?", "Elle songeait. La ville était trop chère."]),
@@ -1130,10 +1130,10 @@ THIRD["C2"] = [
            X("Nonobstant toute clause contraire.", "noh-nob-STAH(N) toot KLOHZ koh(n)-TREHR.", "Notwithstanding any clause to the contrary.")],
           [("Le délai, c'est-à-dire environ un mois, nonobstant.", "Le délai court à compter de la notification.", "Legal speech defines the start; the approximate duration comes later."),
            ("Sont exclus peut-être les cas de force majeure.", "Sont exclus les cas de force majeure.", "The exclusion is categorical, never hedged.")]),
-        [D("Colleague", "Quand commence le délai ?", "kah(n) koh-MAH(N)S luh day-LAY ?", "When does the period start?"),
-         D("Analyst", "Au sens du présent texte, il court à compter de la notification.", "oh SAH(N)S dü pray-zah(n) TEKST, eel koor ah koh(n)t-TAY duh lah noh-tee-fee-kah-SYOH(N).", "Within the meaning of this text, it runs from notification."),
-         D("Colleague", "Et les retards de l'administration ?", "ay lay ruh-TAR duh lah-dmee-nees-trah-SYOH(N) ?", "And administrative delays?"),
-         D("Analyst", "Sont exclus les cas de force majeure, nonobstant toute clause contraire.", "so(n) teks-KLÜ lay kah duh fors mah-ZHÜR, noh-nob-STAH(N) toot KLOHZ koh(n)-TREHR.", "Cases of force majeure are excluded, notwithstanding any clause to the contrary.")],
+        [D("Collègue", "Quand commence le délai ?", "kah(n) koh-MAH(N)S luh day-LAY ?", "When does the period start?"),
+         D("Analyste", "Au sens du présent texte, il court à compter de la notification.", "oh SAH(N)S dü pray-zah(n) TEKST, eel koor ah koh(n)t-TAY duh lah noh-tee-fee-kah-SYOH(N).", "Within the meaning of this text, it runs from notification."),
+         D("Collègue", "Et les retards de l'administration ?", "ay lay ruh-TAR duh lah-dmee-nees-trah-SYOH(N) ?", "And administrative delays?"),
+         D("Analyste", "Sont exclus les cas de force majeure, nonobstant toute clause contraire.", "so(n) teks-KLÜ lay kah duh fors mah-ZHÜR, noh-nob-STAH(N) toot KLOHZ koh(n)-TREHR.", "Cases of force majeure are excluded, notwithstanding any clause to the contrary.")],
         WS("Legal-precision worksheet", [
             T("Define, delimit, exclude.", ["within the meaning of this text", "excluding force majeure", "notwithstanding any contrary clause"],
               ["Au sens du présent texte, …", "Sont exclus les cas de force majeure.", "Nonobstant toute clause contraire."]),
@@ -1160,10 +1160,10 @@ THIRD["C2"] = [
            X("En clair, ça monte un peu.", "ah(n) KLEHR, sah MOH(N)T uh(n) PÜ.", "In plain terms, it is going up a little.")],
           [("Le communiqué invente un chiffre plus rassurant.", "Le communiqué garde le chiffre et change le cadre.", "Mediation never invents; it reframes."),
            ("Pour le grand public : le taux a augmenté de deux pour cent au premier trimestre.", "Pour le grand public : en clair, ça monte un peu.", "Vulgariser means finding the ordinary phrase, not repeating the report.")]),
-        [D("Editor", "Vous avez trois publics : le rapport, le communiqué, la une.", "voo zah-VAY trwah pü-BLEE : luh rah-POR, luh koh-mü-nee-KAY, lah ÜN.", "You have three audiences: the report, the press release, the front page."),
-         D("Author", "Le rapport garde le chiffre : le taux a augmenté de deux pour cent.", "luh rah-POR gard luh SHEEFR : luh TOH ah ohg-mah(n)-TAY duh duh poor SAH(N).", "The report keeps the figure: the rate rose by two per cent."),
-         D("Editor", "Le communiqué ?", "luh koh-mü-nee-KAY ?", "The press release?"),
-         D("Author", "« La tendance reste maîtrisée. » Et pour la une : « en clair, ça monte un peu ».", "lah tah(n)-DAH(N)S rest may-tree-ZAY. ay poor lah ÜN : ah(n) KLEHR, sah MOH(N)T uh(n) PÜ.", "'The trend remains under control.' And for the front page: 'in plain terms, it is going up a little'.")],
+        [D("Rédacteur", "Vous avez trois publics : le rapport, le communiqué, la une.", "voo zah-VAY trwah pü-BLEE : luh rah-POR, luh koh-mü-nee-KAY, lah ÜN.", "You have three audiences: the report, the press release, the front page."),
+         D("Auteur", "Le rapport garde le chiffre : le taux a augmenté de deux pour cent.", "luh rah-POR gard luh SHEEFR : luh TOH ah ohg-mah(n)-TAY duh duh poor SAH(N).", "The report keeps the figure: the rate rose by two per cent."),
+         D("Rédacteur", "Le communiqué ?", "luh koh-mü-nee-KAY ?", "The press release?"),
+         D("Auteur", "« La tendance reste maîtrisée. » Et pour la une : « en clair, ça monte un peu ».", "lah tah(n)-DAH(N)S rest may-tree-ZAY. ay poor lah ÜN : ah(n) KLEHR, sah MOH(N)T uh(n) PÜ.", "'The trend remains under control.' And for the front page: 'in plain terms, it is going up a little'.")],
         WS("Mediation worksheet", [
             T("Rewrite for each reader.", ["the figure (report)", "the trend (press release)", "in plain terms (general public)"],
               ["Le taux a augmenté de 2 %.", "La tendance reste maîtrisée.", "En clair, ça monte un peu."]),

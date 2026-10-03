@@ -72,7 +72,18 @@ review is the one reason that cannot be generated. The modules are
 rather than assumed, and all 12 new rung files landed in `data/courses/phase-2/`
 with no change to the tool.
 
-Four traps worth recording, all found by authoring Spanish, French and Italian:
+The audit also counts a content defect the schema cannot see: an English speaker
+label in a dialogue of a course taught in another language. The factory left the
+four C1/C2 roles in English (`Analyst`, `Editor`, `Mediator`, `Reviewer`) in
+twelve courses, and in Gujarati it left English labels through A1-B2 as well,
+while the same files label other lessons natively and the Hindi pilot labelled
+every role natively — so one course showed two languages side by side in the same
+dialogue block. All thirteen shipped/queued courses whose files were mixed are
+now fully native (672 dialogue lines re-labelled); the five courses that are
+still English throughout (mr, pa, ta, te, ur — 452 labels) are fixed as each is
+authored, and the audit keeps counting them until then.
+
+Five traps worth recording, all found by authoring Spanish, French and Italian:
 
 - the gate's capitalised `\bTODO\b` marker matched Spanish `TODO` inside
   all-caps emphasis (`SIGA TODO RECTO`, `POR TODO LO ANTERIOR`, `EN TODO CASO`)
@@ -133,6 +144,20 @@ already flags five languages with `unique_text_below_85` for exactly that. A
 generated file that satisfies the schema but repeats another language's
 sentences is not a PHASE 1 completion — see PART F (golden rules) and the
 "no templated intros" gate.
+
+- **A speaker label is rendered content, not metadata.** `dialogue[].sp` is
+  printed beside the line on the level page, so an English role word in a
+  non-English dialogue is visible to the learner — and because only *some*
+  lessons of a file were localised, the same page showed `Editor` in one block
+  and `संपादक` in the next. It is invisible to every structural walk (the value
+  is a non-empty string) and to the language gate (a Latin label is legal in
+  German). `tools/audit-phase1-gap.py` now counts it against a closed vocabulary
+  of factory role words, with a per-language allowlist for words that are also
+  ordinary words of the target language (German `Reporter`, Portuguese
+  `editor`), so names such as `Lena` or `Ana` are never flagged. Fix the module
+  (`D("…")` labels and the `listening=` transcript, never the English
+  `listening_gloss`) and re-run `tools/author-depth.py` for half-steps; the CEFR
+  rungs are hand-maintained data and are edited directly.
 
 ## What the pilot settled
 
