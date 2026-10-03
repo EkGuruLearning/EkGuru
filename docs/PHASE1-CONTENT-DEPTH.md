@@ -96,7 +96,35 @@ the three-way address, and the `-त आहे` progressive — written as the c
 after the Hindi-shaped `-तो आहे` was caught in review and turned into an explicit
 mistake pair in four lessons.
 
-The language also surfaced the seventh trap below: a generated page whose
+Punjabi came next, and its pass also paid off two debts from Marathi: the two
+missing spaces in `tools/depth-content/mr.py` (`retroflexl`, `plainl`) that had
+rendered into `mr_A1.json`, and Marathi's number table, which was the one place
+left in a different transliteration scheme from its own lessons.
+
+2026-10-03 (after Punjabi — 12 of 18): **30 rung files · 36 `extra` blocks · 36
+short units · 260 English labels**. pa reads `11/11`; its gate row is
+`FAIL ['no_native_review']` only, `unique_text_ratio` 0.969 and `script_mismatch`
+0 against the 0.85 and 0 thresholds. The module is
+`tools/depth-content/pa.py`: six `extra` blocks built on nine sourced culture
+notes (Punjabi language, cuisine, Bhangra, the Sikh Empire, Punjabi literature,
+the diaspora, Punjabi culture, Ludhiana, Amritsar, the Green Revolution and Heer
+Ranjha), eighteen third lessons, and five half-steps that keep their own themes —
+greetings and a phone call, bus stand and repair shop, a community programme and
+its report, farm figures and the department, and the review of an epic. No theme
+is reused from an earlier language.
+
+Punjabi also closed the two audit items it inherited. Its 48 English speaker
+labels (`Specialist`, `Editor`, `Mediator`, `Reviewer` in C1 and C2) are native
+now — the map lives in `tools/localise-speaker-labels.py`, so `--lang pa --check`
+stays clean in CI. And the romanisation was reconciled: the shipped `pa_A1`
+lessons used diacritics (`sati srī akāl`) while `pa_A2`–`pa_C2` and every new
+lesson were plain ASCII (`sati sri akal`), which put two systems on one page.
+The base lessons and the number table are normalised to the plain form
+(90 `r` fields) and the alphabet/pronunciation blocks keep their marks (`ṭa
+(retroflex)`, `ā (long a)`, `low tone`) because those sections define the marks
+they use.
+
+The Marathi pass also surfaced the seventh trap below: a generated page whose
 committed form carried content its generator no longer produces. Regenerating it
 lost 378 words of a crawlable rule set on `/start/`, and nothing failed — the
 only symptom was `thin_indexable` going 0 → 1 in
@@ -113,10 +141,11 @@ now fully native (672 dialogue lines re-labelled). Marathi followed in its own
 pass — 144 `sp` labels and the ten practice prompts that named the same speakers
 — and the sweep's leftovers went with it: fourteen Gujarati practice prompts and
 four German labels (two in a C2 listening transcript, two in a C2 dialogue). The
-four courses that are still English throughout (pa, ta, te, ur — 308 labels) are
-fixed as each is authored, and the audit keeps counting them until then.
+three courses that are still English throughout (ta, te, ur — 260 labels) are
+fixed as each is authored, and the audit keeps counting them until then; Punjabi
+went with its own pass rather than a sweep, so no other course moved.
 
-Seven traps worth recording, all found while authoring the first eleven languages:
+Eight traps worth recording, all found while authoring the first twelve languages:
 
 - the gate's capitalised `\bTODO\b` marker matched Spanish `TODO` inside
   all-caps emphasis (`SIGA TODO RECTO`, `POR TODO LO ANTERIOR`, `EN TODO CASO`)
@@ -162,6 +191,14 @@ stale chain → `build-all.py check` → gate + audit → commit.
   `test-phase7c-stage7.py` all use it. `build-voice-languages.py` also corrects
   an existing *empty* manifest whose `lang` drifted — a manifest with entries is
   owner-supplied and is reported, never rewritten.
+- **Two transliteration schemes in one course.** Panjabi's shipped A1 lessons
+  romanised with diacritics (`sati srī akāl`, `chār`) while A2–C2 and every new
+  lesson wrote plain ASCII (`sati sri akal`, `char`), so one page showed both
+  systems and no gate looked. This pass normalised the base lessons and the
+  number table to the plain form (90 `r` fields in `pa_A1`, 25 in `mr_A1`, whose
+  number table was the last IAST block in the language) and left the diacritics
+  in the alphabet and pronunciation blocks, which are the two places that explain
+  the marks they use.
 ## Acceptance (from the command doc)
 
 - `python3 tools/build-all.py check` green
