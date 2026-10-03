@@ -78,11 +78,6 @@ only, `unique_text_ratio` 0.976 and `script_mismatch` 0 against 0.85 and 0 for t
 flags. Two defects surfaced while authoring it and were fixed rather than worked
 around: the English speaker labels (see the fifth trap below) and a script range
 too narrow to recognise Korean stem patterns (`tools/lib/text.py`, sixth trap).
-Marathi's dialogue roles were localised in the same pass — 144 `sp` labels and
-the ten practice prompts that referenced them — with `tools/localise-speaker-labels.py`,
-which carries the role map for the courses that shipped English labels. That
-clears mr from the audit's English-label count (452 to 308: pa 48 · ta 104 ·
-te 128 · ur 28 remain, each until its own authoring pass).
 
 The modules are `tools/depth-content/{ar,bn,de,es,fr,gu,it,ja,ko}.py`; the five
 half-step rungs of ko pick their own themes — a day and a call, bank and phone
@@ -96,9 +91,12 @@ twelve courses, and in Gujarati it left English labels through A1-B2 as well,
 while the same files label other lessons natively and the Hindi pilot labelled
 every role natively — so one course showed two languages side by side in the same
 dialogue block. All thirteen shipped/queued courses whose files were mixed are
-now fully native (672 dialogue lines re-labelled); the five courses that are
-still English throughout (mr, pa, ta, te, ur — 452 labels) are fixed as each is
-authored, and the audit keeps counting them until then.
+now fully native (672 dialogue lines re-labelled). Marathi followed in its own
+pass — 144 `sp` labels and the ten practice prompts that named the same speakers
+— and the sweep's leftovers went with it: fourteen Gujarati practice prompts and
+four German labels (two in a C2 listening transcript, two in a C2 dialogue). The
+four courses that are still English throughout (pa, ta, te, ur — 308 labels) are
+fixed as each is authored, and the audit keeps counting them until then.
 
 Six traps worth recording, all found while authoring the first ten languages:
 
@@ -175,6 +173,13 @@ sentences is not a PHASE 1 completion — see PART F (golden rules) and the
   (`D("…")` labels and the `listening=` transcript, never the English
   `listening_gloss`) and re-run `tools/author-depth.py` for half-steps; the CEFR
   rungs are hand-maintained data and are edited directly.
+
+  Repair, for the courses that still ship those labels: `tools/localise-speaker-labels.py
+  --lang <code>` rewrites `sp` and the practice prompt that names the same speaker from a
+  per-language role map. The English gloss of a line is not a label and stays English, and a map
+  that would merge two speakers of one dialogue into one word is refused (Writer and Author are
+  both લેખક). Marathi went first — 144 labels and 10 prompts — which took the audit count from
+  452 English labels to 308 (pa 48 · ta 104 · te 128 · ur 28).
 
 - **A script range that is too narrow fails correct content.** `in_script()` in
   `tools/lib/text.py` decides whether a vocabulary entry is written in the
