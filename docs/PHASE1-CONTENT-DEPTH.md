@@ -124,6 +124,38 @@ write does not run; the manifest entry is maintained by hand until that is fixed
 Authoring is `tools/author-hindi-halfsteps.py` (see the pattern for adding the
 next rung to `HALF_STEPS`).
 
+## Doing it for the other languages
+
+Hindi has hand-written tools because it was the pilot. Everything after it is
+data-driven:
+
+```
+tools/depth_kit.py            # the authoring DSL (V/X/G/D/T/WS/L/EXTRA)
+tools/author-depth.py         # the machinery, per language:
+                              #   python3 tools/author-depth.py --lang ar
+                              #   ... --check            drift report
+                              #   ... --only extras|third|rungs|manifest
+tools/depth-content/<code>.py # the content: EXTRAS, THIRD, HALFSTEPS
+```
+
+One command writes all three surfaces: the five half-step rungs (as real level
+files, playable at `/courses/#/<code>/A1+`), the `extra` block on the six CEFR
+rungs, a third lesson in every unit, and the `files` / lesson-count fields in
+`data/courses/index.json`. The lesson expansion (twelve practice types, quiz,
+worksheet, SRS) lives in the tool, so a new language is content only.
+
+Arabic went first (`tools/depth-content/ar.py`): A1 6/11 → 11/11, `extra` on all
+six rungs, a third lesson in all eighteen units, `unique_text_ratio` 0.911 →
+0.965. Its level pages were regenerated with the recipe above — adding `extra`
+changes what the pages render, so a language is not finished until
+`python3 tools/build-course-levels.py --check` says 0 stale, and
+`python3 tools/build-all.py check` is green.
+
+Two things to keep in the same commit as a language: the regenerated level
+pages (the ladder page's lesson/word/question counts move — ar went 24 → 36
+lessons) and `python3 tools/build-learning-data.py`, which rebuilds
+`data/learning/` from the course files and is checked separately.
+
 ## Work order
 
 1. One language end to end as a pilot: author `A1+`, patch the five existing
