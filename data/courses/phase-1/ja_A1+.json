@@ -1,0 +1,2791 @@
+{
+  "code": "ja",
+  "name": "Japanese",
+  "native": "日本語",
+  "phase": 1,
+  "medium": "en",
+  "file_level": "A1+",
+  "level": {
+    "title": "Japanese A1+ — Out in the city",
+    "goals": [
+      "Ask for and follow simple directions",
+      "Book a time, apologise for being late and confirm the next one",
+      "Hand something in for repair and pick it up"
+    ],
+    "units": [
+      {
+        "id": "A1+-U1",
+        "title": "まちで",
+        "lessons": [
+          {
+            "id": "A1+-U1-L1",
+            "title": "みちを きく",
+            "learn": "Directions arrive as short words in order: まっすぐ、みぎ、ひだり、つぎの かど. The question is 〜は どこですか and the answer rarely contains a verb.",
+            "vocab": [
+              {
+                "t": "まっすぐ",
+                "r": "massugu",
+                "en": "straight ahead",
+                "pos": "adverb"
+              },
+              {
+                "t": "みぎ",
+                "r": "migi",
+                "en": "right",
+                "pos": "noun"
+              },
+              {
+                "t": "ひだり",
+                "r": "hidari",
+                "en": "left",
+                "pos": "noun"
+              },
+              {
+                "t": "かど",
+                "r": "kado",
+                "en": "corner",
+                "pos": "noun"
+              },
+              {
+                "t": "しんごう",
+                "r": "shingou",
+                "en": "traffic light",
+                "pos": "noun"
+              }
+            ],
+            "grammar": {
+              "title": "Asking the way",
+              "pattern": "〜は どこですか · まっすぐ いって、みぎです · つぎの かどを ひだり",
+              "explain": "The place takes は and どこですか; the route is a chain of te-form verbs and nouns, and the verb まがります can be left out entirely. Politeness lives in すみません at the front.",
+              "examples": [
+                {
+                  "t": "えきは どこですか。",
+                  "r": "Eki wa doko desu ka.",
+                  "en": "Where is the station?"
+                },
+                {
+                  "t": "まっすぐ いって、みぎです。",
+                  "r": "Massugu itte, migi desu.",
+                  "en": "Go straight, then it is on the right."
+                },
+                {
+                  "t": "つぎの かどを ひだりに まがります。",
+                  "r": "Tsugi no kado o hidari ni magarimasu.",
+                  "en": "Turn left at the next corner."
+                }
+              ],
+              "mistakes": [
+                {
+                  "wrong": "えき が どこですか。",
+                  "right": "えきは どこですか。",
+                  "why": "The place being asked about takes は."
+                },
+                {
+                  "wrong": "まっすぐ です いきます。",
+                  "right": "まっすぐ いきます。",
+                  "why": "です does not stand inside a verb phrase."
+                }
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "ゆき",
+                "t": "すみません、えきは どこですか。",
+                "r": "Sumimasen, eki wa doko desu ka.",
+                "en": "Excuse me, where is the station?"
+              },
+              {
+                "sp": "たろう",
+                "t": "まっすぐ いって、つぎの かどを みぎです。",
+                "r": "Massugu itte, tsugi no kado o migi desu.",
+                "en": "Go straight, then right at the next corner."
+              },
+              {
+                "sp": "ゆき",
+                "t": "しんごうは ありますか。",
+                "r": "Shingou wa arimasu ka.",
+                "en": "Is there a traffic light?"
+              },
+              {
+                "sp": "たろう",
+                "t": "はい、しんごうの となりです。",
+                "r": "Hai, shingou no tonari desu.",
+                "en": "Yes, next to the traffic light."
+              }
+            ],
+            "practice": [
+              {
+                "type": "multiple_choice",
+                "q": "Practice 1: [multiple choice] みちを きく — Choose the meaning of まっすぐ (massugu) in this lesson.",
+                "answer": "straight ahead",
+                "skill_target": "Japanese: kana and kanji, particles は/が/を/に, です・ます politeness, verb-final order, counters and keigo",
+                "options": [
+                  "straight ahead",
+                  "right",
+                  "left",
+                  "corner"
+                ]
+              },
+              {
+                "type": "fill_in_the_blank",
+                "q": "Practice 2: [fill in the blank] みちを きく — Type the Japanese expression meaning “right”.",
+                "answer": "みぎ",
+                "skill_target": "Japanese: kana and kanji, particles は/が/を/に, です・ます politeness, verb-final order, counters and keigo"
+              },
+              {
+                "type": "translation",
+                "q": "Practice 3: [translation] みちを きく — Interpret the Japanese script in context: えきは どこですか。 (Eki wa doko desu ka.).",
+                "answer": "Where is the station?",
+                "skill_target": "Japanese: kana and kanji, particles は/が/を/に, です・ます politeness, verb-final order, counters and keigo"
+              },
+              {
+                "type": "reverse_translation",
+                "q": "Practice 4: [reverse translation] みちを きく — Write in Japanese script: Go straight, then it is on the right..",
+                "answer": "まっすぐ いって、みぎです。",
+                "skill_target": "Japanese: kana and kanji, particles は/が/を/に, です・ます politeness, verb-final order, counters and keigo"
+              },
+              {
+                "type": "matching",
+                "q": "Practice 5: [matching] みちを きく — Match ひだり to its lesson meaning.",
+                "answer": "left",
+                "skill_target": "Japanese: kana and kanji, particles は/が/を/に, です・ます politeness, verb-final order, counters and keigo",
+                "options": [
+                  "left",
+                  "straight ahead",
+                  "right"
+                ]
+              },
+              {
+                "type": "reorder",
+                "q": "Practice 6: [reorder] みちを きく — Reconstruct the lesson model in coherent Japanese: Turn left at the next corner..",
+                "answer": "つぎの かどを ひだりに まがります。",
+                "skill_target": "Japanese: kana and kanji, particles は/が/を/に, です・ます politeness, verb-final order, counters and keigo"
+              },
+              {
+                "type": "sentence_building",
+                "q": "Practice 7: [sentence building] みちを きく — Build the sentence with the lesson pattern (〜は どこですか · まっすぐ いって、みぎです · つぎの かどを ひだり): Where is the station?.",
+                "answer": "えきは どこですか。",
+                "skill_target": "Japanese: kana and kanji, particles は/が/を/に, です・ます politeness, verb-final order, counters and keigo"
+              },
+              {
+                "type": "word_selection",
+                "q": "Practice 8: [word selection] みちを きく — Select the Japanese form for “corner”.",
+                "answer": "かど",
+                "skill_target": "Japanese: kana and kanji, particles は/が/を/に, です・ます politeness, verb-final order, counters and keigo",
+                "options": [
+                  "かど",
+                  "しんごう"
+                ]
+              },
+              {
+                "type": "error_correction",
+                "q": "Practice 9: [error correction] みちを きく — Correct the model the lesson warns about: えき が どこですか。",
+                "answer": "えきは どこですか。",
+                "skill_target": "Japanese: kana and kanji, particles は/が/を/に, です・ます politeness, verb-final order, counters and keigo"
+              },
+              {
+                "type": "dialogue_completion",
+                "q": "Practice 10: [dialogue completion] みちを きく — Complete the exchange with the studied response to: Excuse me, where is the station?",
+                "answer": "まっすぐ いって、つぎの かどを みぎです。",
+                "skill_target": "Japanese: kana and kanji, particles は/が/を/に, です・ます politeness, verb-final order, counters and keigo"
+              },
+              {
+                "type": "reading_comprehension",
+                "q": "Practice 11: [reading comprehension] みちを きく — Read “しんごうは ありますか。” (Shingou wa arimasu ka.). What does it mean?",
+                "answer": "Is there a traffic light?",
+                "skill_target": "Japanese: kana and kanji, particles は/が/を/に, です・ます politeness, verb-final order, counters and keigo"
+              },
+              {
+                "type": "paragraph_comprehension",
+                "q": "Practice 12: [paragraph comprehension] みちを きく — Read the lesson dialogue as a whole and give its key move: Yes, next to the traffic light.",
+                "answer": "はい、しんごうの となりです。",
+                "skill_target": "Japanese: kana and kanji, particles は/が/を/に, です・ます politeness, verb-final order, counters and keigo"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "Which meaning best fits まっすぐ?",
+                "options": [
+                  "straight ahead",
+                  "right",
+                  "left",
+                  "corner"
+                ],
+                "answer": 0,
+                "why": "まっすぐ (massugu) means straight ahead in this lesson."
+              },
+              {
+                "q": "Which meaning best fits みぎ?",
+                "options": [
+                  "right",
+                  "straight ahead",
+                  "left",
+                  "corner"
+                ],
+                "answer": 0,
+                "why": "みぎ (migi) means right in this lesson."
+              },
+              {
+                "q": "Which meaning best fits ひだり?",
+                "options": [
+                  "left",
+                  "straight ahead",
+                  "right",
+                  "corner"
+                ],
+                "answer": 0,
+                "why": "ひだり (hidari) means left in this lesson."
+              },
+              {
+                "q": "Which meaning best fits かど?",
+                "options": [
+                  "corner",
+                  "straight ahead",
+                  "right",
+                  "left"
+                ],
+                "answer": 0,
+                "why": "かど (kado) means corner in this lesson."
+              },
+              {
+                "q": "Which meaning best fits しんごう?",
+                "options": [
+                  "traffic light",
+                  "straight ahead",
+                  "right",
+                  "left"
+                ],
+                "answer": 0,
+                "why": "しんごう (shingou) means traffic light in this lesson."
+              }
+            ],
+            "flashcards": "auto:vocab",
+            "worksheet": {
+              "title": "Directions worksheet",
+              "tasks": [
+                {
+                  "instruction": "Ask and answer.",
+                  "items": [
+                    "where is the station?",
+                    "go straight, then it is on the right"
+                  ],
+                  "key": [
+                    "えきは どこですか",
+                    "まっすぐ いって、みぎです"
+                  ]
+                },
+                {
+                  "instruction": "Give the turn.",
+                  "items": [
+                    "turn left at the next corner",
+                    "next to the traffic light"
+                  ],
+                  "key": [
+                    "つぎの かどを ひだりに まがります",
+                    "しんごうの となりです"
+                  ]
+                },
+                {
+                  "instruction": "Integrated offline practice: read the first model, transform or extend it in Japanese script, then rehearse it as a dialogue. Self-check meaning, grammar, and register.",
+                  "items": [
+                    "えきは どこですか。",
+                    "すみません、えきは どこですか。"
+                  ],
+                  "key": [
+                    "Where is the station?",
+                    "Excuse me, where is the station?"
+                  ]
+                }
+              ]
+            },
+            "srs_candidates": [
+              "まっすぐ",
+              "みぎ",
+              "ひだり",
+              "かど"
+            ],
+            "srs_policy": "Only these four high-value terms are preselected; lesson mistakes and productive patterns may enter personalized review after an actual error."
+          },
+          {
+            "id": "A1+-U1-L2",
+            "title": "みせで きく",
+            "learn": "Shops are asked for by kind, not by name: ぎんこう、ゆうびんきょく、コンビニ. ちかく です (nearby) and となり (next door) answer most questions.",
+            "vocab": [
+              {
+                "t": "ぎんこう",
+                "r": "ginkou",
+                "en": "bank",
+                "pos": "noun"
+              },
+              {
+                "t": "ゆうびんきょく",
+                "r": "yuubinkyoku",
+                "en": "post office",
+                "pos": "noun"
+              },
+              {
+                "t": "ちかく",
+                "r": "chikaku",
+                "en": "nearby",
+                "pos": "noun"
+              },
+              {
+                "t": "となり",
+                "r": "tonari",
+                "en": "next door, next to",
+                "pos": "noun"
+              },
+              {
+                "t": "むかい",
+                "r": "mukai",
+                "en": "opposite side",
+                "pos": "noun"
+              }
+            ],
+            "grammar": {
+              "title": "Finding a place",
+              "pattern": "この ちかくに 〜は ありますか · となりに あります · むかいに あります",
+              "explain": "Existence is asked with ありますか, and the position words take に: となりに あります. The shop kind is the topic and takes は — this ちかくに ぎんこうは ありますか.",
+              "examples": [
+                {
+                  "t": "この ちかくに ぎんこうは ありますか。",
+                  "r": "Kono chikaku ni ginkou wa arimasu ka.",
+                  "en": "Is there a bank near here?"
+                },
+                {
+                  "t": "ゆうびんきょくは むかいに あります。",
+                  "r": "Yuubinkyoku wa mukai ni arimasu.",
+                  "en": "The post office is opposite."
+                },
+                {
+                  "t": "コンビニは となりです。",
+                  "r": "Konbini wa tonari desu.",
+                  "en": "The convenience store is next door."
+                }
+              ],
+              "mistakes": [
+                {
+                  "wrong": "ちかく で ぎんこう が ありますか。",
+                  "right": "この ちかくに ぎんこうは ありますか。",
+                  "why": "Existence takes に, not で."
+                },
+                {
+                  "wrong": "となり は あります。",
+                  "right": "となりに あります。",
+                  "why": "A position takes に before the verb of existence."
+                }
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "たろう",
+                "t": "この ちかくに ぎんこうは ありますか。",
+                "r": "Kono chikaku ni ginkou wa arimasu ka.",
+                "en": "Is there a bank near here?"
+              },
+              {
+                "sp": "ゆき",
+                "t": "はい、むかいに あります。",
+                "r": "Hai, mukai ni arimasu.",
+                "en": "Yes, it is opposite."
+              },
+              {
+                "sp": "たろう",
+                "t": "ゆうびんきょくは。",
+                "r": "Yuubinkyoku wa.",
+                "en": "And the post office?"
+              },
+              {
+                "sp": "ゆき",
+                "t": "ゆうびんきょくは となりです。",
+                "r": "Yuubinkyoku wa tonari desu.",
+                "en": "The post office is next door."
+              }
+            ],
+            "practice": [
+              {
+                "type": "multiple_choice",
+                "q": "Practice 1: [multiple choice] みせで きく — Choose the meaning of ぎんこう (ginkou) in this lesson.",
+                "answer": "bank",
+                "skill_target": "Japanese: kana and kanji, particles は/が/を/に, です・ます politeness, verb-final order, counters and keigo",
+                "options": [
+                  "bank",
+                  "post office",
+                  "nearby",
+                  "next door, next to"
+                ]
+              },
+              {
+                "type": "fill_in_the_blank",
+                "q": "Practice 2: [fill in the blank] みせで きく — Type the Japanese expression meaning “post office”.",
+                "answer": "ゆうびんきょく",
+                "skill_target": "Japanese: kana and kanji, particles は/が/を/に, です・ます politeness, verb-final order, counters and keigo"
+              },
+              {
+                "type": "translation",
+                "q": "Practice 3: [translation] みせで きく — Interpret the Japanese script in context: この ちかくに ぎんこうは ありますか。 (Kono chikaku ni ginkou wa arimasu ka.).",
+                "answer": "Is there a bank near here?",
+                "skill_target": "Japanese: kana and kanji, particles は/が/を/に, です・ます politeness, verb-final order, counters and keigo"
+              },
+              {
+                "type": "reverse_translation",
+                "q": "Practice 4: [reverse translation] みせで きく — Write in Japanese script: The post office is opposite..",
+                "answer": "ゆうびんきょくは むかいに あります。",
+                "skill_target": "Japanese: kana and kanji, particles は/が/を/に, です・ます politeness, verb-final order, counters and keigo"
+              },
+              {
+                "type": "matching",
+                "q": "Practice 5: [matching] みせで きく — Match ちかく to its lesson meaning.",
+                "answer": "nearby",
+                "skill_target": "Japanese: kana and kanji, particles は/が/を/に, です・ます politeness, verb-final order, counters and keigo",
+                "options": [
+                  "nearby",
+                  "bank",
+                  "post office"
+                ]
+              },
+              {
+                "type": "reorder",
+                "q": "Practice 6: [reorder] みせで きく — Reconstruct the lesson model in coherent Japanese: The convenience store is next door..",
+                "answer": "コンビニは となりです。",
+                "skill_target": "Japanese: kana and kanji, particles は/が/を/に, です・ます politeness, verb-final order, counters and keigo"
+              },
+              {
+                "type": "sentence_building",
+                "q": "Practice 7: [sentence building] みせで きく — Build the sentence with the lesson pattern (この ちかくに 〜は ありますか · となりに あります · むかいに あります): Is there a bank near here?.",
+                "answer": "この ちかくに ぎんこうは ありますか。",
+                "skill_target": "Japanese: kana and kanji, particles は/が/を/に, です・ます politeness, verb-final order, counters and keigo"
+              },
+              {
+                "type": "word_selection",
+                "q": "Practice 8: [word selection] みせで きく — Select the Japanese form for “next door, next to”.",
+                "answer": "となり",
+                "skill_target": "Japanese: kana and kanji, particles は/が/を/に, です・ます politeness, verb-final order, counters and keigo",
+                "options": [
+                  "となり",
+                  "むかい"
+                ]
+              },
+              {
+                "type": "error_correction",
+                "q": "Practice 9: [error correction] みせで きく — Correct the model the lesson warns about: ちかく で ぎんこう が ありますか。",
+                "answer": "この ちかくに ぎんこうは ありますか。",
+                "skill_target": "Japanese: kana and kanji, particles は/が/を/に, です・ます politeness, verb-final order, counters and keigo"
+              },
+              {
+                "type": "dialogue_completion",
+                "q": "Practice 10: [dialogue completion] みせで きく — Complete the exchange with the studied response to: Is there a bank near here?",
+                "answer": "はい、むかいに あります。",
+                "skill_target": "Japanese: kana and kanji, particles は/が/を/に, です・ます politeness, verb-final order, counters and keigo"
+              },
+              {
+                "type": "reading_comprehension",
+                "q": "Practice 11: [reading comprehension] みせで きく — Read “ゆうびんきょくは。” (Yuubinkyoku wa.). What does it mean?",
+                "answer": "And the post office?",
+                "skill_target": "Japanese: kana and kanji, particles は/が/を/に, です・ます politeness, verb-final order, counters and keigo"
+              },
+              {
+                "type": "paragraph_comprehension",
+                "q": "Practice 12: [paragraph comprehension] みせで きく — Read the lesson dialogue as a whole and give its key move: The post office is next door.",
+                "answer": "ゆうびんきょくは となりです。",
+                "skill_target": "Japanese: kana and kanji, particles は/が/を/に, です・ます politeness, verb-final order, counters and keigo"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "Which meaning best fits ぎんこう?",
+                "options": [
+                  "bank",
+                  "post office",
+                  "nearby",
+                  "next door, next to"
+                ],
+                "answer": 0,
+                "why": "ぎんこう (ginkou) means bank in this lesson."
+              },
+              {
+                "q": "Which meaning best fits ゆうびんきょく?",
+                "options": [
+                  "post office",
+                  "bank",
+                  "nearby",
+                  "next door, next to"
+                ],
+                "answer": 0,
+                "why": "ゆうびんきょく (yuubinkyoku) means post office in this lesson."
+              },
+              {
+                "q": "Which meaning best fits ちかく?",
+                "options": [
+                  "nearby",
+                  "bank",
+                  "post office",
+                  "next door, next to"
+                ],
+                "answer": 0,
+                "why": "ちかく (chikaku) means nearby in this lesson."
+              },
+              {
+                "q": "Which meaning best fits となり?",
+                "options": [
+                  "next door, next to",
+                  "bank",
+                  "post office",
+                  "nearby"
+                ],
+                "answer": 0,
+                "why": "となり (tonari) means next door, next to in this lesson."
+              },
+              {
+                "q": "Which meaning best fits むかい?",
+                "options": [
+                  "opposite side",
+                  "bank",
+                  "post office",
+                  "nearby"
+                ],
+                "answer": 0,
+                "why": "むかい (mukai) means opposite side in this lesson."
+              }
+            ],
+            "flashcards": "auto:vocab",
+            "worksheet": {
+              "title": "Shops worksheet",
+              "tasks": [
+                {
+                  "instruction": "Ask what exists.",
+                  "items": [
+                    "is there a bank near here?",
+                    "the post office is opposite"
+                  ],
+                  "key": [
+                    "この ちかくに ぎんこうは ありますか",
+                    "ゆうびんきょくは むかいに あります"
+                  ]
+                },
+                {
+                  "instruction": "Point it out.",
+                  "items": [
+                    "the convenience store is next door",
+                    "and the post office?"
+                  ],
+                  "key": [
+                    "コンビニは となりです",
+                    "ゆうびんきょくは"
+                  ]
+                },
+                {
+                  "instruction": "Integrated offline practice: read the first model, transform or extend it in Japanese script, then rehearse it as a dialogue. Self-check meaning, grammar, and register.",
+                  "items": [
+                    "この ちかくに ぎんこうは ありますか。",
+                    "この ちかくに ぎんこうは ありますか。"
+                  ],
+                  "key": [
+                    "Is there a bank near here?",
+                    "Is there a bank near here?"
+                  ]
+                }
+              ]
+            },
+            "srs_candidates": [
+              "ぎんこう",
+              "ゆうびんきょく",
+              "ちかく",
+              "となり"
+            ],
+            "srs_policy": "Only these four high-value terms are preselected; lesson mistakes and productive patterns may enter personalized review after an actual error."
+          },
+          {
+            "id": "A1+-U1-L3",
+            "title": "でんわばんごう",
+            "learn": "Numbers are read digit by digit with の between groups, and a request to hear it again takes もういちど おねがいします. ばんごう means number of any kind.",
+            "vocab": [
+              {
+                "t": "ばんごう",
+                "r": "bangou",
+                "en": "number",
+                "pos": "noun"
+              },
+              {
+                "t": "もういちど",
+                "r": "mou ichido",
+                "en": "once more",
+                "pos": "adverb"
+              },
+              {
+                "t": "ゆっくり",
+                "r": "yukkuri",
+                "en": "slowly",
+                "pos": "adverb"
+              },
+              {
+                "t": "ききます",
+                "r": "kikimasu",
+                "en": "to ask, to listen",
+                "pos": "verb"
+              },
+              {
+                "t": "おしえます",
+                "r": "oshiemasu",
+                "en": "to tell, to teach",
+                "pos": "verb"
+              }
+            ],
+            "grammar": {
+              "title": "Numbers and repeats",
+              "pattern": "ばんごうは なんばんですか · さん-いち-よん の に-ろく · もういちど おねがいします",
+              "explain": "Digits are strung with の between blocks, and every request for repetition is softened with おねがいします. ゆっくり おねがいします is the phrase that keeps a phone call alive.",
+              "examples": [
+                {
+                  "t": "でんわばんごうは なんばんですか。",
+                  "r": "Denwa bangou wa nanban desu ka.",
+                  "en": "What is the telephone number?"
+                },
+                {
+                  "t": "ゆっくり おねがいします。",
+                  "r": "Yukkuri onegaishimasu.",
+                  "en": "Slowly, please."
+                },
+                {
+                  "t": "もういちど きいても いいですか。",
+                  "r": "Mou ichido kiite mo ii desu ka.",
+                  "en": "May I ask once more?"
+                }
+              ],
+              "mistakes": [
+                {
+                  "wrong": "ばんごう を きいて ください です。",
+                  "right": "ばんごうを きいて ください。",
+                  "why": "ください ends the request."
+                },
+                {
+                  "wrong": "もういちど おねがいします を します。",
+                  "right": "もういちど おねがいします。",
+                  "why": "おねがいします is the whole request."
+                }
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "ゆき",
+                "t": "でんわばんごうは なんばんですか。",
+                "r": "Denwa bangou wa nanban desu ka.",
+                "en": "What is the telephone number?"
+              },
+              {
+                "sp": "たろう",
+                "t": "さん-いち-よん の に-ろく-ゼロ-はち です。",
+                "r": "San-ichi-yon no ni-roku-zero-hachi desu.",
+                "en": "It is 314-2608."
+              },
+              {
+                "sp": "ゆき",
+                "t": "すみません、ゆっくり おねがいします。",
+                "r": "Sumimasen, yukkuri onegaishimasu.",
+                "en": "Sorry, slowly, please."
+              },
+              {
+                "sp": "たろう",
+                "t": "はい。さん-いち-よん の に-ろく-ゼロ-はち。",
+                "r": "Hai. San-ichi-yon no ni-roku-zero-hachi.",
+                "en": "Yes. 314-2608."
+              }
+            ],
+            "practice": [
+              {
+                "type": "multiple_choice",
+                "q": "Practice 1: [multiple choice] でんわばんごう — Choose the meaning of ばんごう (bangou) in this lesson.",
+                "answer": "number",
+                "skill_target": "Japanese: kana and kanji, particles は/が/を/に, です・ます politeness, verb-final order, counters and keigo",
+                "options": [
+                  "number",
+                  "once more",
+                  "slowly",
+                  "to ask, to listen"
+                ]
+              },
+              {
+                "type": "fill_in_the_blank",
+                "q": "Practice 2: [fill in the blank] でんわばんごう — Type the Japanese expression meaning “once more”.",
+                "answer": "もういちど",
+                "skill_target": "Japanese: kana and kanji, particles は/が/を/に, です・ます politeness, verb-final order, counters and keigo"
+              },
+              {
+                "type": "translation",
+                "q": "Practice 3: [translation] でんわばんごう — Interpret the Japanese script in context: でんわばんごうは なんばんですか。 (Denwa bangou wa nanban desu ka.).",
+                "answer": "What is the telephone number?",
+                "skill_target": "Japanese: kana and kanji, particles は/が/を/に, です・ます politeness, verb-final order, counters and keigo"
+              },
+              {
+                "type": "reverse_translation",
+                "q": "Practice 4: [reverse translation] でんわばんごう — Write in Japanese script: Slowly, please..",
+                "answer": "ゆっくり おねがいします。",
+                "skill_target": "Japanese: kana and kanji, particles は/が/を/に, です・ます politeness, verb-final order, counters and keigo"
+              },
+              {
+                "type": "matching",
+                "q": "Practice 5: [matching] でんわばんごう — Match ゆっくり to its lesson meaning.",
+                "answer": "slowly",
+                "skill_target": "Japanese: kana and kanji, particles は/が/を/に, です・ます politeness, verb-final order, counters and keigo",
+                "options": [
+                  "slowly",
+                  "number",
+                  "once more"
+                ]
+              },
+              {
+                "type": "reorder",
+                "q": "Practice 6: [reorder] でんわばんごう — Reconstruct the lesson model in coherent Japanese: May I ask once more?.",
+                "answer": "もういちど きいても いいですか。",
+                "skill_target": "Japanese: kana and kanji, particles は/が/を/に, です・ます politeness, verb-final order, counters and keigo"
+              },
+              {
+                "type": "sentence_building",
+                "q": "Practice 7: [sentence building] でんわばんごう — Build the sentence with the lesson pattern (ばんごうは なんばんですか · さん-いち-よん の に-ろく · もういちど おねがいします): What is the telephone number?.",
+                "answer": "でんわばんごうは なんばんですか。",
+                "skill_target": "Japanese: kana and kanji, particles は/が/を/に, です・ます politeness, verb-final order, counters and keigo"
+              },
+              {
+                "type": "word_selection",
+                "q": "Practice 8: [word selection] でんわばんごう — Select the Japanese form for “to ask, to listen”.",
+                "answer": "ききます",
+                "skill_target": "Japanese: kana and kanji, particles は/が/を/に, です・ます politeness, verb-final order, counters and keigo",
+                "options": [
+                  "ききます",
+                  "おしえます"
+                ]
+              },
+              {
+                "type": "error_correction",
+                "q": "Practice 9: [error correction] でんわばんごう — Correct the model the lesson warns about: ばんごう を きいて ください です。",
+                "answer": "ばんごうを きいて ください。",
+                "skill_target": "Japanese: kana and kanji, particles は/が/を/に, です・ます politeness, verb-final order, counters and keigo"
+              },
+              {
+                "type": "dialogue_completion",
+                "q": "Practice 10: [dialogue completion] でんわばんごう — Complete the exchange with the studied response to: What is the telephone number?",
+                "answer": "さん-いち-よん の に-ろく-ゼロ-はち です。",
+                "skill_target": "Japanese: kana and kanji, particles は/が/を/に, です・ます politeness, verb-final order, counters and keigo"
+              },
+              {
+                "type": "reading_comprehension",
+                "q": "Practice 11: [reading comprehension] でんわばんごう — Read “すみません、ゆっくり おねがいします。” (Sumimasen, yukkuri onegaishimasu.). What does it mean?",
+                "answer": "Sorry, slowly, please.",
+                "skill_target": "Japanese: kana and kanji, particles は/が/を/に, です・ます politeness, verb-final order, counters and keigo"
+              },
+              {
+                "type": "paragraph_comprehension",
+                "q": "Practice 12: [paragraph comprehension] でんわばんごう — Read the lesson dialogue as a whole and give its key move: Yes. 314-2608.",
+                "answer": "はい。さん-いち-よん の に-ろく-ゼロ-はち。",
+                "skill_target": "Japanese: kana and kanji, particles は/が/を/に, です・ます politeness, verb-final order, counters and keigo"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "Which meaning best fits ばんごう?",
+                "options": [
+                  "number",
+                  "once more",
+                  "slowly",
+                  "to ask, to listen"
+                ],
+                "answer": 0,
+                "why": "ばんごう (bangou) means number in this lesson."
+              },
+              {
+                "q": "Which meaning best fits もういちど?",
+                "options": [
+                  "once more",
+                  "number",
+                  "slowly",
+                  "to ask, to listen"
+                ],
+                "answer": 0,
+                "why": "もういちど (mou ichido) means once more in this lesson."
+              },
+              {
+                "q": "Which meaning best fits ゆっくり?",
+                "options": [
+                  "slowly",
+                  "number",
+                  "once more",
+                  "to ask, to listen"
+                ],
+                "answer": 0,
+                "why": "ゆっくり (yukkuri) means slowly in this lesson."
+              },
+              {
+                "q": "Which meaning best fits ききます?",
+                "options": [
+                  "to ask, to listen",
+                  "number",
+                  "once more",
+                  "slowly"
+                ],
+                "answer": 0,
+                "why": "ききます (kikimasu) means to ask, to listen in this lesson."
+              },
+              {
+                "q": "Which meaning best fits おしえます?",
+                "options": [
+                  "to tell, to teach",
+                  "number",
+                  "once more",
+                  "slowly"
+                ],
+                "answer": 0,
+                "why": "おしえます (oshiemasu) means to tell, to teach in this lesson."
+              }
+            ],
+            "flashcards": "auto:vocab",
+            "worksheet": {
+              "title": "Numbers worksheet",
+              "tasks": [
+                {
+                  "instruction": "Ask for the number.",
+                  "items": [
+                    "what is the telephone number?",
+                    "slowly, please"
+                  ],
+                  "key": [
+                    "でんわばんごうは なんばんですか",
+                    "ゆっくり おねがいします"
+                  ]
+                },
+                {
+                  "instruction": "Ask for a repeat.",
+                  "items": [
+                    "may I ask once more?",
+                    "it is 314-2608"
+                  ],
+                  "key": [
+                    "もういちど きいても いいですか",
+                    "さん-いち-よん の に-ろく-ゼロ-はち です"
+                  ]
+                },
+                {
+                  "instruction": "Integrated offline practice: read the first model, transform or extend it in Japanese script, then rehearse it as a dialogue. Self-check meaning, grammar, and register.",
+                  "items": [
+                    "でんわばんごうは なんばんですか。",
+                    "でんわばんごうは なんばんですか。"
+                  ],
+                  "key": [
+                    "What is the telephone number?",
+                    "What is the telephone number?"
+                  ]
+                }
+              ]
+            },
+            "srs_candidates": [
+              "ばんごう",
+              "もういちど",
+              "ゆっくり",
+              "ききます"
+            ],
+            "srs_policy": "Only these four high-value terms are preselected; lesson mistakes and productive patterns may enter personalized review after an actual error."
+          }
+        ]
+      },
+      {
+        "id": "A1+-U2",
+        "title": "じかんを まもる",
+        "lessons": [
+          {
+            "id": "A1+-U2-L1",
+            "title": "よやくする",
+            "learn": "A booking names the time first and the request second: あしたの さんじに、よやくを おねがいします. 〜に marks the time and よやく covers every kind of reservation.",
+            "vocab": [
+              {
+                "t": "よやく",
+                "r": "yoyaku",
+                "en": "booking, reservation",
+                "pos": "noun"
+              },
+              {
+                "t": "あいて います",
+                "r": "aite imasu",
+                "en": "is free, is open",
+                "pos": "phrase"
+              },
+              {
+                "t": "つごう",
+                "r": "tsugou",
+                "en": "convenience",
+                "pos": "noun"
+              },
+              {
+                "t": "おねがいします",
+                "r": "onegaishimasu",
+                "en": "please (I would like)",
+                "pos": "phrase"
+              },
+              {
+                "t": "なんじから",
+                "r": "nanji kara",
+                "en": "from what time",
+                "pos": "phrase"
+              }
+            ],
+            "grammar": {
+              "title": "Booking a time",
+              "pattern": "あしたの さんじに おねがいします · 〜は あいて いますか · なんじから ですか",
+              "explain": "The time takes に, the day takes の, and the request closes the sentence. Availability is asked with あいて いますか — a verb, not an adjective.",
+              "examples": [
+                {
+                  "t": "あしたの さんじに おねがいします。",
+                  "r": "Ashita no sanji ni onegaishimasu.",
+                  "en": "Tomorrow at three, please."
+                },
+                {
+                  "t": "にじは あいて いますか。",
+                  "r": "Niji wa aite imasu ka.",
+                  "en": "Is two o'clock free?"
+                },
+                {
+                  "t": "なんじから ですか。",
+                  "r": "Nanji kara desu ka.",
+                  "en": "From what time?"
+                }
+              ],
+              "mistakes": [
+                {
+                  "wrong": "あした さんじ おねがいします に。",
+                  "right": "あしたの さんじに おねがいします。",
+                  "why": "The time phrase stands before the request, with に."
+                },
+                {
+                  "wrong": "さんじ が あいて います です。",
+                  "right": "さんじは あいて いますか。",
+                  "why": "A question closes with か; です does not follow it."
+                }
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "ゆき",
+                "t": "あしたの さんじに おねがいします。",
+                "r": "Ashita no sanji ni onegaishimasu.",
+                "en": "Tomorrow at three, please."
+              },
+              {
+                "sp": "たろう",
+                "t": "はい。さんじは あいて います。",
+                "r": "Hai. Sanji wa aite imasu.",
+                "en": "Yes. Three o'clock is free."
+              },
+              {
+                "sp": "ゆき",
+                "t": "なんじまでですか。",
+                "r": "Nanji made desu ka.",
+                "en": "Until what time?"
+              },
+              {
+                "sp": "たろう",
+                "t": "ごじまで です。",
+                "r": "Goji made desu.",
+                "en": "Until five."
+              }
+            ],
+            "practice": [
+              {
+                "type": "multiple_choice",
+                "q": "Practice 1: [multiple choice] よやくする — Choose the meaning of よやく (yoyaku) in this lesson.",
+                "answer": "booking, reservation",
+                "skill_target": "Japanese: kana and kanji, particles は/が/を/に, です・ます politeness, verb-final order, counters and keigo",
+                "options": [
+                  "booking, reservation",
+                  "is free, is open",
+                  "convenience",
+                  "please (I would like)"
+                ]
+              },
+              {
+                "type": "fill_in_the_blank",
+                "q": "Practice 2: [fill in the blank] よやくする — Type the Japanese expression meaning “is free, is open”.",
+                "answer": "あいて います",
+                "skill_target": "Japanese: kana and kanji, particles は/が/を/に, です・ます politeness, verb-final order, counters and keigo"
+              },
+              {
+                "type": "translation",
+                "q": "Practice 3: [translation] よやくする — Interpret the Japanese script in context: あしたの さんじに おねがいします。 (Ashita no sanji ni onegaishimasu.).",
+                "answer": "Tomorrow at three, please.",
+                "skill_target": "Japanese: kana and kanji, particles は/が/を/に, です・ます politeness, verb-final order, counters and keigo"
+              },
+              {
+                "type": "reverse_translation",
+                "q": "Practice 4: [reverse translation] よやくする — Write in Japanese script: Is two o'clock free?.",
+                "answer": "にじは あいて いますか。",
+                "skill_target": "Japanese: kana and kanji, particles は/が/を/に, です・ます politeness, verb-final order, counters and keigo"
+              },
+              {
+                "type": "matching",
+                "q": "Practice 5: [matching] よやくする — Match つごう to its lesson meaning.",
+                "answer": "convenience",
+                "skill_target": "Japanese: kana and kanji, particles は/が/を/に, です・ます politeness, verb-final order, counters and keigo",
+                "options": [
+                  "convenience",
+                  "booking, reservation",
+                  "is free, is open"
+                ]
+              },
+              {
+                "type": "reorder",
+                "q": "Practice 6: [reorder] よやくする — Reconstruct the lesson model in coherent Japanese: From what time?.",
+                "answer": "なんじから ですか。",
+                "skill_target": "Japanese: kana and kanji, particles は/が/を/に, です・ます politeness, verb-final order, counters and keigo"
+              },
+              {
+                "type": "sentence_building",
+                "q": "Practice 7: [sentence building] よやくする — Build the sentence with the lesson pattern (あしたの さんじに おねがいします · 〜は あいて いますか · なんじから ですか): Tomorrow at three, please..",
+                "answer": "あしたの さんじに おねがいします。",
+                "skill_target": "Japanese: kana and kanji, particles は/が/を/に, です・ます politeness, verb-final order, counters and keigo"
+              },
+              {
+                "type": "word_selection",
+                "q": "Practice 8: [word selection] よやくする — Select the Japanese form for “please (I would like)”.",
+                "answer": "おねがいします",
+                "skill_target": "Japanese: kana and kanji, particles は/が/を/に, です・ます politeness, verb-final order, counters and keigo",
+                "options": [
+                  "おねがいします",
+                  "なんじから"
+                ]
+              },
+              {
+                "type": "error_correction",
+                "q": "Practice 9: [error correction] よやくする — Correct the model the lesson warns about: あした さんじ おねがいします に。",
+                "answer": "あしたの さんじに おねがいします。",
+                "skill_target": "Japanese: kana and kanji, particles は/が/を/に, です・ます politeness, verb-final order, counters and keigo"
+              },
+              {
+                "type": "dialogue_completion",
+                "q": "Practice 10: [dialogue completion] よやくする — Complete the exchange with the studied response to: Tomorrow at three, please.",
+                "answer": "はい。さんじは あいて います。",
+                "skill_target": "Japanese: kana and kanji, particles は/が/を/に, です・ます politeness, verb-final order, counters and keigo"
+              },
+              {
+                "type": "reading_comprehension",
+                "q": "Practice 11: [reading comprehension] よやくする — Read “なんじまでですか。” (Nanji made desu ka.). What does it mean?",
+                "answer": "Until what time?",
+                "skill_target": "Japanese: kana and kanji, particles は/が/を/に, です・ます politeness, verb-final order, counters and keigo"
+              },
+              {
+                "type": "paragraph_comprehension",
+                "q": "Practice 12: [paragraph comprehension] よやくする — Read the lesson dialogue as a whole and give its key move: Until five.",
+                "answer": "ごじまで です。",
+                "skill_target": "Japanese: kana and kanji, particles は/が/を/に, です・ます politeness, verb-final order, counters and keigo"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "Which meaning best fits よやく?",
+                "options": [
+                  "booking, reservation",
+                  "is free, is open",
+                  "convenience",
+                  "please (I would like)"
+                ],
+                "answer": 0,
+                "why": "よやく (yoyaku) means booking, reservation in this lesson."
+              },
+              {
+                "q": "Which meaning best fits あいて います?",
+                "options": [
+                  "is free, is open",
+                  "booking, reservation",
+                  "convenience",
+                  "please (I would like)"
+                ],
+                "answer": 0,
+                "why": "あいて います (aite imasu) means is free, is open in this lesson."
+              },
+              {
+                "q": "Which meaning best fits つごう?",
+                "options": [
+                  "convenience",
+                  "booking, reservation",
+                  "is free, is open",
+                  "please (I would like)"
+                ],
+                "answer": 0,
+                "why": "つごう (tsugou) means convenience in this lesson."
+              },
+              {
+                "q": "Which meaning best fits おねがいします?",
+                "options": [
+                  "please (I would like)",
+                  "booking, reservation",
+                  "is free, is open",
+                  "convenience"
+                ],
+                "answer": 0,
+                "why": "おねがいします (onegaishimasu) means please (I would like) in this lesson."
+              },
+              {
+                "q": "Which meaning best fits なんじから?",
+                "options": [
+                  "from what time",
+                  "booking, reservation",
+                  "is free, is open",
+                  "convenience"
+                ],
+                "answer": 0,
+                "why": "なんじから (nanji kara) means from what time in this lesson."
+              }
+            ],
+            "flashcards": "auto:vocab",
+            "worksheet": {
+              "title": "Booking worksheet",
+              "tasks": [
+                {
+                  "instruction": "Book the slot.",
+                  "items": [
+                    "tomorrow at three, please",
+                    "is two o'clock free?"
+                  ],
+                  "key": [
+                    "あしたの さんじに おねがいします",
+                    "にじは あいて いますか"
+                  ]
+                },
+                {
+                  "instruction": "Ask the span.",
+                  "items": [
+                    "from what time?",
+                    "until five"
+                  ],
+                  "key": [
+                    "なんじから ですか",
+                    "ごじまで です"
+                  ]
+                },
+                {
+                  "instruction": "Integrated offline practice: read the first model, transform or extend it in Japanese script, then rehearse it as a dialogue. Self-check meaning, grammar, and register.",
+                  "items": [
+                    "あしたの さんじに おねがいします。",
+                    "あしたの さんじに おねがいします。"
+                  ],
+                  "key": [
+                    "Tomorrow at three, please.",
+                    "Tomorrow at three, please."
+                  ]
+                }
+              ]
+            },
+            "srs_candidates": [
+              "よやく",
+              "あいて います",
+              "つごう",
+              "おねがいします"
+            ],
+            "srs_policy": "Only these four high-value terms are preselected; lesson mistakes and productive patterns may enter personalized review after an actual error."
+          },
+          {
+            "id": "A1+-U2-L2",
+            "title": "おくれて すみません",
+            "learn": "Being late is owned in the first sentence: おくれて すみません、いま 〜に います. The apology names the delay in minutes and the place you are standing.",
+            "vocab": [
+              {
+                "t": "おくれます",
+                "r": "okuremasu",
+                "en": "to be late",
+                "pos": "verb"
+              },
+              {
+                "t": "〜ふん",
+                "r": "~ fun",
+                "en": "… minutes",
+                "pos": "counter"
+              },
+              {
+                "t": "います",
+                "r": "imasu",
+                "en": "to be (a person), to exist",
+                "pos": "verb"
+              },
+              {
+                "t": "まちます",
+                "r": "machimasu",
+                "en": "to wait",
+                "pos": "verb"
+              },
+              {
+                "t": "すぐに",
+                "r": "sugu ni",
+                "en": "immediately",
+                "pos": "adverb"
+              }
+            ],
+            "grammar": {
+              "title": "Being late",
+              "pattern": "おくれて すみません · いま えきに います · あと 〜ふん です · すぐに いきます",
+              "explain": "おくれて すみません opens the message; the place takes に with います; the remaining time is stated with あと. Naming the minutes is what makes the apology usable.",
+              "examples": [
+                {
+                  "t": "おくれて すみません。",
+                  "r": "Okurete sumimasen.",
+                  "en": "Sorry for being late."
+                },
+                {
+                  "t": "いま えきに います。",
+                  "r": "Ima eki ni imasu.",
+                  "en": "I am at the station now."
+                },
+                {
+                  "t": "あと ごふん です。すぐに いきます。",
+                  "r": "Ato gofun desu. Sugu ni ikimasu.",
+                  "en": "Five more minutes. I am coming at once."
+                }
+              ],
+              "mistakes": [
+                {
+                  "wrong": "おくれます すみません。",
+                  "right": "おくれて すみません。",
+                  "why": "The apology takes the te-form: おくれて."
+                },
+                {
+                  "wrong": "えき で います。",
+                  "right": "えきに います。",
+                  "why": "A person's location takes に with います."
+                }
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "たろう",
+                "t": "もしもし、いま どこですか。",
+                "r": "Moshi moshi, ima doko desu ka.",
+                "en": "Hello, where are you now?"
+              },
+              {
+                "sp": "ゆき",
+                "t": "おくれて すみません。いま えきに います。",
+                "r": "Okurete sumimasen. Ima eki ni imasu.",
+                "en": "Sorry for being late. I am at the station now."
+              },
+              {
+                "sp": "たろう",
+                "t": "あと どのくらいですか。",
+                "r": "Ato dono kurai desu ka.",
+                "en": "How much longer?"
+              },
+              {
+                "sp": "ゆき",
+                "t": "あと ごふん です。すぐに いきます。",
+                "r": "Ato gofun desu. Sugu ni ikimasu.",
+                "en": "Five more minutes. I am coming at once."
+              }
+            ],
+            "practice": [
+              {
+                "type": "multiple_choice",
+                "q": "Practice 1: [multiple choice] おくれて すみません — Choose the meaning of おくれます (okuremasu) in this lesson.",
+                "answer": "to be late",
+                "skill_target": "Japanese: kana and kanji, particles は/が/を/に, です・ます politeness, verb-final order, counters and keigo",
+                "options": [
+                  "to be late",
+                  "… minutes",
+                  "to be (a person), to exist",
+                  "to wait"
+                ]
+              },
+              {
+                "type": "fill_in_the_blank",
+                "q": "Practice 2: [fill in the blank] おくれて すみません — Type the Japanese expression meaning “… minutes”.",
+                "answer": "〜ふん",
+                "skill_target": "Japanese: kana and kanji, particles は/が/を/に, です・ます politeness, verb-final order, counters and keigo"
+              },
+              {
+                "type": "translation",
+                "q": "Practice 3: [translation] おくれて すみません — Interpret the Japanese script in context: おくれて すみません。 (Okurete sumimasen.).",
+                "answer": "Sorry for being late.",
+                "skill_target": "Japanese: kana and kanji, particles は/が/を/に, です・ます politeness, verb-final order, counters and keigo"
+              },
+              {
+                "type": "reverse_translation",
+                "q": "Practice 4: [reverse translation] おくれて すみません — Write in Japanese script: I am at the station now..",
+                "answer": "いま えきに います。",
+                "skill_target": "Japanese: kana and kanji, particles は/が/を/に, です・ます politeness, verb-final order, counters and keigo"
+              },
+              {
+                "type": "matching",
+                "q": "Practice 5: [matching] おくれて すみません — Match います to its lesson meaning.",
+                "answer": "to be (a person), to exist",
+                "skill_target": "Japanese: kana and kanji, particles は/が/を/に, です・ます politeness, verb-final order, counters and keigo",
+                "options": [
+                  "to be (a person), to exist",
+                  "to be late",
+                  "… minutes"
+                ]
+              },
+              {
+                "type": "reorder",
+                "q": "Practice 6: [reorder] おくれて すみません — Reconstruct the lesson model in coherent Japanese: Five more minutes. I am coming at once..",
+                "answer": "あと ごふん です。すぐに いきます。",
+                "skill_target": "Japanese: kana and kanji, particles は/が/を/に, です・ます politeness, verb-final order, counters and keigo"
+              },
+              {
+                "type": "sentence_building",
+                "q": "Practice 7: [sentence building] おくれて すみません — Build the sentence with the lesson pattern (おくれて すみません · いま えきに います · あと 〜ふん です · すぐに いきます): Sorry for being late..",
+                "answer": "おくれて すみません。",
+                "skill_target": "Japanese: kana and kanji, particles は/が/を/に, です・ます politeness, verb-final order, counters and keigo"
+              },
+              {
+                "type": "word_selection",
+                "q": "Practice 8: [word selection] おくれて すみません — Select the Japanese form for “to wait”.",
+                "answer": "まちます",
+                "skill_target": "Japanese: kana and kanji, particles は/が/を/に, です・ます politeness, verb-final order, counters and keigo",
+                "options": [
+                  "まちます",
+                  "すぐに"
+                ]
+              },
+              {
+                "type": "error_correction",
+                "q": "Practice 9: [error correction] おくれて すみません — Correct the model the lesson warns about: おくれます すみません。",
+                "answer": "おくれて すみません。",
+                "skill_target": "Japanese: kana and kanji, particles は/が/を/に, です・ます politeness, verb-final order, counters and keigo"
+              },
+              {
+                "type": "dialogue_completion",
+                "q": "Practice 10: [dialogue completion] おくれて すみません — Complete the exchange with the studied response to: Hello, where are you now?",
+                "answer": "おくれて すみません。いま えきに います。",
+                "skill_target": "Japanese: kana and kanji, particles は/が/を/に, です・ます politeness, verb-final order, counters and keigo"
+              },
+              {
+                "type": "reading_comprehension",
+                "q": "Practice 11: [reading comprehension] おくれて すみません — Read “あと どのくらいですか。” (Ato dono kurai desu ka.). What does it mean?",
+                "answer": "How much longer?",
+                "skill_target": "Japanese: kana and kanji, particles は/が/を/に, です・ます politeness, verb-final order, counters and keigo"
+              },
+              {
+                "type": "paragraph_comprehension",
+                "q": "Practice 12: [paragraph comprehension] おくれて すみません — Read the lesson dialogue as a whole and give its key move: Five more minutes. I am coming at once.",
+                "answer": "あと ごふん です。すぐに いきます。",
+                "skill_target": "Japanese: kana and kanji, particles は/が/を/に, です・ます politeness, verb-final order, counters and keigo"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "Which meaning best fits おくれます?",
+                "options": [
+                  "to be late",
+                  "… minutes",
+                  "to be (a person), to exist",
+                  "to wait"
+                ],
+                "answer": 0,
+                "why": "おくれます (okuremasu) means to be late in this lesson."
+              },
+              {
+                "q": "Which meaning best fits 〜ふん?",
+                "options": [
+                  "… minutes",
+                  "to be late",
+                  "to be (a person), to exist",
+                  "to wait"
+                ],
+                "answer": 0,
+                "why": "〜ふん (~ fun) means … minutes in this lesson."
+              },
+              {
+                "q": "Which meaning best fits います?",
+                "options": [
+                  "to be (a person), to exist",
+                  "to be late",
+                  "… minutes",
+                  "to wait"
+                ],
+                "answer": 0,
+                "why": "います (imasu) means to be (a person), to exist in this lesson."
+              },
+              {
+                "q": "Which meaning best fits まちます?",
+                "options": [
+                  "to wait",
+                  "to be late",
+                  "… minutes",
+                  "to be (a person), to exist"
+                ],
+                "answer": 0,
+                "why": "まちます (machimasu) means to wait in this lesson."
+              },
+              {
+                "q": "Which meaning best fits すぐに?",
+                "options": [
+                  "immediately",
+                  "to be late",
+                  "… minutes",
+                  "to be (a person), to exist"
+                ],
+                "answer": 0,
+                "why": "すぐに (sugu ni) means immediately in this lesson."
+              }
+            ],
+            "flashcards": "auto:vocab",
+            "worksheet": {
+              "title": "Late worksheet",
+              "tasks": [
+                {
+                  "instruction": "Own the delay.",
+                  "items": [
+                    "sorry for being late",
+                    "I am at the station now"
+                  ],
+                  "key": [
+                    "おくれて すみません",
+                    "いま えきに います"
+                  ]
+                },
+                {
+                  "instruction": "Give the time left.",
+                  "items": [
+                    "five more minutes",
+                    "I am coming at once"
+                  ],
+                  "key": [
+                    "あと ごふん です",
+                    "すぐに いきます"
+                  ]
+                },
+                {
+                  "instruction": "Integrated offline practice: read the first model, transform or extend it in Japanese script, then rehearse it as a dialogue. Self-check meaning, grammar, and register.",
+                  "items": [
+                    "おくれて すみません。",
+                    "もしもし、いま どこですか。"
+                  ],
+                  "key": [
+                    "Sorry for being late.",
+                    "Hello, where are you now?"
+                  ]
+                }
+              ]
+            },
+            "srs_candidates": [
+              "おくれます",
+              "〜ふん",
+              "います",
+              "まちます"
+            ],
+            "srs_policy": "Only these four high-value terms are preselected; lesson mistakes and productive patterns may enter personalized review after an actual error."
+          },
+          {
+            "id": "A1+-U2-L3",
+            "title": "つぎの よてい",
+            "learn": "The next appointment is fixed with つぎは and いつが いいですか, and confirmed in the past of a decision: 〜に きめましょう. らいしゅう and こんしゅう do not take の.",
+            "vocab": [
+              {
+                "t": "つぎ",
+                "r": "tsugi",
+                "en": "next",
+                "pos": "noun"
+              },
+              {
+                "t": "らいしゅう",
+                "r": "raishuu",
+                "en": "next week",
+                "pos": "noun"
+              },
+              {
+                "t": "こんしゅう",
+                "r": "konshuu",
+                "en": "this week",
+                "pos": "noun"
+              },
+              {
+                "t": "きめます",
+                "r": "kimemasu",
+                "en": "to decide",
+                "pos": "verb"
+              },
+              {
+                "t": "いつが",
+                "r": "itsu ga",
+                "en": "which day/time (subject of a choice)",
+                "pos": "phrase"
+              }
+            ],
+            "grammar": {
+              "title": "Fixing the next time",
+              "pattern": "つぎは らいしゅうに しましょう · いつが いいですか · どようびに きめましょう",
+              "explain": "The choice question takes が with いい: いつが いいですか. The decision is announced with ましょう, and the day takes に: どようびに きめましょう.",
+              "examples": [
+                {
+                  "t": "つぎは らいしゅうに しましょう。",
+                  "r": "Tsugi wa raishuu ni shimashou.",
+                  "en": "Let us make it next week."
+                },
+                {
+                  "t": "いつが いいですか。",
+                  "r": "Itsu ga ii desu ka.",
+                  "en": "Which day is good?"
+                },
+                {
+                  "t": "どようびに きめましょう。",
+                  "r": "Doyoubi ni kimemashou.",
+                  "en": "Let us decide on Saturday."
+                }
+              ],
+              "mistakes": [
+                {
+                  "wrong": "つぎは らいしゅう を します。",
+                  "right": "つぎは らいしゅうに しましょう。",
+                  "why": "The plan takes にする, not を します."
+                },
+                {
+                  "wrong": "いつは いいですか。",
+                  "right": "いつが いいですか。",
+                  "why": "The chosen day takes が with いい."
+                }
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "たろう",
+                "t": "つぎは いつが いいですか。",
+                "r": "Tsugi wa itsu ga ii desu ka.",
+                "en": "When is good next time?"
+              },
+              {
+                "sp": "ゆき",
+                "t": "らいしゅうは どうですか。つごうが わるいです か。",
+                "r": "Raishuu wa dou desu ka. Tsugou ga warui desu ka.",
+                "en": "How about next week? Is it inconvenient?"
+              },
+              {
+                "sp": "たろう",
+                "t": "どようびなら だいじょうぶです。",
+                "r": "Doyoubi nara daijoubu desu.",
+                "en": "Saturday is fine."
+              },
+              {
+                "sp": "ゆき",
+                "t": "じゃ、どようびに きめましょう。",
+                "r": "Ja, doyoubi ni kimemashou.",
+                "en": "Then let us decide on Saturday."
+              }
+            ],
+            "practice": [
+              {
+                "type": "multiple_choice",
+                "q": "Practice 1: [multiple choice] つぎの よてい — Choose the meaning of つぎ (tsugi) in this lesson.",
+                "answer": "next",
+                "skill_target": "Japanese: kana and kanji, particles は/が/を/に, です・ます politeness, verb-final order, counters and keigo",
+                "options": [
+                  "next",
+                  "next week",
+                  "this week",
+                  "to decide"
+                ]
+              },
+              {
+                "type": "fill_in_the_blank",
+                "q": "Practice 2: [fill in the blank] つぎの よてい — Type the Japanese expression meaning “next week”.",
+                "answer": "らいしゅう",
+                "skill_target": "Japanese: kana and kanji, particles は/が/を/に, です・ます politeness, verb-final order, counters and keigo"
+              },
+              {
+                "type": "translation",
+                "q": "Practice 3: [translation] つぎの よてい — Interpret the Japanese script in context: つぎは らいしゅうに しましょう。 (Tsugi wa raishuu ni shimashou.).",
+                "answer": "Let us make it next week.",
+                "skill_target": "Japanese: kana and kanji, particles は/が/を/に, です・ます politeness, verb-final order, counters and keigo"
+              },
+              {
+                "type": "reverse_translation",
+                "q": "Practice 4: [reverse translation] つぎの よてい — Write in Japanese script: Which day is good?.",
+                "answer": "いつが いいですか。",
+                "skill_target": "Japanese: kana and kanji, particles は/が/を/に, です・ます politeness, verb-final order, counters and keigo"
+              },
+              {
+                "type": "matching",
+                "q": "Practice 5: [matching] つぎの よてい — Match こんしゅう to its lesson meaning.",
+                "answer": "this week",
+                "skill_target": "Japanese: kana and kanji, particles は/が/を/に, です・ます politeness, verb-final order, counters and keigo",
+                "options": [
+                  "this week",
+                  "next",
+                  "next week"
+                ]
+              },
+              {
+                "type": "reorder",
+                "q": "Practice 6: [reorder] つぎの よてい — Reconstruct the lesson model in coherent Japanese: Let us decide on Saturday..",
+                "answer": "どようびに きめましょう。",
+                "skill_target": "Japanese: kana and kanji, particles は/が/を/に, です・ます politeness, verb-final order, counters and keigo"
+              },
+              {
+                "type": "sentence_building",
+                "q": "Practice 7: [sentence building] つぎの よてい — Build the sentence with the lesson pattern (つぎは らいしゅうに しましょう · いつが いいですか · どようびに きめましょう): Let us make it next week..",
+                "answer": "つぎは らいしゅうに しましょう。",
+                "skill_target": "Japanese: kana and kanji, particles は/が/を/に, です・ます politeness, verb-final order, counters and keigo"
+              },
+              {
+                "type": "word_selection",
+                "q": "Practice 8: [word selection] つぎの よてい — Select the Japanese form for “to decide”.",
+                "answer": "きめます",
+                "skill_target": "Japanese: kana and kanji, particles は/が/を/に, です・ます politeness, verb-final order, counters and keigo",
+                "options": [
+                  "きめます",
+                  "いつが"
+                ]
+              },
+              {
+                "type": "error_correction",
+                "q": "Practice 9: [error correction] つぎの よてい — Correct the model the lesson warns about: つぎは らいしゅう を します。",
+                "answer": "つぎは らいしゅうに しましょう。",
+                "skill_target": "Japanese: kana and kanji, particles は/が/を/に, です・ます politeness, verb-final order, counters and keigo"
+              },
+              {
+                "type": "dialogue_completion",
+                "q": "Practice 10: [dialogue completion] つぎの よてい — Complete the exchange with the studied response to: When is good next time?",
+                "answer": "らいしゅうは どうですか。つごうが わるいです か。",
+                "skill_target": "Japanese: kana and kanji, particles は/が/を/に, です・ます politeness, verb-final order, counters and keigo"
+              },
+              {
+                "type": "reading_comprehension",
+                "q": "Practice 11: [reading comprehension] つぎの よてい — Read “どようびなら だいじょうぶです。” (Doyoubi nara daijoubu desu.). What does it mean?",
+                "answer": "Saturday is fine.",
+                "skill_target": "Japanese: kana and kanji, particles は/が/を/に, です・ます politeness, verb-final order, counters and keigo"
+              },
+              {
+                "type": "paragraph_comprehension",
+                "q": "Practice 12: [paragraph comprehension] つぎの よてい — Read the lesson dialogue as a whole and give its key move: Then let us decide on Saturday.",
+                "answer": "じゃ、どようびに きめましょう。",
+                "skill_target": "Japanese: kana and kanji, particles は/が/を/に, です・ます politeness, verb-final order, counters and keigo"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "Which meaning best fits つぎ?",
+                "options": [
+                  "next",
+                  "next week",
+                  "this week",
+                  "to decide"
+                ],
+                "answer": 0,
+                "why": "つぎ (tsugi) means next in this lesson."
+              },
+              {
+                "q": "Which meaning best fits らいしゅう?",
+                "options": [
+                  "next week",
+                  "next",
+                  "this week",
+                  "to decide"
+                ],
+                "answer": 0,
+                "why": "らいしゅう (raishuu) means next week in this lesson."
+              },
+              {
+                "q": "Which meaning best fits こんしゅう?",
+                "options": [
+                  "this week",
+                  "next",
+                  "next week",
+                  "to decide"
+                ],
+                "answer": 0,
+                "why": "こんしゅう (konshuu) means this week in this lesson."
+              },
+              {
+                "q": "Which meaning best fits きめます?",
+                "options": [
+                  "to decide",
+                  "next",
+                  "next week",
+                  "this week"
+                ],
+                "answer": 0,
+                "why": "きめます (kimemasu) means to decide in this lesson."
+              },
+              {
+                "q": "Which meaning best fits いつが?",
+                "options": [
+                  "which day/time (subject of a choice)",
+                  "next",
+                  "next week",
+                  "this week"
+                ],
+                "answer": 0,
+                "why": "いつが (itsu ga) means which day/time (subject of a choice) in this lesson."
+              }
+            ],
+            "flashcards": "auto:vocab",
+            "worksheet": {
+              "title": "Next time worksheet",
+              "tasks": [
+                {
+                  "instruction": "Fix the next meeting.",
+                  "items": [
+                    "let us make it next week",
+                    "which day is good?"
+                  ],
+                  "key": [
+                    "つぎは らいしゅうに しましょう",
+                    "いつが いいですか"
+                  ]
+                },
+                {
+                  "instruction": "Decide the day.",
+                  "items": [
+                    "let us decide on Saturday",
+                    "is it inconvenient?"
+                  ],
+                  "key": [
+                    "どようびに きめましょう",
+                    "つごうが わるいです か"
+                  ]
+                },
+                {
+                  "instruction": "Integrated offline practice: read the first model, transform or extend it in Japanese script, then rehearse it as a dialogue. Self-check meaning, grammar, and register.",
+                  "items": [
+                    "つぎは らいしゅうに しましょう。",
+                    "つぎは いつが いいですか。"
+                  ],
+                  "key": [
+                    "Let us make it next week.",
+                    "When is good next time?"
+                  ]
+                }
+              ]
+            },
+            "srs_candidates": [
+              "つぎ",
+              "らいしゅう",
+              "こんしゅう",
+              "きめます"
+            ],
+            "srs_policy": "Only these four high-value terms are preselected; lesson mistakes and productive patterns may enter personalized review after an actual error."
+          }
+        ]
+      },
+      {
+        "id": "A1+-U3",
+        "title": "なおして もらう",
+        "lessons": [
+          {
+            "id": "A1+-U3-L1",
+            "title": "こわれました",
+            "learn": "A fault is reported with こわれました and diagnosed with みつもり (estimate). The shop asks どうしましたか and you answer with the object and the state.",
+            "vocab": [
+              {
+                "t": "こわれました",
+                "r": "kowaremashita",
+                "en": "it broke",
+                "pos": "verb"
+              },
+              {
+                "t": "みつもり",
+                "r": "mitsumori",
+                "en": "estimate, quote",
+                "pos": "noun"
+              },
+              {
+                "t": "なおします",
+                "r": "naoshimasu",
+                "en": "to repair, to fix",
+                "pos": "verb"
+              },
+              {
+                "t": "まだ",
+                "r": "mada",
+                "en": "still, not yet",
+                "pos": "adverb"
+              },
+              {
+                "t": "あずけます",
+                "r": "azukemasu",
+                "en": "to hand in, to leave (for repair)",
+                "pos": "verb"
+              }
+            ],
+            "grammar": {
+              "title": "Reporting a fault",
+              "pattern": "こわれました · どうしましたか · なおせますか · みつもりは いくらですか",
+              "explain": "The fault is stated as an event (こわれました), the possibility as a question (なおせますか), and the cost with みつもり. まだ with a negative means not yet: まだ なおせません.",
+              "examples": [
+                {
+                  "t": "これは こわれました。",
+                  "r": "Kore wa kowaremashita.",
+                  "en": "This one is broken."
+                },
+                {
+                  "t": "なおせますか。",
+                  "r": "Naosemasu ka.",
+                  "en": "Can it be repaired?"
+                },
+                {
+                  "t": "みつもりは いくらですか。",
+                  "r": "Mitsumori wa ikura desu ka.",
+                  "en": "How much is the estimate?"
+                }
+              ],
+              "mistakes": [
+                {
+                  "wrong": "これは こわれて います です。",
+                  "right": "これは こわれています。",
+                  "why": "います ends the sentence; です does not follow."
+                },
+                {
+                  "wrong": "なおす が できますか。",
+                  "right": "なおせますか。",
+                  "why": "Ability is built into the verb: なおせます."
+                }
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "ゆき",
+                "t": "すみません、これは こわれました。",
+                "r": "Sumimasen, kore wa kowaremashita.",
+                "en": "Excuse me, this one is broken."
+              },
+              {
+                "sp": "てんいん",
+                "t": "どうしましたか。",
+                "r": "Dou shimashita ka.",
+                "en": "What happened?"
+              },
+              {
+                "sp": "ゆき",
+                "t": "おとして、がめんが みえません。なおせますか。",
+                "r": "Otoshite, gamen ga miemasen. Naosemasu ka.",
+                "en": "I dropped it and the screen cannot be seen. Can it be repaired?"
+              },
+              {
+                "sp": "てんいん",
+                "t": "はい。みつもりは あした です。",
+                "r": "Hai. Mitsumori wa ashita desu.",
+                "en": "Yes. The estimate will be tomorrow."
+              }
+            ],
+            "practice": [
+              {
+                "type": "multiple_choice",
+                "q": "Practice 1: [multiple choice] こわれました — Choose the meaning of こわれました (kowaremashita) in this lesson.",
+                "answer": "it broke",
+                "skill_target": "Japanese: kana and kanji, particles は/が/を/に, です・ます politeness, verb-final order, counters and keigo",
+                "options": [
+                  "it broke",
+                  "estimate, quote",
+                  "to repair, to fix",
+                  "still, not yet"
+                ]
+              },
+              {
+                "type": "fill_in_the_blank",
+                "q": "Practice 2: [fill in the blank] こわれました — Type the Japanese expression meaning “estimate, quote”.",
+                "answer": "みつもり",
+                "skill_target": "Japanese: kana and kanji, particles は/が/を/に, です・ます politeness, verb-final order, counters and keigo"
+              },
+              {
+                "type": "translation",
+                "q": "Practice 3: [translation] こわれました — Interpret the Japanese script in context: これは こわれました。 (Kore wa kowaremashita.).",
+                "answer": "This one is broken.",
+                "skill_target": "Japanese: kana and kanji, particles は/が/を/に, です・ます politeness, verb-final order, counters and keigo"
+              },
+              {
+                "type": "reverse_translation",
+                "q": "Practice 4: [reverse translation] こわれました — Write in Japanese script: Can it be repaired?.",
+                "answer": "なおせますか。",
+                "skill_target": "Japanese: kana and kanji, particles は/が/を/に, です・ます politeness, verb-final order, counters and keigo"
+              },
+              {
+                "type": "matching",
+                "q": "Practice 5: [matching] こわれました — Match なおします to its lesson meaning.",
+                "answer": "to repair, to fix",
+                "skill_target": "Japanese: kana and kanji, particles は/が/を/に, です・ます politeness, verb-final order, counters and keigo",
+                "options": [
+                  "to repair, to fix",
+                  "it broke",
+                  "estimate, quote"
+                ]
+              },
+              {
+                "type": "reorder",
+                "q": "Practice 6: [reorder] こわれました — Reconstruct the lesson model in coherent Japanese: How much is the estimate?.",
+                "answer": "みつもりは いくらですか。",
+                "skill_target": "Japanese: kana and kanji, particles は/が/を/に, です・ます politeness, verb-final order, counters and keigo"
+              },
+              {
+                "type": "sentence_building",
+                "q": "Practice 7: [sentence building] こわれました — Build the sentence with the lesson pattern (こわれました · どうしましたか · なおせますか · みつもりは いくらですか): This one is broken..",
+                "answer": "これは こわれました。",
+                "skill_target": "Japanese: kana and kanji, particles は/が/を/に, です・ます politeness, verb-final order, counters and keigo"
+              },
+              {
+                "type": "word_selection",
+                "q": "Practice 8: [word selection] こわれました — Select the Japanese form for “still, not yet”.",
+                "answer": "まだ",
+                "skill_target": "Japanese: kana and kanji, particles は/が/を/に, です・ます politeness, verb-final order, counters and keigo",
+                "options": [
+                  "まだ",
+                  "あずけます"
+                ]
+              },
+              {
+                "type": "error_correction",
+                "q": "Practice 9: [error correction] こわれました — Correct the model the lesson warns about: これは こわれて います です。",
+                "answer": "これは こわれています。",
+                "skill_target": "Japanese: kana and kanji, particles は/が/を/に, です・ます politeness, verb-final order, counters and keigo"
+              },
+              {
+                "type": "dialogue_completion",
+                "q": "Practice 10: [dialogue completion] こわれました — Complete the exchange with the studied response to: Excuse me, this one is broken.",
+                "answer": "どうしましたか。",
+                "skill_target": "Japanese: kana and kanji, particles は/が/を/に, です・ます politeness, verb-final order, counters and keigo"
+              },
+              {
+                "type": "reading_comprehension",
+                "q": "Practice 11: [reading comprehension] こわれました — Read “おとして、がめんが みえません。なおせますか。” (Otoshite, gamen ga miemasen. Naosemasu ka.). What does it mean?",
+                "answer": "I dropped it and the screen cannot be seen. Can it be repaired?",
+                "skill_target": "Japanese: kana and kanji, particles は/が/を/に, です・ます politeness, verb-final order, counters and keigo"
+              },
+              {
+                "type": "paragraph_comprehension",
+                "q": "Practice 12: [paragraph comprehension] こわれました — Read the lesson dialogue as a whole and give its key move: Yes. The estimate will be tomorrow.",
+                "answer": "はい。みつもりは あした です。",
+                "skill_target": "Japanese: kana and kanji, particles は/が/を/に, です・ます politeness, verb-final order, counters and keigo"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "Which meaning best fits こわれました?",
+                "options": [
+                  "it broke",
+                  "estimate, quote",
+                  "to repair, to fix",
+                  "still, not yet"
+                ],
+                "answer": 0,
+                "why": "こわれました (kowaremashita) means it broke in this lesson."
+              },
+              {
+                "q": "Which meaning best fits みつもり?",
+                "options": [
+                  "estimate, quote",
+                  "it broke",
+                  "to repair, to fix",
+                  "still, not yet"
+                ],
+                "answer": 0,
+                "why": "みつもり (mitsumori) means estimate, quote in this lesson."
+              },
+              {
+                "q": "Which meaning best fits なおします?",
+                "options": [
+                  "to repair, to fix",
+                  "it broke",
+                  "estimate, quote",
+                  "still, not yet"
+                ],
+                "answer": 0,
+                "why": "なおします (naoshimasu) means to repair, to fix in this lesson."
+              },
+              {
+                "q": "Which meaning best fits まだ?",
+                "options": [
+                  "still, not yet",
+                  "it broke",
+                  "estimate, quote",
+                  "to repair, to fix"
+                ],
+                "answer": 0,
+                "why": "まだ (mada) means still, not yet in this lesson."
+              },
+              {
+                "q": "Which meaning best fits あずけます?",
+                "options": [
+                  "to hand in, to leave (for repair)",
+                  "it broke",
+                  "estimate, quote",
+                  "to repair, to fix"
+                ],
+                "answer": 0,
+                "why": "あずけます (azukemasu) means to hand in, to leave (for repair) in this lesson."
+              }
+            ],
+            "flashcards": "auto:vocab",
+            "worksheet": {
+              "title": "Repair worksheet",
+              "tasks": [
+                {
+                  "instruction": "Report the fault.",
+                  "items": [
+                    "this one is broken",
+                    "can it be repaired?"
+                  ],
+                  "key": [
+                    "これは こわれました",
+                    "なおせますか"
+                  ]
+                },
+                {
+                  "instruction": "Ask the cost.",
+                  "items": [
+                    "how much is the estimate?",
+                    "what happened?"
+                  ],
+                  "key": [
+                    "みつもりは いくらですか",
+                    "どうしましたか"
+                  ]
+                },
+                {
+                  "instruction": "Integrated offline practice: read the first model, transform or extend it in Japanese script, then rehearse it as a dialogue. Self-check meaning, grammar, and register.",
+                  "items": [
+                    "これは こわれました。",
+                    "すみません、これは こわれました。"
+                  ],
+                  "key": [
+                    "This one is broken.",
+                    "Excuse me, this one is broken."
+                  ]
+                }
+              ]
+            },
+            "srs_candidates": [
+              "こわれました",
+              "みつもり",
+              "なおします",
+              "まだ"
+            ],
+            "srs_policy": "Only these four high-value terms are preselected; lesson mistakes and productive patterns may enter personalized review after an actual error."
+          },
+          {
+            "id": "A1+-U3-L2",
+            "title": "そうだん して ください",
+            "learn": "A consultation states the deadline with 〜までに and the condition with できれば. そうだん して ください asks for advice rather than a decision.",
+            "vocab": [
+              {
+                "t": "そうだん",
+                "r": "soudan",
+                "en": "consultation",
+                "pos": "noun"
+              },
+              {
+                "t": "できれば",
+                "r": "dekireba",
+                "en": "if possible",
+                "pos": "adverb"
+              },
+              {
+                "t": "〜までに",
+                "r": "~ made ni",
+                "en": "by (a deadline)",
+                "pos": "postposition"
+              },
+              {
+                "t": "かんがえます",
+                "r": "kangaemasu",
+                "en": "to think it over",
+                "pos": "verb"
+              },
+              {
+                "t": "へんじ",
+                "r": "henji",
+                "en": "reply",
+                "pos": "noun"
+              }
+            ],
+            "grammar": {
+              "title": "Asking for advice",
+              "pattern": "そうだん して ください · 〜までに へんじを ください · できれば 〜",
+              "explain": "The deadline takes までに (by then) and the preference takes できれば at the front. へんじを ください is the polite request for an answer.",
+              "examples": [
+                {
+                  "t": "すこし そうだん して ください。",
+                  "r": "Sukoshi soudan shite kudasai.",
+                  "en": "Please advise me a little."
+                },
+                {
+                  "t": "きんようびまでに へんじを ください。",
+                  "r": "Kinyoubi made ni henji o kudasai.",
+                  "en": "Please reply by Friday."
+                },
+                {
+                  "t": "できれば メールで おねがいします。",
+                  "r": "Dekireba meeru de onegaishimasu.",
+                  "en": "By email, if possible."
+                }
+              ],
+              "mistakes": [
+                {
+                  "wrong": "きんようび まで へんじを ください。",
+                  "right": "きんようびまでに へんじを ください。",
+                  "why": "A deadline takes までに; まで marks the end of a span."
+                },
+                {
+                  "wrong": "そうだん を して ください です。",
+                  "right": "そうだん して ください。",
+                  "why": "ください ends the sentence."
+                }
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "たろう",
+                "t": "この けん、どう しましょうか。",
+                "r": "Kono ken, dou shimashou ka.",
+                "en": "What should we do about this matter?"
+              },
+              {
+                "sp": "ゆき",
+                "t": "すこし そうだん して ください。",
+                "r": "Sukoshi soudan shite kudasai.",
+                "en": "Please advise me a little."
+              },
+              {
+                "sp": "たろう",
+                "t": "きんようびまでに へんじを ください。",
+                "r": "Kinyoubi made ni henji o kudasai.",
+                "en": "Please reply by Friday."
+              },
+              {
+                "sp": "ゆき",
+                "t": "できれば メールで おねがいします。",
+                "r": "Dekireba meeru de onegaishimasu.",
+                "en": "By email, if possible."
+              }
+            ],
+            "practice": [
+              {
+                "type": "multiple_choice",
+                "q": "Practice 1: [multiple choice] そうだん して ください — Choose the meaning of そうだん (soudan) in this lesson.",
+                "answer": "consultation",
+                "skill_target": "Japanese: kana and kanji, particles は/が/を/に, です・ます politeness, verb-final order, counters and keigo",
+                "options": [
+                  "consultation",
+                  "if possible",
+                  "by (a deadline)",
+                  "to think it over"
+                ]
+              },
+              {
+                "type": "fill_in_the_blank",
+                "q": "Practice 2: [fill in the blank] そうだん して ください — Type the Japanese expression meaning “if possible”.",
+                "answer": "できれば",
+                "skill_target": "Japanese: kana and kanji, particles は/が/を/に, です・ます politeness, verb-final order, counters and keigo"
+              },
+              {
+                "type": "translation",
+                "q": "Practice 3: [translation] そうだん して ください — Interpret the Japanese script in context: すこし そうだん して ください。 (Sukoshi soudan shite kudasai.).",
+                "answer": "Please advise me a little.",
+                "skill_target": "Japanese: kana and kanji, particles は/が/を/に, です・ます politeness, verb-final order, counters and keigo"
+              },
+              {
+                "type": "reverse_translation",
+                "q": "Practice 4: [reverse translation] そうだん して ください — Write in Japanese script: Please reply by Friday..",
+                "answer": "きんようびまでに へんじを ください。",
+                "skill_target": "Japanese: kana and kanji, particles は/が/を/に, です・ます politeness, verb-final order, counters and keigo"
+              },
+              {
+                "type": "matching",
+                "q": "Practice 5: [matching] そうだん して ください — Match 〜までに to its lesson meaning.",
+                "answer": "by (a deadline)",
+                "skill_target": "Japanese: kana and kanji, particles は/が/を/に, です・ます politeness, verb-final order, counters and keigo",
+                "options": [
+                  "by (a deadline)",
+                  "consultation",
+                  "if possible"
+                ]
+              },
+              {
+                "type": "reorder",
+                "q": "Practice 6: [reorder] そうだん して ください — Reconstruct the lesson model in coherent Japanese: By email, if possible..",
+                "answer": "できれば メールで おねがいします。",
+                "skill_target": "Japanese: kana and kanji, particles は/が/を/に, です・ます politeness, verb-final order, counters and keigo"
+              },
+              {
+                "type": "sentence_building",
+                "q": "Practice 7: [sentence building] そうだん して ください — Build the sentence with the lesson pattern (そうだん して ください · 〜までに へんじを ください · できれば 〜): Please advise me a little..",
+                "answer": "すこし そうだん して ください。",
+                "skill_target": "Japanese: kana and kanji, particles は/が/を/に, です・ます politeness, verb-final order, counters and keigo"
+              },
+              {
+                "type": "word_selection",
+                "q": "Practice 8: [word selection] そうだん して ください — Select the Japanese form for “to think it over”.",
+                "answer": "かんがえます",
+                "skill_target": "Japanese: kana and kanji, particles は/が/を/に, です・ます politeness, verb-final order, counters and keigo",
+                "options": [
+                  "かんがえます",
+                  "へんじ"
+                ]
+              },
+              {
+                "type": "error_correction",
+                "q": "Practice 9: [error correction] そうだん して ください — Correct the model the lesson warns about: きんようび まで へんじを ください。",
+                "answer": "きんようびまでに へんじを ください。",
+                "skill_target": "Japanese: kana and kanji, particles は/が/を/に, です・ます politeness, verb-final order, counters and keigo"
+              },
+              {
+                "type": "dialogue_completion",
+                "q": "Practice 10: [dialogue completion] そうだん して ください — Complete the exchange with the studied response to: What should we do about this matter?",
+                "answer": "すこし そうだん して ください。",
+                "skill_target": "Japanese: kana and kanji, particles は/が/を/に, です・ます politeness, verb-final order, counters and keigo"
+              },
+              {
+                "type": "reading_comprehension",
+                "q": "Practice 11: [reading comprehension] そうだん して ください — Read “きんようびまでに へんじを ください。” (Kinyoubi made ni henji o kudasai.). What does it mean?",
+                "answer": "Please reply by Friday.",
+                "skill_target": "Japanese: kana and kanji, particles は/が/を/に, です・ます politeness, verb-final order, counters and keigo"
+              },
+              {
+                "type": "paragraph_comprehension",
+                "q": "Practice 12: [paragraph comprehension] そうだん して ください — Read the lesson dialogue as a whole and give its key move: By email, if possible.",
+                "answer": "できれば メールで おねがいします。",
+                "skill_target": "Japanese: kana and kanji, particles は/が/を/に, です・ます politeness, verb-final order, counters and keigo"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "Which meaning best fits そうだん?",
+                "options": [
+                  "consultation",
+                  "if possible",
+                  "by (a deadline)",
+                  "to think it over"
+                ],
+                "answer": 0,
+                "why": "そうだん (soudan) means consultation in this lesson."
+              },
+              {
+                "q": "Which meaning best fits できれば?",
+                "options": [
+                  "if possible",
+                  "consultation",
+                  "by (a deadline)",
+                  "to think it over"
+                ],
+                "answer": 0,
+                "why": "できれば (dekireba) means if possible in this lesson."
+              },
+              {
+                "q": "Which meaning best fits 〜までに?",
+                "options": [
+                  "by (a deadline)",
+                  "consultation",
+                  "if possible",
+                  "to think it over"
+                ],
+                "answer": 0,
+                "why": "〜までに (~ made ni) means by (a deadline) in this lesson."
+              },
+              {
+                "q": "Which meaning best fits かんがえます?",
+                "options": [
+                  "to think it over",
+                  "consultation",
+                  "if possible",
+                  "by (a deadline)"
+                ],
+                "answer": 0,
+                "why": "かんがえます (kangaemasu) means to think it over in this lesson."
+              },
+              {
+                "q": "Which meaning best fits へんじ?",
+                "options": [
+                  "reply",
+                  "consultation",
+                  "if possible",
+                  "by (a deadline)"
+                ],
+                "answer": 0,
+                "why": "へんじ (henji) means reply in this lesson."
+              }
+            ],
+            "flashcards": "auto:vocab",
+            "worksheet": {
+              "title": "Advice worksheet",
+              "tasks": [
+                {
+                  "instruction": "Ask for advice.",
+                  "items": [
+                    "please advise me a little",
+                    "please reply by Friday"
+                  ],
+                  "key": [
+                    "すこし そうだん して ください",
+                    "きんようびまでに へんじを ください"
+                  ]
+                },
+                {
+                  "instruction": "State the preference.",
+                  "items": [
+                    "by email, if possible",
+                    "what should we do?"
+                  ],
+                  "key": [
+                    "できれば メールで おねがいします",
+                    "どう しましょうか"
+                  ]
+                },
+                {
+                  "instruction": "Integrated offline practice: read the first model, transform or extend it in Japanese script, then rehearse it as a dialogue. Self-check meaning, grammar, and register.",
+                  "items": [
+                    "すこし そうだん して ください。",
+                    "この けん、どう しましょうか。"
+                  ],
+                  "key": [
+                    "Please advise me a little.",
+                    "What should we do about this matter?"
+                  ]
+                }
+              ]
+            },
+            "srs_candidates": [
+              "そうだん",
+              "できれば",
+              "〜までに",
+              "かんがえます"
+            ],
+            "srs_policy": "Only these four high-value terms are preselected; lesson mistakes and productive patterns may enter personalized review after an actual error."
+          },
+          {
+            "id": "A1+-U3-L3",
+            "title": "うけとります",
+            "learn": "Handing in and picking up are two verbs: あずけます and うけとります. The receipt is あずかりしょう and the day is asked with いつ できますか.",
+            "vocab": [
+              {
+                "t": "うけとります",
+                "r": "uketorimasu",
+                "en": "to receive, to pick up",
+                "pos": "verb"
+              },
+              {
+                "t": "あずかりしょう",
+                "r": "azukarishou",
+                "en": "receipt (for an item left)",
+                "pos": "noun"
+              },
+              {
+                "t": "できあがり",
+                "r": "dekiagari",
+                "en": "completion, ready",
+                "pos": "noun"
+              },
+              {
+                "t": "いつごろ",
+                "r": "itsugoro",
+                "en": "about when",
+                "pos": "adverb"
+              },
+              {
+                "t": "たしかに",
+                "r": "tashika ni",
+                "en": "certainly (confirming a fact)",
+                "pos": "adverb"
+              }
+            ],
+            "grammar": {
+              "title": "Handing in and picking up",
+              "pattern": "あずけます · あずかりしょうを ください · いつごろ できあがりますか · たしかに うけとりました",
+              "explain": "Handing in takes あずけます and a receipt request; the ready date is asked with いつごろ; picking up is closed with たしかに うけとりました, which records the handover.",
+              "examples": [
+                {
+                  "t": "これを あずけます。",
+                  "r": "Kore o azukemasu.",
+                  "en": "I will leave this with you."
+                },
+                {
+                  "t": "いつごろ できあがりますか。",
+                  "r": "Itsugoro dekiagarimasu ka.",
+                  "en": "About when will it be ready?"
+                },
+                {
+                  "t": "たしかに うけとりました。",
+                  "r": "Tashika ni uketorimashita.",
+                  "en": "I have certainly received it."
+                }
+              ],
+              "mistakes": [
+                {
+                  "wrong": "あずかりしょう を ください です。",
+                  "right": "あずかりしょうを ください。",
+                  "why": "ください ends the request."
+                },
+                {
+                  "wrong": "いつ できあがります です か。",
+                  "right": "いつごろ できあがりますか。",
+                  "why": "One ending per question: ます + か."
+                }
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "ゆき",
+                "t": "これを あずけます。",
+                "r": "Kore o azukemasu.",
+                "en": "I will leave this with you."
+              },
+              {
+                "sp": "てんいん",
+                "t": "あずかりしょうを どうぞ。",
+                "r": "Azukarishou o douzo.",
+                "en": "Here is your receipt."
+              },
+              {
+                "sp": "ゆき",
+                "t": "いつごろ できあがりますか。",
+                "r": "Itsugoro dekiagarimasu ka.",
+                "en": "About when will it be ready?"
+              },
+              {
+                "sp": "てんいん",
+                "t": "らいしゅうの きんようび です。",
+                "r": "Raishuu no kinyoubi desu.",
+                "en": "Next Friday."
+              }
+            ],
+            "practice": [
+              {
+                "type": "multiple_choice",
+                "q": "Practice 1: [multiple choice] うけとります — Choose the meaning of うけとります (uketorimasu) in this lesson.",
+                "answer": "to receive, to pick up",
+                "skill_target": "Japanese: kana and kanji, particles は/が/を/に, です・ます politeness, verb-final order, counters and keigo",
+                "options": [
+                  "to receive, to pick up",
+                  "receipt (for an item left)",
+                  "completion, ready",
+                  "about when"
+                ]
+              },
+              {
+                "type": "fill_in_the_blank",
+                "q": "Practice 2: [fill in the blank] うけとります — Type the Japanese expression meaning “receipt (for an item left)”.",
+                "answer": "あずかりしょう",
+                "skill_target": "Japanese: kana and kanji, particles は/が/を/に, です・ます politeness, verb-final order, counters and keigo"
+              },
+              {
+                "type": "translation",
+                "q": "Practice 3: [translation] うけとります — Interpret the Japanese script in context: これを あずけます。 (Kore o azukemasu.).",
+                "answer": "I will leave this with you.",
+                "skill_target": "Japanese: kana and kanji, particles は/が/を/に, です・ます politeness, verb-final order, counters and keigo"
+              },
+              {
+                "type": "reverse_translation",
+                "q": "Practice 4: [reverse translation] うけとります — Write in Japanese script: About when will it be ready?.",
+                "answer": "いつごろ できあがりますか。",
+                "skill_target": "Japanese: kana and kanji, particles は/が/を/に, です・ます politeness, verb-final order, counters and keigo"
+              },
+              {
+                "type": "matching",
+                "q": "Practice 5: [matching] うけとります — Match できあがり to its lesson meaning.",
+                "answer": "completion, ready",
+                "skill_target": "Japanese: kana and kanji, particles は/が/を/に, です・ます politeness, verb-final order, counters and keigo",
+                "options": [
+                  "completion, ready",
+                  "to receive, to pick up",
+                  "receipt (for an item left)"
+                ]
+              },
+              {
+                "type": "reorder",
+                "q": "Practice 6: [reorder] うけとります — Reconstruct the lesson model in coherent Japanese: I have certainly received it..",
+                "answer": "たしかに うけとりました。",
+                "skill_target": "Japanese: kana and kanji, particles は/が/を/に, です・ます politeness, verb-final order, counters and keigo"
+              },
+              {
+                "type": "sentence_building",
+                "q": "Practice 7: [sentence building] うけとります — Build the sentence with the lesson pattern (あずけます · あずかりしょうを ください · いつごろ できあがりますか · たしかに うけとりました): I will leave this with you..",
+                "answer": "これを あずけます。",
+                "skill_target": "Japanese: kana and kanji, particles は/が/を/に, です・ます politeness, verb-final order, counters and keigo"
+              },
+              {
+                "type": "word_selection",
+                "q": "Practice 8: [word selection] うけとります — Select the Japanese form for “about when”.",
+                "answer": "いつごろ",
+                "skill_target": "Japanese: kana and kanji, particles は/が/を/に, です・ます politeness, verb-final order, counters and keigo",
+                "options": [
+                  "いつごろ",
+                  "たしかに"
+                ]
+              },
+              {
+                "type": "error_correction",
+                "q": "Practice 9: [error correction] うけとります — Correct the model the lesson warns about: あずかりしょう を ください です。",
+                "answer": "あずかりしょうを ください。",
+                "skill_target": "Japanese: kana and kanji, particles は/が/を/に, です・ます politeness, verb-final order, counters and keigo"
+              },
+              {
+                "type": "dialogue_completion",
+                "q": "Practice 10: [dialogue completion] うけとります — Complete the exchange with the studied response to: I will leave this with you.",
+                "answer": "あずかりしょうを どうぞ。",
+                "skill_target": "Japanese: kana and kanji, particles は/が/を/に, です・ます politeness, verb-final order, counters and keigo"
+              },
+              {
+                "type": "reading_comprehension",
+                "q": "Practice 11: [reading comprehension] うけとります — Read “いつごろ できあがりますか。” (Itsugoro dekiagarimasu ka.). What does it mean?",
+                "answer": "About when will it be ready?",
+                "skill_target": "Japanese: kana and kanji, particles は/が/を/に, です・ます politeness, verb-final order, counters and keigo"
+              },
+              {
+                "type": "paragraph_comprehension",
+                "q": "Practice 12: [paragraph comprehension] うけとります — Read the lesson dialogue as a whole and give its key move: Next Friday.",
+                "answer": "らいしゅうの きんようび です。",
+                "skill_target": "Japanese: kana and kanji, particles は/が/を/に, です・ます politeness, verb-final order, counters and keigo"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "Which meaning best fits うけとります?",
+                "options": [
+                  "to receive, to pick up",
+                  "receipt (for an item left)",
+                  "completion, ready",
+                  "about when"
+                ],
+                "answer": 0,
+                "why": "うけとります (uketorimasu) means to receive, to pick up in this lesson."
+              },
+              {
+                "q": "Which meaning best fits あずかりしょう?",
+                "options": [
+                  "receipt (for an item left)",
+                  "to receive, to pick up",
+                  "completion, ready",
+                  "about when"
+                ],
+                "answer": 0,
+                "why": "あずかりしょう (azukarishou) means receipt (for an item left) in this lesson."
+              },
+              {
+                "q": "Which meaning best fits できあがり?",
+                "options": [
+                  "completion, ready",
+                  "to receive, to pick up",
+                  "receipt (for an item left)",
+                  "about when"
+                ],
+                "answer": 0,
+                "why": "できあがり (dekiagari) means completion, ready in this lesson."
+              },
+              {
+                "q": "Which meaning best fits いつごろ?",
+                "options": [
+                  "about when",
+                  "to receive, to pick up",
+                  "receipt (for an item left)",
+                  "completion, ready"
+                ],
+                "answer": 0,
+                "why": "いつごろ (itsugoro) means about when in this lesson."
+              },
+              {
+                "q": "Which meaning best fits たしかに?",
+                "options": [
+                  "certainly (confirming a fact)",
+                  "to receive, to pick up",
+                  "receipt (for an item left)",
+                  "completion, ready"
+                ],
+                "answer": 0,
+                "why": "たしかに (tashika ni) means certainly (confirming a fact) in this lesson."
+              }
+            ],
+            "flashcards": "auto:vocab",
+            "worksheet": {
+              "title": "Pickup worksheet",
+              "tasks": [
+                {
+                  "instruction": "Hand it in.",
+                  "items": [
+                    "I will leave this with you",
+                    "here is your receipt"
+                  ],
+                  "key": [
+                    "これを あずけます",
+                    "あずかりしょうを どうぞ"
+                  ]
+                },
+                {
+                  "instruction": "Ask and confirm.",
+                  "items": [
+                    "about when will it be ready?",
+                    "I have certainly received it"
+                  ],
+                  "key": [
+                    "いつごろ できあがりますか",
+                    "たしかに うけとりました"
+                  ]
+                },
+                {
+                  "instruction": "Integrated offline practice: read the first model, transform or extend it in Japanese script, then rehearse it as a dialogue. Self-check meaning, grammar, and register.",
+                  "items": [
+                    "これを あずけます。",
+                    "これを あずけます。"
+                  ],
+                  "key": [
+                    "I will leave this with you.",
+                    "I will leave this with you."
+                  ]
+                }
+              ]
+            },
+            "srs_candidates": [
+              "うけとります",
+              "あずかりしょう",
+              "できあがり",
+              "いつごろ"
+            ],
+            "srs_policy": "Only these four high-value terms are preselected; lesson mistakes and productive patterns may enter personalized review after an actual error."
+          }
+        ]
+      }
+    ],
+    "test": {
+      "title": "Japanese A1+ Checkpoint Test",
+      "items": [
+        {
+          "type": "translate_en",
+          "q": "Say: Excuse me, where is the station?",
+          "answer": "すみません、えきは どこですか。"
+        },
+        {
+          "type": "translate_ja",
+          "q": "この ちかくに ぎんこうは ありますか。",
+          "answer": "Is there a bank near here?"
+        },
+        {
+          "type": "multiple_choice",
+          "q": "Which sentence apologises for being late correctly?",
+          "answer": "おくれて すみません。"
+        },
+        {
+          "type": "fill_in_the_blank",
+          "q": "いま えき___ います。",
+          "answer": "に"
+        },
+        {
+          "type": "word_selection",
+          "q": "Select the Japanese for 'next to the traffic light'.",
+          "answer": "しんごうの となり"
+        },
+        {
+          "type": "error_correction",
+          "q": "きんようび まで へんじを ください。",
+          "answer": "きんようびまでに へんじを ください。"
+        },
+        {
+          "type": "dialogue_completion",
+          "q": "Complete: えきは どこですか。 — ___ (go straight, then it is on the right)",
+          "answer": "まっすぐ いって、みぎです"
+        },
+        {
+          "type": "matching",
+          "q": "Match みつもり to its meaning.",
+          "answer": "an estimate"
+        },
+        {
+          "type": "reading_comprehension",
+          "q": "でんしゃが おくれて、ごふん おくれました。 How late was the speaker?",
+          "answer": "five minutes"
+        },
+        {
+          "type": "inference",
+          "q": "「あと ごふん です。すぐに いきます。」 — what is the speaker doing?",
+          "answer": "saying they are on the way"
+        },
+        {
+          "type": "main_idea",
+          "q": "これを あずけます。いつごろ できあがりますか。 What is this?",
+          "answer": "handing in a repair and asking when it is ready"
+        },
+        {
+          "type": "detail_identification",
+          "q": "あしたの さんじに おねがいします。 What time was booked?",
+          "answer": "three o'clock tomorrow"
+        }
+      ]
+    },
+    "extra": {
+      "culture": {
+        "text": "Being late, asking the way and handing something in for repair are the three situations where Japanese politeness is most audible: the apology comes first and the fact second (おくれて すみません、いま えきに います), a question to a stranger opens with すみません, and a request closes with おねがいします. Get the order right and the grammar can stay simple.",
+        "source_url": "https://en.wikipedia.org/wiki/Japanese_language"
+      },
+      "reading": {
+        "text": "あさ、ともだちと えきで あう よていでした。でも、でんしゃが おくれて、ごふん おくれました。すぐに でんわして、おくれて すみません と いいました。ともだちは まだ まって いました。それから、いっしょに みせへ いって、こわれた とけいを あずけました。みつもりは あした です。",
+        "gloss": "In the morning I was supposed to meet a friend at the station. But the train was delayed and I was five minutes late. I telephoned at once and said 'sorry for being late'. My friend was still waiting. Then we went together to a shop and handed in a broken watch. The estimate is tomorrow.",
+        "original": true
+      },
+      "listening": {
+        "script": "ゆき: すみません、ぎんこうは どこですか。<br>たろう: まっすぐ いって、つぎの かどを ひだりです。<br>ゆき: ゆうびんきょくは。<br>たろう: ぎんこうの となりに あります。",
+        "gloss": "Yuki: Excuse me, where is the bank? Taro: Go straight, then left at the next corner. Yuki: And the post office? Taro: It is next to the bank.",
+        "voice_tag": "ja-JA"
+      },
+      "idioms": [
+        {
+          "t": "まっすぐ",
+          "literal": "massugu",
+          "meaning": "straight ahead"
+        },
+        {
+          "t": "つぎの かど",
+          "literal": "tsugi no kado",
+          "meaning": "the next corner"
+        },
+        {
+          "t": "この ちかくに",
+          "literal": "kono chikaku ni",
+          "meaning": "near here"
+        },
+        {
+          "t": "もういちど",
+          "literal": "mou ichido",
+          "meaning": "once more"
+        },
+        {
+          "t": "ゆっくり おねがいします",
+          "literal": "yukkuri onegaishimasu",
+          "meaning": "slowly, please"
+        },
+        {
+          "t": "あと ごふん",
+          "literal": "ato gofun",
+          "meaning": "five more minutes"
+        },
+        {
+          "t": "いつが いいですか",
+          "literal": "itsu ga ii desu ka",
+          "meaning": "which time is good?"
+        },
+        {
+          "t": "こわれました",
+          "literal": "kowaremashita",
+          "meaning": "it broke"
+        },
+        {
+          "t": "みつもり",
+          "literal": "mitsumori",
+          "meaning": "estimate"
+        },
+        {
+          "t": "いつごろ",
+          "literal": "itsugoro",
+          "meaning": "about when"
+        }
+      ],
+      "mistakes": [
+        {
+          "wrong": "えき で います。",
+          "right": "えきに います。",
+          "why": "A person's location takes に with います."
+        },
+        {
+          "wrong": "きんようび まで へんじを ください。",
+          "right": "きんようびまでに へんじを ください。",
+          "why": "A deadline takes までに."
+        },
+        {
+          "wrong": "あした さんじ おねがいします に。",
+          "right": "あしたの さんじに おねがいします。",
+          "why": "The time phrase stands before the request, with に."
+        }
+      ],
+      "task": {
+        "title": "Script a five-line late-and-repair message",
+        "instructions": "Write the Japanese you would send and say on a morning when the train is late and you also have a broken watch to hand in: the apology with おくれて すみません, where you are with に います, how long with あと 〜ふん, the decision with ましょう for the next meeting, and the repair request with あずけます and みつもり. Then read it aloud at speaking speed — the message should take under twenty seconds."
+      }
+    }
+  }
+}

@@ -644,6 +644,295 @@
               "およげる"
             ],
             "srs_policy": "Only high-value lesson forms are preselected; mistakes and productive patterns enter review after learner evidence."
+          },
+          {
+            "id": "ja-b1-l7",
+            "title": "ものがたりの あいず: まず、それから、とうとう",
+            "learn": "A story in Japanese is built from signposts: まず (first), それから (then), そのあと (after that) and とうとう (in the end). They carry the sequence so the verbs can stay in one tense.",
+            "vocab": [
+              {
+                "t": "まず",
+                "r": "mazu",
+                "en": "first of all",
+                "pos": "adverb"
+              },
+              {
+                "t": "それから",
+                "r": "sorekara",
+                "en": "and then",
+                "pos": "conjunction"
+              },
+              {
+                "t": "そのあと",
+                "r": "sono ato",
+                "en": "after that",
+                "pos": "phrase"
+              },
+              {
+                "t": "とうとう",
+                "r": "toutou",
+                "en": "in the end, finally",
+                "pos": "adverb"
+              },
+              {
+                "t": "きっかけ",
+                "r": "kikkake",
+                "en": "trigger, starting point",
+                "pos": "noun"
+              }
+            ],
+            "grammar": {
+              "title": "Narration signposts",
+              "pattern": "まず …ました · それから …ました · そのあと …ました · とうとう …ました",
+              "explain": "The signposts stand at the head of their sentence and the tense stays in the past for the whole sequence. とうとう marks the last event and nothing follows it; a new sentence after it breaks the ending.",
+              "examples": [
+                {
+                  "t": "まず でんしゃに のりました。",
+                  "r": "Mazu densha ni norimashita.",
+                  "en": "First I got on the train."
+                },
+                {
+                  "t": "それから あるいて いえへ かえりました。",
+                  "r": "Sorekara aruite ie e kaerimashita.",
+                  "en": "Then I walked home."
+                },
+                {
+                  "t": "とうとう おわりました。",
+                  "r": "Toutou owarimashita.",
+                  "en": "In the end it finished."
+                }
+              ],
+              "mistakes": [
+                {
+                  "wrong": "まず、でんしゃに のります。それから、あるいて かえりました。",
+                  "right": "まず、でんしゃに のりました。それから、あるいて かえりました。",
+                  "why": "A narration keeps one tense: the whole sequence goes in the past."
+                },
+                {
+                  "wrong": "とうとう おわりました、それから。",
+                  "right": "とうとう おわりました。",
+                  "why": "とうとう closes the sequence; nothing follows it."
+                }
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "ゆき",
+                "t": "きのうは どうでしたか。",
+                "r": "Kinou wa dou deshita ka.",
+                "en": "How was yesterday?"
+              },
+              {
+                "sp": "たろう",
+                "t": "まず でんしゃに のりました。それから あるいて いえへ かえりました。",
+                "r": "Mazu densha ni norimashita. Sorekara aruite ie e kaerimashita.",
+                "en": "First I got on the train. Then I walked home."
+              },
+              {
+                "sp": "ゆき",
+                "t": "たいへん でしたね。",
+                "r": "Taihen deshita ne.",
+                "en": "That must have been hard."
+              },
+              {
+                "sp": "たろう",
+                "t": "でも、とうとう つきました。",
+                "r": "Demo, toutou tsukimashita.",
+                "en": "But in the end I arrived."
+              }
+            ],
+            "practice": [
+              {
+                "type": "multiple_choice",
+                "q": "Practice 1: [multiple choice] ものがたりの あいず: まず、それから、とうとう — Choose the meaning of まず (mazu) in this lesson.",
+                "answer": "first of all",
+                "skill_target": "Japanese: kana and kanji, particles は/が/を/に, です・ます politeness, verb-final order, counters and keigo",
+                "options": [
+                  "first of all",
+                  "and then",
+                  "after that",
+                  "in the end, finally"
+                ]
+              },
+              {
+                "type": "fill_in_the_blank",
+                "q": "Practice 2: [fill in the blank] ものがたりの あいず: まず、それから、とうとう — Type the Japanese expression meaning “and then”.",
+                "answer": "それから",
+                "skill_target": "Japanese: kana and kanji, particles は/が/を/に, です・ます politeness, verb-final order, counters and keigo"
+              },
+              {
+                "type": "translation",
+                "q": "Practice 3: [translation] ものがたりの あいず: まず、それから、とうとう — Interpret the Japanese script in context: まず でんしゃに のりました。 (Mazu densha ni norimashita.).",
+                "answer": "First I got on the train.",
+                "skill_target": "Japanese: kana and kanji, particles は/が/を/に, です・ます politeness, verb-final order, counters and keigo"
+              },
+              {
+                "type": "reverse_translation",
+                "q": "Practice 4: [reverse translation] ものがたりの あいず: まず、それから、とうとう — Write in Japanese script: Then I walked home..",
+                "answer": "それから あるいて いえへ かえりました。",
+                "skill_target": "Japanese: kana and kanji, particles は/が/を/に, です・ます politeness, verb-final order, counters and keigo"
+              },
+              {
+                "type": "matching",
+                "q": "Practice 5: [matching] ものがたりの あいず: まず、それから、とうとう — Match そのあと to its lesson meaning.",
+                "answer": "after that",
+                "skill_target": "Japanese: kana and kanji, particles は/が/を/に, です・ます politeness, verb-final order, counters and keigo",
+                "options": [
+                  "after that",
+                  "first of all",
+                  "and then"
+                ]
+              },
+              {
+                "type": "reorder",
+                "q": "Practice 6: [reorder] ものがたりの あいず: まず、それから、とうとう — Reconstruct the lesson model in coherent Japanese: In the end it finished..",
+                "answer": "とうとう おわりました。",
+                "skill_target": "Japanese: kana and kanji, particles は/が/を/に, です・ます politeness, verb-final order, counters and keigo"
+              },
+              {
+                "type": "sentence_building",
+                "q": "Practice 7: [sentence building] ものがたりの あいず: まず、それから、とうとう — Build the sentence with the lesson pattern (まず …ました · それから …ました · そのあと …ました · とうとう …ました): First I got on the train..",
+                "answer": "まず でんしゃに のりました。",
+                "skill_target": "Japanese: kana and kanji, particles は/が/を/に, です・ます politeness, verb-final order, counters and keigo"
+              },
+              {
+                "type": "word_selection",
+                "q": "Practice 8: [word selection] ものがたりの あいず: まず、それから、とうとう — Select the Japanese form for “in the end, finally”.",
+                "answer": "とうとう",
+                "skill_target": "Japanese: kana and kanji, particles は/が/を/に, です・ます politeness, verb-final order, counters and keigo",
+                "options": [
+                  "とうとう",
+                  "きっかけ"
+                ]
+              },
+              {
+                "type": "error_correction",
+                "q": "Practice 9: [error correction] ものがたりの あいず: まず、それから、とうとう — Correct the model the lesson warns about: まず、でんしゃに のります。それから、あるいて かえりました。",
+                "answer": "まず、でんしゃに のりました。それから、あるいて かえりました。",
+                "skill_target": "Japanese: kana and kanji, particles は/が/を/に, です・ます politeness, verb-final order, counters and keigo"
+              },
+              {
+                "type": "dialogue_completion",
+                "q": "Practice 10: [dialogue completion] ものがたりの あいず: まず、それから、とうとう — Complete the exchange with the studied response to: How was yesterday?",
+                "answer": "まず でんしゃに のりました。それから あるいて いえへ かえりました。",
+                "skill_target": "Japanese: kana and kanji, particles は/が/を/に, です・ます politeness, verb-final order, counters and keigo"
+              },
+              {
+                "type": "reading_comprehension",
+                "q": "Practice 11: [reading comprehension] ものがたりの あいず: まず、それから、とうとう — Read “たいへん でしたね。” (Taihen deshita ne.). What does it mean?",
+                "answer": "That must have been hard.",
+                "skill_target": "Japanese: kana and kanji, particles は/が/を/に, です・ます politeness, verb-final order, counters and keigo"
+              },
+              {
+                "type": "paragraph_comprehension",
+                "q": "Practice 12: [paragraph comprehension] ものがたりの あいず: まず、それから、とうとう — Read the lesson dialogue as a whole and give its key move: But in the end I arrived.",
+                "answer": "でも、とうとう つきました。",
+                "skill_target": "Japanese: kana and kanji, particles は/が/を/に, です・ます politeness, verb-final order, counters and keigo"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "Which meaning best fits まず?",
+                "options": [
+                  "first of all",
+                  "and then",
+                  "after that",
+                  "in the end, finally"
+                ],
+                "answer": 0,
+                "why": "まず (mazu) means first of all in this lesson."
+              },
+              {
+                "q": "Which meaning best fits それから?",
+                "options": [
+                  "and then",
+                  "first of all",
+                  "after that",
+                  "in the end, finally"
+                ],
+                "answer": 0,
+                "why": "それから (sorekara) means and then in this lesson."
+              },
+              {
+                "q": "Which meaning best fits そのあと?",
+                "options": [
+                  "after that",
+                  "first of all",
+                  "and then",
+                  "in the end, finally"
+                ],
+                "answer": 0,
+                "why": "そのあと (sono ato) means after that in this lesson."
+              },
+              {
+                "q": "Which meaning best fits とうとう?",
+                "options": [
+                  "in the end, finally",
+                  "first of all",
+                  "and then",
+                  "after that"
+                ],
+                "answer": 0,
+                "why": "とうとう (toutou) means in the end, finally in this lesson."
+              },
+              {
+                "q": "Which meaning best fits きっかけ?",
+                "options": [
+                  "trigger, starting point",
+                  "first of all",
+                  "and then",
+                  "after that"
+                ],
+                "answer": 0,
+                "why": "きっかけ (kikkake) means trigger, starting point in this lesson."
+              }
+            ],
+            "flashcards": "auto:vocab",
+            "worksheet": {
+              "title": "Story worksheet",
+              "tasks": [
+                {
+                  "instruction": "Set the sequence.",
+                  "items": [
+                    "first I got on the train",
+                    "then I walked home"
+                  ],
+                  "key": [
+                    "まず でんしゃに のりました",
+                    "それから あるいて いえへ かえりました"
+                  ]
+                },
+                {
+                  "instruction": "Finish it.",
+                  "items": [
+                    "in the end it finished",
+                    "after that I telephoned a friend"
+                  ],
+                  "key": [
+                    "とうとう おわりました",
+                    "そのあと、ともだちに でんわしました"
+                  ]
+                },
+                {
+                  "instruction": "Integrated offline practice: read the first model, transform or extend it in Japanese script, then rehearse it as a dialogue. Self-check meaning, grammar, and register.",
+                  "items": [
+                    "まず でんしゃに のりました。",
+                    "きのうは どうでしたか。"
+                  ],
+                  "key": [
+                    "First I got on the train.",
+                    "How was yesterday?"
+                  ]
+                }
+              ]
+            },
+            "srs_candidates": [
+              "まず",
+              "それから",
+              "そのあと",
+              "とうとう"
+            ],
+            "srs_policy": "Only these four high-value terms are preselected; lesson mistakes and productive patterns may enter personalized review after an actual error."
           }
         ]
       },
@@ -1263,6 +1552,295 @@
               "いつ"
             ],
             "srs_policy": "Only high-value lesson forms are preselected; mistakes and productive patterns enter review after learner evidence."
+          },
+          {
+            "id": "ja-b1-l8",
+            "title": "おとなりと あいさつ: おじゃまします",
+            "learn": "Entering a home is announced with おじゃまします, the gift is carried in with を, and the visit closes with ごちそうさまでした and おせわに なりました. The phrases are fixed; the only choice is whether to bring something.",
+            "vocab": [
+              {
+                "t": "おじゃまします",
+                "r": "ojama shimasu",
+                "en": "said on entering someone's home",
+                "pos": "phrase"
+              },
+              {
+                "t": "おみやげ",
+                "r": "omiyage",
+                "en": "souvenir, gift brought to a host",
+                "pos": "noun"
+              },
+              {
+                "t": "ごちそうさまでした",
+                "r": "gochisousama deshita",
+                "en": "thank you for the meal",
+                "pos": "phrase"
+              },
+              {
+                "t": "おとなり",
+                "r": "otonari",
+                "en": "neighbour, next door",
+                "pos": "noun"
+              },
+              {
+                "t": "おせわに なりました",
+                "r": "osewa ni narimashita",
+                "en": "thank you for everything",
+                "pos": "phrase"
+              }
+            ],
+            "grammar": {
+              "title": "Visiting a home",
+              "pattern": "おじゃまします · おみやげを もって いきます · ごちそうさまでした · おせわに なりました",
+              "explain": "おじゃまします is said as you step in, in the present; ごちそうさまでした and おせわに なりました close the visit in the past. What you carry takes を, and the destination takes に: おとなりに おみやげを もって いきます.",
+              "examples": [
+                {
+                  "t": "おじゃまします。",
+                  "r": "Ojama shimasu.",
+                  "en": "Excuse me for intruding."
+                },
+                {
+                  "t": "おとなりに おみやげを もって いきました。",
+                  "r": "Otonari ni omiyage o motte ikimashita.",
+                  "en": "I took a gift to the neighbours."
+                },
+                {
+                  "t": "ごちそうさまでした。おせわに なりました。",
+                  "r": "Gochisousama deshita. Osewa ni narimashita.",
+                  "en": "Thank you for the meal. Thank you for everything."
+                }
+              ],
+              "mistakes": [
+                {
+                  "wrong": "おじゃましました。",
+                  "right": "おじゃまします。",
+                  "why": "The phrase is said as you step in: present, not past."
+                },
+                {
+                  "wrong": "おみやげに もって いきました。",
+                  "right": "おみやげを もって いきました。",
+                  "why": "What you carry takes を; に marks where you carried it."
+                }
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "ゆき",
+                "t": "おじゃまします。",
+                "r": "Ojama shimasu.",
+                "en": "Excuse me for intruding."
+              },
+              {
+                "sp": "たろう",
+                "t": "いらっしゃい。どうぞ。",
+                "r": "Irasshai. Douzo.",
+                "en": "Welcome. Please come in."
+              },
+              {
+                "sp": "ゆき",
+                "t": "おみやげを もって きました。",
+                "r": "Omiyage o motte kimashita.",
+                "en": "I brought a small gift."
+              },
+              {
+                "sp": "たろう",
+                "t": "ありがとう。じゃ、ごちそうを どうぞ。",
+                "r": "Arigatou. Ja, gochisou o douzo.",
+                "en": "Thank you. Please, have something to eat."
+              }
+            ],
+            "practice": [
+              {
+                "type": "multiple_choice",
+                "q": "Practice 1: [multiple choice] おとなりと あいさつ: おじゃまします — Choose the meaning of おじゃまします (ojama shimasu) in this lesson.",
+                "answer": "said on entering someone's home",
+                "skill_target": "Japanese: kana and kanji, particles は/が/を/に, です・ます politeness, verb-final order, counters and keigo",
+                "options": [
+                  "said on entering someone's home",
+                  "souvenir, gift brought to a host",
+                  "thank you for the meal",
+                  "neighbour, next door"
+                ]
+              },
+              {
+                "type": "fill_in_the_blank",
+                "q": "Practice 2: [fill in the blank] おとなりと あいさつ: おじゃまします — Type the Japanese expression meaning “souvenir, gift brought to a host”.",
+                "answer": "おみやげ",
+                "skill_target": "Japanese: kana and kanji, particles は/が/を/に, です・ます politeness, verb-final order, counters and keigo"
+              },
+              {
+                "type": "translation",
+                "q": "Practice 3: [translation] おとなりと あいさつ: おじゃまします — Interpret the Japanese script in context: おじゃまします。 (Ojama shimasu.).",
+                "answer": "Excuse me for intruding.",
+                "skill_target": "Japanese: kana and kanji, particles は/が/を/に, です・ます politeness, verb-final order, counters and keigo"
+              },
+              {
+                "type": "reverse_translation",
+                "q": "Practice 4: [reverse translation] おとなりと あいさつ: おじゃまします — Write in Japanese script: I took a gift to the neighbours..",
+                "answer": "おとなりに おみやげを もって いきました。",
+                "skill_target": "Japanese: kana and kanji, particles は/が/を/に, です・ます politeness, verb-final order, counters and keigo"
+              },
+              {
+                "type": "matching",
+                "q": "Practice 5: [matching] おとなりと あいさつ: おじゃまします — Match ごちそうさまでした to its lesson meaning.",
+                "answer": "thank you for the meal",
+                "skill_target": "Japanese: kana and kanji, particles は/が/を/に, です・ます politeness, verb-final order, counters and keigo",
+                "options": [
+                  "thank you for the meal",
+                  "said on entering someone's home",
+                  "souvenir, gift brought to a host"
+                ]
+              },
+              {
+                "type": "reorder",
+                "q": "Practice 6: [reorder] おとなりと あいさつ: おじゃまします — Reconstruct the lesson model in coherent Japanese: Thank you for the meal. Thank you for everything..",
+                "answer": "ごちそうさまでした。おせわに なりました。",
+                "skill_target": "Japanese: kana and kanji, particles は/が/を/に, です・ます politeness, verb-final order, counters and keigo"
+              },
+              {
+                "type": "sentence_building",
+                "q": "Practice 7: [sentence building] おとなりと あいさつ: おじゃまします — Build the sentence with the lesson pattern (おじゃまします · おみやげを もって いきます · ごちそうさまでした · おせわに なりました): Excuse me for intruding..",
+                "answer": "おじゃまします。",
+                "skill_target": "Japanese: kana and kanji, particles は/が/を/に, です・ます politeness, verb-final order, counters and keigo"
+              },
+              {
+                "type": "word_selection",
+                "q": "Practice 8: [word selection] おとなりと あいさつ: おじゃまします — Select the Japanese form for “neighbour, next door”.",
+                "answer": "おとなり",
+                "skill_target": "Japanese: kana and kanji, particles は/が/を/に, です・ます politeness, verb-final order, counters and keigo",
+                "options": [
+                  "おとなり",
+                  "おせわに なりました"
+                ]
+              },
+              {
+                "type": "error_correction",
+                "q": "Practice 9: [error correction] おとなりと あいさつ: おじゃまします — Correct the model the lesson warns about: おじゃましました。",
+                "answer": "おじゃまします。",
+                "skill_target": "Japanese: kana and kanji, particles は/が/を/に, です・ます politeness, verb-final order, counters and keigo"
+              },
+              {
+                "type": "dialogue_completion",
+                "q": "Practice 10: [dialogue completion] おとなりと あいさつ: おじゃまします — Complete the exchange with the studied response to: Excuse me for intruding.",
+                "answer": "いらっしゃい。どうぞ。",
+                "skill_target": "Japanese: kana and kanji, particles は/が/を/に, です・ます politeness, verb-final order, counters and keigo"
+              },
+              {
+                "type": "reading_comprehension",
+                "q": "Practice 11: [reading comprehension] おとなりと あいさつ: おじゃまします — Read “おみやげを もって きました。” (Omiyage o motte kimashita.). What does it mean?",
+                "answer": "I brought a small gift.",
+                "skill_target": "Japanese: kana and kanji, particles は/が/を/に, です・ます politeness, verb-final order, counters and keigo"
+              },
+              {
+                "type": "paragraph_comprehension",
+                "q": "Practice 12: [paragraph comprehension] おとなりと あいさつ: おじゃまします — Read the lesson dialogue as a whole and give its key move: Thank you. Please, have something to eat.",
+                "answer": "ありがとう。じゃ、ごちそうを どうぞ。",
+                "skill_target": "Japanese: kana and kanji, particles は/が/を/に, です・ます politeness, verb-final order, counters and keigo"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "Which meaning best fits おじゃまします?",
+                "options": [
+                  "said on entering someone's home",
+                  "souvenir, gift brought to a host",
+                  "thank you for the meal",
+                  "neighbour, next door"
+                ],
+                "answer": 0,
+                "why": "おじゃまします (ojama shimasu) means said on entering someone's home in this lesson."
+              },
+              {
+                "q": "Which meaning best fits おみやげ?",
+                "options": [
+                  "souvenir, gift brought to a host",
+                  "said on entering someone's home",
+                  "thank you for the meal",
+                  "neighbour, next door"
+                ],
+                "answer": 0,
+                "why": "おみやげ (omiyage) means souvenir, gift brought to a host in this lesson."
+              },
+              {
+                "q": "Which meaning best fits ごちそうさまでした?",
+                "options": [
+                  "thank you for the meal",
+                  "said on entering someone's home",
+                  "souvenir, gift brought to a host",
+                  "neighbour, next door"
+                ],
+                "answer": 0,
+                "why": "ごちそうさまでした (gochisousama deshita) means thank you for the meal in this lesson."
+              },
+              {
+                "q": "Which meaning best fits おとなり?",
+                "options": [
+                  "neighbour, next door",
+                  "said on entering someone's home",
+                  "souvenir, gift brought to a host",
+                  "thank you for the meal"
+                ],
+                "answer": 0,
+                "why": "おとなり (otonari) means neighbour, next door in this lesson."
+              },
+              {
+                "q": "Which meaning best fits おせわに なりました?",
+                "options": [
+                  "thank you for everything",
+                  "said on entering someone's home",
+                  "souvenir, gift brought to a host",
+                  "thank you for the meal"
+                ],
+                "answer": 0,
+                "why": "おせわに なりました (osewa ni narimashita) means thank you for everything in this lesson."
+              }
+            ],
+            "flashcards": "auto:vocab",
+            "worksheet": {
+              "title": "Visit worksheet",
+              "tasks": [
+                {
+                  "instruction": "Enter and offer.",
+                  "items": [
+                    "excuse me for intruding",
+                    "I brought a small gift"
+                  ],
+                  "key": [
+                    "おじゃまします",
+                    "おみやげを もって きました"
+                  ]
+                },
+                {
+                  "instruction": "Close the visit.",
+                  "items": [
+                    "thank you for the meal",
+                    "thank you for everything"
+                  ],
+                  "key": [
+                    "ごちそうさまでした",
+                    "おせわに なりました"
+                  ]
+                },
+                {
+                  "instruction": "Integrated offline practice: read the first model, transform or extend it in Japanese script, then rehearse it as a dialogue. Self-check meaning, grammar, and register.",
+                  "items": [
+                    "おじゃまします。",
+                    "おじゃまします。"
+                  ],
+                  "key": [
+                    "Excuse me for intruding.",
+                    "Excuse me for intruding."
+                  ]
+                }
+              ]
+            },
+            "srs_candidates": [
+              "おじゃまします",
+              "おみやげ",
+              "ごちそうさまでした",
+              "おとなり"
+            ],
+            "srs_policy": "Only these four high-value terms are preselected; lesson mistakes and productive patterns may enter personalized review after an actual error."
           }
         ]
       },
@@ -1887,6 +2465,295 @@
               "ゆき"
             ],
             "srs_policy": "Only high-value lesson forms are preselected; mistakes and productive patterns enter review after learner evidence."
+          },
+          {
+            "id": "ja-b1-l9",
+            "title": "よていを たてる: ごごは どうですか",
+            "learn": "Arranging a time offers a slot with は どうですか, reports inconvenience with つごうが わるい, and closes the agreement with たのしみに しています. Availability takes が, not は.",
+            "vocab": [
+              {
+                "t": "よてい",
+                "r": "yotei",
+                "en": "plan, schedule",
+                "pos": "noun"
+              },
+              {
+                "t": "つごう",
+                "r": "tsugou",
+                "en": "convenience, availability",
+                "pos": "noun"
+              },
+              {
+                "t": "へいじつ",
+                "r": "heijitsu",
+                "en": "weekday",
+                "pos": "noun"
+              },
+              {
+                "t": "たのしみ",
+                "r": "tanoshimi",
+                "en": "looking forward to it",
+                "pos": "noun"
+              },
+              {
+                "t": "むり",
+                "r": "muri",
+                "en": "impossible",
+                "pos": "adjective"
+              }
+            ],
+            "grammar": {
+              "title": "Arranging",
+              "pattern": "ごごは どうですか · つごうが わるいです · どようびなら だいじょうぶです · たのしみに しています",
+              "explain": "The offer takes は どうですか, the refusal names the slot and the reason with つごうが わるい, and the alternative takes なら: にちようびなら だいじょうぶです. The closing is the fixed phrase たのしみに しています.",
+              "examples": [
+                {
+                  "t": "ごごは どうですか。",
+                  "r": "Gogo wa dou desu ka.",
+                  "en": "How about the afternoon?"
+                },
+                {
+                  "t": "すみません、ごごは つごうが わるいです。",
+                  "r": "Sumimasen, gogo wa tsugou ga warui desu.",
+                  "en": "Sorry, the afternoon is inconvenient."
+                },
+                {
+                  "t": "たのしみに しています。",
+                  "r": "Tanoshimi ni shite imasu.",
+                  "en": "I am looking forward to it."
+                }
+              ],
+              "mistakes": [
+                {
+                  "wrong": "つごうは わるいです。",
+                  "right": "つごうが わるいです。",
+                  "why": "Availability takes が with わるい."
+                },
+                {
+                  "wrong": "たのしみ して います。",
+                  "right": "たのしみに しています。",
+                  "why": "The fixed phrase takes に."
+                }
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "たろう",
+                "t": "さつえいの よていは いつが いいですか。",
+                "r": "Satsuei no yotei wa itsu ga ii desu ka.",
+                "en": "When is good for the shoot?"
+              },
+              {
+                "sp": "ゆき",
+                "t": "へいじつの ごごは どうですか。",
+                "r": "Heijitsu no gogo wa dou desu ka.",
+                "en": "How about a weekday afternoon?"
+              },
+              {
+                "sp": "たろう",
+                "t": "すみません、ごごは つごうが わるいです。あさなら だいじょうぶです。",
+                "r": "Sumimasen, gogo wa tsugou ga warui desu. Asa nara daijoubu desu.",
+                "en": "Sorry, the afternoon is inconvenient. The morning is fine."
+              },
+              {
+                "sp": "ゆき",
+                "t": "じゃ、あさに しましょう。たのしみに しています。",
+                "r": "Ja, asa ni shimashou. Tanoshimi ni shite imasu.",
+                "en": "Then let us make it the morning. I am looking forward to it."
+              }
+            ],
+            "practice": [
+              {
+                "type": "multiple_choice",
+                "q": "Practice 1: [multiple choice] よていを たてる: ごごは どうですか — Choose the meaning of よてい (yotei) in this lesson.",
+                "answer": "plan, schedule",
+                "skill_target": "Japanese: kana and kanji, particles は/が/を/に, です・ます politeness, verb-final order, counters and keigo",
+                "options": [
+                  "plan, schedule",
+                  "convenience, availability",
+                  "weekday",
+                  "looking forward to it"
+                ]
+              },
+              {
+                "type": "fill_in_the_blank",
+                "q": "Practice 2: [fill in the blank] よていを たてる: ごごは どうですか — Type the Japanese expression meaning “convenience, availability”.",
+                "answer": "つごう",
+                "skill_target": "Japanese: kana and kanji, particles は/が/を/に, です・ます politeness, verb-final order, counters and keigo"
+              },
+              {
+                "type": "translation",
+                "q": "Practice 3: [translation] よていを たてる: ごごは どうですか — Interpret the Japanese script in context: ごごは どうですか。 (Gogo wa dou desu ka.).",
+                "answer": "How about the afternoon?",
+                "skill_target": "Japanese: kana and kanji, particles は/が/を/に, です・ます politeness, verb-final order, counters and keigo"
+              },
+              {
+                "type": "reverse_translation",
+                "q": "Practice 4: [reverse translation] よていを たてる: ごごは どうですか — Write in Japanese script: Sorry, the afternoon is inconvenient..",
+                "answer": "すみません、ごごは つごうが わるいです。",
+                "skill_target": "Japanese: kana and kanji, particles は/が/を/に, です・ます politeness, verb-final order, counters and keigo"
+              },
+              {
+                "type": "matching",
+                "q": "Practice 5: [matching] よていを たてる: ごごは どうですか — Match へいじつ to its lesson meaning.",
+                "answer": "weekday",
+                "skill_target": "Japanese: kana and kanji, particles は/が/を/に, です・ます politeness, verb-final order, counters and keigo",
+                "options": [
+                  "weekday",
+                  "plan, schedule",
+                  "convenience, availability"
+                ]
+              },
+              {
+                "type": "reorder",
+                "q": "Practice 6: [reorder] よていを たてる: ごごは どうですか — Reconstruct the lesson model in coherent Japanese: I am looking forward to it..",
+                "answer": "たのしみに しています。",
+                "skill_target": "Japanese: kana and kanji, particles は/が/を/に, です・ます politeness, verb-final order, counters and keigo"
+              },
+              {
+                "type": "sentence_building",
+                "q": "Practice 7: [sentence building] よていを たてる: ごごは どうですか — Build the sentence with the lesson pattern (ごごは どうですか · つごうが わるいです · どようびなら だいじょうぶです · たのしみに しています): How about the afternoon?.",
+                "answer": "ごごは どうですか。",
+                "skill_target": "Japanese: kana and kanji, particles は/が/を/に, です・ます politeness, verb-final order, counters and keigo"
+              },
+              {
+                "type": "word_selection",
+                "q": "Practice 8: [word selection] よていを たてる: ごごは どうですか — Select the Japanese form for “looking forward to it”.",
+                "answer": "たのしみ",
+                "skill_target": "Japanese: kana and kanji, particles は/が/を/に, です・ます politeness, verb-final order, counters and keigo",
+                "options": [
+                  "たのしみ",
+                  "むり"
+                ]
+              },
+              {
+                "type": "error_correction",
+                "q": "Practice 9: [error correction] よていを たてる: ごごは どうですか — Correct the model the lesson warns about: つごうは わるいです。",
+                "answer": "つごうが わるいです。",
+                "skill_target": "Japanese: kana and kanji, particles は/が/を/に, です・ます politeness, verb-final order, counters and keigo"
+              },
+              {
+                "type": "dialogue_completion",
+                "q": "Practice 10: [dialogue completion] よていを たてる: ごごは どうですか — Complete the exchange with the studied response to: When is good for the shoot?",
+                "answer": "へいじつの ごごは どうですか。",
+                "skill_target": "Japanese: kana and kanji, particles は/が/を/に, です・ます politeness, verb-final order, counters and keigo"
+              },
+              {
+                "type": "reading_comprehension",
+                "q": "Practice 11: [reading comprehension] よていを たてる: ごごは どうですか — Read “すみません、ごごは つごうが わるいです。あさなら だいじょうぶです。” (Sumimasen, gogo wa tsugou ga warui desu. Asa nara daijoubu desu.). What does it mean?",
+                "answer": "Sorry, the afternoon is inconvenient. The morning is fine.",
+                "skill_target": "Japanese: kana and kanji, particles は/が/を/に, です・ます politeness, verb-final order, counters and keigo"
+              },
+              {
+                "type": "paragraph_comprehension",
+                "q": "Practice 12: [paragraph comprehension] よていを たてる: ごごは どうですか — Read the lesson dialogue as a whole and give its key move: Then let us make it the morning. I am looking forward to it.",
+                "answer": "じゃ、あさに しましょう。たのしみに しています。",
+                "skill_target": "Japanese: kana and kanji, particles は/が/を/に, です・ます politeness, verb-final order, counters and keigo"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "Which meaning best fits よてい?",
+                "options": [
+                  "plan, schedule",
+                  "convenience, availability",
+                  "weekday",
+                  "looking forward to it"
+                ],
+                "answer": 0,
+                "why": "よてい (yotei) means plan, schedule in this lesson."
+              },
+              {
+                "q": "Which meaning best fits つごう?",
+                "options": [
+                  "convenience, availability",
+                  "plan, schedule",
+                  "weekday",
+                  "looking forward to it"
+                ],
+                "answer": 0,
+                "why": "つごう (tsugou) means convenience, availability in this lesson."
+              },
+              {
+                "q": "Which meaning best fits へいじつ?",
+                "options": [
+                  "weekday",
+                  "plan, schedule",
+                  "convenience, availability",
+                  "looking forward to it"
+                ],
+                "answer": 0,
+                "why": "へいじつ (heijitsu) means weekday in this lesson."
+              },
+              {
+                "q": "Which meaning best fits たのしみ?",
+                "options": [
+                  "looking forward to it",
+                  "plan, schedule",
+                  "convenience, availability",
+                  "weekday"
+                ],
+                "answer": 0,
+                "why": "たのしみ (tanoshimi) means looking forward to it in this lesson."
+              },
+              {
+                "q": "Which meaning best fits むり?",
+                "options": [
+                  "impossible",
+                  "plan, schedule",
+                  "convenience, availability",
+                  "weekday"
+                ],
+                "answer": 0,
+                "why": "むり (muri) means impossible in this lesson."
+              }
+            ],
+            "flashcards": "auto:vocab",
+            "worksheet": {
+              "title": "Arrangement worksheet",
+              "tasks": [
+                {
+                  "instruction": "Offer and refuse.",
+                  "items": [
+                    "how about a weekday afternoon?",
+                    "sorry, the afternoon is inconvenient"
+                  ],
+                  "key": [
+                    "へいじつの ごごは どうですか",
+                    "すみません、ごごは つごうが わるいです"
+                  ]
+                },
+                {
+                  "instruction": "Agree and close.",
+                  "items": [
+                    "the morning is fine",
+                    "I am looking forward to it"
+                  ],
+                  "key": [
+                    "あさなら だいじょうぶです",
+                    "たのしみに しています"
+                  ]
+                },
+                {
+                  "instruction": "Integrated offline practice: read the first model, transform or extend it in Japanese script, then rehearse it as a dialogue. Self-check meaning, grammar, and register.",
+                  "items": [
+                    "ごごは どうですか。",
+                    "さつえいの よていは いつが いいですか。"
+                  ],
+                  "key": [
+                    "How about the afternoon?",
+                    "When is good for the shoot?"
+                  ]
+                }
+              ]
+            },
+            "srs_candidates": [
+              "よてい",
+              "つごう",
+              "へいじつ",
+              "たのしみ"
+            ],
+            "srs_policy": "Only these four high-value terms are preselected; lesson mistakes and productive patterns may enter personalized review after an actual error."
           }
         ]
       }
@@ -1957,6 +2824,95 @@
           "answer": "ちかてつがいいとおもいます"
         }
       ]
+    },
+    "extra": {
+      "culture": {
+        "text": "Keigo is not a separate language but a set of choices about where the other person stands: いらっしゃる for their coming, うかがう for your going, いただく for your receiving, さしあげる for your giving. The office day is bracketed by おつかれさまです at the end and おはようございます at the start, and a request between colleagues is usually a て-form plus もらえますか rather than an imperative.",
+        "source_url": "https://en.wikipedia.org/wiki/Honorific_speech_in_Japanese"
+      },
+      "reading": {
+        "text": "あしたは ぶちょうに ほうこくします。まず データを かくにんして、それから スライドを つくります。むずかしい てんは そうだんしたいと おもいます。おそくなる かもしれませんから、さきに メールを おくります。",
+        "gloss": "Tomorrow I will report to the department manager. First I will check the data, then make the slides. I think I want to discuss the difficult points. Since I may be late, I will send an email in advance.",
+        "original": true
+      },
+      "listening": {
+        "script": "たろう: あしたの かいぎ、でられますか。<br>ゆき: すみません、ごごは むりです。あさなら だいじょうぶです。<br>たろう: じゃ、あさに しましょう。おつかれさまです。<br>ゆき: おつかれさまです。",
+        "gloss": "Taro: Can you attend tomorrow's meeting? Yuki: Sorry, the afternoon is impossible for me. The morning is fine. Taro: Then let us make it the morning. Thank you for your work. Yuki: Thank you for your work.",
+        "voice_tag": "ja-JA"
+      },
+      "idioms": [
+        {
+          "t": "と おもいます",
+          "literal": "to omoimasu",
+          "meaning": "I think that …"
+        },
+        {
+          "t": "かもしれません",
+          "literal": "kamo shiremasen",
+          "meaning": "it may be that …"
+        },
+        {
+          "t": "たことが あります",
+          "literal": "ta koto ga arimasu",
+          "meaning": "I have done … before"
+        },
+        {
+          "t": "てみます",
+          "literal": "te mimasu",
+          "meaning": "I will try doing …"
+        },
+        {
+          "t": "おつかれさまです",
+          "literal": "otsukaresama desu",
+          "meaning": "thank you for your work"
+        },
+        {
+          "t": "いそがしいです",
+          "literal": "isogashii desu",
+          "meaning": "I am busy"
+        },
+        {
+          "t": "よてい",
+          "literal": "yotei",
+          "meaning": "plan, schedule"
+        },
+        {
+          "t": "やくそく",
+          "literal": "yakusoku",
+          "meaning": "appointment, promise"
+        },
+        {
+          "t": "そうだんします",
+          "literal": "soudan shimasu",
+          "meaning": "I will consult you"
+        },
+        {
+          "t": "さきに",
+          "literal": "saki ni",
+          "meaning": "in advance, first"
+        }
+      ],
+      "mistakes": [
+        {
+          "wrong": "あした かいぎに でますと おもいます。",
+          "right": "あした かいぎに でると おもいます。",
+          "why": "と おもいます takes the plain form, not ます."
+        },
+        {
+          "wrong": "にほんへ いったが あります。",
+          "right": "にほんへ いったことが あります。",
+          "why": "Experience takes たことが あります."
+        },
+        {
+          "wrong": "てみる します。",
+          "right": "やってみます。",
+          "why": "てみる attaches to the verb: やってみます."
+        }
+      ],
+      "task": {
+        "title": "Write tomorrow's plan with two hedges",
+        "instructions": "Write five lines in Japanese about tomorrow: two things you will do (plain form + と おもいます), one thing that may happen (かもしれません), one thing you have done before (たことが あります) and one request to a colleague with the て-form + もらえますか. Then rewrite the middle line as あした いそがしいです and notice how much the hedge was doing."
+      }
     }
   }
 }
