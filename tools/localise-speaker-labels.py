@@ -49,6 +49,12 @@ LABELS: dict[str, dict[str, str]] = {
         "Reviewer": "समीक्षक",
         "Specialist": "तज्ज्ञ",
     },
+    "pa": {
+        "Editor": "ਸੰਪਾਦਕ",
+        "Mediator": "ਵਿਚੋਲਾ",
+        "Reviewer": "ਸਮੀਖਿਆਕਾਰ",
+        "Specialist": "ਮਾਹਿਰ",
+    },
     "gu": {
         "Doctor": "ડૉક્ટર",
         "Patient": "દર્દી",

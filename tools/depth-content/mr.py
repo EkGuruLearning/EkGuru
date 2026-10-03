@@ -41,11 +41,11 @@ HALFSTEPS = {}
 
 EXTRAS["A1"] = EXTRA(
     culture=("Marathi is written in Devanagari, with letters and habits Hindi does not have: ळ, "
-             "the retroflexl of फळ (fruit) and शाळा (school); the candra signs ॅ and ॉ that carry "
+             "the retroflex l of फळ (fruit) and शाळा (school); the candra signs ॅ and ॉ that carry "
              "English vowels into बँक and कॉलेज; and no capitals at all, so a sentence opens on the "
              "same letter it would use in the middle. The ळ is the quickest way to hear the "
              "difference: मराठी itself, and every Marathi speaker's name for the language, uses a "
-             "sound that a Hindi speaker hears as a plainl."),
+             "sound that a Hindi speaker hears as a plain l."),
     source_url="https://en.wikipedia.org/wiki/Marathi_language",
     reading=("मी मीरा आहे. मी पुण्यात राहते. सकाळी सहा वाजता उठते आणि चहा करते. माझी आई "
              "शिक्षिका आहे आणि वडील दुकान चालवतात. मी रोज सकाळी अभ्यास करते, नंतर कॉलेजला "
