@@ -59,6 +59,19 @@ short units**. Hindi's six CEFR rungs now carry the block:
 builder did not do before — until this change no course file carried `extra` and
 no tool read it, so the schema had required a block that could not be seen.
 
+2026-10-03 (after Arabic and Bengali — 3 of 18): **75 rung files · 90 `extra`
+blocks · 90 short units**. Arabic and Bengali were authored through the generic
+`tools/author-depth.py` from `tools/depth-content/{ar,bn}.py`, and the audit
+reads both at `11/11`. The gate row for each is `FAIL ['no_native_review']`
+only — `unique_text_ratio` 0.948 (ar) / 0.944 (bn), `script_mismatch` 0 —
+against 0.85 for the flag, which is the mechanical part of "no templated
+intros"; native review is the one reason that cannot be generated.
+
+Each remaining language costs **6 `extra` blocks, 18 third lessons and 5
+half-step rung files** (45 lessons). One language per commit, end to end:
+content module → `author-depth.py --lang <code>` → the level-page recipe → the
+stale chain → `build-all.py check` → gate + audit → commit.
+
 ## Acceptance (from the command doc)
 
 - `python3 tools/build-all.py check` green
