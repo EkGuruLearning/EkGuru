@@ -332,6 +332,36 @@ def dialogue_table(lines, lang="und"):
             + "".join(rows) + "</tbody></table></div>")
 
 
+def mistake_row(m):
+    """One "Watch out" line, whichever shape the course data stores it in.
+
+    `grammar.mistakes` is a list of plain strings in the older courses and of
+    `{wrong, right, why}` objects in everything authored since (2295 objects,
+    1218 strings in the course data). `extra.mistakes` has always been objects.
+    The extra renderer already knew both shapes; the grammar box did not, so it
+    fell through to `str(dict)` and printed a Python literal into the public
+    page —
+
+        <li>{'wrong': 'ਤੂੰ ਕਿੱਥੇ ਰਹਿੰਦਾ ਹੈ?', 'right': '…', 'why': '…'}</li>
+
+    — on 58 level pages across 13 languages, with no gate failing: it is valid
+    HTML and the text is there, just wrapped in punctuation nobody wrote and
+    quoted with single quotes and no space after the colon. A reader-facing
+    repair, not a content change: the same three strings, formatted like the
+    extra block's mistakes list.
+
+    `str()` is the fallback for a shape neither branch recognises, so a future
+    authoring mistake prints once instead of crashing the level build.
+    """
+    if isinstance(m, dict):
+        right = _clean(m.get("right", ""))
+        why = _clean(m.get("why", "")) if m.get("why") else ""
+        return ["<li><b>%s</b> → %s%s</li>"
+                % (_clean(m.get("wrong", "")), right,
+                   ' <span class="muted">%s</span>' % why if why else "")]
+    return ["<li>%s</li>" % _clean(m)]
+
+
 def grammar_box(g, lang="und"):
     if not g:
         return ""
@@ -346,7 +376,7 @@ def grammar_box(g, lang="und"):
         mis = [m for m in mis if m]
         if mis:
             out.append('<div class="mis"><b>Watch out:</b><ul>%s</ul></div>'
-                       % "".join("<li>%s</li>" % _clean(m) for m in mis))
+                       % "".join("".join(mistake_row(m)) for m in mis))
     elif mis:
         out.append('<p class="mis"><b>Watch out:</b> %s</p>' % _clean(mis))
     out.append("</div>")
@@ -478,12 +508,7 @@ def extra_block(ex, name, level, lang="und"):
         out.append("<h3>The %d mistakes this level makes</h3>" % len(mistakes))
         items = []
         for m in mistakes:
-            if isinstance(m, dict):
-                items.append("<li><b>%s</b> → %s%s</li>"
-                             % (_clean(m.get("wrong", "")), _clean(m.get("right", "")),
-                                (" <span class=\"muted\">%s</span>" % _clean(m["why"])) if m.get("why") else ""))
-            else:
-                items.append("<li>%s</li>" % _clean(m))
+            items.extend(mistake_row(m))
         out.append('<ul class="lv-mistakes">%s</ul>' % "".join(items))
     if task.get("instructions"):
         out.append("<h3>Your task</h3>")
