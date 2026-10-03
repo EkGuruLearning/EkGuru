@@ -26,12 +26,16 @@ course-levels 29/0, placeholders 7/0, ad-policy 22/0, `inject-ads.py --check`
 ok, the PHASE 3 content gate PASS, registries PASS, page inventory 2690 pages
 with `thin_indexable 0`.
 
-CI on the PR: `journeys` PASS; `checks` FAIL on one network check only —
-`[FAIL] Apps Script: reachable — The read operation timed out` (27 checks, 1
-failure). That step talks to the live Apps Script endpoint; every build, SEO and
-policy step before it passed, and nothing in this branch touches that endpoint.
-The job could not be re-run with the token available here (HTTP 403), so the PR
-stays open until the endpoint answers inside the timeout.
+CI on the PR: **green** — `checks` PASS (4m8s) and `journeys` PASS (46s) on the
+run for `68722f0`. The first run had failed on one network check only,
+`[FAIL] Apps Script: reachable — The read operation timed out` (`MODE=LIVE: 27
+checks, 1 failures`), while every build, SEO and policy step before it passed and
+nothing in the branch touches that endpoint; the timeout did not repeat. Lesson
+worth keeping: `test-data-sources.py` in the `checks` job talks to live endpoints,
+so a red run there is not by itself a content regression — read the failing
+check's annotation (`gh api repos/<repo>/check-runs/<id>/annotations`) before
+looking for a cause in the diff, and note that the token here cannot re-run a job
+(`POST .../rerun-failed-jobs` → 403), so a fresh push is the way to retrigger.
 
 Still open by design: `no_native_review` for every T1 language (an owner-verified
 review record is not something a generator may invent), PHASE 1 for
