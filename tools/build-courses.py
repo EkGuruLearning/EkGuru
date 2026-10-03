@@ -201,6 +201,54 @@ def check_counting(c, path):
         err(path, "counting needs >=2 rules")
 
 
+def write_manifest(manifest):
+    """Update data/courses/index.json without destroying owner data.
+
+    This validator only understands the legacy shape (3 units x 2 lessons), so it
+    cannot compute counts for courses that have outgrown it. The manifest is now
+    the owner's richer format: keep every existing field, refresh only the level
+    counts this run could actually parse, and leave the file untouched when
+    nothing changed. A missing or unreadable manifest falls back to a full write.
+    """
+    path = os.path.join(COURSES, "index.json")
+    try:
+        with open(path, encoding="utf-8") as f:
+            existing = json.load(f)
+        if not isinstance(existing, dict) or not isinstance(existing.get("courses"), list):
+            raise ValueError("not a manifest")
+    except Exception:
+        with open(path, "w", encoding="utf-8") as f:
+            f.write(json.dumps(manifest, ensure_ascii=False, indent=1) + "\n")
+        return
+    fresh = {c["code"]: c for c in manifest["courses"] if isinstance(c, dict)}
+    seen = set()
+    merged_courses = []
+    for course in existing["courses"]:
+        code = course.get("code") if isinstance(course, dict) else None
+        updated = fresh.get(code)
+        if updated:
+            seen.add(code)
+            levels = course.get("levels")
+            if isinstance(levels, dict):
+                for lv, counts in updated["levels"].items():
+                    if lv in levels and isinstance(levels[lv], dict):
+                        for key in ("lessons", "test_items"):
+                            if key in counts:
+                                levels[lv][key] = counts[key]
+            if not course.get("files"):
+                course["files"] = updated["files"]
+        merged_courses.append(course)
+    for code, updated in fresh.items():
+        if code not in seen:
+            merged_courses.append(updated)
+    existing["courses"] = merged_courses
+    out = json.dumps(existing, ensure_ascii=False, indent=1) + "\n"
+    if os.path.exists(path) and open(path, encoding="utf-8").read() == out:
+        return
+    with open(path, "w", encoding="utf-8") as f:
+        f.write(out)
+
+
 def main():
     manifest = {"format": "course-per-level", "levels": list(LEVELS), "courses": [],
                 "generated_by": "tools/build-courses.py"}
@@ -222,6 +270,7 @@ def main():
             if not m:
                 err(cpath, "filename must be <code>_<A1|A2|B1|B2|C1|C2>.json"); continue
             code, lv = m.group(1), m.group(2)
+            errors_before = len(ERRORS)
             try:
                 with open(fpath, encoding="utf-8") as f:
                     raw = f.read()
@@ -266,15 +315,15 @@ def main():
             total_lessons += nles
             slot = by_code.setdefault(code, {"code": code, "name": course.get("name"),
                                              "phase": phase, "levels": {}, "files": []})
-            slot["levels"][lv] = {"lessons": nles, "test_items": test_n}
+            if len(ERRORS) == errors_before:
+                slot["levels"][lv] = {"lessons": nles, "test_items": test_n}
             slot["files"].append(fn)
     for code in sorted(by_code):
         slot = by_code[code]
         slot["complete"] = all(lv in slot["levels"] for lv in LEVELS)
         slot["files"].sort()
         manifest["courses"].append(slot)
-    with open(os.path.join(COURSES, "index.json"), "w", encoding="utf-8") as f:
-        json.dump(manifest, f, ensure_ascii=False, indent=1)
+    write_manifest(manifest)
     print(f"lessons={total_lessons} vocab={total_vocab} errors={len(ERRORS)}")
     for e in ERRORS[:40]:
         print("ERR", e)
