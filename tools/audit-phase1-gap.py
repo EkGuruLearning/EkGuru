@@ -19,6 +19,11 @@ validator the language gate itself uses:
   RUNGS (tools/language-gate.py)
     A1 A1+ A2 A2+ B1 B1+ B2 B2+ C1 C1+ C2          <- 11; courses carry 6
 
+The schema cannot see content defects, so one more check lives here: a mistake
+entry whose `wrong` text is itself marked correct (`✓`, `(correct)`, `(fine)`) or
+whose `why` opens with "Correct as written" / "Both are correct" is a pair the
+learner cannot act on — it is counted as a gap.
+
 Run:  python3 tools/audit-phase1-gap.py            report
       python3 tools/audit-phase1-gap.py --check    exit 1 while gaps remain
 """
@@ -71,13 +76,48 @@ def schema_errors(codes: list[str]) -> dict:
         tmp.unlink(missing_ok=True)
 
 
+SELF_ASSERTING_WHY = ("correct as written", "both are correct", "both work")
+SELF_ASSERTING_WRONG = ("✓", "(correct)", "(fine)", "(both correct)")
+
+
+def content_defects(code: str, phase: str) -> list[tuple[str, str, str]]:
+    """Mistake entries that assert their own `wrong` text is correct."""
+    found: list[tuple[str, str, str]] = []
+    for rung in RUNGS:
+        path = ROOT / f"data/courses/{phase}/{code}_{rung}.json"
+        if not path.exists():
+            continue
+        data = json.loads(path.read_text(encoding="utf-8"))
+
+        def walk(node, where: str) -> None:
+            if isinstance(node, dict):
+                if {"wrong", "right", "why"} <= set(node):
+                    wrong = str(node["wrong"])
+                    why = str(node["why"]).strip().lower()
+                    mark = next((m for m in SELF_ASSERTING_WRONG if m in wrong), None)
+                    if mark is None and why.startswith(SELF_ASSERTING_WHY):
+                        mark = "why:" + why[:28]
+                    if mark:
+                        found.append((path.name, where, f"{mark} -> {wrong[:70]}"))
+                    return
+                for key, value in node.items():
+                    walk(value, f"{where}/{key}" if where else key)
+            elif isinstance(node, list):
+                for i, value in enumerate(node):
+                    walk(value, f"{where}[{i}]")
+
+        walk(data, "")
+    return found
+
+
 def main() -> int:
     check = "--check" in sys.argv
     codes = published_codes()
     errors = schema_errors(codes)
     print(f"PHASE 1 — content depth for the {len(codes)} published language(s)\n")
     print(f"  {'lang':4s} {'rungs':>7s}  {'missing rungs':28s} {'extra':>5s} {'<3 lessons':>10s} {'test':>5s}")
-    total_missing = total_extra = total_lessons = total_test = 0
+    total_missing = total_extra = total_lessons = total_test = total_defects = 0
+    defects: list[tuple[str, str, str]] = []
     work = []
     for code in codes:
         phase = course_phase(code)
@@ -92,9 +132,15 @@ def main() -> int:
         total_extra += extra
         total_lessons += short
         total_test += test
+        found = content_defects(code, phase)
+        total_defects += len(found)
+        defects.extend((code, *f) for f in found)
         work.append((code, missing))
         print(f"  {code:4s} {len(present):3d}/11  {','.join(missing) or '-':28s} {extra:5d} {short:10d} {test:5d}")
     print()
+    for code, name, where, detail in defects:
+        print(f"  defect {code} {name} {where}: {detail}")
+    print(f"  self-asserting mistake entries (wrong text marked correct): {total_defects}")
     print(f"  totals: {total_missing} rung files to author · "
           f"{total_extra} rung(s) missing `extra` · {total_lessons} unit(s) short of 3 lessons · "
           f"{total_test} file(s) with test items out of range")
@@ -104,10 +150,10 @@ def main() -> int:
           "no rung carries the `extra` block, and units hold 2 lessons where the schema wants 3-5.")
     print("  Acceptance for PHASE 1 (from the command doc): at least A1-B2 published per language, "
           "500+ words of unique content per level page, voice tags on vocabulary, no templated intros.")
-    gaps = total_missing or total_extra or total_lessons or total_test
+    gaps = total_missing or total_extra or total_lessons or total_test or total_defects
     if gaps:
-        print("\nPHASE 1 OPEN — %d rung file(s), %d extra block(s), %d short unit(s) to author."
-              % (total_missing, total_extra, total_lessons))
+        print("\nPHASE 1 OPEN — %d rung file(s), %d extra block(s), %d short unit(s) to author, "
+              "%d content defect(s)." % (total_missing, total_extra, total_lessons, total_defects))
         return 1 if check else 0
     print("\nPHASE 1 COMPLETE — every published course carries all 11 rungs with `extra` and 3-5 lessons.")
     return 0

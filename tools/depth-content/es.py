@@ -1418,7 +1418,7 @@ HALFSTEPS["A2+"] = {
                 [X("¿Está libre el piso?", "es-TAH LEE-breh el PEE-soh?", "Is the flat free?"),
                  X("¿Cuánto es el alquiler?", "KWAHN-toh es el al-kee-LEHR?", "How much is the rent?"),
                  X("¿Están incluidos los gastos?", "es-TAHN een-kloo-EE-dohs lohs GAHS-tohs?", "Are the bills included?")],
-                [("¿Cuánto cuesta el alquiler al mes? ✓", "¿Cuánto es el alquiler al mes?", "Both work; «cuánto es» is the fast spoken form."),
+                [("¿Cuánto está el alquiler?", "¿Cuánto es el alquiler?", "Prices take ser: ¿cuánto es? / ¿cuánto cuesta?"),
                  ("Los gastos están incluidas.", "Los gastos están incluidos.", "gastos is masculine plural.")]),
               [D("Ana", "Hola, llamo por el piso de la calle Mayor.", "OH-lah, YAH-moh por el PEE-soh deh lah KAH-yeh mah-YOR.", "Hello, I'm calling about the flat on Calle Mayor."),
                D("Casero", "Sí, está libre desde julio.", "see, es-TAH LEE-breh des-deh HOO-lyoh.", "Yes, it is free from July."),

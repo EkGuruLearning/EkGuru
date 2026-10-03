@@ -59,17 +59,15 @@ short units**. Hindi's six CEFR rungs now carry the block:
 builder did not do before — until this change no course file carried `extra` and
 no tool read it, so the schema had required a block that could not be seen.
 
-2026-10-03 (after Arabic, Bengali, German, Spanish and French — 6 of 18): **60
-rung files · 72 `extra` blocks · 72 short units**. Ar, bn, de, es and fr were
-authored through the generic `tools/author-depth.py` from
-`tools/depth-content/{ar,bn,de,es,fr}.py`, and the audit reads all five at
-`11/11`. The gate row for each is `FAIL ['no_native_review']` only —
-`unique_text_ratio` 0.946 (ar) / 0.912 (bn) / 0.906 (de) / 0.929 (es) / 0.927
-(fr), `script_mismatch` 0 — against 0.85 for the flag, which is the mechanical
-part of "no templated intros"; native review is the one reason that cannot be
-generated.
+2026-10-03 (after Italian — 7 of 18): **55 rung files · 66 `extra` blocks · 66 short
+units**. The seven authored courses (hi, ar, bn, de, es, fr, it) each read `11/11`
+in the audit; the gate row for each is `FAIL ['no_native_review']` only —
+`unique_text_ratio` 0.986 (hi) / 0.946 (ar) / 0.918 (it) / 0.912 (bn) / 0.906 (de)
+/ 0.928 (es) / 0.919 (fr), `script_mismatch` 0 — against 0.85 for the flag, which
+is the mechanical part of "no templated intros"; native review is the one reason
+that cannot be generated. The modules are `tools/depth-content/{ar,bn,de,es,fr,it}.py`.
 
-Two traps worth recording, both found by authoring Spanish and French:
+Three traps worth recording, all found by authoring Spanish, French and Italian:
 
 - the gate's capitalised `\bTODO\b` marker matched Spanish `TODO` inside
   all-caps emphasis (`SIGA TODO RECTO`, `POR TODO LO ANTERIOR`, `EN TODO CASO`)
@@ -84,6 +82,18 @@ Two traps worth recording, both found by authoring Spanish and French:
   mid-run, leaving the level pages half written. The heading is now formatted
   before the rows are spliced in, which is output-neutral for every other
   language.
+- **a `mistakes` entry whose `wrong` text was itself correct.** French carried
+  `Je travaille dans la logistique depuis trois ans ✓`, `Il a été convenu que
+  Léa coordonne (correct) ✓` and a Spanish `¿Cuánto cuesta el alquiler al
+  mes? ✓`, each paired with a `why` that opened "Correct as written" or "Both
+  are correct". Every automated walk passed — the schema, the word counts, the
+  worksheet lengths — because the defect lives in the teaching, not the shape:
+  an exercise that shows a correct sentence as the error teaches nothing.
+  `tools/audit-phase1-gap.py` now walks every `{wrong,right,why}` object in the
+  rung files, counts a `✓`/`(correct)`/`(fine)` inside `wrong` or one of those
+  `why` openings as a PHASE 1 gap, and lists the offending path. Author run,
+  schema walk and audit must all be clean before a language lands; the six
+  entries in es and fr were rewritten as genuine errors in the same pass.
 
 Each remaining language costs **6 `extra` blocks, 18 third lessons and 5
 half-step rung files** (45 lessons). One language per commit, end to end:
