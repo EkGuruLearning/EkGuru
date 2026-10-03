@@ -34,6 +34,9 @@ jobs:
       - name: Master build check (all generated layers + policy gates)
         run: python3 tools/build-all.py check
 
+      - name: "PHASE 3 content gate (Learn-tab posts: 1000+ words, linked, correctly indexed)"
+        run: python3 tools/test-phase3-content.py
+
       - name: Readiness preflights
         run: |
           python3 tools/audit-adsense-readiness.py --selftest
