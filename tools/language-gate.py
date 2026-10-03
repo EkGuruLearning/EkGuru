@@ -217,7 +217,32 @@ def selftest():
     if bad:
         print("FAIL  placeholder selftest — " + "; ".join(bad))
         return 1
+
+    # The script check, on the same kind of case: correct non-ASCII Latin
+    # content that a too-narrow Latn range called a script mismatch (194 Uzbek
+    # items), next to the scripts it must keep rejecting.
+    script_checks = [
+        ("Uzbek oʻ/gʻ", "oʻqituvchisiz", ['Latn'], True),
+        ("Uzbek ʼ", "maʼno", ['Latn'], True),
+        ("Uzbek sentence", "Men har kuni ertalab oʻzbek tilini oʻrganaman.", ['Latn'], True),
+        ("Devanagari is not Latin", "नमस्ते", ['Latn'], False),
+        ("Cyrillic is not Latin", "привет", ['Latn'], False),
+        ("Arabic is not Latin", "مرحبا", ['Latn'], False),
+        ("Han is not Latin", "你好", ['Latn'], False),
+        ("Devanagari still passes Deva", "नमस्ते", ['Deva'], True),
+        ("Latin still fails Deva", "Hello", ['Deva'], False),
+    ]
+    bad = []
+    for name, text, scripts, expected in script_checks:
+        got = in_script(text, scripts)
+        if got != expected:
+            bad.append("%s: in_script=%s, expected=%s" % (name, got, expected))
+    if bad:
+        print("FAIL  script selftest — " + "; ".join(bad))
+        return 1
+
     print("ok    placeholder patterns: Portuguese/Spanish 'todo' is text, capitalised TODO/TBD is a marker")
+    print("ok    script ranges: Uzbek oʻ/ʼ are Latin; Devanagari, Cyrillic, Arabic and Han are still rejected")
     return 0
 
 
