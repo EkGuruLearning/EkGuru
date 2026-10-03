@@ -331,7 +331,12 @@ def p_grammar(d):
     prows = "".join(f"<tr><td>{E(p['who_en'])}</td><td>{E(p['who_t'])}</td><td><b>{E(p['verb_t'])}</b></td><td>{E(p['verb_r'])}</td></tr>" for p in d["present_table"])
     pf = "".join(f"<tr><td>{E(x['en'])}</td><td>{E(x['hi'])}</td><td><b>{E(x['t'])}</b></td><td>{E(x['r'])}</td></tr>" for x in d["past_future"])
     post = "".join(f"<tr><td>{E(p['en'])}</td><td>{E(p['hi'])}</td><td><b>{E(p['t'])}</b></td><td>{E(p['ex_t'])} ({E(p['ex_r'])}) — {E(p['ex_en'])}</td></tr>" for p in d["postpositions"])
-    clf = "".join(f"<tr><td><b>{E(c['en'])}</b> ({E(c['r'])})</td><td>{E(c['hi'])}</td><td>{E(c['note'])}</td></tr>" for c in d["classifiers"])
+    # `t` is the target-language text. It used to be read from `en` because the
+    # classifiers list carried the target text there and no `t` at all; that
+    # shape also made tools/language-gate.py read an empty word. The data now
+    # matches every other list in the file (see
+    # tools/normalize-lang-data-classifiers.py); the table is unchanged.
+    clf = "".join(f"<tr><td><b>{E(c['t'])}</b> ({E(c['r'])})</td><td>{E(c['hi'])}</td><td>{E(c['note'])}</td></tr>" for c in d["classifiers"])
     # v104+ — per-language prose (Bengali defaults keep the first course byte-identical)
     gender_title = E(d.get("gender_title", "No grammatical gender"))
     gender_note = E(d.get("gender_note", "Unlike Hindi, adjectives never change: the word for \u201cgood\u201d stays the same for boys, girls and books. One less thing to memorise."))
