@@ -26,16 +26,22 @@ course-levels 29/0, placeholders 7/0, ad-policy 22/0, `inject-ads.py --check`
 ok, the PHASE 3 content gate PASS, registries PASS, page inventory 2690 pages
 with `thin_indexable 0`.
 
-CI on the PR: **green** — `checks` PASS (4m8s) and `journeys` PASS (46s) on the
-run for `68722f0`. The first run had failed on one network check only,
-`[FAIL] Apps Script: reachable — The read operation timed out` (`MODE=LIVE: 27
-checks, 1 failures`), while every build, SEO and policy step before it passed and
-nothing in the branch touches that endpoint; the timeout did not repeat. Lesson
-worth keeping: `test-data-sources.py` in the `checks` job talks to live endpoints,
-so a red run there is not by itself a content regression — read the failing
-check's annotation (`gh api repos/<repo>/check-runs/<id>/annotations`) before
-looking for a cause in the diff, and note that the token here cannot re-run a job
-(`POST .../rerun-failed-jobs` → 403), so a fresh push is the way to retrigger.
+CI on the PR: `journeys` PASS (46s); `checks` PASS (4m8s) on `68722f0`, then
+**FAIL on the next, docs-only commit `98e1c41`** — the same single network check
+both times: `[FAIL] Apps Script: reachable — The read operation timed out`
+(`MODE=LIVE: 27 checks, 1 failures`). Every build, SEO and policy step before it
+passed on both runs, and nothing in the branch touches that endpoint, so the
+probe is flaky rather than the branch being broken. Fixed at the source rather
+than re-run until green: `tools/test-data-sources.py` now retries that one probe
+three times, 5s apart, prints the attempt it answered on, and still fails the run
+if the endpoint never answers (verified against a stubbed flaky/dead/healthy
+fetcher, not against the live host — the sandbox cannot reach it).
+
+Two things worth keeping: a red `checks` job is not by itself a content
+regression — read the annotation first (`gh api
+repos/<repo>/check-runs/<id>/annotations`), which names the failing check and its
+reason; and the token here cannot re-run a job (`POST
+.../rerun-failed-jobs` → 403), so the only way to retrigger CI is a push.
 
 Still open by design: `no_native_review` for every T1 language (an owner-verified
 review record is not something a generator may invent), PHASE 1 for

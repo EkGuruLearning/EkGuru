@@ -31,10 +31,14 @@ Offline verification (no network — used in the audit sandbox):
            health check. This is how the check code itself is tested.
 
 In both live modes the Google Apps Script endpoint answers its health JSON.
+That one probe is retried up to three times, 5s apart, and the attempt it
+answered on is printed: the endpoint has timed out transiently in CI (the
+same commit green on one run, red on the next, 3 Oct 2026). A genuinely
+unreachable endpoint still fails the run — it just takes ~10s more to say so.
 
 Exit code 0 = all pass, 1 = any failure.
 """
-import csv, io, json, re, sys, urllib.request
+import csv, io, json, re, sys, time, urllib.request
 from collections import Counter
 from pathlib import Path
 
@@ -58,6 +62,31 @@ def fetch(url, timeout=30):
     req = urllib.request.Request(url, headers={"User-Agent": "EkGuru-test/1.0"})
     with urllib.request.urlopen(req, timeout=timeout) as r:
         return r.status, r.headers.get("Content-Type", ""), r.read().decode("utf-8-sig")
+
+def fetch_retry(url, timeout=30, attempts=3, backoff=5, label="probe", fetcher=None):
+    """A live endpoint that times out once is not a failing endpoint.
+
+    The Apps Script health probe answered on one CI run and timed out on the next
+    with no code change (3 Oct 2026), and the same probe has done it before.
+    scripts.google.com answers this JSON in well under a second when it is up, so
+    a timeout is the network, not the endpoint. Retry it a BOUNDED number of
+    times and report how many attempts it took: a genuinely dead endpoint still
+    fails the run, it just takes ~10s longer to say so. Returns the same triple
+    as fetch() plus the attempt number.
+    """
+    fetcher = fetcher or fetch
+    last = None
+    for attempt in range(1, attempts + 1):
+        try:
+            status, ctype, text = fetcher(url, timeout=timeout)
+            return status, ctype, text, attempt
+        except Exception as e:                       # noqa: BLE001 — reported below
+            last = e
+            if attempt < attempts:
+                print(f"  [{label}] attempt {attempt}/{attempts} -> {type(e).__name__}: {e}"
+                      f" — retrying in {backoff}s")
+                time.sleep(backoff)
+    raise last
 
 def parse(text, delim=","):
     """One parser for BOTH formats: RFC-4180 quoting with a variable
@@ -250,11 +279,13 @@ if MODE == "OFFLINE":
 else:
     APPS = "https://script.google.com/macros/s/AKfycbzdX02U8KQU0XZpqXp4ACuNDAShrOKcHPCrMW5R3UcWOtHuWqquyouppkNusnLIz5ri/exec"
     try:
-        status, ctype, text = fetch(APPS)
+        status, ctype, text, tries = fetch_retry(APPS, label="Apps Script")
         body = json.loads(text)
         check("Apps Script: HTTP 200 JSON health", status == 200 and "json" in ctype and str(body.get("success")).lower() == "true", f"{status} {text[:80]}")
+        if tries > 1:
+            print(f"  [Apps Script] answered on attempt {tries}/3 (the earlier timeout was transient)")
     except Exception as e:
-        check("Apps Script: reachable", False, str(e))
+        check("Apps Script: reachable", False, f"{type(e).__name__}: {e} (after 3 attempts)")
 
 verdict = "PASS"
 if failures:
