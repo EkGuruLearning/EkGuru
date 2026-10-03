@@ -46,6 +46,25 @@ opposite: it runs in `ULTRA_TESTS`, after the decoration is restored.
 `tools/inject-consent.py` is *not* part of this sequence. The committed level
 pages carry no `ekguru:consent` marker, and running it adds one.
 
+## A page that is richer than its generator
+
+`tools/build-phase7-pages.py` owns `languages/index.html`,
+`languages/<code>/index.html` and `start/index.html`, and it writes them raw —
+the shell and the ultra decoration are added by the sequence above. If a
+committed page carries content the generator does not produce, rerunning it
+deletes that content silently: no marker, no error, no gate.
+
+That is what happened to `/start/`: the page's crawlable rule set (written
+because the onboarding form is JavaScript) was hand-added, the generator still
+held only its short template, and one regeneration took the page from 606 to 228
+words. Every gate stayed green — the page is valid and indexable — and the only
+symptom was `thin_indexable` 0 → 1 in `tools/build-full-page-inventory.py`.
+
+Before regenerating one of those pages, compare its visible word count with the
+generator's output. If the page has more, the content belongs in the generator
+(`START_RULE_SET` in `tools/build-phase7-pages.py` is the repaired example);
+never re-add it to the HTML.
+
 ## Verifying a recipe like this
 
 Strip and decorate are a lossless round trip, so you can prove the sequence

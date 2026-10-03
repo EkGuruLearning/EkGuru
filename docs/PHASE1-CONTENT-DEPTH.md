@@ -84,6 +84,24 @@ half-step rungs of ko pick their own themes — a day and a call, bank and phone
 shop, CV and interview, contract and negotiation, synthesis and citation — so
 that no theme is shared with ja.
 
+2026-10-03 (after Marathi — 11 of 18): **35 rung files · 42 `extra` blocks · 42
+short units**. mr reads `11/11`; its gate row is `FAIL ['no_native_review']` only,
+`unique_text_ratio` 0.933 and `script_mismatch` 0. Its rungs are the native ones
+in `data/courses/phase-1/` (the phase folder is resolved from the file
+`course_dir()` finds, not from `PHASE`), and its five half-steps keep their own
+themes — a day and a call, bank and shop repairs, meetings that decide something,
+policy and contracts, poetry and review — none reused from an earlier language.
+Marathi also added the vocabulary the `SKILL` line names: `ळ`, the candra vowels,
+the three-way address, and the `-त आहे` progressive — written as the correct form
+after the Hindi-shaped `-तो आहे` was caught in review and turned into an explicit
+mistake pair in four lessons.
+
+The language also surfaced the seventh trap below: a generated page whose
+committed form carried content its generator no longer produces. Regenerating it
+lost 378 words of a crawlable rule set on `/start/`, and nothing failed — the
+only symptom was `thin_indexable` going 0 → 1 in
+`tools/build-full-page-inventory.py`.
+
 The audit also counts a content defect the schema cannot see: an English speaker
 label in a dialogue of a course taught in another language. The factory left the
 four C1/C2 roles in English (`Analyst`, `Editor`, `Mediator`, `Reviewer`) in
@@ -98,7 +116,7 @@ four German labels (two in a C2 listening transcript, two in a C2 dialogue). The
 four courses that are still English throughout (pa, ta, te, ur — 308 labels) are
 fixed as each is authored, and the audit keeps counting them until then.
 
-Six traps worth recording, all found while authoring the first ten languages:
+Seven traps worth recording, all found while authoring the first eleven languages:
 
 - the gate's capitalised `\bTODO\b` marker matched Spanish `TODO` inside
   all-caps emphasis (`SIGA TODO RECTO`, `POR TODO LO ANTERIOR`, `EN TODO CASO`)
@@ -190,6 +208,21 @@ sentences is not a PHASE 1 completion — see PART F (golden rules) and the
   rewrite the content. The range was extended instead, in the same spirit as the
   Latn entry above it that had to grow for Uzbek `oʻ`, and `--selftest` now
   covers Hangul syllables, a compat-jamo pattern, and Latin failing Hangul.
+
+- **A generated page can be ahead of its generator, and regeneration deletes
+  the difference without an error.** `tools/build-phase7-pages.py` owns
+  `start/index.html`, but the committed page carried a hand-added, crawlable
+  rule set — the explanation of the three questions, written because the form
+  is JavaScript and a crawler would otherwise see a blank box. Rerunning the
+  generator rewrote the page from its shorter template, dropped 378 words, and
+  every gate stayed green: the page is still indexable, still valid, still
+  self-canonical. The only signal was `thin_indexable` 0 → 1 in
+  `tools/build-full-page-inventory.py`, because the page fell under its 250-word
+  floor for indexable pages. The fix is the generator, never the page: the rule
+  set now lives in `START_RULE_SET` in that tool, so the page is reproducible and
+  the content cannot be lost again. Lesson: before regenerating a page, compare
+  its visible words with the generator's output; a generated page that is
+  *richer* than its template is a trap, not a bonus.
 
 ## What the pilot settled
 
