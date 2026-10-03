@@ -95,6 +95,44 @@
   <h2>How to practise</h2>
   <p>Ten focused minutes beats an hour of scrolling: pick one Malayalam topic, take five of its 24 questions, then read the explanations for everything you missed. Come back to the same topic tomorrow — the question set rotates with the date, so the second pass tests memory rather than the question order. Nothing here is timed and nothing is sent anywhere: the score stays in this browser unless you clear it.</p>
   <div class="note">Scores here are recognition scores, not fluency measures — nothing is a certified test.</div></div>
+<!-- ekguru:flashcards:start -->
+<script src="/js/flashcards-ml.js" defer></script>
+<script src="/js/flashcard-ui.js" defer></script>
+<section class="fc-lab" data-eg-flashcards="ml" aria-labelledby="fc-h-ml">
+  <h2 class="fc-title" id="fc-h-ml">Malayalam flashcards</h2>
+  <p class="fc-note">Front: the Malayalam word, exactly as the course writes it. Back: its meaning and the reading the course prints. Nothing on this page is scored, and the computer voice is a device voice — not a native recording.</p>
+  <ul class="fc-static">
+      <li><b lang="ml" dir="auto">ഞാൻ</b> · <span class="fc-roman" dir="ltr">ñāൻ</span> — discourse segment in “I study Malayalam every morning.”</li>
+      <li><b lang="ml" dir="auto">എല്ലാ</b> · <span class="fc-roman" dir="ltr">èllā</span> — discourse segment in “I study Malayalam every morning.”</li>
+      <li><b lang="ml" dir="auto">രാവിലെയും</b> · <span class="fc-roman" dir="ltr">rāvilèyuṃ</span> — discourse segment in “I study Malayalam every morning.”</li>
+      <li><b lang="ml" dir="auto">മലയാളം</b> · <span class="fc-roman" dir="ltr">malayāḻaṃ</span> — discourse segment in “I study Malayalam every morning.”</li>
+      <li><b lang="ml" dir="auto">പഠിക്കുന്നു</b> · <span class="fc-roman" dir="ltr">paṭhikkunnu</span> — discourse segment in “I study Malayalam every morning.”</li>
+      <li><b lang="ml" dir="auto">അർഥം</b> · <span class="fc-roman" dir="ltr">aർthaṃ</span> — discourse segment in “I study Malayalam every morning.”</li>
+      <li><b lang="ml" dir="auto">സാഹചര്യം</b> · <span class="fc-roman" dir="ltr">sāhacaryaṃ</span> — discourse segment in “I study Malayalam every morning.”</li>
+      <li><b lang="ml" dir="auto">നിലപാട്</b> · <span class="fc-roman" dir="ltr">nilapāṭ</span> — discourse segment in “I study Malayalam every morning.”</li>
+      <li><b lang="ml" dir="auto">നിങ്ങൾ</b> · <span class="fc-roman" dir="ltr">niṅṅaൾ</span> — discourse segment in “Do you live near the school?”</li>
+      <li><b lang="ml" dir="auto">സ്കൂളിന്</b> · <span class="fc-roman" dir="ltr">skūḻin</span> — discourse segment in “Do you live near the school?”</li>
+      <li><b lang="ml" dir="auto">അടുത്താണോ</b> · <span class="fc-roman" dir="ltr">aṭuttāṇo</span> — discourse segment in “Do you live near the school?”</li>
+      <li><b lang="ml" dir="auto">താമസിക്കുന്നത്</b> · <span class="fc-roman" dir="ltr">tāmasikkunnat</span> — discourse segment in “Do you live near the school?”</li>
+  </ul>
+  <p class="fc-static-note">This language's published deck has 288 cards. The interactive lab shows one card at a time, flips on Enter or Space, moves with the arrow keys, and can save a card to your review queue.</p>
+  <noscript><p class="fc-empty">The interactive flashcards need JavaScript. The vocabulary above is the same deck.</p></noscript>
+</section>
+
+<script>
+  (function () {
+    function go() {
+      var el = document.querySelector("[data-eg-flashcards=\"ml\"]");
+      if (el && window.EkGuruFlashcards) {
+        window.EkGuruFlashcards.mount(el, {code:"ml", name:"Malayalam", speech:"ml-IN"});
+      }
+    }
+    if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", go);
+    else go();
+  })();
+</script>
+
+<!-- ekguru:flashcards:end -->
 <!-- ekguru:trust-footer:start -->
 <!-- ekguru:pw-bands:start -->
 <nav class="pw-next" aria-label="Next step">

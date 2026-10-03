@@ -96,6 +96,44 @@
   <h2>How to practise</h2>
   <p>Ten focused minutes beats an hour of scrolling: pick one Gujarati topic, take five of its 24 questions, then read the explanations for everything you missed. Come back to the same topic tomorrow — the question set rotates with the date, so the second pass tests memory rather than the question order. Nothing here is timed and nothing is sent anywhere: the score stays in this browser unless you clear it.</p>
   <div class="note">Scores here are recognition scores, not fluency measures — nothing is a certified test.</div></div>
+<!-- ekguru:flashcards:start -->
+<script src="/js/flashcards-gu.js" defer></script>
+<script src="/js/flashcard-ui.js" defer></script>
+<section class="fc-lab" data-eg-flashcards="gu" aria-labelledby="fc-h-gu">
+  <h2 class="fc-title" id="fc-h-gu">Gujarati flashcards</h2>
+  <p class="fc-note">Front: the Gujarati word, exactly as the course writes it. Back: its meaning and the reading the course prints. Nothing on this page is scored, and the computer voice is a device voice — not a native recording.</p>
+  <ul class="fc-static">
+      <li><b lang="gu" dir="auto">ભવાઈ</b> · <span class="fc-roman" dir="ltr">bhavai</span> — bhavai</li>
+      <li><b lang="gu" dir="auto">રથ</b> · <span class="fc-roman" dir="ltr">rath</span> — chariot</li>
+      <li><b lang="gu" dir="auto">ડાયરો</b> · <span class="fc-roman" dir="ltr">dayro</span> — dayro</li>
+      <li><b lang="gu" dir="auto">ઢોલ</b> · <span class="fc-roman" dir="ltr">dhol</span> — dhol</li>
+      <li><b lang="gu" dir="auto">મેળો</b> · <span class="fc-roman" dir="ltr">melo</span> — fair</li>
+      <li><b lang="gu" dir="auto">ગરબા નૃત્ય</b> · <span class="fc-roman" dir="ltr">garba nrutya</span> — garba dance</li>
+      <li><b lang="gu" dir="auto">જાત્રા</b> · <span class="fc-roman" dir="ltr">jatra</span> — pilgrimage fair</li>
+      <li><b lang="gu" dir="auto">મિઠાઈ</b> · <span class="fc-roman" dir="ltr">mithai</span> — sweets</li>
+      <li><b lang="gu" dir="auto">ડોલ</b> · <span class="fc-roman" dir="ltr">dol</span> — bucket</li>
+      <li><b lang="gu" dir="auto">મોટો ભાઈ</b> · <span class="fc-roman" dir="ltr">moto bhai</span> — elder brother</li>
+      <li><b lang="gu" dir="auto">મોટી બહેન</b> · <span class="fc-roman" dir="ltr">moti ben</span> — elder sister</li>
+      <li><b lang="gu" dir="auto">પિતા</b> · <span class="fc-roman" dir="ltr">pita</span> — father</li>
+  </ul>
+  <p class="fc-static-note">This language's deck carries 300 of the 603 words the course authors, and the lab practises that deck. The lab shows one card at a time, flips on Enter or Space, moves with the arrow keys, and can save a card to your review queue.</p>
+  <noscript><p class="fc-empty">The interactive flashcards need JavaScript. The vocabulary above is the same deck.</p></noscript>
+</section>
+
+<script>
+  (function () {
+    function go() {
+      var el = document.querySelector("[data-eg-flashcards=\"gu\"]");
+      if (el && window.EkGuruFlashcards) {
+        window.EkGuruFlashcards.mount(el, {code:"gu", name:"Gujarati", speech:"gu-IN"});
+      }
+    }
+    if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", go);
+    else go();
+  })();
+</script>
+
+<!-- ekguru:flashcards:end -->
 <!-- ekguru:trust-footer:start -->
 <!-- ekguru:pw-bands:start -->
 <nav class="pw-next" aria-label="Next step">

@@ -5700,3 +5700,111 @@ html[dir="rtl"] .xp-hero-copy > .ekg-greeting-line {
   .eg-gn-list a:hover,
   .eg-gn-list a:focus-visible { transform: none; }
 }
+
+/* ==========================================================================
+   37. FLASHCARD LAB  (PHASE 9 — tools/build-flashcards.py + js/flashcard-ui.js)
+   --------------------------------------------------------------------------
+   The deck is authored vocabulary; this layer only presents it. Rules kept
+   from the top of the file: motion is cancelled under prefers-reduced-motion,
+   touch targets stay >= 44px on coarse pointers, and the word itself is never
+   hidden from the accessibility tree — only the meaning is.
+   ========================================================================== */
+
+.fc-lab { max-width: 46rem; margin: 26px 0 8px; }
+.fc-lab .fc-title {
+  font-size: var(--xp-fs-xl);
+  line-height: 1.25;
+  margin: 0 0 6px;
+}
+.fc-note,
+.fc-hint { color: var(--xp-muted); font-size: var(--xp-fs-sm); margin: 0 0 10px; }
+.fc-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 12px 0;
+}
+.fc-chip {
+  min-height: 36px;
+  padding: 6px 12px;
+  border: 1px solid var(--line);
+  border-radius: var(--xp-pill);
+  background: var(--bg-soft);
+  color: var(--xp-ink);
+  font: inherit;
+  font-size: var(--xp-fs-xs);
+  cursor: pointer;
+}
+.fc-chip:hover { border-color: var(--xp-a); }
+.fc-chip[aria-pressed="true"] {
+  border-color: var(--xp-a);
+  color: var(--xp-a);
+  font-weight: 700;
+}
+.fc-chip-n { color: var(--xp-muted); font-weight: 600; font-size: var(--xp-fs-2xs); }
+.fc-stage { margin: 6px 0 0; }
+.fc-card { perspective: 900px; }
+.fc-face {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  min-height: 176px;
+  padding: 26px 22px;
+  border: 1px solid var(--line);
+  border-radius: var(--xp-r-2);
+  background: var(--card, #fff);
+  color: var(--xp-ink);
+  font: inherit;
+  text-align: center;
+  cursor: pointer;
+}
+.fc-face:hover { border-color: var(--xp-a); }
+.fc-face:focus-visible {
+  outline: 3px solid var(--xp-a);
+  outline-offset: 2px;
+}
+.fc-side-front {
+  font-size: var(--xp-fs-2xl);
+  font-weight: 700;
+  line-height: 1.3;
+}
+.fc-roman {
+  display: block;
+  margin-top: 4px;
+  font-size: var(--xp-fs-sm);
+  font-weight: 500;
+  letter-spacing: 0;
+  color: var(--xp-muted);
+}
+.fc-side-back { font-size: var(--xp-fs-lg); color: var(--xp-ink-2); }
+.fc-card[data-flipped="false"] .fc-side-back { display: none; }
+.fc-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 12px;
+}
+.fc-progress { margin: 12px 0 0; font-weight: 600; color: var(--xp-ink-2); }
+.fc-msg { min-height: 1.2em; margin: 8px 0 0; color: var(--xp-a); font-size: var(--xp-fs-sm); }
+.fc-empty { color: var(--xp-muted); }
+.fc-static {
+  margin: 0 0 10px;
+  padding-inline-start: 22px;
+  line-height: 1.75;
+}
+.fc-static-note { margin: 0 0 8px; color: var(--xp-muted); font-size: var(--xp-fs-sm); }
+
+@media (prefers-reduced-motion: no-preference) {
+  .fc-card[data-flipped="true"] .fc-face { animation: fc-rise .22s var(--xp-ease, ease) both; }
+  @keyframes fc-rise {
+    from { transform: translateY(4px); opacity: .7; }
+    to { transform: none; opacity: 1; }
+  }
+}
+@media (pointer: coarse) {
+  .fc-chip,
+  .fc-actions .btn { min-height: 44px; }
+}

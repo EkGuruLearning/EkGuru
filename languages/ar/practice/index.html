@@ -109,6 +109,44 @@
 <h2>What the score means</h2>
 <p>This is a recognition drill, not a fluency test: picking the right meaning is easier than producing the word, so a high score means you can read Arabic, not that you can speak it. Aim to finish a set without repeats, then come back the next day — the value is in the second pass, when the options look familiar and you have to remember rather than guess.</p>
 </div>
+<!-- ekguru:flashcards:start -->
+<script src="/js/flashcards-ar.js" defer></script>
+<script src="/js/flashcard-ui.js" defer></script>
+<section class="fc-lab" data-eg-flashcards="ar" aria-labelledby="fc-h-ar">
+  <h2 class="fc-title" id="fc-h-ar">Arabic flashcards</h2>
+  <p class="fc-note">Front: the Arabic word, exactly as the course writes it. Back: its meaning and the reading the course prints. Nothing on this page is scored, and the computer voice is a device voice — not a native recording.</p>
+  <ul class="fc-static">
+      <li><b lang="ar" dir="auto">هل</b> · <span class="fc-roman" dir="ltr">hal</span> — question particle (yes/no)</li>
+      <li><b lang="ar" dir="auto">ما</b> · <span class="fc-roman" dir="ltr">mā</span> — what</li>
+      <li><b lang="ar" dir="auto">أين</b> · <span class="fc-roman" dir="ltr">ayna</span> — where</li>
+      <li><b lang="ar" dir="auto">من</b> · <span class="fc-roman" dir="ltr">man</span> — who</li>
+      <li><b lang="ar" dir="auto">لماذا</b> · <span class="fc-roman" dir="ltr">limādhā</span> — why</li>
+      <li><b lang="ar" dir="auto">عندي</b> · <span class="fc-roman" dir="ltr">ʿindī</span> — I have</li>
+      <li><b lang="ar" dir="auto">خبز</b> · <span class="fc-roman" dir="ltr">khubz</span> — bread</li>
+      <li><b lang="ar" dir="auto">صديق</b> · <span class="fc-roman" dir="ltr">ṣadīq</span> — friend</li>
+      <li><b lang="ar" dir="auto">بيت</b> · <span class="fc-roman" dir="ltr">bayt</span> — house</li>
+      <li><b lang="ar" dir="auto">في</b> · <span class="fc-roman" dir="ltr">fī</span> — in / there is</li>
+      <li><b lang="ar" dir="auto">مال</b> · <span class="fc-roman" dir="ltr">māl</span> — money</li>
+      <li><b lang="ar" dir="auto">وقت</b> · <span class="fc-roman" dir="ltr">waqt</span> — time</li>
+  </ul>
+  <p class="fc-static-note">This language's deck carries 300 of the 668 words the course authors, and the lab practises that deck. The lab shows one card at a time, flips on Enter or Space, moves with the arrow keys, and can save a card to your review queue.</p>
+  <noscript><p class="fc-empty">The interactive flashcards need JavaScript. The vocabulary above is the same deck.</p></noscript>
+</section>
+
+<script>
+  (function () {
+    function go() {
+      var el = document.querySelector("[data-eg-flashcards=\"ar\"]");
+      if (el && window.EkGuruFlashcards) {
+        window.EkGuruFlashcards.mount(el, {code:"ar", name:"Arabic", speech:"ar-SA"});
+      }
+    }
+    if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", go);
+    else go();
+  })();
+</script>
+
+<!-- ekguru:flashcards:end -->
 <!-- ekguru:trust-footer:start -->
 <!-- ekguru:pw-bands:start -->
 <nav class="pw-next" aria-label="Next step">

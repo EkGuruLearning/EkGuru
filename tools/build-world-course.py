@@ -23,6 +23,7 @@ Run: python3 tools/build-world-course.py            # all data modules
 """
 import importlib.util, json, os, sys, time, glob
 from lib.speech_tags import speech_tag   # canonical BCP-47 tags
+from lib.flashcard_section import flashcard_section, mount_script  # PHASE 9 decks
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 os.chdir(ROOT)
@@ -223,14 +224,18 @@ def build_practice(C):
     ) % (esc_html(C["name"]), esc_html(C["name"]), code, code, code,
          C["jsvar"], C["jsvar"], C["jsvar"], code, C["speech"],
          code, code, C["jsvar"])
+    fc_html, fc_scripts = flashcard_section(code, C["name"])
+    scripts = ["course-%s.js" % code, "practice-engine.js"] + fc_scripts
+    if fc_html:
+        body += fc_html + mount_script(code, C["name"], C["speech"])
     write_page("languages/%s/practice/index.html" % code, "../../../",
                "%s Practice — Vocabulary & Grammar Drills" % C["name"],
-               "Free %s practice drills: see a %s word or rule, pick the meaning, get the explanation. Computer voice playback, saved in your browser." % (C["name"], C["name"]),
+               "Free %s practice drills and flashcards: see a %s word or rule, pick the meaning, get the explanation. Computer voice playback, saved in your browser." % (C["name"], C["name"]),
                "languages/%s/practice/" % code,
                '<a href="/">EkGuru</a> › <a href="/languages/">Languages</a> › <a href="/languages/%s/">%s</a> › Practice'
                % (code, esc_html(C["name"])),
                body + _explainer(C, "practice"),
-               scripts=["course-%s.js" % code, "practice-engine.js"], index=True)
+               scripts=scripts, index=True)
     return "languages/%s/practice/index.html" % code
 
 
