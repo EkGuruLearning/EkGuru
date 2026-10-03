@@ -1404,14 +1404,24 @@ DEEPEN = {
 }
 
 
+# The reading order the prev/next chain walks. The five PHASE 3 posts slot in at
+# the point in the sequence where a learner would want them, rather than being
+# appended at the end: words before numbers, mistakes once there is vocabulary
+# to get wrong, reading once there is grammar to read with, the comparison and
+# the speaking routine last before the intermediate sequence.
 READ_ORDER = [
     ("basics/", "Basics"), ("beginner/", "Beginner"),
-    ("pronunciation/", "Pronunciation"), ("numbers/", "Numbers"),
+    ("pronunciation/", "Pronunciation"), ("common-words/", "Most common words"),
+    ("numbers/", "Numbers"),
     ("time-dates/", "Time & dates"), ("conversation/", "Conversation"),
-    ("vocabulary/", "Vocabulary"), ("grammar/", "Grammar"),
+    ("vocabulary/", "Vocabulary"), ("mistakes/", "Common mistakes"),
+    ("grammar/", "Grammar"),
     ("elementary/", "Elementary"), ("food/", "Food"),
     ("shopping/", "Shopping"), ("travel/", "Travel"),
-    ("daily-life/", "Daily life"), ("intermediate/", "Intermediate"),
+    ("reading/", "Reading practice"),
+    ("daily-life/", "Daily life"), ("vs-hindi/", "Compared with Hindi"),
+    ("speaking-alone/", "Practising alone"),
+    ("intermediate/", "Intermediate"),
 ]
 
 
