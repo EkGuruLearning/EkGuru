@@ -36,6 +36,24 @@ EXISTING = ["beginner", "pronunciation", "grammar", "travel", "numbers"]
 NEW = ["common-words", "mistakes", "reading", "vs-hindi", "speaking-alone"]
 POSTS = EXISTING + NEW
 
+# Hindi's learn/ guides are hand-authored rather than generated from a pack, and
+# they live at the top level (learn/<slug>/) instead of learn/hindi/<slug>/, so the
+# ten post types map onto their own URLs. Eight already existed; the last two were
+# written by tools/build-hindi-phase3-posts.py.
+HINDI_NEW = {"common-words", "speaking-alone"}   # the two pages this phase added
+HINDI = {
+    "beginner": "learn-hindi-online-guide",
+    "pronunciation": "hindi-alphabet-for-beginners",
+    "grammar": "hindi-sentence-structure",
+    "travel": "hindi-phrases-for-travel",
+    "numbers": "hindi-numbers-1-to-100",
+    "common-words": "hindi-100-most-common-words",
+    "mistakes": "common-hindi-mistakes",
+    "reading": "hindi-barakhadi",
+    "vs-hindi": "hindi-or-urdu-difference",
+    "speaking-alone": "hindi-speaking-practice-alone",
+}
+
 WORD_RE = re.compile(r"[A-Za-z\u0600-\u06FF\u0900-\u0DFF\u0E00-\u0E7F]+")
 TAG_RE = re.compile(r"<[^>]+>")
 DROP_RE = re.compile(r"<(script|style)\b[^>]*>.*?</\1>|<!--.*?-->", re.S | re.I)
@@ -108,8 +126,40 @@ def main() -> int:
                 # noindex True means "not indexable", so equal means the flag flipped
                 problems.append(f"{rel}: indexability changed from the owner's baseline")
 
+    # Hindi: hand-authored guides, mapped type -> URL above.
+    hindi_checked = 0
+    hub = (ROOT / "learn/hindi/index.html").read_text(encoding="utf-8")
+    for kind, slug in HINDI.items():
+        rel = f"learn/{slug}/index.html"
+        p = ROOT / rel
+        if not p.exists():
+            problems.append(f"{rel}: missing (Hindi {kind})")
+            continue
+        checked += 1
+        hindi_checked += 1
+        html = p.read_text(encoding="utf-8")
+        w = words(html)
+        if w < MIN_WORDS:
+            problems.append(f"{rel}: {w} words, needs {MIN_WORDS} (Hindi {kind})")
+        if w < shortest[1]:
+            shortest = (rel, w)
+        if len(H1_RE.findall(html)) != 1:
+            problems.append(f"{rel}: needs exactly one <h1>")
+        if len(H2_RE.findall(html)) < 4:
+            problems.append(f"{rel}: needs at least four <h2> sections")
+        links = {k for k, v in HINDI.items()
+                 if v != slug and (f"/learn/{v}/" in html or f'../{v}/' in html)}
+        if len(links) < 2:
+            problems.append(f"{rel}: links to only {len(links)} other guide(s)")
+        if kind in HINDI_NEW and f'href="../{slug}/"' not in hub:
+            problems.append(f"{rel}: the Hindi hub does not link to it")
+        m = ROBOTS_RE.search(html)
+        if kind in HINDI_NEW and not (m and "noindex" in m.group(1).lower()):
+            problems.append(f"{rel}: a new Hindi page must stay noindex (owner indexing contract)")
+
     langs = len(packs)
-    print(f"PHASE 3 content: {langs} language(s) × {len(POSTS)} posts = {langs * len(POSTS)} pages expected, {checked} found")
+    print(f"PHASE 3 content: {langs} course pack(s) × {len(POSTS)} posts = {langs * len(POSTS)} pages "
+          f"+ Hindi {hindi_checked}/{len(HINDI)} mapped posts = {checked} found")
     if checked:
         print(f"shortest post: {shortest[0]} — {shortest[1]} words (minimum {MIN_WORDS})")
     if problems:

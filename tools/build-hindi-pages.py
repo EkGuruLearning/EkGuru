@@ -625,6 +625,21 @@ def update_hub_nav():
 
     # fix double slash bug
     h = h.replace('href="../practice//"', 'href="../practice/"')
+
+    # PHASE 3: two new hand-authored guides exist; feature them on the hub so they
+    # are reachable from the language hub, not only from the sibling-guide band.
+    if 'hindi-100-most-common-words' not in h:
+        m = re.search(r'<h2>Featured lessons</h2><ul class="linklist">', h)
+        pinned = ('<li><a href="../hindi-100-most-common-words/">100 Most Common Hindi Words \u2014 With '
+                  'Pronunciation</a><span>The highest-frequency Hindi words in eight groups \u2014 pronouns, '
+                  'questions, verbs, family, numbers, colours, days and time \u2014 each in Devanagari with '
+                  'pronunciation.</span></li>\n'
+                  '<li><a href="../hindi-speaking-practice-alone/">How to Practise Speaking Hindi Alone</a>'
+                  '<span>Shadowing, self-talk, recording yourself, the three sounds English lacks, and the '
+                  'twenty minutes a day that make it stick.</span></li>\n')
+        if m:
+            h = h[:m.end()] + "\n" + pinned + h[m.end():]
+            changed = True
     # add new tools after the existing practice-labs linklist items (before </ul>)
     if 'practice/quiz/' not in h:
         add = ('    <li><a href="practice/quiz/">Hindi Topic Quiz</a>'
