@@ -229,7 +229,24 @@ ta row is `FAIL ['no_native_review']` only, `unique_text_ratio` 0.979 and
 `script_mismatch 0`. The generated ladder's bare `twitter:title` is the
 recorded site-wide 1080-bare-vs-7-suffixed issue; it was not hand-edited.
 
-Still open: PHASE 1 for `te ur zh` (15 rungs, 18 `extra` blocks, 18 short
-units), the eight-course C1/C2 re-authoring above, 156 English speaker labels
-(`te` 128, `ur` 28), and the Urdu A1-marks-vs-ASCII decision. Runtime flags
+**Telugu — the 16th of 18.** `tools/depth-content/te.py` now carries the six
+CEFR extras, eighteen third lessons and five A1+–C1+ half-steps. It also
+re-authors the six original C1 and six C2 lessons, replacing their synthetic
+glosses, repairing the marked romanisation, and giving each advanced level ten
+unique test prompts and its own goals. The five half-step tests were expanded
+from four to ten items after the gap audit caught the shortfall. A source scan
+found zero mismatches across 126 Telugu `t`/`r` pairs in each advanced file.
+
+The Telugu speaker-label map localised 80 remaining role fields and seven
+practice prompts; the other 48 advanced English labels were removed by the
+source lesson rewrites. Rendered-page regressions now check contextual-segment
+filler, romanisation, distinct C1/C2 test prompts and role labels. Flashcards,
+practice lab, learning/course indexes, copy index and editorial metadata were
+refreshed. `build-all.py check` and `npm run test:courses` are green; the gap
+audit shows `te 11/11` and only the two unfinished languages remain. The
+Telugu language-gate row is blocked only on `no_native_review`.
+
+Still open: PHASE 1 for `ur zh` (10 rung files, 12 `extra` blocks, 12 short
+units), the shared C1/C2 re-authoring for `ar bn de it ja ko pt ru`, 28 English
+speaker labels in Urdu, and the Urdu A1-marks-vs-ASCII decision. Runtime flags
 stay OFF; indexing, canonicals, robots and the domain are untouched.

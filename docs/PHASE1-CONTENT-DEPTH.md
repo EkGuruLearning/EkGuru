@@ -318,6 +318,35 @@ gate remains blocked only on `no_native_review`, as it does for every T1 course.
 The generated ta ladder's bare `twitter:title` stays in the separately tracked
 1080-bare-vs-7-suffixed decision; no generated HTML was hand-edited.
 
+2026-10-04 (after Telugu — 16 of 18): **10 rung files · 12 `extra` blocks ·
+12 short units · 28 English labels** remain, all in `ur` and `zh`. `te` reads
+11/11 with zero missing extras, short units, out-of-range tests, self-asserting
+mistakes or English role labels. `audit-phase1-gap.py --check` therefore still
+exits 1 for the two unfinished languages, not for Telugu.
+
+`tools/depth-content/te.py` now carries six CEFR `extra` blocks, eighteen third
+lessons, and the five A1+–C1+ half-steps with nine lessons, a sourced extra and
+ten test items each. The gap audit caught that the first draft had only four
+test items per half-step; all five were corrected at source and regenerated.
+The same module now re-authors all six original C1 and six original C2 lessons:
+48 synthetic `contextual segment N` glosses per level are gone, the eight-item
+vocabulary and romanisation are generated from source, the ten level-test
+prompts are distinct, and the shared generic goals have been replaced with
+level-specific outcomes. A scan compared 126 `t`/`r` pairs per advanced level
+with zero romanisation mismatches. The rendered-page test reads the Telugu
+pages and checks the placeholder, romanisation, test prompts and role labels.
+
+The starting 128 English role-label fields were resolved at source: 48 advanced
+speaker fields disappeared with the rewritten dialogues, and the Telugu label
+map localised the remaining 80 fields plus seven practice prompts in four
+files. The static C1/C2 pages now show nine lessons and 63 vocabulary items per
+level. Their flashcards and practice lab, course/learning indexes, copy index
+and editorial metadata were refreshed. `build-all.py check` and
+`npm run test:courses` are green. The language-gate row is `FAIL
+['no_native_review']` only; `unique_text_ratio` is 0.957 and
+`script_mismatch` is 0. The site-wide content batch tracked by Trap #9 remains
+separate and open for `ar bn de it ja ko pt ru`.
+
 ## Acceptance (from the command doc)
 
 - `python3 tools/build-all.py check` green
@@ -439,8 +468,8 @@ tools/depth_kit.py            # the authoring DSL (V/X/G/D/T/WS/L/EXTRA)
 tools/author-depth.py         # the machinery, per language:
                               #   python3 tools/author-depth.py --lang ar
                               #   ... --check            drift report
-                              #   ... --only extras|third|rungs|manifest
-tools/depth-content/<code>.py # the content: EXTRAS, THIRD, HALFSTEPS
+                              #   ... --only base|extras|third|rungs|manifest
+tools/depth-content/<code>.py # EXTRAS, THIRD, HALFSTEPS; optional BASE_REWRITES / LEVEL_TESTS / LEVEL_GOALS
 ```
 
 One command writes all three surfaces: the five half-step rungs (as real level

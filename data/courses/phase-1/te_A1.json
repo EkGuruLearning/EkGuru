@@ -98,25 +98,25 @@
             },
             "dialogue": [
               {
-                "sp": "Doctor",
+                "sp": "వైద్యుడు",
                 "t": "మీకు ఏమైంది?",
                 "r": "Mīku ēmaindi?",
                 "en": "What happened to you?"
               },
               {
-                "sp": "Patient",
+                "sp": "రోగి",
                 "t": "డాక్టర్, రెండు రోజుల నుంచి జ్వరం.",
                 "r": "Ḍākṭar, reṇḍu rōjula nuñchi jvaraṁ.",
                 "en": "Doctor, fever for two days."
               },
               {
-                "sp": "Doctor",
+                "sp": "వైద్యుడు",
                 "t": "దగ్గు, జలుబు ఉందా?",
                 "r": "Daggu, jalubu undā?",
                 "en": "Any cough or cold?"
               },
               {
-                "sp": "Patient",
+                "sp": "రోగి",
                 "t": "దగ్గు మాత్రమే ఉంది.",
                 "r": "Daggu mātramē undi.",
                 "en": "Only a cough."
@@ -194,7 +194,7 @@
               },
               {
                 "type": "dialogue_completion",
-                "q": "Practice 10 [dialogue completion] — Health and Wellbeing — A1: Complete Patient’s turn: Doctor, fever for two days.",
+                "q": "Practice 10 [dialogue completion] — Health and Wellbeing — A1: Complete రోగి’s turn: Doctor, fever for two days.",
                 "answer": "డాక్టర్, రెండు రోజుల నుంచి జ్వరం.",
                 "skill_target": "Telugu dialogue completion: Telugu agglutinative suffixes, case marking, agreement, and respectful forms"
               },
@@ -408,25 +408,25 @@
             },
             "dialogue": [
               {
-                "sp": "Manager",
+                "sp": "నిర్వాహకుడు",
                 "t": "రండి! మీ పేరు ఏంటి?",
                 "r": "Raṇḍi! Mī pēru ēṇṭi?",
                 "en": "Welcome! What is your name?"
               },
               {
-                "sp": "Newcomer",
+                "sp": "కొత్తగా వచ్చిన వ్యక్తి",
                 "t": "నా పేరు కుమార్.",
                 "r": "Nā pēru Kumāṛ.",
                 "en": "My name is Kumar."
               },
               {
-                "sp": "Manager",
+                "sp": "నిర్వాహకుడు",
                 "t": "ఇది మీ టేబుల్. కంప్యూటర్ ఆన్ చేయండి.",
                 "r": "Idi mī ṭēbul. Kampyūṭar ān chēyaṇḍi.",
                 "en": "This is your desk. Switch on the computer."
               },
               {
-                "sp": "Newcomer",
+                "sp": "కొత్తగా వచ్చిన వ్యక్తి",
                 "t": "సరే. ఈమెయిల్ అడ్రస్ ఏంటి?",
                 "r": "Sarē. Īmeyil aḍras ēṇṭi?",
                 "en": "OK. What is the email address?"
@@ -637,6 +637,288 @@
               "రిసెప్షన్"
             ],
             "srs_policy": "Only selected high-value forms are preselected; actual mistakes and productive patterns enter personalized review after learner evidence."
+          },
+          {
+            "id": "te-a1-l7",
+            "title": "At the pharmacy: a simple request",
+            "learn": "Ask for a familiar medicine and explain one basic symptom without turning the exchange into a diagnosis.",
+            "vocab": [
+              {
+                "t": "మందుల దుకాణం",
+                "r": "mandula dukāṇaṁ",
+                "en": "pharmacy",
+                "pos": "noun"
+              },
+              {
+                "t": "మాత్ర",
+                "r": "mātra",
+                "en": "tablet",
+                "pos": "noun"
+              },
+              {
+                "t": "జ్వరం",
+                "r": "jvaraṁ",
+                "en": "fever",
+                "pos": "noun"
+              },
+              {
+                "t": "రోజుకు",
+                "r": "rōjuku",
+                "en": "per day",
+                "pos": "adverb"
+              },
+              {
+                "t": "సూచన",
+                "r": "sūchana",
+                "en": "instruction",
+                "pos": "noun"
+              }
+            ],
+            "grammar": {
+              "title": "దాతువు కావాలి and dative need",
+              "pattern": "నాకు + వస్తువు + కావాలి",
+              "explain": "Use నాకు for the person who needs something. Keep the object before కావాలి, then ask politely with కావాలా? A symptom can be stated separately; the phrase does not diagnose its cause.",
+              "examples": [
+                {
+                  "t": "నాకు జ్వరానికి మాత్ర కావాలి.",
+                  "r": "Nāku jvarāniki mātra kāvāli.",
+                  "en": "I need a tablet for fever."
+                },
+                {
+                  "t": "ఈ మందు రోజుకు రెండుసార్లు తీసుకోండి.",
+                  "r": "Ī mandu rōjuku reṇḍusārlu tīsukōṇḍi.",
+                  "en": "Take this medicine twice a day."
+                },
+                {
+                  "t": "సూచనను మళ్లీ చెప్పగలరా?",
+                  "r": "Sūchananu maḷlī cheppagalarā?",
+                  "en": "Could you repeat the instruction?"
+                }
+              ],
+              "mistakes": [
+                {
+                  "wrong": "నాకు ఈ మందు కావాలా?",
+                  "right": "నాకు ఈ మందు కావాలి.",
+                  "why": "The question particle changes the meaning; use కావాలి for a statement of need."
+                }
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "కొనుగోలుదారు",
+                "t": "నాకు జ్వరానికి మాత్ర కావాలి.",
+                "r": "Nāku jvarāniki mātra kāvāli.",
+                "en": "I need a tablet for fever."
+              },
+              {
+                "sp": "ఔషధ విక్రేత",
+                "t": "వైద్యుడు ఇచ్చిన సూచన ఉందా?",
+                "r": "Vaidyuḍu ichchina sūchana undā?",
+                "en": "Do you have an instruction from a doctor?"
+              },
+              {
+                "sp": "కొనుగోలుదారు",
+                "t": "అవును, రోజుకు రెండుసార్లు అన్నారు.",
+                "r": "Avunu, rōjuku reṇḍusārlu annāru.",
+                "en": "Yes, they said twice a day."
+              },
+              {
+                "sp": "ఔషధ విక్రేత",
+                "t": "సరే, లేబుల్ కూడా చదవండి.",
+                "r": "Sarē, lēbul kūḍā chadavaṇḍi.",
+                "en": "All right, please read the label too."
+              }
+            ],
+            "practice": [
+              {
+                "type": "multiple_choice",
+                "q": "Practice 1: [multiple choice] At the pharmacy: a simple request — Choose the meaning of మందుల దుకాణం (mandula dukāṇaṁ) in this lesson.",
+                "answer": "pharmacy",
+                "skill_target": "Telugu: the Telugu abugida, vowel signs and virama, case suffixes, verb-final clauses, మీరు with respectful agreement, quotative అని, and the difference between a written standard and regional speech",
+                "options": [
+                  "pharmacy",
+                  "tablet",
+                  "fever",
+                  "per day"
+                ]
+              },
+              {
+                "type": "fill_in_the_blank",
+                "q": "Practice 2: [fill in the blank] At the pharmacy: a simple request — Type the Telugu expression meaning “tablet”.",
+                "answer": "మాత్ర",
+                "skill_target": "Telugu: the Telugu abugida, vowel signs and virama, case suffixes, verb-final clauses, మీరు with respectful agreement, quotative అని, and the difference between a written standard and regional speech"
+              },
+              {
+                "type": "translation",
+                "q": "Practice 3: [translation] At the pharmacy: a simple request — Interpret the Telugu script in context: నాకు జ్వరానికి మాత్ర కావాలి. (Nāku jvarāniki mātra kāvāli.).",
+                "answer": "I need a tablet for fever.",
+                "skill_target": "Telugu: the Telugu abugida, vowel signs and virama, case suffixes, verb-final clauses, మీరు with respectful agreement, quotative అని, and the difference between a written standard and regional speech"
+              },
+              {
+                "type": "reverse_translation",
+                "q": "Practice 4: [reverse translation] At the pharmacy: a simple request — Write in Telugu script: Take this medicine twice a day..",
+                "answer": "ఈ మందు రోజుకు రెండుసార్లు తీసుకోండి.",
+                "skill_target": "Telugu: the Telugu abugida, vowel signs and virama, case suffixes, verb-final clauses, మీరు with respectful agreement, quotative అని, and the difference between a written standard and regional speech"
+              },
+              {
+                "type": "matching",
+                "q": "Practice 5: [matching] At the pharmacy: a simple request — Match జ్వరం to its lesson meaning.",
+                "answer": "fever",
+                "skill_target": "Telugu: the Telugu abugida, vowel signs and virama, case suffixes, verb-final clauses, మీరు with respectful agreement, quotative అని, and the difference between a written standard and regional speech",
+                "options": [
+                  "fever",
+                  "pharmacy",
+                  "tablet"
+                ]
+              },
+              {
+                "type": "reorder",
+                "q": "Practice 6: [reorder] At the pharmacy: a simple request — Reconstruct the lesson model in coherent Telugu: Could you repeat the instruction?.",
+                "answer": "సూచనను మళ్లీ చెప్పగలరా?",
+                "skill_target": "Telugu: the Telugu abugida, vowel signs and virama, case suffixes, verb-final clauses, మీరు with respectful agreement, quotative అని, and the difference between a written standard and regional speech"
+              },
+              {
+                "type": "sentence_building",
+                "q": "Practice 7: [sentence building] At the pharmacy: a simple request — Build the sentence with the lesson pattern (నాకు + వస్తువు + కావాలి): I need a tablet for fever..",
+                "answer": "నాకు జ్వరానికి మాత్ర కావాలి.",
+                "skill_target": "Telugu: the Telugu abugida, vowel signs and virama, case suffixes, verb-final clauses, మీరు with respectful agreement, quotative అని, and the difference between a written standard and regional speech"
+              },
+              {
+                "type": "word_selection",
+                "q": "Practice 8: [word selection] At the pharmacy: a simple request — Select the Telugu form for “per day”.",
+                "answer": "రోజుకు",
+                "skill_target": "Telugu: the Telugu abugida, vowel signs and virama, case suffixes, verb-final clauses, మీరు with respectful agreement, quotative అని, and the difference between a written standard and regional speech",
+                "options": [
+                  "రోజుకు",
+                  "సూచన"
+                ]
+              },
+              {
+                "type": "error_correction",
+                "q": "Practice 9: [error correction] At the pharmacy: a simple request — Correct the model the lesson warns about: నాకు ఈ మందు కావాలా?",
+                "answer": "నాకు ఈ మందు కావాలి.",
+                "skill_target": "Telugu: the Telugu abugida, vowel signs and virama, case suffixes, verb-final clauses, మీరు with respectful agreement, quotative అని, and the difference between a written standard and regional speech"
+              },
+              {
+                "type": "dialogue_completion",
+                "q": "Practice 10: [dialogue completion] At the pharmacy: a simple request — Complete the exchange with the studied response to: I need a tablet for fever.",
+                "answer": "వైద్యుడు ఇచ్చిన సూచన ఉందా?",
+                "skill_target": "Telugu: the Telugu abugida, vowel signs and virama, case suffixes, verb-final clauses, మీరు with respectful agreement, quotative అని, and the difference between a written standard and regional speech"
+              },
+              {
+                "type": "reading_comprehension",
+                "q": "Practice 11: [reading comprehension] At the pharmacy: a simple request — Read “అవును, రోజుకు రెండుసార్లు అన్నారు.” (Avunu, rōjuku reṇḍusārlu annāru.). What does it mean?",
+                "answer": "Yes, they said twice a day.",
+                "skill_target": "Telugu: the Telugu abugida, vowel signs and virama, case suffixes, verb-final clauses, మీరు with respectful agreement, quotative అని, and the difference between a written standard and regional speech"
+              },
+              {
+                "type": "paragraph_comprehension",
+                "q": "Practice 12: [paragraph comprehension] At the pharmacy: a simple request — Read the lesson dialogue as a whole and give its key move: All right, please read the label too.",
+                "answer": "సరే, లేబుల్ కూడా చదవండి.",
+                "skill_target": "Telugu: the Telugu abugida, vowel signs and virama, case suffixes, verb-final clauses, మీరు with respectful agreement, quotative అని, and the difference between a written standard and regional speech"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "Which meaning best fits మందుల దుకాణం?",
+                "options": [
+                  "pharmacy",
+                  "tablet",
+                  "fever",
+                  "per day"
+                ],
+                "answer": 0,
+                "why": "మందుల దుకాణం (mandula dukāṇaṁ) means pharmacy in this lesson."
+              },
+              {
+                "q": "Which meaning best fits మాత్ర?",
+                "options": [
+                  "tablet",
+                  "pharmacy",
+                  "fever",
+                  "per day"
+                ],
+                "answer": 0,
+                "why": "మాత్ర (mātra) means tablet in this lesson."
+              },
+              {
+                "q": "Which meaning best fits జ్వరం?",
+                "options": [
+                  "fever",
+                  "pharmacy",
+                  "tablet",
+                  "per day"
+                ],
+                "answer": 0,
+                "why": "జ్వరం (jvaraṁ) means fever in this lesson."
+              },
+              {
+                "q": "Which meaning best fits రోజుకు?",
+                "options": [
+                  "per day",
+                  "pharmacy",
+                  "tablet",
+                  "fever"
+                ],
+                "answer": 0,
+                "why": "రోజుకు (rōjuku) means per day in this lesson."
+              },
+              {
+                "q": "Which meaning best fits సూచన?",
+                "options": [
+                  "instruction",
+                  "pharmacy",
+                  "tablet",
+                  "fever"
+                ],
+                "answer": 0,
+                "why": "సూచన (sūchana) means instruction in this lesson."
+              }
+            ],
+            "flashcards": "auto:vocab",
+            "worksheet": {
+              "title": "Check the pharmacy exchange",
+              "tasks": [
+                {
+                  "instruction": "Write the symptom and the item you need.",
+                  "items": [
+                    "జ్వరం",
+                    "మాత్ర"
+                  ],
+                  "key": [
+                    "fever",
+                    "tablet"
+                  ]
+                },
+                {
+                  "instruction": "Ask for the instructions again politely.",
+                  "items": [
+                    "సూచనను మళ్లీ చెప్పగలరా?"
+                  ],
+                  "key": [
+                    "Could you repeat the instruction?"
+                  ]
+                },
+                {
+                  "instruction": "Integrated offline practice: read the first model, transform or extend it in Telugu script, then rehearse it as a dialogue. Self-check meaning, grammar, and register.",
+                  "items": [
+                    "నాకు జ్వరానికి మాత్ర కావాలి.",
+                    "నాకు జ్వరానికి మాత్ర కావాలి."
+                  ],
+                  "key": [
+                    "I need a tablet for fever.",
+                    "I need a tablet for fever."
+                  ]
+                }
+              ]
+            },
+            "srs_candidates": [
+              "మందుల దుకాణం",
+              "మాత్ర",
+              "జ్వరం",
+              "రోజుకు"
+            ],
+            "srs_policy": "Only these four high-value terms are preselected; lesson mistakes and productive patterns may enter personalized review after an actual error."
           }
         ]
       },
@@ -725,25 +1007,25 @@
             },
             "dialogue": [
               {
-                "sp": "Father",
+                "sp": "నాన్న",
                 "t": "హోమ్‌వర్క్ పూర్తి చేశావా?",
                 "r": "Hōmvark pūrti chēśāvā?",
                 "en": "Did you finish homework?"
               },
               {
-                "sp": "Son",
+                "sp": "కొడుకు",
                 "t": "లెక్కలు మాత్రమే మిగిలాయి, నాన్న.",
                 "r": "Lekkalu mātramē migilāyi, nānna.",
                 "en": "Only maths left, father."
               },
               {
-                "sp": "Father",
+                "sp": "నాన్న",
                 "t": "ఎక్కడ అనుమానం? చూపించు.",
                 "r": "Ekkaḍa anumānaṁ? Chūpiñchu.",
                 "en": "Where's the doubt? Show me."
               },
               {
-                "sp": "Son",
+                "sp": "కొడుకు",
                 "t": "ఈ లెక్క అర్థం కాలేదు.",
                 "r": "Ī lekka arthaṁ kālēdu.",
                 "en": "I don't get this sum."
@@ -798,7 +1080,7 @@
               },
               {
                 "type": "dialogue_completion",
-                "q": "Practice 9 [dialogue completion] — Education and Learning — A1: Complete Father’s turn: Did you finish homework?",
+                "q": "Practice 9 [dialogue completion] — Education and Learning — A1: Complete నాన్న’s turn: Did you finish homework?",
                 "answer": "హోమ్‌వర్క్ పూర్తి చేశావా?",
                 "skill_target": "Telugu dialogue completion: Telugu agglutinative suffixes, case marking, agreement, and respectful forms"
               },
@@ -1264,6 +1546,288 @@
               "ఋతువు"
             ],
             "srs_policy": "Only selected high-value forms are preselected; actual mistakes and productive patterns enter personalized review after learner evidence."
+          },
+          {
+            "id": "te-a1-l8",
+            "title": "A short meeting invitation",
+            "learn": "Invite a colleague to a brief meeting and make the time and place easy to confirm.",
+            "vocab": [
+              {
+                "t": "సమావేశం",
+                "r": "samāvēśaṁ",
+                "en": "meeting",
+                "pos": "noun"
+              },
+              {
+                "t": "గంట",
+                "r": "gaṇṭa",
+                "en": "hour; o'clock",
+                "pos": "noun"
+              },
+              {
+                "t": "గది",
+                "r": "gadi",
+                "en": "room",
+                "pos": "noun"
+              },
+              {
+                "t": "ఖాళీ",
+                "r": "khāḷī",
+                "en": "free; available",
+                "pos": "adjective"
+              },
+              {
+                "t": "రేపు",
+                "r": "rēpu",
+                "en": "tomorrow",
+                "pos": "adverb"
+              }
+            ],
+            "grammar": {
+              "title": "time phrases before the verb",
+              "pattern": "సమయం + స్థలం + finite verb",
+              "explain": "Telugu usually places time and place information before the final verb. Use రేపు with a clock time marked by గంటలకు; an invitation can end with వస్తారా? to ask respectfully.",
+              "examples": [
+                {
+                  "t": "రేపు పది గంటలకు సమావేశం ఉంది.",
+                  "r": "Rēpu padi gaṇṭalaku samāvēśaṁ undi.",
+                  "en": "There is a meeting tomorrow at ten."
+                },
+                {
+                  "t": "మీకు ఈ గది ఖాళీగా ఉందా?",
+                  "r": "Mīku ī gadi khāḷīgā undā?",
+                  "en": "Is this room free for you?"
+                },
+                {
+                  "t": "మీరు సమావేశానికి వస్తారా?",
+                  "r": "Mīru samāvēśāniki vastārā?",
+                  "en": "Will you come to the meeting?"
+                }
+              ],
+              "mistakes": [
+                {
+                  "wrong": "మీరు సమావేశానికి వస్తావా?",
+                  "right": "మీరు సమావేశానికి వస్తారా?",
+                  "why": "మీరు takes respectful plural agreement వస్తారా, not familiar వస్తావా."
+                }
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "మేనేజర్",
+                "t": "రేపు పది గంటలకు చిన్న సమావేశం ఉంది.",
+                "r": "Rēpu padi gaṇṭalaku chinna samāvēśaṁ undi.",
+                "en": "There is a short meeting tomorrow at ten."
+              },
+              {
+                "sp": "కొత్త సహోద్యోగి",
+                "t": "ఏ గదిలో కలవాలి?",
+                "r": "Ē gadilō kalavāli?",
+                "en": "Which room should we meet in?"
+              },
+              {
+                "sp": "మేనేజర్",
+                "t": "రెండో అంతస్తులోని గది ఖాళీగా ఉంది.",
+                "r": "Reṇḍō antastulōni gadi khāḷīgā undi.",
+                "en": "The room on the second floor is free."
+              },
+              {
+                "sp": "కొత్త సహోద్యోగి",
+                "t": "సరే, నేను సమయానికి వస్తాను.",
+                "r": "Sarē, nēnu samayāniki vastānu.",
+                "en": "All right, I will come on time."
+              }
+            ],
+            "practice": [
+              {
+                "type": "multiple_choice",
+                "q": "Practice 1: [multiple choice] A short meeting invitation — Choose the meaning of సమావేశం (samāvēśaṁ) in this lesson.",
+                "answer": "meeting",
+                "skill_target": "Telugu: the Telugu abugida, vowel signs and virama, case suffixes, verb-final clauses, మీరు with respectful agreement, quotative అని, and the difference between a written standard and regional speech",
+                "options": [
+                  "meeting",
+                  "hour; o'clock",
+                  "room",
+                  "free; available"
+                ]
+              },
+              {
+                "type": "fill_in_the_blank",
+                "q": "Practice 2: [fill in the blank] A short meeting invitation — Type the Telugu expression meaning “hour; o'clock”.",
+                "answer": "గంట",
+                "skill_target": "Telugu: the Telugu abugida, vowel signs and virama, case suffixes, verb-final clauses, మీరు with respectful agreement, quotative అని, and the difference between a written standard and regional speech"
+              },
+              {
+                "type": "translation",
+                "q": "Practice 3: [translation] A short meeting invitation — Interpret the Telugu script in context: రేపు పది గంటలకు సమావేశం ఉంది. (Rēpu padi gaṇṭalaku samāvēśaṁ undi.).",
+                "answer": "There is a meeting tomorrow at ten.",
+                "skill_target": "Telugu: the Telugu abugida, vowel signs and virama, case suffixes, verb-final clauses, మీరు with respectful agreement, quotative అని, and the difference between a written standard and regional speech"
+              },
+              {
+                "type": "reverse_translation",
+                "q": "Practice 4: [reverse translation] A short meeting invitation — Write in Telugu script: Is this room free for you?.",
+                "answer": "మీకు ఈ గది ఖాళీగా ఉందా?",
+                "skill_target": "Telugu: the Telugu abugida, vowel signs and virama, case suffixes, verb-final clauses, మీరు with respectful agreement, quotative అని, and the difference between a written standard and regional speech"
+              },
+              {
+                "type": "matching",
+                "q": "Practice 5: [matching] A short meeting invitation — Match గది to its lesson meaning.",
+                "answer": "room",
+                "skill_target": "Telugu: the Telugu abugida, vowel signs and virama, case suffixes, verb-final clauses, మీరు with respectful agreement, quotative అని, and the difference between a written standard and regional speech",
+                "options": [
+                  "room",
+                  "meeting",
+                  "hour; o'clock"
+                ]
+              },
+              {
+                "type": "reorder",
+                "q": "Practice 6: [reorder] A short meeting invitation — Reconstruct the lesson model in coherent Telugu: Will you come to the meeting?.",
+                "answer": "మీరు సమావేశానికి వస్తారా?",
+                "skill_target": "Telugu: the Telugu abugida, vowel signs and virama, case suffixes, verb-final clauses, మీరు with respectful agreement, quotative అని, and the difference between a written standard and regional speech"
+              },
+              {
+                "type": "sentence_building",
+                "q": "Practice 7: [sentence building] A short meeting invitation — Build the sentence with the lesson pattern (సమయం + స్థలం + finite verb): There is a meeting tomorrow at ten..",
+                "answer": "రేపు పది గంటలకు సమావేశం ఉంది.",
+                "skill_target": "Telugu: the Telugu abugida, vowel signs and virama, case suffixes, verb-final clauses, మీరు with respectful agreement, quotative అని, and the difference between a written standard and regional speech"
+              },
+              {
+                "type": "word_selection",
+                "q": "Practice 8: [word selection] A short meeting invitation — Select the Telugu form for “free; available”.",
+                "answer": "ఖాళీ",
+                "skill_target": "Telugu: the Telugu abugida, vowel signs and virama, case suffixes, verb-final clauses, మీరు with respectful agreement, quotative అని, and the difference between a written standard and regional speech",
+                "options": [
+                  "ఖాళీ",
+                  "రేపు"
+                ]
+              },
+              {
+                "type": "error_correction",
+                "q": "Practice 9: [error correction] A short meeting invitation — Correct the model the lesson warns about: మీరు సమావేశానికి వస్తావా?",
+                "answer": "మీరు సమావేశానికి వస్తారా?",
+                "skill_target": "Telugu: the Telugu abugida, vowel signs and virama, case suffixes, verb-final clauses, మీరు with respectful agreement, quotative అని, and the difference between a written standard and regional speech"
+              },
+              {
+                "type": "dialogue_completion",
+                "q": "Practice 10: [dialogue completion] A short meeting invitation — Complete the exchange with the studied response to: There is a short meeting tomorrow at ten.",
+                "answer": "ఏ గదిలో కలవాలి?",
+                "skill_target": "Telugu: the Telugu abugida, vowel signs and virama, case suffixes, verb-final clauses, మీరు with respectful agreement, quotative అని, and the difference between a written standard and regional speech"
+              },
+              {
+                "type": "reading_comprehension",
+                "q": "Practice 11: [reading comprehension] A short meeting invitation — Read “రెండో అంతస్తులోని గది ఖాళీగా ఉంది.” (Reṇḍō antastulōni gadi khāḷīgā undi.). What does it mean?",
+                "answer": "The room on the second floor is free.",
+                "skill_target": "Telugu: the Telugu abugida, vowel signs and virama, case suffixes, verb-final clauses, మీరు with respectful agreement, quotative అని, and the difference between a written standard and regional speech"
+              },
+              {
+                "type": "paragraph_comprehension",
+                "q": "Practice 12: [paragraph comprehension] A short meeting invitation — Read the lesson dialogue as a whole and give its key move: All right, I will come on time.",
+                "answer": "సరే, నేను సమయానికి వస్తాను.",
+                "skill_target": "Telugu: the Telugu abugida, vowel signs and virama, case suffixes, verb-final clauses, మీరు with respectful agreement, quotative అని, and the difference between a written standard and regional speech"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "Which meaning best fits సమావేశం?",
+                "options": [
+                  "meeting",
+                  "hour; o'clock",
+                  "room",
+                  "free; available"
+                ],
+                "answer": 0,
+                "why": "సమావేశం (samāvēśaṁ) means meeting in this lesson."
+              },
+              {
+                "q": "Which meaning best fits గంట?",
+                "options": [
+                  "hour; o'clock",
+                  "meeting",
+                  "room",
+                  "free; available"
+                ],
+                "answer": 0,
+                "why": "గంట (gaṇṭa) means hour; o'clock in this lesson."
+              },
+              {
+                "q": "Which meaning best fits గది?",
+                "options": [
+                  "room",
+                  "meeting",
+                  "hour; o'clock",
+                  "free; available"
+                ],
+                "answer": 0,
+                "why": "గది (gadi) means room in this lesson."
+              },
+              {
+                "q": "Which meaning best fits ఖాళీ?",
+                "options": [
+                  "free; available",
+                  "meeting",
+                  "hour; o'clock",
+                  "room"
+                ],
+                "answer": 0,
+                "why": "ఖాళీ (khāḷī) means free; available in this lesson."
+              },
+              {
+                "q": "Which meaning best fits రేపు?",
+                "options": [
+                  "tomorrow",
+                  "meeting",
+                  "hour; o'clock",
+                  "room"
+                ],
+                "answer": 0,
+                "why": "రేపు (rēpu) means tomorrow in this lesson."
+              }
+            ],
+            "flashcards": "auto:vocab",
+            "worksheet": {
+              "title": "Send a clear invitation",
+              "tasks": [
+                {
+                  "instruction": "Write the time and room in one sentence.",
+                  "items": [
+                    "రేపు పది గంటలకు",
+                    "గది"
+                  ],
+                  "key": [
+                    "tomorrow at ten",
+                    "room"
+                  ]
+                },
+                {
+                  "instruction": "Write one respectful yes-or-no question.",
+                  "items": [
+                    "మీరు సమావేశానికి వస్తారా?"
+                  ],
+                  "key": [
+                    "Will you come to the meeting?"
+                  ]
+                },
+                {
+                  "instruction": "Integrated offline practice: read the first model, transform or extend it in Telugu script, then rehearse it as a dialogue. Self-check meaning, grammar, and register.",
+                  "items": [
+                    "రేపు పది గంటలకు సమావేశం ఉంది.",
+                    "రేపు పది గంటలకు చిన్న సమావేశం ఉంది."
+                  ],
+                  "key": [
+                    "There is a meeting tomorrow at ten.",
+                    "There is a short meeting tomorrow at ten."
+                  ]
+                }
+              ]
+            },
+            "srs_candidates": [
+              "సమావేశం",
+              "గంట",
+              "గది",
+              "ఖాళీ"
+            ],
+            "srs_policy": "Only these four high-value terms are preselected; lesson mistakes and productive patterns may enter personalized review after an actual error."
           }
         ]
       },
@@ -1352,25 +1916,25 @@
             },
             "dialogue": [
               {
-                "sp": "Mother",
+                "sp": "అమ్మ",
                 "t": "విను, ఈ సాయంత్రం అతిథులు వస్తున్నారు.",
                 "r": "Vinu, ī sāyantraṁ atithulu vastunnāru.",
                 "en": "Listen, guests are coming this evening."
               },
               {
-                "sp": "Son",
+                "sp": "కొడుకు",
                 "t": "ఎవరు వస్తున్నారు, అమ్మ?",
                 "r": "Evaru vastunnāru, amma?",
                 "en": "Who is coming, mother?"
               },
               {
-                "sp": "Mother",
+                "sp": "అమ్మ",
                 "t": "మీ మామయ్య-అత్తయ్య. గది సర్దు.",
                 "r": "Mī māmayya-attayya. Gadi sardu.",
                 "en": "Your uncle and aunt. Tidy the room."
               },
               {
-                "sp": "Son",
+                "sp": "కొడుకు",
                 "t": "సరే. ఏం వంట?",
                 "r": "Sarē. Ēṁ vaṇṭa?",
                 "en": "OK. What will be cooked?"
@@ -1402,7 +1966,7 @@
               },
               {
                 "type": "dialogue_completion",
-                "q": "Practice 8 [dialogue completion] — Home and Relationships — A1: Complete Son’s turn: OK. What will be cooked?",
+                "q": "Practice 8 [dialogue completion] — Home and Relationships — A1: Complete కొడుకు’s turn: OK. What will be cooked?",
                 "answer": "సరే. ఏం వంట?",
                 "skill_target": "Telugu dialogue completion: Telugu agglutinative suffixes, case marking, agreement, and respectful forms"
               },
@@ -1660,25 +2224,25 @@
             },
             "dialogue": [
               {
-                "sp": "Grandmother",
+                "sp": "అమ్మమ్మ",
                 "t": "లేవరా! ఈరోజు సంక్రాంతి.",
                 "r": "Lēvarā! Īrōju saṅkrānti.",
                 "en": "Wake up! Today is Sankranti."
               },
               {
-                "sp": "Girl",
+                "sp": "అమ్మాయి",
                 "t": "అవ్వా, ముగ్గు వేశావా?",
                 "r": "Avvā, muggu vēśāvā?",
                 "en": "Grandma, did you draw the muggu?"
               },
               {
-                "sp": "Grandmother",
+                "sp": "అమ్మమ్మ",
                 "t": "వేశాను. చెరకు తీసుకురా.",
                 "r": "Vēśānu. Cheraku tīsukurā.",
                 "en": "Done. Fetch the sugarcane."
               },
               {
-                "sp": "Girl",
+                "sp": "అమ్మాయి",
                 "t": "పతంగులు ఎగురుతున్నాయి!",
                 "r": "Pataṅgulu egurutunnāyi!",
                 "en": "The kites are flying!"
@@ -1891,6 +2455,288 @@
               "ఆహ్వానం"
             ],
             "srs_policy": "Only selected high-value forms are preselected; actual mistakes and productive patterns enter personalized review after learner evidence."
+          },
+          {
+            "id": "te-a1-l9",
+            "title": "Setting a place for dinner",
+            "learn": "Accept a family invitation and say where the meal will happen.",
+            "vocab": [
+              {
+                "t": "విందు",
+                "r": "vindu",
+                "en": "meal; feast",
+                "pos": "noun"
+              },
+              {
+                "t": "పక్కింటి",
+                "r": "pakkiṇṭi",
+                "en": "next door",
+                "pos": "adjective"
+              },
+              {
+                "t": "సమయం",
+                "r": "samayaṁ",
+                "en": "time",
+                "pos": "noun"
+              },
+              {
+                "t": "వంటకం",
+                "r": "vaṇṭakaṁ",
+                "en": "dish",
+                "pos": "noun"
+              },
+              {
+                "t": "కలిసి",
+                "r": "kalisi",
+                "en": "together",
+                "pos": "adverb"
+              }
+            ],
+            "grammar": {
+              "title": "locative -లో and dative -కి",
+              "pattern": "స్థలం-లో + వ్యక్తి-కి + కావాలి/ఉంది",
+              "explain": "Use -లో for the place where something happens and -కి for the person to whom something is offered or needed. Keep both suffixes attached to their nouns.",
+              "examples": [
+                {
+                  "t": "విందు మా ఇంట్లో ఉంది.",
+                  "r": "Vindu mā iṇṭlō undi.",
+                  "en": "The meal is at our home."
+                },
+                {
+                  "t": "మీకు ఏ సమయం సరిపోతుంది?",
+                  "r": "Mīku ē samayaṁ saripōtundi?",
+                  "en": "What time suits you?"
+                },
+                {
+                  "t": "మనం కలిసి కొత్త వంటకం చేస్తాం.",
+                  "r": "Manaṁ kalisi kotta vaṇṭakaṁ chēstāṁ.",
+                  "en": "We will make a new dish together."
+                }
+              ],
+              "mistakes": [
+                {
+                  "wrong": "మా ఇల్లు విందు ఉంది.",
+                  "right": "మా ఇంట్లో విందు ఉంది.",
+                  "why": "Mark the location with -లో: ఇంట్లో means at the house."
+                }
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "అమ్మ",
+                "t": "ఆదివారం మా ఇంట్లో చిన్న విందు ఉంది.",
+                "r": "Ādivāraṁ mā iṇṭlō chinna vindu undi.",
+                "en": "There is a small meal at our home on Sunday."
+              },
+              {
+                "sp": "పక్కింటి వారు",
+                "t": "మీకు ఏ సమయం సరిపోతుంది?",
+                "r": "Mīku ē samayaṁ saripōtundi?",
+                "en": "What time suits you?"
+              },
+              {
+                "sp": "అమ్మ",
+                "t": "సాయంత్రం ఆరు గంటలకు రండి.",
+                "r": "Sāyantraṁ āru gaṇṭalaku raṇḍi.",
+                "en": "Please come at six in the evening."
+              },
+              {
+                "sp": "పక్కింటి వారు",
+                "t": "ధన్యవాదాలు, ఒక వంటకం తీసుకొస్తాను.",
+                "r": "Dhanyavādālu, oka vaṇṭakaṁ tīsukostānu.",
+                "en": "Thank you; I will bring one dish."
+              }
+            ],
+            "practice": [
+              {
+                "type": "multiple_choice",
+                "q": "Practice 1: [multiple choice] Setting a place for dinner — Choose the meaning of విందు (vindu) in this lesson.",
+                "answer": "meal; feast",
+                "skill_target": "Telugu: the Telugu abugida, vowel signs and virama, case suffixes, verb-final clauses, మీరు with respectful agreement, quotative అని, and the difference between a written standard and regional speech",
+                "options": [
+                  "meal; feast",
+                  "next door",
+                  "time",
+                  "dish"
+                ]
+              },
+              {
+                "type": "fill_in_the_blank",
+                "q": "Practice 2: [fill in the blank] Setting a place for dinner — Type the Telugu expression meaning “next door”.",
+                "answer": "పక్కింటి",
+                "skill_target": "Telugu: the Telugu abugida, vowel signs and virama, case suffixes, verb-final clauses, మీరు with respectful agreement, quotative అని, and the difference between a written standard and regional speech"
+              },
+              {
+                "type": "translation",
+                "q": "Practice 3: [translation] Setting a place for dinner — Interpret the Telugu script in context: విందు మా ఇంట్లో ఉంది. (Vindu mā iṇṭlō undi.).",
+                "answer": "The meal is at our home.",
+                "skill_target": "Telugu: the Telugu abugida, vowel signs and virama, case suffixes, verb-final clauses, మీరు with respectful agreement, quotative అని, and the difference between a written standard and regional speech"
+              },
+              {
+                "type": "reverse_translation",
+                "q": "Practice 4: [reverse translation] Setting a place for dinner — Write in Telugu script: What time suits you?.",
+                "answer": "మీకు ఏ సమయం సరిపోతుంది?",
+                "skill_target": "Telugu: the Telugu abugida, vowel signs and virama, case suffixes, verb-final clauses, మీరు with respectful agreement, quotative అని, and the difference between a written standard and regional speech"
+              },
+              {
+                "type": "matching",
+                "q": "Practice 5: [matching] Setting a place for dinner — Match సమయం to its lesson meaning.",
+                "answer": "time",
+                "skill_target": "Telugu: the Telugu abugida, vowel signs and virama, case suffixes, verb-final clauses, మీరు with respectful agreement, quotative అని, and the difference between a written standard and regional speech",
+                "options": [
+                  "time",
+                  "meal; feast",
+                  "next door"
+                ]
+              },
+              {
+                "type": "reorder",
+                "q": "Practice 6: [reorder] Setting a place for dinner — Reconstruct the lesson model in coherent Telugu: We will make a new dish together..",
+                "answer": "మనం కలిసి కొత్త వంటకం చేస్తాం.",
+                "skill_target": "Telugu: the Telugu abugida, vowel signs and virama, case suffixes, verb-final clauses, మీరు with respectful agreement, quotative అని, and the difference between a written standard and regional speech"
+              },
+              {
+                "type": "sentence_building",
+                "q": "Practice 7: [sentence building] Setting a place for dinner — Build the sentence with the lesson pattern (స్థలం-లో + వ్యక్తి-కి + కావాలి/ఉంది): The meal is at our home..",
+                "answer": "విందు మా ఇంట్లో ఉంది.",
+                "skill_target": "Telugu: the Telugu abugida, vowel signs and virama, case suffixes, verb-final clauses, మీరు with respectful agreement, quotative అని, and the difference between a written standard and regional speech"
+              },
+              {
+                "type": "word_selection",
+                "q": "Practice 8: [word selection] Setting a place for dinner — Select the Telugu form for “dish”.",
+                "answer": "వంటకం",
+                "skill_target": "Telugu: the Telugu abugida, vowel signs and virama, case suffixes, verb-final clauses, మీరు with respectful agreement, quotative అని, and the difference between a written standard and regional speech",
+                "options": [
+                  "వంటకం",
+                  "కలిసి"
+                ]
+              },
+              {
+                "type": "error_correction",
+                "q": "Practice 9: [error correction] Setting a place for dinner — Correct the model the lesson warns about: మా ఇల్లు విందు ఉంది.",
+                "answer": "మా ఇంట్లో విందు ఉంది.",
+                "skill_target": "Telugu: the Telugu abugida, vowel signs and virama, case suffixes, verb-final clauses, మీరు with respectful agreement, quotative అని, and the difference between a written standard and regional speech"
+              },
+              {
+                "type": "dialogue_completion",
+                "q": "Practice 10: [dialogue completion] Setting a place for dinner — Complete the exchange with the studied response to: There is a small meal at our home on Sunday.",
+                "answer": "మీకు ఏ సమయం సరిపోతుంది?",
+                "skill_target": "Telugu: the Telugu abugida, vowel signs and virama, case suffixes, verb-final clauses, మీరు with respectful agreement, quotative అని, and the difference between a written standard and regional speech"
+              },
+              {
+                "type": "reading_comprehension",
+                "q": "Practice 11: [reading comprehension] Setting a place for dinner — Read “సాయంత్రం ఆరు గంటలకు రండి.” (Sāyantraṁ āru gaṇṭalaku raṇḍi.). What does it mean?",
+                "answer": "Please come at six in the evening.",
+                "skill_target": "Telugu: the Telugu abugida, vowel signs and virama, case suffixes, verb-final clauses, మీరు with respectful agreement, quotative అని, and the difference between a written standard and regional speech"
+              },
+              {
+                "type": "paragraph_comprehension",
+                "q": "Practice 12: [paragraph comprehension] Setting a place for dinner — Read the lesson dialogue as a whole and give its key move: Thank you; I will bring one dish.",
+                "answer": "ధన్యవాదాలు, ఒక వంటకం తీసుకొస్తాను.",
+                "skill_target": "Telugu: the Telugu abugida, vowel signs and virama, case suffixes, verb-final clauses, మీరు with respectful agreement, quotative అని, and the difference between a written standard and regional speech"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "Which meaning best fits విందు?",
+                "options": [
+                  "meal; feast",
+                  "next door",
+                  "time",
+                  "dish"
+                ],
+                "answer": 0,
+                "why": "విందు (vindu) means meal; feast in this lesson."
+              },
+              {
+                "q": "Which meaning best fits పక్కింటి?",
+                "options": [
+                  "next door",
+                  "meal; feast",
+                  "time",
+                  "dish"
+                ],
+                "answer": 0,
+                "why": "పక్కింటి (pakkiṇṭi) means next door in this lesson."
+              },
+              {
+                "q": "Which meaning best fits సమయం?",
+                "options": [
+                  "time",
+                  "meal; feast",
+                  "next door",
+                  "dish"
+                ],
+                "answer": 0,
+                "why": "సమయం (samayaṁ) means time in this lesson."
+              },
+              {
+                "q": "Which meaning best fits వంటకం?",
+                "options": [
+                  "dish",
+                  "meal; feast",
+                  "next door",
+                  "time"
+                ],
+                "answer": 0,
+                "why": "వంటకం (vaṇṭakaṁ) means dish in this lesson."
+              },
+              {
+                "q": "Which meaning best fits కలిసి?",
+                "options": [
+                  "together",
+                  "meal; feast",
+                  "next door",
+                  "time"
+                ],
+                "answer": 0,
+                "why": "కలిసి (kalisi) means together in this lesson."
+              }
+            ],
+            "flashcards": "auto:vocab",
+            "worksheet": {
+              "title": "Reply to the invitation",
+              "tasks": [
+                {
+                  "instruction": "Say where and when the meal is.",
+                  "items": [
+                    "మా ఇంట్లో",
+                    "ఆదివారం"
+                  ],
+                  "key": [
+                    "at our home",
+                    "Sunday"
+                  ]
+                },
+                {
+                  "instruction": "Offer one dish you can bring.",
+                  "items": [
+                    "ఒక వంటకం తీసుకొస్తాను"
+                  ],
+                  "key": [
+                    "I will bring one dish"
+                  ]
+                },
+                {
+                  "instruction": "Integrated offline practice: read the first model, transform or extend it in Telugu script, then rehearse it as a dialogue. Self-check meaning, grammar, and register.",
+                  "items": [
+                    "విందు మా ఇంట్లో ఉంది.",
+                    "ఆదివారం మా ఇంట్లో చిన్న విందు ఉంది."
+                  ],
+                  "key": [
+                    "The meal is at our home.",
+                    "There is a small meal at our home on Sunday."
+                  ]
+                }
+              ]
+            },
+            "srs_candidates": [
+              "విందు",
+              "పక్కింటి",
+              "సమయం",
+              "వంటకం"
+            ],
+            "srs_policy": "Only these four high-value terms are preselected; lesson mistakes and productive patterns may enter personalized review after an actual error."
           }
         ]
       }
@@ -1949,6 +2795,95 @@
           "answer": "వాన పడుతోంది (Vāna paḍutōndi)"
         }
       ]
+    },
+    "extra": {
+      "culture": {
+        "text": "Telugu is written in its own left-to-right script. A consonant normally carries an inherent short a; a vowel sign changes that sound, and the virama (్) removes it or helps write a consonant cluster. A learner can therefore read a syllable by looking at the consonant and the mark attached to it, rather than treating every printed shape as an unrelated letter. Telugu and Kannada scripts also share a historical stage, though each is a distinct script and language.",
+        "source_url": "https://www.unicode.org/versions/Unicode17.0.0/core-spec/chapter-12/"
+      },
+      "reading": {
+        "text": "నా పేరు అనన్య. నేను విజయవాడలో ఉంటాను. మా ఇంట్లో తెలుగు పుస్తకాలు ఉన్నాయి. ఈ రోజు నేను అచ్చులు, హల్లులు చదువుతున్నాను. మా ఉపాధ్యాయుడు ఒక అక్షరాన్ని బోర్డుపై రాశారు. నేను దాన్ని పలికి, నా పుస్తకంలో మళ్లీ రాశాను. ఇప్పుడు చిన్న పదాలను నెమ్మదిగా చదవగలను.",
+        "gloss": "My name is Ananya. I live in Vijayawada. There are Telugu books in our home. Today I am reading vowels and consonants. Our teacher wrote one letter on the board. I pronounced it and wrote it again in my book. Now I can read short words slowly.",
+        "original": true
+      },
+      "listening": {
+        "script": "అనన్య: నమస్కారం, ఇది తెలుగు తరగతి ఎక్కడ?<br>ఉపాధ్యాయుడు: ఈ గది చివర ఉంది. నెమ్మదిగా రండి.<br>అనన్య: ధన్యవాదాలు. నేను కొత్త విద్యార్థిని.<br>ఉపాధ్యాయుడు: స్వాగతం. మీ పుస్తకం తెరవండి.",
+        "gloss": "Ananya: Hello, where is the Telugu class? Teacher: It is at the end of this corridor. Please come slowly. Ananya: Thank you. I am a new student. Teacher: Welcome. Open your book.",
+        "voice_tag": "te-IN"
+      },
+      "idioms": [
+        {
+          "t": "అక్షరాలా",
+          "literal": "letter by letter",
+          "meaning": "exactly as written; literally"
+        },
+        {
+          "t": "కంటికి రెప్పలా కాపాడటం",
+          "literal": "to guard like an eyelid guards an eye",
+          "meaning": "to protect very carefully"
+        },
+        {
+          "t": "తలపట్టుకోవడం",
+          "literal": "to hold one's head",
+          "meaning": "to feel puzzled or overwhelmed"
+        },
+        {
+          "t": "నోరు జారడం",
+          "literal": "for the mouth to slip",
+          "meaning": "to say something unintentionally"
+        },
+        {
+          "t": "కళ్లకు కట్టినట్టు",
+          "literal": "as if tied before the eyes",
+          "meaning": "vividly and clearly"
+        },
+        {
+          "t": "నోటికి తాళం వేయడం",
+          "literal": "to put a lock on the mouth",
+          "meaning": "to keep quiet"
+        },
+        {
+          "t": "మాట నిలబెట్టుకోవడం",
+          "literal": "to keep one's word standing",
+          "meaning": "to honour a promise"
+        },
+        {
+          "t": "కాళ్ల మీద నిలబడటం",
+          "literal": "to stand on one's feet",
+          "meaning": "to become self-reliant"
+        },
+        {
+          "t": "చెవిలో పెట్టుకోవడం",
+          "literal": "to place something in the ear",
+          "meaning": "to listen to and remember advice"
+        },
+        {
+          "t": "ఒక్క మాటలో",
+          "literal": "in one word",
+          "meaning": "in a nutshell"
+        }
+      ],
+      "mistakes": [
+        {
+          "wrong": "నా పేరు నాకు అనన్య.",
+          "right": "నా పేరు అనన్య.",
+          "why": "A name is introduced directly; the dative నాకు does not belong in this pattern."
+        },
+        {
+          "wrong": "నేను పాఠశాల వెళ్తాను.",
+          "right": "నేను పాఠశాలకు వెళ్తాను.",
+          "why": "A destination takes the dative suffix -కు: పాఠశాలకు."
+        },
+        {
+          "wrong": "మీరు రా.",
+          "right": "మీరు రండి.",
+          "why": "Respectful మీరు takes the respectful imperative రండి, not the familiar రా."
+        }
+      ],
+      "task": {
+        "title": "తెలుగు అక్షరాలతో స్వపరిచయం",
+        "instructions": "Write six short Telugu sentences: your name, town, one person at home, a book you read, a letter you are practising, and a polite question to a classmate. Underline two vowel signs and one virama. Read the sentences slowly, then copy one of them without looking at the model."
+      }
     }
   },
   "pronunciation": [

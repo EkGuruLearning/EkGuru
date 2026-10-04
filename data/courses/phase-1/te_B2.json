@@ -98,25 +98,25 @@
             },
             "dialogue": [
               {
-                "sp": "Doctor",
+                "sp": "వైద్యుడు",
                 "t": "మీకు ఏమైంది?",
                 "r": "Mīku ēmaindi?",
                 "en": "What happened to you?"
               },
               {
-                "sp": "Patient",
+                "sp": "రోగి",
                 "t": "డాక్టర్, రెండు రోజుల నుంచి జ్వరం.",
                 "r": "Ḍākṭar, reṇḍu rōjula nuñchi jvaraṁ.",
                 "en": "Doctor, fever for two days."
               },
               {
-                "sp": "Doctor",
+                "sp": "వైద్యుడు",
                 "t": "దగ్గు, జలుబు ఉందా?",
                 "r": "Daggu, jalubu undā?",
                 "en": "Any cough or cold?"
               },
               {
-                "sp": "Patient",
+                "sp": "రోగి",
                 "t": "దగ్గు మాత్రమే ఉంది.",
                 "r": "Daggu mātramē undi.",
                 "en": "Only a cough."
@@ -194,7 +194,7 @@
               },
               {
                 "type": "dialogue_completion",
-                "q": "Practice 10 [dialogue completion] — Health and Wellbeing — B2: Complete Patient’s turn: Doctor, fever for two days.",
+                "q": "Practice 10 [dialogue completion] — Health and Wellbeing — B2: Complete రోగి’s turn: Doctor, fever for two days.",
                 "answer": "డాక్టర్, రెండు రోజుల నుంచి జ్వరం.",
                 "skill_target": "Telugu dialogue completion: Telugu agglutinative suffixes, case marking, agreement, and respectful forms"
               },
@@ -408,25 +408,25 @@
             },
             "dialogue": [
               {
-                "sp": "Manager",
+                "sp": "నిర్వాహకుడు",
                 "t": "రండి! మీ పేరు ఏంటి?",
                 "r": "Raṇḍi! Mī pēru ēṇṭi?",
                 "en": "Welcome! What is your name?"
               },
               {
-                "sp": "Newcomer",
+                "sp": "కొత్తగా వచ్చిన వ్యక్తి",
                 "t": "నా పేరు కుమార్.",
                 "r": "Nā pēru Kumāṛ.",
                 "en": "My name is Kumar."
               },
               {
-                "sp": "Manager",
+                "sp": "నిర్వాహకుడు",
                 "t": "ఇది మీ టేబుల్. కంప్యూటర్ ఆన్ చేయండి.",
                 "r": "Idi mī ṭēbul. Kampyūṭar ān chēyaṇḍi.",
                 "en": "This is your desk. Switch on the computer."
               },
               {
-                "sp": "Newcomer",
+                "sp": "కొత్తగా వచ్చిన వ్యక్తి",
                 "t": "సరే. ఈమెయిల్ అడ్రస్ ఏంటి?",
                 "r": "Sarē. Īmeyil aḍras ēṇṭi?",
                 "en": "OK. What is the email address?"
@@ -634,6 +634,286 @@
               "రిజిస్టర్"
             ],
             "srs_policy": "Only selected high-value forms are preselected; actual mistakes and productive patterns enter personalized review after learner evidence."
+          },
+          {
+            "id": "te-b2-l7",
+            "title": "Explaining a referral and privacy",
+            "learn": "Explain what a referral note is for and ask that personal details remain private.",
+            "vocab": [
+              {
+                "t": "రిఫరల్",
+                "r": "ripharal",
+                "en": "referral",
+                "pos": "noun"
+              },
+              {
+                "t": "వైద్య చరిత్ర",
+                "r": "vaidya charitra",
+                "en": "medical history",
+                "pos": "noun"
+              },
+              {
+                "t": "గోప్యత",
+                "r": "gōpyata",
+                "en": "privacy",
+                "pos": "noun"
+              },
+              {
+                "t": "పంపించడం",
+                "r": "pampiñchaḍaṁ",
+                "en": "to have sent",
+                "pos": "verb"
+              },
+              {
+                "t": "అనుమతి",
+                "r": "anumati",
+                "en": "permission",
+                "pos": "noun"
+              }
+            ],
+            "grammar": {
+              "title": "purpose and condition in a formal request",
+              "pattern": "X కోసం; Y ఉంటే మాత్రమే + చేయండి",
+              "explain": "Use కోసం for the purpose of sharing a document. Add మాత్రమే to limit the action, and use ఉంటే to state the condition; a polite request can end with చేయండి.",
+              "examples": [
+                {
+                  "t": "ఈ రిఫరల్ తదుపరి పరీక్ష కోసం.",
+                  "r": "Ī ripharal tadupari parīkṣa kōsaṁ.",
+                  "en": "This referral is for the next examination."
+                },
+                {
+                  "t": "మీ అనుమతి ఉంటే మాత్రమే వివరాలు పంపండి.",
+                  "r": "Mī anumati uṇṭē mātramē vivarālu pampaṇḍi.",
+                  "en": "Send the details only if you have permission."
+                },
+                {
+                  "t": "వ్యక్తిగత చరిత్ర గోప్యంగా ఉంచాలి.",
+                  "r": "Vyaktigata charitra gōpyaṅgā uñchāli.",
+                  "en": "Personal history should be kept private."
+                }
+              ],
+              "mistakes": [
+                {
+                  "wrong": "అనుమతి ఉంటే వివరాలు మాత్రమే పంపండి.",
+                  "right": "అనుమతి ఉంటే మాత్రమే వివరాలు పంపండి.",
+                  "why": "మాత్రమే belongs with the condition here: permission is the limit on sending details."
+                }
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "సలహాదారు",
+                "t": "ఈ నోట్‌ను ఎవరికి పంపిస్తారు?",
+                "r": "Ī nōṭnu evariki pampistāru?",
+                "en": "To whom will you send this note?"
+              },
+              {
+                "sp": "వైద్య సహాయకుడు",
+                "t": "తదుపరి పరీక్ష చేసే వైద్యుడికి మాత్రమే.",
+                "r": "Tadupari parīkṣa chēsē vaidyuḍiki mātramē.",
+                "en": "Only to the doctor who will do the next examination."
+              },
+              {
+                "sp": "సలహాదారు",
+                "t": "రోగి అనుమతి నమోదు చేశారా?",
+                "r": "Rōgi anumati namōdu chēśārā?",
+                "en": "Have you recorded the patient's permission?"
+              },
+              {
+                "sp": "వైద్య సహాయకుడు",
+                "t": "అవును; వ్యక్తిగత వివరాలు గోప్యంగా ఉంటాయి.",
+                "r": "Avunu; vyaktigata vivarālu gōpyaṅgā uṇṭāyi.",
+                "en": "Yes; personal details will remain private."
+              }
+            ],
+            "practice": [
+              {
+                "type": "multiple_choice",
+                "q": "Practice 1: [multiple choice] Explaining a referral and privacy — Choose the meaning of రిఫరల్ (ripharal) in this lesson.",
+                "answer": "referral",
+                "skill_target": "Telugu: the Telugu abugida, vowel signs and virama, case suffixes, verb-final clauses, మీరు with respectful agreement, quotative అని, and the difference between a written standard and regional speech",
+                "options": [
+                  "referral",
+                  "medical history",
+                  "privacy",
+                  "to have sent"
+                ]
+              },
+              {
+                "type": "fill_in_the_blank",
+                "q": "Practice 2: [fill in the blank] Explaining a referral and privacy — Type the Telugu expression meaning “medical history”.",
+                "answer": "వైద్య చరిత్ర",
+                "skill_target": "Telugu: the Telugu abugida, vowel signs and virama, case suffixes, verb-final clauses, మీరు with respectful agreement, quotative అని, and the difference between a written standard and regional speech"
+              },
+              {
+                "type": "translation",
+                "q": "Practice 3: [translation] Explaining a referral and privacy — Interpret the Telugu script in context: ఈ రిఫరల్ తదుపరి పరీక్ష కోసం. (Ī ripharal tadupari parīkṣa kōsaṁ.).",
+                "answer": "This referral is for the next examination.",
+                "skill_target": "Telugu: the Telugu abugida, vowel signs and virama, case suffixes, verb-final clauses, మీరు with respectful agreement, quotative అని, and the difference between a written standard and regional speech"
+              },
+              {
+                "type": "reverse_translation",
+                "q": "Practice 4: [reverse translation] Explaining a referral and privacy — Write in Telugu script: Send the details only if you have permission..",
+                "answer": "మీ అనుమతి ఉంటే మాత్రమే వివరాలు పంపండి.",
+                "skill_target": "Telugu: the Telugu abugida, vowel signs and virama, case suffixes, verb-final clauses, మీరు with respectful agreement, quotative అని, and the difference between a written standard and regional speech"
+              },
+              {
+                "type": "matching",
+                "q": "Practice 5: [matching] Explaining a referral and privacy — Match గోప్యత to its lesson meaning.",
+                "answer": "privacy",
+                "skill_target": "Telugu: the Telugu abugida, vowel signs and virama, case suffixes, verb-final clauses, మీరు with respectful agreement, quotative అని, and the difference between a written standard and regional speech",
+                "options": [
+                  "privacy",
+                  "referral",
+                  "medical history"
+                ]
+              },
+              {
+                "type": "reorder",
+                "q": "Practice 6: [reorder] Explaining a referral and privacy — Reconstruct the lesson model in coherent Telugu: Personal history should be kept private..",
+                "answer": "వ్యక్తిగత చరిత్ర గోప్యంగా ఉంచాలి.",
+                "skill_target": "Telugu: the Telugu abugida, vowel signs and virama, case suffixes, verb-final clauses, మీరు with respectful agreement, quotative అని, and the difference between a written standard and regional speech"
+              },
+              {
+                "type": "sentence_building",
+                "q": "Practice 7: [sentence building] Explaining a referral and privacy — Build the sentence with the lesson pattern (X కోసం; Y ఉంటే మాత్రమే + చేయండి): This referral is for the next examination..",
+                "answer": "ఈ రిఫరల్ తదుపరి పరీక్ష కోసం.",
+                "skill_target": "Telugu: the Telugu abugida, vowel signs and virama, case suffixes, verb-final clauses, మీరు with respectful agreement, quotative అని, and the difference between a written standard and regional speech"
+              },
+              {
+                "type": "word_selection",
+                "q": "Practice 8: [word selection] Explaining a referral and privacy — Select the Telugu form for “to have sent”.",
+                "answer": "పంపించడం",
+                "skill_target": "Telugu: the Telugu abugida, vowel signs and virama, case suffixes, verb-final clauses, మీరు with respectful agreement, quotative అని, and the difference between a written standard and regional speech",
+                "options": [
+                  "పంపించడం",
+                  "అనుమతి"
+                ]
+              },
+              {
+                "type": "error_correction",
+                "q": "Practice 9: [error correction] Explaining a referral and privacy — Correct the model the lesson warns about: అనుమతి ఉంటే వివరాలు మాత్రమే పంపండి.",
+                "answer": "అనుమతి ఉంటే మాత్రమే వివరాలు పంపండి.",
+                "skill_target": "Telugu: the Telugu abugida, vowel signs and virama, case suffixes, verb-final clauses, మీరు with respectful agreement, quotative అని, and the difference between a written standard and regional speech"
+              },
+              {
+                "type": "dialogue_completion",
+                "q": "Practice 10: [dialogue completion] Explaining a referral and privacy — Complete the exchange with the studied response to: To whom will you send this note?",
+                "answer": "తదుపరి పరీక్ష చేసే వైద్యుడికి మాత్రమే.",
+                "skill_target": "Telugu: the Telugu abugida, vowel signs and virama, case suffixes, verb-final clauses, మీరు with respectful agreement, quotative అని, and the difference between a written standard and regional speech"
+              },
+              {
+                "type": "reading_comprehension",
+                "q": "Practice 11: [reading comprehension] Explaining a referral and privacy — Read “రోగి అనుమతి నమోదు చేశారా?” (Rōgi anumati namōdu chēśārā?). What does it mean?",
+                "answer": "Have you recorded the patient's permission?",
+                "skill_target": "Telugu: the Telugu abugida, vowel signs and virama, case suffixes, verb-final clauses, మీరు with respectful agreement, quotative అని, and the difference between a written standard and regional speech"
+              },
+              {
+                "type": "paragraph_comprehension",
+                "q": "Practice 12: [paragraph comprehension] Explaining a referral and privacy — Read the lesson dialogue as a whole and give its key move: Yes; personal details will remain private.",
+                "answer": "అవును; వ్యక్తిగత వివరాలు గోప్యంగా ఉంటాయి.",
+                "skill_target": "Telugu: the Telugu abugida, vowel signs and virama, case suffixes, verb-final clauses, మీరు with respectful agreement, quotative అని, and the difference between a written standard and regional speech"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "Which meaning best fits రిఫరల్?",
+                "options": [
+                  "referral",
+                  "medical history",
+                  "privacy",
+                  "to have sent"
+                ],
+                "answer": 0,
+                "why": "రిఫరల్ (ripharal) means referral in this lesson."
+              },
+              {
+                "q": "Which meaning best fits వైద్య చరిత్ర?",
+                "options": [
+                  "medical history",
+                  "referral",
+                  "privacy",
+                  "to have sent"
+                ],
+                "answer": 0,
+                "why": "వైద్య చరిత్ర (vaidya charitra) means medical history in this lesson."
+              },
+              {
+                "q": "Which meaning best fits గోప్యత?",
+                "options": [
+                  "privacy",
+                  "referral",
+                  "medical history",
+                  "to have sent"
+                ],
+                "answer": 0,
+                "why": "గోప్యత (gōpyata) means privacy in this lesson."
+              },
+              {
+                "q": "Which meaning best fits పంపించడం?",
+                "options": [
+                  "to have sent",
+                  "referral",
+                  "medical history",
+                  "privacy"
+                ],
+                "answer": 0,
+                "why": "పంపించడం (pampiñchaḍaṁ) means to have sent in this lesson."
+              },
+              {
+                "q": "Which meaning best fits అనుమతి?",
+                "options": [
+                  "permission",
+                  "referral",
+                  "medical history",
+                  "privacy"
+                ],
+                "answer": 0,
+                "why": "అనుమతి (anumati) means permission in this lesson."
+              }
+            ],
+            "flashcards": "auto:vocab",
+            "worksheet": {
+              "title": "Write a privacy reminder",
+              "tasks": [
+                {
+                  "instruction": "State the purpose of the referral.",
+                  "items": [
+                    "తదుపరి పరీక్ష కోసం"
+                  ],
+                  "key": [
+                    "for the next examination"
+                  ]
+                },
+                {
+                  "instruction": "State the condition for sharing details.",
+                  "items": [
+                    "అనుమతి ఉంటే మాత్రమే"
+                  ],
+                  "key": [
+                    "only if there is permission"
+                  ]
+                },
+                {
+                  "instruction": "Integrated offline practice: read the first model, transform or extend it in Telugu script, then rehearse it as a dialogue. Self-check meaning, grammar, and register.",
+                  "items": [
+                    "ఈ రిఫరల్ తదుపరి పరీక్ష కోసం.",
+                    "ఈ నోట్‌ను ఎవరికి పంపిస్తారు?"
+                  ],
+                  "key": [
+                    "This referral is for the next examination.",
+                    "To whom will you send this note?"
+                  ]
+                }
+              ]
+            },
+            "srs_candidates": [
+              "రిఫరల్",
+              "వైద్య చరిత్ర",
+              "గోప్యత",
+              "పంపించడం"
+            ],
+            "srs_policy": "Only these four high-value terms are preselected; lesson mistakes and productive patterns may enter personalized review after an actual error."
           }
         ]
       },
@@ -722,25 +1002,25 @@
             },
             "dialogue": [
               {
-                "sp": "Father",
+                "sp": "నాన్న",
                 "t": "హోమ్‌వర్క్ పూర్తి చేశావా?",
                 "r": "Hōmvark pūrti chēśāvā?",
                 "en": "Did you finish homework?"
               },
               {
-                "sp": "Son",
+                "sp": "కొడుకు",
                 "t": "లెక్కలు మాత్రమే మిగిలాయి, నాన్న.",
                 "r": "Lekkalu mātramē migilāyi, nānna.",
                 "en": "Only maths left, father."
               },
               {
-                "sp": "Father",
+                "sp": "నాన్న",
                 "t": "ఎక్కడ అనుమానం? చూపించు.",
                 "r": "Ekkaḍa anumānaṁ? Chūpiñchu.",
                 "en": "Where's the doubt? Show me."
               },
               {
-                "sp": "Son",
+                "sp": "కొడుకు",
                 "t": "ఈ లెక్క అర్థం కాలేదు.",
                 "r": "Ī lekka arthaṁ kālēdu.",
                 "en": "I don't get this sum."
@@ -1245,6 +1525,290 @@
               "విత్తనం"
             ],
             "srs_policy": "Only selected high-value forms are preselected; actual mistakes and productive patterns enter personalized review after learner evidence."
+          },
+          {
+            "id": "te-b2-l8",
+            "title": "Reading a report on urban trees",
+            "learn": "Compare two observations in a short environmental report and qualify a recommendation.",
+            "vocab": [
+              {
+                "t": "నీడ",
+                "r": "nīḍa",
+                "en": "shade",
+                "pos": "noun"
+              },
+              {
+                "t": "ఉష్ణోగ్రత",
+                "r": "uṣṇōgrata",
+                "en": "temperature",
+                "pos": "noun"
+              },
+              {
+                "t": "నమూనా",
+                "r": "namūnā",
+                "en": "sample",
+                "pos": "noun"
+              },
+              {
+                "t": "పరిశీలన",
+                "r": "pariśīlana",
+                "en": "observation",
+                "pos": "noun"
+              },
+              {
+                "t": "సిఫార్సు",
+                "r": "siphārsu",
+                "en": "recommendation",
+                "pos": "noun"
+              }
+            ],
+            "grammar": {
+              "title": "comparison with కంటే and cautious inference",
+              "pattern": "A కంటే B ఎక్కువ; అందువల్ల + qualified claim",
+              "explain": "Use కంటే to compare two places or measurements. A report can use సూచిస్తుంది or కావచ్చు to distinguish what the data suggests from what it proves.",
+              "examples": [
+                {
+                  "t": "చెట్లు ఉన్న వీధి కంటే ఖాళీ వీధి వేడిగా ఉంది.",
+                  "r": "Cheṭlu unna vīdhi kaṇṭē khāḷī vīdhi vēḍigā undi.",
+                  "en": "The treeless street is hotter than the street with trees."
+                },
+                {
+                  "t": "ఈ నమూనా మధ్యాహ్నపు మార్పును సూచిస్తుంది.",
+                  "r": "Ī namūnā madhyāhnapu mārpunu sūchistundi.",
+                  "en": "This sample suggests a midday change."
+                },
+                {
+                  "t": "మరిన్ని రోజులు కొలిస్తే సిఫార్సు బలపడవచ్చు.",
+                  "r": "Marinni rōjulu kolistē siphārsu balapaḍavachchu.",
+                  "en": "If we measure for more days, the recommendation may become stronger."
+                }
+              ],
+              "mistakes": [
+                {
+                  "wrong": "చెట్లు ఉన్న వీధి ఖాళీ వీధి కంటే చల్లగా.",
+                  "right": "చెట్లు ఉన్న వీధి ఖాళీ వీధి కంటే చల్లగా ఉంది.",
+                  "why": "A complete comparison clause needs the finite verb ఉంది."
+                }
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "విశ్లేషకుడు",
+                "t": "చెట్లు ఉన్న వీధిలో నీడ ఎక్కువగా ఉంది.",
+                "r": "Cheṭlu unna vīdhilō nīḍa ekkuvagā undi.",
+                "en": "There is more shade on the street with trees."
+              },
+              {
+                "sp": "సంపాదకురాలు",
+                "t": "అయితే ఉష్ణోగ్రతలో తేడాను ఎలా కొలిచారు?",
+                "r": "Ayitē uṣṇōgratalō tēḍānu elā kolichāru?",
+                "en": "But how did you measure the temperature difference?"
+              },
+              {
+                "sp": "విశ్లేషకుడు",
+                "t": "మూడు మధ్యాహ్నాల నమూనాలను పోల్చాం.",
+                "r": "Mūḍu madhyāhnāla namūnālanu pōlchāṁ.",
+                "en": "We compared samples from three afternoons."
+              },
+              {
+                "sp": "సంపాదకురాలు",
+                "t": "అప్పుడు సిఫార్సును తాత్కాలికంగా పేర్కొందాం.",
+                "r": "Appuḍu siphārsunu tātkālikaṅgā pērkondāṁ.",
+                "en": "Then let us describe the recommendation as provisional."
+              }
+            ],
+            "practice": [
+              {
+                "type": "multiple_choice",
+                "q": "Practice 1: [multiple choice] Reading a report on urban trees — Choose the meaning of నీడ (nīḍa) in this lesson.",
+                "answer": "shade",
+                "skill_target": "Telugu: the Telugu abugida, vowel signs and virama, case suffixes, verb-final clauses, మీరు with respectful agreement, quotative అని, and the difference between a written standard and regional speech",
+                "options": [
+                  "shade",
+                  "temperature",
+                  "sample",
+                  "observation"
+                ]
+              },
+              {
+                "type": "fill_in_the_blank",
+                "q": "Practice 2: [fill in the blank] Reading a report on urban trees — Type the Telugu expression meaning “temperature”.",
+                "answer": "ఉష్ణోగ్రత",
+                "skill_target": "Telugu: the Telugu abugida, vowel signs and virama, case suffixes, verb-final clauses, మీరు with respectful agreement, quotative అని, and the difference between a written standard and regional speech"
+              },
+              {
+                "type": "translation",
+                "q": "Practice 3: [translation] Reading a report on urban trees — Interpret the Telugu script in context: చెట్లు ఉన్న వీధి కంటే ఖాళీ వీధి వేడిగా ఉంది. (Cheṭlu unna vīdhi kaṇṭē khāḷī vīdhi vēḍigā undi.).",
+                "answer": "The treeless street is hotter than the street with trees.",
+                "skill_target": "Telugu: the Telugu abugida, vowel signs and virama, case suffixes, verb-final clauses, మీరు with respectful agreement, quotative అని, and the difference between a written standard and regional speech"
+              },
+              {
+                "type": "reverse_translation",
+                "q": "Practice 4: [reverse translation] Reading a report on urban trees — Write in Telugu script: This sample suggests a midday change..",
+                "answer": "ఈ నమూనా మధ్యాహ్నపు మార్పును సూచిస్తుంది.",
+                "skill_target": "Telugu: the Telugu abugida, vowel signs and virama, case suffixes, verb-final clauses, మీరు with respectful agreement, quotative అని, and the difference between a written standard and regional speech"
+              },
+              {
+                "type": "matching",
+                "q": "Practice 5: [matching] Reading a report on urban trees — Match నమూనా to its lesson meaning.",
+                "answer": "sample",
+                "skill_target": "Telugu: the Telugu abugida, vowel signs and virama, case suffixes, verb-final clauses, మీరు with respectful agreement, quotative అని, and the difference between a written standard and regional speech",
+                "options": [
+                  "sample",
+                  "shade",
+                  "temperature"
+                ]
+              },
+              {
+                "type": "reorder",
+                "q": "Practice 6: [reorder] Reading a report on urban trees — Reconstruct the lesson model in coherent Telugu: If we measure for more days, the recommendation may become stronger..",
+                "answer": "మరిన్ని రోజులు కొలిస్తే సిఫార్సు బలపడవచ్చు.",
+                "skill_target": "Telugu: the Telugu abugida, vowel signs and virama, case suffixes, verb-final clauses, మీరు with respectful agreement, quotative అని, and the difference between a written standard and regional speech"
+              },
+              {
+                "type": "sentence_building",
+                "q": "Practice 7: [sentence building] Reading a report on urban trees — Build the sentence with the lesson pattern (A కంటే B ఎక్కువ; అందువల్ల + qualified claim): The treeless street is hotter than the street with trees..",
+                "answer": "చెట్లు ఉన్న వీధి కంటే ఖాళీ వీధి వేడిగా ఉంది.",
+                "skill_target": "Telugu: the Telugu abugida, vowel signs and virama, case suffixes, verb-final clauses, మీరు with respectful agreement, quotative అని, and the difference between a written standard and regional speech"
+              },
+              {
+                "type": "word_selection",
+                "q": "Practice 8: [word selection] Reading a report on urban trees — Select the Telugu form for “observation”.",
+                "answer": "పరిశీలన",
+                "skill_target": "Telugu: the Telugu abugida, vowel signs and virama, case suffixes, verb-final clauses, మీరు with respectful agreement, quotative అని, and the difference between a written standard and regional speech",
+                "options": [
+                  "పరిశీలన",
+                  "సిఫార్సు"
+                ]
+              },
+              {
+                "type": "error_correction",
+                "q": "Practice 9: [error correction] Reading a report on urban trees — Correct the model the lesson warns about: చెట్లు ఉన్న వీధి ఖాళీ వీధి కంటే చల్లగా.",
+                "answer": "చెట్లు ఉన్న వీధి ఖాళీ వీధి కంటే చల్లగా ఉంది.",
+                "skill_target": "Telugu: the Telugu abugida, vowel signs and virama, case suffixes, verb-final clauses, మీరు with respectful agreement, quotative అని, and the difference between a written standard and regional speech"
+              },
+              {
+                "type": "dialogue_completion",
+                "q": "Practice 10: [dialogue completion] Reading a report on urban trees — Complete the exchange with the studied response to: There is more shade on the street with trees.",
+                "answer": "అయితే ఉష్ణోగ్రతలో తేడాను ఎలా కొలిచారు?",
+                "skill_target": "Telugu: the Telugu abugida, vowel signs and virama, case suffixes, verb-final clauses, మీరు with respectful agreement, quotative అని, and the difference between a written standard and regional speech"
+              },
+              {
+                "type": "reading_comprehension",
+                "q": "Practice 11: [reading comprehension] Reading a report on urban trees — Read “మూడు మధ్యాహ్నాల నమూనాలను పోల్చాం.” (Mūḍu madhyāhnāla namūnālanu pōlchāṁ.). What does it mean?",
+                "answer": "We compared samples from three afternoons.",
+                "skill_target": "Telugu: the Telugu abugida, vowel signs and virama, case suffixes, verb-final clauses, మీరు with respectful agreement, quotative అని, and the difference between a written standard and regional speech"
+              },
+              {
+                "type": "paragraph_comprehension",
+                "q": "Practice 12: [paragraph comprehension] Reading a report on urban trees — Read the lesson dialogue as a whole and give its key move: Then let us describe the recommendation as provisional.",
+                "answer": "అప్పుడు సిఫార్సును తాత్కాలికంగా పేర్కొందాం.",
+                "skill_target": "Telugu: the Telugu abugida, vowel signs and virama, case suffixes, verb-final clauses, మీరు with respectful agreement, quotative అని, and the difference between a written standard and regional speech"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "Which meaning best fits నీడ?",
+                "options": [
+                  "shade",
+                  "temperature",
+                  "sample",
+                  "observation"
+                ],
+                "answer": 0,
+                "why": "నీడ (nīḍa) means shade in this lesson."
+              },
+              {
+                "q": "Which meaning best fits ఉష్ణోగ్రత?",
+                "options": [
+                  "temperature",
+                  "shade",
+                  "sample",
+                  "observation"
+                ],
+                "answer": 0,
+                "why": "ఉష్ణోగ్రత (uṣṇōgrata) means temperature in this lesson."
+              },
+              {
+                "q": "Which meaning best fits నమూనా?",
+                "options": [
+                  "sample",
+                  "shade",
+                  "temperature",
+                  "observation"
+                ],
+                "answer": 0,
+                "why": "నమూనా (namūnā) means sample in this lesson."
+              },
+              {
+                "q": "Which meaning best fits పరిశీలన?",
+                "options": [
+                  "observation",
+                  "shade",
+                  "temperature",
+                  "sample"
+                ],
+                "answer": 0,
+                "why": "పరిశీలన (pariśīlana) means observation in this lesson."
+              },
+              {
+                "q": "Which meaning best fits సిఫార్సు?",
+                "options": [
+                  "recommendation",
+                  "shade",
+                  "temperature",
+                  "sample"
+                ],
+                "answer": 0,
+                "why": "సిఫార్సు (siphārsu) means recommendation in this lesson."
+              }
+            ],
+            "flashcards": "auto:vocab",
+            "worksheet": {
+              "title": "Draft a qualified recommendation",
+              "tasks": [
+                {
+                  "instruction": "Compare the two streets.",
+                  "items": [
+                    "కంటే",
+                    "ఉష్ణోగ్రత"
+                  ],
+                  "key": [
+                    "than",
+                    "temperature"
+                  ]
+                },
+                {
+                  "instruction": "Qualify what the small sample can show.",
+                  "items": [
+                    "నమూనా",
+                    "సూచిస్తుంది"
+                  ],
+                  "key": [
+                    "sample",
+                    "suggests"
+                  ]
+                },
+                {
+                  "instruction": "Integrated offline practice: read the first model, transform or extend it in Telugu script, then rehearse it as a dialogue. Self-check meaning, grammar, and register.",
+                  "items": [
+                    "చెట్లు ఉన్న వీధి కంటే ఖాళీ వీధి వేడిగా ఉంది.",
+                    "చెట్లు ఉన్న వీధిలో నీడ ఎక్కువగా ఉంది."
+                  ],
+                  "key": [
+                    "The treeless street is hotter than the street with trees.",
+                    "There is more shade on the street with trees."
+                  ]
+                }
+              ]
+            },
+            "srs_candidates": [
+              "నీడ",
+              "ఉష్ణోగ్రత",
+              "నమూనా",
+              "పరిశీలన"
+            ],
+            "srs_policy": "Only these four high-value terms are preselected; lesson mistakes and productive patterns may enter personalized review after an actual error."
           }
         ]
       },
@@ -1333,25 +1897,25 @@
             },
             "dialogue": [
               {
-                "sp": "Mother",
+                "sp": "అమ్మ",
                 "t": "విను, ఈ సాయంత్రం అతిథులు వస్తున్నారు.",
                 "r": "Vinu, ī sāyantraṁ atithulu vastunnāru.",
                 "en": "Listen, guests are coming this evening."
               },
               {
-                "sp": "Son",
+                "sp": "కొడుకు",
                 "t": "ఎవరు వస్తున్నారు, అమ్మ?",
                 "r": "Evaru vastunnāru, amma?",
                 "en": "Who is coming, mother?"
               },
               {
-                "sp": "Mother",
+                "sp": "అమ్మ",
                 "t": "మీ మామయ్య-అత్తయ్య. గది సర్దు.",
                 "r": "Mī māmayya-attayya. Gadi sardu.",
                 "en": "Your uncle and aunt. Tidy the room."
               },
               {
-                "sp": "Son",
+                "sp": "కొడుకు",
                 "t": "సరే. ఏం వంట?",
                 "r": "Sarē. Ēṁ vaṇṭa?",
                 "en": "OK. What will be cooked?"
@@ -1640,25 +2204,25 @@
             },
             "dialogue": [
               {
-                "sp": "Grandmother",
+                "sp": "అమ్మమ్మ",
                 "t": "లేవరా! ఈరోజు సంక్రాంతి.",
                 "r": "Lēvarā! Īrōju saṅkrānti.",
                 "en": "Wake up! Today is Sankranti."
               },
               {
-                "sp": "Girl",
+                "sp": "అమ్మాయి",
                 "t": "అవ్వా, ముగ్గు వేశావా?",
                 "r": "Avvā, muggu vēśāvā?",
                 "en": "Grandma, did you draw the muggu?"
               },
               {
-                "sp": "Grandmother",
+                "sp": "అమ్మమ్మ",
                 "t": "వేశాను. చెరకు తీసుకురా.",
                 "r": "Vēśānu. Cheraku tīsukurā.",
                 "en": "Done. Fetch the sugarcane."
               },
               {
-                "sp": "Girl",
+                "sp": "అమ్మాయి",
                 "t": "పతంగులు ఎగురుతున్నాయి!",
                 "r": "Pataṅgulu egurutunnāyi!",
                 "en": "The kites are flying!"
@@ -1854,6 +2418,288 @@
               "ఆశీర్వాదం"
             ],
             "srs_policy": "Only selected high-value forms are preselected; actual mistakes and productive patterns enter personalized review after learner evidence."
+          },
+          {
+            "id": "te-b2-l9",
+            "title": "Describing a Kuchipudi rehearsal",
+            "learn": "Describe how a rehearsal changes a scene and distinguish movement from expressive storytelling.",
+            "vocab": [
+              {
+                "t": "సాధన",
+                "r": "sādhana",
+                "en": "rehearsal",
+                "pos": "noun"
+              },
+              {
+                "t": "అభినయం",
+                "r": "abhinayaṁ",
+                "en": "expressive acting",
+                "pos": "noun"
+              },
+              {
+                "t": "దృశ్యం",
+                "r": "dṛśyaṁ",
+                "en": "scene",
+                "pos": "noun"
+              },
+              {
+                "t": "సూచన",
+                "r": "sūchana",
+                "en": "direction",
+                "pos": "noun"
+              },
+              {
+                "t": "ప్రవేశం",
+                "r": "pravēśaṁ",
+                "en": "entrance",
+                "pos": "noun"
+              }
+            ],
+            "grammar": {
+              "title": "relative participles for a scene description",
+              "pattern": "verb-stem + -న + noun",
+              "explain": "A past relative participle such as చూపించిన modifies the noun that follows: చూపించిన భావం, the feeling that was shown. Keep the modifier close to its noun so the reader can see which scene detail it describes.",
+              "examples": [
+                {
+                  "t": "నర్తకి చూపించిన భావం ప్రేక్షకులకు చేరింది.",
+                  "r": "Nartaki chūpiñchina bhāvaṁ prēkṣakulaku chērindi.",
+                  "en": "The feeling shown by the dancer reached the audience."
+                },
+                {
+                  "t": "గురువు మార్చిన క్రమం కథను స్పష్టం చేసింది.",
+                  "r": "Guruvu mārchina kramaṁ kathanu spaṣṭaṁ chēsindi.",
+                  "en": "The order changed by the teacher clarified the story."
+                },
+                {
+                  "t": "తాళం తగ్గించినప్పుడు దృశ్యం నెమ్మదించింది.",
+                  "r": "Tāḷaṁ taggiñchinappuḍu dṛśyaṁ nemmadiñchindi.",
+                  "en": "When the rhythm was slowed, the scene became slower."
+                }
+              ],
+              "mistakes": [
+                {
+                  "wrong": "గురువు క్రమం మార్చింది కథను స్పష్టం చేసింది.",
+                  "right": "గురువు మార్చిన క్రమం కథను స్పష్టం చేసింది.",
+                  "why": "Use the relative participle మార్చిన to attach 'changed' to the noun క్రమం."
+                }
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "నర్తకి",
+                "t": "ఈ దృశ్యంలో నా ప్రవేశం ఆలస్యంగా ఉండాలా?",
+                "r": "Ī dṛśyaṁlō nā pravēśaṁ ālasyaṅgā uṇḍālā?",
+                "en": "Should my entrance in this scene be delayed?"
+              },
+              {
+                "sp": "గురువు",
+                "t": "అవును, ముందున్న మాట ముగిసిన తర్వాత రండి.",
+                "r": "Avunu, mundunna māṭa mugisina tarvāta raṇḍi.",
+                "en": "Yes, come after the previous line ends."
+              },
+              {
+                "sp": "నర్తకి",
+                "t": "అప్పుడు అభినయం స్పష్టంగా కనిపిస్తుంది.",
+                "r": "Appuḍu abhinayaṁ spaṣṭaṅgā kanipistundi.",
+                "en": "Then the expressive acting will be clear."
+              },
+              {
+                "sp": "గురువు",
+                "t": "సరే, తాళం తగ్గించినప్పుడు ప్రవేశించండి.",
+                "r": "Sarē, tāḷaṁ taggiñchinappuḍu pravēśiñchaṇḍi.",
+                "en": "All right, enter when the rhythm slows."
+              }
+            ],
+            "practice": [
+              {
+                "type": "multiple_choice",
+                "q": "Practice 1: [multiple choice] Describing a Kuchipudi rehearsal — Choose the meaning of సాధన (sādhana) in this lesson.",
+                "answer": "rehearsal",
+                "skill_target": "Telugu: the Telugu abugida, vowel signs and virama, case suffixes, verb-final clauses, మీరు with respectful agreement, quotative అని, and the difference between a written standard and regional speech",
+                "options": [
+                  "rehearsal",
+                  "expressive acting",
+                  "scene",
+                  "direction"
+                ]
+              },
+              {
+                "type": "fill_in_the_blank",
+                "q": "Practice 2: [fill in the blank] Describing a Kuchipudi rehearsal — Type the Telugu expression meaning “expressive acting”.",
+                "answer": "అభినయం",
+                "skill_target": "Telugu: the Telugu abugida, vowel signs and virama, case suffixes, verb-final clauses, మీరు with respectful agreement, quotative అని, and the difference between a written standard and regional speech"
+              },
+              {
+                "type": "translation",
+                "q": "Practice 3: [translation] Describing a Kuchipudi rehearsal — Interpret the Telugu script in context: నర్తకి చూపించిన భావం ప్రేక్షకులకు చేరింది. (Nartaki chūpiñchina bhāvaṁ prēkṣakulaku chērindi.).",
+                "answer": "The feeling shown by the dancer reached the audience.",
+                "skill_target": "Telugu: the Telugu abugida, vowel signs and virama, case suffixes, verb-final clauses, మీరు with respectful agreement, quotative అని, and the difference between a written standard and regional speech"
+              },
+              {
+                "type": "reverse_translation",
+                "q": "Practice 4: [reverse translation] Describing a Kuchipudi rehearsal — Write in Telugu script: The order changed by the teacher clarified the story..",
+                "answer": "గురువు మార్చిన క్రమం కథను స్పష్టం చేసింది.",
+                "skill_target": "Telugu: the Telugu abugida, vowel signs and virama, case suffixes, verb-final clauses, మీరు with respectful agreement, quotative అని, and the difference between a written standard and regional speech"
+              },
+              {
+                "type": "matching",
+                "q": "Practice 5: [matching] Describing a Kuchipudi rehearsal — Match దృశ్యం to its lesson meaning.",
+                "answer": "scene",
+                "skill_target": "Telugu: the Telugu abugida, vowel signs and virama, case suffixes, verb-final clauses, మీరు with respectful agreement, quotative అని, and the difference between a written standard and regional speech",
+                "options": [
+                  "scene",
+                  "rehearsal",
+                  "expressive acting"
+                ]
+              },
+              {
+                "type": "reorder",
+                "q": "Practice 6: [reorder] Describing a Kuchipudi rehearsal — Reconstruct the lesson model in coherent Telugu: When the rhythm was slowed, the scene became slower..",
+                "answer": "తాళం తగ్గించినప్పుడు దృశ్యం నెమ్మదించింది.",
+                "skill_target": "Telugu: the Telugu abugida, vowel signs and virama, case suffixes, verb-final clauses, మీరు with respectful agreement, quotative అని, and the difference between a written standard and regional speech"
+              },
+              {
+                "type": "sentence_building",
+                "q": "Practice 7: [sentence building] Describing a Kuchipudi rehearsal — Build the sentence with the lesson pattern (verb-stem + -న + noun): The feeling shown by the dancer reached the audience..",
+                "answer": "నర్తకి చూపించిన భావం ప్రేక్షకులకు చేరింది.",
+                "skill_target": "Telugu: the Telugu abugida, vowel signs and virama, case suffixes, verb-final clauses, మీరు with respectful agreement, quotative అని, and the difference between a written standard and regional speech"
+              },
+              {
+                "type": "word_selection",
+                "q": "Practice 8: [word selection] Describing a Kuchipudi rehearsal — Select the Telugu form for “direction”.",
+                "answer": "సూచన",
+                "skill_target": "Telugu: the Telugu abugida, vowel signs and virama, case suffixes, verb-final clauses, మీరు with respectful agreement, quotative అని, and the difference between a written standard and regional speech",
+                "options": [
+                  "సూచన",
+                  "ప్రవేశం"
+                ]
+              },
+              {
+                "type": "error_correction",
+                "q": "Practice 9: [error correction] Describing a Kuchipudi rehearsal — Correct the model the lesson warns about: గురువు క్రమం మార్చింది కథను స్పష్టం చేసింది.",
+                "answer": "గురువు మార్చిన క్రమం కథను స్పష్టం చేసింది.",
+                "skill_target": "Telugu: the Telugu abugida, vowel signs and virama, case suffixes, verb-final clauses, మీరు with respectful agreement, quotative అని, and the difference between a written standard and regional speech"
+              },
+              {
+                "type": "dialogue_completion",
+                "q": "Practice 10: [dialogue completion] Describing a Kuchipudi rehearsal — Complete the exchange with the studied response to: Should my entrance in this scene be delayed?",
+                "answer": "అవును, ముందున్న మాట ముగిసిన తర్వాత రండి.",
+                "skill_target": "Telugu: the Telugu abugida, vowel signs and virama, case suffixes, verb-final clauses, మీరు with respectful agreement, quotative అని, and the difference between a written standard and regional speech"
+              },
+              {
+                "type": "reading_comprehension",
+                "q": "Practice 11: [reading comprehension] Describing a Kuchipudi rehearsal — Read “అప్పుడు అభినయం స్పష్టంగా కనిపిస్తుంది.” (Appuḍu abhinayaṁ spaṣṭaṅgā kanipistundi.). What does it mean?",
+                "answer": "Then the expressive acting will be clear.",
+                "skill_target": "Telugu: the Telugu abugida, vowel signs and virama, case suffixes, verb-final clauses, మీరు with respectful agreement, quotative అని, and the difference between a written standard and regional speech"
+              },
+              {
+                "type": "paragraph_comprehension",
+                "q": "Practice 12: [paragraph comprehension] Describing a Kuchipudi rehearsal — Read the lesson dialogue as a whole and give its key move: All right, enter when the rhythm slows.",
+                "answer": "సరే, తాళం తగ్గించినప్పుడు ప్రవేశించండి.",
+                "skill_target": "Telugu: the Telugu abugida, vowel signs and virama, case suffixes, verb-final clauses, మీరు with respectful agreement, quotative అని, and the difference between a written standard and regional speech"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "Which meaning best fits సాధన?",
+                "options": [
+                  "rehearsal",
+                  "expressive acting",
+                  "scene",
+                  "direction"
+                ],
+                "answer": 0,
+                "why": "సాధన (sādhana) means rehearsal in this lesson."
+              },
+              {
+                "q": "Which meaning best fits అభినయం?",
+                "options": [
+                  "expressive acting",
+                  "rehearsal",
+                  "scene",
+                  "direction"
+                ],
+                "answer": 0,
+                "why": "అభినయం (abhinayaṁ) means expressive acting in this lesson."
+              },
+              {
+                "q": "Which meaning best fits దృశ్యం?",
+                "options": [
+                  "scene",
+                  "rehearsal",
+                  "expressive acting",
+                  "direction"
+                ],
+                "answer": 0,
+                "why": "దృశ్యం (dṛśyaṁ) means scene in this lesson."
+              },
+              {
+                "q": "Which meaning best fits సూచన?",
+                "options": [
+                  "direction",
+                  "rehearsal",
+                  "expressive acting",
+                  "scene"
+                ],
+                "answer": 0,
+                "why": "సూచన (sūchana) means direction in this lesson."
+              },
+              {
+                "q": "Which meaning best fits ప్రవేశం?",
+                "options": [
+                  "entrance",
+                  "rehearsal",
+                  "expressive acting",
+                  "scene"
+                ],
+                "answer": 0,
+                "why": "ప్రవేశం (pravēśaṁ) means entrance in this lesson."
+              }
+            ],
+            "flashcards": "auto:vocab",
+            "worksheet": {
+              "title": "Annotate a rehearsal change",
+              "tasks": [
+                {
+                  "instruction": "Name the change and the scene detail it affects.",
+                  "items": [
+                    "మార్చిన క్రమం",
+                    "దృశ్యం"
+                  ],
+                  "key": [
+                    "the changed order",
+                    "scene"
+                  ]
+                },
+                {
+                  "instruction": "Explain when the performer enters.",
+                  "items": [
+                    "తాళం తగ్గించినప్పుడు"
+                  ],
+                  "key": [
+                    "when the rhythm slows"
+                  ]
+                },
+                {
+                  "instruction": "Integrated offline practice: read the first model, transform or extend it in Telugu script, then rehearse it as a dialogue. Self-check meaning, grammar, and register.",
+                  "items": [
+                    "నర్తకి చూపించిన భావం ప్రేక్షకులకు చేరింది.",
+                    "ఈ దృశ్యంలో నా ప్రవేశం ఆలస్యంగా ఉండాలా?"
+                  ],
+                  "key": [
+                    "The feeling shown by the dancer reached the audience.",
+                    "Should my entrance in this scene be delayed?"
+                  ]
+                }
+              ]
+            },
+            "srs_candidates": [
+              "సాధన",
+              "అభినయం",
+              "దృశ్యం",
+              "సూచన"
+            ],
+            "srs_policy": "Only these four high-value terms are preselected; lesson mistakes and productive patterns may enter personalized review after an actual error."
           }
         ]
       }
@@ -1912,6 +2758,95 @@
           "answer": "వాన పడుతోంది (Vāna paḍutōndi)"
         }
       ]
+    },
+    "extra": {
+      "culture": {
+        "text": "Kuchipudi is a Telugu dance-drama tradition associated with the village of Kuchipudi in Andhra Pradesh's Krishna district. The district's cultural-tourism description presents it as a performance art with dance and dramatic elements. For a learner, that means the language of a rehearsal includes directions, characters, entrances and expressive lines; a stage version is not simply a sequence of steps without story.",
+        "source_url": "https://krishna.ap.gov.in/cultural-tourism/"
+      },
+      "reading": {
+        "text": "కూచిపూడి బృందం కొత్త ప్రదర్శనకు సాధన చేసింది. నర్తకి ఒక పాత్ర భావాన్ని ముఖాభినయంతో చూపించింది; సంగీతకారుడు తాళాన్ని నెమ్మదిగా ఉంచాడు. గురువు మధ్య భాగంలో అడుగుల క్రమం మార్చమన్నారు. బృందం మళ్లీ సాధన చేసిన తర్వాత కథ ప్రేక్షకులకు స్పష్టంగా కనిపించింది. ముగింపులో అందరూ సమయానికి వేదిక వెనుకకు వెళ్లారు.",
+        "gloss": "The Kuchipudi group rehearsed for a new performance. The dancer showed a character's feeling through facial expression; the musician kept the rhythm slow. The teacher asked them to change the order of steps in the middle section. After the group rehearsed again, the story became clear to the audience. At the end, everyone went backstage on time.",
+        "original": true
+      },
+      "listening": {
+        "script": "గురువు: రెండో దృశ్యంలో పాత్ర ఎందుకు ఆగుతుంది?<br>నర్తకి: ఆమెకు వార్త విన్న తర్వాత సందేహం కలుగుతుంది.<br>సంగీతకారుడు: ఆ క్షణంలో తాళం తగ్గించనా?<br>గురువు: అవును, అప్పుడు భావం ప్రేక్షకులకు చేరుతుంది.",
+        "gloss": "Teacher: Why does the character pause in the second scene? Dancer: After hearing the news, she becomes uncertain. Musician: Should I slow the rhythm at that moment? Teacher: Yes; then the feeling will reach the audience.",
+        "voice_tag": "te-IN"
+      },
+      "idioms": [
+        {
+          "t": "రంగంలోకి దిగడం",
+          "literal": "to step into the arena",
+          "meaning": "to begin taking action"
+        },
+        {
+          "t": "కథకు ప్రాణం పోయడం",
+          "literal": "to breathe life into a story",
+          "meaning": "to make a story vivid"
+        },
+        {
+          "t": "మాటకు మారు మాట",
+          "literal": "a reply to each word",
+          "meaning": "a continuing back-and-forth exchange"
+        },
+        {
+          "t": "తాళం తప్పకుండా",
+          "literal": "without losing the beat",
+          "meaning": "steadily and in rhythm"
+        },
+        {
+          "t": "అరంగేట్రం చేయడం",
+          "literal": "to make an entry onto the stage",
+          "meaning": "to make a debut"
+        },
+        {
+          "t": "భావం పలకడం",
+          "literal": "for a feeling to speak",
+          "meaning": "for an emotion to come across"
+        },
+        {
+          "t": "చూపు తిప్పుకోలేకపోవడం",
+          "literal": "to be unable to turn one's gaze away",
+          "meaning": "to be absorbed by a performance"
+        },
+        {
+          "t": "చేతికి పని ఇవ్వడం",
+          "literal": "to give work to the hand",
+          "meaning": "to keep oneself usefully occupied"
+        },
+        {
+          "t": "స్వరానికి తాళం కలపడం",
+          "literal": "to join rhythm to a melody",
+          "meaning": "to coordinate music and movement"
+        },
+        {
+          "t": "చప్పట్లు మారుమోగడం",
+          "literal": "for applause to echo",
+          "meaning": "for the audience to applaud loudly"
+        }
+      ],
+      "mistakes": [
+        {
+          "wrong": "నర్తకి భావాన్ని ముఖం చూపించింది.",
+          "right": "నర్తకి భావాన్ని ముఖాభినయంతో చూపించింది.",
+          "why": "Use ముఖాభినయం for expressive facial acting; ముఖం alone names the face."
+        },
+        {
+          "wrong": "గురువు అడుగులు మార్చమని చెప్పింది.",
+          "right": "గురువు అడుగులు మార్చమని చెప్పారు.",
+          "why": "This respectful reference to a teacher uses plural honorific agreement చెప్పారు."
+        },
+        {
+          "wrong": "ప్రేక్షకులకు కథ స్పష్టంగా కనిపించింది తరువాత.",
+          "right": "తర్వాత ప్రేక్షకులకు కథ స్పష్టంగా కనిపించింది.",
+          "why": "Place the time connector before the clause it introduces."
+        }
+      ],
+      "task": {
+        "title": "సాధనకు దర్శకుని గమనిక",
+        "instructions": "Write a rehearsal note with three parts: describe what the dancer changes, explain what the musician should do at that moment, and say how the audience will understand the story. Use అయినప్పుడు, కాబట్టి and ప్రేక్షకులకు. End with one respectful request to a performer."
+      }
     }
   }
 }
