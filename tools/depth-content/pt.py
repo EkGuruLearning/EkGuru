@@ -1343,7 +1343,7 @@ HALFSTEPS["A2+"] = {
               G("Trying clothes on",
                 "posso experimentar? · ficou apertado · tem um número maior?",
                 "Servir means both to serve and to fit: esta blusa não me serve. The past "
-                "ficou/fi cou describes the fit once tried: ficou grande. To ask for another "
+                "ficou describes the fit once tried: ficou grande. To ask for another "
                 "size: tem em número maior? The reply uses em: tem em quarenta.",
                 [X("Posso experimentar este vestido?", "POH-soo es-peh-ree-men-TAHR ES-jee ves-TEE-doo?", "Can I try on this dress?"),
                 X("Ficou apertado nos ombros. Tem um número maior?", "fee-KOH ah-pehr-TAH-doo noos OH(n)-broos. tay(n) oo(n) NOO-meh-roo mah-YOHR?", "It's tight in the shoulders. Do you have a bigger size?"),
@@ -1880,7 +1880,7 @@ HALFSTEPS["B1+"] = {
                 [("Saiu uma reportagem na jornal.", "Saiu uma reportagem no jornal.", "Jornal is masculine: no jornal."),
                  ("Compartilhei com o link para meus amigos.", "Compartilhei o link com meus amigos.", "Compartilhar takes the thing directly.")]),
               [D("Ana", "Você viu a reportagem sobre a feira?", "voh-SEH VEE-oo ah heh-pohr-TAH-zheh(n) SOH-bree ah FAY-rah?", "Did you see the report on the market?"),
-               D("Rafael", "Vi. Antes de compartilhar, checei a fonte.", "vee. AH(n)-jees jee koh(n)-pahr-tee-LYAHR, sheh-SAY ah FOHN-jee.", "I did. Before sharing, I checked the source."),
+               D("Rafael", "Vi. Antes de compartilhar, chequei a fonte.", "vee. AH(n)-jees jee koh(n)-pahr-tee-LYAHR, sheh-KAY ah FOHN-jee.", "I did. Before sharing, I checked the source."),
                D("Ana", "E era confiável?", "ee EH-rah koh(n)-fee-AH-veh-oo?", "And was it reliable?"),
                D("Rafael", "Era. Já compartilhei o link no grupo.", "EH-rah. zhah koh(n)-pahr-tee-LYAY oo lee(n)k noo GROO-poo.", "It was. I've already shared the link in the group.")],
               WS("Media worksheet", [
@@ -1969,7 +1969,7 @@ HALFSTEPS["B1+"] = {
                        "the bus is slow with the traffic. The rent is high and the neighbourhood "
                        "is noisy, but it's worth living near the metro: I get home in twenty "
                        "minutes."),
-        listening=("Você viu a reportagem sobre a feira? — Vi. Antes de compartilhar, checei a "
+        listening=("Você viu a reportagem sobre a feira? — Vi. Antes de compartilhar, chequei a "
                    "fonte. — E era confiável? — Era. Concordo em parte com o texto, mas vale a "
                    "pena ler."),
         listening_gloss=("Did you see the report on the market? — I did. Before sharing, I "
@@ -2292,7 +2292,7 @@ HALFSTEPS["B2+"] = {
                 [("O filme é dirigido de Kleber.", "O filme é dirigido por Kleber.", "Passive agent takes por."),
                  ("Retrata de vida na periferia.", "Retrata a vida na periferia.", "Retratar takes a direct object.")]),
               [D("Crítico", "Do que trata o documentário?", "doo kee TRAH-tah oo doh-koo-men-TAH-ree-oo?", "What is the documentary about?"),
-               D("Diretora", "Retrata a vida na periferia, filmado em Recife.", "heh-TRAH-tah ah VEE-dah nah peh-ree-feh-REE-ah, fee-oo-MAH-doo ey(n) heh-SEE-fee.", "It portrays life on the outskirts, filmed in Recife."),
+               D("Diretora", "Retrata a vida na periferia, filmado no Recife.", "heh-TRAH-tah ah VEE-dah nah peh-ree-feh-REE-ah, fee-oo-MAH-doo noo heh-SEE-fee.", "It portrays life on the outskirts, filmed in Recife."),
                D("Crítico", "E a narrativa?", "ee ah nah-hah-TEE-vah?", "And the narrative?"),
                D("Diretora", "Acompanha três famílias por um ano.", "ah-koh(n)-PAH-nyah treys fah-MEE-lyahs pohr oo(n) AH-noo.", "It follows three families for a year.")],
               WS("Cinema worksheet", [
