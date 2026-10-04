@@ -712,15 +712,33 @@
      message, one wording, JS ON or OFF. */
   function emptyTutorsHTML() {
     var root = LANG !== "en" ? "../" : "";
-    return '<div class="empty t-empty" data-eg-empty="1"><div>📚</div>' +
-      "<p><strong>" + esc(t("tutors.emptyTitle")) + "</strong></p>" +
-      "<p>" + esc(t("tutors.emptyBody")) + "</p>" +
-      '<p class="t-empty-links">' +
+    /* Usability 11 (3 Oct 2026): one primary action, the alternatives as
+       siblings in one row — the old markup mixed a filled button with three
+       dot-separated text links that wrapped onto a second line. Mirrors
+       tools/lib/zero-state.js so JS-ON and JS-OFF read the same. */
+    return '<div class="empty t-empty" data-eg-empty="1">' +
+      '<p class="t-empty-title"><strong>' + esc(t("tutors.emptyTitle")) + "</strong></p>" +
+      '<p class="t-empty-body">' + esc(t("tutors.emptyBody")) + "</p>" +
+      '<p class="t-empty-actions">' +
         '<a class="btn btn-primary" href="' + root + 'learn/hindi/">' + esc(t("tutors.emptyCta")) + "</a>" +
-        ' · <a href="' + root + 'learn/">Learn</a>' +
-        ' · <a href="' + root + 'courses/">Courses</a>' +
-        ' · <a href="' + root + 'daily-hindi/">Daily Hindi</a>' +
+        '<a class="btn btn-ghost" href="' + root + 'learn/">Learn</a>' +
+        '<a class="btn btn-ghost" href="' + root + 'courses/">Courses</a>' +
+        '<a class="btn btn-ghost" href="' + root + 'daily-hindi/">Daily Hindi</a>' +
       "</p></div>";
+  }
+
+  /* Usability 9 (3 Oct 2026): the section used to offer "See all tutors +
+     filters" directly above the sentence saying no tutor is available for
+     booking — the page contradicted itself. When nothing is listed, the
+     section offers the next thing that IS open instead. The static copy is
+     written by tools/build-home-tutors.js; this keeps a live repaint in
+     step with it. */
+  function tutorsCtaHTML() {
+    var root = LANG !== "en" ? "../" : "";
+    if (TUTORS.length) {
+      return '<a class="btn btn-primary" href="' + root + 'find-tutors.html">See all tutors + filters</a>';
+    }
+    return '<a class="btn btn-ghost" href="' + root + 'courses/">Browse the free courses →</a>';
   }
 
   /* ---------- 8b. Text-version links ----------
@@ -787,15 +805,23 @@
         '<a class="btn btn-primary btn-sm btn-block" href="' + langHref("tutor.html", "id=" + encodeURIComponent(x.id)) + '">' + esc(t("hero.viewProfile")) + "</a>";
       $all("[data-safe]", hc).forEach(safeImg);
     } else if (hc) {
-      /* U0 (30 Sep 2026) — no public tutor, no face in the hero: the card
-         is the honest empty state (JS ON parity with the static fallback
-         tools/build-home-tutors.js writes). */
+      /* U0 (30 Sep 2026) — no public tutor, no face in the hero.
+         Usability 7 + 22 (3 Oct 2026, severity Critical): the card used to
+         open with the null state, so the biggest graphic on the landing page
+         announced an absence. It now leads with what IS open (the free A1–C2
+         course) and keeps the honest sentence underneath — the state is still
+         stated, it is just no longer the headline. JS ON parity with
+         tools/build-home-tutors.js heroBlock(). */
       hc.setAttribute("data-eg-empty", "1");
       hc.innerHTML =
-        '<p class="hc-name">' + esc(t("tutors.emptyTitle")) + "</p>" +
-        '<p class="sm">' + esc(t("tutors.emptyBody")) + "</p>" +
+        '<p class="hc-name">' + esc(t("tutors.emptyBody")) + "</p>" +
+        '<p class="sm">' + esc(t("tutors.emptyTitle")) + "</p>" +
         '<a class="btn btn-primary btn-sm btn-block" href="' + langHref("learn/hindi/") + '">' + esc(t("tutors.emptyCta")) + "</a>";
     }
+
+    /* Usability 9: keep the mid-section CTA honest with the roster state. */
+    var midCta = $("[data-eg-tutors-cta]");
+    if (midCta) midCta.innerHTML = tutorsCtaHTML();
 
     var totalLessons = TUTORS.reduce(function (a, x) { return a + (x.lessonsCount || 0); }, 0);
     var totalReviews = TUTORS.reduce(function (a, x) { return a + (x.reviewsCount || 0); }, 0);

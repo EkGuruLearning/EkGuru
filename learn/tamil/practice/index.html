@@ -73,7 +73,7 @@
   <!-- ekguru:chapter -->
 <div class="sb-chapter" style="--sb-accent:#0f766e;--sb-tint:#ecfdfb"><span class="sb-ch-mascot" aria-hidden="true">🗣️</span><span class="sb-ch-name">Tamil <i>तमिल</i></span><span class="sb-ch-kind">Language</span><span class="sb-ch-floats" aria-hidden="true">அ ஆ இ</span></div>
 <h1>Tamil practice labs</h1><!-- ekguru:ultra-byline:start -->
-<p class="eg-byline" lang="en" dir="ltr" data-eg-chrome="editorial">Written by: authorship not independently recorded. Maintained by <a href="/authors/prakash/" hreflang="en">Prakash</a>. Reviewed by: not recorded. Updated: legacy editorial date unknown. <a href="/editorial-policy/" hreflang="en">Editorial policy and corrections</a>.</p>
+<p class="eg-byline" lang="en" dir="ltr" data-eg-chrome="editorial">Written by: authorship not independently recorded. Maintained by <a href="/authors/prakash/" hreflang="en">Prakash</a>. Reviewed by: not recorded. Updated: <time datetime="2026-10-04">2026-10-04</time>. <a href="/editorial-policy/" hreflang="en">Editorial policy and corrections</a>.</p>
 <!-- ekguru:ultra-byline:end -->
 <!-- ekguru:ultra-notice:start -->
 <p class="eg-review-notice" lang="en" dir="ltr" data-eg-chrome="review">Draft: not yet reviewed by a native speaker. Existing availability and indexing are preserved by owner instruction; that is not an editorial approval. <a href="/review/">Suggest a correction</a>.</p>
@@ -96,11 +96,49 @@
   <h2>How to practise</h2>
   <p>Ten focused minutes beats an hour of scrolling: pick one Tamil topic, take five of its 24 questions, then read the explanations for everything you missed. Come back to the same topic tomorrow — the question set rotates with the date, so the second pass tests memory rather than the question order. Nothing here is timed and nothing is sent anywhere: the score stays in this browser unless you clear it.</p>
   <div class="note">Scores here are recognition scores, not fluency measures — nothing is a certified test.</div></div>
+<!-- ekguru:flashcards:start -->
+<script src="/js/flashcards-ta.js" defer></script>
+<script src="/js/flashcard-ui.js" defer></script>
+<section class="fc-lab" data-eg-flashcards="ta" aria-labelledby="fc-h-ta">
+  <h2 class="fc-title" id="fc-h-ta">Tamil flashcards</h2>
+  <p class="fc-note">Front: the Tamil word, exactly as the course writes it. Back: its meaning and the reading the course prints. Nothing on this page is scored, and the computer voice is a device voice — not a native recording.</p>
+  <ul class="fc-static">
+      <li><b lang="ta" dir="auto">கோழி</b> · <span class="fc-roman" dir="ltr">kōḻi</span> — chicken</li>
+      <li><b lang="ta" dir="auto">சாதம்</b> · <span class="fc-roman" dir="ltr">sātam</span> — cooked rice</li>
+      <li><b lang="ta" dir="auto">முட்டை</b> · <span class="fc-roman" dir="ltr">muṭṭai</span> — egg</li>
+      <li><b lang="ta" dir="auto">மீன்</b> · <span class="fc-roman" dir="ltr">mīṉ</span> — fish</li>
+      <li><b lang="ta" dir="auto">பருப்பு</b> · <span class="fc-roman" dir="ltr">paruppu</span> — lentils / dal</li>
+      <li><b lang="ta" dir="auto">கறி</b> · <span class="fc-roman" dir="ltr">kaṟi</span> — meat</li>
+      <li><b lang="ta" dir="auto">பால்</b> · <span class="fc-roman" dir="ltr">pāl</span> — milk</li>
+      <li><b lang="ta" dir="auto">அரிசி</b> · <span class="fc-roman" dir="ltr">arici</span> — uncooked rice</li>
+      <li><b lang="ta" dir="auto">புத்தகம்</b> · <span class="fc-roman" dir="ltr">puttakam</span> — book</li>
+      <li><b lang="ta" dir="auto">கார்</b> · <span class="fc-roman" dir="ltr">kār</span> — car</li>
+      <li><b lang="ta" dir="auto">வீடு</b> · <span class="fc-roman" dir="ltr">vīḍu</span> — house / home</li>
+      <li><b lang="ta" dir="auto">சாலை</b> · <span class="fc-roman" dir="ltr">sālai</span> — road</li>
+  </ul>
+  <p class="fc-static-note">This language's deck carries 300 of the 603 words the course authors, and the lab practises that deck. The lab shows one card at a time, flips on Enter or Space, moves with the arrow keys, and can save a card to your review queue.</p>
+  <noscript><p class="fc-empty">The interactive flashcards need JavaScript. The vocabulary above is the same deck.</p></noscript>
+</section>
+
+<script>
+  (function () {
+    function go() {
+      var el = document.querySelector("[data-eg-flashcards=\"ta\"]");
+      if (el && window.EkGuruFlashcards) {
+        window.EkGuruFlashcards.mount(el, {code:"ta", name:"Tamil", speech:"ta-IN"});
+      }
+    }
+    if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", go);
+    else go();
+  })();
+</script>
+
+<!-- ekguru:flashcards:end -->
 <!-- ekguru:trust-footer:start -->
 <!-- ekguru:pw-bands:start -->
 <nav class="pw-next" aria-label="Next step">
   <b>Learn Tamil properly</b>
-  <p>The free course takes it in order — A1 to C2, 36 lessons, from the first letter to real
+  <p>The free course takes it in order — A1 to C2, 54 lessons, from the first letter to real
   conversation, and it works without an account.</p>
   <p><a class="btn btn-primary" href="/courses/#/ta">Open the Tamil course</a></p>
 </nav>

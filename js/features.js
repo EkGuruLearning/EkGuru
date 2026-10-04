@@ -1804,17 +1804,17 @@
           '<span class="cur-lbl">' + esc(label(P.currency())) + "</span>" +
           '<span class="car" aria-hidden="true">▾</span>' +
         "</button>" +
-        '<div class="cur-menu" role="listbox" aria-label="' + esc(t("cur.label")) + '">' +
+        /* Usability 24 (3 Oct 2026): the listbox used to ship ~60
+           role=option buttons inside every page, hidden only by an
+           `opacity:0;visibility:hidden` rule. A geometry-based audit (and any
+           "is anything painting over the cards?" check) sees a 330px column
+           of currency rows sitting over the content on the right edge, and a
+           visitor with a broken stylesheet sees the whole list. It is now
+           `hidden` and EMPTY until the button is pressed, so there is nothing
+           to paint and nothing to get stuck open. */
+        '<div class="cur-menu" role="listbox" hidden aria-label="' + esc(t("cur.label")) + '">' +
           '<div class="cur-menu-head">' + COIN + "<span>" + esc(t("cur.label")) + "</span></div>" +
-          '<div class="cur-menu-scroll">' +
-          ordered.map(function (c) {
-            return '<button type="button" role="option" data-cur="' + c + '"' +
-              (c === P.currency() ? ' aria-selected="true" class="on"' : ' aria-selected="false"') + ">" +
-              '<span class="cur-sym">' + esc(SYM[c] || c.charAt(0)) + "</span>" +
-              "<span>" + esc(c) + "</span>" +
-              "<small>" + esc(NAMES[c] || "") + '</small><span class="tick">✓</span></button>';
-          }).join("") +
-          "</div>" +
+          '<div class="cur-menu-scroll"></div>' +
           (P.isConverted()
             ? '<p class="cur-menu-note">' + esc(t("cur.note")) + "</p>"
             : "") +
@@ -1826,33 +1826,92 @@
       else if (langWrap) nav.appendChild(wrap);
       else nav.appendChild(wrap);
 
-      var cbtn = $(".cur-btn", wrap), cmenu = $(".cur-menu", wrap);
+      var cbtn = $(".cur-btn", wrap), cmenu = $(".cur-menu", wrap), cscroll = $(".cur-menu-scroll", cmenu);
+
+      /* The option list is built on the first open and never before: 60
+         buttons × 4 nodes is weight no page should carry for a control most
+         visitors never touch. */
+      var filled = false;
+      function fill() {
+        if (filled) return;
+        filled = true;
+        cscroll.innerHTML = ordered.map(function (c) {
+          return '<button type="button" role="option" data-cur="' + c + '"' +
+            (c === P.currency() ? ' aria-selected="true" class="on"' : ' aria-selected="false"') + ">" +
+            '<span class="cur-sym">' + esc(SYM[c] || c.charAt(0)) + "</span>" +
+            "<span>" + esc(c) + "</span>" +
+            "<small>" + esc(NAMES[c] || "") + '</small><span class="tick">✓</span></button>';
+        }).join("");
+        $all("button[data-cur]", cscroll).forEach(function (b) {
+          b.addEventListener("click", function () { P.setCurrency(b.dataset.cur); });
+        });
+      }
+
+      function close(returnFocus) {
+        wrap.classList.remove("open");
+        cmenu.hidden = true;
+        cbtn.setAttribute("aria-expanded", "false");
+        if (returnFocus) { try { cbtn.focus(); } catch (e) {} }
+      }
+
       cbtn.addEventListener("click", function (e) {
         e.stopPropagation();
-        var open = wrap.classList.toggle("open");
-        cbtn.setAttribute("aria-expanded", open ? "true" : "false");
+        var open = !wrap.classList.contains("open");
         if (open) {
+          fill();
+          wrap.classList.add("open");
+          cmenu.hidden = false;
+          cbtn.setAttribute("aria-expanded", "true");
+          /* Scroll the chosen row into view INSIDE the menu, never the page:
+             scrollTo(sel) used to move the whole document. */
           var sel = $(".cur-menu button.on", cmenu);
-          if (sel) scrollTo(sel, { block: "center" });
+          if (sel) {
+            cscroll.scrollTop = Math.max(0, sel.offsetTop - cscroll.clientHeight / 2);
+            try { sel.focus(); } catch (err) {}
+          }
+        } else {
+          close(false);
         }
       });
-      $all("button[data-cur]", cmenu).forEach(function (b) {
-        b.addEventListener("click", function () { P.setCurrency(b.dataset.cur); });
-      });
       document.addEventListener("click", function () {
-        wrap.classList.remove("open");
-        cbtn.setAttribute("aria-expanded", "false");
+        if (wrap.classList.contains("open")) close(false);
       });
       document.addEventListener("keydown", function (e) {
-        if (e.key === "Escape") wrap.classList.remove("open");
+        if (e.key === "Escape" && wrap.classList.contains("open")) close(true);
       });
     }
 
-    /* ---------- 2. FOOTER: a plain select, always reachable ---------- */
+    /* ---------- 2. SETTINGS: a plain select, inside the Appearance panel ----
+       Usability 15 (3 Oct 2026): Appearance sat in a white panel above the
+       footer and Currency in the dark footer, so one idea — "how the site
+       reads for me" — lived in two places. The panel is now a Settings row:
+       the generated label moves into a row, the currency select joins it, and
+       the two policy links move to their own line. This is done here rather
+       than in the generator so the 2 600 pages that carry the panel do not
+       each need a rebuild; no-JS readers are unaffected, because the panel
+       itself is generated HTML and the currency select has always been a
+       JavaScript control. */
+    function settingsRow() {
+      var panel = $(".eg-appearance");
+      if (!panel) return null;
+      var label = $("label", panel);
+      if (!label) return null;
+      var row = document.createElement("div"), links = document.createElement("p");
+      row.className = "eg-settings-row";
+      links.className = "eg-settings-links";
+      row.appendChild(label);
+      $all("a", panel).forEach(function (a) { links.appendChild(a); });
+      panel.textContent = "";
+      panel.appendChild(row);
+      if (links.firstChild) panel.appendChild(links);
+      return row;
+    }
+
+    var row = settingsRow();
     var foot = $(".ftr-bot");
-    if (foot && !$("#cur-sel")) {
-      var box = document.createElement("p");
-      box.className = "cur-switch";
+    if ((row || foot) && !$("#cur-sel")) {
+      var box = document.createElement(row ? "span" : "p");
+      box.className = row ? "eg-settings-cur" : "cur-switch";
       box.innerHTML = '<label for="cur-sel">' + esc(t("cur.label")) + "</label>" +
         '<select id="cur-sel" aria-label="' + esc(t("cur.label")) + '">' +
         ordered.map(function (c) {
@@ -1860,7 +1919,11 @@
             esc(full(c)) + "</option>";
         }).join("") + "</select>" +
         '<span class="cur-note">' + esc(t("cur.note")) + "</span>";
-      foot.insertBefore(box, foot.firstChild);
+      if (row) {
+        row.appendChild(box);
+      } else {
+        foot.insertBefore(box, foot.firstChild);
+      }
       $("#cur-sel", box).addEventListener("change", function () { P.setCurrency(this.value); });
     }
 

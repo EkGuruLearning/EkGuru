@@ -58,22 +58,26 @@ const RTL = { ar: true };
 /* The languages shown in the rail. Native names, so the same strip is correct
    on every one of the seven home pages — "Tamil" is தமிழ் to a Japanese
    reader too. Hrefs are the real course entry points. */
+/* Usability 21 (3 Oct 2026): every rail entry used to be labelled "course"
+   or nothing at all, while the language section further down the page carried
+   the real state ("complete A1–C2", "A1 · A2 · B1 · B2 available"). The rail
+   now shows the same level band as that section, so the two agree. */
 const RAIL = [
   ["hi", "हिन्दी", "अ", "../learn/hindi/", "A1–C2"],
-  ["bn", "বাংলা", "অ", "../bengali/", ""],
-  ["ta", "தமிழ்", "அ", "../learn/tamil/", ""],
-  ["te", "తెలుగు", "అ", "../learn/telugu/", ""],
-  ["mr", "मराठी", "म", "../learn/marathi/", ""],
-  ["ur", "اردو", "ا", "../learn/urdu/", ""],
-  ["ar", "العربية", "ع", "../languages/ar/course/", ""],
-  ["es", "Español", "Ñ", "../languages/es/course/", ""],
-  ["fr", "Français", "É", "../languages/fr/course/", ""],
-  ["de", "Deutsch", "Ö", "../languages/de/course/", ""],
-  ["pt", "Português", "Ã", "../languages/pt/course/", ""],
-  ["ja", "日本語", "あ", "../languages/ja/course/", ""],
-  ["ko", "한국어", "가", "../languages/ko/course/", ""],
-  ["zh", "中文", "一", "../languages/zh/course/", ""],
-  ["ru", "Русский", "А", "../languages/ru/course/", ""]
+  ["bn", "বাংলা", "অ", "../bengali/", "A1–B2"],
+  ["ta", "தமிழ்", "அ", "../learn/tamil/", "A1–C2"],
+  ["te", "తెలుగు", "అ", "../learn/telugu/", "A1–C2"],
+  ["mr", "मराठी", "म", "../learn/marathi/", "A1–C2"],
+  ["ur", "اردو", "ا", "../learn/urdu/", "A1–C2"],
+  ["ar", "العربية", "ع", "../languages/ar/course/", "A1–B2"],
+  ["es", "Español", "Ñ", "../languages/es/course/", "A1–C2"],
+  ["fr", "Français", "É", "../languages/fr/course/", "A1–C2"],
+  ["de", "Deutsch", "Ö", "../languages/de/course/", "A1–B2"],
+  ["pt", "Português", "Ã", "../languages/pt/course/", "A1–B2"],
+  ["ja", "日本語", "あ", "../languages/ja/course/", "A1–B2"],
+  ["ko", "한국어", "가", "../languages/ko/course/", "A1–B2"],
+  ["zh", "中文", "一", "../languages/zh/course/", "A1–C2"],
+  ["ru", "Русский", "А", "../languages/ru/course/", "A1–B2"]
 ];
 
 /* The seven markets, for the "students from around the world" strip. The flag
@@ -192,7 +196,7 @@ function hero(lang, t, tutors, price) {
   <span class="xp-orb xp-orb-2" aria-hidden="true"></span>
   <div class="xp-wrap xp-hero-in">
     <div class="xp-hero-copy xp-rise">
-      <span class="xp-kicker" data-i18n="hero.badge">${esc(t(lang0, "hero.badge"))}</span>
+      <span class="xp-kicker xp-kicker--badge" data-i18n="hero.badge">${esc(t(lang0, "hero.badge"))}</span>
       <h1><span data-i18n="hero.title1">${esc(t(lang0, "hero.title1"))}</span>
         <span class="grad-text" data-i18n="hero.title2">${esc(t(lang0, "hero.title2"))}</span></h1>
       <p class="xp-lead" data-i18n="hero.lead">${esc(t(lang0, "hero.lead"))}</p>

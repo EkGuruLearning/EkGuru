@@ -98,25 +98,25 @@
             },
             "dialogue": [
               {
-                "sp": "Doctor",
+                "sp": "மருத்துவர்",
                 "t": "உங்களுக்கு என்ன பிரச்சினை?",
                 "r": "Uṅgaḷukku enna pirachchinai?",
                 "en": "What troubles you?"
               },
               {
-                "sp": "Patient",
+                "sp": "நோயாளி",
                 "t": "டாக்டர், இரண்டு நாட்களாக காய்ச்சல்.",
                 "r": "Ṭākṭar, iraṇḍu nāṭkaḷāga kāychchal.",
                 "en": "Doctor, fever for two days."
               },
               {
-                "sp": "Doctor",
+                "sp": "மருத்துவர்",
                 "t": "இருமல், சளி இருக்கிறதா?",
                 "r": "Irumal, saḷi irukkiṛadā?",
                 "en": "Any cough or cold?"
               },
               {
-                "sp": "Patient",
+                "sp": "நோயாளி",
                 "t": "இருமல் மட்டும் இருக்கிறது.",
                 "r": "Irumal maṭṭum irukkiṛadu.",
                 "en": "Only a cough."
@@ -194,7 +194,7 @@
               },
               {
                 "type": "dialogue_completion",
-                "q": "Practice 10 [dialogue completion] — Specialist health discourse: Complete Patient’s turn appropriately: Doctor, fever for two days.",
+                "q": "Practice 10 [dialogue completion] — Specialist health discourse: Complete நோயாளி’s turn appropriately: Doctor, fever for two days.",
                 "answer": "டாக்டர், இரண்டு நாட்களாக காய்ச்சல்.",
                 "skill_target": "Tamil dialogue completion: Tamil suffix chains, case marking, agreement, and formal versus colloquial choice"
               },
@@ -408,25 +408,25 @@
             },
             "dialogue": [
               {
-                "sp": "Manager",
+                "sp": "மேலாளர்",
                 "t": "வாருங்கள்! உங்கள் பெயர் என்ன?",
                 "r": "Vāruṅgaḷ! Uṅgaḷ peyar enna?",
                 "en": "Welcome! What is your name?"
               },
               {
-                "sp": "Newcomer",
+                "sp": "புதியவர்",
                 "t": "என் பெயர் குமார்.",
                 "r": "Eṉ peyar Kumāṛ.",
                 "en": "My name is Kumar."
               },
               {
-                "sp": "Manager",
+                "sp": "மேலாளர்",
                 "t": "இது உங்கள் மேசை. கணினியை இயக்குங்கள்.",
                 "r": "Idu uṅgaḷ mēsai. Kaṇiṉiyai iyakkuṅgaḷ.",
                 "en": "This is your desk. Switch on the computer."
               },
               {
-                "sp": "Newcomer",
+                "sp": "புதியவர்",
                 "t": "சரி. மின்னஞ்சல் முகவரி என்ன?",
                 "r": "Sari. Miṉṉañjal mugavari enna?",
                 "en": "OK. What is the email address?"
@@ -634,6 +634,295 @@
               "கூலி"
             ],
             "srs_policy": "Only selected high-value lesson forms are preselected; actual mistakes and productive patterns may enter personalized review after learner evidence."
+          },
+          {
+            "id": "ta-c2-l7",
+            "title": "ஆய்வுப் பரிந்துரையின் நிபந்தனைகள்",
+            "learn": "Write a specialist recommendation that makes its evidence and decision rule visible. ஏற்கெனவே and இதுவரை distinguish prior work from the current record; unless a condition is met, state what action should wait. A conditional recommendation is not a refusal to decide.",
+            "vocab": [
+              {
+                "t": "பரிந்துரைக் குழு",
+                "r": "parinturaik kuḻu",
+                "en": "recommendation panel",
+                "pos": "phrase"
+              },
+              {
+                "t": "முன்நிபந்தனை",
+                "r": "muṉnipant aṉai",
+                "en": "precondition",
+                "pos": "noun"
+              },
+              {
+                "t": "மறுஆய்வு",
+                "r": "maṟu āyvu",
+                "en": "review, re-examination",
+                "pos": "noun"
+              },
+              {
+                "t": "போதுமான",
+                "r": "pōtumāṉa",
+                "en": "sufficient",
+                "pos": "adjective"
+              },
+              {
+                "t": "தற்காலிகமாக",
+                "r": "taṟkālikamāka",
+                "en": "provisionally",
+                "pos": "adverb"
+              }
+            ],
+            "grammar": {
+              "title": "Conditional recommendations",
+              "pattern": "... உறுதிப்படுத்தப்பட்டால் ... · உறுதிப்படுத்தப்படும்வரை ... கூடாது",
+              "explain": "A recommendation can be stated with a clear threshold: தரவு மறுஆய்வில் உறுதிப்படுத்தப்பட்டால் ... . Until then, ... உறுதிப்படுத்தப்படும்வரை முடிவை மாற்றக்கூடாது. Distinguish a temporary pause from a permanent rejection, and identify who owns the next review.",
+              "examples": [
+                {
+                  "t": "மறுஆய்வில் முடிவு உறுதிப்படுத்தப்பட்டால், நடைமுறையைத் தொடரலாம்.",
+                  "r": "maṟuāyvil muṭivu uṟutippaṭuttappaṭṭāl, naṭaimuṟaiyait toṭaralām.",
+                  "en": "If the result is confirmed in review, the procedure may continue."
+                },
+                {
+                  "t": "தனி மாதிரி கிடைக்கும் வரை இறுதி பரிந்துரை வெளியிடப்படாது.",
+                  "r": "taṉi mātiri kiṭaikkum varai iṟuti parinturai veḷiyiṭappaṭātu.",
+                  "en": "A final recommendation will not be issued until an independent sample is available."
+                },
+                {
+                  "t": "இடைநிலை முடிவை தற்காலிகமாகப் பதிவு செய்து, அடுத்தக் கூட்டத்தில் மீண்டும் மதிப்பிட வேண்டும்.",
+                  "r": "iṭainilai muṭivai taṟkālikamākap pativu ceytu, aṭuttak kūṭṭattil mīṇṭum matippiṭa vēṇṭum.",
+                  "en": "The interim result should be recorded provisionally and reassessed at the next meeting."
+                }
+              ],
+              "mistakes": [
+                {
+                  "wrong": "மீளாய்வு இல்லாமல் முடிவு உறுதியானது.",
+                  "right": "மீளாய்வில் முடிவு உறுதிப்படுத்தப்பட்டால் மட்டுமே அதை இறுதியாகக் கருதலாம்.",
+                  "why": "State the review threshold before treating a result as final."
+                },
+                {
+                  "wrong": "தற்காலிக இடைநிறுத்தம் நிரந்தர மறுப்பு.",
+                  "right": "தற்காலிக இடைநிறுத்தம் அடுத்த ஆய்வு வரை மட்டுமே.",
+                  "why": "A provisional pause is time-bounded, not a permanent rejection."
+                }
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "தலைவர்",
+                "t": "பரிந்துரையை இன்றே வெளியிடலாமா?",
+                "r": "parinturaiyai iṉṟē veḷiyiṭalāmā?",
+                "en": "Can we issue the recommendation today?"
+              },
+              {
+                "sp": "நிபுணர்",
+                "t": "தனி மாதிரி கிடைக்கும் வரை இறுதி முடிவு வேண்டாம்.",
+                "r": "taṉi mātiri kiṭaikkum varai iṟuti muṭivu vēṇṭām.",
+                "en": "Not a final decision until the independent sample is available."
+              },
+              {
+                "sp": "தலைவர்",
+                "t": "அப்படியானால், இடைநிலை முடிவைத் தெளிவாகக் குறிக்கிறோம்.",
+                "r": "appaṭiyāṉāl, iṭainilai muṭivait teḷivākak kuṟikkiṟōm.",
+                "en": "Then we will clearly mark it as an interim result."
+              },
+              {
+                "sp": "நிபுணர்",
+                "t": "ஆம்; அடுத்த கூட்டத்தில் மறுஆய்வு பொறுப்பாளரையும் நியமிக்க வேண்டும்.",
+                "r": "ām; aṭutta kūṭṭattil maṟu āyvu poṟuppāḷaraiyum niyamikka vēṇṭum.",
+                "en": "Yes; at the next meeting we should also appoint who is responsible for the review."
+              }
+            ],
+            "practice": [
+              {
+                "type": "multiple_choice",
+                "q": "Practice 1: [multiple choice] ஆய்வுப் பரிந்துரையின் நிபந்தனைகள் — Choose the meaning of பரிந்துரைக் குழு (parinturaik kuḻu) in this lesson.",
+                "answer": "recommendation panel",
+                "skill_target": "Tamil: Tamil script, agglutinative case suffixes, head-final word order, diglossia between the written and spoken registers, and the respectful நீங்கள் / familiar நீ address",
+                "options": [
+                  "recommendation panel",
+                  "precondition",
+                  "review, re-examination",
+                  "sufficient"
+                ]
+              },
+              {
+                "type": "fill_in_the_blank",
+                "q": "Practice 2: [fill in the blank] ஆய்வுப் பரிந்துரையின் நிபந்தனைகள் — Type the Tamil expression meaning “precondition”.",
+                "answer": "முன்நிபந்தனை",
+                "skill_target": "Tamil: Tamil script, agglutinative case suffixes, head-final word order, diglossia between the written and spoken registers, and the respectful நீங்கள் / familiar நீ address"
+              },
+              {
+                "type": "translation",
+                "q": "Practice 3: [translation] ஆய்வுப் பரிந்துரையின் நிபந்தனைகள் — Interpret the Tamil script in context: மறுஆய்வில் முடிவு உறுதிப்படுத்தப்பட்டால், நடைமுறையைத் தொடரலாம். (maṟuāyvil muṭivu uṟutippaṭuttappaṭṭāl, naṭaimuṟaiyait toṭaralām.).",
+                "answer": "If the result is confirmed in review, the procedure may continue.",
+                "skill_target": "Tamil: Tamil script, agglutinative case suffixes, head-final word order, diglossia between the written and spoken registers, and the respectful நீங்கள் / familiar நீ address"
+              },
+              {
+                "type": "reverse_translation",
+                "q": "Practice 4: [reverse translation] ஆய்வுப் பரிந்துரையின் நிபந்தனைகள் — Write in Tamil script: A final recommendation will not be issued until an independent sample is available..",
+                "answer": "தனி மாதிரி கிடைக்கும் வரை இறுதி பரிந்துரை வெளியிடப்படாது.",
+                "skill_target": "Tamil: Tamil script, agglutinative case suffixes, head-final word order, diglossia between the written and spoken registers, and the respectful நீங்கள் / familiar நீ address"
+              },
+              {
+                "type": "matching",
+                "q": "Practice 5: [matching] ஆய்வுப் பரிந்துரையின் நிபந்தனைகள் — Match மறுஆய்வு to its lesson meaning.",
+                "answer": "review, re-examination",
+                "skill_target": "Tamil: Tamil script, agglutinative case suffixes, head-final word order, diglossia between the written and spoken registers, and the respectful நீங்கள் / familiar நீ address",
+                "options": [
+                  "review, re-examination",
+                  "recommendation panel",
+                  "precondition"
+                ]
+              },
+              {
+                "type": "reorder",
+                "q": "Practice 6: [reorder] ஆய்வுப் பரிந்துரையின் நிபந்தனைகள் — Reconstruct the lesson model in coherent Tamil: The interim result should be recorded provisionally and reassessed at the next meeting..",
+                "answer": "இடைநிலை முடிவை தற்காலிகமாகப் பதிவு செய்து, அடுத்தக் கூட்டத்தில் மீண்டும் மதிப்பிட வேண்டும்.",
+                "skill_target": "Tamil: Tamil script, agglutinative case suffixes, head-final word order, diglossia between the written and spoken registers, and the respectful நீங்கள் / familiar நீ address"
+              },
+              {
+                "type": "sentence_building",
+                "q": "Practice 7: [sentence building] ஆய்வுப் பரிந்துரையின் நிபந்தனைகள் — Build the sentence with the lesson pattern (... உறுதிப்படுத்தப்பட்டால் ... · உறுதிப்படுத்தப்படும்வரை ... கூடாது): If the result is confirmed in review, the procedure may continue..",
+                "answer": "மறுஆய்வில் முடிவு உறுதிப்படுத்தப்பட்டால், நடைமுறையைத் தொடரலாம்.",
+                "skill_target": "Tamil: Tamil script, agglutinative case suffixes, head-final word order, diglossia between the written and spoken registers, and the respectful நீங்கள் / familiar நீ address"
+              },
+              {
+                "type": "word_selection",
+                "q": "Practice 8: [word selection] ஆய்வுப் பரிந்துரையின் நிபந்தனைகள் — Select the Tamil form for “sufficient”.",
+                "answer": "போதுமான",
+                "skill_target": "Tamil: Tamil script, agglutinative case suffixes, head-final word order, diglossia between the written and spoken registers, and the respectful நீங்கள் / familiar நீ address",
+                "options": [
+                  "போதுமான",
+                  "தற்காலிகமாக"
+                ]
+              },
+              {
+                "type": "error_correction",
+                "q": "Practice 9: [error correction] ஆய்வுப் பரிந்துரையின் நிபந்தனைகள் — Correct the model the lesson warns about: மீளாய்வு இல்லாமல் முடிவு உறுதியானது.",
+                "answer": "மீளாய்வில் முடிவு உறுதிப்படுத்தப்பட்டால் மட்டுமே அதை இறுதியாகக் கருதலாம்.",
+                "skill_target": "Tamil: Tamil script, agglutinative case suffixes, head-final word order, diglossia between the written and spoken registers, and the respectful நீங்கள் / familiar நீ address"
+              },
+              {
+                "type": "dialogue_completion",
+                "q": "Practice 10: [dialogue completion] ஆய்வுப் பரிந்துரையின் நிபந்தனைகள் — Complete the exchange with the studied response to: Can we issue the recommendation today?",
+                "answer": "தனி மாதிரி கிடைக்கும் வரை இறுதி முடிவு வேண்டாம்.",
+                "skill_target": "Tamil: Tamil script, agglutinative case suffixes, head-final word order, diglossia between the written and spoken registers, and the respectful நீங்கள் / familiar நீ address"
+              },
+              {
+                "type": "reading_comprehension",
+                "q": "Practice 11: [reading comprehension] ஆய்வுப் பரிந்துரையின் நிபந்தனைகள் — Read “அப்படியானால், இடைநிலை முடிவைத் தெளிவாகக் குறிக்கிறோம்.” (appaṭiyāṉāl, iṭainilai muṭivait teḷivākak kuṟikkiṟōm.). What does it mean?",
+                "answer": "Then we will clearly mark it as an interim result.",
+                "skill_target": "Tamil: Tamil script, agglutinative case suffixes, head-final word order, diglossia between the written and spoken registers, and the respectful நீங்கள் / familiar நீ address"
+              },
+              {
+                "type": "paragraph_comprehension",
+                "q": "Practice 12: [paragraph comprehension] ஆய்வுப் பரிந்துரையின் நிபந்தனைகள் — Read the lesson dialogue as a whole and give its key move: Yes; at the next meeting we should also appoint who is responsible for the review.",
+                "answer": "ஆம்; அடுத்த கூட்டத்தில் மறுஆய்வு பொறுப்பாளரையும் நியமிக்க வேண்டும்.",
+                "skill_target": "Tamil: Tamil script, agglutinative case suffixes, head-final word order, diglossia between the written and spoken registers, and the respectful நீங்கள் / familiar நீ address"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "Which meaning best fits பரிந்துரைக் குழு?",
+                "options": [
+                  "recommendation panel",
+                  "precondition",
+                  "review, re-examination",
+                  "sufficient"
+                ],
+                "answer": 0,
+                "why": "பரிந்துரைக் குழு (parinturaik kuḻu) means recommendation panel in this lesson."
+              },
+              {
+                "q": "Which meaning best fits முன்நிபந்தனை?",
+                "options": [
+                  "precondition",
+                  "recommendation panel",
+                  "review, re-examination",
+                  "sufficient"
+                ],
+                "answer": 0,
+                "why": "முன்நிபந்தனை (muṉnipant aṉai) means precondition in this lesson."
+              },
+              {
+                "q": "Which meaning best fits மறுஆய்வு?",
+                "options": [
+                  "review, re-examination",
+                  "recommendation panel",
+                  "precondition",
+                  "sufficient"
+                ],
+                "answer": 0,
+                "why": "மறுஆய்வு (maṟu āyvu) means review, re-examination in this lesson."
+              },
+              {
+                "q": "Which meaning best fits போதுமான?",
+                "options": [
+                  "sufficient",
+                  "recommendation panel",
+                  "precondition",
+                  "review, re-examination"
+                ],
+                "answer": 0,
+                "why": "போதுமான (pōtumāṉa) means sufficient in this lesson."
+              },
+              {
+                "q": "Which meaning best fits தற்காலிகமாக?",
+                "options": [
+                  "provisionally",
+                  "recommendation panel",
+                  "precondition",
+                  "review, re-examination"
+                ],
+                "answer": 0,
+                "why": "தற்காலிகமாக (taṟkālikamāka) means provisionally in this lesson."
+              }
+            ],
+            "flashcards": "auto:vocab",
+            "worksheet": {
+              "title": "Recommendation worksheet",
+              "tasks": [
+                {
+                  "instruction": "Set the condition.",
+                  "items": [
+                    "if the result is confirmed in review, the procedure may continue",
+                    "a final recommendation waits for an independent sample"
+                  ],
+                  "key": [
+                    "மறுஆய்வில் முடிவு உறுதிப்படுத்தப்பட்டால் நடைமுறையைத் தொடரலாம்",
+                    "தனி மாதிரி கிடைக்கும் வரை இறுதி பரிந்துரை வெளியிடப்படாது"
+                  ]
+                },
+                {
+                  "instruction": "Name the status.",
+                  "items": [
+                    "record the interim result provisionally",
+                    "reassess it at the next meeting"
+                  ],
+                  "key": [
+                    "இடைநிலை முடிவைத் தற்காலிகமாகப் பதிவு செய்யுங்கள்",
+                    "அடுத்தக் கூட்டத்தில் மீண்டும் மதிப்பிடுங்கள்"
+                  ]
+                },
+                {
+                  "instruction": "Integrated offline practice: read the first model, transform or extend it in Tamil script, then rehearse it as a dialogue. Self-check meaning, grammar, and register.",
+                  "items": [
+                    "மறுஆய்வில் முடிவு உறுதிப்படுத்தப்பட்டால், நடைமுறையைத் தொடரலாம்.",
+                    "பரிந்துரையை இன்றே வெளியிடலாமா?"
+                  ],
+                  "key": [
+                    "If the result is confirmed in review, the procedure may continue.",
+                    "Can we issue the recommendation today?"
+                  ]
+                }
+              ]
+            },
+            "srs_candidates": [
+              "பரிந்துரைக் குழு",
+              "முன்நிபந்தனை",
+              "மறுஆய்வு",
+              "போதுமான"
+            ],
+            "srs_policy": "Only these four high-value terms are preselected; lesson mistakes and productive patterns may enter personalized review after an actual error."
           }
         ]
       },
@@ -722,25 +1011,25 @@
             },
             "dialogue": [
               {
-                "sp": "Father",
+                "sp": "அப்பா",
                 "t": "வீட்டுப்பாடம் முடித்தாயா?",
                 "r": "Vīṭṭuppāḍam muḍittāyā?",
                 "en": "Did you finish homework?"
               },
               {
-                "sp": "Son",
+                "sp": "மகன்",
                 "t": "கணிதம் மட்டும் மீதி, அப்பா.",
                 "r": "Kaṇidam maṭṭum mīdi, appā.",
                 "en": "Only maths left, father."
               },
               {
-                "sp": "Father",
+                "sp": "அப்பா",
                 "t": "எங்கே சந்தேகம்? காட்டு.",
                 "r": "Eṅgē sandēgam? Kāṭṭu.",
                 "en": "Where's the doubt? Show me."
               },
               {
-                "sp": "Son",
+                "sp": "மகன்",
                 "t": "இந்த கணக்கு புரியவில்லை.",
                 "r": "Inda kaṇakku puriyavillai.",
                 "en": "I don't get this sum."
@@ -1245,6 +1534,295 @@
               "பச்சோந்தி"
             ],
             "srs_policy": "Only selected high-value lesson forms are preselected; actual mistakes and productive patterns may enter personalized review after learner evidence."
+          },
+          {
+            "id": "ta-c2-l8",
+            "title": "காலநிலை மாதிரியின் கருதுகோள்கள்",
+            "learn": "Explain what a climate model assumes and why a projection is not a prediction with a fixed date. Modelled outcomes depend on scenarios and inputs; ஆகவே marks an inference, not a direct observation, and என்றாலும் introduces uncertainty without dismissing the result.",
+            "vocab": [
+              {
+                "t": "கருதுகோள்",
+                "r": "karutukōḷ",
+                "en": "assumption",
+                "pos": "noun"
+              },
+              {
+                "t": "சூழ்நிலை",
+                "r": "cūḻnilai",
+                "en": "scenario, context",
+                "pos": "noun"
+              },
+              {
+                "t": "கணிப்பு",
+                "r": "kaṇippu",
+                "en": "projection, estimate",
+                "pos": "noun"
+              },
+              {
+                "t": "நிச்சயமின்மை",
+                "r": "niccayamiṉmai",
+                "en": "uncertainty",
+                "pos": "noun"
+              },
+              {
+                "t": "உள்ளீடு",
+                "r": "uḷḷīṭu",
+                "en": "input",
+                "pos": "noun"
+              }
+            ],
+            "grammar": {
+              "title": "Projection and uncertainty",
+              "pattern": "உள்ளீடு மாறினால் ... · ஆகவே ... எனப் பொருள் கொள்ளக் கூடாது · என்றாலும் ...",
+              "explain": "Name the scenario and the input before interpreting the output. ஆகவே introduces a conclusion; the phrase கணிப்பு எனப் பொருள் கொள்ளக் கூடாது prevents a projection from being reported as an exact forecast. என்றாலும் allows uncertainty to be stated without denying the model's useful range.",
+              "examples": [
+                {
+                  "t": "உமிழ்வு உள்ளீடு மாறினால் மாதிரியின் கணிப்பும் மாறும்.",
+                  "r": "umiḻvu uḷḷīṭu māṟiṉāl mātiriyiṉ kaṇippum māṟum.",
+                  "en": "If the emissions input changes, the model's projection changes too."
+                },
+                {
+                  "t": "ஆகவே 2050-ஆம் ஆண்டின் ஒரு எண்ணை உறுதியான கணிப்பாகப் பொருள் கொள்ளக் கூடாது.",
+                  "r": "ākavē 2050-ām āṇṭiṉ oru eṇṇai uṟutiyāṉa kaṇippākap poruḷ koḷḷak kūṭātu.",
+                  "en": "Therefore a single figure for 2050 should not be read as a certain prediction."
+                },
+                {
+                  "t": "நிச்சயமின்மை இருந்தாலும், பல சூழ்நிலைகளை ஒப்பிடுவது பயனுள்ளது.",
+                  "r": "niccayamiṉmai iruntālum, pala cūḻnilaikaḷai oppiṭuvatu payaṉuḷḷatu.",
+                  "en": "Even with uncertainty, comparing several scenarios is useful."
+                }
+              ],
+              "mistakes": [
+                {
+                  "wrong": "இந்த மாதிரி 2050-ஆம் ஆண்டின் வெப்பநிலையைத் துல்லியமாகச் சொல்கிறது.",
+                  "right": "இந்த மாதிரி சில கருதுகோள்களின் கீழ் சாத்தியமான வெப்பநிலை வரம்பைக் காட்டுகிறது.",
+                  "why": "A scenario model gives conditional ranges, not a fixed exact value."
+                },
+                {
+                  "wrong": "நிச்சயமின்மை இருப்பதால் எந்த முடிவும் பயனற்றது.",
+                  "right": "நிச்சயமின்மை இருந்தாலும், ஒப்பிடப்பட்ட சூழ்நிலைகள் முடிவெடுக்க உதவுகின்றன.",
+                  "why": "Uncertainty limits precision but does not erase all decision value."
+                }
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "ஆய்வாளர்",
+                "t": "இந்த எண்ணை நாளைய வெப்பநிலையாகச் சொல்லலாமா?",
+                "r": "inta eṇṇai nāḷaiya veppanilaiyākac collalāmā?",
+                "en": "Can we state this figure as tomorrow's temperature?"
+              },
+              {
+                "sp": "பகுப்பாய்வாளர்",
+                "t": "இல்லை; இது ஒரு நீண்டகாலச் சூழ்நிலைக் கணிப்பு.",
+                "r": "illai; itu oru nīṇṭakālac cūḻnilaik kaṇippu.",
+                "en": "No; it is a long-term scenario projection."
+              },
+              {
+                "sp": "ஆய்வாளர்",
+                "t": "உள்ளீடுகள் மாறினால் வரம்பும் மாறுமா?",
+                "r": "uḷḷīṭukaḷ māṟiṉāl varampum māṟumā?",
+                "en": "If the inputs change, will the range change too?"
+              },
+              {
+                "sp": "பகுப்பாய்வாளர்",
+                "t": "ஆம். அதனால் கருதுகோள்களை முடிவுடன் சேர்த்து வெளியிடுகிறோம்.",
+                "r": "ām. ataṉāl karutukōḷkaḷai muṭivuṭaṉ cērttu veḷiyiṭukiṟōm.",
+                "en": "Yes. That is why we publish the assumptions with the result."
+              }
+            ],
+            "practice": [
+              {
+                "type": "multiple_choice",
+                "q": "Practice 1: [multiple choice] காலநிலை மாதிரியின் கருதுகோள்கள் — Choose the meaning of கருதுகோள் (karutukōḷ) in this lesson.",
+                "answer": "assumption",
+                "skill_target": "Tamil: Tamil script, agglutinative case suffixes, head-final word order, diglossia between the written and spoken registers, and the respectful நீங்கள் / familiar நீ address",
+                "options": [
+                  "assumption",
+                  "scenario, context",
+                  "projection, estimate",
+                  "uncertainty"
+                ]
+              },
+              {
+                "type": "fill_in_the_blank",
+                "q": "Practice 2: [fill in the blank] காலநிலை மாதிரியின் கருதுகோள்கள் — Type the Tamil expression meaning “scenario, context”.",
+                "answer": "சூழ்நிலை",
+                "skill_target": "Tamil: Tamil script, agglutinative case suffixes, head-final word order, diglossia between the written and spoken registers, and the respectful நீங்கள் / familiar நீ address"
+              },
+              {
+                "type": "translation",
+                "q": "Practice 3: [translation] காலநிலை மாதிரியின் கருதுகோள்கள் — Interpret the Tamil script in context: உமிழ்வு உள்ளீடு மாறினால் மாதிரியின் கணிப்பும் மாறும். (umiḻvu uḷḷīṭu māṟiṉāl mātiriyiṉ kaṇippum māṟum.).",
+                "answer": "If the emissions input changes, the model's projection changes too.",
+                "skill_target": "Tamil: Tamil script, agglutinative case suffixes, head-final word order, diglossia between the written and spoken registers, and the respectful நீங்கள் / familiar நீ address"
+              },
+              {
+                "type": "reverse_translation",
+                "q": "Practice 4: [reverse translation] காலநிலை மாதிரியின் கருதுகோள்கள் — Write in Tamil script: Therefore a single figure for 2050 should not be read as a certain prediction..",
+                "answer": "ஆகவே 2050-ஆம் ஆண்டின் ஒரு எண்ணை உறுதியான கணிப்பாகப் பொருள் கொள்ளக் கூடாது.",
+                "skill_target": "Tamil: Tamil script, agglutinative case suffixes, head-final word order, diglossia between the written and spoken registers, and the respectful நீங்கள் / familiar நீ address"
+              },
+              {
+                "type": "matching",
+                "q": "Practice 5: [matching] காலநிலை மாதிரியின் கருதுகோள்கள் — Match கணிப்பு to its lesson meaning.",
+                "answer": "projection, estimate",
+                "skill_target": "Tamil: Tamil script, agglutinative case suffixes, head-final word order, diglossia between the written and spoken registers, and the respectful நீங்கள் / familiar நீ address",
+                "options": [
+                  "projection, estimate",
+                  "assumption",
+                  "scenario, context"
+                ]
+              },
+              {
+                "type": "reorder",
+                "q": "Practice 6: [reorder] காலநிலை மாதிரியின் கருதுகோள்கள் — Reconstruct the lesson model in coherent Tamil: Even with uncertainty, comparing several scenarios is useful..",
+                "answer": "நிச்சயமின்மை இருந்தாலும், பல சூழ்நிலைகளை ஒப்பிடுவது பயனுள்ளது.",
+                "skill_target": "Tamil: Tamil script, agglutinative case suffixes, head-final word order, diglossia between the written and spoken registers, and the respectful நீங்கள் / familiar நீ address"
+              },
+              {
+                "type": "sentence_building",
+                "q": "Practice 7: [sentence building] காலநிலை மாதிரியின் கருதுகோள்கள் — Build the sentence with the lesson pattern (உள்ளீடு மாறினால் ... · ஆகவே ... எனப் பொருள் கொள்ளக் கூடாது · என்றாலும் ...): If the emissions input changes, the model's projection changes too..",
+                "answer": "உமிழ்வு உள்ளீடு மாறினால் மாதிரியின் கணிப்பும் மாறும்.",
+                "skill_target": "Tamil: Tamil script, agglutinative case suffixes, head-final word order, diglossia between the written and spoken registers, and the respectful நீங்கள் / familiar நீ address"
+              },
+              {
+                "type": "word_selection",
+                "q": "Practice 8: [word selection] காலநிலை மாதிரியின் கருதுகோள்கள் — Select the Tamil form for “uncertainty”.",
+                "answer": "நிச்சயமின்மை",
+                "skill_target": "Tamil: Tamil script, agglutinative case suffixes, head-final word order, diglossia between the written and spoken registers, and the respectful நீங்கள் / familiar நீ address",
+                "options": [
+                  "நிச்சயமின்மை",
+                  "உள்ளீடு"
+                ]
+              },
+              {
+                "type": "error_correction",
+                "q": "Practice 9: [error correction] காலநிலை மாதிரியின் கருதுகோள்கள் — Correct the model the lesson warns about: இந்த மாதிரி 2050-ஆம் ஆண்டின் வெப்பநிலையைத் துல்லியமாகச் சொல்கிறது.",
+                "answer": "இந்த மாதிரி சில கருதுகோள்களின் கீழ் சாத்தியமான வெப்பநிலை வரம்பைக் காட்டுகிறது.",
+                "skill_target": "Tamil: Tamil script, agglutinative case suffixes, head-final word order, diglossia between the written and spoken registers, and the respectful நீங்கள் / familiar நீ address"
+              },
+              {
+                "type": "dialogue_completion",
+                "q": "Practice 10: [dialogue completion] காலநிலை மாதிரியின் கருதுகோள்கள் — Complete the exchange with the studied response to: Can we state this figure as tomorrow's temperature?",
+                "answer": "இல்லை; இது ஒரு நீண்டகாலச் சூழ்நிலைக் கணிப்பு.",
+                "skill_target": "Tamil: Tamil script, agglutinative case suffixes, head-final word order, diglossia between the written and spoken registers, and the respectful நீங்கள் / familiar நீ address"
+              },
+              {
+                "type": "reading_comprehension",
+                "q": "Practice 11: [reading comprehension] காலநிலை மாதிரியின் கருதுகோள்கள் — Read “உள்ளீடுகள் மாறினால் வரம்பும் மாறுமா?” (uḷḷīṭukaḷ māṟiṉāl varampum māṟumā?). What does it mean?",
+                "answer": "If the inputs change, will the range change too?",
+                "skill_target": "Tamil: Tamil script, agglutinative case suffixes, head-final word order, diglossia between the written and spoken registers, and the respectful நீங்கள் / familiar நீ address"
+              },
+              {
+                "type": "paragraph_comprehension",
+                "q": "Practice 12: [paragraph comprehension] காலநிலை மாதிரியின் கருதுகோள்கள் — Read the lesson dialogue as a whole and give its key move: Yes. That is why we publish the assumptions with the result.",
+                "answer": "ஆம். அதனால் கருதுகோள்களை முடிவுடன் சேர்த்து வெளியிடுகிறோம்.",
+                "skill_target": "Tamil: Tamil script, agglutinative case suffixes, head-final word order, diglossia between the written and spoken registers, and the respectful நீங்கள் / familiar நீ address"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "Which meaning best fits கருதுகோள்?",
+                "options": [
+                  "assumption",
+                  "scenario, context",
+                  "projection, estimate",
+                  "uncertainty"
+                ],
+                "answer": 0,
+                "why": "கருதுகோள் (karutukōḷ) means assumption in this lesson."
+              },
+              {
+                "q": "Which meaning best fits சூழ்நிலை?",
+                "options": [
+                  "scenario, context",
+                  "assumption",
+                  "projection, estimate",
+                  "uncertainty"
+                ],
+                "answer": 0,
+                "why": "சூழ்நிலை (cūḻnilai) means scenario, context in this lesson."
+              },
+              {
+                "q": "Which meaning best fits கணிப்பு?",
+                "options": [
+                  "projection, estimate",
+                  "assumption",
+                  "scenario, context",
+                  "uncertainty"
+                ],
+                "answer": 0,
+                "why": "கணிப்பு (kaṇippu) means projection, estimate in this lesson."
+              },
+              {
+                "q": "Which meaning best fits நிச்சயமின்மை?",
+                "options": [
+                  "uncertainty",
+                  "assumption",
+                  "scenario, context",
+                  "projection, estimate"
+                ],
+                "answer": 0,
+                "why": "நிச்சயமின்மை (niccayamiṉmai) means uncertainty in this lesson."
+              },
+              {
+                "q": "Which meaning best fits உள்ளீடு?",
+                "options": [
+                  "input",
+                  "assumption",
+                  "scenario, context",
+                  "projection, estimate"
+                ],
+                "answer": 0,
+                "why": "உள்ளீடு (uḷḷīṭu) means input in this lesson."
+              }
+            ],
+            "flashcards": "auto:vocab",
+            "worksheet": {
+              "title": "Model worksheet",
+              "tasks": [
+                {
+                  "instruction": "State the dependency.",
+                  "items": [
+                    "if the emissions input changes, the projection changes",
+                    "the assumptions must be published with the result"
+                  ],
+                  "key": [
+                    "உமிழ்வு உள்ளீடு மாறினால் கணிப்பும் மாறும்",
+                    "கருதுகோள்களை முடிவுடன் சேர்த்து வெளியிட வேண்டும்"
+                  ]
+                },
+                {
+                  "instruction": "Keep the claim conditional.",
+                  "items": [
+                    "this is a long-term scenario projection",
+                    "compare several scenarios despite uncertainty"
+                  ],
+                  "key": [
+                    "இது நீண்டகாலச் சூழ்நிலைக் கணிப்பு",
+                    "நிச்சயமின்மை இருந்தாலும் பல சூழ்நிலைகளை ஒப்பிடுவது பயனுள்ளது"
+                  ]
+                },
+                {
+                  "instruction": "Integrated offline practice: read the first model, transform or extend it in Tamil script, then rehearse it as a dialogue. Self-check meaning, grammar, and register.",
+                  "items": [
+                    "உமிழ்வு உள்ளீடு மாறினால் மாதிரியின் கணிப்பும் மாறும்.",
+                    "இந்த எண்ணை நாளைய வெப்பநிலையாகச் சொல்லலாமா?"
+                  ],
+                  "key": [
+                    "If the emissions input changes, the model's projection changes too.",
+                    "Can we state this figure as tomorrow's temperature?"
+                  ]
+                }
+              ]
+            },
+            "srs_candidates": [
+              "கருதுகோள்",
+              "சூழ்நிலை",
+              "கணிப்பு",
+              "நிச்சயமின்மை"
+            ],
+            "srs_policy": "Only these four high-value terms are preselected; lesson mistakes and productive patterns may enter personalized review after an actual error."
           }
         ]
       },
@@ -1333,25 +1911,25 @@
             },
             "dialogue": [
               {
-                "sp": "Mother",
+                "sp": "அம்மா",
                 "t": "கேள், இன்று மாலை விருந்தினர் வருகிறார்கள்.",
                 "r": "Kēḷ, iṉṛu mālai virundiṉar varugiṛārgaḷ.",
                 "en": "Listen, guests are coming this evening."
               },
               {
-                "sp": "Son",
+                "sp": "மகன்",
                 "t": "யார் வருகிறார்கள், அம்மா?",
                 "r": "Yār varugiṛārgaḷ, ammā?",
                 "en": "Who is coming, mother?"
               },
               {
-                "sp": "Mother",
+                "sp": "அம்மா",
                 "t": "உன் மாமா-மாமி. அறையை ஒழுங்குபடுத்து.",
                 "r": "Uṉ māmā-māmi. Aṛaiyai oḻuṅgupaḍuttu.",
                 "en": "Your uncle and aunt. Tidy the room."
               },
               {
-                "sp": "Son",
+                "sp": "மகன்",
                 "t": "சரி. என்ன சமையல்?",
                 "r": "Sari. Enna samaiyal?",
                 "en": "OK. What will be cooked?"
@@ -1366,7 +1944,7 @@
               },
               {
                 "type": "dialogue_completion",
-                "q": "Practice 6 [dialogue completion] — Subtle social register: Complete Son’s turn appropriately: Who is coming, mother?",
+                "q": "Practice 6 [dialogue completion] — Subtle social register: Complete மகன்’s turn appropriately: Who is coming, mother?",
                 "answer": "யார் வருகிறார்கள், அம்மா?",
                 "skill_target": "Tamil dialogue completion: Tamil suffix chains, case marking, agreement, and formal versus colloquial choice"
               },
@@ -1638,25 +2216,25 @@
             },
             "dialogue": [
               {
-                "sp": "Grandmother",
+                "sp": "பாட்டி",
                 "t": "எழுந்திரு! இன்று தைப்பொங்கல்.",
                 "r": "Eḻundiru! Iṉṛu taippoṅgal.",
                 "en": "Wake up! Today is Thai Pongal."
               },
               {
-                "sp": "Girl",
+                "sp": "சிறுமி",
                 "t": "பாட்டி, கோலம் போட்டாயா?",
                 "r": "Pāṭṭi, kōlam pōṭṭāyā?",
                 "en": "Grandma, did you draw the kolam?"
               },
               {
-                "sp": "Grandmother",
+                "sp": "பாட்டி",
                 "t": "போட்டுவிட்டேன். கரும்பை எடு.",
                 "r": "Pōṭṭuviṭṭēṉ. Karumbai eḍu.",
                 "en": "Done. Fetch the sugarcane."
               },
               {
-                "sp": "Girl",
+                "sp": "சிறுமி",
                 "t": "பொங்கல் பொங்குகிறது!",
                 "r": "Poṅgal poṅgugiṛadu!",
                 "en": "The Pongal is boiling over!"
@@ -1854,6 +2432,295 @@
               "குங்குமம்"
             ],
             "srs_policy": "Only selected high-value lesson forms are preselected; actual mistakes and productive patterns may enter personalized review after learner evidence."
+          },
+          {
+            "id": "ta-c2-l9",
+            "title": "மொழிநடையும் அடையாளமும்",
+            "learn": "Edit a public essay about Tamil without treating one register as the only authentic voice. Distinguish the writer's chosen voice from a reader's expectation, and explain why changing register also changes audience and power. ... என்று மட்டும் கூறுவது reduces a claim; இல்லை என்பதைக் காட்டிலும் ... என்பதை வலியுறுத்துகிறது frames a contrast.",
+            "vocab": [
+              {
+                "t": "மொழிநடை",
+                "r": "moḻinaṭai",
+                "en": "register, style",
+                "pos": "noun"
+              },
+              {
+                "t": "வாசகர் வட்டம்",
+                "r": "vācakar vaṭṭam",
+                "en": "readership",
+                "pos": "phrase"
+              },
+              {
+                "t": "அடையாளம்",
+                "r": "aṭaiyāḷam",
+                "en": "identity",
+                "pos": "noun"
+              },
+              {
+                "t": "எதிர்பார்ப்பு",
+                "r": "etirpārppu",
+                "en": "expectation",
+                "pos": "noun"
+              },
+              {
+                "t": "வலியுறுத்துதல்",
+                "r": "valiyuṟuttutal",
+                "en": "to emphasise",
+                "pos": "verb"
+              }
+            ],
+            "grammar": {
+              "title": "Contrast without essentialising",
+              "pattern": "... என்று மட்டும் கூறுவது ... · இல்லை என்பதைக் காட்டிலும் ... என்பதை வலியுறுத்துகிறது",
+              "explain": "A precise editorial does not reduce a writer to a register. State the narrow claim first; then contrast it with the wider issue: இது சொல் தேர்வு மட்டும் அல்ல; வாசகர் வட்டத்தையும் தீர்மானிக்கிறது. Use என்று மட்டும் to identify what a claim omits, and ... என்பதை வலியுறுத்துகிறது to name the alternative that the evidence actually supports.",
+              "examples": [
+                {
+                  "t": "இது பேச்சுத் தமிழை மட்டும் பற்றிய விவாதம் அல்ல; யாருடைய குரல் அச்சில் இடம் பெறுகிறது என்பதையும் பற்றியது.",
+                  "r": "itu pēccut tamiḻai maṭṭum paṟṟiya vivātam alla; yāruṭaiya kural accil iṭam peṟukiṟatu eṉpataiyum paṟṟiyatu.",
+                  "en": "This is not only a debate about spoken Tamil; it is also about whose voice appears in print."
+                },
+                {
+                  "t": "எழுத்தாளர் ஒரு நடையைத் தேர்ந்தெடுக்கிறார்; வாசகர் அதில் அடையாளத்தை வாசிக்கிறார்.",
+                  "r": "eḻuttāḷar oru naṭaiyait tērnteṭukkiṟār; vācakar atil aṭaiyāḷattai vācikkiṟār.",
+                  "en": "The writer chooses a register; the reader reads identity into it."
+                },
+                {
+                  "t": "ஆகவே திருத்தம் என்பது பிழை நீக்கம் மட்டுமல்ல, குரலைப் பற்றிய முடிவும் ஆகும்.",
+                  "r": "ākavē tiruttam eṉpatu piḻai nīkkam maṭṭumalla, kuralaip paṟṟiya muṭivum ākum.",
+                  "en": "Therefore editing is not only the removal of errors; it is also a decision about voice."
+                }
+              ],
+              "mistakes": [
+                {
+                  "wrong": "ஒரே நடையே உண்மையான தமிழ்.",
+                  "right": "ஒரு குறிப்பிட்ட நடையை மட்டுமே உண்மையான தமிழ் என்று கூற முடியாது.",
+                  "why": "Do not turn a register preference into an absolute claim about authenticity."
+                },
+                {
+                  "wrong": "திருத்தம் பிழையை மட்டும் நீக்குகிறது; குரலை மாற்றாது.",
+                  "right": "திருத்தம் பிழையை நீக்குவதோடு, குரலையும் மாற்றக்கூடும்.",
+                  "why": "Editing can alter voice as well as correct errors; acknowledge both."
+                }
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "தொகுப்பாளர்",
+                "t": "இந்தக் கட்டுரை எந்தக் கேள்வியை முன்வைக்கிறது?",
+                "r": "intak kaṭṭurai entak kēḷviyai muṉvaikkiṟatu?",
+                "en": "What question does this essay raise?"
+              },
+              {
+                "sp": "எழுத்தாளர்",
+                "t": "ஒரு குறிப்பிட்ட நடையை மட்டுமே ஏன் சரியானது எனக் கருதுகிறோம்?",
+                "r": "oru kuṟippiṭṭa naṭaiyai maṭṭumē ēṉ cariyāṉatu eṉak karutukiṟōm?",
+                "en": "Why do we treat only one register as correct?"
+              },
+              {
+                "sp": "தொகுப்பாளர்",
+                "t": "சரி; மொழிநடை வாசகர் வட்டத்தையும் மாற்றுகிறது என்பதைச் சேர்க்கவும்.",
+                "r": "sari; moḻinaṭai vācakar vaṭṭattaiyum māṟṟukiṟatu eṉpataic cērkkavum.",
+                "en": "Good; add that register also changes the readership."
+              },
+              {
+                "sp": "எழுத்தாளர்",
+                "t": "அப்படியானால், முடிவில் குரலின் தேர்வை விளக்குகிறேன்.",
+                "r": "appaṭiyāṉāl, muṭivil kuraliṉ tērvai viḷakkukiṟēṉ.",
+                "en": "Then I will explain the choice of voice in the conclusion."
+              }
+            ],
+            "practice": [
+              {
+                "type": "multiple_choice",
+                "q": "Practice 1: [multiple choice] மொழிநடையும் அடையாளமும் — Choose the meaning of மொழிநடை (moḻinaṭai) in this lesson.",
+                "answer": "register, style",
+                "skill_target": "Tamil: Tamil script, agglutinative case suffixes, head-final word order, diglossia between the written and spoken registers, and the respectful நீங்கள் / familiar நீ address",
+                "options": [
+                  "register, style",
+                  "readership",
+                  "identity",
+                  "expectation"
+                ]
+              },
+              {
+                "type": "fill_in_the_blank",
+                "q": "Practice 2: [fill in the blank] மொழிநடையும் அடையாளமும் — Type the Tamil expression meaning “readership”.",
+                "answer": "வாசகர் வட்டம்",
+                "skill_target": "Tamil: Tamil script, agglutinative case suffixes, head-final word order, diglossia between the written and spoken registers, and the respectful நீங்கள் / familiar நீ address"
+              },
+              {
+                "type": "translation",
+                "q": "Practice 3: [translation] மொழிநடையும் அடையாளமும் — Interpret the Tamil script in context: இது பேச்சுத் தமிழை மட்டும் பற்றிய விவாதம் அல்ல; யாருடைய குரல் அச்சில் இடம் பெறுகிறது என்பதையும் பற்றியது. (itu pēccut tamiḻai maṭṭum paṟṟiya vivātam alla; yāruṭaiya kural accil iṭam peṟukiṟatu eṉpataiyum paṟṟiyatu.).",
+                "answer": "This is not only a debate about spoken Tamil; it is also about whose voice appears in print.",
+                "skill_target": "Tamil: Tamil script, agglutinative case suffixes, head-final word order, diglossia between the written and spoken registers, and the respectful நீங்கள் / familiar நீ address"
+              },
+              {
+                "type": "reverse_translation",
+                "q": "Practice 4: [reverse translation] மொழிநடையும் அடையாளமும் — Write in Tamil script: The writer chooses a register; the reader reads identity into it..",
+                "answer": "எழுத்தாளர் ஒரு நடையைத் தேர்ந்தெடுக்கிறார்; வாசகர் அதில் அடையாளத்தை வாசிக்கிறார்.",
+                "skill_target": "Tamil: Tamil script, agglutinative case suffixes, head-final word order, diglossia between the written and spoken registers, and the respectful நீங்கள் / familiar நீ address"
+              },
+              {
+                "type": "matching",
+                "q": "Practice 5: [matching] மொழிநடையும் அடையாளமும் — Match அடையாளம் to its lesson meaning.",
+                "answer": "identity",
+                "skill_target": "Tamil: Tamil script, agglutinative case suffixes, head-final word order, diglossia between the written and spoken registers, and the respectful நீங்கள் / familiar நீ address",
+                "options": [
+                  "identity",
+                  "register, style",
+                  "readership"
+                ]
+              },
+              {
+                "type": "reorder",
+                "q": "Practice 6: [reorder] மொழிநடையும் அடையாளமும் — Reconstruct the lesson model in coherent Tamil: Therefore editing is not only the removal of errors; it is also a decision about voice..",
+                "answer": "ஆகவே திருத்தம் என்பது பிழை நீக்கம் மட்டுமல்ல, குரலைப் பற்றிய முடிவும் ஆகும்.",
+                "skill_target": "Tamil: Tamil script, agglutinative case suffixes, head-final word order, diglossia between the written and spoken registers, and the respectful நீங்கள் / familiar நீ address"
+              },
+              {
+                "type": "sentence_building",
+                "q": "Practice 7: [sentence building] மொழிநடையும் அடையாளமும் — Build the sentence with the lesson pattern (... என்று மட்டும் கூறுவது ... · இல்லை என்பதைக் காட்டிலும் ... என்பதை வலியுறுத்துகிறது): This is not only a debate about spoken Tamil; it is also about whose voice appears in print..",
+                "answer": "இது பேச்சுத் தமிழை மட்டும் பற்றிய விவாதம் அல்ல; யாருடைய குரல் அச்சில் இடம் பெறுகிறது என்பதையும் பற்றியது.",
+                "skill_target": "Tamil: Tamil script, agglutinative case suffixes, head-final word order, diglossia between the written and spoken registers, and the respectful நீங்கள் / familiar நீ address"
+              },
+              {
+                "type": "word_selection",
+                "q": "Practice 8: [word selection] மொழிநடையும் அடையாளமும் — Select the Tamil form for “expectation”.",
+                "answer": "எதிர்பார்ப்பு",
+                "skill_target": "Tamil: Tamil script, agglutinative case suffixes, head-final word order, diglossia between the written and spoken registers, and the respectful நீங்கள் / familiar நீ address",
+                "options": [
+                  "எதிர்பார்ப்பு",
+                  "வலியுறுத்துதல்"
+                ]
+              },
+              {
+                "type": "error_correction",
+                "q": "Practice 9: [error correction] மொழிநடையும் அடையாளமும் — Correct the model the lesson warns about: ஒரே நடையே உண்மையான தமிழ்.",
+                "answer": "ஒரு குறிப்பிட்ட நடையை மட்டுமே உண்மையான தமிழ் என்று கூற முடியாது.",
+                "skill_target": "Tamil: Tamil script, agglutinative case suffixes, head-final word order, diglossia between the written and spoken registers, and the respectful நீங்கள் / familiar நீ address"
+              },
+              {
+                "type": "dialogue_completion",
+                "q": "Practice 10: [dialogue completion] மொழிநடையும் அடையாளமும் — Complete the exchange with the studied response to: What question does this essay raise?",
+                "answer": "ஒரு குறிப்பிட்ட நடையை மட்டுமே ஏன் சரியானது எனக் கருதுகிறோம்?",
+                "skill_target": "Tamil: Tamil script, agglutinative case suffixes, head-final word order, diglossia between the written and spoken registers, and the respectful நீங்கள் / familiar நீ address"
+              },
+              {
+                "type": "reading_comprehension",
+                "q": "Practice 11: [reading comprehension] மொழிநடையும் அடையாளமும் — Read “சரி; மொழிநடை வாசகர் வட்டத்தையும் மாற்றுகிறது என்பதைச் சேர்க்கவும்.” (sari; moḻinaṭai vācakar vaṭṭattaiyum māṟṟukiṟatu eṉpataic cērkkavum.). What does it mean?",
+                "answer": "Good; add that register also changes the readership.",
+                "skill_target": "Tamil: Tamil script, agglutinative case suffixes, head-final word order, diglossia between the written and spoken registers, and the respectful நீங்கள் / familiar நீ address"
+              },
+              {
+                "type": "paragraph_comprehension",
+                "q": "Practice 12: [paragraph comprehension] மொழிநடையும் அடையாளமும் — Read the lesson dialogue as a whole and give its key move: Then I will explain the choice of voice in the conclusion.",
+                "answer": "அப்படியானால், முடிவில் குரலின் தேர்வை விளக்குகிறேன்.",
+                "skill_target": "Tamil: Tamil script, agglutinative case suffixes, head-final word order, diglossia between the written and spoken registers, and the respectful நீங்கள் / familiar நீ address"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "Which meaning best fits மொழிநடை?",
+                "options": [
+                  "register, style",
+                  "readership",
+                  "identity",
+                  "expectation"
+                ],
+                "answer": 0,
+                "why": "மொழிநடை (moḻinaṭai) means register, style in this lesson."
+              },
+              {
+                "q": "Which meaning best fits வாசகர் வட்டம்?",
+                "options": [
+                  "readership",
+                  "register, style",
+                  "identity",
+                  "expectation"
+                ],
+                "answer": 0,
+                "why": "வாசகர் வட்டம் (vācakar vaṭṭam) means readership in this lesson."
+              },
+              {
+                "q": "Which meaning best fits அடையாளம்?",
+                "options": [
+                  "identity",
+                  "register, style",
+                  "readership",
+                  "expectation"
+                ],
+                "answer": 0,
+                "why": "அடையாளம் (aṭaiyāḷam) means identity in this lesson."
+              },
+              {
+                "q": "Which meaning best fits எதிர்பார்ப்பு?",
+                "options": [
+                  "expectation",
+                  "register, style",
+                  "readership",
+                  "identity"
+                ],
+                "answer": 0,
+                "why": "எதிர்பார்ப்பு (etirpārppu) means expectation in this lesson."
+              },
+              {
+                "q": "Which meaning best fits வலியுறுத்துதல்?",
+                "options": [
+                  "to emphasise",
+                  "register, style",
+                  "readership",
+                  "identity"
+                ],
+                "answer": 0,
+                "why": "வலியுறுத்துதல் (valiyuṟuttutal) means to emphasise in this lesson."
+              }
+            ],
+            "flashcards": "auto:vocab",
+            "worksheet": {
+              "title": "Editing worksheet",
+              "tasks": [
+                {
+                  "instruction": "Refine the claim.",
+                  "items": [
+                    "one register is not the only authentic Tamil",
+                    "editing can change voice as well as remove errors"
+                  ],
+                  "key": [
+                    "ஒரு நடையை மட்டுமே உண்மையான தமிழ் என்று கூற முடியாது",
+                    "திருத்தம் பிழையை நீக்குவதோடு குரலையும் மாற்றக்கூடும்"
+                  ]
+                },
+                {
+                  "instruction": "Name the consequence.",
+                  "items": [
+                    "register also changes the readership",
+                    "explain the choice of voice in the conclusion"
+                  ],
+                  "key": [
+                    "மொழிநடை வாசகர் வட்டத்தையும் மாற்றுகிறது",
+                    "முடிவில் குரலின் தேர்வை விளக்குகிறேன்"
+                  ]
+                },
+                {
+                  "instruction": "Integrated offline practice: read the first model, transform or extend it in Tamil script, then rehearse it as a dialogue. Self-check meaning, grammar, and register.",
+                  "items": [
+                    "இது பேச்சுத் தமிழை மட்டும் பற்றிய விவாதம் அல்ல; யாருடைய குரல் அச்சில் இடம் பெறுகிறது என்பதையும் பற்றியது.",
+                    "இந்தக் கட்டுரை எந்தக் கேள்வியை முன்வைக்கிறது?"
+                  ],
+                  "key": [
+                    "This is not only a debate about spoken Tamil; it is also about whose voice appears in print.",
+                    "What question does this essay raise?"
+                  ]
+                }
+              ]
+            },
+            "srs_candidates": [
+              "மொழிநடை",
+              "வாசகர் வட்டம்",
+              "அடையாளம்",
+              "எதிர்பார்ப்பு"
+            ],
+            "srs_policy": "Only these four high-value terms are preselected; lesson mistakes and productive patterns may enter personalized review after an actual error."
           }
         ]
       }
@@ -1912,6 +2779,95 @@
           "answer": "மழை பெய்கிறது (Maḻai peygiṛadu)"
         }
       ]
+    },
+    "extra": {
+      "culture": {
+        "text": "The Tirukkural is a compact work of 1,330 couplets arranged in 133 chapters. The Tamil Virtual Academy presents its three divisions as அறம் (aram, virtue), பொருள் (porul, public and material life), and இன்பம் (inbam, love and human relationship). The form is small enough to memorise and dense enough to invite commentary: translators must decide what to do with a word that carries an ethical idea, a social relationship, and a rhythm at once. The point of comparing translations is not to crown one as final, but to notice what each version preserves, makes explicit, or lets remain open. The age and historical context of the text are matters of scholarly debate; its three-part structure is not.",
+        "source_url": "https://www.tamilvu.org/courses/diploma/c031/c0313/html/c0313107.htm"
+      },
+      "reading": {
+        "text": "ஒரு குறளின் ஆங்கில மொழிபெயர்ப்பில் «அறம்» என்பதற்கு virtue என்று கொடுக்கப்பட்டுள்ளது. மற்றொரு மொழிபெயர்ப்பாளர் அதை ethical conduct என்று விரிக்கிறார். முதல் சொல் சுருக்கமானது; இரண்டாவது அதன் செயல்முறையை வெளிப்படுத்துகிறது. எது சரி என்று மட்டும் கேட்பதைவிட, எந்த வாசகருக்காக எந்தத் தேர்வு செய்யப்பட்டது என்று கேட்பது பயனுள்ளது. மொழிபெயர்ப்பு ஒரு கதவைத் திறக்கிறது; அதே நேரத்தில் மூலச் சொல்லின் எல்லா எதிரொலிகளையும் தன்னுடன் கொண்டு செல்ல முடியாது.",
+        "gloss": "In one English translation of a Kural, அறம் is rendered as 'virtue'. Another translator expands it as 'ethical conduct'. The first word is compact; the second makes its practice explicit. Rather than asking only which is correct, it is useful to ask which choice was made for which reader. A translation opens a door; at the same time it cannot carry every resonance of the source word with it.",
+        "original": true
+      },
+      "listening": {
+        "script": "இரண்டு மொழிபெயர்ப்புகளும் ஒரே குறளை வேறுவிதமாகத் தருகின்றன. ஒன்று ஓசையையும் சுருக்கத்தையும் காக்கிறது; மற்றொன்று கருத்தை விளக்குகிறது. எது மூலத்துக்கு நெருக்கம்? — ஒரு அளவுகோலால் முடிவெடுக்க முடியாது. முதலில் எதை ஒப்பிடுகிறோம் என்று தெளிவுபடுத்த வேண்டும்.",
+        "gloss": "The two translations render the same Kural differently. One preserves sound and brevity; the other explains the idea. Which is closer to the original? — We cannot decide with one measure. First we must clarify what we are comparing.",
+        "voice_tag": "ta-IN"
+      },
+      "idioms": [
+        {
+          "t": "அளவுக்கு மிஞ்சினால் அமிர்தமும் நஞ்சு",
+          "literal": "beyond the measure, even nectar is poison",
+          "meaning": "excess can spoil what is good"
+        },
+        {
+          "t": "கற்றது கைம்மண்ணளவு, கல்லாதது உலகளவு",
+          "literal": "what is learned is a handful of sand; what is unknown is the world",
+          "meaning": "learning reveals how much remains to learn"
+        },
+        {
+          "t": "காக்கைக்கும் தன் குஞ்சு பொன் குஞ்சு",
+          "literal": "to a crow its chick is a golden chick",
+          "meaning": "everyone sees their own as precious"
+        },
+        {
+          "t": "சிறு துளி பெரு வெள்ளம்",
+          "literal": "small drops make a great flood",
+          "meaning": "small contributions accumulate"
+        },
+        {
+          "t": "ஆற்றில் போட்டாலும் அளந்து போடு",
+          "literal": "measure it even if you put it in a river",
+          "meaning": "use resources carefully"
+        },
+        {
+          "t": "தீயினால் சுட்ட புண் உள்ளாறும்",
+          "literal": "a fire-burned wound may heal",
+          "meaning": "physical hurt can heal"
+        },
+        {
+          "t": "நாவினால் சுட்ட வடு ஆறாது",
+          "literal": "a wound made by the tongue does not heal",
+          "meaning": "hurtful words leave a lasting mark"
+        },
+        {
+          "t": "பொறுத்தார் பூமி ஆள்வார்",
+          "literal": "the patient will rule the earth",
+          "meaning": "patience can outlast force"
+        },
+        {
+          "t": "வினை விதைத்தவன் வினை அறுப்பான்",
+          "literal": "the one who sows an act will reap its act",
+          "meaning": "actions bring their consequences"
+        },
+        {
+          "t": "ஒன்றுபட்டால் உண்டு வாழ்வு",
+          "literal": "if united, there is life",
+          "meaning": "cooperation sustains a community"
+        }
+      ],
+      "mistakes": [
+        {
+          "wrong": "இந்த மொழிபெயர்ப்பு மட்டுமே சரியானது என்று நிரூபிக்கிறது.",
+          "right": "இந்த மொழிபெயர்ப்பு ஒரு பொருள்வாசிப்பை முன்வைக்கிறது.",
+          "why": "A translation advances an interpretation; without argument it cannot prove exclusivity."
+        },
+        {
+          "wrong": "இரு உரைகளிலும் சொல்லின் ஓசை காக்கப்படுகிறது.",
+          "right": "ஒரு உரை ஓசையைக் காக்கிறது; மற்றொன்று கருத்தை விரிக்கிறது.",
+          "why": "Do not claim both versions preserve a feature when the comparison shows a trade-off."
+        },
+        {
+          "wrong": "குறள் பழமையானதால், அதன் பொருள் எல்லாக் காலத்திலும் ஒன்றே.",
+          "right": "குறள் பழமையானது; அதன் வாசிப்பு காலத்தோடு மாறலாம்.",
+          "why": "A text's age does not make its interpretation historically fixed."
+        }
+      ],
+      "task": {
+        "title": "மொழிபெயர்ப்பின் தேர்வுகள்",
+        "instructions": "Compare two translations of the same short Tamil passage. Quote no more than one phrase from each version. Identify one choice about register, rhythm, or an ambiguous word; describe what each version gains and loses; and state which readers each version serves. Finish with a qualified conclusion rather than a winner. Distinguish evidence from your preference, and do not claim the English can reproduce every feature of the Tamil original."
+      }
     }
   }
 }

@@ -98,25 +98,25 @@
             },
             "dialogue": [
               {
-                "sp": "Doctor",
+                "sp": "மருத்துவர்",
                 "t": "உங்களுக்கு என்ன பிரச்சினை?",
                 "r": "Uṅgaḷukku enna pirachchinai?",
                 "en": "What troubles you?"
               },
               {
-                "sp": "Patient",
+                "sp": "நோயாளி",
                 "t": "டாக்டர், இரண்டு நாட்களாக காய்ச்சல்.",
                 "r": "Ṭākṭar, iraṇḍu nāṭkaḷāga kāychchal.",
                 "en": "Doctor, fever for two days."
               },
               {
-                "sp": "Doctor",
+                "sp": "மருத்துவர்",
                 "t": "இருமல், சளி இருக்கிறதா?",
                 "r": "Irumal, saḷi irukkiṛadā?",
                 "en": "Any cough or cold?"
               },
               {
-                "sp": "Patient",
+                "sp": "நோயாளி",
                 "t": "இருமல் மட்டும் இருக்கிறது.",
                 "r": "Irumal maṭṭum irukkiṛadu.",
                 "en": "Only a cough."
@@ -194,7 +194,7 @@
               },
               {
                 "type": "dialogue_completion",
-                "q": "Practice 10 [dialogue completion] — Explaining health experiences: Complete Patient’s turn appropriately: Doctor, fever for two days.",
+                "q": "Practice 10 [dialogue completion] — Explaining health experiences: Complete நோயாளி’s turn appropriately: Doctor, fever for two days.",
                 "answer": "டாக்டர், இரண்டு நாட்களாக காய்ச்சல்.",
                 "skill_target": "Tamil dialogue completion: Tamil suffix chains, case marking, agreement, and formal versus colloquial choice"
               },
@@ -408,25 +408,25 @@
             },
             "dialogue": [
               {
-                "sp": "Manager",
+                "sp": "மேலாளர்",
                 "t": "வாருங்கள்! உங்கள் பெயர் என்ன?",
                 "r": "Vāruṅgaḷ! Uṅgaḷ peyar enna?",
                 "en": "Welcome! What is your name?"
               },
               {
-                "sp": "Newcomer",
+                "sp": "புதியவர்",
                 "t": "என் பெயர் குமார்.",
                 "r": "Eṉ peyar Kumāṛ.",
                 "en": "My name is Kumar."
               },
               {
-                "sp": "Manager",
+                "sp": "மேலாளர்",
                 "t": "இது உங்கள் மேசை. கணினியை இயக்குங்கள்.",
                 "r": "Idu uṅgaḷ mēsai. Kaṇiṉiyai iyakkuṅgaḷ.",
                 "en": "This is your desk. Switch on the computer."
               },
               {
-                "sp": "Newcomer",
+                "sp": "புதியவர்",
                 "t": "சரி. மின்னஞ்சல் முகவரி என்ன?",
                 "r": "Sari. Miṉṉañjal mugavari enna?",
                 "en": "OK. What is the email address?"
@@ -634,6 +634,295 @@
               "பணி"
             ],
             "srs_policy": "Only selected high-value lesson forms are preselected; actual mistakes and productive patterns may enter personalized review after learner evidence."
+          },
+          {
+            "id": "ta-b1-l7",
+            "title": "அறிகுறி மாறிய விதம்",
+            "learn": "Describe how a symptom changed over several days and explain what you tried. முதலில் / அதன் பிறகு / இப்போது orders the account; குறைந்தது and அதிகரித்தது report change, while ...தால் gives the reason for seeking care.",
+            "vocab": [
+              {
+                "t": "அறிகுறி",
+                "r": "aṟikuṟi",
+                "en": "symptom",
+                "pos": "noun"
+              },
+              {
+                "t": "முதலில்",
+                "r": "mutalil",
+                "en": "at first",
+                "pos": "adverb"
+              },
+              {
+                "t": "குறைதல்",
+                "r": "kuṟaital",
+                "en": "to decrease",
+                "pos": "verb"
+              },
+              {
+                "t": "அதிகரித்தல்",
+                "r": "atikarittal",
+                "en": "to increase",
+                "pos": "verb"
+              },
+              {
+                "t": "தொடர்ந்து",
+                "r": "toṭarntu",
+                "en": "continuously, in succession",
+                "pos": "adverb"
+              }
+            ],
+            "grammar": {
+              "title": "A symptom timeline",
+              "pattern": "முதலில் ... · அதன் பிறகு ... · இப்போது ... · ...தால் மருத்துவரைச் சந்தித்தேன்",
+              "explain": "Use முதலில், அதன் பிறகு, and இப்போது to make a timeline. For a change, காய்ச்சல் குறைந்தது; வலி அதிகரித்தது. A reason can be attached with -தால்: வலி அதிகரித்ததால் மருத்துவரைச் சந்தித்தேன்.",
+              "examples": [
+                {
+                  "t": "முதலில் இருமல் இருந்தது; அதன் பிறகு காய்ச்சல் குறைந்தது.",
+                  "r": "mutalil irumal iruntatu; ataṉ piṟaku kāyccal kuṟaintatu.",
+                  "en": "At first I had a cough; after that the fever decreased."
+                },
+                {
+                  "t": "வலி தொடர்ந்து இருந்ததால் நான் மீண்டும் வந்தேன்.",
+                  "r": "vali toṭarntu iruntatāl nāṉ mīṇṭum vantēṉ.",
+                  "en": "Because the pain continued, I came back."
+                },
+                {
+                  "t": "இப்போது சுவாசம் சீராக இருக்கிறது.",
+                  "r": "ippōtu cuvāsam cīrāka irukkiṟatu.",
+                  "en": "Now my breathing is steady."
+                }
+              ],
+              "mistakes": [
+                {
+                  "wrong": "வலி அதிகரித்தது நான் மீண்டும் வந்தேன்.",
+                  "right": "வலி அதிகரித்ததால் நான் மீண்டும் வந்தேன்.",
+                  "why": "Join the cause to the result with -தால்."
+                },
+                {
+                  "wrong": "முதலில் காய்ச்சல் குறைந்தது, இப்போது இருந்தது.",
+                  "right": "முதலில் காய்ச்சல் அதிகமாக இருந்தது; இப்போது குறைந்தது.",
+                  "why": "Use a clear contrast between the earlier and current state."
+                }
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "மருத்துவர்",
+                "t": "மருந்துக்குப் பிறகு என்ன மாற்றம்?",
+                "r": "maruntukkup piṟaku eṉṉa māṟṟam?",
+                "en": "What changed after the medicine?"
+              },
+              {
+                "sp": "நோயாளி",
+                "t": "முதலில் காய்ச்சல் குறைந்தது; இருமல் தொடர்ந்து இருந்தது.",
+                "r": "mutalil kāyccal kuṟaintatu; irumal toṭarntu iruntatu.",
+                "en": "At first the fever decreased; the cough continued."
+              },
+              {
+                "sp": "மருத்துவர்",
+                "t": "இப்போது சுவாசம் எப்படி இருக்கிறது?",
+                "r": "ippōtu cuvāsam eppaṭi irukkiṟatu?",
+                "en": "How is your breathing now?"
+              },
+              {
+                "sp": "நோயாளி",
+                "t": "சீராக இருக்கிறது, ஆனால் வலி அதிகரித்ததால் மீண்டும் வந்தேன்.",
+                "r": "cīrāka irukkiṟatu, āṉāl vali atikarittatāl mīṇṭum vantēṉ.",
+                "en": "It is steady, but I came back because the pain increased."
+              }
+            ],
+            "practice": [
+              {
+                "type": "multiple_choice",
+                "q": "Practice 1: [multiple choice] அறிகுறி மாறிய விதம் — Choose the meaning of அறிகுறி (aṟikuṟi) in this lesson.",
+                "answer": "symptom",
+                "skill_target": "Tamil: Tamil script, agglutinative case suffixes, head-final word order, diglossia between the written and spoken registers, and the respectful நீங்கள் / familiar நீ address",
+                "options": [
+                  "symptom",
+                  "at first",
+                  "to decrease",
+                  "to increase"
+                ]
+              },
+              {
+                "type": "fill_in_the_blank",
+                "q": "Practice 2: [fill in the blank] அறிகுறி மாறிய விதம் — Type the Tamil expression meaning “at first”.",
+                "answer": "முதலில்",
+                "skill_target": "Tamil: Tamil script, agglutinative case suffixes, head-final word order, diglossia between the written and spoken registers, and the respectful நீங்கள் / familiar நீ address"
+              },
+              {
+                "type": "translation",
+                "q": "Practice 3: [translation] அறிகுறி மாறிய விதம் — Interpret the Tamil script in context: முதலில் இருமல் இருந்தது; அதன் பிறகு காய்ச்சல் குறைந்தது. (mutalil irumal iruntatu; ataṉ piṟaku kāyccal kuṟaintatu.).",
+                "answer": "At first I had a cough; after that the fever decreased.",
+                "skill_target": "Tamil: Tamil script, agglutinative case suffixes, head-final word order, diglossia between the written and spoken registers, and the respectful நீங்கள் / familiar நீ address"
+              },
+              {
+                "type": "reverse_translation",
+                "q": "Practice 4: [reverse translation] அறிகுறி மாறிய விதம் — Write in Tamil script: Because the pain continued, I came back..",
+                "answer": "வலி தொடர்ந்து இருந்ததால் நான் மீண்டும் வந்தேன்.",
+                "skill_target": "Tamil: Tamil script, agglutinative case suffixes, head-final word order, diglossia between the written and spoken registers, and the respectful நீங்கள் / familiar நீ address"
+              },
+              {
+                "type": "matching",
+                "q": "Practice 5: [matching] அறிகுறி மாறிய விதம் — Match குறைதல் to its lesson meaning.",
+                "answer": "to decrease",
+                "skill_target": "Tamil: Tamil script, agglutinative case suffixes, head-final word order, diglossia between the written and spoken registers, and the respectful நீங்கள் / familiar நீ address",
+                "options": [
+                  "to decrease",
+                  "symptom",
+                  "at first"
+                ]
+              },
+              {
+                "type": "reorder",
+                "q": "Practice 6: [reorder] அறிகுறி மாறிய விதம் — Reconstruct the lesson model in coherent Tamil: Now my breathing is steady..",
+                "answer": "இப்போது சுவாசம் சீராக இருக்கிறது.",
+                "skill_target": "Tamil: Tamil script, agglutinative case suffixes, head-final word order, diglossia between the written and spoken registers, and the respectful நீங்கள் / familiar நீ address"
+              },
+              {
+                "type": "sentence_building",
+                "q": "Practice 7: [sentence building] அறிகுறி மாறிய விதம் — Build the sentence with the lesson pattern (முதலில் ... · அதன் பிறகு ... · இப்போது ... · ...தால் மருத்துவரைச் சந்தித்தேன்): At first I had a cough; after that the fever decreased..",
+                "answer": "முதலில் இருமல் இருந்தது; அதன் பிறகு காய்ச்சல் குறைந்தது.",
+                "skill_target": "Tamil: Tamil script, agglutinative case suffixes, head-final word order, diglossia between the written and spoken registers, and the respectful நீங்கள் / familiar நீ address"
+              },
+              {
+                "type": "word_selection",
+                "q": "Practice 8: [word selection] அறிகுறி மாறிய விதம் — Select the Tamil form for “to increase”.",
+                "answer": "அதிகரித்தல்",
+                "skill_target": "Tamil: Tamil script, agglutinative case suffixes, head-final word order, diglossia between the written and spoken registers, and the respectful நீங்கள் / familiar நீ address",
+                "options": [
+                  "அதிகரித்தல்",
+                  "தொடர்ந்து"
+                ]
+              },
+              {
+                "type": "error_correction",
+                "q": "Practice 9: [error correction] அறிகுறி மாறிய விதம் — Correct the model the lesson warns about: வலி அதிகரித்தது நான் மீண்டும் வந்தேன்.",
+                "answer": "வலி அதிகரித்ததால் நான் மீண்டும் வந்தேன்.",
+                "skill_target": "Tamil: Tamil script, agglutinative case suffixes, head-final word order, diglossia between the written and spoken registers, and the respectful நீங்கள் / familiar நீ address"
+              },
+              {
+                "type": "dialogue_completion",
+                "q": "Practice 10: [dialogue completion] அறிகுறி மாறிய விதம் — Complete the exchange with the studied response to: What changed after the medicine?",
+                "answer": "முதலில் காய்ச்சல் குறைந்தது; இருமல் தொடர்ந்து இருந்தது.",
+                "skill_target": "Tamil: Tamil script, agglutinative case suffixes, head-final word order, diglossia between the written and spoken registers, and the respectful நீங்கள் / familiar நீ address"
+              },
+              {
+                "type": "reading_comprehension",
+                "q": "Practice 11: [reading comprehension] அறிகுறி மாறிய விதம் — Read “இப்போது சுவாசம் எப்படி இருக்கிறது?” (ippōtu cuvāsam eppaṭi irukkiṟatu?). What does it mean?",
+                "answer": "How is your breathing now?",
+                "skill_target": "Tamil: Tamil script, agglutinative case suffixes, head-final word order, diglossia between the written and spoken registers, and the respectful நீங்கள் / familiar நீ address"
+              },
+              {
+                "type": "paragraph_comprehension",
+                "q": "Practice 12: [paragraph comprehension] அறிகுறி மாறிய விதம் — Read the lesson dialogue as a whole and give its key move: It is steady, but I came back because the pain increased.",
+                "answer": "சீராக இருக்கிறது, ஆனால் வலி அதிகரித்ததால் மீண்டும் வந்தேன்.",
+                "skill_target": "Tamil: Tamil script, agglutinative case suffixes, head-final word order, diglossia between the written and spoken registers, and the respectful நீங்கள் / familiar நீ address"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "Which meaning best fits அறிகுறி?",
+                "options": [
+                  "symptom",
+                  "at first",
+                  "to decrease",
+                  "to increase"
+                ],
+                "answer": 0,
+                "why": "அறிகுறி (aṟikuṟi) means symptom in this lesson."
+              },
+              {
+                "q": "Which meaning best fits முதலில்?",
+                "options": [
+                  "at first",
+                  "symptom",
+                  "to decrease",
+                  "to increase"
+                ],
+                "answer": 0,
+                "why": "முதலில் (mutalil) means at first in this lesson."
+              },
+              {
+                "q": "Which meaning best fits குறைதல்?",
+                "options": [
+                  "to decrease",
+                  "symptom",
+                  "at first",
+                  "to increase"
+                ],
+                "answer": 0,
+                "why": "குறைதல் (kuṟaital) means to decrease in this lesson."
+              },
+              {
+                "q": "Which meaning best fits அதிகரித்தல்?",
+                "options": [
+                  "to increase",
+                  "symptom",
+                  "at first",
+                  "to decrease"
+                ],
+                "answer": 0,
+                "why": "அதிகரித்தல் (atikarittal) means to increase in this lesson."
+              },
+              {
+                "q": "Which meaning best fits தொடர்ந்து?",
+                "options": [
+                  "continuously, in succession",
+                  "symptom",
+                  "at first",
+                  "to decrease"
+                ],
+                "answer": 0,
+                "why": "தொடர்ந்து (toṭarntu) means continuously, in succession in this lesson."
+              }
+            ],
+            "flashcards": "auto:vocab",
+            "worksheet": {
+              "title": "Health timeline worksheet",
+              "tasks": [
+                {
+                  "instruction": "Report the change.",
+                  "items": [
+                    "at first the fever decreased",
+                    "the cough continued"
+                  ],
+                  "key": [
+                    "முதலில் காய்ச்சல் குறைந்தது",
+                    "இருமல் தொடர்ந்து இருந்தது"
+                  ]
+                },
+                {
+                  "instruction": "Explain the visit.",
+                  "items": [
+                    "because the pain increased, I came back",
+                    "now my breathing is steady"
+                  ],
+                  "key": [
+                    "வலி அதிகரித்ததால் நான் மீண்டும் வந்தேன்",
+                    "இப்போது சுவாசம் சீராக இருக்கிறது"
+                  ]
+                },
+                {
+                  "instruction": "Integrated offline practice: read the first model, transform or extend it in Tamil script, then rehearse it as a dialogue. Self-check meaning, grammar, and register.",
+                  "items": [
+                    "முதலில் இருமல் இருந்தது; அதன் பிறகு காய்ச்சல் குறைந்தது.",
+                    "மருந்துக்குப் பிறகு என்ன மாற்றம்?"
+                  ],
+                  "key": [
+                    "At first I had a cough; after that the fever decreased.",
+                    "What changed after the medicine?"
+                  ]
+                }
+              ]
+            },
+            "srs_candidates": [
+              "அறிகுறி",
+              "முதலில்",
+              "குறைதல்",
+              "அதிகரித்தல்"
+            ],
+            "srs_policy": "Only these four high-value terms are preselected; lesson mistakes and productive patterns may enter personalized review after an actual error."
           }
         ]
       },
@@ -722,25 +1011,25 @@
             },
             "dialogue": [
               {
-                "sp": "Father",
+                "sp": "அப்பா",
                 "t": "வீட்டுப்பாடம் முடித்தாயா?",
                 "r": "Vīṭṭuppāḍam muḍittāyā?",
                 "en": "Did you finish homework?"
               },
               {
-                "sp": "Son",
+                "sp": "மகன்",
                 "t": "கணிதம் மட்டும் மீதி, அப்பா.",
                 "r": "Kaṇidam maṭṭum mīdi, appā.",
                 "en": "Only maths left, father."
               },
               {
-                "sp": "Father",
+                "sp": "அப்பா",
                 "t": "எங்கே சந்தேகம்? காட்டு.",
                 "r": "Eṅgē sandēgam? Kāṭṭu.",
                 "en": "Where's the doubt? Show me."
               },
               {
-                "sp": "Son",
+                "sp": "மகன்",
                 "t": "இந்த கணக்கு புரியவில்லை.",
                 "r": "Inda kaṇakku puriyavillai.",
                 "en": "I don't get this sum."
@@ -1245,6 +1534,295 @@
               "வயல்"
             ],
             "srs_policy": "Only selected high-value lesson forms are preselected; actual mistakes and productive patterns may enter personalized review after learner evidence."
+          },
+          {
+            "id": "ta-b1-l8",
+            "title": "ஆய்வும் சுற்றுச்சூழலும்",
+            "learn": "Present a small observation from a school or neighbourhood project without turning one measurement into a universal claim. Compare two days with -ஐ விட; அதே நேரத்தில் introduces a balancing point, and எனவே marks a reasoned conclusion.",
+            "vocab": [
+              {
+                "t": "அளவீடு",
+                "r": "aḷavīṭu",
+                "en": "measurement",
+                "pos": "noun"
+              },
+              {
+                "t": "மாதிரி",
+                "r": "mātiri",
+                "en": "sample",
+                "pos": "noun"
+              },
+              {
+                "t": "ஒப்பிடுதல்",
+                "r": "oppiṭutal",
+                "en": "to compare",
+                "pos": "verb"
+              },
+              {
+                "t": "முடிவு",
+                "r": "muṭivu",
+                "en": "conclusion",
+                "pos": "noun"
+              },
+              {
+                "t": "அதே நேரத்தில்",
+                "r": "atē nērattil",
+                "en": "at the same time, however",
+                "pos": "connector"
+              }
+            ],
+            "grammar": {
+              "title": "Comparing observations",
+              "pattern": "செவ்வாயை விட ... · அதே நேரத்தில் ... · எனவே ...",
+              "explain": "Use -ஐ விட after the comparison point: செவ்வாயை விட புதன்கிழமை வெப்பம் குறைந்தது. அதே நேரத்தில் signals a balancing observation. End with a proportionate claim: எனவே இந்த மாதிரியில் ...; it is not yet a claim about every neighbourhood.",
+              "examples": [
+                {
+                  "t": "இந்த மாதிரியில் நீரின் அளவு கடந்த வாரத்தை விடக் குறைந்தது.",
+                  "r": "inta mātiriyil nīriṉ aḷavu kaṭanta vārattaiviṭak kuṟaintatu.",
+                  "en": "In this sample, the water level was lower than last week."
+                },
+                {
+                  "t": "அதே நேரத்தில், மழை அளவும் குறைந்திருந்தது.",
+                  "r": "atē nērattil, maḻai aḷavum kuṟaintiruntatu.",
+                  "en": "At the same time, the rainfall measurement had also fallen."
+                },
+                {
+                  "t": "எனவே இன்னொரு இடத்திலும் அளவிட வேண்டும்.",
+                  "r": "eṉavē iṉṉoru iṭattilum aḷaviṭa vēṇṭum.",
+                  "en": "Therefore we need to measure at another location too."
+                }
+              ],
+              "mistakes": [
+                {
+                  "wrong": "ஒரு மாதிரி எல்லா ஊருக்கும் பொருந்தும்.",
+                  "right": "இந்த ஒரு மாதிரி எல்லா ஊருக்கும் பொருந்தாது.",
+                  "why": "One sample cannot support a universal conclusion."
+                },
+                {
+                  "wrong": "செவ்வாயை விட புதன் குறைந்தது.",
+                  "right": "செவ்வாயை விட புதன்கிழமை அளவு குறைந்தது.",
+                  "why": "Name what decreased so the comparison is complete."
+                }
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "மாணவர்",
+                "t": "எங்கள் குழு இரண்டு இடங்களில் நீரை அளந்தது.",
+                "r": "eṅkaḷ kuḻu iraṇṭu iṭaṅkaḷil nīrai aḷantatu.",
+                "en": "Our group measured water in two locations."
+              },
+              {
+                "sp": "ஆசிரியர்",
+                "t": "என்ன வேறுபாடு தெரிந்தது?",
+                "r": "eṉṉa vēṟupāṭu terintatu?",
+                "en": "What difference did you find?"
+              },
+              {
+                "sp": "மாணவர்",
+                "t": "ஒரு இடத்தில் அளவு குறைந்தது; அதே நேரத்தில் அங்கு மழையும் குறைவு.",
+                "r": "oru iṭattil aḷavu kuṟaintatu; atē nērattil aṅku maḻaiyum kuṟaivu.",
+                "en": "At one location the level fell; at the same time, rainfall there was lower too."
+              },
+              {
+                "sp": "ஆசிரியர்",
+                "t": "எனவே முடிவை எல்லா இடங்களுக்கும் பொதுவாக்காதீர்கள்.",
+                "r": "eṉavē muṭivai ellā iṭaṅkaḷukkum potuvākkātīrkaḷ.",
+                "en": "Therefore do not generalise the conclusion to every location."
+              }
+            ],
+            "practice": [
+              {
+                "type": "multiple_choice",
+                "q": "Practice 1: [multiple choice] ஆய்வும் சுற்றுச்சூழலும் — Choose the meaning of அளவீடு (aḷavīṭu) in this lesson.",
+                "answer": "measurement",
+                "skill_target": "Tamil: Tamil script, agglutinative case suffixes, head-final word order, diglossia between the written and spoken registers, and the respectful நீங்கள் / familiar நீ address",
+                "options": [
+                  "measurement",
+                  "sample",
+                  "to compare",
+                  "conclusion"
+                ]
+              },
+              {
+                "type": "fill_in_the_blank",
+                "q": "Practice 2: [fill in the blank] ஆய்வும் சுற்றுச்சூழலும் — Type the Tamil expression meaning “sample”.",
+                "answer": "மாதிரி",
+                "skill_target": "Tamil: Tamil script, agglutinative case suffixes, head-final word order, diglossia between the written and spoken registers, and the respectful நீங்கள் / familiar நீ address"
+              },
+              {
+                "type": "translation",
+                "q": "Practice 3: [translation] ஆய்வும் சுற்றுச்சூழலும் — Interpret the Tamil script in context: இந்த மாதிரியில் நீரின் அளவு கடந்த வாரத்தை விடக் குறைந்தது. (inta mātiriyil nīriṉ aḷavu kaṭanta vārattaiviṭak kuṟaintatu.).",
+                "answer": "In this sample, the water level was lower than last week.",
+                "skill_target": "Tamil: Tamil script, agglutinative case suffixes, head-final word order, diglossia between the written and spoken registers, and the respectful நீங்கள் / familiar நீ address"
+              },
+              {
+                "type": "reverse_translation",
+                "q": "Practice 4: [reverse translation] ஆய்வும் சுற்றுச்சூழலும் — Write in Tamil script: At the same time, the rainfall measurement had also fallen..",
+                "answer": "அதே நேரத்தில், மழை அளவும் குறைந்திருந்தது.",
+                "skill_target": "Tamil: Tamil script, agglutinative case suffixes, head-final word order, diglossia between the written and spoken registers, and the respectful நீங்கள் / familiar நீ address"
+              },
+              {
+                "type": "matching",
+                "q": "Practice 5: [matching] ஆய்வும் சுற்றுச்சூழலும் — Match ஒப்பிடுதல் to its lesson meaning.",
+                "answer": "to compare",
+                "skill_target": "Tamil: Tamil script, agglutinative case suffixes, head-final word order, diglossia between the written and spoken registers, and the respectful நீங்கள் / familiar நீ address",
+                "options": [
+                  "to compare",
+                  "measurement",
+                  "sample"
+                ]
+              },
+              {
+                "type": "reorder",
+                "q": "Practice 6: [reorder] ஆய்வும் சுற்றுச்சூழலும் — Reconstruct the lesson model in coherent Tamil: Therefore we need to measure at another location too..",
+                "answer": "எனவே இன்னொரு இடத்திலும் அளவிட வேண்டும்.",
+                "skill_target": "Tamil: Tamil script, agglutinative case suffixes, head-final word order, diglossia between the written and spoken registers, and the respectful நீங்கள் / familiar நீ address"
+              },
+              {
+                "type": "sentence_building",
+                "q": "Practice 7: [sentence building] ஆய்வும் சுற்றுச்சூழலும் — Build the sentence with the lesson pattern (செவ்வாயை விட ... · அதே நேரத்தில் ... · எனவே ...): In this sample, the water level was lower than last week..",
+                "answer": "இந்த மாதிரியில் நீரின் அளவு கடந்த வாரத்தை விடக் குறைந்தது.",
+                "skill_target": "Tamil: Tamil script, agglutinative case suffixes, head-final word order, diglossia between the written and spoken registers, and the respectful நீங்கள் / familiar நீ address"
+              },
+              {
+                "type": "word_selection",
+                "q": "Practice 8: [word selection] ஆய்வும் சுற்றுச்சூழலும் — Select the Tamil form for “conclusion”.",
+                "answer": "முடிவு",
+                "skill_target": "Tamil: Tamil script, agglutinative case suffixes, head-final word order, diglossia between the written and spoken registers, and the respectful நீங்கள் / familiar நீ address",
+                "options": [
+                  "முடிவு",
+                  "அதே நேரத்தில்"
+                ]
+              },
+              {
+                "type": "error_correction",
+                "q": "Practice 9: [error correction] ஆய்வும் சுற்றுச்சூழலும் — Correct the model the lesson warns about: ஒரு மாதிரி எல்லா ஊருக்கும் பொருந்தும்.",
+                "answer": "இந்த ஒரு மாதிரி எல்லா ஊருக்கும் பொருந்தாது.",
+                "skill_target": "Tamil: Tamil script, agglutinative case suffixes, head-final word order, diglossia between the written and spoken registers, and the respectful நீங்கள் / familiar நீ address"
+              },
+              {
+                "type": "dialogue_completion",
+                "q": "Practice 10: [dialogue completion] ஆய்வும் சுற்றுச்சூழலும் — Complete the exchange with the studied response to: Our group measured water in two locations.",
+                "answer": "என்ன வேறுபாடு தெரிந்தது?",
+                "skill_target": "Tamil: Tamil script, agglutinative case suffixes, head-final word order, diglossia between the written and spoken registers, and the respectful நீங்கள் / familiar நீ address"
+              },
+              {
+                "type": "reading_comprehension",
+                "q": "Practice 11: [reading comprehension] ஆய்வும் சுற்றுச்சூழலும் — Read “ஒரு இடத்தில் அளவு குறைந்தது; அதே நேரத்தில் அங்கு மழையும் குறைவு.” (oru iṭattil aḷavu kuṟaintatu; atē nērattil aṅku maḻaiyum kuṟaivu.). What does it mean?",
+                "answer": "At one location the level fell; at the same time, rainfall there was lower too.",
+                "skill_target": "Tamil: Tamil script, agglutinative case suffixes, head-final word order, diglossia between the written and spoken registers, and the respectful நீங்கள் / familiar நீ address"
+              },
+              {
+                "type": "paragraph_comprehension",
+                "q": "Practice 12: [paragraph comprehension] ஆய்வும் சுற்றுச்சூழலும் — Read the lesson dialogue as a whole and give its key move: Therefore do not generalise the conclusion to every location.",
+                "answer": "எனவே முடிவை எல்லா இடங்களுக்கும் பொதுவாக்காதீர்கள்.",
+                "skill_target": "Tamil: Tamil script, agglutinative case suffixes, head-final word order, diglossia between the written and spoken registers, and the respectful நீங்கள் / familiar நீ address"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "Which meaning best fits அளவீடு?",
+                "options": [
+                  "measurement",
+                  "sample",
+                  "to compare",
+                  "conclusion"
+                ],
+                "answer": 0,
+                "why": "அளவீடு (aḷavīṭu) means measurement in this lesson."
+              },
+              {
+                "q": "Which meaning best fits மாதிரி?",
+                "options": [
+                  "sample",
+                  "measurement",
+                  "to compare",
+                  "conclusion"
+                ],
+                "answer": 0,
+                "why": "மாதிரி (mātiri) means sample in this lesson."
+              },
+              {
+                "q": "Which meaning best fits ஒப்பிடுதல்?",
+                "options": [
+                  "to compare",
+                  "measurement",
+                  "sample",
+                  "conclusion"
+                ],
+                "answer": 0,
+                "why": "ஒப்பிடுதல் (oppiṭutal) means to compare in this lesson."
+              },
+              {
+                "q": "Which meaning best fits முடிவு?",
+                "options": [
+                  "conclusion",
+                  "measurement",
+                  "sample",
+                  "to compare"
+                ],
+                "answer": 0,
+                "why": "முடிவு (muṭivu) means conclusion in this lesson."
+              },
+              {
+                "q": "Which meaning best fits அதே நேரத்தில்?",
+                "options": [
+                  "at the same time, however",
+                  "measurement",
+                  "sample",
+                  "to compare"
+                ],
+                "answer": 0,
+                "why": "அதே நேரத்தில் (atē nērattil) means at the same time, however in this lesson."
+              }
+            ],
+            "flashcards": "auto:vocab",
+            "worksheet": {
+              "title": "Observation worksheet",
+              "tasks": [
+                {
+                  "instruction": "Compare the observations.",
+                  "items": [
+                    "in this sample, the water level was lower than last week",
+                    "rainfall had also fallen"
+                  ],
+                  "key": [
+                    "இந்த மாதிரியில் நீரின் அளவு கடந்த வாரத்தை விடக் குறைந்தது",
+                    "மழை அளவும் குறைந்திருந்தது"
+                  ]
+                },
+                {
+                  "instruction": "Limit the conclusion.",
+                  "items": [
+                    "therefore we need to measure another location too",
+                    "do not generalise it to every location"
+                  ],
+                  "key": [
+                    "எனவே இன்னொரு இடத்திலும் அளவிட வேண்டும்",
+                    "எல்லா இடங்களுக்கும் பொதுவாக்காதீர்கள்"
+                  ]
+                },
+                {
+                  "instruction": "Integrated offline practice: read the first model, transform or extend it in Tamil script, then rehearse it as a dialogue. Self-check meaning, grammar, and register.",
+                  "items": [
+                    "இந்த மாதிரியில் நீரின் அளவு கடந்த வாரத்தை விடக் குறைந்தது.",
+                    "எங்கள் குழு இரண்டு இடங்களில் நீரை அளந்தது."
+                  ],
+                  "key": [
+                    "In this sample, the water level was lower than last week.",
+                    "Our group measured water in two locations."
+                  ]
+                }
+              ]
+            },
+            "srs_candidates": [
+              "அளவீடு",
+              "மாதிரி",
+              "ஒப்பிடுதல்",
+              "முடிவு"
+            ],
+            "srs_policy": "Only these four high-value terms are preselected; lesson mistakes and productive patterns may enter personalized review after an actual error."
           }
         ]
       },
@@ -1333,25 +1911,25 @@
             },
             "dialogue": [
               {
-                "sp": "Mother",
+                "sp": "அம்மா",
                 "t": "கேள், இன்று மாலை விருந்தினர் வருகிறார்கள்.",
                 "r": "Kēḷ, iṉṛu mālai virundiṉar varugiṛārgaḷ.",
                 "en": "Listen, guests are coming this evening."
               },
               {
-                "sp": "Son",
+                "sp": "மகன்",
                 "t": "யார் வருகிறார்கள், அம்மா?",
                 "r": "Yār varugiṛārgaḷ, ammā?",
                 "en": "Who is coming, mother?"
               },
               {
-                "sp": "Mother",
+                "sp": "அம்மா",
                 "t": "உன் மாமா-மாமி. அறையை ஒழுங்குபடுத்து.",
                 "r": "Uṉ māmā-māmi. Aṛaiyai oḻuṅgupaḍuttu.",
                 "en": "Your uncle and aunt. Tidy the room."
               },
               {
-                "sp": "Son",
+                "sp": "மகன்",
                 "t": "சரி. என்ன சமையல்?",
                 "r": "Sari. Enna samaiyal?",
                 "en": "OK. What will be cooked?"
@@ -1641,25 +2219,25 @@
             },
             "dialogue": [
               {
-                "sp": "Grandmother",
+                "sp": "பாட்டி",
                 "t": "எழுந்திரு! இன்று தைப்பொங்கல்.",
                 "r": "Eḻundiru! Iṉṛu taippoṅgal.",
                 "en": "Wake up! Today is Thai Pongal."
               },
               {
-                "sp": "Girl",
+                "sp": "சிறுமி",
                 "t": "பாட்டி, கோலம் போட்டாயா?",
                 "r": "Pāṭṭi, kōlam pōṭṭāyā?",
                 "en": "Grandma, did you draw the kolam?"
               },
               {
-                "sp": "Grandmother",
+                "sp": "பாட்டி",
                 "t": "போட்டுவிட்டேன். கரும்பை எடு.",
                 "r": "Pōṭṭuviṭṭēṉ. Karumbai eḍu.",
                 "en": "Done. Fetch the sugarcane."
               },
               {
-                "sp": "Girl",
+                "sp": "சிறுமி",
                 "t": "பொங்கல் பொங்குகிறது!",
                 "r": "Poṅgal poṅgugiṛadu!",
                 "en": "The Pongal is boiling over!"
@@ -1859,6 +2437,295 @@
               "பூமாலை"
             ],
             "srs_policy": "Only selected high-value lesson forms are preselected; actual mistakes and productive patterns may enter personalized review after learner evidence."
+          },
+          {
+            "id": "ta-b1-l9",
+            "title": "ஊர் விழாவுக்கான ஏற்பாடு",
+            "learn": "Coordinate a community event when people have different schedules. முன்மொழிவு names a proposal; யாருக்கு வசதி? checks access, and ... என்றால் conditions the plan. Offer two alternatives before asking the group to decide.",
+            "vocab": [
+              {
+                "t": "ஏற்பாடு",
+                "r": "ēṟpāṭu",
+                "en": "arrangement",
+                "pos": "noun"
+              },
+              {
+                "t": "முன்மொழிவு",
+                "r": "muṉmoḻivu",
+                "en": "proposal",
+                "pos": "noun"
+              },
+              {
+                "t": "பங்கேற்பாளர்",
+                "r": "paṅkēṟpāḷar",
+                "en": "participant",
+                "pos": "noun"
+              },
+              {
+                "t": "மாற்று நாள்",
+                "r": "māṟṟu nāḷ",
+                "en": "alternative date",
+                "pos": "phrase"
+              },
+              {
+                "t": "வசதி",
+                "r": "vacati",
+                "en": "convenience, suitability",
+                "pos": "noun"
+              }
+            ],
+            "grammar": {
+              "title": "Making a shared plan",
+              "pattern": "நாள் ... என்றால் ... · யாருக்கு வசதி? · இல்லையெனில் ...",
+              "explain": "A condition with -என்றால் lets a group test a date: சனிக்கிழமை என்றால் யாருக்கு வசதி? இல்லையெனில் introduces the fallback. A suggestion with ...லாமா? invites agreement rather than issuing an order.",
+              "examples": [
+                {
+                  "t": "சனிக்கிழமை என்றால் பலருக்கு வசதியாக இருக்கும்.",
+                  "r": "caṉikkiḻamai eṉṟāl palarukku vacatiyāka irukkum.",
+                  "en": "If it is Saturday, it will be convenient for many people."
+                },
+                {
+                  "t": "இல்லையெனில் ஞாயிற்றுக்கிழமை மாற்று நாளாக இருக்கலாம்.",
+                  "r": "illaiyeṉil ñāyiṟṟukkiḻamai māṟṟu nāḷāka irukkalām.",
+                  "en": "Otherwise, Sunday could be an alternative date."
+                },
+                {
+                  "t": "மாலை நேரம் குழந்தைகளுக்கும் வசதியாக இருக்கும்.",
+                  "r": "mālai nēram kuḻantaikaḷukkum vacatiyāka irukkum.",
+                  "en": "An evening time will be convenient for the children too."
+                }
+              ],
+              "mistakes": [
+                {
+                  "wrong": "சனிக்கிழமை என்றால் யாருக்கு வசதியாக?",
+                  "right": "சனிக்கிழமை என்றால் யாருக்கு வசதியாக இருக்கும்?",
+                  "why": "Complete the condition with a finite verb."
+                },
+                {
+                  "wrong": "இல்லை என்றால் ஞாயிற்றுக்கிழமை.",
+                  "right": "இல்லையெனில் ஞாயிற்றுக்கிழமை மாற்று நாளாக இருக்கலாம்.",
+                  "why": "Use இல்லையெனில் to introduce the fallback clearly."
+                }
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "Meena",
+                "t": "விழாவை எந்த நாளில் நடத்தலாம்?",
+                "r": "viḻāvai enta nāḷil naṭattalām?",
+                "en": "On which day can we hold the festival?"
+              },
+              {
+                "sp": "Ravi",
+                "t": "சனிக்கிழமை என்றால் பலருக்கு வசதி.",
+                "r": "caṉikkiḻamai eṉṟāl palarukku vacati.",
+                "en": "Saturday would suit many people."
+              },
+              {
+                "sp": "Meena",
+                "t": "வேலை செய்பவர்களுக்கு மாலை நேரம் நல்லதா?",
+                "r": "vēlai ceypavarkaḷukku mālai nēram nallatā?",
+                "en": "Would evening suit the people who work?"
+              },
+              {
+                "sp": "Ravi",
+                "t": "ஆம். இல்லையெனில் ஞாயிற்றுக்கிழமை காலை பார்க்கலாம்.",
+                "r": "ām. illaiyeṉil ñāyiṟṟukkiḻamai kālai pārkkalām.",
+                "en": "Yes. Otherwise, we can consider Sunday morning."
+              }
+            ],
+            "practice": [
+              {
+                "type": "multiple_choice",
+                "q": "Practice 1: [multiple choice] ஊர் விழாவுக்கான ஏற்பாடு — Choose the meaning of ஏற்பாடு (ēṟpāṭu) in this lesson.",
+                "answer": "arrangement",
+                "skill_target": "Tamil: Tamil script, agglutinative case suffixes, head-final word order, diglossia between the written and spoken registers, and the respectful நீங்கள் / familiar நீ address",
+                "options": [
+                  "arrangement",
+                  "proposal",
+                  "participant",
+                  "alternative date"
+                ]
+              },
+              {
+                "type": "fill_in_the_blank",
+                "q": "Practice 2: [fill in the blank] ஊர் விழாவுக்கான ஏற்பாடு — Type the Tamil expression meaning “proposal”.",
+                "answer": "முன்மொழிவு",
+                "skill_target": "Tamil: Tamil script, agglutinative case suffixes, head-final word order, diglossia between the written and spoken registers, and the respectful நீங்கள் / familiar நீ address"
+              },
+              {
+                "type": "translation",
+                "q": "Practice 3: [translation] ஊர் விழாவுக்கான ஏற்பாடு — Interpret the Tamil script in context: சனிக்கிழமை என்றால் பலருக்கு வசதியாக இருக்கும். (caṉikkiḻamai eṉṟāl palarukku vacatiyāka irukkum.).",
+                "answer": "If it is Saturday, it will be convenient for many people.",
+                "skill_target": "Tamil: Tamil script, agglutinative case suffixes, head-final word order, diglossia between the written and spoken registers, and the respectful நீங்கள் / familiar நீ address"
+              },
+              {
+                "type": "reverse_translation",
+                "q": "Practice 4: [reverse translation] ஊர் விழாவுக்கான ஏற்பாடு — Write in Tamil script: Otherwise, Sunday could be an alternative date..",
+                "answer": "இல்லையெனில் ஞாயிற்றுக்கிழமை மாற்று நாளாக இருக்கலாம்.",
+                "skill_target": "Tamil: Tamil script, agglutinative case suffixes, head-final word order, diglossia between the written and spoken registers, and the respectful நீங்கள் / familiar நீ address"
+              },
+              {
+                "type": "matching",
+                "q": "Practice 5: [matching] ஊர் விழாவுக்கான ஏற்பாடு — Match பங்கேற்பாளர் to its lesson meaning.",
+                "answer": "participant",
+                "skill_target": "Tamil: Tamil script, agglutinative case suffixes, head-final word order, diglossia between the written and spoken registers, and the respectful நீங்கள் / familiar நீ address",
+                "options": [
+                  "participant",
+                  "arrangement",
+                  "proposal"
+                ]
+              },
+              {
+                "type": "reorder",
+                "q": "Practice 6: [reorder] ஊர் விழாவுக்கான ஏற்பாடு — Reconstruct the lesson model in coherent Tamil: An evening time will be convenient for the children too..",
+                "answer": "மாலை நேரம் குழந்தைகளுக்கும் வசதியாக இருக்கும்.",
+                "skill_target": "Tamil: Tamil script, agglutinative case suffixes, head-final word order, diglossia between the written and spoken registers, and the respectful நீங்கள் / familiar நீ address"
+              },
+              {
+                "type": "sentence_building",
+                "q": "Practice 7: [sentence building] ஊர் விழாவுக்கான ஏற்பாடு — Build the sentence with the lesson pattern (நாள் ... என்றால் ... · யாருக்கு வசதி? · இல்லையெனில் ...): If it is Saturday, it will be convenient for many people..",
+                "answer": "சனிக்கிழமை என்றால் பலருக்கு வசதியாக இருக்கும்.",
+                "skill_target": "Tamil: Tamil script, agglutinative case suffixes, head-final word order, diglossia between the written and spoken registers, and the respectful நீங்கள் / familiar நீ address"
+              },
+              {
+                "type": "word_selection",
+                "q": "Practice 8: [word selection] ஊர் விழாவுக்கான ஏற்பாடு — Select the Tamil form for “alternative date”.",
+                "answer": "மாற்று நாள்",
+                "skill_target": "Tamil: Tamil script, agglutinative case suffixes, head-final word order, diglossia between the written and spoken registers, and the respectful நீங்கள் / familiar நீ address",
+                "options": [
+                  "மாற்று நாள்",
+                  "வசதி"
+                ]
+              },
+              {
+                "type": "error_correction",
+                "q": "Practice 9: [error correction] ஊர் விழாவுக்கான ஏற்பாடு — Correct the model the lesson warns about: சனிக்கிழமை என்றால் யாருக்கு வசதியாக?",
+                "answer": "சனிக்கிழமை என்றால் யாருக்கு வசதியாக இருக்கும்?",
+                "skill_target": "Tamil: Tamil script, agglutinative case suffixes, head-final word order, diglossia between the written and spoken registers, and the respectful நீங்கள் / familiar நீ address"
+              },
+              {
+                "type": "dialogue_completion",
+                "q": "Practice 10: [dialogue completion] ஊர் விழாவுக்கான ஏற்பாடு — Complete the exchange with the studied response to: On which day can we hold the festival?",
+                "answer": "சனிக்கிழமை என்றால் பலருக்கு வசதி.",
+                "skill_target": "Tamil: Tamil script, agglutinative case suffixes, head-final word order, diglossia between the written and spoken registers, and the respectful நீங்கள் / familiar நீ address"
+              },
+              {
+                "type": "reading_comprehension",
+                "q": "Practice 11: [reading comprehension] ஊர் விழாவுக்கான ஏற்பாடு — Read “வேலை செய்பவர்களுக்கு மாலை நேரம் நல்லதா?” (vēlai ceypavarkaḷukku mālai nēram nallatā?). What does it mean?",
+                "answer": "Would evening suit the people who work?",
+                "skill_target": "Tamil: Tamil script, agglutinative case suffixes, head-final word order, diglossia between the written and spoken registers, and the respectful நீங்கள் / familiar நீ address"
+              },
+              {
+                "type": "paragraph_comprehension",
+                "q": "Practice 12: [paragraph comprehension] ஊர் விழாவுக்கான ஏற்பாடு — Read the lesson dialogue as a whole and give its key move: Yes. Otherwise, we can consider Sunday morning.",
+                "answer": "ஆம். இல்லையெனில் ஞாயிற்றுக்கிழமை காலை பார்க்கலாம்.",
+                "skill_target": "Tamil: Tamil script, agglutinative case suffixes, head-final word order, diglossia between the written and spoken registers, and the respectful நீங்கள் / familiar நீ address"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "Which meaning best fits ஏற்பாடு?",
+                "options": [
+                  "arrangement",
+                  "proposal",
+                  "participant",
+                  "alternative date"
+                ],
+                "answer": 0,
+                "why": "ஏற்பாடு (ēṟpāṭu) means arrangement in this lesson."
+              },
+              {
+                "q": "Which meaning best fits முன்மொழிவு?",
+                "options": [
+                  "proposal",
+                  "arrangement",
+                  "participant",
+                  "alternative date"
+                ],
+                "answer": 0,
+                "why": "முன்மொழிவு (muṉmoḻivu) means proposal in this lesson."
+              },
+              {
+                "q": "Which meaning best fits பங்கேற்பாளர்?",
+                "options": [
+                  "participant",
+                  "arrangement",
+                  "proposal",
+                  "alternative date"
+                ],
+                "answer": 0,
+                "why": "பங்கேற்பாளர் (paṅkēṟpāḷar) means participant in this lesson."
+              },
+              {
+                "q": "Which meaning best fits மாற்று நாள்?",
+                "options": [
+                  "alternative date",
+                  "arrangement",
+                  "proposal",
+                  "participant"
+                ],
+                "answer": 0,
+                "why": "மாற்று நாள் (māṟṟu nāḷ) means alternative date in this lesson."
+              },
+              {
+                "q": "Which meaning best fits வசதி?",
+                "options": [
+                  "convenience, suitability",
+                  "arrangement",
+                  "proposal",
+                  "participant"
+                ],
+                "answer": 0,
+                "why": "வசதி (vacati) means convenience, suitability in this lesson."
+              }
+            ],
+            "flashcards": "auto:vocab",
+            "worksheet": {
+              "title": "Community event worksheet",
+              "tasks": [
+                {
+                  "instruction": "Propose a date.",
+                  "items": [
+                    "if it is Saturday, it will suit many people",
+                    "would evening suit the people who work?"
+                  ],
+                  "key": [
+                    "சனிக்கிழமை என்றால் பலருக்கு வசதியாக இருக்கும்",
+                    "வேலை செய்பவர்களுக்கு மாலை நேரம் நல்லதா?"
+                  ]
+                },
+                {
+                  "instruction": "Offer a fallback.",
+                  "items": [
+                    "otherwise, Sunday could be an alternative date",
+                    "we can consider Sunday morning"
+                  ],
+                  "key": [
+                    "இல்லையெனில் ஞாயிற்றுக்கிழமை மாற்று நாளாக இருக்கலாம்",
+                    "ஞாயிற்றுக்கிழமை காலை பார்க்கலாம்"
+                  ]
+                },
+                {
+                  "instruction": "Integrated offline practice: read the first model, transform or extend it in Tamil script, then rehearse it as a dialogue. Self-check meaning, grammar, and register.",
+                  "items": [
+                    "சனிக்கிழமை என்றால் பலருக்கு வசதியாக இருக்கும்.",
+                    "விழாவை எந்த நாளில் நடத்தலாம்?"
+                  ],
+                  "key": [
+                    "If it is Saturday, it will be convenient for many people.",
+                    "On which day can we hold the festival?"
+                  ]
+                }
+              ]
+            },
+            "srs_candidates": [
+              "ஏற்பாடு",
+              "முன்மொழிவு",
+              "பங்கேற்பாளர்",
+              "மாற்று நாள்"
+            ],
+            "srs_policy": "Only these four high-value terms are preselected; lesson mistakes and productive patterns may enter personalized review after an actual error."
           }
         ]
       }
@@ -1917,6 +2784,95 @@
           "answer": "மழை பெய்கிறது (Maḻai peygiṛadu)"
         }
       ]
+    },
+    "extra": {
+      "culture": {
+        "text": "A Tamil meal is built around rice, and the banana leaf is its plate: rice in the middle, sambar and rasam poured over it in that order, poriyal and kootu along the side, and a piece of appalam to finish. Filter coffee — காபி, frothed between two tumblers until it foams — ends the meal and the argument that came with it. The kitchens differ by district: Chettinad cooks with pepper and fennel, Madurai with more chilli, Chennai's streets with idli and dosa at every hour. Food vocabulary is also the vocabulary of hospitality: சாப்பிட்டீர்களா? is a question about wellbeing, not only about lunch.",
+        "source_url": "https://en.wikipedia.org/wiki/Tamil_cuisine"
+      },
+      "reading": {
+        "text": "வார இறுதியில் நண்பர்கள் வீட்டிற்கு வந்தார்கள். அம்மா வாழை இலையில் சோறு பரிமாறினார்; முதலில் சாம்பார், பிறகு ரசம். என் நண்பன் கார்த்திக் செட்டிநாடு பாணியில் காரம் அதிகம் சாப்பிடுகிறான். «இங்கே ருசி வேறு» என்றான். முடிவில் காபி வந்தது; அப்பா கேட்டார்: «இன்னொரு தம்ளர்?» நாங்கள் அரை மணி நேரம் பேசிக்கொண்டிருந்தோம். விருந்துக்குப் பிறகு அம்மா சொன்னார்: «வீட்டில் சாப்பிடுவது வெறும் சோறு அல்ல, நினைவு.»",
+        "gloss": "At the weekend friends came home. Mother served rice on a banana leaf; first sambar, then rasam. My friend Karthik eats very spicy Chettinad style. 'The taste is different here,' he said. At the end the coffee came; father asked: 'Another tumbler?' We went on talking for half an hour. After the meal mother said: 'Eating at home is not just rice, it is memory.'",
+        "original": true
+      },
+      "listening": {
+        "script": "சாப்பிட்டீர்களா? — ஆமா, சாப்பிட்டேன், நன்றி. — இன்னும் கொஞ்சம் சோறு? — போதும், வயிறு நிறைந்தது. காபி மட்டும் குடிப்பேன்.",
+        "gloss": "Have you eaten? — Yes, I have eaten, thank you. — A little more rice? — That is enough, my stomach is full. I will only drink coffee.",
+        "voice_tag": "ta-IN"
+      },
+      "idioms": [
+        {
+          "t": "வயிறு நிறைந்தது",
+          "literal": "the stomach was filled",
+          "meaning": "I have had plenty"
+        },
+        {
+          "t": "கை மணக்கும்",
+          "literal": "the hand smells of it",
+          "meaning": "the cooking is fragrant, well made"
+        },
+        {
+          "t": "சோறு போட்டவள்",
+          "literal": "the one who has served rice",
+          "meaning": "the person who has fed you, a benefactor"
+        },
+        {
+          "t": "காரம் தாங்கவில்லை",
+          "literal": "the heat cannot be borne",
+          "meaning": "it is too spicy for me"
+        },
+        {
+          "t": "ருசி பார்க்க",
+          "literal": "to look at the taste",
+          "meaning": "to taste a dish"
+        },
+        {
+          "t": "இலை போட்டான்",
+          "literal": "he laid the leaf",
+          "meaning": "he served a meal, usually a generous one"
+        },
+        {
+          "t": "தம்ளர் கொடு",
+          "literal": "give a tumbler",
+          "meaning": "pour the coffee"
+        },
+        {
+          "t": "பட்டினி கிட",
+          "literal": "to stay starving",
+          "meaning": "to go without eating"
+        },
+        {
+          "t": "உப்பு குறைவு",
+          "literal": "the salt is short",
+          "meaning": "the dish is undersalted, a mild complaint"
+        },
+        {
+          "t": "கடைசி வாய்",
+          "literal": "the last mouthful",
+          "meaning": "the final item, the closing part"
+        }
+      ],
+      "mistakes": [
+        {
+          "wrong": "அம்மா சோறு பரிமாறினார் ஒரு இலையில்.",
+          "right": "அம்மா ஒரு இலையில் சோறு பரிமாறினார்.",
+          "why": "The finite verb closes the clause; the adverbial phrase stays before it."
+        },
+        {
+          "wrong": "நான் ஒரு தம்ளர் காபி குடித்தேன் விரைவாக.",
+          "right": "நான் ஒரு தம்ளர் காபியை விரைவாகக் குடித்தேன்.",
+          "why": "The object marked by -ஐ stays next to the verb it belongs to."
+        },
+        {
+          "wrong": "சாப்பிட்டீர்களா? — ஆமா, சாப்பிட்டேன்.",
+          "right": "சாப்பிட்டீர்களா? — ஆமாம், சாப்பிட்டேன்.",
+          "why": "ஆமாம் is the written form; ஆமா belongs to speech."
+        }
+      ],
+      "task": {
+        "title": "விருந்துக்கு நன்றி",
+        "instructions": "Write a short account of a meal you remember: who cooked, what was served, one comparison between two kitchens or two cooks, and a closing sentence with a proverb-like comment. Use two relative participles (நான் சாப்பிட்ட பிரியாணி), one comparative with -ஐ விட (சாம்பார் ரசத்தை விட காரம்) and one reported speech with என்று. Read it aloud and mark every place where you would shorten the word in speech."
+      }
     }
   }
 }

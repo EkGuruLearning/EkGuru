@@ -68,3 +68,99 @@ html[data-theme="dark"] .sb-d-home,html[data-theme="contrast"] .sb-d-home{backgr
 html[data-theme] .hdr :is(.lbl,.cur-lbl),html[data-theme] label[for="cur-sel"]{color:var(--eg-secondary)}
 html[data-theme] .sb-dock-btn.sb-d-home{background:var(--eg-accent);color:var(--eg-accent-contrast)}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+
+/* ==========================================================================
+   HOME USABILITY PASS  (Usability audit, 3 Oct 2026) — ultra-layer rules
+   --------------------------------------------------------------------------
+    15  one Settings area: appearance AND currency, one control style, one place
+    18  the journal strip is a labelled panel with a real button, not a bare link
+    24  the currency menu is out of the DOM until it is opened, so it can never
+        paint over the page, and it can never be "stuck open" on first load
+   ========================================================================== */
+.eg-appearance {
+  display: grid;
+  gap: 8px;
+  max-width: 1120px;
+  margin: 1.25rem auto;
+  padding: 1rem 1.25rem;
+  color: var(--eg-ink);
+  background: var(--eg-surface);
+  border: 1px solid var(--eg-line);
+  border-radius: .75rem;
+  font-size: .85rem;
+}
+.eg-settings-cur {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 700;
+  color: var(--eg-secondary);
+}
+.eg-settings-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px 24px;
+  align-items: center;
+}
+.eg-settings-row label {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 700;
+  color: var(--eg-secondary);
+}
+.eg-settings-row select {
+  font: inherit;
+  min-height: 44px;
+  background: var(--eg-surface);
+  color: var(--eg-ink);
+  border: 1px solid var(--eg-line);
+  border-radius: .5rem;
+  padding: .35rem .6rem;
+}
+.eg-settings-links {
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 14px;
+  color: var(--eg-muted);
+}
+.eg-settings-links a { min-height: 44px; display: inline-flex; align-items: center; }
+
+/* 18 — the journal strip: a heading, a sentence and a button-sized link */
+.eg-continue {
+  display: grid;
+  gap: 6px;
+  border-inline-start: 4px solid var(--eg-accent);
+}
+.eg-continue-h {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 800;
+  color: var(--eg-ink);
+}
+.eg-continue p {
+  margin: 0;
+  color: var(--eg-secondary);
+  font-size: .88rem;
+  line-height: 1.5;
+}
+.eg-continue .eg-continue-go {
+  justify-self: start;
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: .45rem .9rem;
+  border: 1px solid var(--eg-line);
+  border-radius: .5rem;
+  font-weight: 700;
+  text-decoration: none;
+  color: var(--eg-accent);
+  background: var(--eg-soft);
+}
+.eg-continue .eg-continue-go:hover { border-color: var(--eg-accent); }
+
+/* 24 — closed means closed: the listbox is not rendered at all until the
+   visitor opens it, and the stylesheet cannot override [hidden] */
+.cur-menu[hidden] { display: none !important; }
+.cur-menu-scroll:empty { display: none; }

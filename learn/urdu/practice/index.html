@@ -73,7 +73,7 @@
   <!-- ekguru:chapter -->
 <div class="sb-chapter" style="--sb-accent:#0f766e;--sb-tint:#ecfdfb"><span class="sb-ch-mascot" aria-hidden="true">🗣️</span><span class="sb-ch-name">Urdu <i>उर्दू</i></span><span class="sb-ch-kind">Language</span><span class="sb-ch-floats" aria-hidden="true">ا ب پ</span></div>
 <h1>Urdu practice labs</h1><!-- ekguru:ultra-byline:start -->
-<p class="eg-byline" lang="en" dir="ltr" data-eg-chrome="editorial">Written by: authorship not independently recorded. Maintained by <a href="/authors/prakash/" hreflang="en">Prakash</a>. Reviewed by: not recorded. Updated: <time datetime="2026-10-03">2026-10-03</time>. <a href="/editorial-policy/" hreflang="en">Editorial policy and corrections</a>.</p>
+<p class="eg-byline" lang="en" dir="ltr" data-eg-chrome="editorial">Written by: authorship not independently recorded. Maintained by <a href="/authors/prakash/" hreflang="en">Prakash</a>. Reviewed by: not recorded. Updated: <time datetime="2026-10-04">2026-10-04</time>. <a href="/editorial-policy/" hreflang="en">Editorial policy and corrections</a>.</p>
 <!-- ekguru:ultra-byline:end -->
 <!-- ekguru:ultra-notice:start -->
 <p class="eg-review-notice" lang="en" dir="ltr" data-eg-chrome="review">Draft: not yet reviewed by a native speaker. Existing availability and indexing are preserved by owner instruction; that is not an editorial approval. <a href="/review/">Suggest a correction</a>.</p>
@@ -96,6 +96,44 @@
   <h2>How to practise</h2>
   <p>Ten focused minutes beats an hour of scrolling: pick one Urdu topic, take five of its 24 questions, then read the explanations for everything you missed. Come back to the same topic tomorrow — the question set rotates with the date, so the second pass tests memory rather than the question order. Nothing here is timed and nothing is sent anywhere: the score stays in this browser unless you clear it.</p>
   <div class="note">Scores here are recognition scores, not fluency measures — nothing is a certified test.</div></div>
+<!-- ekguru:flashcards:start -->
+<script src="/js/flashcards-ur.js" defer></script>
+<script src="/js/flashcard-ui.js" defer></script>
+<section class="fc-lab" data-eg-flashcards="ur" aria-labelledby="fc-h-ur">
+  <h2 class="fc-title" id="fc-h-ur">Urdu flashcards</h2>
+  <p class="fc-note">Front: the Urdu word, exactly as the course writes it. Back: its meaning and the reading the course prints. Nothing on this page is scored, and the computer voice is a device voice — not a native recording.</p>
+  <ul class="fc-static">
+      <li><b lang="ur" dir="auto">چھولے</b> · <span class="fc-roman" dir="ltr">chhole</span> — chickpeas</li>
+      <li><b lang="ur" dir="auto">روٹی</b> · <span class="fc-roman" dir="ltr">roṭī</span> — flatbread</li>
+      <li><b lang="ur" dir="auto">کلچہ</b> · <span class="fc-roman" dir="ltr">kulchā</span> — kulcha</li>
+      <li><b lang="ur" dir="auto">دال</b> · <span class="fc-roman" dir="ltr">dāl</span> — lentils</li>
+      <li><b lang="ur" dir="auto">نان</b> · <span class="fc-roman" dir="ltr">nān</span> — naan</li>
+      <li><b lang="ur" dir="auto">پراٹھا</b> · <span class="fc-roman" dir="ltr">parāṭhā</span> — paratha</li>
+      <li><b lang="ur" dir="auto">چاول</b> · <span class="fc-roman" dir="ltr">chāval</span> — rice</li>
+      <li><b lang="ur" dir="auto">سبزی</b> · <span class="fc-roman" dir="ltr">sabzī</span> — vegetable curry</li>
+      <li><b lang="ur" dir="auto">گھر</b> · <span class="fc-roman" dir="ltr">ghar</span> — home</li>
+      <li><b lang="ur" dir="auto">ہسپتال</b> · <span class="fc-roman" dir="ltr">haspatāl</span> — hospital</li>
+      <li><b lang="ur" dir="auto">بازار</b> · <span class="fc-roman" dir="ltr">bāzār</span> — market</li>
+      <li><b lang="ur" dir="auto">دفتر</b> · <span class="fc-roman" dir="ltr">daftar</span> — office</li>
+  </ul>
+  <p class="fc-static-note">This language's deck carries 300 of the 352 words the course authors, and the lab practises that deck. The lab shows one card at a time, flips on Enter or Space, moves with the arrow keys, and can save a card to your review queue.</p>
+  <noscript><p class="fc-empty">The interactive flashcards need JavaScript. The vocabulary above is the same deck.</p></noscript>
+</section>
+
+<script>
+  (function () {
+    function go() {
+      var el = document.querySelector("[data-eg-flashcards=\"ur\"]");
+      if (el && window.EkGuruFlashcards) {
+        window.EkGuruFlashcards.mount(el, {code:"ur", name:"Urdu", speech:"ur-PK"});
+      }
+    }
+    if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", go);
+    else go();
+  })();
+</script>
+
+<!-- ekguru:flashcards:end -->
 <!-- ekguru:trust-footer:start -->
 <!-- ekguru:pw-bands:start -->
 <nav class="pw-next" aria-label="Next step">

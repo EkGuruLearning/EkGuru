@@ -620,6 +620,295 @@
                 }
               ]
             }
+          },
+          {
+            "id": "ru-c2-l7",
+            "title": "Порядок слов и рема: что читатель уже знает",
+            "learn": "Russian word order is not free — it is information structure. The theme (тема) opens the sentence and the new element (рема) closes it: Отец приехал вчера answers 'when?', Вчера приехал отец answers 'who?'. Inversion, the particles именно, как раз and даже, and the existential sentence with есть shift the rheme without adding a single new word. Dense prose is read by watching where the sentence lands, not by parsing its cases.",
+            "vocab": [
+              {
+                "t": "рема",
+                "r": "RYEH-mah",
+                "en": "rheme, the new element",
+                "pos": "noun"
+              },
+              {
+                "t": "тема",
+                "r": "TYEH-mah",
+                "en": "theme, the given element",
+                "pos": "noun"
+              },
+              {
+                "t": "инверсия",
+                "r": "een-VYER-see-yah",
+                "en": "inversion",
+                "pos": "noun"
+              },
+              {
+                "t": "выделение",
+                "r": "vih-deh-LYEH-nee-yeh",
+                "en": "highlighting, emphasis",
+                "pos": "noun"
+              },
+              {
+                "t": "как раз",
+                "r": "kahk RAHS",
+                "en": "exactly, precisely",
+                "pos": "phrase"
+              }
+            ],
+            "grammar": {
+              "title": "Где рема, там и смысл",
+              "pattern": "тема в начале · рема в конце · именно / как раз / даже · есть + nominative",
+              "explain": "The final position is the stressed one: Он купил машину и Машину купил он differ only in what is being answered. Именно and как раз point at the rheme directly (именно вчера), while даже adds a scale (даже отец приехал). An existential sentence puts its theme in the accusative and its rheme after есть: У нас есть время. When a sentence sounds wrong, move it rather than rewrite it.",
+              "examples": [
+                {
+                  "t": "Именно эти данные изменили вывод.",
+                  "r": "EE-mehn-nah EH-tee DAHN-nih-yeh eez-mee-NEE-lee VIH-vaht.",
+                  "en": "It was precisely this data that changed the conclusion."
+                },
+                {
+                  "t": "Вчера приехал отец, а сегодня — сестра.",
+                  "r": "fcheh-RAH pree-YEH-khahl ah-TYETS, ah see-VOHD-nyah — sees-TRAH.",
+                  "en": "Yesterday my father arrived, and today my sister."
+                },
+                {
+                  "t": "У нас есть время, но нет тишины.",
+                  "r": "oo nahs yehsty VRYEH-myah, noh nyeht teesh-IH-nih.",
+                  "en": "We have time, but no quiet."
+                }
+              ],
+              "mistakes": [
+                {
+                  "wrong": "Он именно купил машину вчера.",
+                  "right": "Именно он купил машину вчера. / Он купил машину именно вчера.",
+                  "why": "Именно stands next to the element it highlights."
+                },
+                {
+                  "wrong": "Вчера отец приехал, сегодня сестра приехала — и всё.",
+                  "right": "Вчера приехал отец, а сегодня — сестра.",
+                  "why": "The parallel halves need a parallel order and a conjunction."
+                }
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "Редактор",
+                "t": "Почему эта фраза звучит тяжело?",
+                "r": "pah-cheh-MOO EH-tah FRAH-zah zvoo-CHEET teezh-eh-LOH?",
+                "en": "Why does this sentence sound heavy?"
+              },
+              {
+                "sp": "Автор",
+                "t": "Рема в начале. Перенесу её в конец.",
+                "r": "RYEH-mah v nah-CHAH-leh. pee-ree-nee-SOO yeyoh v kah-NYETS.",
+                "en": "The rheme is at the beginning. I'll move it to the end."
+              },
+              {
+                "sp": "Редактор",
+                "t": "И уберите «именно» — оно не нужно.",
+                "r": "ee oo-bee-REE-teh EE-mehn-nah — ah-NOH nee NOOZH-nah.",
+                "en": "And remove 'именно' — it isn't needed."
+              },
+              {
+                "sp": "Автор",
+                "t": "Согласен. Инверсия сделает работу лучше, чем частица.",
+                "r": "sah-GLAH-sehn. een-VYER-see-yah SDYEH-lah-yeht rah-BOH-too LOOT-sheh, chem chahs-TEE-tsah.",
+                "en": "Agreed. Inversion will do the work better than a particle."
+              }
+            ],
+            "practice": [
+              {
+                "type": "multiple_choice",
+                "q": "Practice 1: [multiple choice] Порядок слов и рема: что читатель уже знает — Choose the meaning of рема (RYEH-mah) in this lesson.",
+                "answer": "rheme, the new element",
+                "skill_target": "Russian: the Cyrillic alphabet, six cases, verbal aspect (делать / сделать), the motion verbs (идти / ходить, ехать / ездить), ты vs вы with имя-отчество, and the written register of official documents and expert prose",
+                "options": [
+                  "rheme, the new element",
+                  "theme, the given element",
+                  "inversion",
+                  "highlighting, emphasis"
+                ]
+              },
+              {
+                "type": "fill_in_the_blank",
+                "q": "Practice 2: [fill in the blank] Порядок слов и рема: что читатель уже знает — Type the Russian expression meaning “theme, the given element”.",
+                "answer": "тема",
+                "skill_target": "Russian: the Cyrillic alphabet, six cases, verbal aspect (делать / сделать), the motion verbs (идти / ходить, ехать / ездить), ты vs вы with имя-отчество, and the written register of official documents and expert prose"
+              },
+              {
+                "type": "translation",
+                "q": "Practice 3: [translation] Порядок слов и рема: что читатель уже знает — Interpret the Cyrillic script in context: Именно эти данные изменили вывод. (EE-mehn-nah EH-tee DAHN-nih-yeh eez-mee-NEE-lee VIH-vaht.).",
+                "answer": "It was precisely this data that changed the conclusion.",
+                "skill_target": "Russian: the Cyrillic alphabet, six cases, verbal aspect (делать / сделать), the motion verbs (идти / ходить, ехать / ездить), ты vs вы with имя-отчество, and the written register of official documents and expert prose"
+              },
+              {
+                "type": "reverse_translation",
+                "q": "Practice 4: [reverse translation] Порядок слов и рема: что читатель уже знает — Write in Cyrillic script: Yesterday my father arrived, and today my sister..",
+                "answer": "Вчера приехал отец, а сегодня — сестра.",
+                "skill_target": "Russian: the Cyrillic alphabet, six cases, verbal aspect (делать / сделать), the motion verbs (идти / ходить, ехать / ездить), ты vs вы with имя-отчество, and the written register of official documents and expert prose"
+              },
+              {
+                "type": "matching",
+                "q": "Practice 5: [matching] Порядок слов и рема: что читатель уже знает — Match инверсия to its lesson meaning.",
+                "answer": "inversion",
+                "skill_target": "Russian: the Cyrillic alphabet, six cases, verbal aspect (делать / сделать), the motion verbs (идти / ходить, ехать / ездить), ты vs вы with имя-отчество, and the written register of official documents and expert prose",
+                "options": [
+                  "inversion",
+                  "rheme, the new element",
+                  "theme, the given element"
+                ]
+              },
+              {
+                "type": "reorder",
+                "q": "Practice 6: [reorder] Порядок слов и рема: что читатель уже знает — Reconstruct the lesson model in coherent Russian: We have time, but no quiet..",
+                "answer": "У нас есть время, но нет тишины.",
+                "skill_target": "Russian: the Cyrillic alphabet, six cases, verbal aspect (делать / сделать), the motion verbs (идти / ходить, ехать / ездить), ты vs вы with имя-отчество, and the written register of official documents and expert prose"
+              },
+              {
+                "type": "sentence_building",
+                "q": "Practice 7: [sentence building] Порядок слов и рема: что читатель уже знает — Build the sentence with the lesson pattern (тема в начале · рема в конце · именно / как раз / даже · есть + nominative): It was precisely this data that changed the conclusion..",
+                "answer": "Именно эти данные изменили вывод.",
+                "skill_target": "Russian: the Cyrillic alphabet, six cases, verbal aspect (делать / сделать), the motion verbs (идти / ходить, ехать / ездить), ты vs вы with имя-отчество, and the written register of official documents and expert prose"
+              },
+              {
+                "type": "word_selection",
+                "q": "Practice 8: [word selection] Порядок слов и рема: что читатель уже знает — Select the Russian form for “highlighting, emphasis”.",
+                "answer": "выделение",
+                "skill_target": "Russian: the Cyrillic alphabet, six cases, verbal aspect (делать / сделать), the motion verbs (идти / ходить, ехать / ездить), ты vs вы with имя-отчество, and the written register of official documents and expert prose",
+                "options": [
+                  "выделение",
+                  "как раз"
+                ]
+              },
+              {
+                "type": "error_correction",
+                "q": "Practice 9: [error correction] Порядок слов и рема: что читатель уже знает — Correct the model the lesson warns about: Он именно купил машину вчера.",
+                "answer": "Именно он купил машину вчера. / Он купил машину именно вчера.",
+                "skill_target": "Russian: the Cyrillic alphabet, six cases, verbal aspect (делать / сделать), the motion verbs (идти / ходить, ехать / ездить), ты vs вы with имя-отчество, and the written register of official documents and expert prose"
+              },
+              {
+                "type": "dialogue_completion",
+                "q": "Practice 10: [dialogue completion] Порядок слов и рема: что читатель уже знает — Complete the exchange with the studied response to: Why does this sentence sound heavy?",
+                "answer": "Рема в начале. Перенесу её в конец.",
+                "skill_target": "Russian: the Cyrillic alphabet, six cases, verbal aspect (делать / сделать), the motion verbs (идти / ходить, ехать / ездить), ты vs вы with имя-отчество, and the written register of official documents and expert prose"
+              },
+              {
+                "type": "reading_comprehension",
+                "q": "Practice 11: [reading comprehension] Порядок слов и рема: что читатель уже знает — Read “И уберите «именно» — оно не нужно.” (ee oo-bee-REE-teh EE-mehn-nah — ah-NOH nee NOOZH-nah.). What does it mean?",
+                "answer": "And remove 'именно' — it isn't needed.",
+                "skill_target": "Russian: the Cyrillic alphabet, six cases, verbal aspect (делать / сделать), the motion verbs (идти / ходить, ехать / ездить), ты vs вы with имя-отчество, and the written register of official documents and expert prose"
+              },
+              {
+                "type": "paragraph_comprehension",
+                "q": "Practice 12: [paragraph comprehension] Порядок слов и рема: что читатель уже знает — Read the lesson dialogue as a whole and give its key move: Agreed. Inversion will do the work better than a particle.",
+                "answer": "Согласен. Инверсия сделает работу лучше, чем частица.",
+                "skill_target": "Russian: the Cyrillic alphabet, six cases, verbal aspect (делать / сделать), the motion verbs (идти / ходить, ехать / ездить), ты vs вы with имя-отчество, and the written register of official documents and expert prose"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "Which meaning best fits рема?",
+                "options": [
+                  "rheme, the new element",
+                  "theme, the given element",
+                  "inversion",
+                  "highlighting, emphasis"
+                ],
+                "answer": 0,
+                "why": "рема (RYEH-mah) means rheme, the new element in this lesson."
+              },
+              {
+                "q": "Which meaning best fits тема?",
+                "options": [
+                  "theme, the given element",
+                  "rheme, the new element",
+                  "inversion",
+                  "highlighting, emphasis"
+                ],
+                "answer": 0,
+                "why": "тема (TYEH-mah) means theme, the given element in this lesson."
+              },
+              {
+                "q": "Which meaning best fits инверсия?",
+                "options": [
+                  "inversion",
+                  "rheme, the new element",
+                  "theme, the given element",
+                  "highlighting, emphasis"
+                ],
+                "answer": 0,
+                "why": "инверсия (een-VYER-see-yah) means inversion in this lesson."
+              },
+              {
+                "q": "Which meaning best fits выделение?",
+                "options": [
+                  "highlighting, emphasis",
+                  "rheme, the new element",
+                  "theme, the given element",
+                  "inversion"
+                ],
+                "answer": 0,
+                "why": "выделение (vih-deh-LYEH-nee-yeh) means highlighting, emphasis in this lesson."
+              },
+              {
+                "q": "Which meaning best fits как раз?",
+                "options": [
+                  "exactly, precisely",
+                  "rheme, the new element",
+                  "theme, the given element",
+                  "inversion"
+                ],
+                "answer": 0,
+                "why": "как раз (kahk RAHS) means exactly, precisely in this lesson."
+              }
+            ],
+            "flashcards": "auto:vocab",
+            "worksheet": {
+              "title": "Word order worksheet",
+              "tasks": [
+                {
+                  "instruction": "Move the rheme.",
+                  "items": [
+                    "it was precisely this data that changed the conclusion",
+                    "yesterday my father arrived, and today my sister"
+                  ],
+                  "key": [
+                    "Именно эти данные изменили вывод",
+                    "Вчера приехал отец, а сегодня — сестра"
+                  ]
+                },
+                {
+                  "instruction": "Use the existential sentence.",
+                  "items": [
+                    "we have time, but no quiet",
+                    "the rheme is at the beginning"
+                  ],
+                  "key": [
+                    "У нас есть время, но нет тишины",
+                    "Рема в начале"
+                  ]
+                },
+                {
+                  "instruction": "Integrated offline practice: read the first model, transform or extend it in Cyrillic script, then rehearse it as a dialogue. Self-check meaning, grammar, and register.",
+                  "items": [
+                    "Именно эти данные изменили вывод.",
+                    "Почему эта фраза звучит тяжело?"
+                  ],
+                  "key": [
+                    "It was precisely this data that changed the conclusion.",
+                    "Why does this sentence sound heavy?"
+                  ]
+                }
+              ]
+            },
+            "srs_candidates": [
+              "рема",
+              "тема",
+              "инверсия",
+              "выделение"
+            ],
+            "srs_policy": "Only these four high-value terms are preselected; lesson mistakes and productive patterns may enter personalized review after an actual error."
           }
         ]
       },
@@ -1220,6 +1509,295 @@
                 }
               ]
             }
+          },
+          {
+            "id": "ru-c2-l8",
+            "title": "От литературного к официальному: переписывание",
+            "learn": "Rewriting across registers is measured, not improvised. A literary sentence keeps its metaphor and its rhythm; the official version states the fact, its agent and its consequence, and turns verbs into nouns — канцелярит appears when the nouns no longer carry anything. The honest rewrite names what it lost: образ, оттенок, интонация. Эквивалент and сжатие are the two words a rewriter works with.",
+            "vocab": [
+              {
+                "t": "перефраз",
+                "r": "pee-ree-FRAHS",
+                "en": "rephrasing",
+                "pos": "noun"
+              },
+              {
+                "t": "регистр",
+                "r": "ree-GEESTR",
+                "en": "register",
+                "pos": "noun"
+              },
+              {
+                "t": "канцелярит",
+                "r": "kahn-tsih-lee-REET",
+                "en": "officialese, bureaucratic style",
+                "pos": "noun"
+              },
+              {
+                "t": "сжатие",
+                "r": "ZHAH-tee-yeh",
+                "en": "compression",
+                "pos": "noun"
+              },
+              {
+                "t": "эквивалент",
+                "r": "ehk-vee-vah-LYEHNT",
+                "en": "equivalent",
+                "pos": "noun"
+              }
+            ],
+            "grammar": {
+              "title": "Переписать, не потеряв смысла",
+              "pattern": "сохранить содержание · сменить регистр · назвать потери · избежать канцелярита",
+              "explain": "The rewrite keeps the content and changes the packaging: образ becomes a stated fact, an emotional verb becomes a neutral one, and the agent is named or removed on purpose. Канцелярит is diagnosed by the chain of verbal nouns with no subject (осуществление мероприятий по улучшению). A сжатие is honest when the reader can still reconstruct the claim; it is dishonest when it hides a hedge.",
+              "examples": [
+                {
+                  "t": "Образ заменён фактом, содержание сохранено.",
+                  "r": "OH-brahz zah-mee-NYOHN FAHK-tahm, sah-dehr-ZHAH-nee-yeh sah-khrah-NYEH-nah.",
+                  "en": "The image is replaced by a fact, the content preserved."
+                },
+                {
+                  "t": "Канцелярит начинается там, где отглагольные существительные не несут смысла.",
+                  "r": "kahn-tsih-lee-REET nah-chee-NAH-yeht-syah tahm, gdyeh aht-glah-GOHL-nih-yeh soo-shcheh-STVEE-tehl-nih-yeh nee nee-SOOT SMIH-slah.",
+                  "en": "Officialese begins where verbal nouns carry no meaning."
+                },
+                {
+                  "t": "Сжатие допустимо, если оговорка не спрятана.",
+                  "r": "ZHAH-tee-yeh dah-poo-STEE-mah, YEH-slee ah-gah-VOHR-kah nee SPYAH-tah-nah.",
+                  "en": "Compression is acceptable if the caveat is not hidden."
+                }
+              ],
+              "mistakes": [
+                {
+                  "wrong": "Осуществление мероприятий по улучшению ситуации продолжается.",
+                  "right": "Мы продолжаем улучшать ситуацию.",
+                  "why": "Name the agent and use the verb; the noun chain says nothing."
+                },
+                {
+                  "wrong": "Мы убрали оговорку, чтобы текст был короче.",
+                  "right": "Мы сократили текст, сохранив оговорку.",
+                  "why": "Compression must not remove the hedge."
+                }
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "Редактор",
+                "t": "Второй абзац можно сократить?",
+                "r": "ftah-ROY ahb-ZAHTS MOHZH-nah sah-krah-TEETY?",
+                "en": "Can the second paragraph be shortened?"
+              },
+              {
+                "sp": "Автор",
+                "t": "Можно, но оговорку я оставлю.",
+                "r": "MOHZH-nah, noh ah-gah-VOHR-koo yah ah-STAHV-lyoo.",
+                "en": "Yes, but I'll keep the caveat."
+              },
+              {
+                "sp": "Редактор",
+                "t": "Хорошо. И уберите канцелярит в третьем.",
+                "r": "khah-rah-SHOH. ee oo-bee-REE-teh kahn-tsih-lee-REET v TRYEHty-yem.",
+                "en": "Good. And remove the officialese in the third."
+              },
+              {
+                "sp": "Автор",
+                "t": "Согласен: три отглагольных существительных подряд — это уже не стиль, а шум.",
+                "r": "sah-GLAH-sehn: tree aht-glah-GOHL-nihkh soo-shcheh-STVEE-tehl-nihkh PAHD-ryaht — EH-tah oo-ZHEH nee STEEL, ah SHOOM.",
+                "en": "Agreed: three verbal nouns in a row is noise, not style."
+              }
+            ],
+            "practice": [
+              {
+                "type": "multiple_choice",
+                "q": "Practice 1: [multiple choice] От литературного к официальному: переписывание — Choose the meaning of перефраз (pee-ree-FRAHS) in this lesson.",
+                "answer": "rephrasing",
+                "skill_target": "Russian: the Cyrillic alphabet, six cases, verbal aspect (делать / сделать), the motion verbs (идти / ходить, ехать / ездить), ты vs вы with имя-отчество, and the written register of official documents and expert prose",
+                "options": [
+                  "rephrasing",
+                  "register",
+                  "officialese, bureaucratic style",
+                  "compression"
+                ]
+              },
+              {
+                "type": "fill_in_the_blank",
+                "q": "Practice 2: [fill in the blank] От литературного к официальному: переписывание — Type the Russian expression meaning “register”.",
+                "answer": "регистр",
+                "skill_target": "Russian: the Cyrillic alphabet, six cases, verbal aspect (делать / сделать), the motion verbs (идти / ходить, ехать / ездить), ты vs вы with имя-отчество, and the written register of official documents and expert prose"
+              },
+              {
+                "type": "translation",
+                "q": "Practice 3: [translation] От литературного к официальному: переписывание — Interpret the Cyrillic script in context: Образ заменён фактом, содержание сохранено. (OH-brahz zah-mee-NYOHN FAHK-tahm, sah-dehr-ZHAH-nee-yeh sah-khrah-NYEH-nah.).",
+                "answer": "The image is replaced by a fact, the content preserved.",
+                "skill_target": "Russian: the Cyrillic alphabet, six cases, verbal aspect (делать / сделать), the motion verbs (идти / ходить, ехать / ездить), ты vs вы with имя-отчество, and the written register of official documents and expert prose"
+              },
+              {
+                "type": "reverse_translation",
+                "q": "Practice 4: [reverse translation] От литературного к официальному: переписывание — Write in Cyrillic script: Officialese begins where verbal nouns carry no meaning..",
+                "answer": "Канцелярит начинается там, где отглагольные существительные не несут смысла.",
+                "skill_target": "Russian: the Cyrillic alphabet, six cases, verbal aspect (делать / сделать), the motion verbs (идти / ходить, ехать / ездить), ты vs вы with имя-отчество, and the written register of official documents and expert prose"
+              },
+              {
+                "type": "matching",
+                "q": "Practice 5: [matching] От литературного к официальному: переписывание — Match канцелярит to its lesson meaning.",
+                "answer": "officialese, bureaucratic style",
+                "skill_target": "Russian: the Cyrillic alphabet, six cases, verbal aspect (делать / сделать), the motion verbs (идти / ходить, ехать / ездить), ты vs вы with имя-отчество, and the written register of official documents and expert prose",
+                "options": [
+                  "officialese, bureaucratic style",
+                  "rephrasing",
+                  "register"
+                ]
+              },
+              {
+                "type": "reorder",
+                "q": "Practice 6: [reorder] От литературного к официальному: переписывание — Reconstruct the lesson model in coherent Russian: Compression is acceptable if the caveat is not hidden..",
+                "answer": "Сжатие допустимо, если оговорка не спрятана.",
+                "skill_target": "Russian: the Cyrillic alphabet, six cases, verbal aspect (делать / сделать), the motion verbs (идти / ходить, ехать / ездить), ты vs вы with имя-отчество, and the written register of official documents and expert prose"
+              },
+              {
+                "type": "sentence_building",
+                "q": "Practice 7: [sentence building] От литературного к официальному: переписывание — Build the sentence with the lesson pattern (сохранить содержание · сменить регистр · назвать потери · избежать канцелярита): The image is replaced by a fact, the content preserved..",
+                "answer": "Образ заменён фактом, содержание сохранено.",
+                "skill_target": "Russian: the Cyrillic alphabet, six cases, verbal aspect (делать / сделать), the motion verbs (идти / ходить, ехать / ездить), ты vs вы with имя-отчество, and the written register of official documents and expert prose"
+              },
+              {
+                "type": "word_selection",
+                "q": "Practice 8: [word selection] От литературного к официальному: переписывание — Select the Russian form for “compression”.",
+                "answer": "сжатие",
+                "skill_target": "Russian: the Cyrillic alphabet, six cases, verbal aspect (делать / сделать), the motion verbs (идти / ходить, ехать / ездить), ты vs вы with имя-отчество, and the written register of official documents and expert prose",
+                "options": [
+                  "сжатие",
+                  "эквивалент"
+                ]
+              },
+              {
+                "type": "error_correction",
+                "q": "Practice 9: [error correction] От литературного к официальному: переписывание — Correct the model the lesson warns about: Осуществление мероприятий по улучшению ситуации продолжается.",
+                "answer": "Мы продолжаем улучшать ситуацию.",
+                "skill_target": "Russian: the Cyrillic alphabet, six cases, verbal aspect (делать / сделать), the motion verbs (идти / ходить, ехать / ездить), ты vs вы with имя-отчество, and the written register of official documents and expert prose"
+              },
+              {
+                "type": "dialogue_completion",
+                "q": "Practice 10: [dialogue completion] От литературного к официальному: переписывание — Complete the exchange with the studied response to: Can the second paragraph be shortened?",
+                "answer": "Можно, но оговорку я оставлю.",
+                "skill_target": "Russian: the Cyrillic alphabet, six cases, verbal aspect (делать / сделать), the motion verbs (идти / ходить, ехать / ездить), ты vs вы with имя-отчество, and the written register of official documents and expert prose"
+              },
+              {
+                "type": "reading_comprehension",
+                "q": "Practice 11: [reading comprehension] От литературного к официальному: переписывание — Read “Хорошо. И уберите канцелярит в третьем.” (khah-rah-SHOH. ee oo-bee-REE-teh kahn-tsih-lee-REET v TRYEHty-yem.). What does it mean?",
+                "answer": "Good. And remove the officialese in the third.",
+                "skill_target": "Russian: the Cyrillic alphabet, six cases, verbal aspect (делать / сделать), the motion verbs (идти / ходить, ехать / ездить), ты vs вы with имя-отчество, and the written register of official documents and expert prose"
+              },
+              {
+                "type": "paragraph_comprehension",
+                "q": "Practice 12: [paragraph comprehension] От литературного к официальному: переписывание — Read the lesson dialogue as a whole and give its key move: Agreed: three verbal nouns in a row is noise, not style.",
+                "answer": "Согласен: три отглагольных существительных подряд — это уже не стиль, а шум.",
+                "skill_target": "Russian: the Cyrillic alphabet, six cases, verbal aspect (делать / сделать), the motion verbs (идти / ходить, ехать / ездить), ты vs вы with имя-отчество, and the written register of official documents and expert prose"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "Which meaning best fits перефраз?",
+                "options": [
+                  "rephrasing",
+                  "register",
+                  "officialese, bureaucratic style",
+                  "compression"
+                ],
+                "answer": 0,
+                "why": "перефраз (pee-ree-FRAHS) means rephrasing in this lesson."
+              },
+              {
+                "q": "Which meaning best fits регистр?",
+                "options": [
+                  "register",
+                  "rephrasing",
+                  "officialese, bureaucratic style",
+                  "compression"
+                ],
+                "answer": 0,
+                "why": "регистр (ree-GEESTR) means register in this lesson."
+              },
+              {
+                "q": "Which meaning best fits канцелярит?",
+                "options": [
+                  "officialese, bureaucratic style",
+                  "rephrasing",
+                  "register",
+                  "compression"
+                ],
+                "answer": 0,
+                "why": "канцелярит (kahn-tsih-lee-REET) means officialese, bureaucratic style in this lesson."
+              },
+              {
+                "q": "Which meaning best fits сжатие?",
+                "options": [
+                  "compression",
+                  "rephrasing",
+                  "register",
+                  "officialese, bureaucratic style"
+                ],
+                "answer": 0,
+                "why": "сжатие (ZHAH-tee-yeh) means compression in this lesson."
+              },
+              {
+                "q": "Which meaning best fits эквивалент?",
+                "options": [
+                  "equivalent",
+                  "rephrasing",
+                  "register",
+                  "officialese, bureaucratic style"
+                ],
+                "answer": 0,
+                "why": "эквивалент (ehk-vee-vah-LYEHNT) means equivalent in this lesson."
+              }
+            ],
+            "flashcards": "auto:vocab",
+            "worksheet": {
+              "title": "Rewrite worksheet",
+              "tasks": [
+                {
+                  "instruction": "State the principle.",
+                  "items": [
+                    "the image is replaced by a fact, the content preserved",
+                    "compression is acceptable if the caveat is not hidden"
+                  ],
+                  "key": [
+                    "Образ заменён фактом, содержание сохранено",
+                    "Сжатие допустимо, если оговорка не спрятана"
+                  ]
+                },
+                {
+                  "instruction": "Repair the officialese.",
+                  "items": [
+                    "we continue to improve the situation",
+                    "we shortened the text, keeping the caveat"
+                  ],
+                  "key": [
+                    "Мы продолжаем улучшать ситуацию",
+                    "Мы сократили текст, сохранив оговорку"
+                  ]
+                },
+                {
+                  "instruction": "Integrated offline practice: read the first model, transform or extend it in Cyrillic script, then rehearse it as a dialogue. Self-check meaning, grammar, and register.",
+                  "items": [
+                    "Образ заменён фактом, содержание сохранено.",
+                    "Второй абзац можно сократить?"
+                  ],
+                  "key": [
+                    "The image is replaced by a fact, the content preserved.",
+                    "Can the second paragraph be shortened?"
+                  ]
+                }
+              ]
+            },
+            "srs_candidates": [
+              "перефраз",
+              "регистр",
+              "канцелярит",
+              "сжатие"
+            ],
+            "srs_policy": "Only these four high-value terms are preselected; lesson mistakes and productive patterns may enter personalized review after an actual error."
           }
         ]
       },
@@ -1815,6 +2393,301 @@
                 }
               ]
             }
+          },
+          {
+            "id": "ru-c2-l9",
+            "title": "Публичная речь: риторика и убеждение",
+            "learn": "A Russian public speech builds on триады — three-part lists — and on the repetition of one structural word: «Мы не боимся работы. Мы не боимся ответственности. Мы боимся равнодушия». Тезис opens, повтор reinforces, обращение reaches the audience directly, and the close returns to the thesis with one sentence short enough to remember. Убедительность comes from the structure being visible, not from volume.",
+            "vocab": [
+              {
+                "t": "риторика",
+                "r": "ree-TOR-ee-kah",
+                "en": "rhetoric",
+                "pos": "noun"
+              },
+              {
+                "t": "тезис",
+                "r": "TYEH-zees",
+                "en": "thesis",
+                "pos": "noun"
+              },
+              {
+                "t": "повтор",
+                "r": "pahf-TOHR",
+                "en": "repetition",
+                "pos": "noun"
+              },
+              {
+                "t": "обращение",
+                "r": "ahb-rah-SHCHYEH-nee-yeh",
+                "en": "address to the audience",
+                "pos": "noun"
+              },
+              {
+                "t": "убедительность",
+                "r": "oo-bee-DEE-tehl-nahsty",
+                "en": "persuasiveness",
+                "pos": "noun"
+              }
+            ],
+            "grammar": {
+              "title": "Как строится убедительная речь",
+              "pattern": "тезис → триада → повтор → обращение → короткий финал",
+              "explain": "The thesis is one sentence and comes first: Нам нужна не скорость, а точность. A triad lists three items of the same shape, and the repetition of one structural word makes the shape audible. Обращение names the audience (коллеги, друзья) and belongs at the beginning or the end, never in the middle. The close is the first sentence said again, shorter.",
+              "examples": [
+                {
+                  "t": "Нам нужна не скорость, а точность.",
+                  "r": "nahm noozh-NAH nee SKOH-rahsty, ah TOHCH-nahsty.",
+                  "en": "What we need is not speed but precision."
+                },
+                {
+                  "t": "Мы не боимся работы. Мы не боимся ответственности. Мы боимся равнодушия.",
+                  "r": "mih nee bah-EEM-syah rah-BOH-tih. mih nee bah-EEM-syah aht-VYEHT-stveh-nah-stee. mih bah-EEM-syah rahv-nah-DOO-shee-yah.",
+                  "en": "We are not afraid of work. We are not afraid of responsibility. We are afraid of indifference."
+                },
+                {
+                  "t": "Коллеги, начнём с того, что нас объединяет.",
+                  "r": "kahL-YEH-ghee, nahch-NYOEM s tah-VOH, shtoh nahs ahb-yeh-dee-NYAH-yeht.",
+                  "en": "Colleagues, let us start with what unites us."
+                }
+              ],
+              "mistakes": [
+                {
+                  "wrong": "Нам нужна скорость, но и точность, и ещё гибкость, и, конечно, время.",
+                  "right": "Нам нужна не скорость, а точность.",
+                  "why": "A thesis is one contrast, not a list of four."
+                },
+                {
+                  "wrong": "Я обращаюсь к вам, коллеги, и говорю, что мы не боимся.",
+                  "right": "Коллеги, мы не боимся работы.",
+                  "why": "Обращение stands at the edge of the sentence, not in the middle."
+                }
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "Оратор",
+                "t": "Коллеги, начнём с главного.",
+                "r": "kahL-YEH-ghee, nahch-NYOHM s GLAHV-nah-vah.",
+                "en": "Colleagues, let us start with the main thing."
+              },
+              {
+                "sp": "Коллега",
+                "t": "И с чего именно?",
+                "r": "ee s cheh-VOH EE-mehn-nah?",
+                "en": "And with what exactly?"
+              },
+              {
+                "sp": "Оратор",
+                "t": "Нам нужна не скорость, а точность. Это тезис, и к нему я вернусь в конце.",
+                "r": "nahm noozh-NAH nee SKOH-rahsty, ah TOHCH-nahsty. EH-tah TYEH-zees, ee k neh-MOO yah vehr-NOOSY v kahn-TSYEH.",
+                "en": "What we need is not speed but precision. That is the thesis, and I will return to it at the end."
+              },
+              {
+                "sp": "Коллега",
+                "t": "А примеры будут?",
+                "r": "ah pree-MYEH-rih BOO-doot?",
+                "en": "And will there be examples?"
+              },
+              {
+                "sp": "Оратор",
+                "t": "Три, одной формы — так их запомнят.",
+                "r": "tree, ahd-NOY FOHR-mih — tahk eekh zah-POHM-nyat.",
+                "en": "Three, of one shape — that way they will be remembered."
+              }
+            ],
+            "practice": [
+              {
+                "type": "multiple_choice",
+                "q": "Practice 1: [multiple choice] Публичная речь: риторика и убеждение — Choose the meaning of риторика (ree-TOR-ee-kah) in this lesson.",
+                "answer": "rhetoric",
+                "skill_target": "Russian: the Cyrillic alphabet, six cases, verbal aspect (делать / сделать), the motion verbs (идти / ходить, ехать / ездить), ты vs вы with имя-отчество, and the written register of official documents and expert prose",
+                "options": [
+                  "rhetoric",
+                  "thesis",
+                  "repetition",
+                  "address to the audience"
+                ]
+              },
+              {
+                "type": "fill_in_the_blank",
+                "q": "Practice 2: [fill in the blank] Публичная речь: риторика и убеждение — Type the Russian expression meaning “thesis”.",
+                "answer": "тезис",
+                "skill_target": "Russian: the Cyrillic alphabet, six cases, verbal aspect (делать / сделать), the motion verbs (идти / ходить, ехать / ездить), ты vs вы with имя-отчество, and the written register of official documents and expert prose"
+              },
+              {
+                "type": "translation",
+                "q": "Practice 3: [translation] Публичная речь: риторика и убеждение — Interpret the Cyrillic script in context: Нам нужна не скорость, а точность. (nahm noozh-NAH nee SKOH-rahsty, ah TOHCH-nahsty.).",
+                "answer": "What we need is not speed but precision.",
+                "skill_target": "Russian: the Cyrillic alphabet, six cases, verbal aspect (делать / сделать), the motion verbs (идти / ходить, ехать / ездить), ты vs вы with имя-отчество, and the written register of official documents and expert prose"
+              },
+              {
+                "type": "reverse_translation",
+                "q": "Practice 4: [reverse translation] Публичная речь: риторика и убеждение — Write in Cyrillic script: We are not afraid of work. We are not afraid of responsibility. We are afraid of indifference..",
+                "answer": "Мы не боимся работы. Мы не боимся ответственности. Мы боимся равнодушия.",
+                "skill_target": "Russian: the Cyrillic alphabet, six cases, verbal aspect (делать / сделать), the motion verbs (идти / ходить, ехать / ездить), ты vs вы with имя-отчество, and the written register of official documents and expert prose"
+              },
+              {
+                "type": "matching",
+                "q": "Practice 5: [matching] Публичная речь: риторика и убеждение — Match повтор to its lesson meaning.",
+                "answer": "repetition",
+                "skill_target": "Russian: the Cyrillic alphabet, six cases, verbal aspect (делать / сделать), the motion verbs (идти / ходить, ехать / ездить), ты vs вы with имя-отчество, and the written register of official documents and expert prose",
+                "options": [
+                  "repetition",
+                  "rhetoric",
+                  "thesis"
+                ]
+              },
+              {
+                "type": "reorder",
+                "q": "Practice 6: [reorder] Публичная речь: риторика и убеждение — Reconstruct the lesson model in coherent Russian: Colleagues, let us start with what unites us..",
+                "answer": "Коллеги, начнём с того, что нас объединяет.",
+                "skill_target": "Russian: the Cyrillic alphabet, six cases, verbal aspect (делать / сделать), the motion verbs (идти / ходить, ехать / ездить), ты vs вы with имя-отчество, and the written register of official documents and expert prose"
+              },
+              {
+                "type": "sentence_building",
+                "q": "Practice 7: [sentence building] Публичная речь: риторика и убеждение — Build the sentence with the lesson pattern (тезис → триада → повтор → обращение → короткий финал): What we need is not speed but precision..",
+                "answer": "Нам нужна не скорость, а точность.",
+                "skill_target": "Russian: the Cyrillic alphabet, six cases, verbal aspect (делать / сделать), the motion verbs (идти / ходить, ехать / ездить), ты vs вы with имя-отчество, and the written register of official documents and expert prose"
+              },
+              {
+                "type": "word_selection",
+                "q": "Practice 8: [word selection] Публичная речь: риторика и убеждение — Select the Russian form for “address to the audience”.",
+                "answer": "обращение",
+                "skill_target": "Russian: the Cyrillic alphabet, six cases, verbal aspect (делать / сделать), the motion verbs (идти / ходить, ехать / ездить), ты vs вы with имя-отчество, and the written register of official documents and expert prose",
+                "options": [
+                  "обращение",
+                  "убедительность"
+                ]
+              },
+              {
+                "type": "error_correction",
+                "q": "Practice 9: [error correction] Публичная речь: риторика и убеждение — Correct the model the lesson warns about: Нам нужна скорость, но и точность, и ещё гибкость, и, конечно, время.",
+                "answer": "Нам нужна не скорость, а точность.",
+                "skill_target": "Russian: the Cyrillic alphabet, six cases, verbal aspect (делать / сделать), the motion verbs (идти / ходить, ехать / ездить), ты vs вы with имя-отчество, and the written register of official documents and expert prose"
+              },
+              {
+                "type": "dialogue_completion",
+                "q": "Practice 10: [dialogue completion] Публичная речь: риторика и убеждение — Complete the exchange with the studied response to: Colleagues, let us start with the main thing.",
+                "answer": "И с чего именно?",
+                "skill_target": "Russian: the Cyrillic alphabet, six cases, verbal aspect (делать / сделать), the motion verbs (идти / ходить, ехать / ездить), ты vs вы with имя-отчество, and the written register of official documents and expert prose"
+              },
+              {
+                "type": "reading_comprehension",
+                "q": "Practice 11: [reading comprehension] Публичная речь: риторика и убеждение — Read “Нам нужна не скорость, а точность. Это тезис, и к нему я вернусь в конце.” (nahm noozh-NAH nee SKOH-rahsty, ah TOHCH-nahsty. EH-tah TYEH-zees, ee k neh-MOO yah vehr-NOOSY v kahn-TSYEH.). What does it mean?",
+                "answer": "What we need is not speed but precision. That is the thesis, and I will return to it at the end.",
+                "skill_target": "Russian: the Cyrillic alphabet, six cases, verbal aspect (делать / сделать), the motion verbs (идти / ходить, ехать / ездить), ты vs вы with имя-отчество, and the written register of official documents and expert prose"
+              },
+              {
+                "type": "paragraph_comprehension",
+                "q": "Practice 12: [paragraph comprehension] Публичная речь: риторика и убеждение — Read the lesson dialogue as a whole and give its key move: And will there be examples?",
+                "answer": "А примеры будут?",
+                "skill_target": "Russian: the Cyrillic alphabet, six cases, verbal aspect (делать / сделать), the motion verbs (идти / ходить, ехать / ездить), ты vs вы with имя-отчество, and the written register of official documents and expert prose"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "Which meaning best fits риторика?",
+                "options": [
+                  "rhetoric",
+                  "thesis",
+                  "repetition",
+                  "address to the audience"
+                ],
+                "answer": 0,
+                "why": "риторика (ree-TOR-ee-kah) means rhetoric in this lesson."
+              },
+              {
+                "q": "Which meaning best fits тезис?",
+                "options": [
+                  "thesis",
+                  "rhetoric",
+                  "repetition",
+                  "address to the audience"
+                ],
+                "answer": 0,
+                "why": "тезис (TYEH-zees) means thesis in this lesson."
+              },
+              {
+                "q": "Which meaning best fits повтор?",
+                "options": [
+                  "repetition",
+                  "rhetoric",
+                  "thesis",
+                  "address to the audience"
+                ],
+                "answer": 0,
+                "why": "повтор (pahf-TOHR) means repetition in this lesson."
+              },
+              {
+                "q": "Which meaning best fits обращение?",
+                "options": [
+                  "address to the audience",
+                  "rhetoric",
+                  "thesis",
+                  "repetition"
+                ],
+                "answer": 0,
+                "why": "обращение (ahb-rah-SHCHYEH-nee-yeh) means address to the audience in this lesson."
+              },
+              {
+                "q": "Which meaning best fits убедительность?",
+                "options": [
+                  "persuasiveness",
+                  "rhetoric",
+                  "thesis",
+                  "repetition"
+                ],
+                "answer": 0,
+                "why": "убедительность (oo-bee-DEE-tehl-nahsty) means persuasiveness in this lesson."
+              }
+            ],
+            "flashcards": "auto:vocab",
+            "worksheet": {
+              "title": "Speech worksheet",
+              "tasks": [
+                {
+                  "instruction": "Write the thesis.",
+                  "items": [
+                    "what we need is not speed but precision",
+                    "we are not afraid of work, we are afraid of indifference"
+                  ],
+                  "key": [
+                    "Нам нужна не скорость, а точность",
+                    "Мы не боимся работы, мы боимся равнодушия"
+                  ]
+                },
+                {
+                  "instruction": "Build the frame.",
+                  "items": [
+                    "colleagues, let us start with the main thing",
+                    "three examples, of one shape"
+                  ],
+                  "key": [
+                    "Коллеги, начнём с главного",
+                    "Три примера, одной формы"
+                  ]
+                },
+                {
+                  "instruction": "Integrated offline practice: read the first model, transform or extend it in Cyrillic script, then rehearse it as a dialogue. Self-check meaning, grammar, and register.",
+                  "items": [
+                    "Нам нужна не скорость, а точность.",
+                    "Коллеги, начнём с главного."
+                  ],
+                  "key": [
+                    "What we need is not speed but precision.",
+                    "Colleagues, let us start with the main thing."
+                  ]
+                }
+              ]
+            },
+            "srs_candidates": [
+              "риторика",
+              "тезис",
+              "повтор",
+              "обращение"
+            ],
+            "srs_policy": "Only these four high-value terms are preselected; lesson mistakes and productive patterns may enter personalized review after an actual error."
           }
         ]
       }
@@ -1873,6 +2746,95 @@
           "answer": "Use Russian patterns from all lessons and justify evidence, implication, cohesion, and audience."
         }
       ]
+    },
+    "extra": {
+      "culture": {
+        "text": "Russian music travels in two directions at once. The nineteenth-century line — Глинка, Мусоргский, Чайковский, Рахманинов — gave the concert hall its repertoire; the twentieth-century line split into Шостакович writing under pressure and the songs people actually sang — Окуджава with a guitar in a kitchen, Высоцкий with a hoarse voice and no official stage, Кино and Виктор Цой filling stadiums in the last years of the USSR. The kitchen, the магнитофон and the stadium are three places where a Russian song has been heard, and the word «бард» covers the first of them exactly.",
+        "source_url": "https://en.wikipedia.org/wiki/Music_of_Russia"
+      },
+      "reading": {
+        "text": "Один и тот же вечер может быть описан двумя языками. В филармонии скажут: «прозвучала Седьмая симфония Шостаковича». На кухне скажут: «он спел под гитару». Это не два уровня качества, а две разные функции: зал сохраняет партитуру, кухня сохраняет интонацию. Бардовская песня держится на втором: голос, гитара и текст, который можно повторить, не имея ни слуха, ни образования. Именно поэтому она пережила и магнитофон, и стадион.",
+        "gloss": "The same evening can be described in two languages. In the philharmonic hall they will say: 'Shostakovich's Seventh Symphony was performed'. In the kitchen they will say: 'he sang with a guitar'. These are not two levels of quality but two different functions: the hall preserves the score, the kitchen preserves the intonation. The bard song rests on the second: a voice, a guitar and a text one can repeat without either an ear or an education. That is exactly why it outlived both the tape recorder and the stadium.",
+        "original": true
+      },
+      "listening": {
+        "script": "Кто для тебя главный в русской музыке? — Если честно, Цой. — Почему не классика? — Классику я уважаю, но она для зала. А Цой — для кухни и для дороги: три аккорда, и человек уже поёт.",
+        "gloss": "Who is the main figure in Russian music for you? — Honestly, Tsoi. — Why not the classics? — I respect the classics, but they are for the hall. And Tsoi is for the kitchen and the road: three chords, and the person is already singing.",
+        "voice_tag": "ru-RU"
+      },
+      "idioms": [
+        {
+          "t": "играть первую скрипку",
+          "literal": "to play first violin",
+          "meaning": "to lead, to be the main figure"
+        },
+        {
+          "t": "медведь на ухо наступил",
+          "literal": "a bear stepped on his ear",
+          "meaning": "to be totally tone-deaf"
+        },
+        {
+          "t": "петь дифирамбы",
+          "literal": "to sing dithyrambs",
+          "meaning": "to praise excessively"
+        },
+        {
+          "t": "по большому счёту",
+          "literal": "by the big account",
+          "meaning": "all things considered, strictly speaking"
+        },
+        {
+          "t": "держать марку",
+          "literal": "to hold the brand",
+          "meaning": "to keep up the standard"
+        },
+        {
+          "t": "не в своей тарелке",
+          "literal": "not in one's own plate",
+          "meaning": "ill at ease, out of place"
+        },
+        {
+          "t": "водить за нос",
+          "literal": "to lead by the nose",
+          "meaning": "to deceive someone over time"
+        },
+        {
+          "t": "сойти со сцены",
+          "literal": "to come off the stage",
+          "meaning": "to leave public life"
+        },
+        {
+          "t": "в унисон",
+          "literal": "in unison",
+          "meaning": "sounding together, thinking alike"
+        },
+        {
+          "t": "ставить на карту",
+          "literal": "to put on the card",
+          "meaning": "to stake everything on one thing"
+        }
+      ],
+      "mistakes": [
+        {
+          "wrong": "В отличие от классики, рок считается не серьёзной музыкой.",
+          "right": "В отличие от классики, рок не считается серьёзной музыкой.",
+          "why": "One negation: не считается, without a second не before the adjective."
+        },
+        {
+          "wrong": "Этот композитор влиял на меня сильно.",
+          "right": "Этот композитор сильно повлиял на меня.",
+          "why": "A completed effect takes повлиял, with сильно before the verb."
+        },
+        {
+          "wrong": "Музыка, что я слушаю, старая.",
+          "right": "Музыка, которую я слушаю, старая.",
+          "why": "The relative pronoun takes the case the verb governs: которую."
+        }
+      ],
+      "task": {
+        "title": "Две функции одного вечера",
+        "instructions": "Take one piece of music you know and write two descriptions of it, one for a concert programme and one for a kitchen conversation. Then write a paragraph that mediates between them, using по большому счёту, в отличие от and one relative clause with который in the right case. Read the mediation aloud and check that no sentence claims the two registers are the same thing."
+      }
     }
   }
 }

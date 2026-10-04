@@ -199,6 +199,125 @@ stale chain → `build-all.py check` → gate + audit → commit.
   number table was the last IAST block in the language) and left the diacritics
   in the alphabet and pronunciation blocks, which are the two places that explain
   the marks they use.
+- **The synthetic C1/C2 batch blocks publication, and only the six unfinished
+  courses trip its marker.** `tools/audit-course-quality.py` (the tool that
+  writes `levels`, `complete` and `quality_status` in `data/courses/index.json`)
+  refuses any level file carrying `discourse segment N in`. Eight courses carry
+  that phrase in `C1`/`C2`: the two in this queue's tail (`pt ru`) and six the
+  gap audit already counts as done (`ar bn de it ja ko`). Their C1/C2 lessons
+  are the unreviewed phase-3 batch — the same windowed fragments every done
+  course has (`pa_C1` holds `ਰਿਪੋਰਟ ਮੁਤਾਬਕ,`), but labelled differently, so
+  `pa` passes the check while `ar` fails it. Consequence: `pt` reads `11/11`
+  and its gate row is clean, yet `complete` stays `false` and C1/C2 stay out of
+  the published level list until those files are re-authored. The Portuguese
+  pass rebuilt the deck from the new lessons and left the rest as found; the
+  six already-done courses need one shared re-authoring pass, tracked here as
+  the next content job after this queue.
+
+2026-10-04 (after Portuguese — 13 of 18): **25 rung files · 30 `extra` blocks ·
+30 short units · 260 English labels**. pt reads `11/11`; its gate row is
+`FAIL ['no_native_review']` only, `unique_text_ratio` 0.947 and `script_mismatch`
+0 against the 0.85 and 0 thresholds. The module is `tools/depth-content/pt.py`:
+six `extra` blocks built on sourced Brazil notes (the language, cuisine, the
+culture, the literature, the media, the languages of Brazil), eighteen third
+lessons, and five half-steps that keep their own themes — the bakery counter and
+the money at the till, the flat and the street, the weekend, then shopping and
+health and the job, then transport and opinion, and finally academia, climate
+and the language question. Portuguese is the first language in the queue whose
+course teaches in English while the target is a Latin-script language with its
+own accent system, so the romanisation column keeps the course's own scheme
+(stressed syllable in capitals, hyphens, `(n)` for nasals: `oh-LAH`, `boh(n)
+DEE-uh`) and every new lesson carries it. No theme is reused from an earlier
+language.
+
+Two mechanical notes from this pass, both already handled by the documented
+order: the rebuilt pt ladder page moved its counts (24 → 36 lessons, 194 → 255
+words, 836 → 1162 questions) and kept the committed `twitter:title` line
+rather than taking the head template's regression, and the six pages whose only
+difference is that line were restored. Because new lessons add vocabulary, the
+decoration chain also rebuilds `js/flashcards-pt.js` and the pt lab block in the
+same commit (`build-flashcards.py`, `inject-flashcards.py` are checks in
+`build-all.py check`), and `build-learning-data.py` runs before the gates when
+course data moves.
+
+2026-10-04 (after Russian — 14 of 18): **20 rung files · 24 `extra` blocks ·
+24 short units · 260 English labels**. ru reads `11/11`; its gate row is
+`FAIL ['no_native_review']` only, `unique_text_ratio` 0.97 and `script_mismatch`
+0 against the 0.85 and 0 thresholds. The module is `tools/depth-content/ru.py`:
+six `extra` blocks built on sourced Russia notes (the three-name introduction
+and вы/ты, tea as a meal, дача, the nineteenth-century novel, Russian as a
+lingua franca and a state language, the two lines of Russian music), eighteen
+third lessons, and five half-steps with their own themes — the kiosk, the flat
+and the clock; the metro, the ticket office and the hotel; the district, work
+and opinion; documents, the economy and research; the academy, public
+regulation and translation. No theme is reused from an earlier language.
+
+Russian is the first Cyrillic language in the queue, so the romanisation column
+is the course's own ASCII scheme: stressed syllable in capitals, hyphens
+between the meaningful parts, `-ть` → `-ty`, no diacritics (`zdrahst-voo-ee-teh`,
+`pah-ZHAH-loo-stah`). A scan for Cyrillic left inside an `r` field found four
+slips and they were fixed before the authoring run, not after: the field is
+checked by eye, not by a gate. `tools/normalise-romanisation.py` owns ru and
+reports 93 course files in scope with **0 strings to repair** — the file is
+already consistent, and the tool would have rewritten it if it were not.
+
+Two pieces of the same commit are not content: the ru ladder page moved its
+counts (24 → 36 lessons, 192 → 252 words, 832 → 1156 questions) while keeping
+the committed `twitter:title` line, and the ru flashcard deck was rebuilt from
+the new vocabulary (`data/flashcards/ru.json`, `js/flashcards-ru.js`,
+`data/quality/flashcard-coverage.json`) with the ru lab block refreshed on
+`languages/ru/practice/index.html`. ru carries no English speaker labels
+(every `sp` is Cyrillic), so `tools/localise-speaker-labels.py` had nothing to
+do here (at that point its maps were `gu|mr|pa`; the ta map was added next).
+The C1/C2 files keep the trap-#9
+`discourse segment N in` filler exactly as found; re-authoring that batch stays
+a shared job after this queue.
+
+The Russian pass also closed the four pt text defects recorded at the end of
+the Portuguese entry — `checei` → `chequei` (two places), the stray `ficou/fi
+cou` duplication, and the `em Recife` / `no Recife` disagreement between a
+dialogue and its worksheet key. They were fixed in `tools/depth-content/pt.py`
+and regenerated through `author-depth.py --lang pt` in a separate commit, so a
+shipped language is not left holding text that review already rejected.
+
+2026-10-04 (after Tamil — 15 of 18): **15 rung files · 18 `extra` blocks ·
+18 short units · 156 English labels**. `ta` now reads `11/11`; the gap audit
+reports no Tamil content defects and no Tamil English-role labels. The remaining
+labels are `te` 128 and `ur` 28; `zh` has none. The language gate's ta row is
+`FAIL ['no_native_review']` only, `unique_text_ratio` 0.979 and `script_mismatch`
+0.
+
+`tools/depth-content/ta.py` carries six CEFR `extra` blocks (Tamil script and
+register; Pongal; Chettinad cooking; Tamil cinema; Sangam landscape poetry; and
+the Tirukkural), eighteen third lessons, and all five half-steps A1+ … C1+.
+Their themes stay distinct across the queue: kiosk/home/time; metro/tickets/
+hotel; district/apartment/work/opinion; official documents/economy/research;
+academic Tamil/public policy/translation. Each half-step has three units and
+three lessons per unit; each of the five also has its own `extra` block. The authoring run wrote 40 changes: five new half-step files, six regular-rung
+extras, eighteen third lessons, and `index.json` updates (five filenames plus
+six lesson counts).
+
+The Tamil course keeps the marked romanisation already used by its vocabulary
+lane (`ā ī ū ē ō`, `ṇ ṭ ḷ ḻ ṟ`, etc.); no ASCII scheme was imposed on the
+C1/legacy text. `normalise-romanisation.py --lang ta` skipped all 16 course
+files as a different scheme/script and reported **0 repairs**. A source-level
+check compared all 756 Tamil `t`/`r` pairs and found no mismatches or non-Latin
+letters in `r`; the rendered-page check also passed. The role-label pass added
+a Tamil map to `tools/localise-speaker-labels.py`; it localised 128 role fields
+and 10 practice prompts in six existing files, including labels outside the
+gap audit's closed list. The authored lessons use Tamil role labels at source.
+
+The ta ladder page moved from 36 lessons / 288 words / 1248 questions to 54 /
+378 / 1734. Its flashcard deck and practice lab were regenerated, the learning
+inputs and page metadata refreshed, and the page recipe was run in the
+specified order. `build-all.py check` is green. Direct gates: course-levels
+32/0; placeholders 7/0; ad-policy 22/0; `inject-ads.py --check` 2689 pages;
+ULTRA 2687/0; Googlebot parity 15/0; full inventory 2690 pages, thin 0,
+broken 0; Tamil gap audit 11/11 with 0 extra/third/test defects. The language
+gate remains blocked only on `no_native_review`, as it does for every T1 course.
+The generated ta ladder's bare `twitter:title` stays in the separately tracked
+1080-bare-vs-7-suffixed decision; no generated HTML was hand-edited.
+
 ## Acceptance (from the command doc)
 
 - `python3 tools/build-all.py check` green
