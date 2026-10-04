@@ -176,8 +176,8 @@ The romanisation column is the course's own ASCII scheme (stress in capitals,
 `-ть` → `-ty`, no diacritics); a scan for Cyrillic left in an `r` field found
 four slips, fixed before authoring. `normalise-romanisation.py` owns ru and
 reports 93 files in scope with 0 strings to repair. ru carries no English
-speaker labels, so `localise-speaker-labels.py` (still `gu|mr|pa` only) has
-nothing to do.
+speaker labels, so the role-label pass has nothing to do here; Tamil's map was
+added in the next language pass.
 
 Gates at the ru tip, all local: `build-all.py check` green, course-levels 32/0,
 placeholders 7/0, ad-policy 22/0, `inject-ads.py --check` ok, ultra integration
@@ -199,7 +199,37 @@ the language gate's pt content digest and `unique_text_ratio` (0.946) were
 re-recorded; no pt page changed, because the lesson text is read by the player
 from the JSON. Separate commit, so the ru commit stays one language.
 
-Still open: PHASE 1 for `ta te ur zh` (20 rungs, 24 `extra` blocks, 24 short
-units), the eight-course C1/C2 re-authoring above, 260 English speaker labels
-(`ta` 104, `te` 128, `ur` 28), and the Urdu A1-marks-vs-ASCII decision. Runtime
-flags stay OFF; indexing, canonicals, robots and the domain are untouched.
+**Tamil — the 15th of 18.** `tools/depth-content/ta.py` carries six regular-rung
+`extra` blocks (the script/register split; Pongal; Chettinad cooking; Tamil
+cinema; Sangam landscape poetry; the Tirukkural), eighteen third lessons and
+five half-steps A1+ … C1+ with nine lessons each. Their half-step themes are
+kiosk/home/time; metro/tickets/hotel; district/apartment/work/opinion; official
+life/economy/research; and academic Tamil/public policy/translation. Each
+half-step has its own `extra` block. The authoring run wrote 40 changes: five
+half-step files, six base extras, eighteen new lessons, and `index.json` updates
+(five filenames plus six lesson counts).
+
+Tamil keeps the marked romanisation used by its existing vocabulary lane
+(`ā ī ū ē ō`, retroflex and nasal marks included). `normalise-romanisation.py
+--lang ta` skipped its 16 files as a different scheme/script and reported zero
+repairs; a source check compared all 756 Tamil `t`/`r` pairs with no mismatch or
+non-Latin `r` field. The rendered level-page check passed too. The new Tamil
+role map localised 128 role fields and 10 practice prompts in six existing
+course files; all new lessons use Tamil speaker labels at source, and the ta
+speaker-label check and gap audit now read zero.
+
+The ta ladder moved from 36 lessons / 288 words / 1248 questions to 54 / 378 /
+1734. Its flashcard deck and practice lab were rebuilt, learning inputs and
+editorial metadata refreshed, and the documented page recipe re-run. Gates at
+the tip, all local: `build-all.py check` green; course-levels 32/0;
+placeholders 7/0; ad-policy 22/0; `inject-ads.py --check` ok; ULTRA 2687/0;
+Googlebot parity 15/0; inventory 2690 pages with `thin_indexable 0` and
+`broken 0`; `audit-phase1-gap.py` reads `ta 11/11 · 0 0 0`. The language gate's
+ta row is `FAIL ['no_native_review']` only, `unique_text_ratio` 0.979 and
+`script_mismatch 0`. The generated ladder's bare `twitter:title` is the
+recorded site-wide 1080-bare-vs-7-suffixed issue; it was not hand-edited.
+
+Still open: PHASE 1 for `te ur zh` (15 rungs, 18 `extra` blocks, 18 short
+units), the eight-course C1/C2 re-authoring above, 156 English speaker labels
+(`te` 128, `ur` 28), and the Urdu A1-marks-vs-ASCII decision. Runtime flags
+stay OFF; indexing, canonicals, robots and the domain are untouched.

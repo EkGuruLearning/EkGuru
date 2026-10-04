@@ -267,8 +267,9 @@ the committed `twitter:title` line, and the ru flashcard deck was rebuilt from
 the new vocabulary (`data/flashcards/ru.json`, `js/flashcards-ru.js`,
 `data/quality/flashcard-coverage.json`) with the ru lab block refreshed on
 `languages/ru/practice/index.html`. ru carries no English speaker labels
-(every `sp` is Cyrillic), so `tools/localise-speaker-labels.py` — still
-`gu|mr|pa` only — has nothing to do here. The C1/C2 files keep the trap-#9
+(every `sp` is Cyrillic), so `tools/localise-speaker-labels.py` had nothing to
+do here (at that point its maps were `gu|mr|pa`; the ta map was added next).
+The C1/C2 files keep the trap-#9
 `discourse segment N in` filler exactly as found; re-authoring that batch stays
 a shared job after this queue.
 
@@ -278,6 +279,44 @@ cou` duplication, and the `em Recife` / `no Recife` disagreement between a
 dialogue and its worksheet key. They were fixed in `tools/depth-content/pt.py`
 and regenerated through `author-depth.py --lang pt` in a separate commit, so a
 shipped language is not left holding text that review already rejected.
+
+2026-10-04 (after Tamil — 15 of 18): **15 rung files · 18 `extra` blocks ·
+18 short units · 156 English labels**. `ta` now reads `11/11`; the gap audit
+reports no Tamil content defects and no Tamil English-role labels. The remaining
+labels are `te` 128 and `ur` 28; `zh` has none. The language gate's ta row is
+`FAIL ['no_native_review']` only, `unique_text_ratio` 0.979 and `script_mismatch`
+0.
+
+`tools/depth-content/ta.py` carries six CEFR `extra` blocks (Tamil script and
+register; Pongal; Chettinad cooking; Tamil cinema; Sangam landscape poetry; and
+the Tirukkural), eighteen third lessons, and all five half-steps A1+ … C1+.
+Their themes stay distinct across the queue: kiosk/home/time; metro/tickets/
+hotel; district/apartment/work/opinion; official documents/economy/research;
+academic Tamil/public policy/translation. Each half-step has three units and
+three lessons per unit; each of the five also has its own `extra` block. The authoring run wrote 40 changes: five new half-step files, six regular-rung
+extras, eighteen third lessons, and `index.json` updates (five filenames plus
+six lesson counts).
+
+The Tamil course keeps the marked romanisation already used by its vocabulary
+lane (`ā ī ū ē ō`, `ṇ ṭ ḷ ḻ ṟ`, etc.); no ASCII scheme was imposed on the
+C1/legacy text. `normalise-romanisation.py --lang ta` skipped all 16 course
+files as a different scheme/script and reported **0 repairs**. A source-level
+check compared all 756 Tamil `t`/`r` pairs and found no mismatches or non-Latin
+letters in `r`; the rendered-page check also passed. The role-label pass added
+a Tamil map to `tools/localise-speaker-labels.py`; it localised 128 role fields
+and 10 practice prompts in six existing files, including labels outside the
+gap audit's closed list. The authored lessons use Tamil role labels at source.
+
+The ta ladder page moved from 36 lessons / 288 words / 1248 questions to 54 /
+378 / 1734. Its flashcard deck and practice lab were regenerated, the learning
+inputs and page metadata refreshed, and the page recipe was run in the
+specified order. `build-all.py check` is green. Direct gates: course-levels
+32/0; placeholders 7/0; ad-policy 22/0; `inject-ads.py --check` 2689 pages;
+ULTRA 2687/0; Googlebot parity 15/0; full inventory 2690 pages, thin 0,
+broken 0; Tamil gap audit 11/11 with 0 extra/third/test defects. The language
+gate remains blocked only on `no_native_review`, as it does for every T1 course.
+The generated ta ladder's bare `twitter:title` stays in the separately tracked
+1080-bare-vs-7-suffixed decision; no generated HTML was hand-edited.
 
 ## Acceptance (from the command doc)
 
