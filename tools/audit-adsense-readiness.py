@@ -9,6 +9,7 @@ remain mandatory.
 from __future__ import annotations
 import datetime as dt
 import hashlib
+import html
 import json
 import re
 import sys
@@ -143,12 +144,16 @@ def html_files():
 # box is a navigation affordance repeated by design, marked up as
 # complementary content, and not what a page is about — for a tutor card's
 # subject line (p.xp-tutor-teaches, roster metadata), and for the practice
-# labs' "a few of the items" caption (p.lab-hint).
+# labs' "a few of the items" caption (p.lab-hint). Editorial/review/audio
+# paragraphs marked data-eg-chrome are also excluded; counting the public
+# "Draft: not yet reviewed by a native speaker" notice as a page's opening
+# paragraph made hundreds of otherwise different pages look duplicated.
 CHROME = re.compile(
     r"<!--\s*ekguru:(?:shell-header|shell-footer|trust-footer|pw-bands):start\s*-->[\s\S]*?"
     r"<!--\s*ekguru:(?:shell-header|shell-footer|trust-footer|pw-bands):end\s*-->"
     r"|<header\b[\s\S]*?</header>|<footer\b[\s\S]*?</footer>"
     r"|<nav\b[\s\S]*?</nav>"
+    r"|<p\b(?=[^>]*\bdata-eg-chrome=(?:\"[^\"]*\"|'[^']*'))[^>]*>[\s\S]*?</p>"
     r"|<p class=\"[^\"]*\bhint\b[^\"]*\"[^>]*>[\s\S]*?</p>"
     r"|<p class=\"[^\"]*\b(?:crumbs?|upd|updated|dateline|meta|byline|xp-tutor-teaches)\b[^\"]*\"[^>]*>[\s\S]*?</p>"
     r"|<aside\b[^>]*(?:class=\"[^\"]*pg-note[^\"]*\"|role=\"note\")[^>]*>[\s\S]*?</aside>"
@@ -159,6 +164,12 @@ def signature(text):
  # Template-risk signature deliberately removes volatile names/numbers/currency.
  x=norm(text); x=re.sub(r'\b\d+(?: \d+)*\b','#',x)
  return hashlib.sha256(x.encode()).hexdigest()[:20]
+
+def content_paragraphs(raw):
+ """Return substantial body paragraphs after removing shared site chrome."""
+ body=CHROME.sub(' ',raw)
+ paras=[norm(html.unescape(re.sub('<[^>]+>',' ',x))) for x in re.findall(r'<p\b[^>]*>(.*?)</p>',body,flags=re.I|re.S)]
+ return [x for x in paras if len(x.split())>=12]
 
 def page_audit():
  pages=[]; title_map=defaultdict(list); meta_map=defaultdict(list); intro_map=defaultdict(list); paragraph_map=defaultdict(list)
@@ -172,9 +183,7 @@ def page_audit():
   # it is counted as one; Latin and other spaced scripts are counted as before.
   words_counted=count_words(text)
   rel=str(p.relative_to(ROOT))
-  body=CHROME.sub(' ',raw)
-  paras=[norm(re.sub('<[^>]+>',' ',x)) for x in re.findall(r'<p\b[^>]*>(.*?)</p>',body,flags=re.I|re.S)]
-  paras=[x for x in paras if len(x.split())>=12]
+  paras=content_paragraphs(raw)
   intro=paras[0] if paras else ''
   issues=[]
   if not s.title: issues.append('missing_title')
@@ -184,8 +193,15 @@ def page_audit():
   if words_counted<250: issues.append('depth_review_under_250_words')
   if not s.main: issues.append('missing_main_landmark')
   if len(s.links)<3: issues.append('weak_internal_navigation')
-  title_map[norm(s.title)].append(rel); meta_map[norm(s.meta)].append(rel)
-  if intro: intro_map[signature(intro)].append(rel)
+  # Duplicate title, description and lead-paragraph signals apply to pages
+  # Google can index. Hidden drafts, utility routes and quarantined research
+  # pages remain in the inventory, but must not inflate the publication queue.
+  if not s.noindex:
+   title_map[norm(s.title)].append(rel); meta_map[norm(s.meta)].append(rel)
+   if intro: intro_map[signature(intro)].append(rel)
+  # Keep repeated paragraph groups across all pages as an editorial sampling
+  # queue; unlike title/meta/intro collisions, a shared paragraph alone is not
+  # sufficient evidence that two indexable pages have the same intent.
   for para in set(paras): paragraph_map[signature(para)].append(rel)
   pages.append({'path':rel,'word_count':words_counted,'title':s.title,'meta_description':s.meta,'h1_count':len(s.h1),'canonical':s.canonical,'noindex':s.noindex,'main_landmark':s.main,'internal_link_count':sum(1 for x in s.links if not urlparse(x).netloc or 'ekguru.shop' in urlparse(x).netloc),'ad_markup_detected':s.ad or 'adsbygoogle' in raw,'issues':issues})
  exact=lambda m:{k:v for k,v in m.items() if k and len(v)>1}
@@ -267,6 +283,40 @@ def selftest():
         print("FAIL  word counter selftest — " + "; ".join(bad))
         return 1
     print("ok    word counter: unspaced scripts counted per word, spaced scripts as before")
+
+    # Review notices and bylines are shared page chrome, not the lesson's
+    # introduction. This regression used to make the same draft banner appear
+    # as the intro on more than 1,500 pages and overwhelm the real duplicate
+    # content signals.
+    sample = (
+        '<p class="eg-review-notice" lang="en" data-eg-chrome="review">'
+        'Draft: not yet reviewed by a native speaker. Existing availability '
+        'and indexing are preserved by owner instruction; that is not an '
+        'editorial approval.</p>'
+        '<p>An original sentence about this language and its actual vowel '
+        'harmony helps a beginner practise a concrete pattern.</p>'
+    )
+    paragraphs = content_paragraphs(sample)
+    expected_intro = norm(
+        'An original sentence about this language and its actual vowel '
+        'harmony helps a beginner practise a concrete pattern.')
+    if paragraphs != [expected_intro]:
+        print('FAIL  chrome selftest — review notice leaked into content: ' + repr(paragraphs))
+        return 1
+    print('ok    content audit: review/bio/audio chrome is not treated as the page introduction')
+
+    entity_text = (
+        'A learner&#x27;s map &amp; notebook can help them remember the route '
+        'home after a lesson on words and signs.'
+    )
+    decoded = content_paragraphs('<p>' + entity_text + '</p>')
+    expected_decoded = [norm(
+        'A learner\'s map & notebook can help them remember the route '
+        'home after a lesson on words and signs.')]
+    if decoded != expected_decoded:
+        print('FAIL  entity selftest — HTML entities changed the content signature: ' + repr(decoded))
+        return 1
+    print('ok    content audit: HTML entities are decoded before signatures are compared')
     return 0
 
 

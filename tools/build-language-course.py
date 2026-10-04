@@ -146,7 +146,10 @@ def tri_table(rows, col3="target", note_key="note"):
     out = ['<table class="tbl tri"><thead><tr><th>English</th><th>Hindi</th>',
            f'<th>{E(col3)}</th><th>Say it</th></tr></thead><tbody>']
     for w in rows:
-        cells = f"<td>{E(w['en'])}</td><td>{E(w['hi'])}</td><td>{E(w['t'])}</td><td>{E(w['r'])}</td>"
+        cells = (f'<td data-h="English">{E(w["en"])}</td>'
+                 f'<td data-h="Hindi">{E(w["hi"])}</td>'
+                 f'<td data-h="{E(col3)}">{E(w["t"])}</td>'
+                 f'<td data-h="Say it">{E(w["r"])}</td>')
         if w.get(note_key):
             cells += f"</tr><tr><td></td><td colspan=\"3\" style=\"color:var(--muted);font-size:.85rem\">{E(w[note_key])}</td>"
         out.append("<tr>" + cells + "</tr>")
@@ -1184,6 +1187,14 @@ def p_speaking_alone(d):
 
 def deep_beginner(d):
     n = d["name"]
+    greetings = d.get("greetings") or []
+    first_greeting = greetings[0] if greetings else {}
+    greeting_target = E(first_greeting.get("t") or n)
+    greeting_roman = E(first_greeting.get("r") or "")
+    greeting_meaning = E(first_greeting.get("en") or "greeting")
+    script_name = E(d.get("script_name") or "writing system")
+    script_note = E(d.get("script_note") or "Practise reading the script alongside its romanisation.")
+    difficulty = E(d.get("difficulty") or "Build the routine from short, repeatable sessions.")
     weeks = _ol([
         "<b>Week 1 — sounds.</b> The pronunciation vowel and consonant tables, two letters a day, said aloud. "
         "Add five greetings from the conversation page.",
@@ -1196,7 +1207,8 @@ def deep_beginner(d):
     plan = _h2("Your first 30 days, week by week") + _p(
         "Most courses fail because they never say what to do <i>on Tuesday</i>. Here is a four-week plan built on "
         "the pages of this site, sized for twenty minutes a day. If you miss a day, do not restart the week — just "
-        "carry on.") + weeks
+        "carry on. For " + E(n) + ", anchor the first session to <b>" + greeting_target + "</b> (" + greeting_roman +
+        "): " + greeting_meaning + ". Then keep this " + script_name + " note beside you: " + script_note) + weeks
     keep = _h2("What to learn first — and what to ignore for now") + _ul([
         "<b>Learn now:</b> greetings, pronouns, numbers to 20, the present tense, and the words you use about "
         "yourself.",
@@ -1208,34 +1220,84 @@ def deep_beginner(d):
                      "build five simple sentences about your day. That is the whole beginner bar — there is nothing "
                      "mysterious waiting behind it.")
     hello = _h2("How to say hello, out loud") + tri_table(d["greetings"][:8], col3=n) + _p(
-        "Say every row aloud twice, then close the table and try from memory. This is the most rewarding first hour "
-        "of the whole language, because these eight lines get used every day once you arrive.")
+        "Say every row aloud twice, then close the table and try from memory. Start with <b>" + greeting_target +
+        "</b> (" + greeting_roman + ") — “" + greeting_meaning + "” — and then return to the " + script_name +
+        " spelling without the romanisation. The other greetings on this " + E(n) + " table show how the setting "
+        "or relationship changes the words you choose.")
     memory = _h2("How to remember the words") + _p(
-        "Three techniques do most of the work in the first month, and none of them requires an app.",
-        "<b>Say it out loud.</b> Words you only read are stored weakly. Every word on this site has a pronunciation "
-        "column precisely so you can say it while you read it.",
-        "<b>Attach it to something.</b> A word learned inside a sentence about your own life is remembered far "
-        "better than a word learned from a list. When you meet a new word, immediately say one true sentence with it.",
-        "<b>Meet it again.</b> Five minutes of review on three separate days beats one hour of cramming, every time. "
-        "That is what the review deck and the quiz are for.") + _ul([
+        "Three techniques do most of the work in the first month, and none of them requires an app. For " +
+        E(n) + ", make the first remembered item <b>" + greeting_target + "</b> (" + greeting_roman +
+        ") rather than a disconnected sound on a list.",
+        "<b>Say it out loud.</b> Words you only read are stored weakly. Compare " + greeting_target + " with its " +
+        greeting_roman + " reading, then say it again without looking. The " + script_name + " detail above tells you " +
+        "what to notice in the written form.",
+        "<b>Attach it to something.</b> Put " + greeting_target + " into a real scene: imagine the person, choose " +
+        "the greeting that fits, then add one sentence about your own day using a word from the " + E(n) +
+        " vocabulary table. A word learned in a true sentence is easier to retrieve than one learned alone.",
+        "<b>Meet it again.</b> Schedule " + greeting_target + " for a short review on three separate days, then use " +
+        "the " + E(n) + " review deck and quiz to check other words. Five minutes spread across the week is more useful " +
+        "than one hour of cramming.") + _ul([
         "<b>Ten spare minutes?</b> Read the letter tables aloud and run ten words through the review deck.",
         "<b>Thirty spare minutes?</b> Twenty minutes on the current week's page, then ten minutes of quiz questions.",
         "<b>A whole evening?</b> Do not study for three hours. Do the usual twenty minutes and watch something in "
         "the language instead — listening is not wasted time."]) + _p(
-        "The learners who reach the end of this course are not the ones with the most free time. They are the ones "
-        "who kept the daily session small enough to survive a bad week.")
+        "The learners who reach the end are not necessarily the ones with the most free time. They are the ones "
+        "who keep a " + E(n) + " session small enough to survive a bad week: repeat " + greeting_target +
+        ", review one card, and return tomorrow.")
     expects = _h2("What this level is, and what it is not") + _p(
-        "The beginner stage is not a smaller version of fluency. It is a separate skill with its own finish line: "
-        "reading without panic, greeting people correctly, handling numbers, and building simple true sentences "
-        "about your own life.",
+        "The beginner stage is not a smaller version of fluency. For " + E(n) + ", its first finish line is concrete: " +
+        "read <b>" + greeting_target + "</b> without leaning on " + greeting_roman + ", handle the numbers on the page, " +
+        "and build simple sentences about your own life in the " + script_name + ".",
         "It is normal at this stage to understand far more than you can say, and it is normal to forget a word you "
-        "learned yesterday. Neither is a sign that you are doing it wrong. What matters is that the twenty minutes "
-        "happen, that you say things out loud, and that you keep returning to words before they disappear entirely.",
-        "When the four weeks above are done, do not jump to advanced material. Take the topics one at a time — "
-        "food, shopping, travel, time — and make sure each one is usable before you move on. A learner who can "
-        "really use five topics will out-converse a learner who has skimmed fifteen.",
-        "One last honest note: " + E(d["difficulty"]) if d.get("difficulty") else "")
+        "learned yesterday. Neither means you are doing it wrong. In " + E(n) + ", keep the daily session short, say " +
+        "the greeting and its romanisation aloud, then return to the written form. Here is the language-specific " +
+        "difficulty to plan around: " + difficulty,
+        "When the four weeks above are done, do not jump to advanced material. Take one topic at a time — food, " +
+        "shopping, travel or time — and make it usable before moving on. For " + E(n) + ", your check is to read " +
+        "<b>" + greeting_target + "</b>, recall its meaning, and then continue with a word from the next topic. A learner " +
+        "who can really use five topics will out-converse a learner who has skimmed fifteen.",
+        "Treat the difficulty note as a planning cue, not a deadline. In " + E(n) + ", revisit the written greeting " +
+        "and its romanisation each week; notice when you can read " + greeting_target + " without leaning on " +
+        greeting_roman + ", then move on to the next line in the table.")
     return plan + keep + ready + hello + memory + expects
+
+
+def refresh_beginner_content(slug):
+    """Refresh only the generator-owned beginner depth section in a live page.
+
+    Legacy pages carry shared layers (storybook, shell, consent, theme, review
+    notice and editorial metadata). A content-only refresh preserves those
+    layers and, importantly, never rewrites robots or canonical decisions.
+    """
+    if not slug or not slug.isascii() or not slug.isalpha() or slug.lower() != slug:
+        raise ValueError("expected one language slug")
+    data_path = os.path.join(ROOT, "tools", "lang-data", slug + ".json")
+    page_path = os.path.join(ROOT, "learn", slug, "beginner", "index.html")
+    if not os.path.isfile(data_path) or not os.path.isfile(page_path):
+        raise FileNotFoundError("missing language data or beginner page for " + slug)
+    with open(data_path, encoding="utf-8") as f:
+        d = json.load(f)
+    with open(page_path, encoding="utf-8") as f:
+        page = f.read()
+
+    start = "<h2>Your first 30 days, week by week</h2>"
+    end = "<h2>More guides in this course</h2>"
+    if page.count(start) != 1 or page.count(end) != 1 or page.index(start) >= page.index(end):
+        raise ValueError("beginner content boundaries are missing or ambiguous: " + page_path)
+    left = page.index(start)
+    right = page.index(end, left)
+    section = deep_beginner(d)
+    # The page already has its own indentation immediately before the heading.
+    # Remove the generator's leading indentation so it is not doubled on insert.
+    if section.startswith("  "):
+        section = section[2:]
+    refreshed = page[:left] + section + page[right:]
+    if refreshed != page:
+        with open(page_path, "w", encoding="utf-8") as f:
+            f.write(refreshed)
+        print(f"{slug}: refreshed beginner content only; page shell and indexing preserved")
+    else:
+        print(f"{slug}: beginner content already current")
 
 
 def deep_pronunciation(d):
@@ -1563,4 +1625,12 @@ def build(slug):
 
 
 if __name__ == "__main__":
-    build(sys.argv[1])
+    if len(sys.argv) == 3 and sys.argv[2] == "--refresh-beginner-content":
+        refresh_beginner_content(sys.argv[1])
+    elif len(sys.argv) == 2:
+        build(sys.argv[1])
+    else:
+        raise SystemExit(
+            "Usage: python3 tools/build-language-course.py <slug> "
+            "[--refresh-beginner-content]"
+        )

@@ -10,6 +10,7 @@ deploys:
   1  sheetsync (LIVE tutors/reviews/settings -> js/tutors/_overrides.js)
   2  world courses (every tools/course-data/*.py -> languages/<code>/…)
   3  Indian courses (9 lang-data slugs -> learn/<slug>/…)
+  3a root Indian topic trees (nine /<language>/<topic>/ trees)
   4  phase7 registries (source of truth for speech tags, countries)
   5  phase7c registries (PRODUCTION/AVAILABLE/BETA split)
   6  phase7c pages (hub, per-language pages, home sync)
@@ -79,6 +80,10 @@ ULTRA_BUILDS = [
      ["node", "tools/test-flashcards.mjs"]),
 ]
 ULTRA_TESTS = [
+    ("published vocabulary excludes generated segmentation placeholders", ["python3", "tools/test-published-vocabulary.py"]),
+    ("partial Phase 1 courses mark C1/C2 unpublished", ["python3", "tools/test-partial-course-publication.py"]),
+    ("rendered Phase 2 root Indian topic parity", ["python3", "tools/audit-indian-topic-parity.py", "--check"]),
+    ("Indian beginner leads use their authored language data", ["python3", "tools/test-language-course-uniqueness.py"]),
     ("immutable owner indexing/canonical contract", ["python3", "tools/ultra/contract.py"]),
     ("own-content dates are current (never a rebuild timestamp)", ["python3", "tools/update-editorial-metadata.py", "--check"]),
     ("site features on every page are current (additive, strip-invertible)", ["python3", "tools/apply-ultra.py", "--check"]),
@@ -116,6 +121,8 @@ def main():
         # undecorated pages; the decoration is restored afterwards and verified separately below.
         run("strip ultra decoration for the legacy checks", ["python3", "tools/apply-ultra.py", "--strip"])
         try:
+            run("root Indian topic trees --check (generator fingerprints)",
+                ["python3", "tools/build-lang-topics.py", "--check"])
             run("experience bundle --check", ["python3", "tools/bundle-experience-css.py", "--check"])
             run("world artwork --check", ["python3", "tools/build-world-art.py", "--check"])
             run("course hub --check", ["python3", "tools/build-course-hub.py", "--check"])
@@ -202,6 +209,7 @@ def main():
     run("world courses (all)", ["python3", "tools/build-world-course.py"])
     for slug in INDIAN_SLUGS:
         run("Indian course: " + slug, ["python3", "tools/build-language-course.py", slug])
+    run("root Indian topic trees (nine languages)", ["python3", "tools/build-lang-topics.py"])
     run("phase7 registries", ["python3", "tools/build-phase7-registries.py"])
     run("phase7c registries", ["python3", "tools/build-phase7c-registries.py"])
     run("phase7c pages", ["python3", "tools/build-phase7-pages.py"])
@@ -245,6 +253,9 @@ def main():
     run("copy index (ownership fingerprints)", ["node", "tools/build-copy-index.js"])
     run("truthful editorial dates", ["python3", "tools/update-editorial-metadata.py"])
     run("site features on every page (theme, voice, journal, bylines, honest notices)", ["python3", "tools/apply-ultra.py"])
+    run("partial Phase 1 course publication boundary", ["python3", "tools/test-partial-course-publication.py"])
+    run("rendered Phase 2 root Indian topic parity + report",
+        ["python3", "tools/audit-indian-topic-parity.py", "--write-report"])
     run("doctor", ["node", "tools/doctor.js"])
     print("\n══════════════════════════════════════════")
     print("build-all complete — every step passed.")

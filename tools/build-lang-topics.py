@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
-"""EkGuru — LANGUAGE TOPIC BUILDER (v152 pilot: Bengali).
+"""EkGuru — LANGUAGE TOPIC BUILDER (Phase 2: all nine Indian languages).
 
-    python3 tools/build-lang-topics.py [code]
+    python3 tools/build-lang-topics.py [code ...] [--check]
 
 Reads data/topics/<code>.json and emits the "Hindi-level" topic hub:
   /<dir>/                  hub: facts + course links + topic cards
@@ -17,6 +17,7 @@ After running, run tools/inject-storybook.py for banners + dock.
 """
 import html as H
 import glob
+import hashlib
 import json
 import os
 import re
@@ -26,6 +27,42 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 os.chdir(ROOT)
 BASE = "https://ekguru.shop"
 MARK = "<!-- ekguru:storybook -->"
+TOPIC_BUILDER_VERSION = "phase2-topic-depth-1"
+with open(__file__, "rb") as _source_file:
+    TOPIC_BUILDER_SOURCE_FINGERPRINT = hashlib.sha256(_source_file.read()).hexdigest()[:16]
+with open(os.path.join(ROOT, "data", "quality", "indexing-baseline.json"), encoding="utf-8") as _baseline_file:
+    INDEXING_BASELINE = json.load(_baseline_file).get("pages", {})
+
+
+def publication_for(url):
+    """Preserve the immutable robots/canonical decision for this route.
+
+    A newly added route has no owner-approved publication decision and stays
+    noindex. Existing pages inherit their exact baseline canonical and index
+    state rather than being promoted by a content rebuild.
+    """
+    route = str(url).strip("/")
+    rel = (route + "/index.html") if route else "index.html"
+    baseline = INDEXING_BASELINE.get(rel)
+    default_canonical = BASE + "/" + (str(url).lstrip("/"))
+    if baseline is None:
+        return "noindex, follow", default_canonical
+    robots = ("index, follow, max-snippet:-1, max-image-preview:large"
+              if baseline.get("indexable") else "noindex, follow")
+    return robots, baseline.get("canonical") or default_canonical
+
+
+def content_fingerprint(cfg, topic=None):
+    """Fingerprint generator source and language data without touching chrome."""
+    payload = {
+        "builder_version": TOPIC_BUILDER_VERSION,
+        "builder_source": TOPIC_BUILDER_SOURCE_FINGERPRINT,
+        "config": cfg,
+        "topic": topic,
+    }
+    encoded = json.dumps(payload, ensure_ascii=False, sort_keys=True,
+                         separators=(",", ":")).encode("utf-8")
+    return hashlib.sha256(encoded).hexdigest()[:20]
 
 # Mirror order of the Hindi topic hub (minus per-language adaptations,
 # which live in each JSON's coming_titles).
@@ -184,6 +221,7 @@ def localised(text, lang):
 
 def head(title, desc, url, pre, ld_json):
     t, d = H.escape(title), H.escape(desc)
+    robots, canonical = publication_for(url)
     return """<!DOCTYPE html>
 <html lang="en" dir="ltr">
 <head>
@@ -191,8 +229,8 @@ def head(title, desc, url, pre, ld_json):
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>%s | EkGuru</title>
 <meta name="description" content="%s">
-<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
-<link rel="canonical" href="%s/%s">
+<meta name="robots" content="%s">
+<link rel="canonical" href="%s">
 <meta name="google-site-verification" content="hFaqyp-9LdUXSKPA9RF011TkO2m_-7AUMasXqm_0dGI" />
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="EkGuru">
@@ -218,8 +256,8 @@ def head(title, desc, url, pre, ld_json):
 </style>
 <script type="application/ld+json">%s</script>
 </head>
-""" % (t, d, BASE, url, t, d, BASE, url, BASE, t, d, BASE,
-       pre, pre, pre, pre, MARK, pre, STYLE, ld_json)
+""" % (t, d, robots, H.escape(canonical, quote=True), t, d, BASE, url, BASE,
+       t, d, BASE, pre, pre, pre, pre, MARK, pre, STYLE, ld_json)
 
 
 def footer(pre):
@@ -244,13 +282,121 @@ def hint(lang_title):
             'the bottom-right of the page.</p>') % H.escape(lang_title)
 
 
+# Every live topic page gets one real retrieval exercise, tied to its own
+# phrase table. These short prompts are deliberately topic-specific: they give
+# learners a safe next action without claiming that every browser has a native
+# voice or that one regional usage is universal.
+PRACTICE_FOCUS = {
+    "greetings": "Choose a relationship and setting before you speak: a greeting to a close friend need not be the greeting you choose for an elder or a first meeting. Practise opening and replying, then listen for the form your conversation partner uses. Mirror it politely instead of assuming one greeting fits every community.",
+    "alphabet": "Pick one letter or sign from the examples, trace it slowly, and name its sound before you read a whole word containing it. Then cover the chart and identify the same shape in a new example. This separates visual recognition from pronunciation and helps prevent guessing from a familiar-looking script.",
+    "numbers": "Choose a practical setting—a price, a quantity, an age, or an appointment time—and use the number in a complete request. Say the number once, pause, and repeat it at a natural pace. Check the script form as well as the romanisation; a familiar Arabic numeral is not a substitute for recognising the local form.",
+    "conversation": "Turn two rows into a brief exchange: open, answer, and add one follow-up question of your own. Keep the turns short enough to say without reading. In a real conversation, listen for the other person’s pace and leave room for a reply rather than delivering a memorised speech.",
+    "verbs": "Choose one verb from the examples and build two short sentences around it. Change one detail at a time—who is acting, when it happens, or whether the sentence is a question—then compare the result with the page. Do not invent an ending from English; learn the pattern from attested examples.",
+    "vocabulary": "Group the words by the company they keep: notice which word belongs with a person, action, place, or polite reply. Make one short sentence using a pair from the table, then recall the pair tomorrow without looking. Remembering a usable phrase is more valuable than reciting an isolated translation.",
+    "phrases-food": "Imagine ordering one item, checking a detail, and thanking the person serving you. Practise the request as a complete turn, not as a bare noun. Menus and regional food names vary; point to an item or ask what it contains when a translation or dietary detail matters.",
+    "pronunciation": "Listen to one phrase from the table, wait a beat, and repeat it at an easy pace. Try once more without the romanisation, then compare what you said with the written form. The spelling guide is approximate; focus on a clear, comfortable rhythm rather than forcing an accent you do not have.",
+    "grammar": "Return to one complete example and mark the words that carry the relationship between its parts. Change only one word, read the new version aloud, and check whether the meaning still follows. This small contrast is safer than memorising a rule without seeing the language used in context.",
+    "beginners": "Select three forms you can use this week and attach each to a real routine: greeting someone, asking a simple question, or describing what you need. Practise for a few minutes on separate days. If recall fails, reveal the answer, say it once, and try again later rather than copying it repeatedly.",
+    "family": "Choose one real relationship and practise the matching term in a short introduction. Family titles can carry age, affection, respect, and local habit, so they do not always map neatly onto English labels. When unsure, listen to how the family addresses one another and ask before using an intimate form.",
+    "time-date": "Use the examples to arrange a real meeting: ask for a day, confirm a time, and repeat the answer back. Write the date in the script shown on the page, then read it aloud. Calendar conventions and everyday time expressions can vary, so confirm the details rather than relying on a guess.",
+    "phrases-travel": "Picture one journey and ask for a destination, a direction, or a stop. Practise the request slowly enough to be understood, then repeat the place name back to check it. If the route is important, combine the spoken phrase with a map or written address rather than relying on one phrase alone.",
+    "shopping": "Role-play a small purchase: ask the price, confirm the quantity, and respond courteously. Say the amount back before paying. Bargaining is not expected in every shop or situation, so read the setting and accept a clear answer; the aim is a respectful exchange, not a memorised performance.",
+    "emergency": "Practise a short, direct request for help and add the most important detail—your location, the person affected, or what is needed. Speak clearly and repeat the key noun if necessary. In a real emergency, use local emergency services and gestures or a written address as well as these phrases.",
+    "formal-informal": "Choose two listeners with different relationships to you and practise the same message for each. Keep the meaning steady while adjusting the form of address or level of politeness shown on the page. A common trap is switching one familiar word while leaving the rest of a formal sentence unchanged.",
+    "mistakes": "Take one incorrect form discussed on this page and explain why it sounds wrong in its example, not just which answer replaces it. Then make a new sentence that avoids the same trap. Keep a short personal error log; correcting a recurring habit is more useful than collecting a long list of rules.",
+    "speaking": "Record yourself giving a short answer using two phrases from the table. Listen once for whether the words are understandable and once for pauses or missing endings. Re-record only one improvement at a time. If you have a partner, ask for one specific correction instead of a vague judgement of your accent.",
+    "listening": "Read the three cues, hide the table, and listen to the speaker control once if a matching voice is available. Try to identify the phrase before reading it. On a second listen, notice where one word ends and the next begins; do not mistake a regional accent for an error.",
+    "reading": "Choose a short item in the script from this guide and read it aloud before checking the romanisation. Point to each written unit as you say it, then return to the beginning and read for meaning. If a sign or printed form differs regionally, use the surrounding context and ask a fluent reader.",
+    "writing": "Write three examples from memory, then compare each with the page one character at a time. Correct the shape or mark that changed the meaning instead of rewriting the whole row. A photograph of a real label or notebook can become a useful review prompt, provided you have permission to keep it.",
+    "sentence-structure": "Build a new sentence by keeping the pattern from one model and replacing only one meaningful part. Read it aloud and translate the whole idea back into English. Avoid moving every word into English order; compare how the example itself marks who did what and when.",
+    "name-topic": "Write your name in the script as a pronunciation guide, not as a claim that every sound has an exact one-letter match. Say it aloud for a fluent speaker and invite them to adjust the spelling. Names deserve care: follow the person’s own preferred spelling when they already use one.",
+    "slang": "Before repeating a slang expression, identify who said it, to whom, and in what mood. Practise recognising the phrase before trying it yourself. Slang can sound friendly in one group and rude in another; avoid using it with elders, customers, or strangers until a trusted speaker confirms the setting.",
+    "for-kids": "Make a picture card for one word, say it together, and let the learner point to the matching picture before speaking. Keep the activity short and playful, with a chance to stop. Do not turn pronunciation into a test; encouragement and repeated exposure work better than correcting every sound.",
+    "business": "Practise one workplace request as a complete message: name the task, make the request, and confirm the next step. Keep a respectful opening and closing. Office conventions differ by team and region, so use the examples as a starting point and observe the register your colleagues prefer.",
+    "heritage": "Choose one phrase connected to a relative, place, or family routine and ask a speaker how they say it at home. Record any regional form beside the printed version without treating either as the only correct one. A heritage learner can connect written study with oral knowledge while respecting family variation.",
+    "how-long": "Turn the goal into a small, repeatable routine: choose one phrase, recall it tomorrow, and use it later in a new example. Track practice time rather than promising a fluency date. Progress depends on prior experience, access to speakers, and consistency; a calendar is a planning aid, not a guarantee.",
+    "indian-languages": "Compare one form on this page with a language you already know: note a real similarity and one difference in sound, script, or usage. Shared words do not prove that pronunciation or grammar is interchangeable. Keep both examples visible so a helpful comparison does not become a false shortcut.",
+    "relationships": "Practise a respectful way to introduce a person or describe a relationship, then check whether the form suits the setting. Terms of affection and respect are personal as well as linguistic. Avoid assuming that a phrase that works among close friends belongs in every family or public conversation.",
+    "flashcards-topic": "Use the three cues as active-recall cards: try each answer before turning to the key, then revisit the ones you missed after a short break. Shuffle the order on the next pass. Do not count a card as learned just because the answer looks familiar while it is visible.",
+}
+
+
+def topic_source_word_count(tp):
+    """Count authored topic text, excluding JSON keys and navigation metadata."""
+    def values(item):
+        if isinstance(item, dict):
+            for value in item.values():
+                yield from values(value)
+        elif isinstance(item, list):
+            for value in item:
+                yield from values(value)
+        elif isinstance(item, str):
+            yield item
+
+    fields = [tp.get(key, "") for key in
+              ("h1", "lede", "paras", "table_head", "phrases", "note", "faqs")]
+    text = H.unescape(re.sub(r"<[^>]*>", " ", " ".join(values(fields))))
+    return len(re.findall(r"\b[\w’'-]+\b", text, flags=re.UNICODE))
+
+
+def practice_section(cfg, tp):
+    """Render a no-JS recall drill from this topic's own phrases and usage note."""
+    phrases = tp["phrases"]
+    positions = sorted({0, len(phrases) // 2, len(phrases) - 1})
+    samples = [phrases[i] for i in positions]
+    cues = "".join("<li>%s</li>" % H.escape(ph["en"]) for ph in samples)
+    key = "".join(
+        '<li><span lang="%s" dir="auto">%s</span> '
+        '<i>%s</i> — %s</li>'
+        % (H.escape(cfg["code"], quote=True), H.escape(ph["bn"]),
+           H.escape(ph["say"]), H.escape(ph["en"])) for ph in samples)
+    language = re.sub(r"^Learn\s+", "", cfg["title"])
+    focus = PRACTICE_FOCUS.get(tp["slug"])
+    if focus is None and "-vs-" in tp["slug"]:
+        focus = ("Write down one useful similarity and one difference between the two languages. "
+                 "Check each claim against the examples rather than guessing from a shared word. "
+                 "Keep the forms in their own scripts and practise saying both before deciding "
+                 "which one belongs in the situation described on this page.")
+    if focus is None and ("cinema" in tp["slug"] or tp["slug"] in ("bollywood", "sandalwood", "mollywood", "pollywood", "kollywood", "tollywood", "lollywood")):
+        focus = ("Choose a short line you can understand from a film or programme in the language. "
+                 "Listen once for the situation, then replay it with subtitles and compare one "
+                 "expression with this page. Screen dialogue is written for characters and can "
+                 "be dramatic or region-specific; do not treat it as a universal everyday script.")
+    if topic_source_word_count(tp) < 400 and focus is None:
+        raise ValueError("No topic-specific practice focus for %s" % tp["slug"])
+    parts = [
+        '<section class="topic-practice" aria-labelledby="topic-practice-title">',
+        '<h2 id="topic-practice-title">Practice: recall, then use</h2>',
+        '<p>Use this quick recall drill for <b>%s</b>. Hide the script and romanisation columns; say the %s form for each cue before revealing its row, then check spelling and sound. The phrase-table speaker buttons provide a model when a matching browser voice is available.</p>'
+        % (H.escape(tp["title"]), H.escape(language)),
+        '<ol class="practice-cues">%s</ol>' % cues,
+    ]
+    if topic_source_word_count(tp) < 400:
+        anchor = samples[0]
+        parts.append(
+            '<p class="practice-focus"><b>Transfer practice.</b> %s Start from '
+            '<span lang="%s" dir="auto">%s</span> (<i>%s</i>) and decide whether '
+            'it fits the situation before using it elsewhere.</p>'
+            % (H.escape(focus), H.escape(cfg["code"], quote=True),
+               H.escape(anchor["bn"]), H.escape(anchor["say"]))
+        )
+    contrast = samples[-1]
+    parts += [
+        '<p class="practice-context"><b>Context check.</b> For %s, “%s” belongs to a particular setting. A common mistake is to treat an English gloss as universal; read the language-specific note above and ask a fluent speaker when local usage differs.</p>'
+        % (H.escape(tp["title"]), H.escape(contrast["en"])),
+        '<details class="practice-key"><summary>Check your recall: answer key</summary><ol>%s</ol></details>' % key,
+        '</section>'
+    ]
+    return "\n".join(parts)
+
+
 def topic_page(cfg, tp, prev_tp, next_tp, live):
     d, pre = cfg["dir"], "../../"
     url = "%s/%s/" % (d, tp["slug"])
     rows = []
     for ph in tp["phrases"]:
         rows.append(
-            "<tr><td>%s</td><td class=\"bn\" lang=\"%s\">%s"
+            "<tr><td>%s</td><td class=\"bn\" lang=\"%s\" dir=\"auto\">%s"
             "<button class=\"ssay\" data-sb-say=\"%s\" aria-label=\"Hear it in %s\">"
             "\U0001F50A</button></td><td><i>%s</i></td></tr>"
             % (H.escape(ph["en"]), cfg["code"], H.escape(ph["bn"]),
@@ -292,6 +438,9 @@ def topic_page(cfg, tp, prev_tp, next_tp, live):
             "<p class=\"crumb\"><a href=\"%s\">EkGuru</a> \u203a "
             "<a href=\"../\">%s</a> \u203a %s</p>"
             % (pre, H.escape(cfg["hub_title"]), H.escape(tp["title"])),
+            '<article class="topic-core" data-topic-core="true" data-language="%s" data-topic="%s" data-topic-fingerprint="%s">'
+            % (H.escape(cfg["code"], quote=True), H.escape(tp["slug"], quote=True),
+               content_fingerprint(cfg, tp)),
             '<div class="hero">',
             '<span class="kicker">%s</span>' % H.escape(cfg["title"]),
             "<h1>%s</h1>" % H.escape(localised(tp["h1"], cfg["title"])),
@@ -302,14 +451,18 @@ def topic_page(cfg, tp, prev_tp, next_tp, live):
     body += ["<h2>Words and phrases for this topic</h2>",
              "<div class=\"twrap\"><table class=\"phr\"><thead><tr><th>%s</th><th>%s</th><th>%s</th></tr></thead>"
              "<tbody>%s</tbody></table></div>" % (tuple(H.escape(x) for x in tp["table_head"]) + ("".join(rows),))]
-    body += ['<div class="note">%s</div>' % tp["note"]]
-    body += ["<h2>Everything on this topic</h2>",
+    body += ["<h2>Language, culture, and common traps</h2>",
+             '<div class="note">%s</div>' % tp["note"],
+             practice_section(cfg, tp),
+             "<h2>Questions learners ask</h2>", faqs,
+             "</article>",
+             '<section class="topic-navigation" aria-label="Continue learning">',
+             "<h2>Everything on this topic</h2>",
              '<ul class="linklist">' + "".join(
                  '<li><a href="%s">%s</a><span>%s</span></li>'
                  % (l["url"], H.escape(l["label"]), H.escape(l["desc"]))
                  for l in tp["links"]) + "</ul>"]
-    body += ["<h2>Questions learners ask</h2>", faqs,
-             "<h2>Keep learning %s</h2>" % H.escape(cfg["title"]),
+    body += ["<h2>Keep learning %s</h2>" % H.escape(cfg["title"]),
              '<div class="chips"><a href="%s">Full %s course</a>'
              '<a href="%s">%s world course</a>'
              '<a href="%s">Quiz yourself</a></div>'
@@ -319,7 +472,7 @@ def topic_page(cfg, tp, prev_tp, next_tp, live):
              '<div class="chips">' + "".join(
                  '<a href="../%s/">%s</a>' % (t["slug"], H.escape(t["title"]))
                  for t in live if t["slug"] != tp["slug"]) + "</div>",
-             cta, nav, "</div>"]
+             cta, nav, "</section>", "</div>"]
     page = (head(seo_title, seo_desc, url, pre,
                  json.dumps(ld, ensure_ascii=False))
             + "<body>\n" + "\n".join(body) + "\n" + footer(pre)
@@ -359,7 +512,7 @@ def hub_page(cfg, live, coming):
              {"@type": "ListItem", "position": i + 1, "name": t["title"],
               "url": "%s/%s/%s/" % (BASE, d, t["slug"])}
              for i, t in enumerate(live)]}]}
-    body = ["<div class=\"pw\">",
+    body = ["<div class=\"pw\" data-topic-hub-fingerprint=\"%s\">" % content_fingerprint(cfg),
             "<p class=\"crumb\"><a href=\"%s\">EkGuru</a> \u203a %s</p>"
             % (pre, H.escape(cfg["hub_title"])),
             '<div class="hero">',
@@ -401,13 +554,19 @@ def hub_page(cfg, live, coming):
 
 
 def main():
-    codes = sys.argv[1:] or sorted(
+    args = list(sys.argv[1:])
+    check = "--check" in args
+    args = [a for a in args if a != "--check"]
+    unknown = [a for a in args if not re.fullmatch(r"[a-z]{2,3}", a)]
+    if unknown:
+        raise SystemExit("Usage: python3 tools/build-lang-topics.py [code ...] [--check]")
+    codes = args or sorted(
         os.path.basename(f)[:-5] for f in glob.glob("data/topics/*.json"))
     for code in codes:
-        build(code)
+        build(code, check=check)
 
 
-def build(code):
+def build(code, check=False):
     with open("data/topics/%s.json" % code, encoding="utf-8") as f:
         cfg = json.load(f)
     live = cfg["topics"]
@@ -416,13 +575,39 @@ def build(code):
     order = [s for s in list(MIRROR) + list(cfg.get("mirror_extra", [])) if s not in skip]
     coming = [(s, cfg["coming_titles"].get(s, s.replace("-", " ").title()))
               for s in order if s not in live_slugs]
+    hub_path = os.path.join(cfg["dir"], "index.html")
+    topic_paths = [os.path.join(cfg["dir"], tp["slug"], "index.html") for tp in live]
+    if check:
+        stale = []
+        if not os.path.isfile(hub_path):
+            stale.append("missing hub")
+        else:
+            hub_raw = open(hub_path, encoding="utf-8", errors="replace").read()
+            expected = content_fingerprint(cfg)
+            if not re.search(r'data-topic-hub-fingerprint=["\']' + re.escape(expected) + r'["\']', hub_raw):
+                stale.append("stale hub")
+        for i, (tp, path) in enumerate(zip(live, topic_paths)):
+            if not os.path.isfile(path):
+                stale.append("missing " + tp["slug"])
+                continue
+            raw = open(path, encoding="utf-8", errors="replace").read()
+            expected = content_fingerprint(cfg, tp)
+            if not re.search(r'data-topic-fingerprint=["\']' + re.escape(expected) + r'["\']', raw):
+                stale.append("stale " + tp["slug"])
+        if stale:
+            raise SystemExit("lang-topics [%s]: %d stale/missing page(s): %s" %
+                             (code, len(stale), ", ".join(stale[:12])))
+        print("lang-topics [%s]: hub + %d topics current (%d coming-soon cards)."
+              % (code, len(live), len(coming)))
+        return
+
     os.makedirs(cfg["dir"], exist_ok=True)
-    with open("%s/index.html" % cfg["dir"], "w", encoding="utf-8") as f:
+    with open(hub_path, "w", encoding="utf-8") as f:
         f.write(hub_page(cfg, live, coming))
     for i, tp in enumerate(live):
-        os.makedirs("%s/%s" % (cfg["dir"], tp["slug"]), exist_ok=True)
-        with open("%s/%s/index.html" % (cfg["dir"], tp["slug"]), "w",
-                  encoding="utf-8") as f:
+        path = topic_paths[i]
+        os.makedirs(os.path.dirname(path), exist_ok=True)
+        with open(path, "w", encoding="utf-8") as f:
             f.write(topic_page(cfg, tp,
                                live[i - 1] if i > 0 else None,
                                live[i + 1] if i + 1 < len(live) else None,
