@@ -240,6 +240,45 @@ same commit (`build-flashcards.py`, `inject-flashcards.py` are checks in
 `build-all.py check`), and `build-learning-data.py` runs before the gates when
 course data moves.
 
+2026-10-04 (after Russian — 14 of 18): **20 rung files · 24 `extra` blocks ·
+24 short units · 260 English labels**. ru reads `11/11`; its gate row is
+`FAIL ['no_native_review']` only, `unique_text_ratio` 0.97 and `script_mismatch`
+0 against the 0.85 and 0 thresholds. The module is `tools/depth-content/ru.py`:
+six `extra` blocks built on sourced Russia notes (the three-name introduction
+and вы/ты, tea as a meal, дача, the nineteenth-century novel, Russian as a
+lingua franca and a state language, the two lines of Russian music), eighteen
+third lessons, and five half-steps with their own themes — the kiosk, the flat
+and the clock; the metro, the ticket office and the hotel; the district, work
+and opinion; documents, the economy and research; the academy, public
+regulation and translation. No theme is reused from an earlier language.
+
+Russian is the first Cyrillic language in the queue, so the romanisation column
+is the course's own ASCII scheme: stressed syllable in capitals, hyphens
+between the meaningful parts, `-ть` → `-ty`, no diacritics (`zdrahst-voo-ee-teh`,
+`pah-ZHAH-loo-stah`). A scan for Cyrillic left inside an `r` field found four
+slips and they were fixed before the authoring run, not after: the field is
+checked by eye, not by a gate. `tools/normalise-romanisation.py` owns ru and
+reports 93 course files in scope with **0 strings to repair** — the file is
+already consistent, and the tool would have rewritten it if it were not.
+
+Two pieces of the same commit are not content: the ru ladder page moved its
+counts (24 → 36 lessons, 192 → 252 words, 832 → 1156 questions) while keeping
+the committed `twitter:title` line, and the ru flashcard deck was rebuilt from
+the new vocabulary (`data/flashcards/ru.json`, `js/flashcards-ru.js`,
+`data/quality/flashcard-coverage.json`) with the ru lab block refreshed on
+`languages/ru/practice/index.html`. ru carries no English speaker labels
+(every `sp` is Cyrillic), so `tools/localise-speaker-labels.py` — still
+`gu|mr|pa` only — has nothing to do here. The C1/C2 files keep the trap-#9
+`discourse segment N in` filler exactly as found; re-authoring that batch stays
+a shared job after this queue.
+
+The Russian pass also closed the four pt text defects recorded at the end of
+the Portuguese entry — `checei` → `chequei` (two places), the stray `ficou/fi
+cou` duplication, and the `em Recife` / `no Recife` disagreement between a
+dialogue and its worksheet key. They were fixed in `tools/depth-content/pt.py`
+and regenerated through `author-depth.py --lang pt` in a separate commit, so a
+shipped language is not left holding text that review already rejected.
+
 ## Acceptance (from the command doc)
 
 - `python3 tools/build-all.py check` green

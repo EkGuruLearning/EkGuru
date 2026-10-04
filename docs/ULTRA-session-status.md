@@ -167,7 +167,39 @@ state, while the done courses whose fragments are labelled differently (`pa`,
 etc.) pass the same check. Re-authoring those C1/C2 lessons is one shared job
 after this queue, not a pt-specific defect.
 
-Still open: PHASE 1 for `ru ta te ur zh` (25 rungs, 30 `extra` blocks, 30 short
-units), the six-course C1/C2 re-authoring above, 260 English speaker labels
+**Russian — the 14th of 18.** `tools/depth-content/ru.py` carries six `extra`
+blocks (the three-name introduction and вы/ты, tea as a meal, дача, the
+nineteenth-century novel, Russian as a lingua franca, the two lines of Russian
+music), eighteen third lessons and the five half-steps A1+ … C1+; the authoring
+run wrote 38 changes across the six rung files plus five new half-step files.
+The romanisation column is the course's own ASCII scheme (stress in capitals,
+`-ть` → `-ty`, no diacritics); a scan for Cyrillic left in an `r` field found
+four slips, fixed before authoring. `normalise-romanisation.py` owns ru and
+reports 93 files in scope with 0 strings to repair. ru carries no English
+speaker labels, so `localise-speaker-labels.py` (still `gu|mr|pa` only) has
+nothing to do.
+
+Gates at the ru tip, all local: `build-all.py check` green, course-levels 32/0,
+placeholders 7/0, ad-policy 22/0, `inject-ads.py --check` ok, ultra integration
+2687 pages / 0 problems, inventory 2690 pages with `thin_indexable 0` /
+`broken 0`, and the PHASE 1 gap audit reads `ru 11/11 - 0 0 0`. The language
+gate's ru row is `FAIL ['no_native_review']` only, `unique_text_ratio` 0.97 and
+`script_mismatch 0`. The ru ladder page moved its counts (24 → 36 lessons,
+192 → 252 words, 832 → 1156 questions) while keeping the committed
+`twitter:title` line, and the ru flashcard deck and lab block were rebuilt from
+the new vocabulary.
+
+**Portuguese follow-up.** The four pt text defects recorded at the end of the
+Portuguese pass were real and are now fixed at source in
+`tools/depth-content/pt.py` — `checei` → `chequei` (two places), the stray
+`ficou/fi cou` duplication in the A2+ grammar box, and the `em Recife` / `no
+Recife` disagreement between a dialogue and its worksheet key. `author-depth.py
+--lang pt` regenerated the three affected rung files, the gates were re-run and
+the language gate's pt content digest and `unique_text_ratio` (0.946) were
+re-recorded; no pt page changed, because the lesson text is read by the player
+from the JSON. Separate commit, so the ru commit stays one language.
+
+Still open: PHASE 1 for `ta te ur zh` (20 rungs, 24 `extra` blocks, 24 short
+units), the eight-course C1/C2 re-authoring above, 260 English speaker labels
 (`ta` 104, `te` 128, `ur` 28), and the Urdu A1-marks-vs-ASCII decision. Runtime
 flags stay OFF; indexing, canonicals, robots and the domain are untouched.
