@@ -63,11 +63,11 @@ function emptyTutorsBlock(opts) {
   return `<${tag} ${attrs}>
   <p class="t-empty-title"><strong>${title}</strong></p>
   <p class="t-empty-body">${body}</p>
-  <p class="t-empty-links">
+  <p class="t-empty-actions">
     <a class="btn btn-primary" href="${prefix}learn/hindi/">${cta}</a>
-    · <a href="${prefix}learn/">Learn</a>
-    · <a href="${prefix}courses/">Courses</a>
-    · <a href="${prefix}daily-hindi/">Daily Hindi</a>
+    <a class="btn btn-ghost" href="${prefix}learn/">Learn</a>
+    <a class="btn btn-ghost" href="${prefix}courses/">Courses</a>
+    <a class="btn btn-ghost" href="${prefix}daily-hindi/">Daily Hindi</a>
   </p>
 </${tag}>`;
 }

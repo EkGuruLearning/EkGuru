@@ -130,7 +130,7 @@ window.EKGURU_I18N = {
     "nav.support": "Support",
     "nav.search": "Search",
     "nav.cta": "Find tutors",
-    "hero.badge": "100% Hindi · 1-on-1 Online",
+    "hero.badge": "100% Hindi · 1-on-1 online",
     "hero.title1": "Learn Hindi with your own",
     "hero.title2": "personal Guru",
     "hero.lead": "Browse tutor-provided Hindi teaching profiles, compare stated subjects and lesson details, and send an enquiry about private online lessons.",

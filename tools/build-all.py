@@ -66,6 +66,8 @@ def run(label, cmd):
 
 # ULTRA v3 generators/tests. Each slice appends here so check and write modes stay in step.
 ULTRA_BUILDS = [
+    ("flashcard decks from authored course vocabulary (PHASE 9)", ["python3", "tools/build-flashcards.py"]),
+    ("flashcard lab on every practice page with a deck (PHASE 9)", ["python3", "tools/inject-flashcards.py"]),
     ("700-language draft registry + 197 country contexts", ["python3", "tools/build-language-registry.py"]),
     ("per-language AA themes (script font, direction, accent)", ["python3", "tools/build-themes.py"]),
     ("voice language tags + recording manifests (owner-supplied only)", ["python3", "tools/build-voice-languages.py"]),
@@ -73,6 +75,8 @@ ULTRA_BUILDS = [
     ("trust, journal, review and design pages (all noindex)", ["python3", "tools/build-ultra-pages.py"]),
     ("language quality gate report (failures reported, never hidden; no page edited)", ["python3", "tools/language-gate.py"]),
     ("course health report", ["python3", "tools/course-health.py"]),
+    ("flashcard decks + lab: sizes, ids, keyboard, SRS (PHASE 9)",
+     ["node", "tools/test-flashcards.mjs"]),
 ]
 ULTRA_TESTS = [
     ("immutable owner indexing/canonical contract", ["python3", "tools/ultra/contract.py"]),

@@ -184,6 +184,12 @@ def card(course, levels, meta, deep_prefix="..", names=None):
     # Named, not counted. "30 country contexts" told a reader nothing and told
     # a search engine less; the four biggest are the ones people look for
     # (India · United States · United Arab Emirates · +26 more).
+    #
+    # Usability 10 (3 Oct 2026): a course with no country attribution printed
+    # a lone chip reading "documented" — a word that states nothing, on the
+    # same line as the level and lesson count (spa 0/28, fra 0/40, jpn 0/3,
+    # zho 0/0). A card with nothing to name now says nothing: the level line
+    # above it already carries the facts.
     named = [names.get(c, c) for c in codes]
     named.sort()
     href = course_href(code, levels)
@@ -211,7 +217,7 @@ def card(course, levels, meta, deep_prefix="..", names=None):
         '<b>{name}</b>'
         '{native_line}'
         '<span class="sub">{lvline} · {n} lessons</span>'
-        '<span class="country-chips">{chips}</span>'
+        "{chip_line}"
         "</span>"
         '<span class="course-arrow" aria-hidden="true">→</span>'
         "</a></article>"
@@ -219,9 +225,10 @@ def card(course, levels, meta, deep_prefix="..", names=None):
         hue=hue_for(code), code=esc(code), href=esc(href), name=esc(name),
         mono=esc(monogram), native_line=native_line,
         lvline=esc(lvline), n=lesson_count,
-        chips=("".join("<em>%s</em>" % esc(x) for x in named[:4]) +
-               ("<em>+%d more</em>" % (countries - 4) if countries > 4 else "")
-               if countries else "<em>documented</em>"),
+        chip_line=('<span class="country-chips">%s</span>'
+                   % "".join("<em>%s</em>" % esc(x) for x in named[:4]) +
+                   ("<em>+%d more</em>" % (countries - 4) if countries > 4 else "")
+                   if countries else ""),
         country_attr=esc(" ".join(codes)),
     )
 

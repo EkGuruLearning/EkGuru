@@ -11,6 +11,9 @@ driven by data: every other published course needs
     authored as *real levels*: the course player fetches
     `data/courses/<phase>/<code>_<level>.json` by name, so the file is playable
     at `/courses/#/<code>/A1+` whether or not a static page exists.
+  * optional source-driven rewrites of selected existing CEFR lessons, tests
+    and goals (`BASE_REWRITES`, `LEVEL_TESTS`, `LEVEL_GOALS`) when a language
+    pass finds a content defect that must be corrected reproducibly.
 
 Content lives in `tools/depth-content/<code>.py` (or a same-named package) and
 is written with the small DSL in `tools/depth_kit.py`. This tool owns the
@@ -220,6 +223,78 @@ def write_extras(mod, cdir: Path, check: bool) -> int:
     return changed
 
 
+def write_base(mod, cdir: Path, check: bool) -> int:
+    """Re-author selected existing lessons from the language source module.
+
+    Most course files have hand-maintained CEFR lessons, so this surface is
+    opt-in (`BASE_REWRITES`). It lets a language repair a source defect and
+    regenerate the full lesson shape without editing generated level pages or
+    leaving a one-off JSON patch that the authoring source cannot reproduce.
+    """
+    rewrites = getattr(mod, "BASE_REWRITES", {})
+    tests = getattr(mod, "LEVEL_TESTS", {})
+    goals = getattr(mod, "LEVEL_GOALS", {})
+    if not rewrites and not tests and not goals:
+        return 0
+    name, script = mod.NAME, getattr(mod, "SCRIPT", mod.NAME)
+    skill = getattr(mod, "SKILL", "")
+    changed = 0
+    rungs = sorted(set(rewrites) | set(tests) | set(goals))
+    for rung in rungs:
+        path = cdir / f"{mod.CODE}_{rung}.json"
+        if not path.exists():
+            raise SystemExit(f"missing course file for base rewrite: {path}")
+        data = json.loads(path.read_text(encoding="utf-8"))
+        level = data["level"]
+        dirty = False
+        for unit_id, lesson_id, spec in rewrites.get(rung, []):
+            unit = next((u for u in level.get("units", []) if u.get("id") == unit_id), None)
+            if unit is None:
+                raise SystemExit(f"{path}: no unit {unit_id}")
+            existing = next((l for l in unit.get("lessons", []) if l.get("id") == lesson_id), None)
+            if existing is None:
+                raise SystemExit(f"{path}: no lesson {lesson_id} to rewrite")
+            import re as _re
+            m = _re.search(r"(\d+)$", lesson_id)
+            n = int(m.group(1)) if m else 1
+            new = build_lesson(unit_id, n, spec, name, script, skill)
+            new["id"] = lesson_id
+            if existing == new:
+                continue
+            if check:
+                print("  %-12s BASE STALE" % lesson_id)
+                changed += 1
+            else:
+                unit["lessons"][unit["lessons"].index(existing)] = new
+                dirty = True
+                changed += 1
+                print("  %-12s BASE rewritten — %d vocab, %d practice, %d quiz"
+                      % (lesson_id, len(new["vocab"]), len(new["practice"]), len(new["quiz"])))
+        desired_test = [{"type": t, "q": q, "answer": a} for t, q, a in tests.get(rung, [])]
+        if desired_test and level.get("test", {}).get("items") != desired_test:
+            if check:
+                print("  %-3s test items STALE" % rung)
+                changed += 1
+            else:
+                level.setdefault("test", {})["items"] = desired_test
+                dirty = True
+                changed += 1
+                print("  %-3s test items rewritten — %d distinct prompts" % (rung, len(desired_test)))
+        desired_goals = goals.get(rung)
+        if desired_goals and level.get("goals") != desired_goals:
+            if check:
+                print("  %-3s goals STALE" % rung)
+                changed += 1
+            else:
+                level["goals"] = desired_goals
+                dirty = True
+                changed += 1
+                print("  %-3s goals rewritten — %d outcomes" % (rung, len(desired_goals)))
+        if dirty:
+            path.write_text(json.dumps(data, ensure_ascii=False, indent=2), encoding="utf-8")
+    return changed
+
+
 def write_third(mod, cdir: Path, check: bool) -> int:
     name, script = mod.NAME, getattr(mod, "SCRIPT", mod.NAME)
     skill = getattr(mod, "SKILL", "")
@@ -310,7 +385,7 @@ def main() -> int:
     ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     ap.add_argument("--lang", required=True, help="course code, e.g. ar")
     ap.add_argument("--check", action="store_true", help="report drift, write nothing")
-    ap.add_argument("--only", choices=["rungs", "extras", "third", "manifest"],
+    ap.add_argument("--only", choices=["base", "rungs", "extras", "third", "manifest"],
                     help="run one surface only")
     args = ap.parse_args()
 
@@ -318,6 +393,8 @@ def main() -> int:
     cdir = course_dir(mod.CODE)
     todo = args.only
     changed = 0
+    if todo in (None, "base"):
+        changed += write_base(mod, cdir, args.check)
     if todo in (None, "rungs"):
         changed += write_rungs(mod, cdir, args.check)
     if todo in (None, "extras"):

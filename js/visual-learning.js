@@ -155,22 +155,30 @@
     }
     
     // Add country visuals
+    //
+    // Usability 5 (3 Oct 2026): this block used to be inserted directly after
+    // the <h1> with an <h3> inside it, so the document outline jumped H1 → H3,
+    // and on the home page it landed in the hero copy column between the
+    // headline and the search box. It now hangs off the first <h2> of the
+    // article — a sibling section, with a level-2 heading of its own — and it
+    // is skipped entirely on a page that has no <h2> at all (the home page
+    // hero has an h1 and no section heading in that container).
     var country = document.documentElement.getAttribute('data-country');
-    if (country && VISUALS.countries[country] && !main.querySelector('.country-visual')) {
+    var firstH2 = main.querySelector('h2');
+    if (country && VISUALS.countries[country] && firstH2 && !main.querySelector('.country-visual')) {
       var countryData = VISUALS.countries[country];
       var countryEl = document.createElement('div');
       countryEl.className = 'country-visual';
       countryEl.style.cssText = 'margin:20px 0;padding:16px;border-radius:12px;background:linear-gradient(135deg,#f6f4ff,#fff);border:1px solid #e6e1fb';
-      countryEl.innerHTML = 
-        '<h3 style="margin:0 0 10px">🌍 ' + country + ' Cultural Context</h3>' +
+      countryEl.innerHTML =
+        '<h2 style="margin:0 0 10px">🌍 ' + country + ' Cultural Context</h2>' +
         '<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;font-size:.85rem">' +
           '<div><b>Landmarks:</b><br>' + countryData.landmarks.join(', ') + '</div>' +
           '<div><b>Festivals:</b><br>' + countryData.festivals.join(', ') + '</div>' +
           '<div><b>Food:</b><br>' + countryData.food.join(', ') + '</div>' +
         '</div>';
-      
-      var h1 = main.querySelector('h1');
-      if (h1) h1.parentNode.insertBefore(countryEl, h1.nextSibling);
+
+      firstH2.parentNode.insertBefore(countryEl, firstH2.nextSibling);
     }
     
     // Add visual learning grid

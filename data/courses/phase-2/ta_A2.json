@@ -98,25 +98,25 @@
             },
             "dialogue": [
               {
-                "sp": "Doctor",
+                "sp": "மருத்துவர்",
                 "t": "உங்களுக்கு என்ன பிரச்சினை?",
                 "r": "Uṅgaḷukku enna pirachchinai?",
                 "en": "What troubles you?"
               },
               {
-                "sp": "Patient",
+                "sp": "நோயாளி",
                 "t": "டாக்டர், இரண்டு நாட்களாக காய்ச்சல்.",
                 "r": "Ṭākṭar, iraṇḍu nāṭkaḷāga kāychchal.",
                 "en": "Doctor, fever for two days."
               },
               {
-                "sp": "Doctor",
+                "sp": "மருத்துவர்",
                 "t": "இருமல், சளி இருக்கிறதா?",
                 "r": "Irumal, saḷi irukkiṛadā?",
                 "en": "Any cough or cold?"
               },
               {
-                "sp": "Patient",
+                "sp": "நோயாளி",
                 "t": "இருமல் மட்டும் இருக்கிறது.",
                 "r": "Irumal maṭṭum irukkiṛadu.",
                 "en": "Only a cough."
@@ -194,7 +194,7 @@
               },
               {
                 "type": "dialogue_completion",
-                "q": "Practice 10 [dialogue completion] — Health & doctor: Complete Patient’s turn appropriately: Doctor, fever for two days.",
+                "q": "Practice 10 [dialogue completion] — Health & doctor: Complete நோயாளி’s turn appropriately: Doctor, fever for two days.",
                 "answer": "டாக்டர், இரண்டு நாட்களாக காய்ச்சல்.",
                 "skill_target": "Tamil dialogue completion: Tamil suffix chains, case marking, agreement, and formal versus colloquial choice"
               },
@@ -408,25 +408,25 @@
             },
             "dialogue": [
               {
-                "sp": "Manager",
+                "sp": "மேலாளர்",
                 "t": "வாருங்கள்! உங்கள் பெயர் என்ன?",
                 "r": "Vāruṅgaḷ! Uṅgaḷ peyar enna?",
                 "en": "Welcome! What is your name?"
               },
               {
-                "sp": "Newcomer",
+                "sp": "புதியவர்",
                 "t": "என் பெயர் குமார்.",
                 "r": "Eṉ peyar Kumāṛ.",
                 "en": "My name is Kumar."
               },
               {
-                "sp": "Manager",
+                "sp": "மேலாளர்",
                 "t": "இது உங்கள் மேசை. கணினியை இயக்குங்கள்.",
                 "r": "Idu uṅgaḷ mēsai. Kaṇiṉiyai iyakkuṅgaḷ.",
                 "en": "This is your desk. Switch on the computer."
               },
               {
-                "sp": "Newcomer",
+                "sp": "புதியவர்",
                 "t": "சரி. மின்னஞ்சல் முகவரி என்ன?",
                 "r": "Sari. Miṉṉañjal mugavari enna?",
                 "en": "OK. What is the email address?"
@@ -634,6 +634,295 @@
               "முதலாளி"
             ],
             "srs_policy": "Only selected high-value lesson forms are preselected; actual mistakes and productive patterns may enter personalized review after learner evidence."
+          },
+          {
+            "id": "ta-a2-l7",
+            "title": "மருத்துவரிடம் நேரம் கேட்பது",
+            "learn": "Make an appointment and describe a simple symptom. The body part comes before வலி (pain); எனக்கு marks the person experiencing it, and வேண்டும் expresses the need for an appointment. Ask for a date with எந்த நாள்?",
+            "vocab": [
+              {
+                "t": "தலைவலி",
+                "r": "talaivali",
+                "en": "headache",
+                "pos": "noun"
+              },
+              {
+                "t": "காய்ச்சல்",
+                "r": "kāyccal",
+                "en": "fever",
+                "pos": "noun"
+              },
+              {
+                "t": "மருத்துவர்",
+                "r": "marutt uvar",
+                "en": "doctor",
+                "pos": "noun"
+              },
+              {
+                "t": "நேரம்",
+                "r": "nēram",
+                "en": "time, appointment slot",
+                "pos": "noun"
+              },
+              {
+                "t": "ஓய்வு",
+                "r": "ōyvu",
+                "en": "rest",
+                "pos": "noun"
+              }
+            ],
+            "grammar": {
+              "title": "Symptoms and appointments",
+              "pattern": "எனக்கு + symptom + இருக்கிறது · ... வேண்டும்",
+              "explain": "For a symptom, say எனக்கு தலைவலி இருக்கிறது. The singular symptom takes இருக்கிறது. To request an appointment, say மருத்துவரைப் பார்க்க நேரம் வேண்டும்; the object மருத்துவரை takes -ஐ.",
+              "examples": [
+                {
+                  "t": "எனக்கு இரண்டு நாட்களாகக் காய்ச்சல் இருக்கிறது.",
+                  "r": "eṉakku iraṇṭu nāṭkaḷākak kāyccal irukkiṟatu.",
+                  "en": "I have had a fever for two days."
+                },
+                {
+                  "t": "நாளை மருத்துவரைப் பார்க்க நேரம் வேண்டும்.",
+                  "r": "nāḷai maruttuvaraip pārkka nēram vēṇṭum.",
+                  "en": "I need an appointment to see the doctor tomorrow."
+                },
+                {
+                  "t": "மருந்து சாப்பிட்ட பிறகு ஓய்வு எடுங்கள்.",
+                  "r": "maruntu cāppiṭṭa piṟaku ōyvu eṭuṅkaḷ.",
+                  "en": "Rest after taking the medicine."
+                }
+              ],
+              "mistakes": [
+                {
+                  "wrong": "எனக்கு காய்ச்சல் இருக்கின்றன.",
+                  "right": "எனக்கு காய்ச்சல் இருக்கிறது.",
+                  "why": "காய்ச்சல் is singular here, so use இருக்கிறது."
+                },
+                {
+                  "wrong": "நான் மருத்துவர் பார்க்க நேரம் வேண்டும்.",
+                  "right": "நான் மருத்துவரைப் பார்க்க நேரம் வேண்டும்.",
+                  "why": "The person seen is the object: மருத்துவரை."
+                }
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "வரவேற்பாளர்",
+                "t": "வணக்கம். என்ன உதவி வேண்டும்?",
+                "r": "vaṇakkam. eṉṉa utavi vēṇṭum?",
+                "en": "Hello. How can I help?"
+              },
+              {
+                "sp": "நோயாளி",
+                "t": "எனக்கு இரண்டு நாட்களாகக் காய்ச்சல் இருக்கிறது.",
+                "r": "eṉakku iraṇṭu nāṭkaḷākak kāyccal irukkiṟatu.",
+                "en": "I have had a fever for two days."
+              },
+              {
+                "sp": "வரவேற்பாளர்",
+                "t": "நாளை காலை பத்து மணிக்கு நேரம் இருக்கிறது.",
+                "r": "nāḷai kālai pattu maṇikku nēram irukkiṟatu.",
+                "en": "There is an appointment tomorrow at ten in the morning."
+              },
+              {
+                "sp": "நோயாளி",
+                "t": "சரி, அந்த நேரம் எனக்கு வசதி.",
+                "r": "sari, anta nēram eṉakku vacati.",
+                "en": "All right, that time works for me."
+              }
+            ],
+            "practice": [
+              {
+                "type": "multiple_choice",
+                "q": "Practice 1: [multiple choice] மருத்துவரிடம் நேரம் கேட்பது — Choose the meaning of தலைவலி (talaivali) in this lesson.",
+                "answer": "headache",
+                "skill_target": "Tamil: Tamil script, agglutinative case suffixes, head-final word order, diglossia between the written and spoken registers, and the respectful நீங்கள் / familiar நீ address",
+                "options": [
+                  "headache",
+                  "fever",
+                  "doctor",
+                  "time, appointment slot"
+                ]
+              },
+              {
+                "type": "fill_in_the_blank",
+                "q": "Practice 2: [fill in the blank] மருத்துவரிடம் நேரம் கேட்பது — Type the Tamil expression meaning “fever”.",
+                "answer": "காய்ச்சல்",
+                "skill_target": "Tamil: Tamil script, agglutinative case suffixes, head-final word order, diglossia between the written and spoken registers, and the respectful நீங்கள் / familiar நீ address"
+              },
+              {
+                "type": "translation",
+                "q": "Practice 3: [translation] மருத்துவரிடம் நேரம் கேட்பது — Interpret the Tamil script in context: எனக்கு இரண்டு நாட்களாகக் காய்ச்சல் இருக்கிறது. (eṉakku iraṇṭu nāṭkaḷākak kāyccal irukkiṟatu.).",
+                "answer": "I have had a fever for two days.",
+                "skill_target": "Tamil: Tamil script, agglutinative case suffixes, head-final word order, diglossia between the written and spoken registers, and the respectful நீங்கள் / familiar நீ address"
+              },
+              {
+                "type": "reverse_translation",
+                "q": "Practice 4: [reverse translation] மருத்துவரிடம் நேரம் கேட்பது — Write in Tamil script: I need an appointment to see the doctor tomorrow..",
+                "answer": "நாளை மருத்துவரைப் பார்க்க நேரம் வேண்டும்.",
+                "skill_target": "Tamil: Tamil script, agglutinative case suffixes, head-final word order, diglossia between the written and spoken registers, and the respectful நீங்கள் / familiar நீ address"
+              },
+              {
+                "type": "matching",
+                "q": "Practice 5: [matching] மருத்துவரிடம் நேரம் கேட்பது — Match மருத்துவர் to its lesson meaning.",
+                "answer": "doctor",
+                "skill_target": "Tamil: Tamil script, agglutinative case suffixes, head-final word order, diglossia between the written and spoken registers, and the respectful நீங்கள் / familiar நீ address",
+                "options": [
+                  "doctor",
+                  "headache",
+                  "fever"
+                ]
+              },
+              {
+                "type": "reorder",
+                "q": "Practice 6: [reorder] மருத்துவரிடம் நேரம் கேட்பது — Reconstruct the lesson model in coherent Tamil: Rest after taking the medicine..",
+                "answer": "மருந்து சாப்பிட்ட பிறகு ஓய்வு எடுங்கள்.",
+                "skill_target": "Tamil: Tamil script, agglutinative case suffixes, head-final word order, diglossia between the written and spoken registers, and the respectful நீங்கள் / familiar நீ address"
+              },
+              {
+                "type": "sentence_building",
+                "q": "Practice 7: [sentence building] மருத்துவரிடம் நேரம் கேட்பது — Build the sentence with the lesson pattern (எனக்கு + symptom + இருக்கிறது · ... வேண்டும்): I have had a fever for two days..",
+                "answer": "எனக்கு இரண்டு நாட்களாகக் காய்ச்சல் இருக்கிறது.",
+                "skill_target": "Tamil: Tamil script, agglutinative case suffixes, head-final word order, diglossia between the written and spoken registers, and the respectful நீங்கள் / familiar நீ address"
+              },
+              {
+                "type": "word_selection",
+                "q": "Practice 8: [word selection] மருத்துவரிடம் நேரம் கேட்பது — Select the Tamil form for “time, appointment slot”.",
+                "answer": "நேரம்",
+                "skill_target": "Tamil: Tamil script, agglutinative case suffixes, head-final word order, diglossia between the written and spoken registers, and the respectful நீங்கள் / familiar நீ address",
+                "options": [
+                  "நேரம்",
+                  "ஓய்வு"
+                ]
+              },
+              {
+                "type": "error_correction",
+                "q": "Practice 9: [error correction] மருத்துவரிடம் நேரம் கேட்பது — Correct the model the lesson warns about: எனக்கு காய்ச்சல் இருக்கின்றன.",
+                "answer": "எனக்கு காய்ச்சல் இருக்கிறது.",
+                "skill_target": "Tamil: Tamil script, agglutinative case suffixes, head-final word order, diglossia between the written and spoken registers, and the respectful நீங்கள் / familiar நீ address"
+              },
+              {
+                "type": "dialogue_completion",
+                "q": "Practice 10: [dialogue completion] மருத்துவரிடம் நேரம் கேட்பது — Complete the exchange with the studied response to: Hello. How can I help?",
+                "answer": "எனக்கு இரண்டு நாட்களாகக் காய்ச்சல் இருக்கிறது.",
+                "skill_target": "Tamil: Tamil script, agglutinative case suffixes, head-final word order, diglossia between the written and spoken registers, and the respectful நீங்கள் / familiar நீ address"
+              },
+              {
+                "type": "reading_comprehension",
+                "q": "Practice 11: [reading comprehension] மருத்துவரிடம் நேரம் கேட்பது — Read “நாளை காலை பத்து மணிக்கு நேரம் இருக்கிறது.” (nāḷai kālai pattu maṇikku nēram irukkiṟatu.). What does it mean?",
+                "answer": "There is an appointment tomorrow at ten in the morning.",
+                "skill_target": "Tamil: Tamil script, agglutinative case suffixes, head-final word order, diglossia between the written and spoken registers, and the respectful நீங்கள் / familiar நீ address"
+              },
+              {
+                "type": "paragraph_comprehension",
+                "q": "Practice 12: [paragraph comprehension] மருத்துவரிடம் நேரம் கேட்பது — Read the lesson dialogue as a whole and give its key move: All right, that time works for me.",
+                "answer": "சரி, அந்த நேரம் எனக்கு வசதி.",
+                "skill_target": "Tamil: Tamil script, agglutinative case suffixes, head-final word order, diglossia between the written and spoken registers, and the respectful நீங்கள் / familiar நீ address"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "Which meaning best fits தலைவலி?",
+                "options": [
+                  "headache",
+                  "fever",
+                  "doctor",
+                  "time, appointment slot"
+                ],
+                "answer": 0,
+                "why": "தலைவலி (talaivali) means headache in this lesson."
+              },
+              {
+                "q": "Which meaning best fits காய்ச்சல்?",
+                "options": [
+                  "fever",
+                  "headache",
+                  "doctor",
+                  "time, appointment slot"
+                ],
+                "answer": 0,
+                "why": "காய்ச்சல் (kāyccal) means fever in this lesson."
+              },
+              {
+                "q": "Which meaning best fits மருத்துவர்?",
+                "options": [
+                  "doctor",
+                  "headache",
+                  "fever",
+                  "time, appointment slot"
+                ],
+                "answer": 0,
+                "why": "மருத்துவர் (marutt uvar) means doctor in this lesson."
+              },
+              {
+                "q": "Which meaning best fits நேரம்?",
+                "options": [
+                  "time, appointment slot",
+                  "headache",
+                  "fever",
+                  "doctor"
+                ],
+                "answer": 0,
+                "why": "நேரம் (nēram) means time, appointment slot in this lesson."
+              },
+              {
+                "q": "Which meaning best fits ஓய்வு?",
+                "options": [
+                  "rest",
+                  "headache",
+                  "fever",
+                  "doctor"
+                ],
+                "answer": 0,
+                "why": "ஓய்வு (ōyvu) means rest in this lesson."
+              }
+            ],
+            "flashcards": "auto:vocab",
+            "worksheet": {
+              "title": "Clinic worksheet",
+              "tasks": [
+                {
+                  "instruction": "Describe the symptom.",
+                  "items": [
+                    "I have had a fever for two days",
+                    "I have a headache"
+                  ],
+                  "key": [
+                    "எனக்கு இரண்டு நாட்களாகக் காய்ச்சல் இருக்கிறது",
+                    "எனக்குத் தலைவலி இருக்கிறது"
+                  ]
+                },
+                {
+                  "instruction": "Arrange the visit.",
+                  "items": [
+                    "I need an appointment to see the doctor tomorrow",
+                    "that time works for me"
+                  ],
+                  "key": [
+                    "நாளை மருத்துவரைப் பார்க்க நேரம் வேண்டும்",
+                    "அந்த நேரம் எனக்கு வசதி"
+                  ]
+                },
+                {
+                  "instruction": "Integrated offline practice: read the first model, transform or extend it in Tamil script, then rehearse it as a dialogue. Self-check meaning, grammar, and register.",
+                  "items": [
+                    "எனக்கு இரண்டு நாட்களாகக் காய்ச்சல் இருக்கிறது.",
+                    "வணக்கம். என்ன உதவி வேண்டும்?"
+                  ],
+                  "key": [
+                    "I have had a fever for two days.",
+                    "Hello. How can I help?"
+                  ]
+                }
+              ]
+            },
+            "srs_candidates": [
+              "தலைவலி",
+              "காய்ச்சல்",
+              "மருத்துவர்",
+              "நேரம்"
+            ],
+            "srs_policy": "Only these four high-value terms are preselected; lesson mistakes and productive patterns may enter personalized review after an actual error."
           }
         ]
       },
@@ -722,25 +1011,25 @@
             },
             "dialogue": [
               {
-                "sp": "Father",
+                "sp": "அப்பா",
                 "t": "வீட்டுப்பாடம் முடித்தாயா?",
                 "r": "Vīṭṭuppāḍam muḍittāyā?",
                 "en": "Did you finish homework?"
               },
               {
-                "sp": "Son",
+                "sp": "மகன்",
                 "t": "கணிதம் மட்டும் மீதி, அப்பா.",
                 "r": "Kaṇidam maṭṭum mīdi, appā.",
                 "en": "Only maths left, father."
               },
               {
-                "sp": "Father",
+                "sp": "அப்பா",
                 "t": "எங்கே சந்தேகம்? காட்டு.",
                 "r": "Eṅgē sandēgam? Kāṭṭu.",
                 "en": "Where's the doubt? Show me."
               },
               {
-                "sp": "Son",
+                "sp": "மகன்",
                 "t": "இந்த கணக்கு புரியவில்லை.",
                 "r": "Inda kaṇakku puriyavillai.",
                 "en": "I don't get this sum."
@@ -1253,6 +1542,295 @@
               "நிலா"
             ],
             "srs_policy": "Only selected high-value lesson forms are preselected; actual mistakes and productive patterns may enter personalized review after learner evidence."
+          },
+          {
+            "id": "ta-a2-l8",
+            "title": "பள்ளித் திட்டமும் வானிலையும்",
+            "learn": "Talk about a school activity affected by the weather. Use இன்று / நாளை with the correct verb time, and because with -ஆல் or அதனால் to connect weather and a plan. Tamil keeps the finite verb at the end of each clause.",
+            "vocab": [
+              {
+                "t": "வானிலை",
+                "r": "vāṉilai",
+                "en": "weather",
+                "pos": "noun"
+              },
+              {
+                "t": "மழை",
+                "r": "maḻai",
+                "en": "rain",
+                "pos": "noun"
+              },
+              {
+                "t": "வகுப்பு",
+                "r": "vakuppu",
+                "en": "class",
+                "pos": "noun"
+              },
+              {
+                "t": "திட்டம்",
+                "r": "tiṭṭam",
+                "en": "plan",
+                "pos": "noun"
+              },
+              {
+                "t": "மாற்று",
+                "r": "māṟṟu",
+                "en": "to change",
+                "pos": "verb"
+              }
+            ],
+            "grammar": {
+              "title": "Reason and changed plans",
+              "pattern": "மழை பெய்வதால் ... · அதனால் ... · நாளை ... செய்வோம்",
+              "explain": "Attach -ஆல் to a reason noun or verb: மழையால் (because of rain), மழை பெய்வதால் (because it is raining). அதனால் begins the result. நாளை is a future-time word, so the plan uses a future verb such as செய்வோம்.",
+              "examples": [
+                {
+                  "t": "மழை பெய்வதால் விளையாட்டு வகுப்பு உள்ளே நடக்கும்.",
+                  "r": "maḻai peyvatāl viḷaiyāṭṭu vakuppu uḷḷē naṭakkum.",
+                  "en": "Because it is raining, the sports class will be indoors."
+                },
+                {
+                  "t": "வானிலை நன்றாக இருந்தால், வெளியே படிப்போம்.",
+                  "r": "vāṉilai naṉṟāka iruntāl, veḷiyē paṭippōm.",
+                  "en": "If the weather is good, we will study outside."
+                },
+                {
+                  "t": "அதனால் ஆசிரியர் திட்டத்தை மாற்றினார்.",
+                  "r": "ataṉāl āciriyar tiṭṭattai māṟṟiṉār.",
+                  "en": "Therefore the teacher changed the plan."
+                }
+              ],
+              "mistakes": [
+                {
+                  "wrong": "மழை பெய்கிறது அதனால் வகுப்பு உள்ளே நடக்கும்.",
+                  "right": "மழை பெய்வதால் வகுப்பு உள்ளே நடக்கும்.",
+                  "why": "Join the reason with -வதால், or separate it with அதனால்."
+                },
+                {
+                  "wrong": "நாளை நாங்கள் படித்தோம்.",
+                  "right": "நாளை நாங்கள் படிப்போம்.",
+                  "why": "A future time word takes a future verb."
+                }
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "மாணவர்",
+                "t": "நாளைய வெளிப்புற வகுப்பு நடக்குமா?",
+                "r": "nāḷaiya veḷippuṟa vakuppu naṭakkumā?",
+                "en": "Will tomorrow's outdoor class take place?"
+              },
+              {
+                "sp": "ஆசிரியர்",
+                "t": "மழை பெய்வதால் வகுப்பு உள்ளே நடக்கும்.",
+                "r": "maḻai peyvatāl vakuppu uḷḷē naṭakkum.",
+                "en": "Because it is raining, the class will be indoors."
+              },
+              {
+                "sp": "மாணவர்",
+                "t": "வானிலை மாறினால் வெளியே செல்லலாமா?",
+                "r": "vāṉilai māṟiṉāl veḷiyē cellalāmā?",
+                "en": "If the weather changes, may we go outside?"
+              },
+              {
+                "sp": "ஆசிரியர்",
+                "t": "ஆம், மதியத்துக்குப் பிறகு முடிவு செய்வோம்.",
+                "r": "ām, matiyattukku-p piṟaku muṭivu ceyvōm.",
+                "en": "Yes, we will decide after noon."
+              }
+            ],
+            "practice": [
+              {
+                "type": "multiple_choice",
+                "q": "Practice 1: [multiple choice] பள்ளித் திட்டமும் வானிலையும் — Choose the meaning of வானிலை (vāṉilai) in this lesson.",
+                "answer": "weather",
+                "skill_target": "Tamil: Tamil script, agglutinative case suffixes, head-final word order, diglossia between the written and spoken registers, and the respectful நீங்கள் / familiar நீ address",
+                "options": [
+                  "weather",
+                  "rain",
+                  "class",
+                  "plan"
+                ]
+              },
+              {
+                "type": "fill_in_the_blank",
+                "q": "Practice 2: [fill in the blank] பள்ளித் திட்டமும் வானிலையும் — Type the Tamil expression meaning “rain”.",
+                "answer": "மழை",
+                "skill_target": "Tamil: Tamil script, agglutinative case suffixes, head-final word order, diglossia between the written and spoken registers, and the respectful நீங்கள் / familiar நீ address"
+              },
+              {
+                "type": "translation",
+                "q": "Practice 3: [translation] பள்ளித் திட்டமும் வானிலையும் — Interpret the Tamil script in context: மழை பெய்வதால் விளையாட்டு வகுப்பு உள்ளே நடக்கும். (maḻai peyvatāl viḷaiyāṭṭu vakuppu uḷḷē naṭakkum.).",
+                "answer": "Because it is raining, the sports class will be indoors.",
+                "skill_target": "Tamil: Tamil script, agglutinative case suffixes, head-final word order, diglossia between the written and spoken registers, and the respectful நீங்கள் / familiar நீ address"
+              },
+              {
+                "type": "reverse_translation",
+                "q": "Practice 4: [reverse translation] பள்ளித் திட்டமும் வானிலையும் — Write in Tamil script: If the weather is good, we will study outside..",
+                "answer": "வானிலை நன்றாக இருந்தால், வெளியே படிப்போம்.",
+                "skill_target": "Tamil: Tamil script, agglutinative case suffixes, head-final word order, diglossia between the written and spoken registers, and the respectful நீங்கள் / familiar நீ address"
+              },
+              {
+                "type": "matching",
+                "q": "Practice 5: [matching] பள்ளித் திட்டமும் வானிலையும் — Match வகுப்பு to its lesson meaning.",
+                "answer": "class",
+                "skill_target": "Tamil: Tamil script, agglutinative case suffixes, head-final word order, diglossia between the written and spoken registers, and the respectful நீங்கள் / familiar நீ address",
+                "options": [
+                  "class",
+                  "weather",
+                  "rain"
+                ]
+              },
+              {
+                "type": "reorder",
+                "q": "Practice 6: [reorder] பள்ளித் திட்டமும் வானிலையும் — Reconstruct the lesson model in coherent Tamil: Therefore the teacher changed the plan..",
+                "answer": "அதனால் ஆசிரியர் திட்டத்தை மாற்றினார்.",
+                "skill_target": "Tamil: Tamil script, agglutinative case suffixes, head-final word order, diglossia between the written and spoken registers, and the respectful நீங்கள் / familiar நீ address"
+              },
+              {
+                "type": "sentence_building",
+                "q": "Practice 7: [sentence building] பள்ளித் திட்டமும் வானிலையும் — Build the sentence with the lesson pattern (மழை பெய்வதால் ... · அதனால் ... · நாளை ... செய்வோம்): Because it is raining, the sports class will be indoors..",
+                "answer": "மழை பெய்வதால் விளையாட்டு வகுப்பு உள்ளே நடக்கும்.",
+                "skill_target": "Tamil: Tamil script, agglutinative case suffixes, head-final word order, diglossia between the written and spoken registers, and the respectful நீங்கள் / familiar நீ address"
+              },
+              {
+                "type": "word_selection",
+                "q": "Practice 8: [word selection] பள்ளித் திட்டமும் வானிலையும் — Select the Tamil form for “plan”.",
+                "answer": "திட்டம்",
+                "skill_target": "Tamil: Tamil script, agglutinative case suffixes, head-final word order, diglossia between the written and spoken registers, and the respectful நீங்கள் / familiar நீ address",
+                "options": [
+                  "திட்டம்",
+                  "மாற்று"
+                ]
+              },
+              {
+                "type": "error_correction",
+                "q": "Practice 9: [error correction] பள்ளித் திட்டமும் வானிலையும் — Correct the model the lesson warns about: மழை பெய்கிறது அதனால் வகுப்பு உள்ளே நடக்கும்.",
+                "answer": "மழை பெய்வதால் வகுப்பு உள்ளே நடக்கும்.",
+                "skill_target": "Tamil: Tamil script, agglutinative case suffixes, head-final word order, diglossia between the written and spoken registers, and the respectful நீங்கள் / familiar நீ address"
+              },
+              {
+                "type": "dialogue_completion",
+                "q": "Practice 10: [dialogue completion] பள்ளித் திட்டமும் வானிலையும் — Complete the exchange with the studied response to: Will tomorrow's outdoor class take place?",
+                "answer": "மழை பெய்வதால் வகுப்பு உள்ளே நடக்கும்.",
+                "skill_target": "Tamil: Tamil script, agglutinative case suffixes, head-final word order, diglossia between the written and spoken registers, and the respectful நீங்கள் / familiar நீ address"
+              },
+              {
+                "type": "reading_comprehension",
+                "q": "Practice 11: [reading comprehension] பள்ளித் திட்டமும் வானிலையும் — Read “வானிலை மாறினால் வெளியே செல்லலாமா?” (vāṉilai māṟiṉāl veḷiyē cellalāmā?). What does it mean?",
+                "answer": "If the weather changes, may we go outside?",
+                "skill_target": "Tamil: Tamil script, agglutinative case suffixes, head-final word order, diglossia between the written and spoken registers, and the respectful நீங்கள் / familiar நீ address"
+              },
+              {
+                "type": "paragraph_comprehension",
+                "q": "Practice 12: [paragraph comprehension] பள்ளித் திட்டமும் வானிலையும் — Read the lesson dialogue as a whole and give its key move: Yes, we will decide after noon.",
+                "answer": "ஆம், மதியத்துக்குப் பிறகு முடிவு செய்வோம்.",
+                "skill_target": "Tamil: Tamil script, agglutinative case suffixes, head-final word order, diglossia between the written and spoken registers, and the respectful நீங்கள் / familiar நீ address"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "Which meaning best fits வானிலை?",
+                "options": [
+                  "weather",
+                  "rain",
+                  "class",
+                  "plan"
+                ],
+                "answer": 0,
+                "why": "வானிலை (vāṉilai) means weather in this lesson."
+              },
+              {
+                "q": "Which meaning best fits மழை?",
+                "options": [
+                  "rain",
+                  "weather",
+                  "class",
+                  "plan"
+                ],
+                "answer": 0,
+                "why": "மழை (maḻai) means rain in this lesson."
+              },
+              {
+                "q": "Which meaning best fits வகுப்பு?",
+                "options": [
+                  "class",
+                  "weather",
+                  "rain",
+                  "plan"
+                ],
+                "answer": 0,
+                "why": "வகுப்பு (vakuppu) means class in this lesson."
+              },
+              {
+                "q": "Which meaning best fits திட்டம்?",
+                "options": [
+                  "plan",
+                  "weather",
+                  "rain",
+                  "class"
+                ],
+                "answer": 0,
+                "why": "திட்டம் (tiṭṭam) means plan in this lesson."
+              },
+              {
+                "q": "Which meaning best fits மாற்று?",
+                "options": [
+                  "to change",
+                  "weather",
+                  "rain",
+                  "class"
+                ],
+                "answer": 0,
+                "why": "மாற்று (māṟṟu) means to change in this lesson."
+              }
+            ],
+            "flashcards": "auto:vocab",
+            "worksheet": {
+              "title": "Weather and school worksheet",
+              "tasks": [
+                {
+                  "instruction": "Give the reason.",
+                  "items": [
+                    "because it is raining, the class will be indoors",
+                    "therefore the teacher changed the plan"
+                  ],
+                  "key": [
+                    "மழை பெய்வதால் வகுப்பு உள்ளே நடக்கும்",
+                    "அதனால் ஆசிரியர் திட்டத்தை மாற்றினார்"
+                  ]
+                },
+                {
+                  "instruction": "Make the plan conditional.",
+                  "items": [
+                    "if the weather is good, we will study outside",
+                    "we will decide after noon"
+                  ],
+                  "key": [
+                    "வானிலை நன்றாக இருந்தால் வெளியே படிப்போம்",
+                    "மதியத்துக்குப் பிறகு முடிவு செய்வோம்"
+                  ]
+                },
+                {
+                  "instruction": "Integrated offline practice: read the first model, transform or extend it in Tamil script, then rehearse it as a dialogue. Self-check meaning, grammar, and register.",
+                  "items": [
+                    "மழை பெய்வதால் விளையாட்டு வகுப்பு உள்ளே நடக்கும்.",
+                    "நாளைய வெளிப்புற வகுப்பு நடக்குமா?"
+                  ],
+                  "key": [
+                    "Because it is raining, the sports class will be indoors.",
+                    "Will tomorrow's outdoor class take place?"
+                  ]
+                }
+              ]
+            },
+            "srs_candidates": [
+              "வானிலை",
+              "மழை",
+              "வகுப்பு",
+              "திட்டம்"
+            ],
+            "srs_policy": "Only these four high-value terms are preselected; lesson mistakes and productive patterns may enter personalized review after an actual error."
           }
         ]
       },
@@ -1341,25 +1919,25 @@
             },
             "dialogue": [
               {
-                "sp": "Mother",
+                "sp": "அம்மா",
                 "t": "கேள், இன்று மாலை விருந்தினர் வருகிறார்கள்.",
                 "r": "Kēḷ, iṉṛu mālai virundiṉar varugiṛārgaḷ.",
                 "en": "Listen, guests are coming this evening."
               },
               {
-                "sp": "Son",
+                "sp": "மகன்",
                 "t": "யார் வருகிறார்கள், அம்மா?",
                 "r": "Yār varugiṛārgaḷ, ammā?",
                 "en": "Who is coming, mother?"
               },
               {
-                "sp": "Mother",
+                "sp": "அம்மா",
                 "t": "உன் மாமா-மாமி. அறையை ஒழுங்குபடுத்து.",
                 "r": "Uṉ māmā-māmi. Aṛaiyai oḻuṅgupaḍuttu.",
                 "en": "Your uncle and aunt. Tidy the room."
               },
               {
-                "sp": "Son",
+                "sp": "மகன்",
                 "t": "சரி. என்ன சமையல்?",
                 "r": "Sari. Enna samaiyal?",
                 "en": "OK. What will be cooked?"
@@ -1641,25 +2219,25 @@
             },
             "dialogue": [
               {
-                "sp": "Grandmother",
+                "sp": "பாட்டி",
                 "t": "எழுந்திரு! இன்று தைப்பொங்கல்.",
                 "r": "Eḻundiru! Iṉṛu taippoṅgal.",
                 "en": "Wake up! Today is Thai Pongal."
               },
               {
-                "sp": "Girl",
+                "sp": "சிறுமி",
                 "t": "பாட்டி, கோலம் போட்டாயா?",
                 "r": "Pāṭṭi, kōlam pōṭṭāyā?",
                 "en": "Grandma, did you draw the kolam?"
               },
               {
-                "sp": "Grandmother",
+                "sp": "பாட்டி",
                 "t": "போட்டுவிட்டேன். கரும்பை எடு.",
                 "r": "Pōṭṭuviṭṭēṉ. Karumbai eḍu.",
                 "en": "Done. Fetch the sugarcane."
               },
               {
-                "sp": "Girl",
+                "sp": "சிறுமி",
                 "t": "பொங்கல் பொங்குகிறது!",
                 "r": "Poṅgal poṅgugiṛadu!",
                 "en": "The Pongal is boiling over!"
@@ -1737,7 +2315,7 @@
               },
               {
                 "type": "dialogue_completion",
-                "q": "Practice 15 [dialogue completion] — Festivals & celebrations: Complete Grandmother’s turn appropriately: Done. Fetch the sugarcane.",
+                "q": "Practice 15 [dialogue completion] — Festivals & celebrations: Complete பாட்டி’s turn appropriately: Done. Fetch the sugarcane.",
                 "answer": "போட்டுவிட்டேன். கரும்பை எடு.",
                 "skill_target": "Tamil dialogue completion: Tamil suffix chains, case marking, agreement, and formal versus colloquial choice"
               },
@@ -1869,6 +2447,295 @@
               "சிலை"
             ],
             "srs_policy": "Only selected high-value lesson forms are preselected; actual mistakes and productive patterns may enter personalized review after learner evidence."
+          },
+          {
+            "id": "ta-a2-l9",
+            "title": "உறவினர்களை அழைத்தல்",
+            "learn": "Invite relatives and agree on a time. -லாமா? makes a polite suggestion; வருகிறீர்களா? asks whether someone can come, while வந்த பிறகு sequences what happens after arrival. Keep the respectful plural ending when inviting an elder or a new guest.",
+            "vocab": [
+              {
+                "t": "அழைப்பு",
+                "r": "aḻaippu",
+                "en": "invitation",
+                "pos": "noun"
+              },
+              {
+                "t": "உறவினர்",
+                "r": "uṟaviṉar",
+                "en": "relative",
+                "pos": "noun"
+              },
+              {
+                "t": "நாளை",
+                "r": "nāḷai",
+                "en": "tomorrow",
+                "pos": "adverb"
+              },
+              {
+                "t": "வந்த பிறகு",
+                "r": "vanta piṟaku",
+                "en": "after arriving",
+                "pos": "phrase"
+              },
+              {
+                "t": "சேர்ந்து",
+                "r": "cērntu",
+                "en": "together",
+                "pos": "adverb"
+              }
+            ],
+            "grammar": {
+              "title": "Inviting and sequencing",
+              "pattern": "...லாமா? · ...வருகிறீர்களா? · வந்த பிறகு ...",
+              "explain": "The suggestion suffix -லாமா? attaches to the verb: சாப்பிடலாமா? (shall we eat?). For a respectful invitation, use வருகிறீர்களா? After an action, வந்த பிறகு means 'after coming'; the next clause gives the plan.",
+              "examples": [
+                {
+                  "t": "நாளை எங்கள் வீட்டுக்கு வருகிறீர்களா?",
+                  "r": "nāḷai eṅkaḷ vīṭṭukku varukiṟīrkaḷā?",
+                  "en": "Will you come to our home tomorrow?"
+                },
+                {
+                  "t": "வந்த பிறகு சேர்ந்து சாப்பிடலாம்.",
+                  "r": "vanta piṟaku cērntu cāppiṭalām.",
+                  "en": "After you arrive, we can eat together."
+                },
+                {
+                  "t": "மாலை ஆறு மணிக்கு வருவது வசதியா?",
+                  "r": "mālai āṟu maṇikku varuvatu vacatiyā?",
+                  "en": "Is coming at six in the evening convenient?"
+                }
+              ],
+              "mistakes": [
+                {
+                  "wrong": "நாளை வீட்டுக்கு வருகிறாயா? (respectful)",
+                  "right": "நாளை வீட்டுக்கு வருகிறீர்களா?",
+                  "why": "Use the respectful plural ending for a guest."
+                },
+                {
+                  "wrong": "வந்த பிறகு நாங்கள் சாப்பிட்டோம். (future plan)",
+                  "right": "வந்த பிறகு நாங்கள் சாப்பிடலாம்.",
+                  "why": "A suggestion about the future takes -லாம்."
+                }
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "Meena",
+                "t": "ஞாயிற்றுக்கிழமை எங்கள் வீட்டுக்கு வருகிறீர்களா?",
+                "r": "ñāyiṟṟukkiḻamai eṅkaḷ vīṭṭukku varukiṟīrkaḷā?",
+                "en": "Will you come to our home on Sunday?"
+              },
+              {
+                "sp": "Ravi",
+                "t": "மகிழ்ச்சியாக வருகிறேன். மாலை எத்தனை மணிக்கு?",
+                "r": "makiḻcciyāka varukiṟēṉ. mālai ettaṉai maṇikku?",
+                "en": "Gladly. What time in the evening?"
+              },
+              {
+                "sp": "Meena",
+                "t": "ஆறு மணிக்கு. வந்த பிறகு காபி குடிக்கலாம்.",
+                "r": "āṟu maṇikku. vanta piṟaku kāpi kuṭikkalām.",
+                "en": "At six. After you arrive, we can have coffee."
+              },
+              {
+                "sp": "Ravi",
+                "t": "சரி, குடும்பத்துடன் வருகிறேன்.",
+                "r": "sari, kuṭumpattuṭaṉ varukiṟēṉ.",
+                "en": "All right, I will come with my family."
+              }
+            ],
+            "practice": [
+              {
+                "type": "multiple_choice",
+                "q": "Practice 1: [multiple choice] உறவினர்களை அழைத்தல் — Choose the meaning of அழைப்பு (aḻaippu) in this lesson.",
+                "answer": "invitation",
+                "skill_target": "Tamil: Tamil script, agglutinative case suffixes, head-final word order, diglossia between the written and spoken registers, and the respectful நீங்கள் / familiar நீ address",
+                "options": [
+                  "invitation",
+                  "relative",
+                  "tomorrow",
+                  "after arriving"
+                ]
+              },
+              {
+                "type": "fill_in_the_blank",
+                "q": "Practice 2: [fill in the blank] உறவினர்களை அழைத்தல் — Type the Tamil expression meaning “relative”.",
+                "answer": "உறவினர்",
+                "skill_target": "Tamil: Tamil script, agglutinative case suffixes, head-final word order, diglossia between the written and spoken registers, and the respectful நீங்கள் / familiar நீ address"
+              },
+              {
+                "type": "translation",
+                "q": "Practice 3: [translation] உறவினர்களை அழைத்தல் — Interpret the Tamil script in context: நாளை எங்கள் வீட்டுக்கு வருகிறீர்களா? (nāḷai eṅkaḷ vīṭṭukku varukiṟīrkaḷā?).",
+                "answer": "Will you come to our home tomorrow?",
+                "skill_target": "Tamil: Tamil script, agglutinative case suffixes, head-final word order, diglossia between the written and spoken registers, and the respectful நீங்கள் / familiar நீ address"
+              },
+              {
+                "type": "reverse_translation",
+                "q": "Practice 4: [reverse translation] உறவினர்களை அழைத்தல் — Write in Tamil script: After you arrive, we can eat together..",
+                "answer": "வந்த பிறகு சேர்ந்து சாப்பிடலாம்.",
+                "skill_target": "Tamil: Tamil script, agglutinative case suffixes, head-final word order, diglossia between the written and spoken registers, and the respectful நீங்கள் / familiar நீ address"
+              },
+              {
+                "type": "matching",
+                "q": "Practice 5: [matching] உறவினர்களை அழைத்தல் — Match நாளை to its lesson meaning.",
+                "answer": "tomorrow",
+                "skill_target": "Tamil: Tamil script, agglutinative case suffixes, head-final word order, diglossia between the written and spoken registers, and the respectful நீங்கள் / familiar நீ address",
+                "options": [
+                  "tomorrow",
+                  "invitation",
+                  "relative"
+                ]
+              },
+              {
+                "type": "reorder",
+                "q": "Practice 6: [reorder] உறவினர்களை அழைத்தல் — Reconstruct the lesson model in coherent Tamil: Is coming at six in the evening convenient?.",
+                "answer": "மாலை ஆறு மணிக்கு வருவது வசதியா?",
+                "skill_target": "Tamil: Tamil script, agglutinative case suffixes, head-final word order, diglossia between the written and spoken registers, and the respectful நீங்கள் / familiar நீ address"
+              },
+              {
+                "type": "sentence_building",
+                "q": "Practice 7: [sentence building] உறவினர்களை அழைத்தல் — Build the sentence with the lesson pattern (...லாமா? · ...வருகிறீர்களா? · வந்த பிறகு ...): Will you come to our home tomorrow?.",
+                "answer": "நாளை எங்கள் வீட்டுக்கு வருகிறீர்களா?",
+                "skill_target": "Tamil: Tamil script, agglutinative case suffixes, head-final word order, diglossia between the written and spoken registers, and the respectful நீங்கள் / familiar நீ address"
+              },
+              {
+                "type": "word_selection",
+                "q": "Practice 8: [word selection] உறவினர்களை அழைத்தல் — Select the Tamil form for “after arriving”.",
+                "answer": "வந்த பிறகு",
+                "skill_target": "Tamil: Tamil script, agglutinative case suffixes, head-final word order, diglossia between the written and spoken registers, and the respectful நீங்கள் / familiar நீ address",
+                "options": [
+                  "வந்த பிறகு",
+                  "சேர்ந்து"
+                ]
+              },
+              {
+                "type": "error_correction",
+                "q": "Practice 9: [error correction] உறவினர்களை அழைத்தல் — Correct the model the lesson warns about: நாளை வீட்டுக்கு வருகிறாயா? (respectful)",
+                "answer": "நாளை வீட்டுக்கு வருகிறீர்களா?",
+                "skill_target": "Tamil: Tamil script, agglutinative case suffixes, head-final word order, diglossia between the written and spoken registers, and the respectful நீங்கள் / familiar நீ address"
+              },
+              {
+                "type": "dialogue_completion",
+                "q": "Practice 10: [dialogue completion] உறவினர்களை அழைத்தல் — Complete the exchange with the studied response to: Will you come to our home on Sunday?",
+                "answer": "மகிழ்ச்சியாக வருகிறேன். மாலை எத்தனை மணிக்கு?",
+                "skill_target": "Tamil: Tamil script, agglutinative case suffixes, head-final word order, diglossia between the written and spoken registers, and the respectful நீங்கள் / familiar நீ address"
+              },
+              {
+                "type": "reading_comprehension",
+                "q": "Practice 11: [reading comprehension] உறவினர்களை அழைத்தல் — Read “ஆறு மணிக்கு. வந்த பிறகு காபி குடிக்கலாம்.” (āṟu maṇikku. vanta piṟaku kāpi kuṭikkalām.). What does it mean?",
+                "answer": "At six. After you arrive, we can have coffee.",
+                "skill_target": "Tamil: Tamil script, agglutinative case suffixes, head-final word order, diglossia between the written and spoken registers, and the respectful நீங்கள் / familiar நீ address"
+              },
+              {
+                "type": "paragraph_comprehension",
+                "q": "Practice 12: [paragraph comprehension] உறவினர்களை அழைத்தல் — Read the lesson dialogue as a whole and give its key move: All right, I will come with my family.",
+                "answer": "சரி, குடும்பத்துடன் வருகிறேன்.",
+                "skill_target": "Tamil: Tamil script, agglutinative case suffixes, head-final word order, diglossia between the written and spoken registers, and the respectful நீங்கள் / familiar நீ address"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "Which meaning best fits அழைப்பு?",
+                "options": [
+                  "invitation",
+                  "relative",
+                  "tomorrow",
+                  "after arriving"
+                ],
+                "answer": 0,
+                "why": "அழைப்பு (aḻaippu) means invitation in this lesson."
+              },
+              {
+                "q": "Which meaning best fits உறவினர்?",
+                "options": [
+                  "relative",
+                  "invitation",
+                  "tomorrow",
+                  "after arriving"
+                ],
+                "answer": 0,
+                "why": "உறவினர் (uṟaviṉar) means relative in this lesson."
+              },
+              {
+                "q": "Which meaning best fits நாளை?",
+                "options": [
+                  "tomorrow",
+                  "invitation",
+                  "relative",
+                  "after arriving"
+                ],
+                "answer": 0,
+                "why": "நாளை (nāḷai) means tomorrow in this lesson."
+              },
+              {
+                "q": "Which meaning best fits வந்த பிறகு?",
+                "options": [
+                  "after arriving",
+                  "invitation",
+                  "relative",
+                  "tomorrow"
+                ],
+                "answer": 0,
+                "why": "வந்த பிறகு (vanta piṟaku) means after arriving in this lesson."
+              },
+              {
+                "q": "Which meaning best fits சேர்ந்து?",
+                "options": [
+                  "together",
+                  "invitation",
+                  "relative",
+                  "tomorrow"
+                ],
+                "answer": 0,
+                "why": "சேர்ந்து (cērntu) means together in this lesson."
+              }
+            ],
+            "flashcards": "auto:vocab",
+            "worksheet": {
+              "title": "Invitation worksheet",
+              "tasks": [
+                {
+                  "instruction": "Invite and accept.",
+                  "items": [
+                    "will you come to our home tomorrow?",
+                    "gladly, what time in the evening?"
+                  ],
+                  "key": [
+                    "நாளை எங்கள் வீட்டுக்கு வருகிறீர்களா?",
+                    "மகிழ்ச்சியாக வருகிறேன், மாலை எத்தனை மணிக்கு?"
+                  ]
+                },
+                {
+                  "instruction": "Sequence the visit.",
+                  "items": [
+                    "after you arrive, we can eat together",
+                    "I will come with my family"
+                  ],
+                  "key": [
+                    "வந்த பிறகு சேர்ந்து சாப்பிடலாம்",
+                    "குடும்பத்துடன் வருகிறேன்"
+                  ]
+                },
+                {
+                  "instruction": "Integrated offline practice: read the first model, transform or extend it in Tamil script, then rehearse it as a dialogue. Self-check meaning, grammar, and register.",
+                  "items": [
+                    "நாளை எங்கள் வீட்டுக்கு வருகிறீர்களா?",
+                    "ஞாயிற்றுக்கிழமை எங்கள் வீட்டுக்கு வருகிறீர்களா?"
+                  ],
+                  "key": [
+                    "Will you come to our home tomorrow?",
+                    "Will you come to our home on Sunday?"
+                  ]
+                }
+              ]
+            },
+            "srs_candidates": [
+              "அழைப்பு",
+              "உறவினர்",
+              "நாளை",
+              "வந்த பிறகு"
+            ],
+            "srs_policy": "Only these four high-value terms are preselected; lesson mistakes and productive patterns may enter personalized review after an actual error."
           }
         ]
       }
@@ -1927,6 +2794,95 @@
           "answer": "மழை பெய்கிறது (Maḻai peygiṛadu)"
         }
       ]
+    },
+    "extra": {
+      "culture": {
+        "text": "Pongal is the four-day harvest festival that opens the Tamil month of தை (mid-January), and the word itself means 'to boil over'. Families boil the first rice of the harvest with jaggery in a new clay pot and let it overflow — an overflow that is welcomed, not cleaned up — while the doorway carries a fresh கோலம் drawn in rice flour the night before. The second day belongs to the cattle (மாட்டுப் பொங்கல்), and the fourth to visiting (காணும் பொங்கல்). The vocabulary of the festival is also the everyday vocabulary of the kitchen, which is why Tamil courses meet it so early.",
+        "source_url": "https://en.wikipedia.org/wiki/Pongal_(festival)"
+      },
+      "reading": {
+        "text": "நாளை தைப்பொங்கல். அம்மா விடியற்காலையில் எழுந்து அரிசியைக் கழுவுகிறார். அப்பா கரும்பு வாங்க வந்தார். நான் வாசலில் கோலம் போட்டேன். பாட்டி சொன்னார்: «பொங்கல் பொங்கட்டும், வீட்டில் நிறைவு இருக்கும்». மதியம் உறவினர்கள் வருகிறார்கள்; எல்லோரும் ஒன்றாகச் சாப்பிடுகிறோம். இரவில் நான் நண்பர்களுக்குத் தொலைபேசி செய்தேன்.",
+        "gloss": "Tomorrow is Thai Pongal. Mother gets up at dawn and washes the rice. Father came to buy sugarcane. I drew a kolam at the doorstep. Grandmother said: 'Let the pongal boil over, and there will be plenty in the house.' At noon the relatives come; we all eat together. In the evening I telephoned my friends.",
+        "original": true
+      },
+      "listening": {
+        "script": "நாளைக்கு நீங்கள் வருகிறீர்களா? — வருகிறேன், பத்து மணிக்கு. — கரும்பு வாங்கலாமா? — வாங்கலாம், சந்தையில் கிடைக்கும்.",
+        "gloss": "Are you coming tomorrow? — I am coming, at ten o'clock. — Shall we buy sugarcane? — We can, it is available in the market.",
+        "voice_tag": "ta-IN"
+      },
+      "idioms": [
+        {
+          "t": "பொங்கல் பொங்குகிறது",
+          "literal": "the pongal is boiling over",
+          "meaning": "good fortune is overflowing"
+        },
+        {
+          "t": "கோலம் போடு",
+          "literal": "draw a kolam",
+          "meaning": "to decorate the threshold, to start the day well"
+        },
+        {
+          "t": "வீடு திரும்பு",
+          "literal": "turn back to the house",
+          "meaning": "to return home"
+        },
+        {
+          "t": "விருந்து வைத்தான்",
+          "literal": "he set a feast",
+          "meaning": "he hosted everyone generously"
+        },
+        {
+          "t": "புது நெல்லின் சோறு",
+          "literal": "rice of the new paddy",
+          "meaning": "the first taste of a new season"
+        },
+        {
+          "t": "கூடி வாழ்தல்",
+          "literal": "living joined together",
+          "meaning": "living in harmony"
+        },
+        {
+          "t": "ஊருக்கு உபதேசம்",
+          "literal": "a sermon for the whole town",
+          "meaning": "advice one does not follow oneself"
+        },
+        {
+          "t": "முகம் மலர்ந்தது",
+          "literal": "the face blossomed",
+          "meaning": "the face lit up"
+        },
+        {
+          "t": "களைத்துப் போனேன்",
+          "literal": "I went tired",
+          "meaning": "I am worn out"
+        },
+        {
+          "t": "நிறைந்த மனசு",
+          "literal": "a heart that is full",
+          "meaning": "a contented, generous mood"
+        }
+      ],
+      "mistakes": [
+        {
+          "wrong": "நான் நாளைக்கு வருவேன்.",
+          "right": "நான் நாளை வருவேன்.",
+          "why": "The written register drops the spoken -க்கு on நாளை."
+        },
+        {
+          "wrong": "நான் தண்ணீர் வேண்டும்.",
+          "right": "எனக்குத் தண்ணீர் வேண்டும்.",
+          "why": "வேண்டும் takes the dative: எனக்கு."
+        },
+        {
+          "wrong": "நான் சென்னை போகிறேன்.",
+          "right": "நான் சென்னைக்குப் போகிறேன்.",
+          "why": "The destination takes -க்கு: சென்னைக்கு."
+        }
+      ],
+      "task": {
+        "title": "ஒரு நாளின் திட்டம்",
+        "instructions": "Write your plans for tomorrow in eight sentences, using the present for the plan (நான் ... கிறேன்) and a time expression in every sentence (காலையில், பத்து மணிக்கு, மதியம், மாலையில், நாளை). Include one invitation with -லாமா? (வருகிறீர்களா? / சாப்பிடலாமா?) and one sentence about someone else (அம்மா ... கிறார்). Then swap the sentences with a partner and answer each one aloud."
+      }
     }
   }
 }

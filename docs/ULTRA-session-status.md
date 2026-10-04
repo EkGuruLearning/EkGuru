@@ -132,3 +132,121 @@ marks their drills and lanes share — a repertoire question, not a spelling one
 The remaining known gap is Urdu's *cross-level* split: A1 was written with marks
 (`Assalām Alaikum`), A2+ without. Each published page is internally consistent
 now; which scheme Urdu should settle on is a decision for its PHASE 1 pass.
+
+## PHASE 1 session — branch `arena/01a102f8-ekguru`, 4 October 2026
+
+Portuguese is the **13th of the 18** published languages to reach 11/11.
+`tools/depth-content/pt.py` carries six `extra` blocks, eighteen third lessons
+and the five half-steps A1+ … C1+; the authoring run wrote 38 changes across the
+six rung files plus five new half-step files, and `data/courses/index.json`
+gained the five files and the new lesson counts.
+
+Gates at the tip, all local: `build-all.py check` green (the flashcard deck and
+lab checks are part of it now), course-levels 32/0, placeholders 7/0,
+ad-policy 22/0, `inject-ads.py --check` ok, ultra integration 2687 pages / 0
+problems, page inventory 2690 pages with `thin_indexable 0` and `broken 0`,
+`normalise-romanisation.py` 0 strings, and the PHASE 1 gap audit reads
+`pt 11/11 - 0 0 0`. The language gate's pt row is `FAIL ['no_native_review']`
+only — the same honest, pre-existing failure every T1 language carries —
+with `unique_text_ratio` 0.947 and `script_mismatch 0`.
+
+Two pieces of the same commit are not content: the pt ladder page moved its
+counts (24 → 36 lessons, 194 → 255 words, 836 → 1162 questions) while keeping
+the committed `twitter:title` line, and the pt flashcard deck was rebuilt from
+the new vocabulary (`data/flashcards/pt.json`, `js/flashcards-pt.js`,
+`data/quality/flashcard-coverage.json`) with the pt lab block refreshed on
+`languages/pt/practice/index.html`.
+
+**Finding (recorded as trap #9 in `docs/PHASE1-CONTENT-DEPTH.md`).** The
+publication audit (`tools/audit-course-quality.py`, which writes
+`levels`/`complete`/`quality_status`) still keeps pt at `complete: false`: its
+`C1`/`C2` files carry the unreviewed phase-3 batch's `discourse segment N in`
+filler. Six courses the gap audit already counts as done — `ar bn de it ja ko` —
+carry the same filler in their C1/C2 and are in the same `PUBLISHABLE_PARTIAL`
+state, while the done courses whose fragments are labelled differently (`pa`,
+etc.) pass the same check. Re-authoring those C1/C2 lessons is one shared job
+after this queue, not a pt-specific defect.
+
+**Russian — the 14th of 18.** `tools/depth-content/ru.py` carries six `extra`
+blocks (the three-name introduction and вы/ты, tea as a meal, дача, the
+nineteenth-century novel, Russian as a lingua franca, the two lines of Russian
+music), eighteen third lessons and the five half-steps A1+ … C1+; the authoring
+run wrote 38 changes across the six rung files plus five new half-step files.
+The romanisation column is the course's own ASCII scheme (stress in capitals,
+`-ть` → `-ty`, no diacritics); a scan for Cyrillic left in an `r` field found
+four slips, fixed before authoring. `normalise-romanisation.py` owns ru and
+reports 93 files in scope with 0 strings to repair. ru carries no English
+speaker labels, so the role-label pass has nothing to do here; Tamil's map was
+added in the next language pass.
+
+Gates at the ru tip, all local: `build-all.py check` green, course-levels 32/0,
+placeholders 7/0, ad-policy 22/0, `inject-ads.py --check` ok, ultra integration
+2687 pages / 0 problems, inventory 2690 pages with `thin_indexable 0` /
+`broken 0`, and the PHASE 1 gap audit reads `ru 11/11 - 0 0 0`. The language
+gate's ru row is `FAIL ['no_native_review']` only, `unique_text_ratio` 0.97 and
+`script_mismatch 0`. The ru ladder page moved its counts (24 → 36 lessons,
+192 → 252 words, 832 → 1156 questions) while keeping the committed
+`twitter:title` line, and the ru flashcard deck and lab block were rebuilt from
+the new vocabulary.
+
+**Portuguese follow-up.** The four pt text defects recorded at the end of the
+Portuguese pass were real and are now fixed at source in
+`tools/depth-content/pt.py` — `checei` → `chequei` (two places), the stray
+`ficou/fi cou` duplication in the A2+ grammar box, and the `em Recife` / `no
+Recife` disagreement between a dialogue and its worksheet key. `author-depth.py
+--lang pt` regenerated the three affected rung files, the gates were re-run and
+the language gate's pt content digest and `unique_text_ratio` (0.946) were
+re-recorded; no pt page changed, because the lesson text is read by the player
+from the JSON. Separate commit, so the ru commit stays one language.
+
+**Tamil — the 15th of 18.** `tools/depth-content/ta.py` carries six regular-rung
+`extra` blocks (the script/register split; Pongal; Chettinad cooking; Tamil
+cinema; Sangam landscape poetry; the Tirukkural), eighteen third lessons and
+five half-steps A1+ … C1+ with nine lessons each. Their half-step themes are
+kiosk/home/time; metro/tickets/hotel; district/apartment/work/opinion; official
+life/economy/research; and academic Tamil/public policy/translation. Each
+half-step has its own `extra` block. The authoring run wrote 40 changes: five
+half-step files, six base extras, eighteen new lessons, and `index.json` updates
+(five filenames plus six lesson counts).
+
+Tamil keeps the marked romanisation used by its existing vocabulary lane
+(`ā ī ū ē ō`, retroflex and nasal marks included). `normalise-romanisation.py
+--lang ta` skipped its 16 files as a different scheme/script and reported zero
+repairs; a source check compared all 756 Tamil `t`/`r` pairs with no mismatch or
+non-Latin `r` field. The rendered level-page check passed too. The new Tamil
+role map localised 128 role fields and 10 practice prompts in six existing
+course files; all new lessons use Tamil speaker labels at source, and the ta
+speaker-label check and gap audit now read zero.
+
+The ta ladder moved from 36 lessons / 288 words / 1248 questions to 54 / 378 /
+1734. Its flashcard deck and practice lab were rebuilt, learning inputs and
+editorial metadata refreshed, and the documented page recipe re-run. Gates at
+the tip, all local: `build-all.py check` green; course-levels 32/0;
+placeholders 7/0; ad-policy 22/0; `inject-ads.py --check` ok; ULTRA 2687/0;
+Googlebot parity 15/0; inventory 2690 pages with `thin_indexable 0` and
+`broken 0`; `audit-phase1-gap.py` reads `ta 11/11 · 0 0 0`. The language gate's
+ta row is `FAIL ['no_native_review']` only, `unique_text_ratio` 0.979 and
+`script_mismatch 0`. The generated ladder's bare `twitter:title` is the
+recorded site-wide 1080-bare-vs-7-suffixed issue; it was not hand-edited.
+
+**Telugu — the 16th of 18.** `tools/depth-content/te.py` now carries the six
+CEFR extras, eighteen third lessons and five A1+–C1+ half-steps. It also
+re-authors the six original C1 and six C2 lessons, replacing their synthetic
+glosses, repairing the marked romanisation, and giving each advanced level ten
+unique test prompts and its own goals. The five half-step tests were expanded
+from four to ten items after the gap audit caught the shortfall. A source scan
+found zero mismatches across 126 Telugu `t`/`r` pairs in each advanced file.
+
+The Telugu speaker-label map localised 80 remaining role fields and seven
+practice prompts; the other 48 advanced English labels were removed by the
+source lesson rewrites. Rendered-page regressions now check contextual-segment
+filler, romanisation, distinct C1/C2 test prompts and role labels. Flashcards,
+practice lab, learning/course indexes, copy index and editorial metadata were
+refreshed. `build-all.py check` and `npm run test:courses` are green; the gap
+audit shows `te 11/11` and only the two unfinished languages remain. The
+Telugu language-gate row is blocked only on `no_native_review`.
+
+Still open: PHASE 1 for `ur zh` (10 rung files, 12 `extra` blocks, 12 short
+units), the shared C1/C2 re-authoring for `ar bn de it ja ko pt ru`, 28 English
+speaker labels in Urdu, and the Urdu A1-marks-vs-ASCII decision. Runtime flags
+stay OFF; indexing, canonicals, robots and the domain are untouched.

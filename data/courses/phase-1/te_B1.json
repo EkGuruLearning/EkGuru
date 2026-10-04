@@ -98,25 +98,25 @@
             },
             "dialogue": [
               {
-                "sp": "Doctor",
+                "sp": "వైద్యుడు",
                 "t": "మీకు ఏమైంది?",
                 "r": "Mīku ēmaindi?",
                 "en": "What happened to you?"
               },
               {
-                "sp": "Patient",
+                "sp": "రోగి",
                 "t": "డాక్టర్, రెండు రోజుల నుంచి జ్వరం.",
                 "r": "Ḍākṭar, reṇḍu rōjula nuñchi jvaraṁ.",
                 "en": "Doctor, fever for two days."
               },
               {
-                "sp": "Doctor",
+                "sp": "వైద్యుడు",
                 "t": "దగ్గు, జలుబు ఉందా?",
                 "r": "Daggu, jalubu undā?",
                 "en": "Any cough or cold?"
               },
               {
-                "sp": "Patient",
+                "sp": "రోగి",
                 "t": "దగ్గు మాత్రమే ఉంది.",
                 "r": "Daggu mātramē undi.",
                 "en": "Only a cough."
@@ -194,7 +194,7 @@
               },
               {
                 "type": "dialogue_completion",
-                "q": "Practice 10 [dialogue completion] — Health and Wellbeing — B1: Complete Patient’s turn: Doctor, fever for two days.",
+                "q": "Practice 10 [dialogue completion] — Health and Wellbeing — B1: Complete రోగి’s turn: Doctor, fever for two days.",
                 "answer": "డాక్టర్, రెండు రోజుల నుంచి జ్వరం.",
                 "skill_target": "Telugu dialogue completion: Telugu agglutinative suffixes, case marking, agreement, and respectful forms"
               },
@@ -408,25 +408,25 @@
             },
             "dialogue": [
               {
-                "sp": "Manager",
+                "sp": "నిర్వాహకుడు",
                 "t": "రండి! మీ పేరు ఏంటి?",
                 "r": "Raṇḍi! Mī pēru ēṇṭi?",
                 "en": "Welcome! What is your name?"
               },
               {
-                "sp": "Newcomer",
+                "sp": "కొత్తగా వచ్చిన వ్యక్తి",
                 "t": "నా పేరు కుమార్.",
                 "r": "Nā pēru Kumāṛ.",
                 "en": "My name is Kumar."
               },
               {
-                "sp": "Manager",
+                "sp": "నిర్వాహకుడు",
                 "t": "ఇది మీ టేబుల్. కంప్యూటర్ ఆన్ చేయండి.",
                 "r": "Idi mī ṭēbul. Kampyūṭar ān chēyaṇḍi.",
                 "en": "This is your desk. Switch on the computer."
               },
               {
-                "sp": "Newcomer",
+                "sp": "కొత్తగా వచ్చిన వ్యక్తి",
                 "t": "సరే. ఈమెయిల్ అడ్రస్ ఏంటి?",
                 "r": "Sarē. Īmeyil aḍras ēṇṭi?",
                 "en": "OK. What is the email address?"
@@ -634,6 +634,290 @@
               "మౌస్"
             ],
             "srs_policy": "Only selected high-value forms are preselected; actual mistakes and productive patterns enter personalized review after learner evidence."
+          },
+          {
+            "id": "te-b1-l7",
+            "title": "Discussing a recovery plan",
+            "learn": "Report a symptom change and agree on a follow-up without presenting a learner dialogue as medical advice.",
+            "vocab": [
+              {
+                "t": "కోలుకోవడం",
+                "r": "kōlukōvaḍaṁ",
+                "en": "to recover",
+                "pos": "verb"
+              },
+              {
+                "t": "విశ్రాంతి",
+                "r": "viśrānti",
+                "en": "rest",
+                "pos": "noun"
+              },
+              {
+                "t": "లక్షణం",
+                "r": "lakṣaṇaṁ",
+                "en": "symptom",
+                "pos": "noun"
+              },
+              {
+                "t": "నియమం",
+                "r": "niyamaṁ",
+                "en": "instruction; rule",
+                "pos": "noun"
+              },
+              {
+                "t": "మళ్లీ",
+                "r": "maḷlī",
+                "en": "again",
+                "pos": "adverb"
+              }
+            ],
+            "grammar": {
+              "title": "since-clauses and reported instruction",
+              "pattern": "కాలం నుంచి + మార్పు; X చేయాలని చెప్పారు",
+              "explain": "Use నుంచి to mark the point when a change began. A clinician's instruction can be reported with చేయాలని చెప్పారు; keep the reported advice attributed to its speaker.",
+              "examples": [
+                {
+                  "t": "రెండు రోజుల నుంచి దగ్గు తగ్గుతోంది.",
+                  "r": "Reṇḍu rōjula nuñchi daggu taggutōndi.",
+                  "en": "The cough has been easing for two days."
+                },
+                {
+                  "t": "వైద్యుడు విశ్రాంతి తీసుకోవాలని చెప్పారు.",
+                  "r": "Vaidyuḍu viśrānti tīsukōvālani cheppāru.",
+                  "en": "The doctor said to rest."
+                },
+                {
+                  "t": "లక్షణం మారితే మళ్లీ సంప్రదించండి.",
+                  "r": "Lakṣaṇaṁ māritē maḷlī sampradiñchaṇḍi.",
+                  "en": "Contact them again if the symptom changes."
+                }
+              ],
+              "mistakes": [
+                {
+                  "wrong": "వైద్యుడు విశ్రాంతి తీసుకోవాలి చెప్పారు.",
+                  "right": "వైద్యుడు విశ్రాంతి తీసుకోవాలని చెప్పారు.",
+                  "why": "Reported advice uses the complement -అని/-అని contracted as -ాలని: తీసుకోవాలని చెప్పారు."
+                }
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "వైద్యుడు",
+                "t": "రెండు రోజుల నుంచి దగ్గు ఎలా ఉంది?",
+                "r": "Reṇḍu rōjula nuñchi daggu elā undi?",
+                "en": "How has the cough been for the last two days?"
+              },
+              {
+                "sp": "రోగి",
+                "t": "కొంచెం తగ్గుతోంది, కానీ రాత్రి ఇంకా ఇబ్బంది ఉంది.",
+                "r": "Koñcheṁ taggutōndi, kānī rātri iṅkā ibbandi undi.",
+                "en": "It is easing a little, but there is still difficulty at night."
+              },
+              {
+                "sp": "వైద్యుడు",
+                "t": "విశ్రాంతి తీసుకోవాలని, నీరు తాగాలని చెప్పాను.",
+                "r": "Viśrānti tīsukōvālani, nīru tāgālani cheppānu.",
+                "en": "I said to rest and drink water."
+              },
+              {
+                "sp": "రోగి",
+                "t": "లక్షణం మారితే మళ్లీ సంప్రదిస్తాను.",
+                "r": "Lakṣaṇaṁ māritē maḷlī sampradistānu.",
+                "en": "If the symptom changes, I will contact you again."
+              }
+            ],
+            "practice": [
+              {
+                "type": "multiple_choice",
+                "q": "Practice 1: [multiple choice] Discussing a recovery plan — Choose the meaning of కోలుకోవడం (kōlukōvaḍaṁ) in this lesson.",
+                "answer": "to recover",
+                "skill_target": "Telugu: the Telugu abugida, vowel signs and virama, case suffixes, verb-final clauses, మీరు with respectful agreement, quotative అని, and the difference between a written standard and regional speech",
+                "options": [
+                  "to recover",
+                  "rest",
+                  "symptom",
+                  "instruction; rule"
+                ]
+              },
+              {
+                "type": "fill_in_the_blank",
+                "q": "Practice 2: [fill in the blank] Discussing a recovery plan — Type the Telugu expression meaning “rest”.",
+                "answer": "విశ్రాంతి",
+                "skill_target": "Telugu: the Telugu abugida, vowel signs and virama, case suffixes, verb-final clauses, మీరు with respectful agreement, quotative అని, and the difference between a written standard and regional speech"
+              },
+              {
+                "type": "translation",
+                "q": "Practice 3: [translation] Discussing a recovery plan — Interpret the Telugu script in context: రెండు రోజుల నుంచి దగ్గు తగ్గుతోంది. (Reṇḍu rōjula nuñchi daggu taggutōndi.).",
+                "answer": "The cough has been easing for two days.",
+                "skill_target": "Telugu: the Telugu abugida, vowel signs and virama, case suffixes, verb-final clauses, మీరు with respectful agreement, quotative అని, and the difference between a written standard and regional speech"
+              },
+              {
+                "type": "reverse_translation",
+                "q": "Practice 4: [reverse translation] Discussing a recovery plan — Write in Telugu script: The doctor said to rest..",
+                "answer": "వైద్యుడు విశ్రాంతి తీసుకోవాలని చెప్పారు.",
+                "skill_target": "Telugu: the Telugu abugida, vowel signs and virama, case suffixes, verb-final clauses, మీరు with respectful agreement, quotative అని, and the difference between a written standard and regional speech"
+              },
+              {
+                "type": "matching",
+                "q": "Practice 5: [matching] Discussing a recovery plan — Match లక్షణం to its lesson meaning.",
+                "answer": "symptom",
+                "skill_target": "Telugu: the Telugu abugida, vowel signs and virama, case suffixes, verb-final clauses, మీరు with respectful agreement, quotative అని, and the difference between a written standard and regional speech",
+                "options": [
+                  "symptom",
+                  "to recover",
+                  "rest"
+                ]
+              },
+              {
+                "type": "reorder",
+                "q": "Practice 6: [reorder] Discussing a recovery plan — Reconstruct the lesson model in coherent Telugu: Contact them again if the symptom changes..",
+                "answer": "లక్షణం మారితే మళ్లీ సంప్రదించండి.",
+                "skill_target": "Telugu: the Telugu abugida, vowel signs and virama, case suffixes, verb-final clauses, మీరు with respectful agreement, quotative అని, and the difference between a written standard and regional speech"
+              },
+              {
+                "type": "sentence_building",
+                "q": "Practice 7: [sentence building] Discussing a recovery plan — Build the sentence with the lesson pattern (కాలం నుంచి + మార్పు; X చేయాలని చెప్పారు): The cough has been easing for two days..",
+                "answer": "రెండు రోజుల నుంచి దగ్గు తగ్గుతోంది.",
+                "skill_target": "Telugu: the Telugu abugida, vowel signs and virama, case suffixes, verb-final clauses, మీరు with respectful agreement, quotative అని, and the difference between a written standard and regional speech"
+              },
+              {
+                "type": "word_selection",
+                "q": "Practice 8: [word selection] Discussing a recovery plan — Select the Telugu form for “instruction; rule”.",
+                "answer": "నియమం",
+                "skill_target": "Telugu: the Telugu abugida, vowel signs and virama, case suffixes, verb-final clauses, మీరు with respectful agreement, quotative అని, and the difference between a written standard and regional speech",
+                "options": [
+                  "నియమం",
+                  "మళ్లీ"
+                ]
+              },
+              {
+                "type": "error_correction",
+                "q": "Practice 9: [error correction] Discussing a recovery plan — Correct the model the lesson warns about: వైద్యుడు విశ్రాంతి తీసుకోవాలి చెప్పారు.",
+                "answer": "వైద్యుడు విశ్రాంతి తీసుకోవాలని చెప్పారు.",
+                "skill_target": "Telugu: the Telugu abugida, vowel signs and virama, case suffixes, verb-final clauses, మీరు with respectful agreement, quotative అని, and the difference between a written standard and regional speech"
+              },
+              {
+                "type": "dialogue_completion",
+                "q": "Practice 10: [dialogue completion] Discussing a recovery plan — Complete the exchange with the studied response to: How has the cough been for the last two days?",
+                "answer": "కొంచెం తగ్గుతోంది, కానీ రాత్రి ఇంకా ఇబ్బంది ఉంది.",
+                "skill_target": "Telugu: the Telugu abugida, vowel signs and virama, case suffixes, verb-final clauses, మీరు with respectful agreement, quotative అని, and the difference between a written standard and regional speech"
+              },
+              {
+                "type": "reading_comprehension",
+                "q": "Practice 11: [reading comprehension] Discussing a recovery plan — Read “విశ్రాంతి తీసుకోవాలని, నీరు తాగాలని చెప్పాను.” (Viśrānti tīsukōvālani, nīru tāgālani cheppānu.). What does it mean?",
+                "answer": "I said to rest and drink water.",
+                "skill_target": "Telugu: the Telugu abugida, vowel signs and virama, case suffixes, verb-final clauses, మీరు with respectful agreement, quotative అని, and the difference between a written standard and regional speech"
+              },
+              {
+                "type": "paragraph_comprehension",
+                "q": "Practice 12: [paragraph comprehension] Discussing a recovery plan — Read the lesson dialogue as a whole and give its key move: If the symptom changes, I will contact you again.",
+                "answer": "లక్షణం మారితే మళ్లీ సంప్రదిస్తాను.",
+                "skill_target": "Telugu: the Telugu abugida, vowel signs and virama, case suffixes, verb-final clauses, మీరు with respectful agreement, quotative అని, and the difference between a written standard and regional speech"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "Which meaning best fits కోలుకోవడం?",
+                "options": [
+                  "to recover",
+                  "rest",
+                  "symptom",
+                  "instruction; rule"
+                ],
+                "answer": 0,
+                "why": "కోలుకోవడం (kōlukōvaḍaṁ) means to recover in this lesson."
+              },
+              {
+                "q": "Which meaning best fits విశ్రాంతి?",
+                "options": [
+                  "rest",
+                  "to recover",
+                  "symptom",
+                  "instruction; rule"
+                ],
+                "answer": 0,
+                "why": "విశ్రాంతి (viśrānti) means rest in this lesson."
+              },
+              {
+                "q": "Which meaning best fits లక్షణం?",
+                "options": [
+                  "symptom",
+                  "to recover",
+                  "rest",
+                  "instruction; rule"
+                ],
+                "answer": 0,
+                "why": "లక్షణం (lakṣaṇaṁ) means symptom in this lesson."
+              },
+              {
+                "q": "Which meaning best fits నియమం?",
+                "options": [
+                  "instruction; rule",
+                  "to recover",
+                  "rest",
+                  "symptom"
+                ],
+                "answer": 0,
+                "why": "నియమం (niyamaṁ) means instruction; rule in this lesson."
+              },
+              {
+                "q": "Which meaning best fits మళ్లీ?",
+                "options": [
+                  "again",
+                  "to recover",
+                  "rest",
+                  "symptom"
+                ],
+                "answer": 0,
+                "why": "మళ్లీ (maḷlī) means again in this lesson."
+              }
+            ],
+            "flashcards": "auto:vocab",
+            "worksheet": {
+              "title": "Summarise the plan",
+              "tasks": [
+                {
+                  "instruction": "Report the symptom change and its time span.",
+                  "items": [
+                    "రెండు రోజుల నుంచి",
+                    "తగ్గుతోంది"
+                  ],
+                  "key": [
+                    "for two days",
+                    "has been easing"
+                  ]
+                },
+                {
+                  "instruction": "Attribute the advice to the clinician.",
+                  "items": [
+                    "వైద్యుడు",
+                    "చెప్పారు"
+                  ],
+                  "key": [
+                    "doctor",
+                    "said"
+                  ]
+                },
+                {
+                  "instruction": "Integrated offline practice: read the first model, transform or extend it in Telugu script, then rehearse it as a dialogue. Self-check meaning, grammar, and register.",
+                  "items": [
+                    "రెండు రోజుల నుంచి దగ్గు తగ్గుతోంది.",
+                    "రెండు రోజుల నుంచి దగ్గు ఎలా ఉంది?"
+                  ],
+                  "key": [
+                    "The cough has been easing for two days.",
+                    "How has the cough been for the last two days?"
+                  ]
+                }
+              ]
+            },
+            "srs_candidates": [
+              "కోలుకోవడం",
+              "విశ్రాంతి",
+              "లక్షణం",
+              "నియమం"
+            ],
+            "srs_policy": "Only these four high-value terms are preselected; lesson mistakes and productive patterns may enter personalized review after an actual error."
           }
         ]
       },
@@ -722,25 +1006,25 @@
             },
             "dialogue": [
               {
-                "sp": "Father",
+                "sp": "నాన్న",
                 "t": "హోమ్‌వర్క్ పూర్తి చేశావా?",
                 "r": "Hōmvark pūrti chēśāvā?",
                 "en": "Did you finish homework?"
               },
               {
-                "sp": "Son",
+                "sp": "కొడుకు",
                 "t": "లెక్కలు మాత్రమే మిగిలాయి, నాన్న.",
                 "r": "Lekkalu mātramē migilāyi, nānna.",
                 "en": "Only maths left, father."
               },
               {
-                "sp": "Father",
+                "sp": "నాన్న",
                 "t": "ఎక్కడ అనుమానం? చూపించు.",
                 "r": "Ekkaḍa anumānaṁ? Chūpiñchu.",
                 "en": "Where's the doubt? Show me."
               },
               {
-                "sp": "Son",
+                "sp": "కొడుకు",
                 "t": "ఈ లెక్క అర్థం కాలేదు.",
                 "r": "Ī lekka arthaṁ kālēdu.",
                 "en": "I don't get this sum."
@@ -1245,6 +1529,286 @@
               "పార్కు"
             ],
             "srs_policy": "Only selected high-value forms are preselected; actual mistakes and productive patterns enter personalized review after learner evidence."
+          },
+          {
+            "id": "te-b1-l8",
+            "title": "Explaining a local water change",
+            "learn": "Describe a change in a local water source, separate an observation from a possible cause, and propose one action.",
+            "vocab": [
+              {
+                "t": "నీటి మట్టం",
+                "r": "nīṭi maṭṭaṁ",
+                "en": "water level",
+                "pos": "noun"
+              },
+              {
+                "t": "బావి",
+                "r": "bāvi",
+                "en": "well",
+                "pos": "noun"
+              },
+              {
+                "t": "గమనించడం",
+                "r": "gamaniñchaḍaṁ",
+                "en": "to observe",
+                "pos": "verb"
+              },
+              {
+                "t": "కారణం",
+                "r": "kāraṇaṁ",
+                "en": "cause",
+                "pos": "noun"
+              },
+              {
+                "t": "సంరక్షణ",
+                "r": "saṁrakṣaṇa",
+                "en": "conservation",
+                "pos": "noun"
+              }
+            ],
+            "grammar": {
+              "title": "cause with కాబట్టి and cautious possibility",
+              "pattern": "గమనింపు + ఉంది; కారణం + కావచ్చు",
+              "explain": "Use కాబట్టి to state a result that follows from a reason. Use కావచ్చు when the cause is a possibility rather than a proved fact; keep the observation and inference distinct.",
+              "examples": [
+                {
+                  "t": "ఈ నెల బావిలో నీటి మట్టం తగ్గింది.",
+                  "r": "Ī nela bāvilō nīṭi maṭṭaṁ taggindi.",
+                  "en": "The water level in this well fell this month."
+                },
+                {
+                  "t": "వాన తక్కువగా పడింది కాబట్టి నీరు తగ్గి ఉండవచ్చు.",
+                  "r": "Vāna takkuvagā paḍindi kābaṭṭi nīru taggi uṇḍavachchu.",
+                  "en": "The water may have fallen because there was little rain."
+                },
+                {
+                  "t": "మొదట కొలతలను నమోదు చేద్దాం.",
+                  "r": "Modaṭa kolatalanu namōdu chēddāṁ.",
+                  "en": "First, let us record the measurements."
+                }
+              ],
+              "mistakes": [
+                {
+                  "wrong": "వాన తక్కువగా పడింది కాబట్టి నీరు తగ్గుతుంది.",
+                  "right": "వాన తక్కువగా పడింది కాబట్టి నీరు తగ్గి ఉండవచ్చు.",
+                  "why": "When evidence is incomplete, use the possibility form ఉండవచ్చు rather than stating the result as certain."
+                }
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "మీనాక్షి",
+                "t": "ఈ నెల బావిలో నీటి మట్టం తగ్గింది.",
+                "r": "Ī nela bāvilō nīṭi maṭṭaṁ taggindi.",
+                "en": "The water level in this well fell this month."
+              },
+              {
+                "sp": "రవి",
+                "t": "వాన తక్కువగా పడింది కాబట్టి అదే కారణం కావచ్చు.",
+                "r": "Vāna takkuvagā paḍindi kābaṭṭi adē kāraṇaṁ kāvachchu.",
+                "en": "It may be the cause because there was little rain."
+              },
+              {
+                "sp": "మీనాక్షి",
+                "t": "ఇంకా కొలతలు చూడకుండా తేల్చలేం.",
+                "r": "Iṅkā kolatalu chūḍakuṇḍā tēlchalēṁ.",
+                "en": "We cannot conclude before checking more measurements."
+              },
+              {
+                "sp": "రవి",
+                "t": "సరే, ప్రతి వారం నమోదు చేద్దాం.",
+                "r": "Sarē, prati vāraṁ namōdu chēddāṁ.",
+                "en": "All right, let us record it every week."
+              }
+            ],
+            "practice": [
+              {
+                "type": "multiple_choice",
+                "q": "Practice 1: [multiple choice] Explaining a local water change — Choose the meaning of నీటి మట్టం (nīṭi maṭṭaṁ) in this lesson.",
+                "answer": "water level",
+                "skill_target": "Telugu: the Telugu abugida, vowel signs and virama, case suffixes, verb-final clauses, మీరు with respectful agreement, quotative అని, and the difference between a written standard and regional speech",
+                "options": [
+                  "water level",
+                  "well",
+                  "to observe",
+                  "cause"
+                ]
+              },
+              {
+                "type": "fill_in_the_blank",
+                "q": "Practice 2: [fill in the blank] Explaining a local water change — Type the Telugu expression meaning “well”.",
+                "answer": "బావి",
+                "skill_target": "Telugu: the Telugu abugida, vowel signs and virama, case suffixes, verb-final clauses, మీరు with respectful agreement, quotative అని, and the difference between a written standard and regional speech"
+              },
+              {
+                "type": "translation",
+                "q": "Practice 3: [translation] Explaining a local water change — Interpret the Telugu script in context: ఈ నెల బావిలో నీటి మట్టం తగ్గింది. (Ī nela bāvilō nīṭi maṭṭaṁ taggindi.).",
+                "answer": "The water level in this well fell this month.",
+                "skill_target": "Telugu: the Telugu abugida, vowel signs and virama, case suffixes, verb-final clauses, మీరు with respectful agreement, quotative అని, and the difference between a written standard and regional speech"
+              },
+              {
+                "type": "reverse_translation",
+                "q": "Practice 4: [reverse translation] Explaining a local water change — Write in Telugu script: The water may have fallen because there was little rain..",
+                "answer": "వాన తక్కువగా పడింది కాబట్టి నీరు తగ్గి ఉండవచ్చు.",
+                "skill_target": "Telugu: the Telugu abugida, vowel signs and virama, case suffixes, verb-final clauses, మీరు with respectful agreement, quotative అని, and the difference between a written standard and regional speech"
+              },
+              {
+                "type": "matching",
+                "q": "Practice 5: [matching] Explaining a local water change — Match గమనించడం to its lesson meaning.",
+                "answer": "to observe",
+                "skill_target": "Telugu: the Telugu abugida, vowel signs and virama, case suffixes, verb-final clauses, మీరు with respectful agreement, quotative అని, and the difference between a written standard and regional speech",
+                "options": [
+                  "to observe",
+                  "water level",
+                  "well"
+                ]
+              },
+              {
+                "type": "reorder",
+                "q": "Practice 6: [reorder] Explaining a local water change — Reconstruct the lesson model in coherent Telugu: First, let us record the measurements..",
+                "answer": "మొదట కొలతలను నమోదు చేద్దాం.",
+                "skill_target": "Telugu: the Telugu abugida, vowel signs and virama, case suffixes, verb-final clauses, మీరు with respectful agreement, quotative అని, and the difference between a written standard and regional speech"
+              },
+              {
+                "type": "sentence_building",
+                "q": "Practice 7: [sentence building] Explaining a local water change — Build the sentence with the lesson pattern (గమనింపు + ఉంది; కారణం + కావచ్చు): The water level in this well fell this month..",
+                "answer": "ఈ నెల బావిలో నీటి మట్టం తగ్గింది.",
+                "skill_target": "Telugu: the Telugu abugida, vowel signs and virama, case suffixes, verb-final clauses, మీరు with respectful agreement, quotative అని, and the difference between a written standard and regional speech"
+              },
+              {
+                "type": "word_selection",
+                "q": "Practice 8: [word selection] Explaining a local water change — Select the Telugu form for “cause”.",
+                "answer": "కారణం",
+                "skill_target": "Telugu: the Telugu abugida, vowel signs and virama, case suffixes, verb-final clauses, మీరు with respectful agreement, quotative అని, and the difference between a written standard and regional speech",
+                "options": [
+                  "కారణం",
+                  "సంరక్షణ"
+                ]
+              },
+              {
+                "type": "error_correction",
+                "q": "Practice 9: [error correction] Explaining a local water change — Correct the model the lesson warns about: వాన తక్కువగా పడింది కాబట్టి నీరు తగ్గుతుంది.",
+                "answer": "వాన తక్కువగా పడింది కాబట్టి నీరు తగ్గి ఉండవచ్చు.",
+                "skill_target": "Telugu: the Telugu abugida, vowel signs and virama, case suffixes, verb-final clauses, మీరు with respectful agreement, quotative అని, and the difference between a written standard and regional speech"
+              },
+              {
+                "type": "dialogue_completion",
+                "q": "Practice 10: [dialogue completion] Explaining a local water change — Complete the exchange with the studied response to: The water level in this well fell this month.",
+                "answer": "వాన తక్కువగా పడింది కాబట్టి అదే కారణం కావచ్చు.",
+                "skill_target": "Telugu: the Telugu abugida, vowel signs and virama, case suffixes, verb-final clauses, మీరు with respectful agreement, quotative అని, and the difference between a written standard and regional speech"
+              },
+              {
+                "type": "reading_comprehension",
+                "q": "Practice 11: [reading comprehension] Explaining a local water change — Read “ఇంకా కొలతలు చూడకుండా తేల్చలేం.” (Iṅkā kolatalu chūḍakuṇḍā tēlchalēṁ.). What does it mean?",
+                "answer": "We cannot conclude before checking more measurements.",
+                "skill_target": "Telugu: the Telugu abugida, vowel signs and virama, case suffixes, verb-final clauses, మీరు with respectful agreement, quotative అని, and the difference between a written standard and regional speech"
+              },
+              {
+                "type": "paragraph_comprehension",
+                "q": "Practice 12: [paragraph comprehension] Explaining a local water change — Read the lesson dialogue as a whole and give its key move: All right, let us record it every week.",
+                "answer": "సరే, ప్రతి వారం నమోదు చేద్దాం.",
+                "skill_target": "Telugu: the Telugu abugida, vowel signs and virama, case suffixes, verb-final clauses, మీరు with respectful agreement, quotative అని, and the difference between a written standard and regional speech"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "Which meaning best fits నీటి మట్టం?",
+                "options": [
+                  "water level",
+                  "well",
+                  "to observe",
+                  "cause"
+                ],
+                "answer": 0,
+                "why": "నీటి మట్టం (nīṭi maṭṭaṁ) means water level in this lesson."
+              },
+              {
+                "q": "Which meaning best fits బావి?",
+                "options": [
+                  "well",
+                  "water level",
+                  "to observe",
+                  "cause"
+                ],
+                "answer": 0,
+                "why": "బావి (bāvi) means well in this lesson."
+              },
+              {
+                "q": "Which meaning best fits గమనించడం?",
+                "options": [
+                  "to observe",
+                  "water level",
+                  "well",
+                  "cause"
+                ],
+                "answer": 0,
+                "why": "గమనించడం (gamaniñchaḍaṁ) means to observe in this lesson."
+              },
+              {
+                "q": "Which meaning best fits కారణం?",
+                "options": [
+                  "cause",
+                  "water level",
+                  "well",
+                  "to observe"
+                ],
+                "answer": 0,
+                "why": "కారణం (kāraṇaṁ) means cause in this lesson."
+              },
+              {
+                "q": "Which meaning best fits సంరక్షణ?",
+                "options": [
+                  "conservation",
+                  "water level",
+                  "well",
+                  "to observe"
+                ],
+                "answer": 0,
+                "why": "సంరక్షణ (saṁrakṣaṇa) means conservation in this lesson."
+              }
+            ],
+            "flashcards": "auto:vocab",
+            "worksheet": {
+              "title": "Separate evidence from inference",
+              "tasks": [
+                {
+                  "instruction": "Write the observed change as a fact.",
+                  "items": [
+                    "నీటి మట్టం తగ్గింది"
+                  ],
+                  "key": [
+                    "the water level fell"
+                  ]
+                },
+                {
+                  "instruction": "Write the possible cause cautiously.",
+                  "items": [
+                    "కారణం కావచ్చు"
+                  ],
+                  "key": [
+                    "may be the cause"
+                  ]
+                },
+                {
+                  "instruction": "Integrated offline practice: read the first model, transform or extend it in Telugu script, then rehearse it as a dialogue. Self-check meaning, grammar, and register.",
+                  "items": [
+                    "ఈ నెల బావిలో నీటి మట్టం తగ్గింది.",
+                    "ఈ నెల బావిలో నీటి మట్టం తగ్గింది."
+                  ],
+                  "key": [
+                    "The water level in this well fell this month.",
+                    "The water level in this well fell this month."
+                  ]
+                }
+              ]
+            },
+            "srs_candidates": [
+              "నీటి మట్టం",
+              "బావి",
+              "గమనించడం",
+              "కారణం"
+            ],
+            "srs_policy": "Only these four high-value terms are preselected; lesson mistakes and productive patterns may enter personalized review after an actual error."
           }
         ]
       },
@@ -1333,25 +1897,25 @@
             },
             "dialogue": [
               {
-                "sp": "Mother",
+                "sp": "అమ్మ",
                 "t": "విను, ఈ సాయంత్రం అతిథులు వస్తున్నారు.",
                 "r": "Vinu, ī sāyantraṁ atithulu vastunnāru.",
                 "en": "Listen, guests are coming this evening."
               },
               {
-                "sp": "Son",
+                "sp": "కొడుకు",
                 "t": "ఎవరు వస్తున్నారు, అమ్మ?",
                 "r": "Evaru vastunnāru, amma?",
                 "en": "Who is coming, mother?"
               },
               {
-                "sp": "Mother",
+                "sp": "అమ్మ",
                 "t": "మీ మామయ్య-అత్తయ్య. గది సర్దు.",
                 "r": "Mī māmayya-attayya. Gadi sardu.",
                 "en": "Your uncle and aunt. Tidy the room."
               },
               {
-                "sp": "Son",
+                "sp": "కొడుకు",
                 "t": "సరే. ఏం వంట?",
                 "r": "Sarē. Ēṁ vaṇṭa?",
                 "en": "OK. What will be cooked?"
@@ -1641,25 +2205,25 @@
             },
             "dialogue": [
               {
-                "sp": "Grandmother",
+                "sp": "అమ్మమ్మ",
                 "t": "లేవరా! ఈరోజు సంక్రాంతి.",
                 "r": "Lēvarā! Īrōju saṅkrānti.",
                 "en": "Wake up! Today is Sankranti."
               },
               {
-                "sp": "Girl",
+                "sp": "అమ్మాయి",
                 "t": "అవ్వా, ముగ్గు వేశావా?",
                 "r": "Avvā, muggu vēśāvā?",
                 "en": "Grandma, did you draw the muggu?"
               },
               {
-                "sp": "Grandmother",
+                "sp": "అమ్మమ్మ",
                 "t": "వేశాను. చెరకు తీసుకురా.",
                 "r": "Vēśānu. Cheraku tīsukurā.",
                 "en": "Done. Fetch the sugarcane."
               },
               {
-                "sp": "Girl",
+                "sp": "అమ్మాయి",
                 "t": "పతంగులు ఎగురుతున్నాయి!",
                 "r": "Pataṅgulu egurutunnāyi!",
                 "en": "The kites are flying!"
@@ -1859,6 +2423,290 @@
               "చర్చి"
             ],
             "srs_policy": "Only selected high-value forms are preselected; actual mistakes and productive patterns enter personalized review after learner evidence."
+          },
+          {
+            "id": "te-b1-l9",
+            "title": "Planning a community exhibition",
+            "learn": "Coordinate a small cultural exhibition, assign responsibilities, and explain why the display needs a clear caption.",
+            "vocab": [
+              {
+                "t": "ప్రదర్శన",
+                "r": "pradarśana",
+                "en": "exhibition",
+                "pos": "noun"
+              },
+              {
+                "t": "వివరణ",
+                "r": "vivaraṇa",
+                "en": "caption; explanation",
+                "pos": "noun"
+              },
+              {
+                "t": "నిర్వాహకుడు",
+                "r": "nirvāhakuḍu",
+                "en": "organiser",
+                "pos": "noun"
+              },
+              {
+                "t": "స్వచ్ఛందం",
+                "r": "svachchhandaṁ",
+                "en": "voluntary",
+                "pos": "adjective"
+              },
+              {
+                "t": "ప్రేక్షకుడు",
+                "r": "prēkṣakuḍu",
+                "en": "viewer; audience member",
+                "pos": "noun"
+              }
+            ],
+            "grammar": {
+              "title": "purpose with కోసం and reason with ఎందుకంటే",
+              "pattern": "కార్యం + కోసం; కారణం + ఎందుకంటే",
+              "explain": "Use కోసం to name the purpose of an action. Use ఎందుకంటే to introduce a reason; the explanatory clause follows the point it supports.",
+              "examples": [
+                {
+                  "t": "ప్రదర్శన కోసం పూల చిత్రాలు సేకరిస్తున్నాం.",
+                  "r": "Pradarśana kōsaṁ pūla chitrālu sēkaristunnāṁ.",
+                  "en": "We are collecting flower pictures for the exhibition."
+                },
+                {
+                  "t": "ప్రతి చిత్రానికి చిన్న వివరణ రాస్తాం.",
+                  "r": "Prati chitrāniki chinna vivaraṇa rāstāṁ.",
+                  "en": "We will write a short caption for each picture."
+                },
+                {
+                  "t": "ప్రేక్షకులు సందర్భం తెలుసుకోవాలి ఎందుకంటే ఇది స్థానిక సంప్రదాయం.",
+                  "r": "Prēkṣakulu sandarbhaṁ telusukōvāli endukaṇṭē idi sthānika sampradāyaṁ.",
+                  "en": "Viewers should know the context because this is a local tradition."
+                }
+              ],
+              "mistakes": [
+                {
+                  "wrong": "ప్రదర్శన కోసం మేము చిత్రాలు సేకరిస్తున్నారు.",
+                  "right": "ప్రదర్శన కోసం మేము చిత్రాలు సేకరిస్తున్నాం.",
+                  "why": "The subject మేము requires first-person plural agreement సేకరిస్తున్నాం."
+                }
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "నిర్వాహకురాలు",
+                "t": "ప్రతి చిత్రానికి వివరణ ఎవరు రాస్తారు?",
+                "r": "Prati chitrāniki vivaraṇa evaru rāstāru?",
+                "en": "Who will write the caption for each picture?"
+              },
+              {
+                "sp": "స్వచ్ఛంద కార్యకర్త",
+                "t": "నేను రాస్తాను; కళాకారుల పేర్లు మీ దగ్గర ఉన్నాయా?",
+                "r": "Nēnu rāstānu; kaḷākārula pērlu mī daggara unnāyā?",
+                "en": "I will write them; do you have the artists' names?"
+              },
+              {
+                "sp": "నిర్వాహకురాలు",
+                "t": "ఉన్నాయి. తేదీని కూడా చేర్చండి.",
+                "r": "Unnāyi. tēdīni kūḍā chērchaṇḍi.",
+                "en": "Yes. Please include the date too."
+              },
+              {
+                "sp": "స్వచ్ఛంద కార్యకర్త",
+                "t": "సరే, ప్రేక్షకులకు సందర్భం స్పష్టంగా ఉంటుంది.",
+                "r": "Sarē, prēkṣakulaku sandarbhaṁ spaṣṭaṅgā uṇṭundi.",
+                "en": "All right; the context will be clear to the audience."
+              }
+            ],
+            "practice": [
+              {
+                "type": "multiple_choice",
+                "q": "Practice 1: [multiple choice] Planning a community exhibition — Choose the meaning of ప్రదర్శన (pradarśana) in this lesson.",
+                "answer": "exhibition",
+                "skill_target": "Telugu: the Telugu abugida, vowel signs and virama, case suffixes, verb-final clauses, మీరు with respectful agreement, quotative అని, and the difference between a written standard and regional speech",
+                "options": [
+                  "exhibition",
+                  "caption; explanation",
+                  "organiser",
+                  "voluntary"
+                ]
+              },
+              {
+                "type": "fill_in_the_blank",
+                "q": "Practice 2: [fill in the blank] Planning a community exhibition — Type the Telugu expression meaning “caption; explanation”.",
+                "answer": "వివరణ",
+                "skill_target": "Telugu: the Telugu abugida, vowel signs and virama, case suffixes, verb-final clauses, మీరు with respectful agreement, quotative అని, and the difference between a written standard and regional speech"
+              },
+              {
+                "type": "translation",
+                "q": "Practice 3: [translation] Planning a community exhibition — Interpret the Telugu script in context: ప్రదర్శన కోసం పూల చిత్రాలు సేకరిస్తున్నాం. (Pradarśana kōsaṁ pūla chitrālu sēkaristunnāṁ.).",
+                "answer": "We are collecting flower pictures for the exhibition.",
+                "skill_target": "Telugu: the Telugu abugida, vowel signs and virama, case suffixes, verb-final clauses, మీరు with respectful agreement, quotative అని, and the difference between a written standard and regional speech"
+              },
+              {
+                "type": "reverse_translation",
+                "q": "Practice 4: [reverse translation] Planning a community exhibition — Write in Telugu script: We will write a short caption for each picture..",
+                "answer": "ప్రతి చిత్రానికి చిన్న వివరణ రాస్తాం.",
+                "skill_target": "Telugu: the Telugu abugida, vowel signs and virama, case suffixes, verb-final clauses, మీరు with respectful agreement, quotative అని, and the difference between a written standard and regional speech"
+              },
+              {
+                "type": "matching",
+                "q": "Practice 5: [matching] Planning a community exhibition — Match నిర్వాహకుడు to its lesson meaning.",
+                "answer": "organiser",
+                "skill_target": "Telugu: the Telugu abugida, vowel signs and virama, case suffixes, verb-final clauses, మీరు with respectful agreement, quotative అని, and the difference between a written standard and regional speech",
+                "options": [
+                  "organiser",
+                  "exhibition",
+                  "caption; explanation"
+                ]
+              },
+              {
+                "type": "reorder",
+                "q": "Practice 6: [reorder] Planning a community exhibition — Reconstruct the lesson model in coherent Telugu: Viewers should know the context because this is a local tradition..",
+                "answer": "ప్రేక్షకులు సందర్భం తెలుసుకోవాలి ఎందుకంటే ఇది స్థానిక సంప్రదాయం.",
+                "skill_target": "Telugu: the Telugu abugida, vowel signs and virama, case suffixes, verb-final clauses, మీరు with respectful agreement, quotative అని, and the difference between a written standard and regional speech"
+              },
+              {
+                "type": "sentence_building",
+                "q": "Practice 7: [sentence building] Planning a community exhibition — Build the sentence with the lesson pattern (కార్యం + కోసం; కారణం + ఎందుకంటే): We are collecting flower pictures for the exhibition..",
+                "answer": "ప్రదర్శన కోసం పూల చిత్రాలు సేకరిస్తున్నాం.",
+                "skill_target": "Telugu: the Telugu abugida, vowel signs and virama, case suffixes, verb-final clauses, మీరు with respectful agreement, quotative అని, and the difference between a written standard and regional speech"
+              },
+              {
+                "type": "word_selection",
+                "q": "Practice 8: [word selection] Planning a community exhibition — Select the Telugu form for “voluntary”.",
+                "answer": "స్వచ్ఛందం",
+                "skill_target": "Telugu: the Telugu abugida, vowel signs and virama, case suffixes, verb-final clauses, మీరు with respectful agreement, quotative అని, and the difference between a written standard and regional speech",
+                "options": [
+                  "స్వచ్ఛందం",
+                  "ప్రేక్షకుడు"
+                ]
+              },
+              {
+                "type": "error_correction",
+                "q": "Practice 9: [error correction] Planning a community exhibition — Correct the model the lesson warns about: ప్రదర్శన కోసం మేము చిత్రాలు సేకరిస్తున్నారు.",
+                "answer": "ప్రదర్శన కోసం మేము చిత్రాలు సేకరిస్తున్నాం.",
+                "skill_target": "Telugu: the Telugu abugida, vowel signs and virama, case suffixes, verb-final clauses, మీరు with respectful agreement, quotative అని, and the difference between a written standard and regional speech"
+              },
+              {
+                "type": "dialogue_completion",
+                "q": "Practice 10: [dialogue completion] Planning a community exhibition — Complete the exchange with the studied response to: Who will write the caption for each picture?",
+                "answer": "నేను రాస్తాను; కళాకారుల పేర్లు మీ దగ్గర ఉన్నాయా?",
+                "skill_target": "Telugu: the Telugu abugida, vowel signs and virama, case suffixes, verb-final clauses, మీరు with respectful agreement, quotative అని, and the difference between a written standard and regional speech"
+              },
+              {
+                "type": "reading_comprehension",
+                "q": "Practice 11: [reading comprehension] Planning a community exhibition — Read “ఉన్నాయి. తేదీని కూడా చేర్చండి.” (Unnāyi. tēdīni kūḍā chērchaṇḍi.). What does it mean?",
+                "answer": "Yes. Please include the date too.",
+                "skill_target": "Telugu: the Telugu abugida, vowel signs and virama, case suffixes, verb-final clauses, మీరు with respectful agreement, quotative అని, and the difference between a written standard and regional speech"
+              },
+              {
+                "type": "paragraph_comprehension",
+                "q": "Practice 12: [paragraph comprehension] Planning a community exhibition — Read the lesson dialogue as a whole and give its key move: All right; the context will be clear to the audience.",
+                "answer": "సరే, ప్రేక్షకులకు సందర్భం స్పష్టంగా ఉంటుంది.",
+                "skill_target": "Telugu: the Telugu abugida, vowel signs and virama, case suffixes, verb-final clauses, మీరు with respectful agreement, quotative అని, and the difference between a written standard and regional speech"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "Which meaning best fits ప్రదర్శన?",
+                "options": [
+                  "exhibition",
+                  "caption; explanation",
+                  "organiser",
+                  "voluntary"
+                ],
+                "answer": 0,
+                "why": "ప్రదర్శన (pradarśana) means exhibition in this lesson."
+              },
+              {
+                "q": "Which meaning best fits వివరణ?",
+                "options": [
+                  "caption; explanation",
+                  "exhibition",
+                  "organiser",
+                  "voluntary"
+                ],
+                "answer": 0,
+                "why": "వివరణ (vivaraṇa) means caption; explanation in this lesson."
+              },
+              {
+                "q": "Which meaning best fits నిర్వాహకుడు?",
+                "options": [
+                  "organiser",
+                  "exhibition",
+                  "caption; explanation",
+                  "voluntary"
+                ],
+                "answer": 0,
+                "why": "నిర్వాహకుడు (nirvāhakuḍu) means organiser in this lesson."
+              },
+              {
+                "q": "Which meaning best fits స్వచ్ఛందం?",
+                "options": [
+                  "voluntary",
+                  "exhibition",
+                  "caption; explanation",
+                  "organiser"
+                ],
+                "answer": 0,
+                "why": "స్వచ్ఛందం (svachchhandaṁ) means voluntary in this lesson."
+              },
+              {
+                "q": "Which meaning best fits ప్రేక్షకుడు?",
+                "options": [
+                  "viewer; audience member",
+                  "exhibition",
+                  "caption; explanation",
+                  "organiser"
+                ],
+                "answer": 0,
+                "why": "ప్రేక్షకుడు (prēkṣakuḍu) means viewer; audience member in this lesson."
+              }
+            ],
+            "flashcards": "auto:vocab",
+            "worksheet": {
+              "title": "Assign an exhibition task",
+              "tasks": [
+                {
+                  "instruction": "Name the task and who will do it.",
+                  "items": [
+                    "వివరణ",
+                    "నేను రాస్తాను"
+                  ],
+                  "key": [
+                    "caption",
+                    "I will write it"
+                  ]
+                },
+                {
+                  "instruction": "Give one reason the audience needs context.",
+                  "items": [
+                    "సందర్భం",
+                    "ఎందుకంటే"
+                  ],
+                  "key": [
+                    "context",
+                    "because"
+                  ]
+                },
+                {
+                  "instruction": "Integrated offline practice: read the first model, transform or extend it in Telugu script, then rehearse it as a dialogue. Self-check meaning, grammar, and register.",
+                  "items": [
+                    "ప్రదర్శన కోసం పూల చిత్రాలు సేకరిస్తున్నాం.",
+                    "ప్రతి చిత్రానికి వివరణ ఎవరు రాస్తారు?"
+                  ],
+                  "key": [
+                    "We are collecting flower pictures for the exhibition.",
+                    "Who will write the caption for each picture?"
+                  ]
+                }
+              ]
+            },
+            "srs_candidates": [
+              "ప్రదర్శన",
+              "వివరణ",
+              "నిర్వాహకుడు",
+              "స్వచ్ఛందం"
+            ],
+            "srs_policy": "Only these four high-value terms are preselected; lesson mistakes and productive patterns may enter personalized review after an actual error."
           }
         ]
       }
@@ -1917,6 +2765,95 @@
           "answer": "వాన పడుతోంది (Vāna paḍutōndi)"
         }
       ]
+    },
+    "extra": {
+      "culture": {
+        "text": "Bathukamma is a floral festival strongly associated with Telangana. The state's official culture page describes flower stacks, group songs and gatherings, with the celebration culminating in immersion of the floral arrangements in nearby tanks or lakes. Seasonal flowers and local practice matter, so the lesson treats Bathukamma as a living regional tradition rather than a single recipe or a performance that every Telugu-speaking household observes in the same way.",
+        "source_url": "https://www.telangana.gov.in/about/language-culture/"
+      },
+      "reading": {
+        "text": "మా వీధిలో బతుకమ్మ వేడుకకు అందరూ కలిసి ఏర్పాట్లు చేశారు. కొందరు పూలు తీసుకొచ్చారు; మరికొందరు వలయంగా కూర్చోవడానికి చోటు సిద్ధం చేశారు. పెద్దవారు పాట మొదలుపెట్టినప్పుడు పిల్లలు కూడా స్వరంతో కలిశారు. కార్యక్రమం తర్వాత పూలను చెరువు దగ్గరకు తీసుకెళ్లారు. నిర్వాహకులు నీటి ప్రదేశాన్ని శుభ్రంగా ఉంచాలని అందరికీ గుర్తు చేశారు.",
+        "gloss": "Everyone on our street prepared together for the Bathukamma gathering. Some brought flowers; others prepared a place to sit in a circle. When the elders started a song, children joined in too. After the programme, they took the flowers to the tank. The organisers reminded everyone to keep the waterside clean.",
+        "original": true
+      },
+      "listening": {
+        "script": "లత: పూల బుట్టలు వచ్చాయా?<br>సుధ: వచ్చాయి, కానీ పాటల జాబితా ఇంకా సిద్ధం కాలేదు.<br>లత: నేను పెద్దవారితో మాట్లాడి క్రమం రాసుకుంటాను.<br>సుధ: బాగుంది. నీటి దగ్గర చెత్త వేయకూడదని కూడా చెప్పాలి.",
+        "gloss": "Latha: Have the flower baskets arrived? Sudha: They have, but the song list is not ready yet. Latha: I will speak with the elders and write down the order. Sudha: Good. We should also say that rubbish must not be left near the water.",
+        "voice_tag": "te-IN"
+      },
+      "idioms": [
+        {
+          "t": "ఊపిరి పీల్చుకోవడం",
+          "literal": "to draw a breath",
+          "meaning": "to feel relief after worry"
+        },
+        {
+          "t": "ఒకే తాటిపైకి రావడం",
+          "literal": "to come onto one plank",
+          "meaning": "to reach agreement"
+        },
+        {
+          "t": "విషయం వెలుగులోకి రావడం",
+          "literal": "for a matter to come into the light",
+          "meaning": "for something to become known"
+        },
+        {
+          "t": "కంటిమీద కునుకు లేకుండా",
+          "literal": "without a wink on the eye",
+          "meaning": "without sleeping at all"
+        },
+        {
+          "t": "చేతులు ముడుచుకొని కూర్చోవడం",
+          "literal": "to sit with folded hands",
+          "meaning": "to stay idle instead of helping"
+        },
+        {
+          "t": "దారిచూపడం",
+          "literal": "to show the way",
+          "meaning": "to guide someone"
+        },
+        {
+          "t": "మనసు విప్పి మాట్లాడడం",
+          "literal": "to speak with the heart opened",
+          "meaning": "to speak frankly"
+        },
+        {
+          "t": "కలిసి కట్టుగా",
+          "literal": "tied together",
+          "meaning": "as a united group"
+        },
+        {
+          "t": "కన్నుల పండుగ",
+          "literal": "a feast for the eyes",
+          "meaning": "a beautiful sight"
+        },
+        {
+          "t": "వేరు వేయడం",
+          "literal": "to put down a root",
+          "meaning": "to become firmly established"
+        }
+      ],
+      "mistakes": [
+        {
+          "wrong": "వాళ్లు పూలు నీటిలో వేసారు.",
+          "right": "వాళ్లు పూలను నీటిలో వేశారు.",
+          "why": "Mark the definite object with -ను, and use the written past form వేశారు."
+        },
+        {
+          "wrong": "పాట మొదలైనప్పుడు పిల్లలు కూడా పాడారు.",
+          "right": "పాట మొదలుపెట్టినప్పుడు పిల్లలు కూడా పాడారు.",
+          "why": "మొదలైనప్పుడు means when it began; this sentence needs the agentive 'when they started' form."
+        },
+        {
+          "wrong": "అందరూ కలిసి ఏర్పాట్లు చేసింది.",
+          "right": "అందరూ కలిసి ఏర్పాట్లు చేశారు.",
+          "why": "The human plural subject అందరూ takes plural agreement చేశారు."
+        }
+      ],
+      "task": {
+        "title": "సమాజ వేడుకకు బాధ్యతల పంచకం",
+        "instructions": "Write a short note for a neighbourhood group: describe two tasks already completed, assign two tasks still to do, and give a reason to protect the waterfront. Use కలిసి, తరువాత, ఎందుకంటే and ఒకవేళ at least once. Finish with one sentence that invites people to help without assuming everyone celebrates in the same way."
+      }
     }
   }
 }

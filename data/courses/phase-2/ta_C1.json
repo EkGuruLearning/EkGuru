@@ -98,25 +98,25 @@
             },
             "dialogue": [
               {
-                "sp": "Doctor",
+                "sp": "மருத்துவர்",
                 "t": "உங்களுக்கு என்ன பிரச்சினை?",
                 "r": "Uṅgaḷukku enna pirachchinai?",
                 "en": "What troubles you?"
               },
               {
-                "sp": "Patient",
+                "sp": "நோயாளி",
                 "t": "டாக்டர், இரண்டு நாட்களாக காய்ச்சல்.",
                 "r": "Ṭākṭar, iraṇḍu nāṭkaḷāga kāychchal.",
                 "en": "Doctor, fever for two days."
               },
               {
-                "sp": "Doctor",
+                "sp": "மருத்துவர்",
                 "t": "இருமல், சளி இருக்கிறதா?",
                 "r": "Irumal, saḷi irukkiṛadā?",
                 "en": "Any cough or cold?"
               },
               {
-                "sp": "Patient",
+                "sp": "நோயாளி",
                 "t": "இருமல் மட்டும் இருக்கிறது.",
                 "r": "Irumal maṭṭum irukkiṛadu.",
                 "en": "Only a cough."
@@ -194,7 +194,7 @@
               },
               {
                 "type": "dialogue_completion",
-                "q": "Practice 10 [dialogue completion] — Public-health nuance: Complete Patient’s turn appropriately: Doctor, fever for two days.",
+                "q": "Practice 10 [dialogue completion] — Public-health nuance: Complete நோயாளி’s turn appropriately: Doctor, fever for two days.",
                 "answer": "டாக்டர், இரண்டு நாட்களாக காய்ச்சல்.",
                 "skill_target": "Tamil dialogue completion: Tamil suffix chains, case marking, agreement, and formal versus colloquial choice"
               },
@@ -408,25 +408,25 @@
             },
             "dialogue": [
               {
-                "sp": "Manager",
+                "sp": "மேலாளர்",
                 "t": "வாருங்கள்! உங்கள் பெயர் என்ன?",
                 "r": "Vāruṅgaḷ! Uṅgaḷ peyar enna?",
                 "en": "Welcome! What is your name?"
               },
               {
-                "sp": "Newcomer",
+                "sp": "புதியவர்",
                 "t": "என் பெயர் குமார்.",
                 "r": "Eṉ peyar Kumāṛ.",
                 "en": "My name is Kumar."
               },
               {
-                "sp": "Manager",
+                "sp": "மேலாளர்",
                 "t": "இது உங்கள் மேசை. கணினியை இயக்குங்கள்.",
                 "r": "Idu uṅgaḷ mēsai. Kaṇiṉiyai iyakkuṅgaḷ.",
                 "en": "This is your desk. Switch on the computer."
               },
               {
-                "sp": "Newcomer",
+                "sp": "புதியவர்",
                 "t": "சரி. மின்னஞ்சல் முகவரி என்ன?",
                 "r": "Sari. Miṉṉañjal mugavari enna?",
                 "en": "OK. What is the email address?"
@@ -634,6 +634,295 @@
               "நகலெடுக்க"
             ],
             "srs_policy": "Only selected high-value lesson forms are preselected; actual mistakes and productive patterns may enter personalized review after learner evidence."
+          },
+          {
+            "id": "ta-c1-l7",
+            "title": "பொது சுகாதார அறிவிப்பு",
+            "learn": "Draft an advisory that separates established guidance from local uncertainty. பரிந்துரைக்கப்படுகிறது gives an impersonal recommendation; இருப்பினும் marks a limit, and ... என்றால் என்ற நிபந்தனை makes the audience and circumstances explicit.",
+            "vocab": [
+              {
+                "t": "அறிவிப்பு",
+                "r": "aṟivippu",
+                "en": "advisory, notice",
+                "pos": "noun"
+              },
+              {
+                "t": "பரிந்துரை",
+                "r": "parinturai",
+                "en": "recommendation",
+                "pos": "noun"
+              },
+              {
+                "t": "வெளிப்பாடு",
+                "r": "veḷippāṭu",
+                "en": "exposure",
+                "pos": "noun"
+              },
+              {
+                "t": "ஆதார நிலை",
+                "r": "ātāra nilai",
+                "en": "state of the evidence",
+                "pos": "phrase"
+              },
+              {
+                "t": "தனிநபர்",
+                "r": "taṉiṉapar",
+                "en": "individual",
+                "pos": "noun"
+              }
+            ],
+            "grammar": {
+              "title": "Advice with a stated scope",
+              "pattern": "... பரிந்துரைக்கப்படுகிறது · இருப்பினும் ... · ... என்றால் ...",
+              "explain": "The passive recommendation keeps focus on the guidance, not an unnamed authority. Name the scope before the caveat: வெளிப்புறப் பணியாளர்களுக்கு முகக்கவசம் பரிந்துரைக்கப்படுகிறது. இருப்பினும் introduces what the guidance does not settle; ... என்றால் makes an individual exception visible.",
+              "examples": [
+                {
+                  "t": "அதிகத் தூசி உள்ள பணியிடங்களில் பாதுகாப்பு முகக்கவசம் பரிந்துரைக்கப்படுகிறது.",
+                  "r": "atika-t tūci uḷḷa paṇiyiṭaṅkaḷil pāṭukāppu mukakkavasam parinturaikkappaṭukiṟatu.",
+                  "en": "A protective mask is recommended in workplaces with high dust."
+                },
+                {
+                  "t": "இருப்பினும், தனிநபரின் உடல்நிலையைப் பொறுத்து ஆலோசனை மாறலாம்.",
+                  "r": "iruppiṉum, taṉiṉapariṉ uṭalnilaiyaip poṟuttu ālōcaṉai māṟalām.",
+                  "en": "Nevertheless, advice may vary depending on an individual's health."
+                },
+                {
+                  "t": "அறிகுறிகள் நீடித்தால், மருத்துவரை நேரில் அணுகுவது பரிந்துரைக்கப்படுகிறது.",
+                  "r": "aṟikuṟikaḷ nīṭittāl, maruttuvarai nēril aṇukuvatu parinturaikkappaṭukiṟatu.",
+                  "en": "If symptoms persist, it is recommended to consult a doctor in person."
+                }
+              ],
+              "mistakes": [
+                {
+                  "wrong": "எல்லோருக்கும் ஒரே ஆலோசனை கட்டாயம் பொருந்தும்.",
+                  "right": "பொதுவான ஆலோசனை இருந்தாலும், தனிநபரின் உடல்நிலை மாறுபடலாம்.",
+                  "why": "A general advisory should not erase relevant individual differences."
+                },
+                {
+                  "wrong": "அறிகுறிகள் நீடித்தால் மருத்துவர் சந்திக்கவும்.",
+                  "right": "அறிகுறிகள் நீடித்தால் மருத்துவரை நேரில் அணுகுவது பரிந்துரைக்கப்படுகிறது.",
+                  "why": "Use the respectful construction and mark the doctor as the object."
+                }
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "தொகுப்பாளர்",
+                "t": "இந்த அறிவிப்பு யாருக்காக எழுதப்படுகிறது?",
+                "r": "inta aṟivippu yārukkāka eḻutappaṭukiṟatu?",
+                "en": "Who is this advisory written for?"
+              },
+              {
+                "sp": "நிபுணர்",
+                "t": "தூசி அதிகமுள்ள இடங்களில் பணிபுரிபவர்களுக்காக.",
+                "r": "tūci atikam uḷḷa iṭaṅkaḷil paṇipuripavarkaḷukkāka.",
+                "en": "For people working in places with heavy dust."
+              },
+              {
+                "sp": "தொகுப்பாளர்",
+                "t": "அப்படியானால், எல்லோருக்கும் பொருந்தும் என்று எழுத வேண்டாம்.",
+                "r": "appaṭiyāṉāl, ellōrukkum poruntum eṉṟu eḻuta vēṇṭām.",
+                "en": "Then do not write that it applies to everyone."
+              },
+              {
+                "sp": "நிபுணர்",
+                "t": "சரி. அறிகுறிகள் நீடித்தால் மருத்துவரை அணுகுமாறு சேர்க்கிறேன்.",
+                "r": "sari. aṟikuṟikaḷ nīṭittāl maruttuvarai aṇukumāṟu cērkkiṟēṉ.",
+                "en": "Right. I will add that people should consult a doctor if symptoms persist."
+              }
+            ],
+            "practice": [
+              {
+                "type": "multiple_choice",
+                "q": "Practice 1: [multiple choice] பொது சுகாதார அறிவிப்பு — Choose the meaning of அறிவிப்பு (aṟivippu) in this lesson.",
+                "answer": "advisory, notice",
+                "skill_target": "Tamil: Tamil script, agglutinative case suffixes, head-final word order, diglossia between the written and spoken registers, and the respectful நீங்கள் / familiar நீ address",
+                "options": [
+                  "advisory, notice",
+                  "recommendation",
+                  "exposure",
+                  "state of the evidence"
+                ]
+              },
+              {
+                "type": "fill_in_the_blank",
+                "q": "Practice 2: [fill in the blank] பொது சுகாதார அறிவிப்பு — Type the Tamil expression meaning “recommendation”.",
+                "answer": "பரிந்துரை",
+                "skill_target": "Tamil: Tamil script, agglutinative case suffixes, head-final word order, diglossia between the written and spoken registers, and the respectful நீங்கள் / familiar நீ address"
+              },
+              {
+                "type": "translation",
+                "q": "Practice 3: [translation] பொது சுகாதார அறிவிப்பு — Interpret the Tamil script in context: அதிகத் தூசி உள்ள பணியிடங்களில் பாதுகாப்பு முகக்கவசம் பரிந்துரைக்கப்படுகிறது. (atika-t tūci uḷḷa paṇiyiṭaṅkaḷil pāṭukāppu mukakkavasam parinturaikkappaṭukiṟatu.).",
+                "answer": "A protective mask is recommended in workplaces with high dust.",
+                "skill_target": "Tamil: Tamil script, agglutinative case suffixes, head-final word order, diglossia between the written and spoken registers, and the respectful நீங்கள் / familiar நீ address"
+              },
+              {
+                "type": "reverse_translation",
+                "q": "Practice 4: [reverse translation] பொது சுகாதார அறிவிப்பு — Write in Tamil script: Nevertheless, advice may vary depending on an individual's health..",
+                "answer": "இருப்பினும், தனிநபரின் உடல்நிலையைப் பொறுத்து ஆலோசனை மாறலாம்.",
+                "skill_target": "Tamil: Tamil script, agglutinative case suffixes, head-final word order, diglossia between the written and spoken registers, and the respectful நீங்கள் / familiar நீ address"
+              },
+              {
+                "type": "matching",
+                "q": "Practice 5: [matching] பொது சுகாதார அறிவிப்பு — Match வெளிப்பாடு to its lesson meaning.",
+                "answer": "exposure",
+                "skill_target": "Tamil: Tamil script, agglutinative case suffixes, head-final word order, diglossia between the written and spoken registers, and the respectful நீங்கள் / familiar நீ address",
+                "options": [
+                  "exposure",
+                  "advisory, notice",
+                  "recommendation"
+                ]
+              },
+              {
+                "type": "reorder",
+                "q": "Practice 6: [reorder] பொது சுகாதார அறிவிப்பு — Reconstruct the lesson model in coherent Tamil: If symptoms persist, it is recommended to consult a doctor in person..",
+                "answer": "அறிகுறிகள் நீடித்தால், மருத்துவரை நேரில் அணுகுவது பரிந்துரைக்கப்படுகிறது.",
+                "skill_target": "Tamil: Tamil script, agglutinative case suffixes, head-final word order, diglossia between the written and spoken registers, and the respectful நீங்கள் / familiar நீ address"
+              },
+              {
+                "type": "sentence_building",
+                "q": "Practice 7: [sentence building] பொது சுகாதார அறிவிப்பு — Build the sentence with the lesson pattern (... பரிந்துரைக்கப்படுகிறது · இருப்பினும் ... · ... என்றால் ...): A protective mask is recommended in workplaces with high dust..",
+                "answer": "அதிகத் தூசி உள்ள பணியிடங்களில் பாதுகாப்பு முகக்கவசம் பரிந்துரைக்கப்படுகிறது.",
+                "skill_target": "Tamil: Tamil script, agglutinative case suffixes, head-final word order, diglossia between the written and spoken registers, and the respectful நீங்கள் / familiar நீ address"
+              },
+              {
+                "type": "word_selection",
+                "q": "Practice 8: [word selection] பொது சுகாதார அறிவிப்பு — Select the Tamil form for “state of the evidence”.",
+                "answer": "ஆதார நிலை",
+                "skill_target": "Tamil: Tamil script, agglutinative case suffixes, head-final word order, diglossia between the written and spoken registers, and the respectful நீங்கள் / familiar நீ address",
+                "options": [
+                  "ஆதார நிலை",
+                  "தனிநபர்"
+                ]
+              },
+              {
+                "type": "error_correction",
+                "q": "Practice 9: [error correction] பொது சுகாதார அறிவிப்பு — Correct the model the lesson warns about: எல்லோருக்கும் ஒரே ஆலோசனை கட்டாயம் பொருந்தும்.",
+                "answer": "பொதுவான ஆலோசனை இருந்தாலும், தனிநபரின் உடல்நிலை மாறுபடலாம்.",
+                "skill_target": "Tamil: Tamil script, agglutinative case suffixes, head-final word order, diglossia between the written and spoken registers, and the respectful நீங்கள் / familiar நீ address"
+              },
+              {
+                "type": "dialogue_completion",
+                "q": "Practice 10: [dialogue completion] பொது சுகாதார அறிவிப்பு — Complete the exchange with the studied response to: Who is this advisory written for?",
+                "answer": "தூசி அதிகமுள்ள இடங்களில் பணிபுரிபவர்களுக்காக.",
+                "skill_target": "Tamil: Tamil script, agglutinative case suffixes, head-final word order, diglossia between the written and spoken registers, and the respectful நீங்கள் / familiar நீ address"
+              },
+              {
+                "type": "reading_comprehension",
+                "q": "Practice 11: [reading comprehension] பொது சுகாதார அறிவிப்பு — Read “அப்படியானால், எல்லோருக்கும் பொருந்தும் என்று எழுத வேண்டாம்.” (appaṭiyāṉāl, ellōrukkum poruntum eṉṟu eḻuta vēṇṭām.). What does it mean?",
+                "answer": "Then do not write that it applies to everyone.",
+                "skill_target": "Tamil: Tamil script, agglutinative case suffixes, head-final word order, diglossia between the written and spoken registers, and the respectful நீங்கள் / familiar நீ address"
+              },
+              {
+                "type": "paragraph_comprehension",
+                "q": "Practice 12: [paragraph comprehension] பொது சுகாதார அறிவிப்பு — Read the lesson dialogue as a whole and give its key move: Right. I will add that people should consult a doctor if symptoms persist.",
+                "answer": "சரி. அறிகுறிகள் நீடித்தால் மருத்துவரை அணுகுமாறு சேர்க்கிறேன்.",
+                "skill_target": "Tamil: Tamil script, agglutinative case suffixes, head-final word order, diglossia between the written and spoken registers, and the respectful நீங்கள் / familiar நீ address"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "Which meaning best fits அறிவிப்பு?",
+                "options": [
+                  "advisory, notice",
+                  "recommendation",
+                  "exposure",
+                  "state of the evidence"
+                ],
+                "answer": 0,
+                "why": "அறிவிப்பு (aṟivippu) means advisory, notice in this lesson."
+              },
+              {
+                "q": "Which meaning best fits பரிந்துரை?",
+                "options": [
+                  "recommendation",
+                  "advisory, notice",
+                  "exposure",
+                  "state of the evidence"
+                ],
+                "answer": 0,
+                "why": "பரிந்துரை (parinturai) means recommendation in this lesson."
+              },
+              {
+                "q": "Which meaning best fits வெளிப்பாடு?",
+                "options": [
+                  "exposure",
+                  "advisory, notice",
+                  "recommendation",
+                  "state of the evidence"
+                ],
+                "answer": 0,
+                "why": "வெளிப்பாடு (veḷippāṭu) means exposure in this lesson."
+              },
+              {
+                "q": "Which meaning best fits ஆதார நிலை?",
+                "options": [
+                  "state of the evidence",
+                  "advisory, notice",
+                  "recommendation",
+                  "exposure"
+                ],
+                "answer": 0,
+                "why": "ஆதார நிலை (ātāra nilai) means state of the evidence in this lesson."
+              },
+              {
+                "q": "Which meaning best fits தனிநபர்?",
+                "options": [
+                  "individual",
+                  "advisory, notice",
+                  "recommendation",
+                  "exposure"
+                ],
+                "answer": 0,
+                "why": "தனிநபர் (taṉiṉapar) means individual in this lesson."
+              }
+            ],
+            "flashcards": "auto:vocab",
+            "worksheet": {
+              "title": "Advisory worksheet",
+              "tasks": [
+                {
+                  "instruction": "State the scoped recommendation.",
+                  "items": [
+                    "a protective mask is recommended in dusty workplaces",
+                    "advice may vary with an individual's health"
+                  ],
+                  "key": [
+                    "தூசி உள்ள பணியிடங்களில் பாதுகாப்பு முகக்கவசம் பரிந்துரைக்கப்படுகிறது",
+                    "தனிநபரின் உடல்நிலையைப் பொறுத்து ஆலோசனை மாறலாம்"
+                  ]
+                },
+                {
+                  "instruction": "Add the condition.",
+                  "items": [
+                    "if symptoms persist, consult a doctor in person",
+                    "do not write that it applies to everyone"
+                  ],
+                  "key": [
+                    "அறிகுறிகள் நீடித்தால் மருத்துவரை நேரில் அணுகுவது பரிந்துரைக்கப்படுகிறது",
+                    "எல்லோருக்கும் பொருந்தும் என்று எழுத வேண்டாம்"
+                  ]
+                },
+                {
+                  "instruction": "Integrated offline practice: read the first model, transform or extend it in Tamil script, then rehearse it as a dialogue. Self-check meaning, grammar, and register.",
+                  "items": [
+                    "அதிகத் தூசி உள்ள பணியிடங்களில் பாதுகாப்பு முகக்கவசம் பரிந்துரைக்கப்படுகிறது.",
+                    "இந்த அறிவிப்பு யாருக்காக எழுதப்படுகிறது?"
+                  ],
+                  "key": [
+                    "A protective mask is recommended in workplaces with high dust.",
+                    "Who is this advisory written for?"
+                  ]
+                }
+              ]
+            },
+            "srs_candidates": [
+              "அறிவிப்பு",
+              "பரிந்துரை",
+              "வெளிப்பாடு",
+              "ஆதார நிலை"
+            ],
+            "srs_policy": "Only these four high-value terms are preselected; lesson mistakes and productive patterns may enter personalized review after an actual error."
           }
         ]
       },
@@ -722,25 +1011,25 @@
             },
             "dialogue": [
               {
-                "sp": "Father",
+                "sp": "அப்பா",
                 "t": "வீட்டுப்பாடம் முடித்தாயா?",
                 "r": "Vīṭṭuppāḍam muḍittāyā?",
                 "en": "Did you finish homework?"
               },
               {
-                "sp": "Son",
+                "sp": "மகன்",
                 "t": "கணிதம் மட்டும் மீதி, அப்பா.",
                 "r": "Kaṇidam maṭṭum mīdi, appā.",
                 "en": "Only maths left, father."
               },
               {
-                "sp": "Father",
+                "sp": "அப்பா",
                 "t": "எங்கே சந்தேகம்? காட்டு.",
                 "r": "Eṅgē sandēgam? Kāṭṭu.",
                 "en": "Where's the doubt? Show me."
               },
               {
-                "sp": "Son",
+                "sp": "மகன்",
                 "t": "இந்த கணக்கு புரியவில்லை.",
                 "r": "Inda kaṇakku puriyavillai.",
                 "en": "I don't get this sum."
@@ -1245,6 +1534,295 @@
               "மான்"
             ],
             "srs_policy": "Only selected high-value lesson forms are preselected; actual mistakes and productive patterns may enter personalized review after learner evidence."
+          },
+          {
+            "id": "ta-c1-l8",
+            "title": "நீர்வள அறிக்கையை ஒருங்கிணைத்தல்",
+            "learn": "Synthesize observations from a local tank and a rainfall record. ஒப்பீட்டளவில் signals a relative comparison; அதேவேளை holds two findings together, and முடிவாக gives a conclusion that does not outrun the stated sample.",
+            "vocab": [
+              {
+                "t": "நீர்வளம்",
+                "r": "nīrvaḷam",
+                "en": "water resource",
+                "pos": "noun"
+              },
+              {
+                "t": "நிலத்தடி நீர்",
+                "r": "nilattaṭi nīr",
+                "en": "groundwater",
+                "pos": "phrase"
+              },
+              {
+                "t": "பருவமழை",
+                "r": "paruvamaḻai",
+                "en": "seasonal monsoon",
+                "pos": "noun"
+              },
+              {
+                "t": "ஒப்பீட்டளவில்",
+                "r": "oppīṭṭaḷavil",
+                "en": "comparatively",
+                "pos": "adverb"
+              },
+              {
+                "t": "முடிவாக",
+                "r": "muṭivāka",
+                "en": "in conclusion",
+                "pos": "connector"
+              }
+            ],
+            "grammar": {
+              "title": "Synthesis without overclaim",
+              "pattern": "ஒருபுறம் ... · அதேவேளை ... · ஒப்பீட்டளவில் ... · முடிவாக ...",
+              "explain": "Use ஒருபுறம் and மறுபுறம் to keep evidence streams distinct. அதேவேளை notes a concurrent factor rather than a causal link. ஒப்பீட்டளவில் is comparative, not absolute; முடிவாக should name the spatial and temporal scope of the recommendation.",
+              "examples": [
+                {
+                  "t": "ஒருபுறம், நீர்த்தேக்கத்தின் அளவு உயர்ந்தது; மறுபுறம், நிலத்தடி நீர் மாறவில்லை.",
+                  "r": "orupuṟam, nīrttēkkattiṉ aḷavu uyarntatu; maṟupuṟam, nilattaṭi nīr māṟavillai.",
+                  "en": "On one hand, the reservoir level rose; on the other, groundwater did not change."
+                },
+                {
+                  "t": "அதேவேளை, பருவமழை வழக்கத்தை விடக் குறைவாகப் பதிவானது.",
+                  "r": "atēvēḷai, paruvamaḻai vaḻakkattai viṭak kuṟaivākap pativāṉatu.",
+                  "en": "At the same time, seasonal rainfall was recorded below its usual level."
+                },
+                {
+                  "t": "முடிவாக, இந்தப் பகுதியின் தரவை அடுத்த பருவத்திலும் சேகரிக்க வேண்டும்.",
+                  "r": "muṭivāka, intap pakutiyiṉ taravai aṭutta paruvattilum cēkarikka vēṇṭum.",
+                  "en": "In conclusion, data from this area should also be collected in the next season."
+                }
+              ],
+              "mistakes": [
+                {
+                  "wrong": "மழை குறைந்ததால் நிலத்தடி நீர் உயர்ந்தது என்று தரவு நிரூபிக்கிறது.",
+                  "right": "மழையும் நிலத்தடி நீரும் இம்மாதிரியில் வேறுபட்ட போக்கைக் காட்டுகின்றன.",
+                  "why": "Do not infer a causal relationship from two measurements alone."
+                },
+                {
+                  "wrong": "இந்தப் பகுதி எல்லா மாவட்டங்களையும் பிரதிநிதித்துவப்படுத்துகிறது.",
+                  "right": "இந்தப் பகுதியின் முடிவை மற்ற மாவட்டங்களில் தனியாகச் சரிபார்க்க வேண்டும்.",
+                  "why": "Limit a local sample to its actual geographic scope."
+                }
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "ஆய்வாளர்",
+                "t": "நீர்த்தேக்கமும் கிணறுகளும் ஒரே போக்கைக் காட்டினவா?",
+                "r": "nīrttēkkamum kiṇaṟukaḷum orē pōkkaik kāṭṭiṉavā?",
+                "en": "Did the reservoir and the wells show the same trend?"
+              },
+              {
+                "sp": "பகுப்பாய்வாளர்",
+                "t": "இல்லை. நீர்த்தேக்கம் உயர்ந்தது; கிணறுகளில் மாற்றம் இல்லை.",
+                "r": "illai. nīrttēkkam uyarntatu; kiṇaṟukaḷil māṟṟam illai.",
+                "en": "No. The reservoir rose; there was no change in the wells."
+              },
+              {
+                "sp": "ஆய்வாளர்",
+                "t": "அதேவேளை, மழைப் பதிவு வழக்கத்தைவிடக் குறைவு.",
+                "r": "atēvēḷai, maḻaip pativu vaḻakkattai viṭak kuṟaivu.",
+                "en": "At the same time, the rainfall record is below normal."
+              },
+              {
+                "sp": "பகுப்பாய்வாளர்",
+                "t": "அப்படியானால், காரணத்தை உறுதிப்படுத்த அடுத்த பருவமும் தேவை.",
+                "r": "appaṭiyāṉāl, kāraṇattai uṟutippaṭutta aṭutta paruvamum tēvai.",
+                "en": "Then we need the next season too to establish the cause."
+              }
+            ],
+            "practice": [
+              {
+                "type": "multiple_choice",
+                "q": "Practice 1: [multiple choice] நீர்வள அறிக்கையை ஒருங்கிணைத்தல் — Choose the meaning of நீர்வளம் (nīrvaḷam) in this lesson.",
+                "answer": "water resource",
+                "skill_target": "Tamil: Tamil script, agglutinative case suffixes, head-final word order, diglossia between the written and spoken registers, and the respectful நீங்கள் / familiar நீ address",
+                "options": [
+                  "water resource",
+                  "groundwater",
+                  "seasonal monsoon",
+                  "comparatively"
+                ]
+              },
+              {
+                "type": "fill_in_the_blank",
+                "q": "Practice 2: [fill in the blank] நீர்வள அறிக்கையை ஒருங்கிணைத்தல் — Type the Tamil expression meaning “groundwater”.",
+                "answer": "நிலத்தடி நீர்",
+                "skill_target": "Tamil: Tamil script, agglutinative case suffixes, head-final word order, diglossia between the written and spoken registers, and the respectful நீங்கள் / familiar நீ address"
+              },
+              {
+                "type": "translation",
+                "q": "Practice 3: [translation] நீர்வள அறிக்கையை ஒருங்கிணைத்தல் — Interpret the Tamil script in context: ஒருபுறம், நீர்த்தேக்கத்தின் அளவு உயர்ந்தது; மறுபுறம், நிலத்தடி நீர் மாறவில்லை. (orupuṟam, nīrttēkkattiṉ aḷavu uyarntatu; maṟupuṟam, nilattaṭi nīr māṟavillai.).",
+                "answer": "On one hand, the reservoir level rose; on the other, groundwater did not change.",
+                "skill_target": "Tamil: Tamil script, agglutinative case suffixes, head-final word order, diglossia between the written and spoken registers, and the respectful நீங்கள் / familiar நீ address"
+              },
+              {
+                "type": "reverse_translation",
+                "q": "Practice 4: [reverse translation] நீர்வள அறிக்கையை ஒருங்கிணைத்தல் — Write in Tamil script: At the same time, seasonal rainfall was recorded below its usual level..",
+                "answer": "அதேவேளை, பருவமழை வழக்கத்தை விடக் குறைவாகப் பதிவானது.",
+                "skill_target": "Tamil: Tamil script, agglutinative case suffixes, head-final word order, diglossia between the written and spoken registers, and the respectful நீங்கள் / familiar நீ address"
+              },
+              {
+                "type": "matching",
+                "q": "Practice 5: [matching] நீர்வள அறிக்கையை ஒருங்கிணைத்தல் — Match பருவமழை to its lesson meaning.",
+                "answer": "seasonal monsoon",
+                "skill_target": "Tamil: Tamil script, agglutinative case suffixes, head-final word order, diglossia between the written and spoken registers, and the respectful நீங்கள் / familiar நீ address",
+                "options": [
+                  "seasonal monsoon",
+                  "water resource",
+                  "groundwater"
+                ]
+              },
+              {
+                "type": "reorder",
+                "q": "Practice 6: [reorder] நீர்வள அறிக்கையை ஒருங்கிணைத்தல் — Reconstruct the lesson model in coherent Tamil: In conclusion, data from this area should also be collected in the next season..",
+                "answer": "முடிவாக, இந்தப் பகுதியின் தரவை அடுத்த பருவத்திலும் சேகரிக்க வேண்டும்.",
+                "skill_target": "Tamil: Tamil script, agglutinative case suffixes, head-final word order, diglossia between the written and spoken registers, and the respectful நீங்கள் / familiar நீ address"
+              },
+              {
+                "type": "sentence_building",
+                "q": "Practice 7: [sentence building] நீர்வள அறிக்கையை ஒருங்கிணைத்தல் — Build the sentence with the lesson pattern (ஒருபுறம் ... · அதேவேளை ... · ஒப்பீட்டளவில் ... · முடிவாக ...): On one hand, the reservoir level rose; on the other, groundwater did not change..",
+                "answer": "ஒருபுறம், நீர்த்தேக்கத்தின் அளவு உயர்ந்தது; மறுபுறம், நிலத்தடி நீர் மாறவில்லை.",
+                "skill_target": "Tamil: Tamil script, agglutinative case suffixes, head-final word order, diglossia between the written and spoken registers, and the respectful நீங்கள் / familiar நீ address"
+              },
+              {
+                "type": "word_selection",
+                "q": "Practice 8: [word selection] நீர்வள அறிக்கையை ஒருங்கிணைத்தல் — Select the Tamil form for “comparatively”.",
+                "answer": "ஒப்பீட்டளவில்",
+                "skill_target": "Tamil: Tamil script, agglutinative case suffixes, head-final word order, diglossia between the written and spoken registers, and the respectful நீங்கள் / familiar நீ address",
+                "options": [
+                  "ஒப்பீட்டளவில்",
+                  "முடிவாக"
+                ]
+              },
+              {
+                "type": "error_correction",
+                "q": "Practice 9: [error correction] நீர்வள அறிக்கையை ஒருங்கிணைத்தல் — Correct the model the lesson warns about: மழை குறைந்ததால் நிலத்தடி நீர் உயர்ந்தது என்று தரவு நிரூபிக்கிறது.",
+                "answer": "மழையும் நிலத்தடி நீரும் இம்மாதிரியில் வேறுபட்ட போக்கைக் காட்டுகின்றன.",
+                "skill_target": "Tamil: Tamil script, agglutinative case suffixes, head-final word order, diglossia between the written and spoken registers, and the respectful நீங்கள் / familiar நீ address"
+              },
+              {
+                "type": "dialogue_completion",
+                "q": "Practice 10: [dialogue completion] நீர்வள அறிக்கையை ஒருங்கிணைத்தல் — Complete the exchange with the studied response to: Did the reservoir and the wells show the same trend?",
+                "answer": "இல்லை. நீர்த்தேக்கம் உயர்ந்தது; கிணறுகளில் மாற்றம் இல்லை.",
+                "skill_target": "Tamil: Tamil script, agglutinative case suffixes, head-final word order, diglossia between the written and spoken registers, and the respectful நீங்கள் / familiar நீ address"
+              },
+              {
+                "type": "reading_comprehension",
+                "q": "Practice 11: [reading comprehension] நீர்வள அறிக்கையை ஒருங்கிணைத்தல் — Read “அதேவேளை, மழைப் பதிவு வழக்கத்தைவிடக் குறைவு.” (atēvēḷai, maḻaip pativu vaḻakkattai viṭak kuṟaivu.). What does it mean?",
+                "answer": "At the same time, the rainfall record is below normal.",
+                "skill_target": "Tamil: Tamil script, agglutinative case suffixes, head-final word order, diglossia between the written and spoken registers, and the respectful நீங்கள் / familiar நீ address"
+              },
+              {
+                "type": "paragraph_comprehension",
+                "q": "Practice 12: [paragraph comprehension] நீர்வள அறிக்கையை ஒருங்கிணைத்தல் — Read the lesson dialogue as a whole and give its key move: Then we need the next season too to establish the cause.",
+                "answer": "அப்படியானால், காரணத்தை உறுதிப்படுத்த அடுத்த பருவமும் தேவை.",
+                "skill_target": "Tamil: Tamil script, agglutinative case suffixes, head-final word order, diglossia between the written and spoken registers, and the respectful நீங்கள் / familiar நீ address"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "Which meaning best fits நீர்வளம்?",
+                "options": [
+                  "water resource",
+                  "groundwater",
+                  "seasonal monsoon",
+                  "comparatively"
+                ],
+                "answer": 0,
+                "why": "நீர்வளம் (nīrvaḷam) means water resource in this lesson."
+              },
+              {
+                "q": "Which meaning best fits நிலத்தடி நீர்?",
+                "options": [
+                  "groundwater",
+                  "water resource",
+                  "seasonal monsoon",
+                  "comparatively"
+                ],
+                "answer": 0,
+                "why": "நிலத்தடி நீர் (nilattaṭi nīr) means groundwater in this lesson."
+              },
+              {
+                "q": "Which meaning best fits பருவமழை?",
+                "options": [
+                  "seasonal monsoon",
+                  "water resource",
+                  "groundwater",
+                  "comparatively"
+                ],
+                "answer": 0,
+                "why": "பருவமழை (paruvamaḻai) means seasonal monsoon in this lesson."
+              },
+              {
+                "q": "Which meaning best fits ஒப்பீட்டளவில்?",
+                "options": [
+                  "comparatively",
+                  "water resource",
+                  "groundwater",
+                  "seasonal monsoon"
+                ],
+                "answer": 0,
+                "why": "ஒப்பீட்டளவில் (oppīṭṭaḷavil) means comparatively in this lesson."
+              },
+              {
+                "q": "Which meaning best fits முடிவாக?",
+                "options": [
+                  "in conclusion",
+                  "water resource",
+                  "groundwater",
+                  "seasonal monsoon"
+                ],
+                "answer": 0,
+                "why": "முடிவாக (muṭivāka) means in conclusion in this lesson."
+              }
+            ],
+            "flashcards": "auto:vocab",
+            "worksheet": {
+              "title": "Water evidence worksheet",
+              "tasks": [
+                {
+                  "instruction": "Keep findings distinct.",
+                  "items": [
+                    "the reservoir level rose",
+                    "groundwater did not change"
+                  ],
+                  "key": [
+                    "நீர்த்தேக்கத்தின் அளவு உயர்ந்தது",
+                    "நிலத்தடி நீர் மாறவில்லை"
+                  ]
+                },
+                {
+                  "instruction": "Write a scoped conclusion.",
+                  "items": [
+                    "data from this area should be collected next season too",
+                    "the cause needs more evidence"
+                  ],
+                  "key": [
+                    "இந்தப் பகுதியின் தரவை அடுத்த பருவத்திலும் சேகரிக்க வேண்டும்",
+                    "காரணத்திற்கு மேலும் ஆதாரம் தேவை"
+                  ]
+                },
+                {
+                  "instruction": "Integrated offline practice: read the first model, transform or extend it in Tamil script, then rehearse it as a dialogue. Self-check meaning, grammar, and register.",
+                  "items": [
+                    "ஒருபுறம், நீர்த்தேக்கத்தின் அளவு உயர்ந்தது; மறுபுறம், நிலத்தடி நீர் மாறவில்லை.",
+                    "நீர்த்தேக்கமும் கிணறுகளும் ஒரே போக்கைக் காட்டினவா?"
+                  ],
+                  "key": [
+                    "On one hand, the reservoir level rose; on the other, groundwater did not change.",
+                    "Did the reservoir and the wells show the same trend?"
+                  ]
+                }
+              ]
+            },
+            "srs_candidates": [
+              "நீர்வளம்",
+              "நிலத்தடி நீர்",
+              "பருவமழை",
+              "ஒப்பீட்டளவில்"
+            ],
+            "srs_policy": "Only these four high-value terms are preselected; lesson mistakes and productive patterns may enter personalized review after an actual error."
           }
         ]
       },
@@ -1333,25 +1911,25 @@
             },
             "dialogue": [
               {
-                "sp": "Mother",
+                "sp": "அம்மா",
                 "t": "கேள், இன்று மாலை விருந்தினர் வருகிறார்கள்.",
                 "r": "Kēḷ, iṉṛu mālai virundiṉar varugiṛārgaḷ.",
                 "en": "Listen, guests are coming this evening."
               },
               {
-                "sp": "Son",
+                "sp": "மகன்",
                 "t": "யார் வருகிறார்கள், அம்மா?",
                 "r": "Yār varugiṛārgaḷ, ammā?",
                 "en": "Who is coming, mother?"
               },
               {
-                "sp": "Mother",
+                "sp": "அம்மா",
                 "t": "உன் மாமா-மாமி. அறையை ஒழுங்குபடுத்து.",
                 "r": "Uṉ māmā-māmi. Aṛaiyai oḻuṅgupaḍuttu.",
                 "en": "Your uncle and aunt. Tidy the room."
               },
               {
-                "sp": "Son",
+                "sp": "மகன்",
                 "t": "சரி. என்ன சமையல்?",
                 "r": "Sari. Enna samaiyal?",
                 "en": "OK. What will be cooked?"
@@ -1366,7 +1944,7 @@
               },
               {
                 "type": "dialogue_completion",
-                "q": "Practice 6 [dialogue completion] — Intergenerational viewpoints: Complete Son’s turn appropriately: Who is coming, mother?",
+                "q": "Practice 6 [dialogue completion] — Intergenerational viewpoints: Complete மகன்’s turn appropriately: Who is coming, mother?",
                 "answer": "யார் வருகிறார்கள், அம்மா?",
                 "skill_target": "Tamil dialogue completion: Tamil suffix chains, case marking, agreement, and formal versus colloquial choice"
               },
@@ -1638,25 +2216,25 @@
             },
             "dialogue": [
               {
-                "sp": "Grandmother",
+                "sp": "பாட்டி",
                 "t": "எழுந்திரு! இன்று தைப்பொங்கல்.",
                 "r": "Eḻundiru! Iṉṛu taippoṅgal.",
                 "en": "Wake up! Today is Thai Pongal."
               },
               {
-                "sp": "Girl",
+                "sp": "சிறுமி",
                 "t": "பாட்டி, கோலம் போட்டாயா?",
                 "r": "Pāṭṭi, kōlam pōṭṭāyā?",
                 "en": "Grandma, did you draw the kolam?"
               },
               {
-                "sp": "Grandmother",
+                "sp": "பாட்டி",
                 "t": "போட்டுவிட்டேன். கரும்பை எடு.",
                 "r": "Pōṭṭuviṭṭēṉ. Karumbai eḍu.",
                 "en": "Done. Fetch the sugarcane."
               },
               {
-                "sp": "Girl",
+                "sp": "சிறுமி",
                 "t": "பொங்கல் பொங்குகிறது!",
                 "r": "Poṅgal poṅgugiṛadu!",
                 "en": "The Pongal is boiling over!"
@@ -1854,6 +2432,295 @@
               "விருந்து"
             ],
             "srs_policy": "Only selected high-value lesson forms are preselected; actual mistakes and productive patterns may enter personalized review after learner evidence."
+          },
+          {
+            "id": "ta-c1-l9",
+            "title": "வாய்மொழி வரலாற்றைப் பதிவு செய்தல்",
+            "learn": "Record an oral-history interview without turning memory into an unqualified archive fact. The narrator's own claim takes என்று நினைவுகூர்கிறார்; the editor distinguishes memory, corroboration, and editorial framing. அவருடைய சொற்களில் preserves attribution.",
+            "vocab": [
+              {
+                "t": "வாய்மொழி வரலாறு",
+                "r": "vāymoḻi varalāṟu",
+                "en": "oral history",
+                "pos": "phrase"
+              },
+              {
+                "t": "நினைவுகூர்தல்",
+                "r": "niṉaivukūṟtal",
+                "en": "to recall",
+                "pos": "verb"
+              },
+              {
+                "t": "சான்று",
+                "r": "cāṉṟu",
+                "en": "evidence",
+                "pos": "noun"
+              },
+              {
+                "t": "பதிப்பாசிரியர்",
+                "r": "patipp āciriyar",
+                "en": "editor",
+                "pos": "noun"
+              },
+              {
+                "t": "அவருடைய சொற்களில்",
+                "r": "avaruṭaiya coṟkaḷil",
+                "en": "in their own words",
+                "pos": "phrase"
+              }
+            ],
+            "grammar": {
+              "title": "Attributing remembered events",
+              "pattern": "... என்று நினைவுகூர்கிறார் · அவருடைய சொற்களில் · தனி ஆதாரம் தேவை",
+              "explain": "The reporting verb marks the source: அவர் ... என்று நினைவுகூர்கிறார். அவருடைய சொற்களில் introduces a quotation or paraphrase; it does not independently verify the event. A careful note says where corroboration exists and where memory remains the source.",
+              "examples": [
+                {
+                  "t": "அவர் அந்தச் சந்திப்பை 1978-ஆம் ஆண்டு நடந்ததாக நினைவுகூர்கிறார்.",
+                  "r": "avar antac cantippai 1978-ām āṇṭu naṭantatāka niṉaivukūrkiṟār.",
+                  "en": "They recall that the meeting took place in 1978."
+                },
+                {
+                  "t": "அவருடைய சொற்களில், அந்த முடிவு ஒரே நாளில் எடுக்கப்படவில்லை.",
+                  "r": "avaruṭaiya coṟkaḷil, anta muṭivu orē nāḷil eṭukkappaṭavillai.",
+                  "en": "In their words, that decision was not made in a single day."
+                },
+                {
+                  "t": "தேதியை உறுதிப்படுத்த தனி ஆவணச் சான்று தேவை.",
+                  "r": "tētiyai uṟutippaṭutta taṉi āvaṇac cāṉṟu tēvai.",
+                  "en": "A separate documentary source is needed to confirm the date."
+                }
+              ],
+              "mistakes": [
+                {
+                  "wrong": "அவர் சொன்னதால் அந்தத் தேதி உறுதி.",
+                  "right": "அவர் அந்தத் தேதியை நினைவுகூர்கிறார்; அதைத் தனி ஆவணத்தால் சரிபார்க்க வேண்டும்.",
+                  "why": "A remembered date should remain attributed until corroborated."
+                },
+                {
+                  "wrong": "பதிப்பாசிரியர் கூறினார், அவர் நினைவுகூர்கிறார்.",
+                  "right": "பதிப்பாசிரியர், அவர் அந்த நிகழ்வை நினைவுகூர்கிறார் என்று பதிவு செய்தார்.",
+                  "why": "Use என்று to mark the reported clause and keep speaker roles clear."
+                }
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "தொகுப்பாளர்",
+                "t": "இந்தச் சந்திப்பின் தேதிக்கு ஆவணம் இருக்கிறதா?",
+                "r": "intac cantippiṉ tētikku āvaṇam irukkiṟatā?",
+                "en": "Is there a document for the date of this meeting?"
+              },
+              {
+                "sp": "ஆய்வாளர்",
+                "t": "இல்லை. அவர் 1978 என்று நினைவுகூர்கிறார்; பதிவேட்டில் தேதி இல்லை.",
+                "r": "illai. avar 1978 eṉṟu niṉaivukūrkiṟār; pativēṭṭil tēti illai.",
+                "en": "No. They recall 1978; there is no date in the register."
+              },
+              {
+                "sp": "தொகுப்பாளர்",
+                "t": "அப்படியானால், அந்தக் கூற்றை அவருடைய நினைவாகக் குறிக்கிறோம்.",
+                "r": "appaṭiyāṉāl, antak kūṟṟai avaruṭaiya niṉaivākak kuṟikkiṟōm.",
+                "en": "Then we will mark the claim as their recollection."
+              },
+              {
+                "sp": "ஆய்வாளர்",
+                "t": "சரி; உறுதிப்படுத்தப்படாததை உறுதியான உண்மையாக எழுதமாட்டோம்.",
+                "r": "sari; uṟutippaṭuttappaṭātatai uṟutiyāṉa uṇmaiyāka eḻutamāṭṭōm.",
+                "en": "Right; we will not write what is unverified as established fact."
+              }
+            ],
+            "practice": [
+              {
+                "type": "multiple_choice",
+                "q": "Practice 1: [multiple choice] வாய்மொழி வரலாற்றைப் பதிவு செய்தல் — Choose the meaning of வாய்மொழி வரலாறு (vāymoḻi varalāṟu) in this lesson.",
+                "answer": "oral history",
+                "skill_target": "Tamil: Tamil script, agglutinative case suffixes, head-final word order, diglossia between the written and spoken registers, and the respectful நீங்கள் / familiar நீ address",
+                "options": [
+                  "oral history",
+                  "to recall",
+                  "evidence",
+                  "editor"
+                ]
+              },
+              {
+                "type": "fill_in_the_blank",
+                "q": "Practice 2: [fill in the blank] வாய்மொழி வரலாற்றைப் பதிவு செய்தல் — Type the Tamil expression meaning “to recall”.",
+                "answer": "நினைவுகூர்தல்",
+                "skill_target": "Tamil: Tamil script, agglutinative case suffixes, head-final word order, diglossia between the written and spoken registers, and the respectful நீங்கள் / familiar நீ address"
+              },
+              {
+                "type": "translation",
+                "q": "Practice 3: [translation] வாய்மொழி வரலாற்றைப் பதிவு செய்தல் — Interpret the Tamil script in context: அவர் அந்தச் சந்திப்பை 1978-ஆம் ஆண்டு நடந்ததாக நினைவுகூர்கிறார். (avar antac cantippai 1978-ām āṇṭu naṭantatāka niṉaivukūrkiṟār.).",
+                "answer": "They recall that the meeting took place in 1978.",
+                "skill_target": "Tamil: Tamil script, agglutinative case suffixes, head-final word order, diglossia between the written and spoken registers, and the respectful நீங்கள் / familiar நீ address"
+              },
+              {
+                "type": "reverse_translation",
+                "q": "Practice 4: [reverse translation] வாய்மொழி வரலாற்றைப் பதிவு செய்தல் — Write in Tamil script: In their words, that decision was not made in a single day..",
+                "answer": "அவருடைய சொற்களில், அந்த முடிவு ஒரே நாளில் எடுக்கப்படவில்லை.",
+                "skill_target": "Tamil: Tamil script, agglutinative case suffixes, head-final word order, diglossia between the written and spoken registers, and the respectful நீங்கள் / familiar நீ address"
+              },
+              {
+                "type": "matching",
+                "q": "Practice 5: [matching] வாய்மொழி வரலாற்றைப் பதிவு செய்தல் — Match சான்று to its lesson meaning.",
+                "answer": "evidence",
+                "skill_target": "Tamil: Tamil script, agglutinative case suffixes, head-final word order, diglossia between the written and spoken registers, and the respectful நீங்கள் / familiar நீ address",
+                "options": [
+                  "evidence",
+                  "oral history",
+                  "to recall"
+                ]
+              },
+              {
+                "type": "reorder",
+                "q": "Practice 6: [reorder] வாய்மொழி வரலாற்றைப் பதிவு செய்தல் — Reconstruct the lesson model in coherent Tamil: A separate documentary source is needed to confirm the date..",
+                "answer": "தேதியை உறுதிப்படுத்த தனி ஆவணச் சான்று தேவை.",
+                "skill_target": "Tamil: Tamil script, agglutinative case suffixes, head-final word order, diglossia between the written and spoken registers, and the respectful நீங்கள் / familiar நீ address"
+              },
+              {
+                "type": "sentence_building",
+                "q": "Practice 7: [sentence building] வாய்மொழி வரலாற்றைப் பதிவு செய்தல் — Build the sentence with the lesson pattern (... என்று நினைவுகூர்கிறார் · அவருடைய சொற்களில் · தனி ஆதாரம் தேவை): They recall that the meeting took place in 1978..",
+                "answer": "அவர் அந்தச் சந்திப்பை 1978-ஆம் ஆண்டு நடந்ததாக நினைவுகூர்கிறார்.",
+                "skill_target": "Tamil: Tamil script, agglutinative case suffixes, head-final word order, diglossia between the written and spoken registers, and the respectful நீங்கள் / familiar நீ address"
+              },
+              {
+                "type": "word_selection",
+                "q": "Practice 8: [word selection] வாய்மொழி வரலாற்றைப் பதிவு செய்தல் — Select the Tamil form for “editor”.",
+                "answer": "பதிப்பாசிரியர்",
+                "skill_target": "Tamil: Tamil script, agglutinative case suffixes, head-final word order, diglossia between the written and spoken registers, and the respectful நீங்கள் / familiar நீ address",
+                "options": [
+                  "பதிப்பாசிரியர்",
+                  "அவருடைய சொற்களில்"
+                ]
+              },
+              {
+                "type": "error_correction",
+                "q": "Practice 9: [error correction] வாய்மொழி வரலாற்றைப் பதிவு செய்தல் — Correct the model the lesson warns about: அவர் சொன்னதால் அந்தத் தேதி உறுதி.",
+                "answer": "அவர் அந்தத் தேதியை நினைவுகூர்கிறார்; அதைத் தனி ஆவணத்தால் சரிபார்க்க வேண்டும்.",
+                "skill_target": "Tamil: Tamil script, agglutinative case suffixes, head-final word order, diglossia between the written and spoken registers, and the respectful நீங்கள் / familiar நீ address"
+              },
+              {
+                "type": "dialogue_completion",
+                "q": "Practice 10: [dialogue completion] வாய்மொழி வரலாற்றைப் பதிவு செய்தல் — Complete the exchange with the studied response to: Is there a document for the date of this meeting?",
+                "answer": "இல்லை. அவர் 1978 என்று நினைவுகூர்கிறார்; பதிவேட்டில் தேதி இல்லை.",
+                "skill_target": "Tamil: Tamil script, agglutinative case suffixes, head-final word order, diglossia between the written and spoken registers, and the respectful நீங்கள் / familiar நீ address"
+              },
+              {
+                "type": "reading_comprehension",
+                "q": "Practice 11: [reading comprehension] வாய்மொழி வரலாற்றைப் பதிவு செய்தல் — Read “அப்படியானால், அந்தக் கூற்றை அவருடைய நினைவாகக் குறிக்கிறோம்.” (appaṭiyāṉāl, antak kūṟṟai avaruṭaiya niṉaivākak kuṟikkiṟōm.). What does it mean?",
+                "answer": "Then we will mark the claim as their recollection.",
+                "skill_target": "Tamil: Tamil script, agglutinative case suffixes, head-final word order, diglossia between the written and spoken registers, and the respectful நீங்கள் / familiar நீ address"
+              },
+              {
+                "type": "paragraph_comprehension",
+                "q": "Practice 12: [paragraph comprehension] வாய்மொழி வரலாற்றைப் பதிவு செய்தல் — Read the lesson dialogue as a whole and give its key move: Right; we will not write what is unverified as established fact.",
+                "answer": "சரி; உறுதிப்படுத்தப்படாததை உறுதியான உண்மையாக எழுதமாட்டோம்.",
+                "skill_target": "Tamil: Tamil script, agglutinative case suffixes, head-final word order, diglossia between the written and spoken registers, and the respectful நீங்கள் / familiar நீ address"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "Which meaning best fits வாய்மொழி வரலாறு?",
+                "options": [
+                  "oral history",
+                  "to recall",
+                  "evidence",
+                  "editor"
+                ],
+                "answer": 0,
+                "why": "வாய்மொழி வரலாறு (vāymoḻi varalāṟu) means oral history in this lesson."
+              },
+              {
+                "q": "Which meaning best fits நினைவுகூர்தல்?",
+                "options": [
+                  "to recall",
+                  "oral history",
+                  "evidence",
+                  "editor"
+                ],
+                "answer": 0,
+                "why": "நினைவுகூர்தல் (niṉaivukūṟtal) means to recall in this lesson."
+              },
+              {
+                "q": "Which meaning best fits சான்று?",
+                "options": [
+                  "evidence",
+                  "oral history",
+                  "to recall",
+                  "editor"
+                ],
+                "answer": 0,
+                "why": "சான்று (cāṉṟu) means evidence in this lesson."
+              },
+              {
+                "q": "Which meaning best fits பதிப்பாசிரியர்?",
+                "options": [
+                  "editor",
+                  "oral history",
+                  "to recall",
+                  "evidence"
+                ],
+                "answer": 0,
+                "why": "பதிப்பாசிரியர் (patipp āciriyar) means editor in this lesson."
+              },
+              {
+                "q": "Which meaning best fits அவருடைய சொற்களில்?",
+                "options": [
+                  "in their own words",
+                  "oral history",
+                  "to recall",
+                  "evidence"
+                ],
+                "answer": 0,
+                "why": "அவருடைய சொற்களில் (avaruṭaiya coṟkaḷil) means in their own words in this lesson."
+              }
+            ],
+            "flashcards": "auto:vocab",
+            "worksheet": {
+              "title": "Oral history worksheet",
+              "tasks": [
+                {
+                  "instruction": "Attribute the memory.",
+                  "items": [
+                    "they recall that the meeting took place in 1978",
+                    "in their words, the decision was not made in one day"
+                  ],
+                  "key": [
+                    "அந்தச் சந்திப்பு 1978-ஆம் ஆண்டு நடந்ததாக அவர் நினைவுகூர்கிறார்",
+                    "அவருடைய சொற்களில், அந்த முடிவு ஒரே நாளில் எடுக்கப்படவில்லை"
+                  ]
+                },
+                {
+                  "instruction": "State the evidence limit.",
+                  "items": [
+                    "a separate document is needed to confirm the date",
+                    "we will not present an unverified claim as fact"
+                  ],
+                  "key": [
+                    "தேதியை உறுதிப்படுத்த தனி ஆவணச் சான்று தேவை",
+                    "உறுதிப்படுத்தப்படாததை உண்மையாக எழுதமாட்டோம்"
+                  ]
+                },
+                {
+                  "instruction": "Integrated offline practice: read the first model, transform or extend it in Tamil script, then rehearse it as a dialogue. Self-check meaning, grammar, and register.",
+                  "items": [
+                    "அவர் அந்தச் சந்திப்பை 1978-ஆம் ஆண்டு நடந்ததாக நினைவுகூர்கிறார்.",
+                    "இந்தச் சந்திப்பின் தேதிக்கு ஆவணம் இருக்கிறதா?"
+                  ],
+                  "key": [
+                    "They recall that the meeting took place in 1978.",
+                    "Is there a document for the date of this meeting?"
+                  ]
+                }
+              ]
+            },
+            "srs_candidates": [
+              "வாய்மொழி வரலாறு",
+              "நினைவுகூர்தல்",
+              "சான்று",
+              "பதிப்பாசிரியர்"
+            ],
+            "srs_policy": "Only these four high-value terms are preselected; lesson mistakes and productive patterns may enter personalized review after an actual error."
           }
         ]
       }
@@ -1912,6 +2779,95 @@
           "answer": "மழை பெய்கிறது (Maḻai peygiṛadu)"
         }
       ]
+    },
+    "extra": {
+      "culture": {
+        "text": "Sangam poetry organises interior experience through landscape. In the Ainkurunuru, five sets of one hundred short poems are associated with five thinai: kurinji (mountain), mullai (pasture and forest), marutham (cultivated land), neithal (shore), and palai (wasteland). A landscape is not a decorative backdrop: plants, time of day, occupation, and weather help the poem imply a relationship's situation without spelling it out. The Tamil Virtual Academy's lesson describes each thinai as joining a geography to a 'mindscape'. Reading such a poem means asking what the image lets the speaker leave unsaid.",
+        "source_url": "https://www.tamilvu.org/courses/degree/d011/d0112/html/d01121ad.htm"
+      },
+      "reading": {
+        "text": "நெய்தல் திணையில் கடல் வெறும் பின்னணி அல்ல. காத்திருக்கும் தலைவியின் கவலை, அலை திரும்பி வருவதைப் போலத் திரும்பத் திரும்ப எழுகிறது. தோழி நேரடியாக «அவள் வருந்துகிறாள்» என்று சொல்லவில்லை; கரையில் நின்று தொலைவில் செல்லும் படகைப் பார்க்கிறாள். அந்தக் காட்சி பிரிவை உணர்த்துகிறது. நிலமும் மனநிலையும் ஒன்றாகப் செயல்படும்போது, குறைந்த சொற்களிலேயே கவிதை முழு உறவையும் உருவாக்குகிறது.",
+        "gloss": "In the neithal thinai the sea is not merely a background. The waiting heroine's worry rises again and again, like a wave that returns. The friend does not directly say 'she is grieving'; she stands on the shore and watches a boat recede into the distance. That image suggests separation. When land and state of mind work together, the poem creates a whole relationship in very few words.",
+        "original": true
+      },
+      "listening": {
+        "script": "இந்தக் கவிதையில் பாலை நிலம் ஏன் வருகிறது? — பயணம் கடினமானது என்பதை மட்டும் சொல்ல அல்ல. பிரிவின் நீளத்தையும் ஆபத்தையும் ஒரே உருவகத்தில் சேர்க்கிறது. — அப்படியானால், நிலக்காட்சி உணர்ச்சிக்கான சான்றா? — சான்று மட்டும் அல்ல; அது கவிதையின் அமைப்பே.",
+        "gloss": "Why does the palai landscape appear in this poem? — Not only to say that the journey is difficult. It brings the length and the danger of separation into one image. — Then is the landscape evidence for the emotion? — Not only evidence; it is the poem's structure itself.",
+        "voice_tag": "ta-IN"
+      },
+      "idioms": [
+        {
+          "t": "உள்ளங்கை நெல்லிக்கனி",
+          "literal": "an amla fruit in the palm",
+          "meaning": "something plain to see, requiring no proof"
+        },
+        {
+          "t": "அகமும் புறமும்",
+          "literal": "the interior and the exterior",
+          "meaning": "private feeling and public life"
+        },
+        {
+          "t": "சொல்லாமல் சொல்",
+          "literal": "say without saying",
+          "meaning": "let an image or implication carry the meaning"
+        },
+        {
+          "t": "நுண்ணிய வேறுபாடு",
+          "literal": "a fine distinction",
+          "meaning": "a subtle but meaningful difference"
+        },
+        {
+          "t": "மறைபொருள்",
+          "literal": "the hidden meaning",
+          "meaning": "an implication beneath the literal reading"
+        },
+        {
+          "t": "பொருள் பொதிந்த சொல்",
+          "literal": "a word filled with meaning",
+          "meaning": "a compact word with several resonances"
+        },
+        {
+          "t": "காலத்தைக் கடந்து",
+          "literal": "crossing beyond time",
+          "meaning": "enduring across generations"
+        },
+        {
+          "t": "கண்ணுக்குப் புலப்படாதது",
+          "literal": "what is not visible to the eye",
+          "meaning": "an unseen force or idea"
+        },
+        {
+          "t": "சொல்லின் செறிவு",
+          "literal": "the density of the word",
+          "meaning": "meaning packed into a few words"
+        },
+        {
+          "t": "ஒரு பக்கம் பார்த்தால்",
+          "literal": "if seen from one side",
+          "meaning": "one perspective among several"
+        }
+      ],
+      "mistakes": [
+        {
+          "wrong": "இக்காட்சி உணர்ச்சியை விளக்கமாகிறது.",
+          "right": "இக்காட்சி உணர்ச்சியை விளக்குகிறது.",
+          "why": "விளக்குகிறது is the finite verb; விளக்கமாகிறது means 'becomes explanatory' and is not the intended form."
+        },
+        {
+          "wrong": "நிலமும் மனநிலையும் ஒன்று அல்ல; ஆனால் கவிதையில் இரண்டும் தொடர்புடையது.",
+          "right": "நிலமும் மனநிலையும் வேறானவை; இருந்தாலும் கவிதையில் இரண்டும் தொடர்புடையவை.",
+          "why": "Use plural agreement and a clear concessive relation for two related things."
+        },
+        {
+          "wrong": "கவிஞர் சொல்லாமல், காட்சியை உருவாக்குகிறார்.",
+          "right": "கவிஞர் நேரடியாகச் சொல்லாமல், காட்சியின் வழியாக உணர்த்துகிறார்.",
+          "why": "The first version leaves the action incomplete; state what the image implies."
+        }
+      ],
+      "task": {
+        "title": "திணையும் மனநிலையும்",
+        "instructions": "Select a short poem, film scene, or landscape description. Write an interpretive paragraph that separates (1) the literal setting, (2) the emotional situation it implies, and (3) the evidence that supports your reading. Include one alternative interpretation and say what the text does not establish. Use a concessive clause, one reported claim, and the distinction between அகப்பொருள் and புறப்பொருள் without treating it as a rigid formula."
+      }
     }
   }
 }

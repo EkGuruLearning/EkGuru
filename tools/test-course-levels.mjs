@@ -204,6 +204,47 @@ ok(`every page romanises the language the way its own "Say it" lane does ` +
    `(${nativePages} non-Latin pages, ${marksInUse.size} marks in use)`,
   nativePages > 0 && romanisation.length === 0, romanisation.slice(0, 3).join(" | "));
 
+/* A structural schema pass cannot see an English placeholder hidden in a
+   rendered gloss. Read the page itself: Telugu C1/C2 once repeated
+   `contextual segment N:` before a generic sentence 48 times per level, while
+   the publication audit still considered those levels publishable and the
+   structural checks did not inspect their rendered glosses. This assertion is
+   deliberately scoped to Telugu until the eight other courses
+   tracked by Trap #9 receive their own source repairs. */
+const contextualFillerPages = [];
+for (const lv of LEVELS) {
+  const page = `languages/te/level/${lv}/index.html`;
+  if (!exists(page)) continue;
+  const html = read(page);
+  if (/— not published/.test(html) || /content="noindex/.test(html)) continue;
+  if (/\bcontextual\s+segment\s+\d+\s*:/i.test(html)) contextualFillerPages.push(page);
+}
+ok("Telugu rendered level pages expose no synthetic contextual-segment glosses",
+  contextualFillerPages.length === 0, contextualFillerPages.slice(0, 5).join(", "));
+
+const teC1Page = exists("languages/te/level/c1/index.html")
+  ? read("languages/te/level/c1/index.html") : "";
+const teC2Page = exists("languages/te/level/c2/index.html")
+  ? read("languages/te/level/c2/index.html") : "";
+const oldTeRomanisations = ["prakaarm", "merugupadimdani", "telustoomdi", "khmdimcadm"];
+ok("Telugu C1 renders the corrected marked romanisation",
+  teC1Page.includes("Sarvē nivēdika prakāraṁ, spandana samayaṁ taggindani telustōndi.") &&
+  oldTeRomanisations.every((text) => !teC1Page.includes(text)),
+  oldTeRomanisations.filter((text) => teC1Page.includes(text)).join(", "));
+ok("Telugu C1/C2 render distinct, level-specific test prompts",
+  teC1Page.includes("Which phrase attributes a finding to its source?") &&
+  teC2Page.includes("Does silence by itself prove agreement?") &&
+  !/Capstone task\s+\d/i.test(teC1Page + teC2Page),
+  /Capstone task\s+\d/i.test(teC1Page + teC2Page) ? "generic capstone remains" : "");
+
+const teCoursePages = ["a1", "a2", "b1", "b2", "c1", "c2"]
+  .map((lv) => `languages/te/level/${lv}/index.html`)
+  .filter(exists).map(read).join("\n");
+const englishTeRoles = "Doctor|Patient|Manager|Newcomer|Father|Mother|Grandmother|Son|Girl|Editor|Mediator|Reviewer|Specialist";
+const leakedTeRole = new RegExp(`<td data-h="Who"><b>(?:${englishTeRoles})</b></td>`);
+ok("Telugu rendered dialogues use local role labels",
+  !leakedTeRole.test(teCoursePages), leakedTeRole.exec(teCoursePages)?.[0] || "");
+
 console.log("\n3. it is a page-layer page, not a fifth design\n");
 
 const all = [];
