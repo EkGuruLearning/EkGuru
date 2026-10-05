@@ -29,7 +29,7 @@ The current inventory covers **2,720 repository-backed public HTML pages**:
 - Suggested actions: 816 `IMPROVE`, 190 `KEEP`, and 1,714 `NOINDEX`. No page is
   recommended for removal; no merge, removal, or indexation change was applied.
 - 168 indexable pages have no explicit author attribution in page metadata;
-  485 indexable pages have no known own-content update date. Unknown values
+  482 indexable pages have no known own-content update date. Unknown values
   remain unknown.
 - The median mechanical triage score is 83/100. It is **not** a linguistic,
   editorial, originality, source-support, AdSense, or approval score.

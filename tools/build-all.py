@@ -88,6 +88,9 @@ ULTRA_TESTS = [
     ("Phase 2 detailed content inventory is current (live HTTP pending)",
      ["python3", "tools/build-phase2-content-inventory.py", "--check"]),
     ("Phase 2 inventory fields, safety and scope", ["python3", "tools/test-phase2-content-inventory.py"]),
+    ("Phase 3 repository-backed originality audit is current (human review pending)",
+     ["python3", "tools/build-phase3-originality-audit.py", "--check"]),
+    ("Phase 3 audit fields and non-fabrication safety", ["python3", "tools/test-phase3-originality-audit.py"]),
     ("published vocabulary excludes generated segmentation placeholders", ["python3", "tools/test-published-vocabulary.py"]),
     ("partial Phase 1 courses mark C1/C2 unpublished", ["python3", "tools/test-partial-course-publication.py"]),
     ("rendered Phase 2 root Indian topic parity", ["python3", "tools/audit-indian-topic-parity.py", "--check"]),
@@ -273,6 +276,8 @@ def main():
         ["python3", "tools/audit-indian-topic-parity.py", "--write-report"])
     run("Phase 2: full public-page technical inventory", ["python3", "tools/build-full-page-inventory.py"])
     run("Phase 2: detailed content inventory", ["python3", "tools/build-phase2-content-inventory.py"])
+    run("Phase 3 master-command originality audit and human-review queue",
+        ["python3", "tools/build-phase3-originality-audit.py"])
     run("doctor", ["node", "tools/doctor.js"])
     print("\n══════════════════════════════════════════")
     print("build-all complete — every step passed.")
