@@ -26,49 +26,49 @@
               {
                 "t": "问题不只在",
                 "r": "wen ti bu zhi zai",
-                "en": "discourse segment 1: The problem lay precisely in implementation, not merely the decision.",
+                "en": "the problem was not only",
                 "pos": "expression"
               },
               {
                 "t": "不只在决定",
                 "r": "bu zhi zai jue ding",
-                "en": "discourse segment 2: The problem lay precisely in implementation, not merely the decision.",
+                "en": "not only the decision",
                 "pos": "expression"
               },
               {
                 "t": "在决定本身",
                 "r": "zai jue ding ben shen",
-                "en": "discourse segment 3: The problem lay precisely in implementation, not merely the decision.",
+                "en": "the decision itself",
                 "pos": "expression"
               },
               {
                 "t": "定本身，恰",
                 "r": "ding ben shen ， qia",
-                "en": "discourse segment 4: The problem lay precisely in implementation, not merely the decision.",
+                "en": "the decision itself; rather",
                 "pos": "expression"
               },
               {
                 "t": "身，恰恰在",
                 "r": "shen ， qia qia zai",
-                "en": "discourse segment 5: The problem lay precisely in implementation, not merely the decision.",
+                "en": "rather, precisely",
                 "pos": "expression"
               },
               {
                 "t": "恰恰在于该",
                 "r": "qia qia zai yu gai",
-                "en": "discourse segment 6: The problem lay precisely in implementation, not merely the decision.",
+                "en": "precisely in",
                 "pos": "expression"
               },
               {
                 "t": "在于该决定",
                 "r": "zai yu gai jue ding",
-                "en": "discourse segment 7: The problem lay precisely in implementation, not merely the decision.",
+                "en": "in the way the decision",
                 "pos": "expression"
               },
               {
                 "t": "该决定被落",
                 "r": "gai jue ding bei luo",
-                "en": "discourse segment 8: The problem lay precisely in implementation, not merely the decision.",
+                "en": "the decision was implemented",
                 "pos": "expression"
               }
             ],
@@ -328,49 +328,49 @@
               {
                 "t": "他的沉默与",
                 "r": "ta de chen mo yu",
-                "en": "discourse segment 1: His silence implied calculated distance rather than agreement.",
+                "en": "his silence and",
                 "pos": "expression"
               },
               {
                 "t": "沉默与其说",
                 "r": "chen mo yu qi shuo",
-                "en": "discourse segment 2: His silence implied calculated distance rather than agreement.",
+                "en": "silence, rather than",
                 "pos": "expression"
               },
               {
                 "t": "与其说表示",
                 "r": "yu qi shuo biao shi",
-                "en": "discourse segment 3: His silence implied calculated distance rather than agreement.",
+                "en": "rather than indicating",
                 "pos": "expression"
               },
               {
                 "t": "说表示赞同",
                 "r": "shuo biao shi zan tong",
-                "en": "discourse segment 4: His silence implied calculated distance rather than agreement.",
+                "en": "indicating agreement",
                 "pos": "expression"
               },
               {
                 "t": "示赞同，不",
                 "r": "shi zan tong ， bu",
-                "en": "discourse segment 5: His silence implied calculated distance rather than agreement.",
+                "en": "agreement, instead",
                 "pos": "expression"
               },
               {
                 "t": "同，不如说",
                 "r": "tong ， bu ru shuo",
-                "en": "discourse segment 6: His silence implied calculated distance rather than agreement.",
+                "en": "instead it may",
                 "pos": "expression"
               },
               {
                 "t": "不如说暗示",
                 "r": "bu ru shuo an shi",
-                "en": "discourse segment 7: His silence implied calculated distance rather than agreement.",
+                "en": "may imply",
                 "pos": "expression"
               },
               {
                 "t": "说暗示一种",
                 "r": "shuo an shi yi zhong",
-                "en": "discourse segment 8: His silence implied calculated distance rather than agreement.",
+                "en": "imply a calculated distance",
                 "pos": "expression"
               }
             ],
@@ -620,6 +620,288 @@
                 }
               ]
             }
+          },
+          {
+            "id": "zh-c2-l7",
+            "title": "Limit the scope of a claim",
+            "learn": "Rewrite an absolute claim so it matches the sample and evidence available.",
+            "vocab": [
+              {
+                "t": "范围",
+                "r": "fàn wéi",
+                "en": "scope",
+                "pos": "phrase"
+              },
+              {
+                "t": "现有",
+                "r": "xiàn yǒu",
+                "en": "existing; available",
+                "pos": "phrase"
+              },
+              {
+                "t": "证据",
+                "r": "zhèng jù",
+                "en": "evidence",
+                "pos": "phrase"
+              },
+              {
+                "t": "结论",
+                "r": "jié lùn",
+                "en": "conclusion",
+                "pos": "phrase"
+              },
+              {
+                "t": "适用",
+                "r": "shì yòng",
+                "en": "to apply",
+                "pos": "phrase"
+              }
+            ],
+            "grammar": {
+              "title": "epistemic scope",
+              "pattern": "就现有证据而言 ...；不能据此断定 ...",
+              "explain": "State what the available evidence supports and what it does not establish.",
+              "examples": [
+                {
+                  "t": "就现有证据而言，这一解释是合理的。",
+                  "r": "jiù xiàn yǒu zhèng jù ér yán，zhè yì jiě shì shì hé lǐ de。",
+                  "en": "On the evidence currently available, this interpretation is reasonable."
+                },
+                {
+                  "t": "样本只包括三个城市。",
+                  "r": "yàng běn zhǐ bāo kuò sān gè chéng shì。",
+                  "en": "The sample includes only three cities."
+                },
+                {
+                  "t": "不能据此断定所有地区都如此。",
+                  "r": "bù néng jù cǐ duàn dìng suǒ yǒu dì qū dōu rú cǐ。",
+                  "en": "This cannot establish that all regions are like this."
+                }
+              ],
+              "mistakes": [
+                {
+                  "wrong": "现有证据证明所有地区都一样。",
+                  "right": "现有证据支持有限范围内的解释，不能代表所有地区。",
+                  "why": "Do not generalise beyond the sample's scope."
+                }
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "老师",
+                "t": "就现有证据而言，这一解释是合理的。",
+                "r": "jiù xiàn yǒu zhèng jù ér yán，zhè yì jiě shì shì hé lǐ de。",
+                "en": "On the evidence currently available, this interpretation is reasonable."
+              },
+              {
+                "sp": "学生",
+                "t": "样本只包括三个城市。",
+                "r": "yàng běn zhǐ bāo kuò sān gè chéng shì。",
+                "en": "The sample includes only three cities."
+              },
+              {
+                "sp": "老师",
+                "t": "不能据此断定所有地区都如此。",
+                "r": "bù néng jù cǐ duàn dìng suǒ yǒu dì qū dōu rú cǐ。",
+                "en": "This cannot establish that all regions are like this."
+              },
+              {
+                "sp": "学生",
+                "t": "样本只包括三个城市。",
+                "r": "yàng běn zhǐ bāo kuò sān gè chéng shì。",
+                "en": "The sample includes only three cities."
+              }
+            ],
+            "practice": [
+              {
+                "type": "multiple_choice",
+                "q": "Practice 1: [multiple choice] Limit the scope of a claim — Choose the meaning of 范围 (fàn wéi) in this lesson.",
+                "answer": "scope",
+                "skill_target": "Standard Mandarin: tones and pinyin, measure words, aspect markers, 把/被 constructions, clause links, register and source-qualified claims",
+                "options": [
+                  "scope",
+                  "existing; available",
+                  "evidence",
+                  "conclusion"
+                ]
+              },
+              {
+                "type": "fill_in_the_blank",
+                "q": "Practice 2: [fill in the blank] Limit the scope of a claim — Type the Chinese (Mandarin) expression meaning “existing; available”.",
+                "answer": "现有",
+                "skill_target": "Standard Mandarin: tones and pinyin, measure words, aspect markers, 把/被 constructions, clause links, register and source-qualified claims"
+              },
+              {
+                "type": "translation",
+                "q": "Practice 3: [translation] Limit the scope of a claim — Interpret the Simplified Chinese characters in context: 就现有证据而言，这一解释是合理的。 (jiù xiàn yǒu zhèng jù ér yán，zhè yì jiě shì shì hé lǐ de。).",
+                "answer": "On the evidence currently available, this interpretation is reasonable.",
+                "skill_target": "Standard Mandarin: tones and pinyin, measure words, aspect markers, 把/被 constructions, clause links, register and source-qualified claims"
+              },
+              {
+                "type": "reverse_translation",
+                "q": "Practice 4: [reverse translation] Limit the scope of a claim — Write in Simplified Chinese characters: The sample includes only three cities..",
+                "answer": "样本只包括三个城市。",
+                "skill_target": "Standard Mandarin: tones and pinyin, measure words, aspect markers, 把/被 constructions, clause links, register and source-qualified claims"
+              },
+              {
+                "type": "matching",
+                "q": "Practice 5: [matching] Limit the scope of a claim — Match 证据 to its lesson meaning.",
+                "answer": "evidence",
+                "skill_target": "Standard Mandarin: tones and pinyin, measure words, aspect markers, 把/被 constructions, clause links, register and source-qualified claims",
+                "options": [
+                  "evidence",
+                  "scope",
+                  "existing; available"
+                ]
+              },
+              {
+                "type": "reorder",
+                "q": "Practice 6: [reorder] Limit the scope of a claim — Reconstruct the lesson model in coherent Chinese (Mandarin): This cannot establish that all regions are like this..",
+                "answer": "不能据此断定所有地区都如此。",
+                "skill_target": "Standard Mandarin: tones and pinyin, measure words, aspect markers, 把/被 constructions, clause links, register and source-qualified claims"
+              },
+              {
+                "type": "sentence_building",
+                "q": "Practice 7: [sentence building] Limit the scope of a claim — Build the sentence with the lesson pattern (就现有证据而言 ...；不能据此断定 ...): On the evidence currently available, this interpretation is reasonable..",
+                "answer": "就现有证据而言，这一解释是合理的。",
+                "skill_target": "Standard Mandarin: tones and pinyin, measure words, aspect markers, 把/被 constructions, clause links, register and source-qualified claims"
+              },
+              {
+                "type": "word_selection",
+                "q": "Practice 8: [word selection] Limit the scope of a claim — Select the Chinese (Mandarin) form for “conclusion”.",
+                "answer": "结论",
+                "skill_target": "Standard Mandarin: tones and pinyin, measure words, aspect markers, 把/被 constructions, clause links, register and source-qualified claims",
+                "options": [
+                  "结论",
+                  "适用"
+                ]
+              },
+              {
+                "type": "error_correction",
+                "q": "Practice 9: [error correction] Limit the scope of a claim — Correct the model the lesson warns about: 现有证据证明所有地区都一样。",
+                "answer": "现有证据支持有限范围内的解释，不能代表所有地区。",
+                "skill_target": "Standard Mandarin: tones and pinyin, measure words, aspect markers, 把/被 constructions, clause links, register and source-qualified claims"
+              },
+              {
+                "type": "dialogue_completion",
+                "q": "Practice 10: [dialogue completion] Limit the scope of a claim — Complete the exchange with the studied response to: On the evidence currently available, this interpretation is reasonable.",
+                "answer": "样本只包括三个城市。",
+                "skill_target": "Standard Mandarin: tones and pinyin, measure words, aspect markers, 把/被 constructions, clause links, register and source-qualified claims"
+              },
+              {
+                "type": "reading_comprehension",
+                "q": "Practice 11: [reading comprehension] Limit the scope of a claim — Read “不能据此断定所有地区都如此。” (bù néng jù cǐ duàn dìng suǒ yǒu dì qū dōu rú cǐ。). What does it mean?",
+                "answer": "This cannot establish that all regions are like this.",
+                "skill_target": "Standard Mandarin: tones and pinyin, measure words, aspect markers, 把/被 constructions, clause links, register and source-qualified claims"
+              },
+              {
+                "type": "paragraph_comprehension",
+                "q": "Practice 12: [paragraph comprehension] Limit the scope of a claim — Read the lesson dialogue as a whole and give its key move: The sample includes only three cities.",
+                "answer": "样本只包括三个城市。",
+                "skill_target": "Standard Mandarin: tones and pinyin, measure words, aspect markers, 把/被 constructions, clause links, register and source-qualified claims"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "Which meaning best fits 范围?",
+                "options": [
+                  "scope",
+                  "existing; available",
+                  "evidence",
+                  "conclusion"
+                ],
+                "answer": 0,
+                "why": "范围 (fàn wéi) means scope in this lesson."
+              },
+              {
+                "q": "Which meaning best fits 现有?",
+                "options": [
+                  "existing; available",
+                  "scope",
+                  "evidence",
+                  "conclusion"
+                ],
+                "answer": 0,
+                "why": "现有 (xiàn yǒu) means existing; available in this lesson."
+              },
+              {
+                "q": "Which meaning best fits 证据?",
+                "options": [
+                  "evidence",
+                  "scope",
+                  "existing; available",
+                  "conclusion"
+                ],
+                "answer": 0,
+                "why": "证据 (zhèng jù) means evidence in this lesson."
+              },
+              {
+                "q": "Which meaning best fits 结论?",
+                "options": [
+                  "conclusion",
+                  "scope",
+                  "existing; available",
+                  "evidence"
+                ],
+                "answer": 0,
+                "why": "结论 (jié lùn) means conclusion in this lesson."
+              },
+              {
+                "q": "Which meaning best fits 适用?",
+                "options": [
+                  "to apply",
+                  "scope",
+                  "existing; available",
+                  "evidence"
+                ],
+                "answer": 0,
+                "why": "适用 (shì yòng) means to apply in this lesson."
+              }
+            ],
+            "flashcards": "auto:vocab",
+            "worksheet": {
+              "title": "Calibrate a conclusion",
+              "tasks": [
+                {
+                  "instruction": "Translate the first model into English.",
+                  "items": [
+                    "就现有证据而言，这一解释是合理的。"
+                  ],
+                  "key": [
+                    "On the evidence currently available, this interpretation is reasonable."
+                  ]
+                },
+                {
+                  "instruction": "Use the lesson pattern with a different detail.",
+                  "items": [
+                    "样本只包括三个城市。",
+                    "不能据此断定所有地区都如此。"
+                  ],
+                  "key": [
+                    "The sample includes only three cities.",
+                    "This cannot establish that all regions are like this."
+                  ]
+                },
+                {
+                  "instruction": "Integrated offline practice: read the first model, transform or extend it in Simplified Chinese characters, then rehearse it as a dialogue. Self-check meaning, grammar, and register.",
+                  "items": [
+                    "就现有证据而言，这一解释是合理的。",
+                    "就现有证据而言，这一解释是合理的。"
+                  ],
+                  "key": [
+                    "On the evidence currently available, this interpretation is reasonable.",
+                    "On the evidence currently available, this interpretation is reasonable."
+                  ]
+                }
+              ]
+            },
+            "srs_candidates": [
+              "范围",
+              "现有",
+              "证据",
+              "结论"
+            ],
+            "srs_policy": "Only these four high-value terms are preselected; lesson mistakes and productive patterns may enter personalized review after an actual error."
           }
         ]
       },
@@ -635,49 +917,49 @@
               {
                 "t": "速度固然必",
                 "r": "su du gu ran bi",
-                "en": "discourse segment 1: Speed without accountability merely postpones crisis.",
+                "en": "speed is indeed necessary",
                 "pos": "expression"
               },
               {
                 "t": "固然必要，",
                 "r": "gu ran bi yao ，",
-                "en": "discourse segment 2: Speed without accountability merely postpones crisis.",
+                "en": "although necessary",
                 "pos": "expression"
               },
               {
                 "t": "必要，但没",
                 "r": "bi yao ， dan mei",
-                "en": "discourse segment 3: Speed without accountability merely postpones crisis.",
+                "en": "necessary, but",
                 "pos": "expression"
               },
               {
                 "t": "，但没有问",
                 "r": "， dan mei you wen",
-                "en": "discourse segment 4: Speed without accountability merely postpones crisis.",
+                "en": "but without accountability",
                 "pos": "expression"
               },
               {
                 "t": "没有问责的",
                 "r": "mei you wen ze de",
-                "en": "discourse segment 5: Speed without accountability merely postpones crisis.",
+                "en": "without accountability",
                 "pos": "expression"
               },
               {
                 "t": "问责的速度",
                 "r": "wen ze de su du",
-                "en": "discourse segment 6: Speed without accountability merely postpones crisis.",
+                "en": "accountability, speed",
                 "pos": "expression"
               },
               {
                 "t": "的速度不是",
                 "r": "de su du bu shi",
-                "en": "discourse segment 7: Speed without accountability merely postpones crisis.",
+                "en": "speed is not",
                 "pos": "expression"
               },
               {
                 "t": "度不是进步",
                 "r": "du bu shi jin bu",
-                "en": "discourse segment 8: Speed without accountability merely postpones crisis.",
+                "en": "not progress",
                 "pos": "expression"
               }
             ],
@@ -935,49 +1217,49 @@
               {
                 "t": "那句话从未",
                 "r": "na ju hua cong wei",
-                "en": "discourse segment 1: The unspoken phrase rewrote every later decision.",
+                "en": "that phrase was never",
                 "pos": "expression"
               },
               {
                 "t": "话从未在会",
                 "r": "hua cong wei zai hui",
-                "en": "discourse segment 2: The unspoken phrase rewrote every later decision.",
+                "en": "never spoken",
                 "pos": "expression"
               },
               {
                 "t": "未在会场说",
                 "r": "wei zai hui chang shuo",
-                "en": "discourse segment 3: The unspoken phrase rewrote every later decision.",
+                "en": "spoken in the meeting hall",
                 "pos": "expression"
               },
               {
                 "t": "会场说出口",
                 "r": "hui chang shuo chu kou",
-                "en": "discourse segment 4: The unspoken phrase rewrote every later decision.",
+                "en": "in the hall",
                 "pos": "expression"
               },
               {
                 "t": "说出口，它",
                 "r": "shuo chu kou ， ta",
-                "en": "discourse segment 5: The unspoken phrase rewrote every later decision.",
+                "en": "spoken aloud; yet",
                 "pos": "expression"
               },
               {
                 "t": "口，它的回",
                 "r": "kou ， ta de hui",
-                "en": "discourse segment 6: The unspoken phrase rewrote every later decision.",
+                "en": "yet its echo",
                 "pos": "expression"
               },
               {
                 "t": "它的回声却",
                 "r": "ta de hui sheng que",
-                "en": "discourse segment 7: The unspoken phrase rewrote every later decision.",
+                "en": "its echo",
                 "pos": "expression"
               },
               {
                 "t": "回声却改写",
                 "r": "hui sheng que gai xie",
-                "en": "discourse segment 8: The unspoken phrase rewrote every later decision.",
+                "en": "rewrote later decisions",
                 "pos": "expression"
               }
             ],
@@ -1220,6 +1502,288 @@
                 }
               ]
             }
+          },
+          {
+            "id": "zh-c2-l8",
+            "title": "Interpret an implied meaning",
+            "learn": "Describe a possible implication without claiming certainty about a speaker's intention.",
+            "vocab": [
+              {
+                "t": "沉默",
+                "r": "chén mò",
+                "en": "silence",
+                "pos": "phrase"
+              },
+              {
+                "t": "暗示",
+                "r": "àn shì",
+                "en": "to imply",
+                "pos": "phrase"
+              },
+              {
+                "t": "意图",
+                "r": "yì tú",
+                "en": "intention",
+                "pos": "phrase"
+              },
+              {
+                "t": "可能",
+                "r": "kě néng",
+                "en": "possibly",
+                "pos": "phrase"
+              },
+              {
+                "t": "解释",
+                "r": "jiě shì",
+                "en": "interpretation",
+                "pos": "phrase"
+              }
+            ],
+            "grammar": {
+              "title": "hedged inference",
+              "pattern": "沉默可能暗示 ...，但不能单独证明 ...",
+              "explain": "Silence may carry an implication, but it cannot by itself establish a person's intention.",
+              "examples": [
+                {
+                  "t": "回答之前，他停顿了一会儿。",
+                  "r": "huí dá zhī qián，tā tíng dùn le yí huì er。",
+                  "en": "Before answering, he paused for a moment."
+                },
+                {
+                  "t": "这种沉默可能暗示他有所保留。",
+                  "r": "zhè zhǒng chén mò kě néng àn shì tā yǒu suǒ bǎo liú。",
+                  "en": "This silence may suggest that he has reservations."
+                },
+                {
+                  "t": "不过它不能单独证明他的真实意图。",
+                  "r": "bú guò tā bù néng dān dú zhèng míng tā de zhēn shí yì tú。",
+                  "en": "However, it cannot by itself prove his actual intention."
+                }
+              ],
+              "mistakes": [
+                {
+                  "wrong": "他的沉默证明他同意。",
+                  "right": "他的沉默可能有多种解释，不能单独证明同意。",
+                  "why": "Do not present an interpretation of silence as a proven intention."
+                }
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "老师",
+                "t": "回答之前，他停顿了一会儿。",
+                "r": "huí dá zhī qián，tā tíng dùn le yí huì er。",
+                "en": "Before answering, he paused for a moment."
+              },
+              {
+                "sp": "学生",
+                "t": "这种沉默可能暗示他有所保留。",
+                "r": "zhè zhǒng chén mò kě néng àn shì tā yǒu suǒ bǎo liú。",
+                "en": "This silence may suggest that he has reservations."
+              },
+              {
+                "sp": "老师",
+                "t": "不过它不能单独证明他的真实意图。",
+                "r": "bú guò tā bù néng dān dú zhèng míng tā de zhēn shí yì tú。",
+                "en": "However, it cannot by itself prove his actual intention."
+              },
+              {
+                "sp": "学生",
+                "t": "这种沉默可能暗示他有所保留。",
+                "r": "zhè zhǒng chén mò kě néng àn shì tā yǒu suǒ bǎo liú。",
+                "en": "This silence may suggest that he has reservations."
+              }
+            ],
+            "practice": [
+              {
+                "type": "multiple_choice",
+                "q": "Practice 1: [multiple choice] Interpret an implied meaning — Choose the meaning of 沉默 (chén mò) in this lesson.",
+                "answer": "silence",
+                "skill_target": "Standard Mandarin: tones and pinyin, measure words, aspect markers, 把/被 constructions, clause links, register and source-qualified claims",
+                "options": [
+                  "silence",
+                  "to imply",
+                  "intention",
+                  "possibly"
+                ]
+              },
+              {
+                "type": "fill_in_the_blank",
+                "q": "Practice 2: [fill in the blank] Interpret an implied meaning — Type the Chinese (Mandarin) expression meaning “to imply”.",
+                "answer": "暗示",
+                "skill_target": "Standard Mandarin: tones and pinyin, measure words, aspect markers, 把/被 constructions, clause links, register and source-qualified claims"
+              },
+              {
+                "type": "translation",
+                "q": "Practice 3: [translation] Interpret an implied meaning — Interpret the Simplified Chinese characters in context: 回答之前，他停顿了一会儿。 (huí dá zhī qián，tā tíng dùn le yí huì er。).",
+                "answer": "Before answering, he paused for a moment.",
+                "skill_target": "Standard Mandarin: tones and pinyin, measure words, aspect markers, 把/被 constructions, clause links, register and source-qualified claims"
+              },
+              {
+                "type": "reverse_translation",
+                "q": "Practice 4: [reverse translation] Interpret an implied meaning — Write in Simplified Chinese characters: This silence may suggest that he has reservations..",
+                "answer": "这种沉默可能暗示他有所保留。",
+                "skill_target": "Standard Mandarin: tones and pinyin, measure words, aspect markers, 把/被 constructions, clause links, register and source-qualified claims"
+              },
+              {
+                "type": "matching",
+                "q": "Practice 5: [matching] Interpret an implied meaning — Match 意图 to its lesson meaning.",
+                "answer": "intention",
+                "skill_target": "Standard Mandarin: tones and pinyin, measure words, aspect markers, 把/被 constructions, clause links, register and source-qualified claims",
+                "options": [
+                  "intention",
+                  "silence",
+                  "to imply"
+                ]
+              },
+              {
+                "type": "reorder",
+                "q": "Practice 6: [reorder] Interpret an implied meaning — Reconstruct the lesson model in coherent Chinese (Mandarin): However, it cannot by itself prove his actual intention..",
+                "answer": "不过它不能单独证明他的真实意图。",
+                "skill_target": "Standard Mandarin: tones and pinyin, measure words, aspect markers, 把/被 constructions, clause links, register and source-qualified claims"
+              },
+              {
+                "type": "sentence_building",
+                "q": "Practice 7: [sentence building] Interpret an implied meaning — Build the sentence with the lesson pattern (沉默可能暗示 ...，但不能单独证明 ...): Before answering, he paused for a moment..",
+                "answer": "回答之前，他停顿了一会儿。",
+                "skill_target": "Standard Mandarin: tones and pinyin, measure words, aspect markers, 把/被 constructions, clause links, register and source-qualified claims"
+              },
+              {
+                "type": "word_selection",
+                "q": "Practice 8: [word selection] Interpret an implied meaning — Select the Chinese (Mandarin) form for “possibly”.",
+                "answer": "可能",
+                "skill_target": "Standard Mandarin: tones and pinyin, measure words, aspect markers, 把/被 constructions, clause links, register and source-qualified claims",
+                "options": [
+                  "可能",
+                  "解释"
+                ]
+              },
+              {
+                "type": "error_correction",
+                "q": "Practice 9: [error correction] Interpret an implied meaning — Correct the model the lesson warns about: 他的沉默证明他同意。",
+                "answer": "他的沉默可能有多种解释，不能单独证明同意。",
+                "skill_target": "Standard Mandarin: tones and pinyin, measure words, aspect markers, 把/被 constructions, clause links, register and source-qualified claims"
+              },
+              {
+                "type": "dialogue_completion",
+                "q": "Practice 10: [dialogue completion] Interpret an implied meaning — Complete the exchange with the studied response to: Before answering, he paused for a moment.",
+                "answer": "这种沉默可能暗示他有所保留。",
+                "skill_target": "Standard Mandarin: tones and pinyin, measure words, aspect markers, 把/被 constructions, clause links, register and source-qualified claims"
+              },
+              {
+                "type": "reading_comprehension",
+                "q": "Practice 11: [reading comprehension] Interpret an implied meaning — Read “不过它不能单独证明他的真实意图。” (bú guò tā bù néng dān dú zhèng míng tā de zhēn shí yì tú。). What does it mean?",
+                "answer": "However, it cannot by itself prove his actual intention.",
+                "skill_target": "Standard Mandarin: tones and pinyin, measure words, aspect markers, 把/被 constructions, clause links, register and source-qualified claims"
+              },
+              {
+                "type": "paragraph_comprehension",
+                "q": "Practice 12: [paragraph comprehension] Interpret an implied meaning — Read the lesson dialogue as a whole and give its key move: This silence may suggest that he has reservations.",
+                "answer": "这种沉默可能暗示他有所保留。",
+                "skill_target": "Standard Mandarin: tones and pinyin, measure words, aspect markers, 把/被 constructions, clause links, register and source-qualified claims"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "Which meaning best fits 沉默?",
+                "options": [
+                  "silence",
+                  "to imply",
+                  "intention",
+                  "possibly"
+                ],
+                "answer": 0,
+                "why": "沉默 (chén mò) means silence in this lesson."
+              },
+              {
+                "q": "Which meaning best fits 暗示?",
+                "options": [
+                  "to imply",
+                  "silence",
+                  "intention",
+                  "possibly"
+                ],
+                "answer": 0,
+                "why": "暗示 (àn shì) means to imply in this lesson."
+              },
+              {
+                "q": "Which meaning best fits 意图?",
+                "options": [
+                  "intention",
+                  "silence",
+                  "to imply",
+                  "possibly"
+                ],
+                "answer": 0,
+                "why": "意图 (yì tú) means intention in this lesson."
+              },
+              {
+                "q": "Which meaning best fits 可能?",
+                "options": [
+                  "possibly",
+                  "silence",
+                  "to imply",
+                  "intention"
+                ],
+                "answer": 0,
+                "why": "可能 (kě néng) means possibly in this lesson."
+              },
+              {
+                "q": "Which meaning best fits 解释?",
+                "options": [
+                  "interpretation",
+                  "silence",
+                  "to imply",
+                  "intention"
+                ],
+                "answer": 0,
+                "why": "解释 (jiě shì) means interpretation in this lesson."
+              }
+            ],
+            "flashcards": "auto:vocab",
+            "worksheet": {
+              "title": "Describe an implication",
+              "tasks": [
+                {
+                  "instruction": "Translate the first model into English.",
+                  "items": [
+                    "回答之前，他停顿了一会儿。"
+                  ],
+                  "key": [
+                    "Before answering, he paused for a moment."
+                  ]
+                },
+                {
+                  "instruction": "Use the lesson pattern with a different detail.",
+                  "items": [
+                    "这种沉默可能暗示他有所保留。",
+                    "不过它不能单独证明他的真实意图。"
+                  ],
+                  "key": [
+                    "This silence may suggest that he has reservations.",
+                    "However, it cannot by itself prove his actual intention."
+                  ]
+                },
+                {
+                  "instruction": "Integrated offline practice: read the first model, transform or extend it in Simplified Chinese characters, then rehearse it as a dialogue. Self-check meaning, grammar, and register.",
+                  "items": [
+                    "回答之前，他停顿了一会儿。",
+                    "回答之前，他停顿了一会儿。"
+                  ],
+                  "key": [
+                    "Before answering, he paused for a moment.",
+                    "Before answering, he paused for a moment."
+                  ]
+                }
+              ]
+            },
+            "srs_candidates": [
+              "沉默",
+              "暗示",
+              "意图",
+              "可能"
+            ],
+            "srs_policy": "Only these four high-value terms are preselected; lesson mistakes and productive patterns may enter personalized review after an actual error."
           }
         ]
       },
@@ -1235,49 +1799,49 @@
               {
                 "t": "我并非要否",
                 "r": "wo bing fei yao fou",
-                "en": "discourse segment 1: I seek to delimit rather than reject your objection.",
+                "en": "I do not intend",
                 "pos": "expression"
               },
               {
                 "t": "非要否定您",
                 "r": "fei yao fou ding nin",
-                "en": "discourse segment 2: I seek to delimit rather than reject your objection.",
+                "en": "not intend to reject",
                 "pos": "expression"
               },
               {
                 "t": "否定您的异",
                 "r": "fou ding nin de yi",
-                "en": "discourse segment 3: I seek to delimit rather than reject your objection.",
+                "en": "to reject your",
                 "pos": "expression"
               },
               {
                 "t": "您的异议，",
                 "r": "nin de yi yi ，",
-                "en": "discourse segment 4: I seek to delimit rather than reject your objection.",
+                "en": "your objection",
                 "pos": "expression"
               },
               {
                 "t": "异议，而是",
                 "r": "yi yi ， er shi",
-                "en": "discourse segment 5: I seek to delimit rather than reject your objection.",
+                "en": "your objection; rather",
                 "pos": "expression"
               },
               {
                 "t": "，而是要厘",
                 "r": "， er shi yao li",
-                "en": "discourse segment 6: I seek to delimit rather than reject your objection.",
+                "en": "rather, I intend",
                 "pos": "expression"
               },
               {
                 "t": "是要厘清其",
                 "r": "shi yao li qing qi",
-                "en": "discourse segment 7: I seek to delimit rather than reject your objection.",
+                "en": "intend to clarify",
                 "pos": "expression"
               },
               {
                 "t": "厘清其适用",
                 "r": "li qing qi shi yong",
-                "en": "discourse segment 8: I seek to delimit rather than reject your objection.",
+                "en": "clarify its scope",
                 "pos": "expression"
               }
             ],
@@ -1527,49 +2091,49 @@
               {
                 "t": "就现有证据",
                 "r": "jiu xian you zheng ju",
-                "en": "discourse segment 1: This is plausible on present evidence, not final.",
+                "en": "on the evidence currently available",
                 "pos": "expression"
               },
               {
                 "t": "有证据而言",
                 "r": "you zheng ju er yan",
-                "en": "discourse segment 2: This is plausible on present evidence, not final.",
+                "en": "the evidence available",
                 "pos": "expression"
               },
               {
                 "t": "据而言，这",
                 "r": "ju er yan ， zhe",
-                "en": "discourse segment 3: This is plausible on present evidence, not final.",
+                "en": "available evidence; this",
                 "pos": "expression"
               },
               {
                 "t": "言，这是一",
                 "r": "yan ， zhe shi yi",
-                "en": "discourse segment 4: This is plausible on present evidence, not final.",
+                "en": "this is",
                 "pos": "expression"
               },
               {
                 "t": "这是一种颇",
                 "r": "zhe shi yi zhong po",
-                "en": "discourse segment 5: This is plausible on present evidence, not final.",
+                "en": "a plausible interpretation",
                 "pos": "expression"
               },
               {
                 "t": "一种颇为可",
                 "r": "yi zhong po wei ke",
-                "en": "discourse segment 6: This is plausible on present evidence, not final.",
+                "en": "plausible, not definitive",
                 "pos": "expression"
               },
               {
                 "t": "颇为可信的",
                 "r": "po wei ke xin de",
-                "en": "discourse segment 7: This is plausible on present evidence, not final.",
+                "en": "not a final verdict",
                 "pos": "expression"
               },
               {
                 "t": "可信的解释",
                 "r": "ke xin de jie shi",
-                "en": "discourse segment 8: This is plausible on present evidence, not final.",
+                "en": "a final verdict",
                 "pos": "expression"
               }
             ],
@@ -1815,6 +2379,288 @@
                 }
               ]
             }
+          },
+          {
+            "id": "zh-c2-l9",
+            "title": "Edit for a public audience",
+            "learn": "Simplify a technical statement without increasing its certainty or changing its scope.",
+            "vocab": [
+              {
+                "t": "改写",
+                "r": "gǎi xiě",
+                "en": "to rewrite",
+                "pos": "phrase"
+              },
+              {
+                "t": "读者",
+                "r": "dú zhě",
+                "en": "reader",
+                "pos": "phrase"
+              },
+              {
+                "t": "术语",
+                "r": "shù yǔ",
+                "en": "technical term",
+                "pos": "phrase"
+              },
+              {
+                "t": "简洁",
+                "r": "jiǎn jié",
+                "en": "concise",
+                "pos": "phrase"
+              },
+              {
+                "t": "确定",
+                "r": "què dìng",
+                "en": "certain",
+                "pos": "phrase"
+              }
+            ],
+            "grammar": {
+              "title": "plain language, same claim",
+              "pattern": "简化句子；保留范围；不提高确定性",
+              "explain": "A public rewrite can explain a term and shorten a sentence while preserving the evidence level.",
+              "examples": [
+                {
+                  "t": "原句用了几个专业术语。",
+                  "r": "yuán jù yòng le jǐ gè zhuān yè shù yǔ。",
+                  "en": "The original sentence used several technical terms."
+                },
+                {
+                  "t": "改写时应说明样本的范围。",
+                  "r": "gǎi xiě shí yīng shuō míng yàng běn de fàn wéi。",
+                  "en": "The rewrite should explain the scope of the sample."
+                },
+                {
+                  "t": "语言更简洁，结论仍然是暂定的。",
+                  "r": "yǔ yán gèng jiǎn jié，jié lùn réng rán shì zàn dìng de。",
+                  "en": "The language is more concise, while the conclusion remains provisional."
+                }
+              ],
+              "mistakes": [
+                {
+                  "wrong": "改写以后，暂定结论就变成事实。",
+                  "right": "改写可以让语言更清楚，但不能把暂定结论变成事实。",
+                  "why": "Editing for readability must not raise the certainty of the claim."
+                }
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "老师",
+                "t": "原句用了几个专业术语。",
+                "r": "yuán jù yòng le jǐ gè zhuān yè shù yǔ。",
+                "en": "The original sentence used several technical terms."
+              },
+              {
+                "sp": "学生",
+                "t": "改写时应说明样本的范围。",
+                "r": "gǎi xiě shí yīng shuō míng yàng běn de fàn wéi。",
+                "en": "The rewrite should explain the scope of the sample."
+              },
+              {
+                "sp": "老师",
+                "t": "语言更简洁，结论仍然是暂定的。",
+                "r": "yǔ yán gèng jiǎn jié，jié lùn réng rán shì zàn dìng de。",
+                "en": "The language is more concise, while the conclusion remains provisional."
+              },
+              {
+                "sp": "学生",
+                "t": "改写时应说明样本的范围。",
+                "r": "gǎi xiě shí yīng shuō míng yàng běn de fàn wéi。",
+                "en": "The rewrite should explain the scope of the sample."
+              }
+            ],
+            "practice": [
+              {
+                "type": "multiple_choice",
+                "q": "Practice 1: [multiple choice] Edit for a public audience — Choose the meaning of 改写 (gǎi xiě) in this lesson.",
+                "answer": "to rewrite",
+                "skill_target": "Standard Mandarin: tones and pinyin, measure words, aspect markers, 把/被 constructions, clause links, register and source-qualified claims",
+                "options": [
+                  "to rewrite",
+                  "reader",
+                  "technical term",
+                  "concise"
+                ]
+              },
+              {
+                "type": "fill_in_the_blank",
+                "q": "Practice 2: [fill in the blank] Edit for a public audience — Type the Chinese (Mandarin) expression meaning “reader”.",
+                "answer": "读者",
+                "skill_target": "Standard Mandarin: tones and pinyin, measure words, aspect markers, 把/被 constructions, clause links, register and source-qualified claims"
+              },
+              {
+                "type": "translation",
+                "q": "Practice 3: [translation] Edit for a public audience — Interpret the Simplified Chinese characters in context: 原句用了几个专业术语。 (yuán jù yòng le jǐ gè zhuān yè shù yǔ。).",
+                "answer": "The original sentence used several technical terms.",
+                "skill_target": "Standard Mandarin: tones and pinyin, measure words, aspect markers, 把/被 constructions, clause links, register and source-qualified claims"
+              },
+              {
+                "type": "reverse_translation",
+                "q": "Practice 4: [reverse translation] Edit for a public audience — Write in Simplified Chinese characters: The rewrite should explain the scope of the sample..",
+                "answer": "改写时应说明样本的范围。",
+                "skill_target": "Standard Mandarin: tones and pinyin, measure words, aspect markers, 把/被 constructions, clause links, register and source-qualified claims"
+              },
+              {
+                "type": "matching",
+                "q": "Practice 5: [matching] Edit for a public audience — Match 术语 to its lesson meaning.",
+                "answer": "technical term",
+                "skill_target": "Standard Mandarin: tones and pinyin, measure words, aspect markers, 把/被 constructions, clause links, register and source-qualified claims",
+                "options": [
+                  "technical term",
+                  "to rewrite",
+                  "reader"
+                ]
+              },
+              {
+                "type": "reorder",
+                "q": "Practice 6: [reorder] Edit for a public audience — Reconstruct the lesson model in coherent Chinese (Mandarin): The language is more concise, while the conclusion remains provisional..",
+                "answer": "语言更简洁，结论仍然是暂定的。",
+                "skill_target": "Standard Mandarin: tones and pinyin, measure words, aspect markers, 把/被 constructions, clause links, register and source-qualified claims"
+              },
+              {
+                "type": "sentence_building",
+                "q": "Practice 7: [sentence building] Edit for a public audience — Build the sentence with the lesson pattern (简化句子；保留范围；不提高确定性): The original sentence used several technical terms..",
+                "answer": "原句用了几个专业术语。",
+                "skill_target": "Standard Mandarin: tones and pinyin, measure words, aspect markers, 把/被 constructions, clause links, register and source-qualified claims"
+              },
+              {
+                "type": "word_selection",
+                "q": "Practice 8: [word selection] Edit for a public audience — Select the Chinese (Mandarin) form for “concise”.",
+                "answer": "简洁",
+                "skill_target": "Standard Mandarin: tones and pinyin, measure words, aspect markers, 把/被 constructions, clause links, register and source-qualified claims",
+                "options": [
+                  "简洁",
+                  "确定"
+                ]
+              },
+              {
+                "type": "error_correction",
+                "q": "Practice 9: [error correction] Edit for a public audience — Correct the model the lesson warns about: 改写以后，暂定结论就变成事实。",
+                "answer": "改写可以让语言更清楚，但不能把暂定结论变成事实。",
+                "skill_target": "Standard Mandarin: tones and pinyin, measure words, aspect markers, 把/被 constructions, clause links, register and source-qualified claims"
+              },
+              {
+                "type": "dialogue_completion",
+                "q": "Practice 10: [dialogue completion] Edit for a public audience — Complete the exchange with the studied response to: The original sentence used several technical terms.",
+                "answer": "改写时应说明样本的范围。",
+                "skill_target": "Standard Mandarin: tones and pinyin, measure words, aspect markers, 把/被 constructions, clause links, register and source-qualified claims"
+              },
+              {
+                "type": "reading_comprehension",
+                "q": "Practice 11: [reading comprehension] Edit for a public audience — Read “语言更简洁，结论仍然是暂定的。” (yǔ yán gèng jiǎn jié，jié lùn réng rán shì zàn dìng de。). What does it mean?",
+                "answer": "The language is more concise, while the conclusion remains provisional.",
+                "skill_target": "Standard Mandarin: tones and pinyin, measure words, aspect markers, 把/被 constructions, clause links, register and source-qualified claims"
+              },
+              {
+                "type": "paragraph_comprehension",
+                "q": "Practice 12: [paragraph comprehension] Edit for a public audience — Read the lesson dialogue as a whole and give its key move: The rewrite should explain the scope of the sample.",
+                "answer": "改写时应说明样本的范围。",
+                "skill_target": "Standard Mandarin: tones and pinyin, measure words, aspect markers, 把/被 constructions, clause links, register and source-qualified claims"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "Which meaning best fits 改写?",
+                "options": [
+                  "to rewrite",
+                  "reader",
+                  "technical term",
+                  "concise"
+                ],
+                "answer": 0,
+                "why": "改写 (gǎi xiě) means to rewrite in this lesson."
+              },
+              {
+                "q": "Which meaning best fits 读者?",
+                "options": [
+                  "reader",
+                  "to rewrite",
+                  "technical term",
+                  "concise"
+                ],
+                "answer": 0,
+                "why": "读者 (dú zhě) means reader in this lesson."
+              },
+              {
+                "q": "Which meaning best fits 术语?",
+                "options": [
+                  "technical term",
+                  "to rewrite",
+                  "reader",
+                  "concise"
+                ],
+                "answer": 0,
+                "why": "术语 (shù yǔ) means technical term in this lesson."
+              },
+              {
+                "q": "Which meaning best fits 简洁?",
+                "options": [
+                  "concise",
+                  "to rewrite",
+                  "reader",
+                  "technical term"
+                ],
+                "answer": 0,
+                "why": "简洁 (jiǎn jié) means concise in this lesson."
+              },
+              {
+                "q": "Which meaning best fits 确定?",
+                "options": [
+                  "certain",
+                  "to rewrite",
+                  "reader",
+                  "technical term"
+                ],
+                "answer": 0,
+                "why": "确定 (què dìng) means certain in this lesson."
+              }
+            ],
+            "flashcards": "auto:vocab",
+            "worksheet": {
+              "title": "Edit without overstating",
+              "tasks": [
+                {
+                  "instruction": "Translate the first model into English.",
+                  "items": [
+                    "原句用了几个专业术语。"
+                  ],
+                  "key": [
+                    "The original sentence used several technical terms."
+                  ]
+                },
+                {
+                  "instruction": "Use the lesson pattern with a different detail.",
+                  "items": [
+                    "改写时应说明样本的范围。",
+                    "语言更简洁，结论仍然是暂定的。"
+                  ],
+                  "key": [
+                    "The rewrite should explain the scope of the sample.",
+                    "The language is more concise, while the conclusion remains provisional."
+                  ]
+                },
+                {
+                  "instruction": "Integrated offline practice: read the first model, transform or extend it in Simplified Chinese characters, then rehearse it as a dialogue. Self-check meaning, grammar, and register.",
+                  "items": [
+                    "原句用了几个专业术语。",
+                    "原句用了几个专业术语。"
+                  ],
+                  "key": [
+                    "The original sentence used several technical terms.",
+                    "The original sentence used several technical terms."
+                  ]
+                }
+              ]
+            },
+            "srs_candidates": [
+              "改写",
+              "读者",
+              "术语",
+              "简洁"
+            ],
+            "srs_policy": "Only these four high-value terms are preselected; lesson mistakes and productive patterns may enter personalized review after an actual error."
           }
         ]
       }
@@ -1873,6 +2719,95 @@
           "answer": "六課の日本語表現を用い、証拠、含意、結束性、読み手への配慮を説明する。"
         }
       ]
+    },
+    "extra": {
+      "culture": {
+        "text": "In expert communication, a conclusion should match the strength and scope of its evidence. A pause may have several interpretations, and an inference is not an observation. Careful Chinese prose can be concise while marking uncertainty with words such as 可能, 尚 and 就现有证据而言.",
+        "source_url": "https://www.britannica.com/topic/Chinese-language"
+      },
+      "reading": {
+        "text": "就现有证据而言，这是一种可能的解释，还不是最终结论。作者同时说明样本有限，因此读者可以判断这一解释适用到什么范围。",
+        "gloss": "On the evidence currently available, this is a possible interpretation, not yet a final conclusion. The author also notes that the sample is limited, allowing readers to judge the scope to which the interpretation applies.",
+        "original": true
+      },
+      "listening": {
+        "script": "专家：沉默能证明对方同意吗？<br>编辑：不能，沉默可能有不同原因。<br>专家：请把推断和观察分开写。<br>编辑：好，我会注明证据的范围。",
+        "gloss": "Expert: Can silence prove the other person agrees? Editor: No; silence can have different causes. Expert: Please separate inference from observation. Editor: All right, I will state the scope of the evidence.",
+        "voice_tag": "zh-CN"
+      },
+      "idioms": [
+        {
+          "t": "见微知著",
+          "literal": "see the small and know the large",
+          "meaning": "infer a broader pattern from a small sign"
+        },
+        {
+          "t": "一针见血",
+          "literal": "one needle draws blood",
+          "meaning": "to get straight to the heart of an issue"
+        },
+        {
+          "t": "不言而喻",
+          "literal": "clear without being said",
+          "meaning": "self-evident; needing no explanation"
+        },
+        {
+          "t": "耐人寻味",
+          "literal": "worthy of thought and searching",
+          "meaning": "to invite deeper reflection"
+        },
+        {
+          "t": "顾此失彼",
+          "literal": "attend to this and lose that",
+          "meaning": "to neglect one side while handling another"
+        },
+        {
+          "t": "言外之意",
+          "literal": "meaning beyond the words",
+          "meaning": "an implied meaning"
+        },
+        {
+          "t": "恰如其分",
+          "literal": "exactly to its proper degree",
+          "meaning": "apt and well-proportioned"
+        },
+        {
+          "t": "不偏不倚",
+          "literal": "neither lean nor tilt",
+          "meaning": "impartial; without taking sides"
+        },
+        {
+          "t": "举重若轻",
+          "literal": "handle a heavy task as if light",
+          "meaning": "to handle a difficult task with ease"
+        },
+        {
+          "t": "融会贯通",
+          "literal": "blend and understand thoroughly",
+          "meaning": "to integrate ideas into a coherent understanding"
+        }
+      ],
+      "mistakes": [
+        {
+          "wrong": "沉默一定表示同意。",
+          "right": "沉默可能有多种解释，不能单独证明同意。",
+          "why": "Do not claim to know intent from silence alone."
+        },
+        {
+          "wrong": "速度就是进步。",
+          "right": "没有问责的速度未必构成进步。",
+          "why": "Qualify a broad claim and state the relevant condition."
+        },
+        {
+          "wrong": "现在的证据已经是最终结论。",
+          "right": "现有证据支持一种解释，但还不是最终结论。",
+          "why": "Distinguish a plausible interpretation from a final verdict."
+        }
+      ],
+      "task": {
+        "title": "Mandarin C2 reflection and production task",
+        "instructions": "Write a short response using two expressions from this rung. Name the audience, separate a source's statement from your inference, and keep the conclusion within the evidence. Read it aloud and revise for clarity and register."
+      }
     }
   }
 }

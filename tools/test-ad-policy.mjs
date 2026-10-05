@@ -30,10 +30,10 @@ const CLASSES = policy.classes || {};
 const ALLOWED = new Set(policy.loader_allowed || []);
 const EXCLUDED = mon.excluded_paths || [];
 
-/* Pages, by the same rule the tool walks by: no build output (reports/ holds
-   email previews), and the Google site-verification file is not a page (it has
-   no <html> at all). */
-const EXEMPT = (p) => p.startsWith("reports/") || /^google[a-z0-9]+\.html$/.test(p);
+/* Public pages only: reports/ contains previews, tools/ contains generator
+   inputs (including authored Phase 3 HTML fragments), and the Google
+   site-verification file is not a page (it has no <html> at all). */
+const EXEMPT = (p) => p.startsWith("reports/") || p.startsWith("tools/") || /^google[a-z0-9]+\.html$/.test(p);
 const allHtml = execFileSync("git", ["ls-files", "*.html"], { encoding: "utf8" })
   .split("\n").filter(Boolean);
 const files = allHtml.filter((p) => !EXEMPT(p));

@@ -26,49 +26,49 @@
               {
                 "t": "据报告显示",
                 "r": "ju bao gao xian shi",
-                "en": "discourse segment 1: The report suggests implementation improved despite regional differences.",
+                "en": "according to the report",
                 "pos": "expression"
               },
               {
                 "t": "告显示，尽",
                 "r": "gao xian shi ， jin",
-                "en": "discourse segment 2: The report suggests implementation improved despite regional differences.",
+                "en": "the report indicates that",
                 "pos": "expression"
               },
               {
                 "t": "示，尽管地",
                 "r": "shi ， jin guan di",
-                "en": "discourse segment 3: The report suggests implementation improved despite regional differences.",
+                "en": "although regional",
                 "pos": "expression"
               },
               {
                 "t": "尽管地区差",
                 "r": "jin guan di qu cha",
-                "en": "discourse segment 4: The report suggests implementation improved despite regional differences.",
+                "en": "regional differences",
                 "pos": "expression"
               },
               {
                 "t": "地区差异仍",
                 "r": "di qu cha yi reng",
-                "en": "discourse segment 5: The report suggests implementation improved despite regional differences.",
+                "en": "differences still",
                 "pos": "expression"
               },
               {
                 "t": "差异仍然存",
                 "r": "cha yi reng ran cun",
-                "en": "discourse segment 6: The report suggests implementation improved despite regional differences.",
+                "en": "still persist",
                 "pos": "expression"
               },
               {
                 "t": "仍然存在，",
                 "r": "reng ran cun zai ，",
-                "en": "discourse segment 7: The report suggests implementation improved despite regional differences.",
+                "en": "persist, while",
                 "pos": "expression"
               },
               {
                 "t": "存在，实施",
                 "r": "cun zai ， shi shi",
-                "en": "discourse segment 8: The report suggests implementation improved despite regional differences.",
+                "en": "while implementation",
                 "pos": "expression"
               }
             ],
@@ -328,49 +328,49 @@
               {
                 "t": "即使证据有",
                 "r": "ji shi zheng ju you",
-                "en": "discourse segment 1: Limited evidence should neither be ignored nor presented as final.",
+                "en": "even if the evidence",
                 "pos": "expression"
               },
               {
                 "t": "证据有限，",
                 "r": "zheng ju you xian ，",
-                "en": "discourse segment 2: Limited evidence should neither be ignored nor presented as final.",
+                "en": "the evidence is limited",
                 "pos": "expression"
               },
               {
                 "t": "有限，也不",
                 "r": "you xian ， ye bu",
-                "en": "discourse segment 3: Limited evidence should neither be ignored nor presented as final.",
+                "en": "limited, it should not",
                 "pos": "expression"
               },
               {
                 "t": "，也不应忽",
                 "r": "， ye bu ying hu",
-                "en": "discourse segment 4: Limited evidence should neither be ignored nor presented as final.",
+                "en": "it should not",
                 "pos": "expression"
               },
               {
                 "t": "不应忽视该",
                 "r": "bu ying hu shi gai",
-                "en": "discourse segment 5: Limited evidence should neither be ignored nor presented as final.",
+                "en": "should not be ignored",
                 "pos": "expression"
               },
               {
                 "t": "忽视该结果",
                 "r": "hu shi gai jie guo",
-                "en": "discourse segment 6: Limited evidence should neither be ignored nor presented as final.",
+                "en": "ignored as a result",
                 "pos": "expression"
               },
               {
                 "t": "该结果，更",
                 "r": "gai jie guo ， geng",
-                "en": "discourse segment 7: Limited evidence should neither be ignored nor presented as final.",
+                "en": "that result; nor",
                 "pos": "expression"
               },
               {
                 "t": "果，更不能",
                 "r": "guo ， geng bu neng",
-                "en": "discourse segment 8: Limited evidence should neither be ignored nor presented as final.",
+                "en": "nor can it be treated as final",
                 "pos": "expression"
               }
             ],
@@ -620,6 +620,288 @@
                 }
               ]
             }
+          },
+          {
+            "id": "zh-c1-l7",
+            "title": "Attribute a research finding",
+            "learn": "Attribute a finding, name its scope and distinguish it from an inference.",
+            "vocab": [
+              {
+                "t": "据报告",
+                "r": "jù bào gào",
+                "en": "according to the report",
+                "pos": "phrase"
+              },
+              {
+                "t": "显示",
+                "r": "xiǎn shì",
+                "en": "to show",
+                "pos": "phrase"
+              },
+              {
+                "t": "范围",
+                "r": "fàn wéi",
+                "en": "scope",
+                "pos": "phrase"
+              },
+              {
+                "t": "样本",
+                "r": "yàng běn",
+                "en": "sample",
+                "pos": "phrase"
+              },
+              {
+                "t": "推断",
+                "r": "tuī duàn",
+                "en": "inference",
+                "pos": "phrase"
+              }
+            ],
+            "grammar": {
+              "title": "source attribution",
+              "pattern": "据 + source + 显示 ...；由此可以推测 ...",
+              "explain": "据报告 attributes a claim; 由此可以推测 introduces the writer's inference.",
+              "examples": [
+                {
+                  "t": "据报告显示，三个地区的参与人数有所增加。",
+                  "r": "jù bào gào xiǎn shì，sān gè dì qū de cān yù rén shù yǒu suǒ zēng jiā。",
+                  "en": "The report shows that participation increased in three regions."
+                },
+                {
+                  "t": "这项研究的样本范围比较有限。",
+                  "r": "zhè xiàng yán jiū de yàng běn fàn wéi bǐ jiào yǒu xiàn。",
+                  "en": "The study's sample scope is relatively limited."
+                },
+                {
+                  "t": "由此可以推测这一趋势值得进一步检查。",
+                  "r": "yóu cǐ kě yǐ tuī cè zhè yì qū shì zhí de jìn yí bù jiǎn chá。",
+                  "en": "This suggests that the trend merits further examination."
+                }
+              ],
+              "mistakes": [
+                {
+                  "wrong": "报告证明所有地区都改善了。",
+                  "right": "报告显示三个地区有所改善，其他地区还需要资料。",
+                  "why": "Keep the finding within the source's stated geographic scope."
+                }
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "老师",
+                "t": "据报告显示，三个地区的参与人数有所增加。",
+                "r": "jù bào gào xiǎn shì，sān gè dì qū de cān yù rén shù yǒu suǒ zēng jiā。",
+                "en": "The report shows that participation increased in three regions."
+              },
+              {
+                "sp": "学生",
+                "t": "这项研究的样本范围比较有限。",
+                "r": "zhè xiàng yán jiū de yàng běn fàn wéi bǐ jiào yǒu xiàn。",
+                "en": "The study's sample scope is relatively limited."
+              },
+              {
+                "sp": "老师",
+                "t": "由此可以推测这一趋势值得进一步检查。",
+                "r": "yóu cǐ kě yǐ tuī cè zhè yì qū shì zhí de jìn yí bù jiǎn chá。",
+                "en": "This suggests that the trend merits further examination."
+              },
+              {
+                "sp": "学生",
+                "t": "这项研究的样本范围比较有限。",
+                "r": "zhè xiàng yán jiū de yàng běn fàn wéi bǐ jiào yǒu xiàn。",
+                "en": "The study's sample scope is relatively limited."
+              }
+            ],
+            "practice": [
+              {
+                "type": "multiple_choice",
+                "q": "Practice 1: [multiple choice] Attribute a research finding — Choose the meaning of 据报告 (jù bào gào) in this lesson.",
+                "answer": "according to the report",
+                "skill_target": "Standard Mandarin: tones and pinyin, measure words, aspect markers, 把/被 constructions, clause links, register and source-qualified claims",
+                "options": [
+                  "according to the report",
+                  "to show",
+                  "scope",
+                  "sample"
+                ]
+              },
+              {
+                "type": "fill_in_the_blank",
+                "q": "Practice 2: [fill in the blank] Attribute a research finding — Type the Chinese (Mandarin) expression meaning “to show”.",
+                "answer": "显示",
+                "skill_target": "Standard Mandarin: tones and pinyin, measure words, aspect markers, 把/被 constructions, clause links, register and source-qualified claims"
+              },
+              {
+                "type": "translation",
+                "q": "Practice 3: [translation] Attribute a research finding — Interpret the Simplified Chinese characters in context: 据报告显示，三个地区的参与人数有所增加。 (jù bào gào xiǎn shì，sān gè dì qū de cān yù rén shù yǒu suǒ zēng jiā。).",
+                "answer": "The report shows that participation increased in three regions.",
+                "skill_target": "Standard Mandarin: tones and pinyin, measure words, aspect markers, 把/被 constructions, clause links, register and source-qualified claims"
+              },
+              {
+                "type": "reverse_translation",
+                "q": "Practice 4: [reverse translation] Attribute a research finding — Write in Simplified Chinese characters: The study's sample scope is relatively limited..",
+                "answer": "这项研究的样本范围比较有限。",
+                "skill_target": "Standard Mandarin: tones and pinyin, measure words, aspect markers, 把/被 constructions, clause links, register and source-qualified claims"
+              },
+              {
+                "type": "matching",
+                "q": "Practice 5: [matching] Attribute a research finding — Match 范围 to its lesson meaning.",
+                "answer": "scope",
+                "skill_target": "Standard Mandarin: tones and pinyin, measure words, aspect markers, 把/被 constructions, clause links, register and source-qualified claims",
+                "options": [
+                  "scope",
+                  "according to the report",
+                  "to show"
+                ]
+              },
+              {
+                "type": "reorder",
+                "q": "Practice 6: [reorder] Attribute a research finding — Reconstruct the lesson model in coherent Chinese (Mandarin): This suggests that the trend merits further examination..",
+                "answer": "由此可以推测这一趋势值得进一步检查。",
+                "skill_target": "Standard Mandarin: tones and pinyin, measure words, aspect markers, 把/被 constructions, clause links, register and source-qualified claims"
+              },
+              {
+                "type": "sentence_building",
+                "q": "Practice 7: [sentence building] Attribute a research finding — Build the sentence with the lesson pattern (据 + source + 显示 ...；由此可以推测 ...): The report shows that participation increased in three regions..",
+                "answer": "据报告显示，三个地区的参与人数有所增加。",
+                "skill_target": "Standard Mandarin: tones and pinyin, measure words, aspect markers, 把/被 constructions, clause links, register and source-qualified claims"
+              },
+              {
+                "type": "word_selection",
+                "q": "Practice 8: [word selection] Attribute a research finding — Select the Chinese (Mandarin) form for “sample”.",
+                "answer": "样本",
+                "skill_target": "Standard Mandarin: tones and pinyin, measure words, aspect markers, 把/被 constructions, clause links, register and source-qualified claims",
+                "options": [
+                  "样本",
+                  "推断"
+                ]
+              },
+              {
+                "type": "error_correction",
+                "q": "Practice 9: [error correction] Attribute a research finding — Correct the model the lesson warns about: 报告证明所有地区都改善了。",
+                "answer": "报告显示三个地区有所改善，其他地区还需要资料。",
+                "skill_target": "Standard Mandarin: tones and pinyin, measure words, aspect markers, 把/被 constructions, clause links, register and source-qualified claims"
+              },
+              {
+                "type": "dialogue_completion",
+                "q": "Practice 10: [dialogue completion] Attribute a research finding — Complete the exchange with the studied response to: The report shows that participation increased in three regions.",
+                "answer": "这项研究的样本范围比较有限。",
+                "skill_target": "Standard Mandarin: tones and pinyin, measure words, aspect markers, 把/被 constructions, clause links, register and source-qualified claims"
+              },
+              {
+                "type": "reading_comprehension",
+                "q": "Practice 11: [reading comprehension] Attribute a research finding — Read “由此可以推测这一趋势值得进一步检查。” (yóu cǐ kě yǐ tuī cè zhè yì qū shì zhí de jìn yí bù jiǎn chá。). What does it mean?",
+                "answer": "This suggests that the trend merits further examination.",
+                "skill_target": "Standard Mandarin: tones and pinyin, measure words, aspect markers, 把/被 constructions, clause links, register and source-qualified claims"
+              },
+              {
+                "type": "paragraph_comprehension",
+                "q": "Practice 12: [paragraph comprehension] Attribute a research finding — Read the lesson dialogue as a whole and give its key move: The study's sample scope is relatively limited.",
+                "answer": "这项研究的样本范围比较有限。",
+                "skill_target": "Standard Mandarin: tones and pinyin, measure words, aspect markers, 把/被 constructions, clause links, register and source-qualified claims"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "Which meaning best fits 据报告?",
+                "options": [
+                  "according to the report",
+                  "to show",
+                  "scope",
+                  "sample"
+                ],
+                "answer": 0,
+                "why": "据报告 (jù bào gào) means according to the report in this lesson."
+              },
+              {
+                "q": "Which meaning best fits 显示?",
+                "options": [
+                  "to show",
+                  "according to the report",
+                  "scope",
+                  "sample"
+                ],
+                "answer": 0,
+                "why": "显示 (xiǎn shì) means to show in this lesson."
+              },
+              {
+                "q": "Which meaning best fits 范围?",
+                "options": [
+                  "scope",
+                  "according to the report",
+                  "to show",
+                  "sample"
+                ],
+                "answer": 0,
+                "why": "范围 (fàn wéi) means scope in this lesson."
+              },
+              {
+                "q": "Which meaning best fits 样本?",
+                "options": [
+                  "sample",
+                  "according to the report",
+                  "to show",
+                  "scope"
+                ],
+                "answer": 0,
+                "why": "样本 (yàng běn) means sample in this lesson."
+              },
+              {
+                "q": "Which meaning best fits 推断?",
+                "options": [
+                  "inference",
+                  "according to the report",
+                  "to show",
+                  "scope"
+                ],
+                "answer": 0,
+                "why": "推断 (tuī duàn) means inference in this lesson."
+              }
+            ],
+            "flashcards": "auto:vocab",
+            "worksheet": {
+              "title": "Attribute a research claim",
+              "tasks": [
+                {
+                  "instruction": "Translate the first model into English.",
+                  "items": [
+                    "据报告显示，三个地区的参与人数有所增加。"
+                  ],
+                  "key": [
+                    "The report shows that participation increased in three regions."
+                  ]
+                },
+                {
+                  "instruction": "Use the lesson pattern with a different detail.",
+                  "items": [
+                    "这项研究的样本范围比较有限。",
+                    "由此可以推测这一趋势值得进一步检查。"
+                  ],
+                  "key": [
+                    "The study's sample scope is relatively limited.",
+                    "This suggests that the trend merits further examination."
+                  ]
+                },
+                {
+                  "instruction": "Integrated offline practice: read the first model, transform or extend it in Simplified Chinese characters, then rehearse it as a dialogue. Self-check meaning, grammar, and register.",
+                  "items": [
+                    "据报告显示，三个地区的参与人数有所增加。",
+                    "据报告显示，三个地区的参与人数有所增加。"
+                  ],
+                  "key": [
+                    "The report shows that participation increased in three regions.",
+                    "The report shows that participation increased in three regions."
+                  ]
+                }
+              ]
+            },
+            "srs_candidates": [
+              "据报告",
+              "显示",
+              "范围",
+              "样本"
+            ],
+            "srs_policy": "Only these four high-value terms are preselected; lesson mistakes and productive patterns may enter personalized review after an actual error."
           }
         ]
       },
@@ -635,49 +917,49 @@
               {
                 "t": "批判性评估",
                 "r": "pi pan xing ping gu",
-                "en": "discourse segment 1: Critical evaluation requires examining context and methodology.",
+                "en": "critical evaluation",
                 "pos": "expression"
               },
               {
                 "t": "性评估影响",
                 "r": "xing ping gu ying xiang",
-                "en": "discourse segment 2: Critical evaluation requires examining context and methodology.",
+                "en": "evaluation of effects",
                 "pos": "expression"
               },
               {
                 "t": "估影响社会",
                 "r": "gu ying xiang she hui",
-                "en": "discourse segment 3: Critical evaluation requires examining context and methodology.",
+                "en": "effects on society",
                 "pos": "expression"
               },
               {
                 "t": "响社会的变",
                 "r": "xiang she hui de bian",
-                "en": "discourse segment 4: Critical evaluation requires examining context and methodology.",
+                "en": "social change",
                 "pos": "expression"
               },
               {
                 "t": "会的变化，",
                 "r": "hui de bian hua ，",
-                "en": "discourse segment 5: Critical evaluation requires examining context and methodology.",
+                "en": "change calls for",
                 "pos": "expression"
               },
               {
                 "t": "变化，需要",
                 "r": "bian hua ， xu yao",
-                "en": "discourse segment 6: Critical evaluation requires examining context and methodology.",
+                "en": "calls for examining",
                 "pos": "expression"
               },
               {
                 "t": "，需要同时",
                 "r": "， xu yao tong shi",
-                "en": "discourse segment 7: Critical evaluation requires examining context and methodology.",
+                "en": "examining context",
                 "pos": "expression"
               },
               {
                 "t": "要同时审视",
                 "r": "yao tong shi shen shi",
-                "en": "discourse segment 8: Critical evaluation requires examining context and methodology.",
+                "en": "context and method",
                 "pos": "expression"
               }
             ],
@@ -935,49 +1217,49 @@
               {
                 "t": "在尊重您提",
                 "r": "zai zun zhong nin ti",
-                "en": "discourse segment 1: Respecting your proposal, I offer an alternative accounting for constraints.",
+                "en": "while respecting your",
                 "pos": "expression"
               },
               {
                 "t": "重您提议的",
                 "r": "zhong nin ti yi de",
-                "en": "discourse segment 2: Respecting your proposal, I offer an alternative accounting for constraints.",
+                "en": "respecting your proposal",
                 "pos": "expression"
               },
               {
                 "t": "提议的前提",
                 "r": "ti yi de qian ti",
-                "en": "discourse segment 3: Respecting your proposal, I offer an alternative accounting for constraints.",
+                "en": "the proposal's premise",
                 "pos": "expression"
               },
               {
                 "t": "的前提下，",
                 "r": "de qian ti xia ，",
-                "en": "discourse segment 4: Respecting your proposal, I offer an alternative accounting for constraints.",
+                "en": "on that premise",
                 "pos": "expression"
               },
               {
                 "t": "提下，我想",
                 "r": "ti xia ， wo xiang",
-                "en": "discourse segment 5: Respecting your proposal, I offer an alternative accounting for constraints.",
+                "en": "I would like",
                 "pos": "expression"
               },
               {
                 "t": "，我想提出",
                 "r": "， wo xiang ti chu",
-                "en": "discourse segment 6: Respecting your proposal, I offer an alternative accounting for constraints.",
+                "en": "would like to offer",
                 "pos": "expression"
               },
               {
                 "t": "想提出一个",
                 "r": "xiang ti chu yi ge",
-                "en": "discourse segment 7: Respecting your proposal, I offer an alternative accounting for constraints.",
+                "en": "offer an alternative",
                 "pos": "expression"
               },
               {
                 "t": "出一个兼顾",
                 "r": "chu yi ge jian gu",
-                "en": "discourse segment 8: Respecting your proposal, I offer an alternative accounting for constraints.",
+                "en": "an alternative that accounts for constraints",
                 "pos": "expression"
               }
             ],
@@ -1220,6 +1502,288 @@
                 }
               ]
             }
+          },
+          {
+            "id": "zh-c1-l8",
+            "title": "Qualify a recommendation",
+            "learn": "Recommend a next step while stating the condition under which it should be reviewed.",
+            "vocab": [
+              {
+                "t": "建议",
+                "r": "jiàn yì",
+                "en": "recommendation",
+                "pos": "phrase"
+              },
+              {
+                "t": "试点",
+                "r": "shì diǎn",
+                "en": "pilot",
+                "pos": "phrase"
+              },
+              {
+                "t": "条件",
+                "r": "tiáo jiàn",
+                "en": "condition",
+                "pos": "phrase"
+              },
+              {
+                "t": "评估",
+                "r": "píng gū",
+                "en": "evaluation",
+                "pos": "phrase"
+              },
+              {
+                "t": "阶段",
+                "r": "jiē duàn",
+                "en": "stage",
+                "pos": "phrase"
+              }
+            ],
+            "grammar": {
+              "title": "conditional recommendation",
+              "pattern": "建议先 ...，并在 ... 后评估",
+              "explain": "State a limited action, its review point and the condition that would change the recommendation.",
+              "examples": [
+                {
+                  "t": "建议先在两个社区开展试点。",
+                  "r": "jiàn yì xiān zài liǎng gè shè qū kāi zhǎn shì diǎn。",
+                  "en": "I recommend starting a pilot in two communities."
+                },
+                {
+                  "t": "三个月后再评估实施情况。",
+                  "r": "sān gè yuè hòu zài píng gū shí shī qíng kuàng。",
+                  "en": "Evaluate implementation again after three months."
+                },
+                {
+                  "t": "如果结果不稳定，就应调整下一阶段。",
+                  "r": "rú guǒ jié guǒ bù wěn dìng，jiù yīng tiáo zhěng xià yì jiē duàn。",
+                  "en": "If results are unstable, the next stage should be adjusted."
+                }
+              ],
+              "mistakes": [
+                {
+                  "wrong": "建议马上在所有地区推广。",
+                  "right": "建议先开展有限试点，再根据三个月后的评估决定是否扩大。",
+                  "why": "Make an evidence-based staged recommendation rather than a universal rollout."
+                }
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "老师",
+                "t": "建议先在两个社区开展试点。",
+                "r": "jiàn yì xiān zài liǎng gè shè qū kāi zhǎn shì diǎn。",
+                "en": "I recommend starting a pilot in two communities."
+              },
+              {
+                "sp": "学生",
+                "t": "三个月后再评估实施情况。",
+                "r": "sān gè yuè hòu zài píng gū shí shī qíng kuàng。",
+                "en": "Evaluate implementation again after three months."
+              },
+              {
+                "sp": "老师",
+                "t": "如果结果不稳定，就应调整下一阶段。",
+                "r": "rú guǒ jié guǒ bù wěn dìng，jiù yīng tiáo zhěng xià yì jiē duàn。",
+                "en": "If results are unstable, the next stage should be adjusted."
+              },
+              {
+                "sp": "学生",
+                "t": "三个月后再评估实施情况。",
+                "r": "sān gè yuè hòu zài píng gū shí shī qíng kuàng。",
+                "en": "Evaluate implementation again after three months."
+              }
+            ],
+            "practice": [
+              {
+                "type": "multiple_choice",
+                "q": "Practice 1: [multiple choice] Qualify a recommendation — Choose the meaning of 建议 (jiàn yì) in this lesson.",
+                "answer": "recommendation",
+                "skill_target": "Standard Mandarin: tones and pinyin, measure words, aspect markers, 把/被 constructions, clause links, register and source-qualified claims",
+                "options": [
+                  "recommendation",
+                  "pilot",
+                  "condition",
+                  "evaluation"
+                ]
+              },
+              {
+                "type": "fill_in_the_blank",
+                "q": "Practice 2: [fill in the blank] Qualify a recommendation — Type the Chinese (Mandarin) expression meaning “pilot”.",
+                "answer": "试点",
+                "skill_target": "Standard Mandarin: tones and pinyin, measure words, aspect markers, 把/被 constructions, clause links, register and source-qualified claims"
+              },
+              {
+                "type": "translation",
+                "q": "Practice 3: [translation] Qualify a recommendation — Interpret the Simplified Chinese characters in context: 建议先在两个社区开展试点。 (jiàn yì xiān zài liǎng gè shè qū kāi zhǎn shì diǎn。).",
+                "answer": "I recommend starting a pilot in two communities.",
+                "skill_target": "Standard Mandarin: tones and pinyin, measure words, aspect markers, 把/被 constructions, clause links, register and source-qualified claims"
+              },
+              {
+                "type": "reverse_translation",
+                "q": "Practice 4: [reverse translation] Qualify a recommendation — Write in Simplified Chinese characters: Evaluate implementation again after three months..",
+                "answer": "三个月后再评估实施情况。",
+                "skill_target": "Standard Mandarin: tones and pinyin, measure words, aspect markers, 把/被 constructions, clause links, register and source-qualified claims"
+              },
+              {
+                "type": "matching",
+                "q": "Practice 5: [matching] Qualify a recommendation — Match 条件 to its lesson meaning.",
+                "answer": "condition",
+                "skill_target": "Standard Mandarin: tones and pinyin, measure words, aspect markers, 把/被 constructions, clause links, register and source-qualified claims",
+                "options": [
+                  "condition",
+                  "recommendation",
+                  "pilot"
+                ]
+              },
+              {
+                "type": "reorder",
+                "q": "Practice 6: [reorder] Qualify a recommendation — Reconstruct the lesson model in coherent Chinese (Mandarin): If results are unstable, the next stage should be adjusted..",
+                "answer": "如果结果不稳定，就应调整下一阶段。",
+                "skill_target": "Standard Mandarin: tones and pinyin, measure words, aspect markers, 把/被 constructions, clause links, register and source-qualified claims"
+              },
+              {
+                "type": "sentence_building",
+                "q": "Practice 7: [sentence building] Qualify a recommendation — Build the sentence with the lesson pattern (建议先 ...，并在 ... 后评估): I recommend starting a pilot in two communities..",
+                "answer": "建议先在两个社区开展试点。",
+                "skill_target": "Standard Mandarin: tones and pinyin, measure words, aspect markers, 把/被 constructions, clause links, register and source-qualified claims"
+              },
+              {
+                "type": "word_selection",
+                "q": "Practice 8: [word selection] Qualify a recommendation — Select the Chinese (Mandarin) form for “evaluation”.",
+                "answer": "评估",
+                "skill_target": "Standard Mandarin: tones and pinyin, measure words, aspect markers, 把/被 constructions, clause links, register and source-qualified claims",
+                "options": [
+                  "评估",
+                  "阶段"
+                ]
+              },
+              {
+                "type": "error_correction",
+                "q": "Practice 9: [error correction] Qualify a recommendation — Correct the model the lesson warns about: 建议马上在所有地区推广。",
+                "answer": "建议先开展有限试点，再根据三个月后的评估决定是否扩大。",
+                "skill_target": "Standard Mandarin: tones and pinyin, measure words, aspect markers, 把/被 constructions, clause links, register and source-qualified claims"
+              },
+              {
+                "type": "dialogue_completion",
+                "q": "Practice 10: [dialogue completion] Qualify a recommendation — Complete the exchange with the studied response to: I recommend starting a pilot in two communities.",
+                "answer": "三个月后再评估实施情况。",
+                "skill_target": "Standard Mandarin: tones and pinyin, measure words, aspect markers, 把/被 constructions, clause links, register and source-qualified claims"
+              },
+              {
+                "type": "reading_comprehension",
+                "q": "Practice 11: [reading comprehension] Qualify a recommendation — Read “如果结果不稳定，就应调整下一阶段。” (rú guǒ jié guǒ bù wěn dìng，jiù yīng tiáo zhěng xià yì jiē duàn。). What does it mean?",
+                "answer": "If results are unstable, the next stage should be adjusted.",
+                "skill_target": "Standard Mandarin: tones and pinyin, measure words, aspect markers, 把/被 constructions, clause links, register and source-qualified claims"
+              },
+              {
+                "type": "paragraph_comprehension",
+                "q": "Practice 12: [paragraph comprehension] Qualify a recommendation — Read the lesson dialogue as a whole and give its key move: Evaluate implementation again after three months.",
+                "answer": "三个月后再评估实施情况。",
+                "skill_target": "Standard Mandarin: tones and pinyin, measure words, aspect markers, 把/被 constructions, clause links, register and source-qualified claims"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "Which meaning best fits 建议?",
+                "options": [
+                  "recommendation",
+                  "pilot",
+                  "condition",
+                  "evaluation"
+                ],
+                "answer": 0,
+                "why": "建议 (jiàn yì) means recommendation in this lesson."
+              },
+              {
+                "q": "Which meaning best fits 试点?",
+                "options": [
+                  "pilot",
+                  "recommendation",
+                  "condition",
+                  "evaluation"
+                ],
+                "answer": 0,
+                "why": "试点 (shì diǎn) means pilot in this lesson."
+              },
+              {
+                "q": "Which meaning best fits 条件?",
+                "options": [
+                  "condition",
+                  "recommendation",
+                  "pilot",
+                  "evaluation"
+                ],
+                "answer": 0,
+                "why": "条件 (tiáo jiàn) means condition in this lesson."
+              },
+              {
+                "q": "Which meaning best fits 评估?",
+                "options": [
+                  "evaluation",
+                  "recommendation",
+                  "pilot",
+                  "condition"
+                ],
+                "answer": 0,
+                "why": "评估 (píng gū) means evaluation in this lesson."
+              },
+              {
+                "q": "Which meaning best fits 阶段?",
+                "options": [
+                  "stage",
+                  "recommendation",
+                  "pilot",
+                  "condition"
+                ],
+                "answer": 0,
+                "why": "阶段 (jiē duàn) means stage in this lesson."
+              }
+            ],
+            "flashcards": "auto:vocab",
+            "worksheet": {
+              "title": "Set a review condition",
+              "tasks": [
+                {
+                  "instruction": "Translate the first model into English.",
+                  "items": [
+                    "建议先在两个社区开展试点。"
+                  ],
+                  "key": [
+                    "I recommend starting a pilot in two communities."
+                  ]
+                },
+                {
+                  "instruction": "Use the lesson pattern with a different detail.",
+                  "items": [
+                    "三个月后再评估实施情况。",
+                    "如果结果不稳定，就应调整下一阶段。"
+                  ],
+                  "key": [
+                    "Evaluate implementation again after three months.",
+                    "If results are unstable, the next stage should be adjusted."
+                  ]
+                },
+                {
+                  "instruction": "Integrated offline practice: read the first model, transform or extend it in Simplified Chinese characters, then rehearse it as a dialogue. Self-check meaning, grammar, and register.",
+                  "items": [
+                    "建议先在两个社区开展试点。",
+                    "建议先在两个社区开展试点。"
+                  ],
+                  "key": [
+                    "I recommend starting a pilot in two communities.",
+                    "I recommend starting a pilot in two communities."
+                  ]
+                }
+              ]
+            },
+            "srs_candidates": [
+              "建议",
+              "试点",
+              "条件",
+              "评估"
+            ],
+            "srs_policy": "Only these four high-value terms are preselected; lesson mistakes and productive patterns may enter personalized review after an actual error."
           }
         ]
       },
@@ -1235,49 +1799,49 @@
               {
                 "t": "综合两项研",
                 "r": "zong he liang xiang yan",
-                "en": "discourse segment 1: Together the studies show context partly explains divergence.",
+                "en": "considering the two studies",
                 "pos": "expression"
               },
               {
                 "t": "两项研究可",
                 "r": "liang xiang yan jiu ke",
-                "en": "discourse segment 2: Together the studies show context partly explains divergence.",
+                "en": "the two studies together",
                 "pos": "expression"
               },
               {
                 "t": "研究可见，",
                 "r": "yan jiu ke jian ，",
-                "en": "discourse segment 3: Together the studies show context partly explains divergence.",
+                "en": "the studies make visible",
                 "pos": "expression"
               },
               {
                 "t": "可见，语境",
                 "r": "ke jian ， yu jing",
-                "en": "discourse segment 4: Together the studies show context partly explains divergence.",
+                "en": "this makes clear",
                 "pos": "expression"
               },
               {
                 "t": "，语境差异",
                 "r": "， yu jing cha yi",
-                "en": "discourse segment 5: Together the studies show context partly explains divergence.",
+                "en": "contextual differences",
                 "pos": "expression"
               },
               {
                 "t": "境差异至少",
                 "r": "jing cha yi zhi shao",
-                "en": "discourse segment 6: Together the studies show context partly explains divergence.",
+                "en": "these differences at least",
                 "pos": "expression"
               },
               {
                 "t": "异至少解释",
                 "r": "yi zhi shao jie shi",
-                "en": "discourse segment 7: Together the studies show context partly explains divergence.",
+                "en": "at least explain",
                 "pos": "expression"
               },
               {
                 "t": "少解释了部",
                 "r": "shao jie shi le bu",
-                "en": "discourse segment 8: Together the studies show context partly explains divergence.",
+                "en": "explain part of the divergence",
                 "pos": "expression"
               }
             ],
@@ -1527,49 +2091,49 @@
               {
                 "t": "由于数据不",
                 "r": "you yu shu ju bu",
-                "en": "discourse segment 1: The committee deferred its decision until causality was clarified.",
+                "en": "because the data",
                 "pos": "expression"
               },
               {
                 "t": "数据不完整",
                 "r": "shu ju bu wan zheng",
-                "en": "discourse segment 2: The committee deferred its decision until causality was clarified.",
+                "en": "the data are incomplete",
                 "pos": "expression"
               },
               {
                 "t": "不完整，委",
                 "r": "bu wan zheng ， wei",
-                "en": "discourse segment 3: The committee deferred its decision until causality was clarified.",
+                "en": "incomplete, the committee",
                 "pos": "expression"
               },
               {
                 "t": "整，委员会",
                 "r": "zheng ， wei yuan hui",
-                "en": "discourse segment 4: The committee deferred its decision until causality was clarified.",
+                "en": "the committee decided",
                 "pos": "expression"
               },
               {
                 "t": "委员会决定",
                 "r": "wei yuan hui jue ding",
-                "en": "discourse segment 5: The committee deferred its decision until causality was clarified.",
+                "en": "the committee decided to defer",
                 "pos": "expression"
               },
               {
                 "t": "会决定推迟",
                 "r": "hui jue ding tui chi",
-                "en": "discourse segment 6: The committee deferred its decision until causality was clarified.",
+                "en": "decided to defer",
                 "pos": "expression"
               },
               {
                 "t": "定推迟裁决",
                 "r": "ding tui chi cai jue",
-                "en": "discourse segment 7: The committee deferred its decision until causality was clarified.",
+                "en": "defer the decision",
                 "pos": "expression"
               },
               {
                 "t": "迟裁决，直",
                 "r": "chi cai jue ， zhi",
-                "en": "discourse segment 8: The committee deferred its decision until causality was clarified.",
+                "en": "until causality is clearer",
                 "pos": "expression"
               }
             ],
@@ -1815,6 +2379,288 @@
                 }
               ]
             }
+          },
+          {
+            "id": "zh-c1-l9",
+            "title": "Synthesize two sources",
+            "learn": "Combine a shared finding from two sources while retaining a difference in method.",
+            "vocab": [
+              {
+                "t": "综合",
+                "r": "zōng hé",
+                "en": "to synthesize",
+                "pos": "phrase"
+              },
+              {
+                "t": "共同",
+                "r": "gòng tóng",
+                "en": "shared",
+                "pos": "phrase"
+              },
+              {
+                "t": "差异",
+                "r": "chā yì",
+                "en": "difference",
+                "pos": "phrase"
+              },
+              {
+                "t": "语境",
+                "r": "yǔ jìng",
+                "en": "context",
+                "pos": "phrase"
+              },
+              {
+                "t": "方法",
+                "r": "fāng fǎ",
+                "en": "method",
+                "pos": "phrase"
+              }
+            ],
+            "grammar": {
+              "title": "synthesis with contrast",
+              "pattern": "两项研究都 ...；不过 ...",
+              "explain": "Synthesis should name a shared trend and preserve differences in sample, setting or method.",
+              "examples": [
+                {
+                  "t": "两项研究都发现参与度有所提高。",
+                  "r": "liǎng xiàng yán jiū dōu fā xiàn cān yù dù yǒu suǒ tí gāo。",
+                  "en": "Both studies found that participation increased."
+                },
+                {
+                  "t": "不过两项研究的测量方法并不相同。",
+                  "r": "bú guò liǎng xiàng yán jiū de cè liáng fāng fǎ bìng bù xiāng tóng。",
+                  "en": "However, the two studies used different measurement methods."
+                },
+                {
+                  "t": "语境差异可能解释部分结果差异。",
+                  "r": "yǔ jìng chā yì kě néng jiě shì bù fèn jié guǒ chā yì。",
+                  "en": "Contextual differences may explain part of the divergence."
+                }
+              ],
+              "mistakes": [
+                {
+                  "wrong": "两项研究完全相同。",
+                  "right": "两项研究有共同发现，但方法和语境不同。",
+                  "why": "Keep the shared finding and methodological difference visible."
+                }
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "老师",
+                "t": "两项研究都发现参与度有所提高。",
+                "r": "liǎng xiàng yán jiū dōu fā xiàn cān yù dù yǒu suǒ tí gāo。",
+                "en": "Both studies found that participation increased."
+              },
+              {
+                "sp": "学生",
+                "t": "不过两项研究的测量方法并不相同。",
+                "r": "bú guò liǎng xiàng yán jiū de cè liáng fāng fǎ bìng bù xiāng tóng。",
+                "en": "However, the two studies used different measurement methods."
+              },
+              {
+                "sp": "老师",
+                "t": "语境差异可能解释部分结果差异。",
+                "r": "yǔ jìng chā yì kě néng jiě shì bù fèn jié guǒ chā yì。",
+                "en": "Contextual differences may explain part of the divergence."
+              },
+              {
+                "sp": "学生",
+                "t": "不过两项研究的测量方法并不相同。",
+                "r": "bú guò liǎng xiàng yán jiū de cè liáng fāng fǎ bìng bù xiāng tóng。",
+                "en": "However, the two studies used different measurement methods."
+              }
+            ],
+            "practice": [
+              {
+                "type": "multiple_choice",
+                "q": "Practice 1: [multiple choice] Synthesize two sources — Choose the meaning of 综合 (zōng hé) in this lesson.",
+                "answer": "to synthesize",
+                "skill_target": "Standard Mandarin: tones and pinyin, measure words, aspect markers, 把/被 constructions, clause links, register and source-qualified claims",
+                "options": [
+                  "to synthesize",
+                  "shared",
+                  "difference",
+                  "context"
+                ]
+              },
+              {
+                "type": "fill_in_the_blank",
+                "q": "Practice 2: [fill in the blank] Synthesize two sources — Type the Chinese (Mandarin) expression meaning “shared”.",
+                "answer": "共同",
+                "skill_target": "Standard Mandarin: tones and pinyin, measure words, aspect markers, 把/被 constructions, clause links, register and source-qualified claims"
+              },
+              {
+                "type": "translation",
+                "q": "Practice 3: [translation] Synthesize two sources — Interpret the Simplified Chinese characters in context: 两项研究都发现参与度有所提高。 (liǎng xiàng yán jiū dōu fā xiàn cān yù dù yǒu suǒ tí gāo。).",
+                "answer": "Both studies found that participation increased.",
+                "skill_target": "Standard Mandarin: tones and pinyin, measure words, aspect markers, 把/被 constructions, clause links, register and source-qualified claims"
+              },
+              {
+                "type": "reverse_translation",
+                "q": "Practice 4: [reverse translation] Synthesize two sources — Write in Simplified Chinese characters: However, the two studies used different measurement methods..",
+                "answer": "不过两项研究的测量方法并不相同。",
+                "skill_target": "Standard Mandarin: tones and pinyin, measure words, aspect markers, 把/被 constructions, clause links, register and source-qualified claims"
+              },
+              {
+                "type": "matching",
+                "q": "Practice 5: [matching] Synthesize two sources — Match 差异 to its lesson meaning.",
+                "answer": "difference",
+                "skill_target": "Standard Mandarin: tones and pinyin, measure words, aspect markers, 把/被 constructions, clause links, register and source-qualified claims",
+                "options": [
+                  "difference",
+                  "to synthesize",
+                  "shared"
+                ]
+              },
+              {
+                "type": "reorder",
+                "q": "Practice 6: [reorder] Synthesize two sources — Reconstruct the lesson model in coherent Chinese (Mandarin): Contextual differences may explain part of the divergence..",
+                "answer": "语境差异可能解释部分结果差异。",
+                "skill_target": "Standard Mandarin: tones and pinyin, measure words, aspect markers, 把/被 constructions, clause links, register and source-qualified claims"
+              },
+              {
+                "type": "sentence_building",
+                "q": "Practice 7: [sentence building] Synthesize two sources — Build the sentence with the lesson pattern (两项研究都 ...；不过 ...): Both studies found that participation increased..",
+                "answer": "两项研究都发现参与度有所提高。",
+                "skill_target": "Standard Mandarin: tones and pinyin, measure words, aspect markers, 把/被 constructions, clause links, register and source-qualified claims"
+              },
+              {
+                "type": "word_selection",
+                "q": "Practice 8: [word selection] Synthesize two sources — Select the Chinese (Mandarin) form for “context”.",
+                "answer": "语境",
+                "skill_target": "Standard Mandarin: tones and pinyin, measure words, aspect markers, 把/被 constructions, clause links, register and source-qualified claims",
+                "options": [
+                  "语境",
+                  "方法"
+                ]
+              },
+              {
+                "type": "error_correction",
+                "q": "Practice 9: [error correction] Synthesize two sources — Correct the model the lesson warns about: 两项研究完全相同。",
+                "answer": "两项研究有共同发现，但方法和语境不同。",
+                "skill_target": "Standard Mandarin: tones and pinyin, measure words, aspect markers, 把/被 constructions, clause links, register and source-qualified claims"
+              },
+              {
+                "type": "dialogue_completion",
+                "q": "Practice 10: [dialogue completion] Synthesize two sources — Complete the exchange with the studied response to: Both studies found that participation increased.",
+                "answer": "不过两项研究的测量方法并不相同。",
+                "skill_target": "Standard Mandarin: tones and pinyin, measure words, aspect markers, 把/被 constructions, clause links, register and source-qualified claims"
+              },
+              {
+                "type": "reading_comprehension",
+                "q": "Practice 11: [reading comprehension] Synthesize two sources — Read “语境差异可能解释部分结果差异。” (yǔ jìng chā yì kě néng jiě shì bù fèn jié guǒ chā yì。). What does it mean?",
+                "answer": "Contextual differences may explain part of the divergence.",
+                "skill_target": "Standard Mandarin: tones and pinyin, measure words, aspect markers, 把/被 constructions, clause links, register and source-qualified claims"
+              },
+              {
+                "type": "paragraph_comprehension",
+                "q": "Practice 12: [paragraph comprehension] Synthesize two sources — Read the lesson dialogue as a whole and give its key move: However, the two studies used different measurement methods.",
+                "answer": "不过两项研究的测量方法并不相同。",
+                "skill_target": "Standard Mandarin: tones and pinyin, measure words, aspect markers, 把/被 constructions, clause links, register and source-qualified claims"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "Which meaning best fits 综合?",
+                "options": [
+                  "to synthesize",
+                  "shared",
+                  "difference",
+                  "context"
+                ],
+                "answer": 0,
+                "why": "综合 (zōng hé) means to synthesize in this lesson."
+              },
+              {
+                "q": "Which meaning best fits 共同?",
+                "options": [
+                  "shared",
+                  "to synthesize",
+                  "difference",
+                  "context"
+                ],
+                "answer": 0,
+                "why": "共同 (gòng tóng) means shared in this lesson."
+              },
+              {
+                "q": "Which meaning best fits 差异?",
+                "options": [
+                  "difference",
+                  "to synthesize",
+                  "shared",
+                  "context"
+                ],
+                "answer": 0,
+                "why": "差异 (chā yì) means difference in this lesson."
+              },
+              {
+                "q": "Which meaning best fits 语境?",
+                "options": [
+                  "context",
+                  "to synthesize",
+                  "shared",
+                  "difference"
+                ],
+                "answer": 0,
+                "why": "语境 (yǔ jìng) means context in this lesson."
+              },
+              {
+                "q": "Which meaning best fits 方法?",
+                "options": [
+                  "method",
+                  "to synthesize",
+                  "shared",
+                  "difference"
+                ],
+                "answer": 0,
+                "why": "方法 (fāng fǎ) means method in this lesson."
+              }
+            ],
+            "flashcards": "auto:vocab",
+            "worksheet": {
+              "title": "Write a source synthesis",
+              "tasks": [
+                {
+                  "instruction": "Translate the first model into English.",
+                  "items": [
+                    "两项研究都发现参与度有所提高。"
+                  ],
+                  "key": [
+                    "Both studies found that participation increased."
+                  ]
+                },
+                {
+                  "instruction": "Use the lesson pattern with a different detail.",
+                  "items": [
+                    "不过两项研究的测量方法并不相同。",
+                    "语境差异可能解释部分结果差异。"
+                  ],
+                  "key": [
+                    "However, the two studies used different measurement methods.",
+                    "Contextual differences may explain part of the divergence."
+                  ]
+                },
+                {
+                  "instruction": "Integrated offline practice: read the first model, transform or extend it in Simplified Chinese characters, then rehearse it as a dialogue. Self-check meaning, grammar, and register.",
+                  "items": [
+                    "两项研究都发现参与度有所提高。",
+                    "两项研究都发现参与度有所提高。"
+                  ],
+                  "key": [
+                    "Both studies found that participation increased.",
+                    "Both studies found that participation increased."
+                  ]
+                }
+              ]
+            },
+            "srs_candidates": [
+              "综合",
+              "共同",
+              "差异",
+              "语境"
+            ],
+            "srs_policy": "Only these four high-value terms are preselected; lesson mistakes and productive patterns may enter personalized review after an actual error."
           }
         ]
       }
@@ -1873,6 +2719,95 @@
           "answer": "六課の日本語表現を用い、証拠、含意、結束性、読み手への配慮を説明する。"
         }
       ]
+    },
+    "extra": {
+      "culture": {
+        "text": "A formal Chinese report can distinguish a source's statement, a directly observed result and the writer's interpretation. Phrases such as 据报告 and 由此可见 signal different relationships to evidence. Naming those relationships helps readers assess the conclusion without overstating what the source establishes.",
+        "source_url": "https://www.britannica.com/topic/Chinese-language"
+      },
+      "reading": {
+        "text": "两项研究都发现参与人数增加，但研究地点和统计时间不同。把结果放在一起看，可以看到一个共同趋势；语境差异仍然会影响解释。",
+        "gloss": "Both studies found an increase in participation, but their locations and measurement periods differed. Read together, they show a shared trend; contextual differences still affect the interpretation.",
+        "original": true
+      },
+      "listening": {
+        "script": "编辑：两项研究是不是互相矛盾？<br>研究者：不一定，样本和时间都不同。<br>编辑：那总结要保留这个区别。<br>研究者：对，也要注明共同的趋势。",
+        "gloss": "Editor: Do the two studies contradict one another? Researcher: Not necessarily; their samples and periods differ. Editor: Then the summary should retain that distinction. Researcher: Yes, and note the shared trend as well.",
+        "voice_tag": "zh-CN"
+      },
+      "idioms": [
+        {
+          "t": "兼听则明",
+          "literal": "listen to all sides and clarity follows",
+          "meaning": "hearing different views brings clarity"
+        },
+        {
+          "t": "相辅相成",
+          "literal": "support one another and succeed",
+          "meaning": "to complement one another"
+        },
+        {
+          "t": "追根溯源",
+          "literal": "trace the root and source",
+          "meaning": "to trace something to its origins"
+        },
+        {
+          "t": "有的放矢",
+          "literal": "shoot arrows at a target",
+          "meaning": "to address a specific target"
+        },
+        {
+          "t": "言之有据",
+          "literal": "words have evidence",
+          "meaning": "to support a statement with evidence"
+        },
+        {
+          "t": "前后呼应",
+          "literal": "the beginning and end echo",
+          "meaning": "to create coherence across a text"
+        },
+        {
+          "t": "层层递进",
+          "literal": "advance layer by layer",
+          "meaning": "to build an argument progressively"
+        },
+        {
+          "t": "统筹兼顾",
+          "literal": "plan as a whole and consider all sides",
+          "meaning": "to coordinate and balance several needs"
+        },
+        {
+          "t": "相得益彰",
+          "literal": "each adds lustre to the other",
+          "meaning": "to enhance one another"
+        },
+        {
+          "t": "审时度势",
+          "literal": "assess timing and circumstances",
+          "meaning": "to judge a situation before acting"
+        }
+      ],
+      "mistakes": [
+        {
+          "wrong": "报告证明所有地区都改善了。",
+          "right": "报告显示部分地区有所改善。",
+          "why": "Attribute the finding and keep its geographic scope."
+        },
+        {
+          "wrong": "有限证据应该被忽略。",
+          "right": "有限证据不应被忽略，也不应被当作定论。",
+          "why": "Do not turn limited evidence into either dismissal or certainty."
+        },
+        {
+          "wrong": "两项研究完全相同。",
+          "right": "两项研究有共同发现，但语境并不相同。",
+          "why": "Synthesis should preserve differences between study contexts."
+        }
+      ],
+      "task": {
+        "title": "Mandarin C1 reflection and production task",
+        "instructions": "Write a short response using two expressions from this rung. Name the audience, separate a source's statement from your inference, and keep the conclusion within the evidence. Read it aloud and revise for clarity and register."
+      }
     }
   }
 }

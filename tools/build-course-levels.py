@@ -25,7 +25,10 @@ Every page is plain HTML: the learn text, the vocabulary table, the grammar
 (examples and the mistakes people make), the dialogue with romanisation, all
 twelve practice items, the quiz with its explanations, the worksheet with its
 key, the ten-item level test, and recall drills generated from that level's own
-word list in both directions.
+word list in both directions. Vocabulary, examples, dialogue, idioms, reading
+and listening also carry hidden same-language voice controls; js/voice.js
+reveals them only when available and speaks only after a click. IPA appears
+only when a source-supplied transcription is present in the course data.
 
 NOTHING IS INVENTED. The drills are re-asks of the authored vocabulary, and the
 page says so. Grammar, dialogues, examples and answers come from the course
@@ -51,6 +54,7 @@ Run:  python3 tools/build-course-levels.py [--check] [--lang XX]
 """
 
 import hashlib
+import html
 import importlib.util
 import json
 import os
@@ -136,6 +140,45 @@ TYPE_LABEL = {
 
 
 _clean = lambda t: str(t).replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
+_attr = lambda t: html.escape(str(t if t is not None else ""), quote=True)
+
+
+def voice_button(text, lang="und", language_name=None, kind="vocabulary"):
+    """A click-to-speak control for text authored in the course language.
+
+    The button is hidden until js/voice.js mounts it; with JavaScript disabled
+    there is no dead control. `data-voice-lang` is the course code, which the
+    generated BCP-47 registry resolves to the language's speech tag. The
+    browser voice is optional and playback is never automatic.
+    """
+    text = str(text or "").strip()
+    code = str(lang or "").strip()
+    if not text or not code or code == "und":
+        return ""
+    name = str(language_name or code).strip()
+    if kind in ("reading", "listening"):
+        label = "Play the %s aloud in %s" % (kind, name)
+    else:
+        label = "Play %s in %s" % (text, name)
+    return ('<button type="button" class="eg-voice lv-voice" hidden '
+            'data-voice-text="%s" data-voice-lang="%s" data-voice-kind="%s" '
+            'aria-label="%s" aria-pressed="false"></button>'
+            % (_attr(text), _attr(code), _attr(kind), _attr(label)))
+
+
+def ipa_value(item):
+    """Return only author-supplied IPA. Never infer it from romanisation or TTS."""
+    if not isinstance(item, dict):
+        return ""
+    value = item.get("ipa")
+    return value.strip() if isinstance(value, str) else ""
+
+
+def ipa_cell(item):
+    value = ipa_value(item)
+    if not value:
+        return ""
+    return '<td data-h="IPA" lang="und" dir="ltr" class="lv-ipa">%s</td>' % _clean(value)
 
 
 def compose(up, title, desc, url, crumb, body, index=True):
@@ -303,32 +346,42 @@ def figure_html(code, rung_id, figs, rung=None, tail=""):
                (" " + tail) if tail else ""))
 
 
-def vocab_table(items, lang="und"):
+def vocab_table(items, lang="und", language_name=None, voice_kind="vocabulary"):
     if not items:
         return ""
+    has_ipa = any(ipa_value(v) for v in items)
     rows = []
     for v in items:
-        rows.append('<tr><td data-h="%s" lang="%s" dir="auto"><b>%s</b></td>'
-                    '<td data-h="%s">%s</td><td data-h="%s">%s</td></tr>'
-                    % ("Word", _clean(lang), _clean(v.get("t", "")),
-                       "Say it", _clean(v.get("r", "")),
-                       "Meaning", _clean(v.get("en", ""))))
+        target = v.get("t", "")
+        voice = voice_button(target, lang, language_name, voice_kind)
+        ipa = ipa_cell(v) if has_ipa else ""
+        rows.append('<tr><td data-h="Word" lang="%s" dir="auto"><b>%s</b>%s</td>'
+                    '<td data-h="Say it">%s</td>%s<td data-h="Meaning">%s</td></tr>'
+                    % (_clean(lang), _clean(target), voice, _clean(v.get("r", "")),
+                       ipa, _clean(v.get("en", ""))))
+    ipa_header = "<th>IPA</th>" if has_ipa else ""
     return ('<div class="lv-wrap"><table><thead><tr><th>Word</th><th>Say it</th>'
-            "<th>Meaning</th></tr></thead><tbody>" + "".join(rows) + "</tbody></table></div>")
+            + ipa_header + "<th>Meaning</th></tr></thead><tbody>"
+            + "".join(rows) + "</tbody></table></div>")
 
 
-def dialogue_table(lines, lang="und"):
+def dialogue_table(lines, lang="und", language_name=None):
     if not lines:
         return ""
+    has_ipa = any(ipa_value(ln) for ln in lines)
     rows = []
     for ln in lines:
+        target = ln.get("t", "")
+        voice = voice_button(target, lang, language_name, "dialogue")
+        ipa = ipa_cell(ln) if has_ipa else ""
         rows.append('<tr><td data-h="Who"><b>%s</b></td>'
-                    '<td data-h="Line" lang="%s" dir="auto">%s</td>'
-                    '<td data-h="Say it">%s</td><td data-h="English">%s</td></tr>'
-                    % (_clean(ln.get("sp", "")), _clean(lang), _clean(ln.get("t", "")),
-                       _clean(ln.get("r", "")), _clean(ln.get("en", ""))))
+                    '<td data-h="Line" lang="%s" dir="auto">%s%s</td>'
+                    '<td data-h="Say it">%s</td>%s<td data-h="English">%s</td></tr>'
+                    % (_clean(ln.get("sp", "")), _clean(lang), _clean(target), voice,
+                       _clean(ln.get("r", "")), ipa, _clean(ln.get("en", ""))))
+    ipa_header = "<th>IPA</th>" if has_ipa else ""
     return ('<div class="lv-wrap"><table><thead><tr><th>Who</th><th>Line</th>'
-            "<th>Say it</th><th>English</th></tr></thead><tbody>"
+            "<th>Say it</th>" + ipa_header + "<th>English</th></tr></thead><tbody>"
             + "".join(rows) + "</tbody></table></div>")
 
 
@@ -362,7 +415,7 @@ def mistake_row(m):
     return ["<li>%s</li>" % _clean(m)]
 
 
-def grammar_box(g, lang="und"):
+def grammar_box(g, lang="und", language_name=None):
     if not g:
         return ""
     out = ['<div class="lv-gram"><b>%s</b><p>%s</p>'
@@ -370,7 +423,7 @@ def grammar_box(g, lang="und"):
     if g.get("pattern"):
         out.append('<span class="pat">%s</span>' % _clean(g["pattern"]))
     if g.get("examples"):
-        out.append(vocab_table(g["examples"], lang))
+        out.append(vocab_table(g["examples"], lang, language_name, "example"))
     mis = g.get("mistakes")
     if isinstance(mis, (list, tuple)):
         mis = [m for m in mis if m]
@@ -478,29 +531,37 @@ def extra_block(ex, name, level, lang="und"):
             name = "%s%s" % (host, (", the article “%s”" % slug) if slug else "")
             out.append('<p class="note">Source (named, not linked): %s.</p>' % _clean(name))
     if reading.get("text"):
+        reading_text = str(reading["text"])
         out.append("<h3>Reading — read this aloud, slowly</h3>")
-        out.append('<div class="lv-read"><p lang="%s" dir="auto">%s</p></div>'
-                   % (_clean(lang), _clean(reading["text"])))
+        out.append('<div class="lv-read"><p lang="%s" dir="auto">%s</p>%s</div>'
+                   % (_clean(lang), _clean(reading_text),
+                      voice_button(reading_text, lang, name, "reading")))
         if reading.get("gloss"):
             out.append('<p class="note" lang="en"><b>What it says:</b> %s</p>' % _clean(reading["gloss"]))
     if listening.get("script"):
+        listening_text = str(listening["script"])
+        voice_tag = str(listening.get("voice_tag") or lang)
         out.append("<h3>Listening — one voice, one text</h3>")
-        out.append('<p class="note">Read by the voice pack tagged <code>%s</code>; with the voice '
-                   "layer on, this text is spoken. With it off, read it aloud yourself — the "
-                   "rhythm is the point.</p>" % _clean(listening.get("voice_tag", "")))
-        script = _clean(listening["script"]).replace("\n", "<br>")
-        out.append('<div class="lv-listen"><p lang="%s" dir="auto">%s</p></div>'
-                   % (_clean(lang), script))
+        out.append('<p class="note">Use the speaker button to hear this text with a browser voice '
+                   'tagged <code>%s</code>; playback starts only after a click. If no matching voice '
+                   "is installed, read it aloud yourself — the rhythm is the point.</p>"
+                   % _clean(voice_tag))
+        script = _clean(listening_text).replace("\n", "<br>")
+        out.append('<div class="lv-listen"><p lang="%s" dir="auto">%s</p>%s</div>'
+                   % (_clean(lang), script,
+                      voice_button(listening_text, lang, name, "listening")))
         if listening.get("gloss"):
             out.append('<p class="note" lang="en"><b>What it says:</b> %s</p>'
-                       % _clean(listening["gloss"]).replace("\n", "<br>"))
+                       % _clean(listening.get("gloss", "")).replace("\n", "<br>"))
     if idioms:
         out.append("<h3>%d idioms and fixed phrases</h3>" % len(idioms))
         rows = []
         for it in idioms:
-            rows.append('<tr><td data-h="Idiom" lang="%s" dir="auto"><b>%s</b></td>'
+            target = it.get("t", "")
+            voice = voice_button(target, lang, name, "idiom")
+            rows.append('<tr><td data-h="Idiom" lang="%s" dir="auto"><b>%s</b>%s</td>'
                         '<td data-h="Word for word">%s</td><td data-h="What it means">%s</td></tr>'
-                        % (_clean(lang), _clean(it.get("t", "")), _clean(it.get("literal", "")),
+                        % (_clean(lang), _clean(target), voice, _clean(it.get("literal", "")),
                            _clean(it.get("meaning", ""))))
         out.append('<div class="lv-wrap"><table><thead><tr><th>Idiom</th><th>Word for word</th>'
                    "<th>What it means</th></tr></thead><tbody>" + "".join(rows) + "</tbody></table></div>")
@@ -684,11 +745,11 @@ def level_page(code, course, level, data, rungmap, figs, levels):
                         % (_clean(l.get("id", "")).lower(), _clean(l.get("title", ""))))
             if l.get("learn"):
                 body.append("<p>%s</p>" % _clean(l["learn"]))
-            body.append(vocab_table(l.get("vocab"), code))
-            body.append(grammar_box(l.get("grammar"), code))
+            body.append(vocab_table(l.get("vocab"), code, name))
+            body.append(grammar_box(l.get("grammar"), code, name))
             if l.get("dialogue"):
                 body.append("<p><b>Dialogue.</b> Read it aloud twice — once for each speaker.</p>")
-                body.append(dialogue_table(l["dialogue"], code))
+                body.append(dialogue_table(l["dialogue"], code, name))
             prac = l.get("practice") or []
             if prac:
                 body.append("<p><b>Practice (%d).</b> Answer first, then open the answer.</p>"
@@ -769,7 +830,7 @@ def level_page(code, course, level, data, rungmap, figs, levels):
                        else "the next level"))
         body.append('<ol class="test">%s</ol>' % "".join(practice_item(i, k) for k, i in enumerate(test)))
 
-    body.append(extra_block(lv.get("extra"), name, level))
+    body.append(extra_block(lv.get("extra"), name, level, code))
 
     nxt = NEXT_RUNG.get(level, "")
     nxt_rung = rungmap.get(nxt) if nxt else None

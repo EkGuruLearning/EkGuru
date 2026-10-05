@@ -98,25 +98,25 @@
             },
             "dialogue": [
               {
-                "sp": "Doctor",
+                "sp": "ڈاکٹر",
                 "t": "آپ کو کیا ہوا؟",
                 "r": "Aap ko kya hua?",
                 "en": "What happened to you?"
               },
               {
-                "sp": "Patient",
+                "sp": "مریض",
                 "t": "ڈاکٹر، دو دن سے بخار ہے۔",
                 "r": "Doctor, do din se bukhar hai.",
                 "en": "Doctor, fever for two days."
               },
               {
-                "sp": "Doctor",
+                "sp": "ڈاکٹر",
                 "t": "کھانسی زکام ہے؟",
                 "r": "Khansi-zukam hai?",
                 "en": "Any cough or cold?"
               },
               {
-                "sp": "Patient",
+                "sp": "مریض",
                 "t": "صرف کھانسی ہے۔",
                 "r": "Sirf khansi hai.",
                 "en": "Only a cough."
@@ -194,7 +194,7 @@
               },
               {
                 "type": "dialogue_completion",
-                "q": "Practice 10 [dialogue completion] — Health and the Clinic: Complete Patient’s turn appropriately: Doctor, fever for two days.",
+                "q": "Practice 10 [dialogue completion] — Health and the Clinic: Complete مریض’s turn appropriately: Doctor, fever for two days.",
                 "answer": "ڈاکٹر، دو دن سے بخار ہے۔",
                 "skill_target": "Urdu dialogue completion: Urdu agreement, postpositions, honorificity, and formal versus everyday register"
               },
@@ -408,25 +408,25 @@
             },
             "dialogue": [
               {
-                "sp": "Manager",
+                "sp": "منتظم",
                 "t": "آئیے! آپ کا نام کیا ہے؟",
                 "r": "Aaiye! Aap ka naam kya hai?",
                 "en": "Welcome! What is your name?"
               },
               {
-                "sp": "Newcomer",
+                "sp": "نووارد",
                 "t": "میرا نام کمار ہے۔",
                 "r": "Mera naam Kumar.",
                 "en": "My name is Kumar."
               },
               {
-                "sp": "Manager",
+                "sp": "منتظم",
                 "t": "یہ آپ کی میز ہے۔ کمپیوٹر چالو کیجیے۔",
                 "r": "Ye aap ki mez hai. Computer chalu kijiye.",
                 "en": "This is your desk. Switch on the computer."
               },
               {
-                "sp": "Newcomer",
+                "sp": "نووارد",
                 "t": "ٹھیک ہے۔ ای میل پتہ کیا ہے؟",
                 "r": "Theek hai. Email pata kya hai?",
                 "en": "OK. What is the email address?"
@@ -634,6 +634,288 @@
               "باس"
             ],
             "srs_policy": "Only selected high-value lesson forms are preselected; actual mistakes and productive patterns may enter personalized review after learner evidence."
+          },
+          {
+            "id": "ur-a2-l7",
+            "title": "Confirm a clinic appointment",
+            "learn": "Ask for an appointment time and confirm what to bring.",
+            "vocab": [
+              {
+                "t": "وقت",
+                "r": "waqt",
+                "en": "time",
+                "pos": "phrase"
+              },
+              {
+                "t": "ملاقات",
+                "r": "mulaqat",
+                "en": "appointment",
+                "pos": "phrase"
+              },
+              {
+                "t": "رپورٹ",
+                "r": "report",
+                "en": "report",
+                "pos": "phrase"
+              },
+              {
+                "t": "جمعرات",
+                "r": "jumeraat",
+                "en": "Thursday",
+                "pos": "phrase"
+              },
+              {
+                "t": "لانا",
+                "r": "laana",
+                "en": "to bring",
+                "pos": "phrase"
+              }
+            ],
+            "grammar": {
+              "title": "future intention",
+              "pattern": "میں + item + لے آؤں گا/گی",
+              "explain": "The future form changes with the speaker's gender; include both forms in a learner's notes.",
+              "examples": [
+                {
+                  "t": "کیا جمعرات کو وقت خالی ہے؟",
+                  "r": "kya jumeraat ko waqt khaali hai?",
+                  "en": "Is there an opening on Thursday?"
+                },
+                {
+                  "t": "میں اپنی رپورٹ لے آؤں گی۔",
+                  "r": "main apni report le aaungi.",
+                  "en": "I will bring my report."
+                },
+                {
+                  "t": "ملاقات کا وقت لکھ لیجیے۔",
+                  "r": "mulaqat ka waqt likh lijiye.",
+                  "en": "Please write down the appointment time."
+                }
+              ],
+              "mistakes": [
+                {
+                  "wrong": "میں رپورٹ لے آیا گی۔",
+                  "right": "میں رپورٹ لے آؤں گی۔",
+                  "why": "The feminine future form is لے آؤں گی; the masculine is لے آؤں گا."
+                }
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "استاد",
+                "t": "کیا جمعرات کو وقت خالی ہے؟",
+                "r": "kya jumeraat ko waqt khaali hai?",
+                "en": "Is there an opening on Thursday?"
+              },
+              {
+                "sp": "طالب علم",
+                "t": "میں اپنی رپورٹ لے آؤں گی۔",
+                "r": "main apni report le aaungi.",
+                "en": "I will bring my report."
+              },
+              {
+                "sp": "استاد",
+                "t": "ملاقات کا وقت لکھ لیجیے۔",
+                "r": "mulaqat ka waqt likh lijiye.",
+                "en": "Please write down the appointment time."
+              },
+              {
+                "sp": "طالب علم",
+                "t": "میں اپنی رپورٹ لے آؤں گی۔",
+                "r": "main apni report le aaungi.",
+                "en": "I will bring my report."
+              }
+            ],
+            "practice": [
+              {
+                "type": "multiple_choice",
+                "q": "Practice 1: [multiple choice] Confirm a clinic appointment — Choose the meaning of وقت (waqt) in this lesson.",
+                "answer": "time",
+                "skill_target": "Urdu: right-to-left Nastaliq reading, احترام کے صیغے آپ/تم, postpositions, gender and honorific agreement, clause linking, and source-aware formal prose",
+                "options": [
+                  "time",
+                  "appointment",
+                  "report",
+                  "Thursday"
+                ]
+              },
+              {
+                "type": "fill_in_the_blank",
+                "q": "Practice 2: [fill in the blank] Confirm a clinic appointment — Type the Urdu expression meaning “appointment”.",
+                "answer": "ملاقات",
+                "skill_target": "Urdu: right-to-left Nastaliq reading, احترام کے صیغے آپ/تم, postpositions, gender and honorific agreement, clause linking, and source-aware formal prose"
+              },
+              {
+                "type": "translation",
+                "q": "Practice 3: [translation] Confirm a clinic appointment — Interpret the Nastaliq script in context: کیا جمعرات کو وقت خالی ہے؟ (kya jumeraat ko waqt khaali hai?).",
+                "answer": "Is there an opening on Thursday?",
+                "skill_target": "Urdu: right-to-left Nastaliq reading, احترام کے صیغے آپ/تم, postpositions, gender and honorific agreement, clause linking, and source-aware formal prose"
+              },
+              {
+                "type": "reverse_translation",
+                "q": "Practice 4: [reverse translation] Confirm a clinic appointment — Write in Nastaliq script: I will bring my report..",
+                "answer": "میں اپنی رپورٹ لے آؤں گی۔",
+                "skill_target": "Urdu: right-to-left Nastaliq reading, احترام کے صیغے آپ/تم, postpositions, gender and honorific agreement, clause linking, and source-aware formal prose"
+              },
+              {
+                "type": "matching",
+                "q": "Practice 5: [matching] Confirm a clinic appointment — Match رپورٹ to its lesson meaning.",
+                "answer": "report",
+                "skill_target": "Urdu: right-to-left Nastaliq reading, احترام کے صیغے آپ/تم, postpositions, gender and honorific agreement, clause linking, and source-aware formal prose",
+                "options": [
+                  "report",
+                  "time",
+                  "appointment"
+                ]
+              },
+              {
+                "type": "reorder",
+                "q": "Practice 6: [reorder] Confirm a clinic appointment — Reconstruct the lesson model in coherent Urdu: Please write down the appointment time..",
+                "answer": "ملاقات کا وقت لکھ لیجیے۔",
+                "skill_target": "Urdu: right-to-left Nastaliq reading, احترام کے صیغے آپ/تم, postpositions, gender and honorific agreement, clause linking, and source-aware formal prose"
+              },
+              {
+                "type": "sentence_building",
+                "q": "Practice 7: [sentence building] Confirm a clinic appointment — Build the sentence with the lesson pattern (میں + item + لے آؤں گا/گی): Is there an opening on Thursday?.",
+                "answer": "کیا جمعرات کو وقت خالی ہے؟",
+                "skill_target": "Urdu: right-to-left Nastaliq reading, احترام کے صیغے آپ/تم, postpositions, gender and honorific agreement, clause linking, and source-aware formal prose"
+              },
+              {
+                "type": "word_selection",
+                "q": "Practice 8: [word selection] Confirm a clinic appointment — Select the Urdu form for “Thursday”.",
+                "answer": "جمعرات",
+                "skill_target": "Urdu: right-to-left Nastaliq reading, احترام کے صیغے آپ/تم, postpositions, gender and honorific agreement, clause linking, and source-aware formal prose",
+                "options": [
+                  "جمعرات",
+                  "لانا"
+                ]
+              },
+              {
+                "type": "error_correction",
+                "q": "Practice 9: [error correction] Confirm a clinic appointment — Correct the model the lesson warns about: میں رپورٹ لے آیا گی۔",
+                "answer": "میں رپورٹ لے آؤں گی۔",
+                "skill_target": "Urdu: right-to-left Nastaliq reading, احترام کے صیغے آپ/تم, postpositions, gender and honorific agreement, clause linking, and source-aware formal prose"
+              },
+              {
+                "type": "dialogue_completion",
+                "q": "Practice 10: [dialogue completion] Confirm a clinic appointment — Complete the exchange with the studied response to: Is there an opening on Thursday?",
+                "answer": "میں اپنی رپورٹ لے آؤں گی۔",
+                "skill_target": "Urdu: right-to-left Nastaliq reading, احترام کے صیغے آپ/تم, postpositions, gender and honorific agreement, clause linking, and source-aware formal prose"
+              },
+              {
+                "type": "reading_comprehension",
+                "q": "Practice 11: [reading comprehension] Confirm a clinic appointment — Read “ملاقات کا وقت لکھ لیجیے۔” (mulaqat ka waqt likh lijiye.). What does it mean?",
+                "answer": "Please write down the appointment time.",
+                "skill_target": "Urdu: right-to-left Nastaliq reading, احترام کے صیغے آپ/تم, postpositions, gender and honorific agreement, clause linking, and source-aware formal prose"
+              },
+              {
+                "type": "paragraph_comprehension",
+                "q": "Practice 12: [paragraph comprehension] Confirm a clinic appointment — Read the lesson dialogue as a whole and give its key move: I will bring my report.",
+                "answer": "میں اپنی رپورٹ لے آؤں گی۔",
+                "skill_target": "Urdu: right-to-left Nastaliq reading, احترام کے صیغے آپ/تم, postpositions, gender and honorific agreement, clause linking, and source-aware formal prose"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "Which meaning best fits وقت?",
+                "options": [
+                  "time",
+                  "appointment",
+                  "report",
+                  "Thursday"
+                ],
+                "answer": 0,
+                "why": "وقت (waqt) means time in this lesson."
+              },
+              {
+                "q": "Which meaning best fits ملاقات?",
+                "options": [
+                  "appointment",
+                  "time",
+                  "report",
+                  "Thursday"
+                ],
+                "answer": 0,
+                "why": "ملاقات (mulaqat) means appointment in this lesson."
+              },
+              {
+                "q": "Which meaning best fits رپورٹ?",
+                "options": [
+                  "report",
+                  "time",
+                  "appointment",
+                  "Thursday"
+                ],
+                "answer": 0,
+                "why": "رپورٹ (report) means report in this lesson."
+              },
+              {
+                "q": "Which meaning best fits جمعرات?",
+                "options": [
+                  "Thursday",
+                  "time",
+                  "appointment",
+                  "report"
+                ],
+                "answer": 0,
+                "why": "جمعرات (jumeraat) means Thursday in this lesson."
+              },
+              {
+                "q": "Which meaning best fits لانا?",
+                "options": [
+                  "to bring",
+                  "time",
+                  "appointment",
+                  "report"
+                ],
+                "answer": 0,
+                "why": "لانا (laana) means to bring in this lesson."
+              }
+            ],
+            "flashcards": "auto:vocab",
+            "worksheet": {
+              "title": "Prepare for a visit",
+              "tasks": [
+                {
+                  "instruction": "Translate the first model into English.",
+                  "items": [
+                    "کیا جمعرات کو وقت خالی ہے؟"
+                  ],
+                  "key": [
+                    "Is there an opening on Thursday?"
+                  ]
+                },
+                {
+                  "instruction": "Use the lesson pattern in a new sentence.",
+                  "items": [
+                    "میں اپنی رپورٹ لے آؤں گی۔",
+                    "ملاقات کا وقت لکھ لیجیے۔"
+                  ],
+                  "key": [
+                    "I will bring my report.",
+                    "Please write down the appointment time."
+                  ]
+                },
+                {
+                  "instruction": "Integrated offline practice: read the first model, transform or extend it in Nastaliq script, then rehearse it as a dialogue. Self-check meaning, grammar, and register.",
+                  "items": [
+                    "کیا جمعرات کو وقت خالی ہے؟",
+                    "کیا جمعرات کو وقت خالی ہے؟"
+                  ],
+                  "key": [
+                    "Is there an opening on Thursday?",
+                    "Is there an opening on Thursday?"
+                  ]
+                }
+              ]
+            },
+            "srs_candidates": [
+              "وقت",
+              "ملاقات",
+              "رپورٹ",
+              "جمعرات"
+            ],
+            "srs_policy": "Only these four high-value terms are preselected; lesson mistakes and productive patterns may enter personalized review after an actual error."
           }
         ]
       },
@@ -722,25 +1004,25 @@
             },
             "dialogue": [
               {
-                "sp": "Student",
+                "sp": "طالب علم",
                 "t": "آداب، استاد!",
                 "r": "Aadab, ustad!",
                 "en": "Greetings, teacher!"
               },
               {
-                "sp": "Teacher",
+                "sp": "استاد",
                 "t": "آداب! گھریلو کام پورا کیا؟",
                 "r": "Aadab! Gharelu kaam pura kiya?",
                 "en": "Greetings! Did you finish the homework?"
               },
               {
-                "sp": "Student",
+                "sp": "طالب علم",
                 "t": "جی استاد۔ میرا مضمون لمبا ہے!",
                 "r": "Ji ustad. Mera mazmun lamba hai!",
                 "en": "Yes teacher. My essay is long!"
               },
               {
-                "sp": "Teacher",
+                "sp": "استاد",
                 "t": "شاباش! زور سے پڑھیے۔",
                 "r": "Shabash! Zor se parhiye.",
                 "en": "Good! Read it aloud."
@@ -1027,25 +1309,25 @@
             },
             "dialogue": [
               {
-                "sp": "Brother",
+                "sp": "بھائی",
                 "t": "آج موسم کیسا ہے؟",
                 "r": "Aaj mausam kaisa hai?",
                 "en": "What is the weather today?"
               },
               {
-                "sp": "Sister",
+                "sp": "بہن",
                 "t": "بارش آئے گی۔ چھاتا لے لیجیے۔",
                 "r": "Barish aayegi. Chhata le lijiye.",
                 "en": "It will rain. Take an umbrella."
               },
               {
-                "sp": "Brother",
+                "sp": "بھائی",
                 "t": "کل بھی بارش ہوئی۔",
                 "r": "Kal bhi barish hui.",
                 "en": "It rained yesterday too."
               },
               {
-                "sp": "Sister",
+                "sp": "بہن",
                 "t": "اچھی بارش مطلب اچھی فصل۔",
                 "r": "Achhi barish matlab achhi fasal.",
                 "en": "Good rain means good crops."
@@ -1077,7 +1359,7 @@
               },
               {
                 "type": "dialogue_completion",
-                "q": "Practice 7 [dialogue completion] — Weather and Seasons: Complete Brother’s turn appropriately: It rained yesterday too.",
+                "q": "Practice 7 [dialogue completion] — Weather and Seasons: Complete بھائی’s turn appropriately: It rained yesterday too.",
                 "answer": "کل بھی بارش ہوئی۔",
                 "skill_target": "Urdu dialogue completion: Urdu agreement, postpositions, honorificity, and formal versus everyday register"
               },
@@ -1253,6 +1535,288 @@
               "درجہ حرارت"
             ],
             "srs_policy": "Only selected high-value lesson forms are preselected; actual mistakes and productive patterns may enter personalized review after learner evidence."
+          },
+          {
+            "id": "ur-a2-l8",
+            "title": "Write a clear office update",
+            "learn": "Give a short progress update and name the next step.",
+            "vocab": [
+              {
+                "t": "کام",
+                "r": "kaam",
+                "en": "work",
+                "pos": "phrase"
+              },
+              {
+                "t": "فائل",
+                "r": "file",
+                "en": "file",
+                "pos": "phrase"
+              },
+              {
+                "t": "مکمل",
+                "r": "mukammal",
+                "en": "complete",
+                "pos": "phrase"
+              },
+              {
+                "t": "اگلا",
+                "r": "agla",
+                "en": "next",
+                "pos": "phrase"
+              },
+              {
+                "t": "بھیجنا",
+                "r": "bhejna",
+                "en": "to send",
+                "pos": "phrase"
+              }
+            ],
+            "grammar": {
+              "title": "sequencing with پہلے / پھر",
+              "pattern": "پہلے + action؛ پھر + action",
+              "explain": "Use پہلے and پھر to present steps in order. A brief update is easier to follow when the next action is explicit.",
+              "examples": [
+                {
+                  "t": "میں نے فائل مکمل کر لی ہے۔",
+                  "r": "main ne file mukammal kar li hai.",
+                  "en": "I have completed the file."
+                },
+                {
+                  "t": "پہلے اسے پڑھوں گا، پھر بھیجوں گا۔",
+                  "r": "pehle ise parhunga, phir bhejunga.",
+                  "en": "I will read it first and then send it."
+                },
+                {
+                  "t": "اگلا مرحلہ کل شروع ہوگا۔",
+                  "r": "agla marhala kal shuru hoga.",
+                  "en": "The next stage will begin tomorrow."
+                }
+              ],
+              "mistakes": [
+                {
+                  "wrong": "میں نے فائل مکمل کر لیا ہے۔",
+                  "right": "میں نے فائل مکمل کر لی ہے۔",
+                  "why": "فائل is feminine, so the participle agrees with it in this construction."
+                }
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "استاد",
+                "t": "میں نے فائل مکمل کر لی ہے۔",
+                "r": "main ne file mukammal kar li hai.",
+                "en": "I have completed the file."
+              },
+              {
+                "sp": "طالب علم",
+                "t": "پہلے اسے پڑھوں گا، پھر بھیجوں گا۔",
+                "r": "pehle ise parhunga, phir bhejunga.",
+                "en": "I will read it first and then send it."
+              },
+              {
+                "sp": "استاد",
+                "t": "اگلا مرحلہ کل شروع ہوگا۔",
+                "r": "agla marhala kal shuru hoga.",
+                "en": "The next stage will begin tomorrow."
+              },
+              {
+                "sp": "طالب علم",
+                "t": "پہلے اسے پڑھوں گا، پھر بھیجوں گا۔",
+                "r": "pehle ise parhunga, phir bhejunga.",
+                "en": "I will read it first and then send it."
+              }
+            ],
+            "practice": [
+              {
+                "type": "multiple_choice",
+                "q": "Practice 1: [multiple choice] Write a clear office update — Choose the meaning of کام (kaam) in this lesson.",
+                "answer": "work",
+                "skill_target": "Urdu: right-to-left Nastaliq reading, احترام کے صیغے آپ/تم, postpositions, gender and honorific agreement, clause linking, and source-aware formal prose",
+                "options": [
+                  "work",
+                  "file",
+                  "complete",
+                  "next"
+                ]
+              },
+              {
+                "type": "fill_in_the_blank",
+                "q": "Practice 2: [fill in the blank] Write a clear office update — Type the Urdu expression meaning “file”.",
+                "answer": "فائل",
+                "skill_target": "Urdu: right-to-left Nastaliq reading, احترام کے صیغے آپ/تم, postpositions, gender and honorific agreement, clause linking, and source-aware formal prose"
+              },
+              {
+                "type": "translation",
+                "q": "Practice 3: [translation] Write a clear office update — Interpret the Nastaliq script in context: میں نے فائل مکمل کر لی ہے۔ (main ne file mukammal kar li hai.).",
+                "answer": "I have completed the file.",
+                "skill_target": "Urdu: right-to-left Nastaliq reading, احترام کے صیغے آپ/تم, postpositions, gender and honorific agreement, clause linking, and source-aware formal prose"
+              },
+              {
+                "type": "reverse_translation",
+                "q": "Practice 4: [reverse translation] Write a clear office update — Write in Nastaliq script: I will read it first and then send it..",
+                "answer": "پہلے اسے پڑھوں گا، پھر بھیجوں گا۔",
+                "skill_target": "Urdu: right-to-left Nastaliq reading, احترام کے صیغے آپ/تم, postpositions, gender and honorific agreement, clause linking, and source-aware formal prose"
+              },
+              {
+                "type": "matching",
+                "q": "Practice 5: [matching] Write a clear office update — Match مکمل to its lesson meaning.",
+                "answer": "complete",
+                "skill_target": "Urdu: right-to-left Nastaliq reading, احترام کے صیغے آپ/تم, postpositions, gender and honorific agreement, clause linking, and source-aware formal prose",
+                "options": [
+                  "complete",
+                  "work",
+                  "file"
+                ]
+              },
+              {
+                "type": "reorder",
+                "q": "Practice 6: [reorder] Write a clear office update — Reconstruct the lesson model in coherent Urdu: The next stage will begin tomorrow..",
+                "answer": "اگلا مرحلہ کل شروع ہوگا۔",
+                "skill_target": "Urdu: right-to-left Nastaliq reading, احترام کے صیغے آپ/تم, postpositions, gender and honorific agreement, clause linking, and source-aware formal prose"
+              },
+              {
+                "type": "sentence_building",
+                "q": "Practice 7: [sentence building] Write a clear office update — Build the sentence with the lesson pattern (پہلے + action؛ پھر + action): I have completed the file..",
+                "answer": "میں نے فائل مکمل کر لی ہے۔",
+                "skill_target": "Urdu: right-to-left Nastaliq reading, احترام کے صیغے آپ/تم, postpositions, gender and honorific agreement, clause linking, and source-aware formal prose"
+              },
+              {
+                "type": "word_selection",
+                "q": "Practice 8: [word selection] Write a clear office update — Select the Urdu form for “next”.",
+                "answer": "اگلا",
+                "skill_target": "Urdu: right-to-left Nastaliq reading, احترام کے صیغے آپ/تم, postpositions, gender and honorific agreement, clause linking, and source-aware formal prose",
+                "options": [
+                  "اگلا",
+                  "بھیجنا"
+                ]
+              },
+              {
+                "type": "error_correction",
+                "q": "Practice 9: [error correction] Write a clear office update — Correct the model the lesson warns about: میں نے فائل مکمل کر لیا ہے۔",
+                "answer": "میں نے فائل مکمل کر لی ہے۔",
+                "skill_target": "Urdu: right-to-left Nastaliq reading, احترام کے صیغے آپ/تم, postpositions, gender and honorific agreement, clause linking, and source-aware formal prose"
+              },
+              {
+                "type": "dialogue_completion",
+                "q": "Practice 10: [dialogue completion] Write a clear office update — Complete the exchange with the studied response to: I have completed the file.",
+                "answer": "پہلے اسے پڑھوں گا، پھر بھیجوں گا۔",
+                "skill_target": "Urdu: right-to-left Nastaliq reading, احترام کے صیغے آپ/تم, postpositions, gender and honorific agreement, clause linking, and source-aware formal prose"
+              },
+              {
+                "type": "reading_comprehension",
+                "q": "Practice 11: [reading comprehension] Write a clear office update — Read “اگلا مرحلہ کل شروع ہوگا۔” (agla marhala kal shuru hoga.). What does it mean?",
+                "answer": "The next stage will begin tomorrow.",
+                "skill_target": "Urdu: right-to-left Nastaliq reading, احترام کے صیغے آپ/تم, postpositions, gender and honorific agreement, clause linking, and source-aware formal prose"
+              },
+              {
+                "type": "paragraph_comprehension",
+                "q": "Practice 12: [paragraph comprehension] Write a clear office update — Read the lesson dialogue as a whole and give its key move: I will read it first and then send it.",
+                "answer": "پہلے اسے پڑھوں گا، پھر بھیجوں گا۔",
+                "skill_target": "Urdu: right-to-left Nastaliq reading, احترام کے صیغے آپ/تم, postpositions, gender and honorific agreement, clause linking, and source-aware formal prose"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "Which meaning best fits کام?",
+                "options": [
+                  "work",
+                  "file",
+                  "complete",
+                  "next"
+                ],
+                "answer": 0,
+                "why": "کام (kaam) means work in this lesson."
+              },
+              {
+                "q": "Which meaning best fits فائل?",
+                "options": [
+                  "file",
+                  "work",
+                  "complete",
+                  "next"
+                ],
+                "answer": 0,
+                "why": "فائل (file) means file in this lesson."
+              },
+              {
+                "q": "Which meaning best fits مکمل?",
+                "options": [
+                  "complete",
+                  "work",
+                  "file",
+                  "next"
+                ],
+                "answer": 0,
+                "why": "مکمل (mukammal) means complete in this lesson."
+              },
+              {
+                "q": "Which meaning best fits اگلا?",
+                "options": [
+                  "next",
+                  "work",
+                  "file",
+                  "complete"
+                ],
+                "answer": 0,
+                "why": "اگلا (agla) means next in this lesson."
+              },
+              {
+                "q": "Which meaning best fits بھیجنا?",
+                "options": [
+                  "to send",
+                  "work",
+                  "file",
+                  "complete"
+                ],
+                "answer": 0,
+                "why": "بھیجنا (bhejna) means to send in this lesson."
+              }
+            ],
+            "flashcards": "auto:vocab",
+            "worksheet": {
+              "title": "Send a progress note",
+              "tasks": [
+                {
+                  "instruction": "Translate the first model into English.",
+                  "items": [
+                    "میں نے فائل مکمل کر لی ہے۔"
+                  ],
+                  "key": [
+                    "I have completed the file."
+                  ]
+                },
+                {
+                  "instruction": "Use the lesson pattern in a new sentence.",
+                  "items": [
+                    "پہلے اسے پڑھوں گا، پھر بھیجوں گا۔",
+                    "اگلا مرحلہ کل شروع ہوگا۔"
+                  ],
+                  "key": [
+                    "I will read it first and then send it.",
+                    "The next stage will begin tomorrow."
+                  ]
+                },
+                {
+                  "instruction": "Integrated offline practice: read the first model, transform or extend it in Nastaliq script, then rehearse it as a dialogue. Self-check meaning, grammar, and register.",
+                  "items": [
+                    "میں نے فائل مکمل کر لی ہے۔",
+                    "میں نے فائل مکمل کر لی ہے۔"
+                  ],
+                  "key": [
+                    "I have completed the file.",
+                    "I have completed the file."
+                  ]
+                }
+              ]
+            },
+            "srs_candidates": [
+              "کام",
+              "فائل",
+              "مکمل",
+              "اگلا"
+            ],
+            "srs_policy": "Only these four high-value terms are preselected; lesson mistakes and productive patterns may enter personalized review after an actual error."
           }
         ]
       },
@@ -1341,25 +1905,25 @@
             },
             "dialogue": [
               {
-                "sp": "Granddaughter",
+                "sp": "پوتی/نواسی",
                 "t": "دادی، کیا پک رہا ہے؟",
                 "r": "Dadi, kya pak raha hai?",
                 "en": "Grandma, what is cooking?"
               },
               {
-                "sp": "Grandmother",
+                "sp": "دادی/نانی",
                 "t": "بریانی، میری بچی!",
                 "r": "Biryani, meri bachchi!",
                 "en": "Biryani, my dear!"
               },
               {
-                "sp": "Grandmother",
+                "sp": "دادی/نانی",
                 "t": "ہاتھ دھو کر بیٹھو۔",
                 "r": "Haath dho kar baitho.",
                 "en": "Wash your hands and sit."
               },
               {
-                "sp": "Granddaughter",
+                "sp": "پوتی/نواسی",
                 "t": "دادی، کھانا مہک رہا ہے!",
                 "r": "Dadi, khana mehak raha hai!",
                 "en": "Grandma, the food smells nice!"
@@ -1641,25 +2205,25 @@
             },
             "dialogue": [
               {
-                "sp": "Host",
+                "sp": "میزبان",
                 "t": "عید مبارک! آئیے، شیر خرما کھائیے!",
                 "r": "Eid Mubarak! Aaiye, sheer khurma khaiye!",
                 "en": "Eid Mubarak! Come, eat sheer khurma!"
               },
               {
-                "sp": "Guest",
+                "sp": "مہمان",
                 "t": "آپ کو بھی عید مبارک! بچوں کو عیدی!",
                 "r": "Aap ko bhi Eid Mubarak! Bachchon ko eidi!",
                 "en": "Eid Mubarak to you too! Eidi for the kids!"
               },
               {
-                "sp": "Guest",
+                "sp": "مہمان",
                 "t": "گھر خوبصورت لگ رہا ہے!",
                 "r": "Ghar khubsurat lag raha hai!",
                 "en": "The house looks beautiful!"
               },
               {
-                "sp": "Host",
+                "sp": "میزبان",
                 "t": "شکریہ! کھانے پر رکھیے۔",
                 "r": "Shukriya! Khane par rukiye.",
                 "en": "Thanks! Stay for dinner."
@@ -1737,7 +2301,7 @@
               },
               {
                 "type": "dialogue_completion",
-                "q": "Practice 15 [dialogue completion] — Community Celebrations: Complete Guest’s turn appropriately: The house looks beautiful!",
+                "q": "Practice 15 [dialogue completion] — Community Celebrations: Complete مہمان’s turn appropriately: The house looks beautiful!",
                 "answer": "گھر خوبصورت لگ رہا ہے!",
                 "skill_target": "Urdu dialogue completion: Urdu agreement, postpositions, honorificity, and formal versus everyday register"
               },
@@ -1869,6 +2433,288 @@
               "عید"
             ],
             "srs_policy": "Only selected high-value lesson forms are preselected; actual mistakes and productive patterns may enter personalized review after learner evidence."
+          },
+          {
+            "id": "ur-a2-l9",
+            "title": "Invite a neighbour to a gathering",
+            "learn": "Accept or decline an invitation politely and suggest another time.",
+            "vocab": [
+              {
+                "t": "دعوت",
+                "r": "dawat",
+                "en": "invitation",
+                "pos": "phrase"
+              },
+              {
+                "t": "پڑوسی",
+                "r": "parosi",
+                "en": "neighbour",
+                "pos": "phrase"
+              },
+              {
+                "t": "شام",
+                "r": "shaam",
+                "en": "evening",
+                "pos": "phrase"
+              },
+              {
+                "t": "مصروف",
+                "r": "masroof",
+                "en": "busy",
+                "pos": "phrase"
+              },
+              {
+                "t": "اگلے ہفتے",
+                "r": "agle hafte",
+                "en": "next week",
+                "pos": "phrase"
+              }
+            ],
+            "grammar": {
+              "title": "reason and alternative",
+              "pattern": "اگر ... تو ...؛ کیا ...؟",
+              "explain": "Give a brief reason, then offer a concrete alternative instead of leaving the invitation unanswered.",
+              "examples": [
+                {
+                  "t": "آپ کی دعوت کا شکریہ۔",
+                  "r": "aap ki dawat ka shukriya.",
+                  "en": "Thank you for your invitation."
+                },
+                {
+                  "t": "میں آج شام مصروف ہوں۔",
+                  "r": "main aaj shaam masroof hun.",
+                  "en": "I am busy this evening."
+                },
+                {
+                  "t": "کیا ہم اگلے ہفتے مل سکتے ہیں؟",
+                  "r": "kya hum agle hafte mil sakte hain?",
+                  "en": "Can we meet next week?"
+                }
+              ],
+              "mistakes": [
+                {
+                  "wrong": "میں دعوت پر نہیں آ سکتا کیونکہ میں مصروف تھا ہوں۔",
+                  "right": "میں آج نہیں آ سکتا کیونکہ میں مصروف ہوں۔",
+                  "why": "Keep the reason in the same time frame as today."
+                }
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "استاد",
+                "t": "آپ کی دعوت کا شکریہ۔",
+                "r": "aap ki dawat ka shukriya.",
+                "en": "Thank you for your invitation."
+              },
+              {
+                "sp": "طالب علم",
+                "t": "میں آج شام مصروف ہوں۔",
+                "r": "main aaj shaam masroof hun.",
+                "en": "I am busy this evening."
+              },
+              {
+                "sp": "استاد",
+                "t": "کیا ہم اگلے ہفتے مل سکتے ہیں؟",
+                "r": "kya hum agle hafte mil sakte hain?",
+                "en": "Can we meet next week?"
+              },
+              {
+                "sp": "طالب علم",
+                "t": "میں آج شام مصروف ہوں۔",
+                "r": "main aaj shaam masroof hun.",
+                "en": "I am busy this evening."
+              }
+            ],
+            "practice": [
+              {
+                "type": "multiple_choice",
+                "q": "Practice 1: [multiple choice] Invite a neighbour to a gathering — Choose the meaning of دعوت (dawat) in this lesson.",
+                "answer": "invitation",
+                "skill_target": "Urdu: right-to-left Nastaliq reading, احترام کے صیغے آپ/تم, postpositions, gender and honorific agreement, clause linking, and source-aware formal prose",
+                "options": [
+                  "invitation",
+                  "neighbour",
+                  "evening",
+                  "busy"
+                ]
+              },
+              {
+                "type": "fill_in_the_blank",
+                "q": "Practice 2: [fill in the blank] Invite a neighbour to a gathering — Type the Urdu expression meaning “neighbour”.",
+                "answer": "پڑوسی",
+                "skill_target": "Urdu: right-to-left Nastaliq reading, احترام کے صیغے آپ/تم, postpositions, gender and honorific agreement, clause linking, and source-aware formal prose"
+              },
+              {
+                "type": "translation",
+                "q": "Practice 3: [translation] Invite a neighbour to a gathering — Interpret the Nastaliq script in context: آپ کی دعوت کا شکریہ۔ (aap ki dawat ka shukriya.).",
+                "answer": "Thank you for your invitation.",
+                "skill_target": "Urdu: right-to-left Nastaliq reading, احترام کے صیغے آپ/تم, postpositions, gender and honorific agreement, clause linking, and source-aware formal prose"
+              },
+              {
+                "type": "reverse_translation",
+                "q": "Practice 4: [reverse translation] Invite a neighbour to a gathering — Write in Nastaliq script: I am busy this evening..",
+                "answer": "میں آج شام مصروف ہوں۔",
+                "skill_target": "Urdu: right-to-left Nastaliq reading, احترام کے صیغے آپ/تم, postpositions, gender and honorific agreement, clause linking, and source-aware formal prose"
+              },
+              {
+                "type": "matching",
+                "q": "Practice 5: [matching] Invite a neighbour to a gathering — Match شام to its lesson meaning.",
+                "answer": "evening",
+                "skill_target": "Urdu: right-to-left Nastaliq reading, احترام کے صیغے آپ/تم, postpositions, gender and honorific agreement, clause linking, and source-aware formal prose",
+                "options": [
+                  "evening",
+                  "invitation",
+                  "neighbour"
+                ]
+              },
+              {
+                "type": "reorder",
+                "q": "Practice 6: [reorder] Invite a neighbour to a gathering — Reconstruct the lesson model in coherent Urdu: Can we meet next week?.",
+                "answer": "کیا ہم اگلے ہفتے مل سکتے ہیں؟",
+                "skill_target": "Urdu: right-to-left Nastaliq reading, احترام کے صیغے آپ/تم, postpositions, gender and honorific agreement, clause linking, and source-aware formal prose"
+              },
+              {
+                "type": "sentence_building",
+                "q": "Practice 7: [sentence building] Invite a neighbour to a gathering — Build the sentence with the lesson pattern (اگر ... تو ...؛ کیا ...؟): Thank you for your invitation..",
+                "answer": "آپ کی دعوت کا شکریہ۔",
+                "skill_target": "Urdu: right-to-left Nastaliq reading, احترام کے صیغے آپ/تم, postpositions, gender and honorific agreement, clause linking, and source-aware formal prose"
+              },
+              {
+                "type": "word_selection",
+                "q": "Practice 8: [word selection] Invite a neighbour to a gathering — Select the Urdu form for “busy”.",
+                "answer": "مصروف",
+                "skill_target": "Urdu: right-to-left Nastaliq reading, احترام کے صیغے آپ/تم, postpositions, gender and honorific agreement, clause linking, and source-aware formal prose",
+                "options": [
+                  "مصروف",
+                  "اگلے ہفتے"
+                ]
+              },
+              {
+                "type": "error_correction",
+                "q": "Practice 9: [error correction] Invite a neighbour to a gathering — Correct the model the lesson warns about: میں دعوت پر نہیں آ سکتا کیونکہ میں مصروف تھا ہوں۔",
+                "answer": "میں آج نہیں آ سکتا کیونکہ میں مصروف ہوں۔",
+                "skill_target": "Urdu: right-to-left Nastaliq reading, احترام کے صیغے آپ/تم, postpositions, gender and honorific agreement, clause linking, and source-aware formal prose"
+              },
+              {
+                "type": "dialogue_completion",
+                "q": "Practice 10: [dialogue completion] Invite a neighbour to a gathering — Complete the exchange with the studied response to: Thank you for your invitation.",
+                "answer": "میں آج شام مصروف ہوں۔",
+                "skill_target": "Urdu: right-to-left Nastaliq reading, احترام کے صیغے آپ/تم, postpositions, gender and honorific agreement, clause linking, and source-aware formal prose"
+              },
+              {
+                "type": "reading_comprehension",
+                "q": "Practice 11: [reading comprehension] Invite a neighbour to a gathering — Read “کیا ہم اگلے ہفتے مل سکتے ہیں؟” (kya hum agle hafte mil sakte hain?). What does it mean?",
+                "answer": "Can we meet next week?",
+                "skill_target": "Urdu: right-to-left Nastaliq reading, احترام کے صیغے آپ/تم, postpositions, gender and honorific agreement, clause linking, and source-aware formal prose"
+              },
+              {
+                "type": "paragraph_comprehension",
+                "q": "Practice 12: [paragraph comprehension] Invite a neighbour to a gathering — Read the lesson dialogue as a whole and give its key move: I am busy this evening.",
+                "answer": "میں آج شام مصروف ہوں۔",
+                "skill_target": "Urdu: right-to-left Nastaliq reading, احترام کے صیغے آپ/تم, postpositions, gender and honorific agreement, clause linking, and source-aware formal prose"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "Which meaning best fits دعوت?",
+                "options": [
+                  "invitation",
+                  "neighbour",
+                  "evening",
+                  "busy"
+                ],
+                "answer": 0,
+                "why": "دعوت (dawat) means invitation in this lesson."
+              },
+              {
+                "q": "Which meaning best fits پڑوسی?",
+                "options": [
+                  "neighbour",
+                  "invitation",
+                  "evening",
+                  "busy"
+                ],
+                "answer": 0,
+                "why": "پڑوسی (parosi) means neighbour in this lesson."
+              },
+              {
+                "q": "Which meaning best fits شام?",
+                "options": [
+                  "evening",
+                  "invitation",
+                  "neighbour",
+                  "busy"
+                ],
+                "answer": 0,
+                "why": "شام (shaam) means evening in this lesson."
+              },
+              {
+                "q": "Which meaning best fits مصروف?",
+                "options": [
+                  "busy",
+                  "invitation",
+                  "neighbour",
+                  "evening"
+                ],
+                "answer": 0,
+                "why": "مصروف (masroof) means busy in this lesson."
+              },
+              {
+                "q": "Which meaning best fits اگلے ہفتے?",
+                "options": [
+                  "next week",
+                  "invitation",
+                  "neighbour",
+                  "evening"
+                ],
+                "answer": 0,
+                "why": "اگلے ہفتے (agle hafte) means next week in this lesson."
+              }
+            ],
+            "flashcards": "auto:vocab",
+            "worksheet": {
+              "title": "Reply to an invitation",
+              "tasks": [
+                {
+                  "instruction": "Translate the first model into English.",
+                  "items": [
+                    "آپ کی دعوت کا شکریہ۔"
+                  ],
+                  "key": [
+                    "Thank you for your invitation."
+                  ]
+                },
+                {
+                  "instruction": "Use the lesson pattern in a new sentence.",
+                  "items": [
+                    "میں آج شام مصروف ہوں۔",
+                    "کیا ہم اگلے ہفتے مل سکتے ہیں؟"
+                  ],
+                  "key": [
+                    "I am busy this evening.",
+                    "Can we meet next week?"
+                  ]
+                },
+                {
+                  "instruction": "Integrated offline practice: read the first model, transform or extend it in Nastaliq script, then rehearse it as a dialogue. Self-check meaning, grammar, and register.",
+                  "items": [
+                    "آپ کی دعوت کا شکریہ۔",
+                    "آپ کی دعوت کا شکریہ۔"
+                  ],
+                  "key": [
+                    "Thank you for your invitation.",
+                    "Thank you for your invitation."
+                  ]
+                }
+              ]
+            },
+            "srs_candidates": [
+              "دعوت",
+              "پڑوسی",
+              "شام",
+              "مصروف"
+            ],
+            "srs_policy": "Only these four high-value terms are preselected; lesson mistakes and productive patterns may enter personalized review after an actual error."
           }
         ]
       }
@@ -1927,6 +2773,95 @@
           "answer": "بارش ہو رہی ہے۔ (barish ho rahi hai.)"
         }
       ]
+    },
+    "extra": {
+      "culture": {
+        "text": "Urdu distinguishes familiar and respectful address. آپ is widely used for polite address and normally takes honorific agreement; تم is more familiar, but the choice depends on relationship, setting and local practice. A learner should not copy one address form into every conversation.",
+        "source_url": "https://www.britannica.com/topic/Urdu-language"
+      },
+      "reading": {
+        "text": "کل عائشہ نے کلینک کو فون کیا۔ اس نے ڈاکٹر سے وقت مانگا اور اپنی علامات بتائیں۔ استقبالیہ نے جمعرات کا وقت دیا۔ عائشہ نے وقت لکھ لیا اور پوچھا کہ رپورٹ ساتھ لانی ہے یا نہیں۔",
+        "gloss": "Yesterday Ayesha called the clinic. She asked the doctor for an appointment and described her symptoms. Reception gave her a Thursday appointment. Ayesha wrote down the time and asked whether she should bring the report.",
+        "original": true
+      },
+      "listening": {
+        "script": "عائشہ: کیا جمعرات کو ڈاکٹر سے مل سکتی ہوں؟<br>استقبالیہ: جی، دس بجے ایک وقت خالی ہے۔<br>عائشہ: شکریہ، میں رپورٹ بھی لے آؤں گی۔<br>استقبالیہ: براہ کرم اپنا نام لکھوا دیجیے۔",
+        "gloss": "Ayesha: Can I see the doctor on Thursday? Reception: Yes, there is an opening at ten. Ayesha: Thank you, I will bring the report too. Reception: Please give us your name.",
+        "voice_tag": "ur-PK"
+      },
+      "idioms": [
+        {
+          "t": "جان میں جان آنا",
+          "literal": "life returning to the body",
+          "meaning": "to feel relieved"
+        },
+        {
+          "t": "بات بننا",
+          "literal": "the matter taking shape",
+          "meaning": "for a plan to work out"
+        },
+        {
+          "t": "دل لگانا",
+          "literal": "to attach the heart",
+          "meaning": "to become engaged or interested"
+        },
+        {
+          "t": "ہاتھ سے نکلنا",
+          "literal": "to leave the hand",
+          "meaning": "to get out of control"
+        },
+        {
+          "t": "آنکھ بچا کر",
+          "literal": "while avoiding the eye",
+          "meaning": "without being noticed"
+        },
+        {
+          "t": "سر درد بننا",
+          "literal": "to become a headache",
+          "meaning": "to become a troublesome problem"
+        },
+        {
+          "t": "وقت نکالنا",
+          "literal": "to take time out",
+          "meaning": "to make time for something"
+        },
+        {
+          "t": "خیال رکھنا",
+          "literal": "to keep a thought",
+          "meaning": "to take care"
+        },
+        {
+          "t": "کام آنا",
+          "literal": "to come into use",
+          "meaning": "to be useful"
+        },
+        {
+          "t": "آگاہ کرنا",
+          "literal": "to make aware",
+          "meaning": "to inform someone"
+        }
+      ],
+      "mistakes": [
+        {
+          "wrong": "میں ڈاکٹر کو وقت پوچھا۔",
+          "right": "میں نے ڈاکٹر سے وقت پوچھا۔",
+          "why": "Use سے for asking a person; past transitive Urdu commonly marks the subject with نے."
+        },
+        {
+          "wrong": "وہ کل آتا ہے۔",
+          "right": "وہ کل آئے گا/گی۔",
+          "why": "A future-time plan needs a future form, with agreement to the speaker described."
+        },
+        {
+          "wrong": "مجھے دوا پینا ہے۔",
+          "right": "مجھے دوا لینی ہے۔",
+          "why": "Urdu uses the natural collocation دوا لینا for taking medicine."
+        }
+      ],
+      "task": {
+        "title": "Urdu A2 reflection and production task",
+        "instructions": "Write a short response using two expressions from this level. State the audience, keep the address form consistent, and mark which claim is observed, reported or inferred. Read it aloud once and revise any phrase that overstates the evidence."
+      }
     }
   }
 }

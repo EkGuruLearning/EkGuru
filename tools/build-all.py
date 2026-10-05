@@ -76,14 +76,23 @@ ULTRA_BUILDS = [
     ("trust, journal, review and design pages (all noindex)", ["python3", "tools/build-ultra-pages.py"]),
     ("language quality gate report (failures reported, never hidden; no page edited)", ["python3", "tools/language-gate.py"]),
     ("course health report", ["python3", "tools/course-health.py"]),
+    ("Phase 1: complete authored depth and no open mechanical gaps", ["python3", "tools/audit-phase1-gap.py", "--check"]),
+    ("Phase 1: contextual glosses for advanced phrase lessons", ["python3", "tools/repair-phase1-advanced-glosses.py", "--check"]),
+    ("world-language long-form Learn content (Phase 3)", ["python3", "tools/build-world-phase3.py"]),
     ("flashcard decks + lab: sizes, ids, keyboard, SRS (PHASE 9)",
      ["node", "tools/test-flashcards.mjs"]),
 ]
 ULTRA_TESTS = [
+    ("Phase 2 public-page inventory is current (repository-only)",
+     ["python3", "tools/build-full-page-inventory.py", "--check"]),
+    ("Phase 2 detailed content inventory is current (live HTTP pending)",
+     ["python3", "tools/build-phase2-content-inventory.py", "--check"]),
+    ("Phase 2 inventory fields, safety and scope", ["python3", "tools/test-phase2-content-inventory.py"]),
     ("published vocabulary excludes generated segmentation placeholders", ["python3", "tools/test-published-vocabulary.py"]),
     ("partial Phase 1 courses mark C1/C2 unpublished", ["python3", "tools/test-partial-course-publication.py"]),
     ("rendered Phase 2 root Indian topic parity", ["python3", "tools/audit-indian-topic-parity.py", "--check"]),
     ("Indian beginner leads use their authored language data", ["python3", "tools/test-language-course-uniqueness.py"]),
+    ("Phase 3 long-form Learn posts (130 guides across Indian tracks + Hindi, Spanish, Arabic and German)", ["python3", "tools/test-phase3-content.py"]),
     ("immutable owner indexing/canonical contract", ["python3", "tools/ultra/contract.py"]),
     ("own-content dates are current (never a rebuild timestamp)", ["python3", "tools/update-editorial-metadata.py", "--check"]),
     ("site features on every page are current (additive, strip-invertible)", ["python3", "tools/apply-ultra.py", "--check"]),
@@ -128,6 +137,8 @@ def main():
             run("course hub --check", ["python3", "tools/build-course-hub.py", "--check"])
             run("course levels --check (the A1-C2 pages of every course)",
                 ["python3", "tools/build-course-levels.py", "--check"])
+            run("course IPA/source coverage report --check",
+                ["python3", "tools/audit-course-pronunciation.py", "--check"])
             run("course romanisation --check (one scheme per course file)",
                 ["python3", "tools/normalise-romanisation.py"])
             run("tutor script tags --check", ["node", "tools/langsync.js", "--check"])
@@ -154,6 +165,8 @@ def main():
                 ["node", "tools/test-level-visuals.mjs"])
             run("course levels test (every course readable at every level)",
                 ["node", "tools/test-course-levels.mjs"])
+            run("course voice controls + optional IPA renderer test",
+                ["python3", "tools/test-course-voice-buttons.py"])
             run("country visuals test (numbers match the data)",
                 ["node", "tools/test-country-visuals.mjs"])
             run("toolbox visuals test (the plates cannot lie about the pages)",
@@ -222,6 +235,8 @@ def main():
     run("course hub + home teaser", ["python3", "tools/build-course-hub.py"])
     run("course levels (A1-C2 pages, and the rail on every hub)",
         ["python3", "tools/build-course-levels.py"])
+    run("course pronunciation coverage audit (source data only; may remain blocked)",
+        ["python3", "tools/audit-course-pronunciation.py"])
     run("storybook injector (Hindi TTS + design)", ["python3", "tools/inject-storybook.py"])
     run("ads policy (which pages may load the ad script)", ["python3", "tools/inject-ads.py"])
     run("consent injector (cookie notice)", ["python3", "tools/inject-consent.py"])
@@ -256,6 +271,8 @@ def main():
     run("partial Phase 1 course publication boundary", ["python3", "tools/test-partial-course-publication.py"])
     run("rendered Phase 2 root Indian topic parity + report",
         ["python3", "tools/audit-indian-topic-parity.py", "--write-report"])
+    run("Phase 2: full public-page technical inventory", ["python3", "tools/build-full-page-inventory.py"])
+    run("Phase 2: detailed content inventory", ["python3", "tools/build-phase2-content-inventory.py"])
     run("doctor", ["node", "tools/doctor.js"])
     print("\n══════════════════════════════════════════")
     print("build-all complete — every step passed.")

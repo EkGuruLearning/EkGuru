@@ -60,9 +60,9 @@ def main() -> int:
                 fail(f"{code} {level}: state missing from publication audit", errors)
                 continue
             page = ROOT / "languages" / code / "level" / level.lower() / "index.html"
-            if row.get("state") == "PUBLIC_CONTENT_BUG":
+            if row.get("state") in {"PUBLIC_CONTENT_BUG", "REVIEW_REQUIRED"}:
                 if not page.is_file():
-                    fail(f"{code} {level}: placeholder page is missing instead of being clearly unpublished", errors)
+                    fail(f"{code} {level}: held page is missing instead of being clearly unpublished", errors)
                     continue
                 raw = page.read_text(encoding="utf-8", errors="replace")
                 title = re.search(r"<title\b[^>]*>(.*?)</title>", raw, re.I | re.S)

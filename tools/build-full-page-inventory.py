@@ -16,6 +16,7 @@ Plus a site-wide summary. Deterministic: no network, no wall-clock
 dependence beyond a fixed generated note. Run:
 
     python3 tools/build-full-page-inventory.py
+    python3 tools/build-full-page-inventory.py --check
 """
 from __future__ import annotations
 
@@ -145,9 +146,9 @@ def analyse(path: str, sitemap_urls, file_set):
     h1 = htmllib.unescape(re.sub(r"\s+", " ", RE_TAGS.sub(" ", h1s[0])).strip()) if h1s else ""
     h2c = len(RE_H2.findall(src))
     wc = words(visible_text(src))
-    canon = meta_content(RE_CANON.search(src), src).replace('<link rel="canonical" href="', "").rstrip('">') if RE_CANON.search(src) else ""
-    m = RE_CONTENT.search(RE_CANON.search(src).group(0)) if RE_CANON.search(src) else None
-    canon = htmllib.unescape(m.group(1)).strip() if m else ""
+    canon_tag = RE_CANON.search(src)
+    canon_match = RE_HREF.search(canon_tag.group(0)) if canon_tag else None
+    canon = htmllib.unescape(canon_match.group(1)).strip() if canon_match else ""
     robots = meta_content(RE_ROBOTS.search(src), src)
     hreflangs = RE_HREFLANG.findall(src)
     lang = (RE_HTML_LANG.search(src) and RE_HTML_LANG.search(src).group(1)) or ""
@@ -256,10 +257,15 @@ def analyse(path: str, sitemap_urls, file_set):
 
 def main():
     all_html = []
+    excluded_dirs = {
+        ".git", "node_modules", ".venv", "vendor", "build", "dist", "coverage",
+        "out", "target", "reports", "research", "docs", "tools", "data",
+    }
+    machine_file = re.compile(r"^google[a-z0-9]+\.html$")
     for dirpath, dirnames, filenames in os.walk(ROOT):
-        dirnames[:] = [d for d in dirnames if d not in (".git", "node_modules")]
+        dirnames[:] = [d for d in dirnames if d not in excluded_dirs]
         for f in filenames:
-            if f.endswith(".html"):
+            if f.endswith(".html") and f != "admin.html" and not machine_file.match(f):
                 p = os.path.relpath(os.path.join(dirpath, f), ROOT).replace("\\", "/")
                 all_html.append(p)
     all_html.sort()
@@ -346,9 +352,21 @@ def main():
         p.pop("internal_link_targets", None)
         p.pop("title_key", None)
         p.pop("desc_key", None)
+    expected = json.dumps(out, ensure_ascii=False, indent=1)
+    if "--check" in sys.argv:
+        try:
+            actual = open(OUT, encoding="utf-8").read()
+        except OSError:
+            print("STALE: missing", OUT)
+            return 1
+        if actual != expected:
+            print("STALE:", OUT, "does not match the repository public-page inventory")
+            return 1
+        print("full public-page inventory current:", summary["pages_total"], "pages")
+        return 0
     os.makedirs(os.path.dirname(OUT), exist_ok=True)
     with open(OUT, "w", encoding="utf-8") as fh:
-        json.dump(out, fh, ensure_ascii=False, indent=1)
+        fh.write(expected)
     print("pages=%d indexable=%d noindex=%d thin_indexable=%d orphans=%d broken=%d missing_alt_pages=%d" % (
         summary["pages_total"], summary["indexable"], summary["noindex"],
         len(summary["thin_indexable"]), summary["orphan_total"],
@@ -356,6 +374,7 @@ def main():
     print("indexable_not_in_sitemap=%d noindex_in_sitemap=%d orphan_indexable=%d" % (
         len(summary["indexable_not_in_sitemap"]), len(summary["noindex_in_sitemap"]), len(summary["orphan_indexable"])))
     print("wrote", OUT)
+    return 0
 
 
 if __name__ == "__main__":

@@ -98,25 +98,25 @@
             },
             "dialogue": [
               {
-                "sp": "Speaker A",
+                "sp": "مقرر الف",
                 "t": "ڈاکٹر کو بلائیے",
                 "r": "Doctor ko bulaiye",
                 "en": "Call a doctor"
               },
               {
-                "sp": "Speaker B",
+                "sp": "مقرر ب",
                 "t": "مجھے سرکاری ہسپتال لے چلیے",
                 "r": "Mujhe sarkari hospital le chaliye",
                 "en": "Take me to hospital"
               },
               {
-                "sp": "Speaker A",
+                "sp": "مقرر الف",
                 "t": "دوائی کی دکان کہاں ہے؟",
                 "r": "Davai ki dukan kahan hai?",
                 "en": "Where is the pharmacy?"
               },
               {
-                "sp": "Speaker B",
+                "sp": "مقرر ب",
                 "t": "یہ دوا لیجیے",
                 "r": "Ye dava lijiye",
                 "en": "Take this medicine"
@@ -194,7 +194,7 @@
               },
               {
                 "type": "dialogue_completion",
-                "q": "Practice 10 [dialogue completion] — Precision in specialist health discourse: Complete Speaker B’s turn appropriately: Take me to hospital",
+                "q": "Practice 10 [dialogue completion] — Precision in specialist health discourse: Complete مقرر ب’s turn appropriately: Take me to hospital",
                 "answer": "مجھے سرکاری ہسپتال لے چلیے",
                 "skill_target": "Urdu dialogue completion: Urdu agreement, postpositions, honorificity, and formal versus everyday register"
               },
@@ -408,25 +408,25 @@
             },
             "dialogue": [
               {
-                "sp": "Speaker A",
+                "sp": "مقرر الف",
                 "t": "ای میل بھیجیے",
                 "r": "Email bhejiye",
                 "en": "Send the email"
               },
               {
-                "sp": "Speaker B",
+                "sp": "مقرر ب",
                 "t": "پرنٹ نکالیے",
                 "r": "Print nikaliye",
                 "en": "Take a printout"
               },
               {
-                "sp": "Speaker A",
+                "sp": "مقرر الف",
                 "t": "تنخواہ کب ملے گی؟",
                 "r": "Tankhvah kab milegi?",
                 "en": "When is the salary?"
               },
               {
-                "sp": "Speaker B",
+                "sp": "مقرر ب",
                 "t": "کل مجھے چھٹی چاہیے",
                 "r": "Kal mujhe chhutti chahiye",
                 "en": "I need leave tomorrow"
@@ -634,6 +634,288 @@
               "اے سی"
             ],
             "srs_policy": "Only selected high-value lesson forms are preselected; actual mistakes and productive patterns may enter personalized review after learner evidence."
+          },
+          {
+            "id": "ur-c2-l7",
+            "title": "Scope a claim precisely",
+            "learn": "Recast an absolute sentence as a bounded claim with an explicit evidence base.",
+            "vocab": [
+              {
+                "t": "دائرہ",
+                "r": "daaira",
+                "en": "scope",
+                "pos": "phrase"
+              },
+              {
+                "t": "دعویٰ",
+                "r": "dawa",
+                "en": "claim",
+                "pos": "phrase"
+              },
+              {
+                "t": "شواہد",
+                "r": "shawahed",
+                "en": "evidence",
+                "pos": "phrase"
+              },
+              {
+                "t": "حد",
+                "r": "had",
+                "en": "limit",
+                "pos": "phrase"
+              },
+              {
+                "t": "استثنا",
+                "r": "istisna",
+                "en": "exception",
+                "pos": "phrase"
+              }
+            ],
+            "grammar": {
+              "title": "scope and qualification",
+              "pattern": "دستیاب شواہد کی حد تک ...؛ اسے ... نہیں سمجھنا چاہیے",
+              "explain": "Make the evidence base and limit explicit. A bounded conclusion is more informative than an absolute sentence.",
+              "examples": [
+                {
+                  "t": "دستیاب شواہد کی حد تک یہ تعبیر ممکن ہے۔",
+                  "r": "dastiyab shawahed ki had tak ye taabeer mumkin hai.",
+                  "en": "This interpretation is possible within the limits of available evidence."
+                },
+                {
+                  "t": "اس سے ہر علاقے کا نتیجہ اخذ نہیں کیا جا سکتا۔",
+                  "r": "is se har ilaqe ka natija akhaz nahin kiya ja sakta.",
+                  "en": "A result for every region cannot be inferred from this."
+                },
+                {
+                  "t": "نمونے کی حد کو ساتھ درج کرنا چاہیے۔",
+                  "r": "namune ki had ko saath darj karna chahiye.",
+                  "en": "The sample's limitation should be stated alongside it."
+                }
+              ],
+              "mistakes": [
+                {
+                  "wrong": "یہ ہر علاقے میں ثابت ہے۔",
+                  "right": "یہ نتیجہ اس محدود نمونے کے دائرے تک ہے۔",
+                  "why": "Restrict the claim to the sample rather than generalising to every region."
+                }
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "استاد",
+                "t": "دستیاب شواہد کی حد تک یہ تعبیر ممکن ہے۔",
+                "r": "dastiyab shawahed ki had tak ye taabeer mumkin hai.",
+                "en": "This interpretation is possible within the limits of available evidence."
+              },
+              {
+                "sp": "طالب علم",
+                "t": "اس سے ہر علاقے کا نتیجہ اخذ نہیں کیا جا سکتا۔",
+                "r": "is se har ilaqe ka natija akhaz nahin kiya ja sakta.",
+                "en": "A result for every region cannot be inferred from this."
+              },
+              {
+                "sp": "استاد",
+                "t": "نمونے کی حد کو ساتھ درج کرنا چاہیے۔",
+                "r": "namune ki had ko saath darj karna chahiye.",
+                "en": "The sample's limitation should be stated alongside it."
+              },
+              {
+                "sp": "طالب علم",
+                "t": "اس سے ہر علاقے کا نتیجہ اخذ نہیں کیا جا سکتا۔",
+                "r": "is se har ilaqe ka natija akhaz nahin kiya ja sakta.",
+                "en": "A result for every region cannot be inferred from this."
+              }
+            ],
+            "practice": [
+              {
+                "type": "multiple_choice",
+                "q": "Practice 1: [multiple choice] Scope a claim precisely — Choose the meaning of دائرہ (daaira) in this lesson.",
+                "answer": "scope",
+                "skill_target": "Urdu: right-to-left Nastaliq reading, احترام کے صیغے آپ/تم, postpositions, gender and honorific agreement, clause linking, and source-aware formal prose",
+                "options": [
+                  "scope",
+                  "claim",
+                  "evidence",
+                  "limit"
+                ]
+              },
+              {
+                "type": "fill_in_the_blank",
+                "q": "Practice 2: [fill in the blank] Scope a claim precisely — Type the Urdu expression meaning “claim”.",
+                "answer": "دعویٰ",
+                "skill_target": "Urdu: right-to-left Nastaliq reading, احترام کے صیغے آپ/تم, postpositions, gender and honorific agreement, clause linking, and source-aware formal prose"
+              },
+              {
+                "type": "translation",
+                "q": "Practice 3: [translation] Scope a claim precisely — Interpret the Nastaliq script in context: دستیاب شواہد کی حد تک یہ تعبیر ممکن ہے۔ (dastiyab shawahed ki had tak ye taabeer mumkin hai.).",
+                "answer": "This interpretation is possible within the limits of available evidence.",
+                "skill_target": "Urdu: right-to-left Nastaliq reading, احترام کے صیغے آپ/تم, postpositions, gender and honorific agreement, clause linking, and source-aware formal prose"
+              },
+              {
+                "type": "reverse_translation",
+                "q": "Practice 4: [reverse translation] Scope a claim precisely — Write in Nastaliq script: A result for every region cannot be inferred from this..",
+                "answer": "اس سے ہر علاقے کا نتیجہ اخذ نہیں کیا جا سکتا۔",
+                "skill_target": "Urdu: right-to-left Nastaliq reading, احترام کے صیغے آپ/تم, postpositions, gender and honorific agreement, clause linking, and source-aware formal prose"
+              },
+              {
+                "type": "matching",
+                "q": "Practice 5: [matching] Scope a claim precisely — Match شواہد to its lesson meaning.",
+                "answer": "evidence",
+                "skill_target": "Urdu: right-to-left Nastaliq reading, احترام کے صیغے آپ/تم, postpositions, gender and honorific agreement, clause linking, and source-aware formal prose",
+                "options": [
+                  "evidence",
+                  "scope",
+                  "claim"
+                ]
+              },
+              {
+                "type": "reorder",
+                "q": "Practice 6: [reorder] Scope a claim precisely — Reconstruct the lesson model in coherent Urdu: The sample's limitation should be stated alongside it..",
+                "answer": "نمونے کی حد کو ساتھ درج کرنا چاہیے۔",
+                "skill_target": "Urdu: right-to-left Nastaliq reading, احترام کے صیغے آپ/تم, postpositions, gender and honorific agreement, clause linking, and source-aware formal prose"
+              },
+              {
+                "type": "sentence_building",
+                "q": "Practice 7: [sentence building] Scope a claim precisely — Build the sentence with the lesson pattern (دستیاب شواہد کی حد تک ...؛ اسے ... نہیں سمجھنا چاہیے): This interpretation is possible within the limits of available evidence..",
+                "answer": "دستیاب شواہد کی حد تک یہ تعبیر ممکن ہے۔",
+                "skill_target": "Urdu: right-to-left Nastaliq reading, احترام کے صیغے آپ/تم, postpositions, gender and honorific agreement, clause linking, and source-aware formal prose"
+              },
+              {
+                "type": "word_selection",
+                "q": "Practice 8: [word selection] Scope a claim precisely — Select the Urdu form for “limit”.",
+                "answer": "حد",
+                "skill_target": "Urdu: right-to-left Nastaliq reading, احترام کے صیغے آپ/تم, postpositions, gender and honorific agreement, clause linking, and source-aware formal prose",
+                "options": [
+                  "حد",
+                  "استثنا"
+                ]
+              },
+              {
+                "type": "error_correction",
+                "q": "Practice 9: [error correction] Scope a claim precisely — Correct the model the lesson warns about: یہ ہر علاقے میں ثابت ہے۔",
+                "answer": "یہ نتیجہ اس محدود نمونے کے دائرے تک ہے۔",
+                "skill_target": "Urdu: right-to-left Nastaliq reading, احترام کے صیغے آپ/تم, postpositions, gender and honorific agreement, clause linking, and source-aware formal prose"
+              },
+              {
+                "type": "dialogue_completion",
+                "q": "Practice 10: [dialogue completion] Scope a claim precisely — Complete the exchange with the studied response to: This interpretation is possible within the limits of available evidence.",
+                "answer": "اس سے ہر علاقے کا نتیجہ اخذ نہیں کیا جا سکتا۔",
+                "skill_target": "Urdu: right-to-left Nastaliq reading, احترام کے صیغے آپ/تم, postpositions, gender and honorific agreement, clause linking, and source-aware formal prose"
+              },
+              {
+                "type": "reading_comprehension",
+                "q": "Practice 11: [reading comprehension] Scope a claim precisely — Read “نمونے کی حد کو ساتھ درج کرنا چاہیے۔” (namune ki had ko saath darj karna chahiye.). What does it mean?",
+                "answer": "The sample's limitation should be stated alongside it.",
+                "skill_target": "Urdu: right-to-left Nastaliq reading, احترام کے صیغے آپ/تم, postpositions, gender and honorific agreement, clause linking, and source-aware formal prose"
+              },
+              {
+                "type": "paragraph_comprehension",
+                "q": "Practice 12: [paragraph comprehension] Scope a claim precisely — Read the lesson dialogue as a whole and give its key move: A result for every region cannot be inferred from this.",
+                "answer": "اس سے ہر علاقے کا نتیجہ اخذ نہیں کیا جا سکتا۔",
+                "skill_target": "Urdu: right-to-left Nastaliq reading, احترام کے صیغے آپ/تم, postpositions, gender and honorific agreement, clause linking, and source-aware formal prose"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "Which meaning best fits دائرہ?",
+                "options": [
+                  "scope",
+                  "claim",
+                  "evidence",
+                  "limit"
+                ],
+                "answer": 0,
+                "why": "دائرہ (daaira) means scope in this lesson."
+              },
+              {
+                "q": "Which meaning best fits دعویٰ?",
+                "options": [
+                  "claim",
+                  "scope",
+                  "evidence",
+                  "limit"
+                ],
+                "answer": 0,
+                "why": "دعویٰ (dawa) means claim in this lesson."
+              },
+              {
+                "q": "Which meaning best fits شواہد?",
+                "options": [
+                  "evidence",
+                  "scope",
+                  "claim",
+                  "limit"
+                ],
+                "answer": 0,
+                "why": "شواہد (shawahed) means evidence in this lesson."
+              },
+              {
+                "q": "Which meaning best fits حد?",
+                "options": [
+                  "limit",
+                  "scope",
+                  "claim",
+                  "evidence"
+                ],
+                "answer": 0,
+                "why": "حد (had) means limit in this lesson."
+              },
+              {
+                "q": "Which meaning best fits استثنا?",
+                "options": [
+                  "exception",
+                  "scope",
+                  "claim",
+                  "evidence"
+                ],
+                "answer": 0,
+                "why": "استثنا (istisna) means exception in this lesson."
+              }
+            ],
+            "flashcards": "auto:vocab",
+            "worksheet": {
+              "title": "Calibrate a conclusion",
+              "tasks": [
+                {
+                  "instruction": "Translate the first model into English.",
+                  "items": [
+                    "دستیاب شواہد کی حد تک یہ تعبیر ممکن ہے۔"
+                  ],
+                  "key": [
+                    "This interpretation is possible within the limits of available evidence."
+                  ]
+                },
+                {
+                  "instruction": "Use the lesson pattern in a new sentence.",
+                  "items": [
+                    "اس سے ہر علاقے کا نتیجہ اخذ نہیں کیا جا سکتا۔",
+                    "نمونے کی حد کو ساتھ درج کرنا چاہیے۔"
+                  ],
+                  "key": [
+                    "A result for every region cannot be inferred from this.",
+                    "The sample's limitation should be stated alongside it."
+                  ]
+                },
+                {
+                  "instruction": "Integrated offline practice: read the first model, transform or extend it in Nastaliq script, then rehearse it as a dialogue. Self-check meaning, grammar, and register.",
+                  "items": [
+                    "دستیاب شواہد کی حد تک یہ تعبیر ممکن ہے۔",
+                    "دستیاب شواہد کی حد تک یہ تعبیر ممکن ہے۔"
+                  ],
+                  "key": [
+                    "This interpretation is possible within the limits of available evidence.",
+                    "This interpretation is possible within the limits of available evidence."
+                  ]
+                }
+              ]
+            },
+            "srs_candidates": [
+              "دائرہ",
+              "دعویٰ",
+              "شواہد",
+              "حد"
+            ],
+            "srs_policy": "Only these four high-value terms are preselected; lesson mistakes and productive patterns may enter personalized review after an actual error."
           }
         ]
       },
@@ -722,25 +1004,25 @@
             },
             "dialogue": [
               {
-                "sp": "Speaker A",
+                "sp": "مقرر الف",
                 "t": "دھیان سے سنیے",
                 "r": "Dhyan se suniye",
                 "en": "Listen carefully"
               },
               {
-                "sp": "Speaker B",
+                "sp": "مقرر ب",
                 "t": "چپ چاپ بیٹھیے",
                 "r": "Chup chaap baithiye",
                 "en": "Sit quietly"
               },
               {
-                "sp": "Speaker A",
+                "sp": "مقرر الف",
                 "t": "کھڑے ہو جائیے",
                 "r": "Kharhe ho jaiye",
                 "en": "Stand up"
               },
               {
-                "sp": "Speaker B",
+                "sp": "مقرر ب",
                 "t": "مجھ سے پوچھیے",
                 "r": "Mujh se puchhiye",
                 "en": "Ask me"
@@ -1017,25 +1299,25 @@
             },
             "dialogue": [
               {
-                "sp": "Speaker A",
+                "sp": "مقرر الف",
                 "t": "کیسی اچھی ہوا!",
                 "r": "Kaisi achhi hava!",
                 "en": "What a pleasant wind!"
               },
               {
-                "sp": "Speaker B",
+                "sp": "مقرر ب",
                 "t": "چھاتا لے لیجیے",
                 "r": "Chhata le lijiye",
                 "en": "Take an umbrella"
               },
               {
-                "sp": "Speaker A",
+                "sp": "مقرر الف",
                 "t": "سورج نکلا",
                 "r": "Suraj nikla",
                 "en": "The sun rose"
               },
               {
-                "sp": "Speaker B",
+                "sp": "مقرر ب",
                 "t": "رات ہو گئی",
                 "r": "Raat ho gai",
                 "en": "Night fell"
@@ -1245,6 +1527,288 @@
               "وادی"
             ],
             "srs_policy": "Only selected high-value lesson forms are preselected; actual mistakes and productive patterns may enter personalized review after learner evidence."
+          },
+          {
+            "id": "ur-c2-l8",
+            "title": "Interpret silence without mind-reading",
+            "learn": "Describe a pause as an observable event and distinguish possible implications from intent.",
+            "vocab": [
+              {
+                "t": "خاموشی",
+                "r": "khamoshi",
+                "en": "silence",
+                "pos": "phrase"
+              },
+              {
+                "t": "وقفہ",
+                "r": "waqfa",
+                "en": "pause",
+                "pos": "phrase"
+              },
+              {
+                "t": "اشارہ",
+                "r": "ishara",
+                "en": "signal",
+                "pos": "phrase"
+              },
+              {
+                "t": "ارادہ",
+                "r": "irada",
+                "en": "intention",
+                "pos": "phrase"
+              },
+              {
+                "t": "تعبیر",
+                "r": "taabeer",
+                "en": "interpretation",
+                "pos": "phrase"
+              }
+            ],
+            "grammar": {
+              "title": "implicature with a hedge",
+              "pattern": "خاموشی سے ... کا تاثر مل سکتا ہے، مگر یہ ارادے کا ثبوت نہیں",
+              "explain": "A pause may be interpreted in several ways. Describe a possible implication without claiming access to another person's intention.",
+              "examples": [
+                {
+                  "t": "جواب سے پہلے ایک وقفہ آیا۔",
+                  "r": "jawab se pehle ek waqfa aaya.",
+                  "en": "There was a pause before the answer."
+                },
+                {
+                  "t": "اس خاموشی سے فاصلہ رکھنے کا تاثر مل سکتا ہے۔",
+                  "r": "is khamoshi se faasla rakhne ka taassur mil sakta hai.",
+                  "en": "The silence may give an impression of distance."
+                },
+                {
+                  "t": "مگر ارادے کا ثبوت صرف اسی سے نہیں ملتا۔",
+                  "r": "magar irade ka saboot sirf isi se nahin milta.",
+                  "en": "But that alone does not prove intention."
+                }
+              ],
+              "mistakes": [
+                {
+                  "wrong": "اس کی خاموشی کا مطلب ضرور انکار تھا۔",
+                  "right": "خاموشی کو ممکنہ اشارہ سمجھیں، قطعی ارادہ نہیں۔",
+                  "why": "Do not infer a definite intention from silence alone."
+                }
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "استاد",
+                "t": "جواب سے پہلے ایک وقفہ آیا۔",
+                "r": "jawab se pehle ek waqfa aaya.",
+                "en": "There was a pause before the answer."
+              },
+              {
+                "sp": "طالب علم",
+                "t": "اس خاموشی سے فاصلہ رکھنے کا تاثر مل سکتا ہے۔",
+                "r": "is khamoshi se faasla rakhne ka taassur mil sakta hai.",
+                "en": "The silence may give an impression of distance."
+              },
+              {
+                "sp": "استاد",
+                "t": "مگر ارادے کا ثبوت صرف اسی سے نہیں ملتا۔",
+                "r": "magar irade ka saboot sirf isi se nahin milta.",
+                "en": "But that alone does not prove intention."
+              },
+              {
+                "sp": "طالب علم",
+                "t": "اس خاموشی سے فاصلہ رکھنے کا تاثر مل سکتا ہے۔",
+                "r": "is khamoshi se faasla rakhne ka taassur mil sakta hai.",
+                "en": "The silence may give an impression of distance."
+              }
+            ],
+            "practice": [
+              {
+                "type": "multiple_choice",
+                "q": "Practice 1: [multiple choice] Interpret silence without mind-reading — Choose the meaning of خاموشی (khamoshi) in this lesson.",
+                "answer": "silence",
+                "skill_target": "Urdu: right-to-left Nastaliq reading, احترام کے صیغے آپ/تم, postpositions, gender and honorific agreement, clause linking, and source-aware formal prose",
+                "options": [
+                  "silence",
+                  "pause",
+                  "signal",
+                  "intention"
+                ]
+              },
+              {
+                "type": "fill_in_the_blank",
+                "q": "Practice 2: [fill in the blank] Interpret silence without mind-reading — Type the Urdu expression meaning “pause”.",
+                "answer": "وقفہ",
+                "skill_target": "Urdu: right-to-left Nastaliq reading, احترام کے صیغے آپ/تم, postpositions, gender and honorific agreement, clause linking, and source-aware formal prose"
+              },
+              {
+                "type": "translation",
+                "q": "Practice 3: [translation] Interpret silence without mind-reading — Interpret the Nastaliq script in context: جواب سے پہلے ایک وقفہ آیا۔ (jawab se pehle ek waqfa aaya.).",
+                "answer": "There was a pause before the answer.",
+                "skill_target": "Urdu: right-to-left Nastaliq reading, احترام کے صیغے آپ/تم, postpositions, gender and honorific agreement, clause linking, and source-aware formal prose"
+              },
+              {
+                "type": "reverse_translation",
+                "q": "Practice 4: [reverse translation] Interpret silence without mind-reading — Write in Nastaliq script: The silence may give an impression of distance..",
+                "answer": "اس خاموشی سے فاصلہ رکھنے کا تاثر مل سکتا ہے۔",
+                "skill_target": "Urdu: right-to-left Nastaliq reading, احترام کے صیغے آپ/تم, postpositions, gender and honorific agreement, clause linking, and source-aware formal prose"
+              },
+              {
+                "type": "matching",
+                "q": "Practice 5: [matching] Interpret silence without mind-reading — Match اشارہ to its lesson meaning.",
+                "answer": "signal",
+                "skill_target": "Urdu: right-to-left Nastaliq reading, احترام کے صیغے آپ/تم, postpositions, gender and honorific agreement, clause linking, and source-aware formal prose",
+                "options": [
+                  "signal",
+                  "silence",
+                  "pause"
+                ]
+              },
+              {
+                "type": "reorder",
+                "q": "Practice 6: [reorder] Interpret silence without mind-reading — Reconstruct the lesson model in coherent Urdu: But that alone does not prove intention..",
+                "answer": "مگر ارادے کا ثبوت صرف اسی سے نہیں ملتا۔",
+                "skill_target": "Urdu: right-to-left Nastaliq reading, احترام کے صیغے آپ/تم, postpositions, gender and honorific agreement, clause linking, and source-aware formal prose"
+              },
+              {
+                "type": "sentence_building",
+                "q": "Practice 7: [sentence building] Interpret silence without mind-reading — Build the sentence with the lesson pattern (خاموشی سے ... کا تاثر مل سکتا ہے، مگر یہ ارادے کا ثبوت نہیں): There was a pause before the answer..",
+                "answer": "جواب سے پہلے ایک وقفہ آیا۔",
+                "skill_target": "Urdu: right-to-left Nastaliq reading, احترام کے صیغے آپ/تم, postpositions, gender and honorific agreement, clause linking, and source-aware formal prose"
+              },
+              {
+                "type": "word_selection",
+                "q": "Practice 8: [word selection] Interpret silence without mind-reading — Select the Urdu form for “intention”.",
+                "answer": "ارادہ",
+                "skill_target": "Urdu: right-to-left Nastaliq reading, احترام کے صیغے آپ/تم, postpositions, gender and honorific agreement, clause linking, and source-aware formal prose",
+                "options": [
+                  "ارادہ",
+                  "تعبیر"
+                ]
+              },
+              {
+                "type": "error_correction",
+                "q": "Practice 9: [error correction] Interpret silence without mind-reading — Correct the model the lesson warns about: اس کی خاموشی کا مطلب ضرور انکار تھا۔",
+                "answer": "خاموشی کو ممکنہ اشارہ سمجھیں، قطعی ارادہ نہیں۔",
+                "skill_target": "Urdu: right-to-left Nastaliq reading, احترام کے صیغے آپ/تم, postpositions, gender and honorific agreement, clause linking, and source-aware formal prose"
+              },
+              {
+                "type": "dialogue_completion",
+                "q": "Practice 10: [dialogue completion] Interpret silence without mind-reading — Complete the exchange with the studied response to: There was a pause before the answer.",
+                "answer": "اس خاموشی سے فاصلہ رکھنے کا تاثر مل سکتا ہے۔",
+                "skill_target": "Urdu: right-to-left Nastaliq reading, احترام کے صیغے آپ/تم, postpositions, gender and honorific agreement, clause linking, and source-aware formal prose"
+              },
+              {
+                "type": "reading_comprehension",
+                "q": "Practice 11: [reading comprehension] Interpret silence without mind-reading — Read “مگر ارادے کا ثبوت صرف اسی سے نہیں ملتا۔” (magar irade ka saboot sirf isi se nahin milta.). What does it mean?",
+                "answer": "But that alone does not prove intention.",
+                "skill_target": "Urdu: right-to-left Nastaliq reading, احترام کے صیغے آپ/تم, postpositions, gender and honorific agreement, clause linking, and source-aware formal prose"
+              },
+              {
+                "type": "paragraph_comprehension",
+                "q": "Practice 12: [paragraph comprehension] Interpret silence without mind-reading — Read the lesson dialogue as a whole and give its key move: The silence may give an impression of distance.",
+                "answer": "اس خاموشی سے فاصلہ رکھنے کا تاثر مل سکتا ہے۔",
+                "skill_target": "Urdu: right-to-left Nastaliq reading, احترام کے صیغے آپ/تم, postpositions, gender and honorific agreement, clause linking, and source-aware formal prose"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "Which meaning best fits خاموشی?",
+                "options": [
+                  "silence",
+                  "pause",
+                  "signal",
+                  "intention"
+                ],
+                "answer": 0,
+                "why": "خاموشی (khamoshi) means silence in this lesson."
+              },
+              {
+                "q": "Which meaning best fits وقفہ?",
+                "options": [
+                  "pause",
+                  "silence",
+                  "signal",
+                  "intention"
+                ],
+                "answer": 0,
+                "why": "وقفہ (waqfa) means pause in this lesson."
+              },
+              {
+                "q": "Which meaning best fits اشارہ?",
+                "options": [
+                  "signal",
+                  "silence",
+                  "pause",
+                  "intention"
+                ],
+                "answer": 0,
+                "why": "اشارہ (ishara) means signal in this lesson."
+              },
+              {
+                "q": "Which meaning best fits ارادہ?",
+                "options": [
+                  "intention",
+                  "silence",
+                  "pause",
+                  "signal"
+                ],
+                "answer": 0,
+                "why": "ارادہ (irada) means intention in this lesson."
+              },
+              {
+                "q": "Which meaning best fits تعبیر?",
+                "options": [
+                  "interpretation",
+                  "silence",
+                  "pause",
+                  "signal"
+                ],
+                "answer": 0,
+                "why": "تعبیر (taabeer) means interpretation in this lesson."
+              }
+            ],
+            "flashcards": "auto:vocab",
+            "worksheet": {
+              "title": "Describe an implication carefully",
+              "tasks": [
+                {
+                  "instruction": "Translate the first model into English.",
+                  "items": [
+                    "جواب سے پہلے ایک وقفہ آیا۔"
+                  ],
+                  "key": [
+                    "There was a pause before the answer."
+                  ]
+                },
+                {
+                  "instruction": "Use the lesson pattern in a new sentence.",
+                  "items": [
+                    "اس خاموشی سے فاصلہ رکھنے کا تاثر مل سکتا ہے۔",
+                    "مگر ارادے کا ثبوت صرف اسی سے نہیں ملتا۔"
+                  ],
+                  "key": [
+                    "The silence may give an impression of distance.",
+                    "But that alone does not prove intention."
+                  ]
+                },
+                {
+                  "instruction": "Integrated offline practice: read the first model, transform or extend it in Nastaliq script, then rehearse it as a dialogue. Self-check meaning, grammar, and register.",
+                  "items": [
+                    "جواب سے پہلے ایک وقفہ آیا۔",
+                    "جواب سے پہلے ایک وقفہ آیا۔"
+                  ],
+                  "key": [
+                    "There was a pause before the answer.",
+                    "There was a pause before the answer."
+                  ]
+                }
+              ]
+            },
+            "srs_candidates": [
+              "خاموشی",
+              "وقفہ",
+              "اشارہ",
+              "ارادہ"
+            ],
+            "srs_policy": "Only these four high-value terms are preselected; lesson mistakes and productive patterns may enter personalized review after an actual error."
           }
         ]
       },
@@ -1333,25 +1897,25 @@
             },
             "dialogue": [
               {
-                "sp": "Speaker A",
+                "sp": "مقرر الف",
                 "t": "بیٹھیے",
                 "r": "Baithiye",
                 "en": "Sit down"
               },
               {
-                "sp": "Speaker B",
+                "sp": "مقرر ب",
                 "t": "تھوڑا اور کھائیے",
                 "r": "Thodha aur khaiye",
                 "en": "Eat a little more"
               },
               {
-                "sp": "Speaker A",
+                "sp": "مقرر الف",
                 "t": "بہت مزیدار ہے!",
                 "r": "Bahut mazedar hai!",
                 "en": "It is very tasty!"
               },
               {
-                "sp": "Speaker B",
+                "sp": "مقرر ب",
                 "t": "بس، پیٹ بھر گیا",
                 "r": "Bas, pet bhar gaya",
                 "en": "Enough, I am full"
@@ -1366,7 +1930,7 @@
               },
               {
                 "type": "dialogue_completion",
-                "q": "Practice 6 [dialogue completion] — Subtle domestic and social register: Complete Speaker B’s turn appropriately: Eat a little more",
+                "q": "Practice 6 [dialogue completion] — Subtle domestic and social register: Complete مقرر ب’s turn appropriately: Eat a little more",
                 "answer": "تھوڑا اور کھائیے",
                 "skill_target": "Urdu dialogue completion: Urdu agreement, postpositions, honorificity, and formal versus everyday register"
               },
@@ -1638,25 +2202,25 @@
             },
             "dialogue": [
               {
-                "sp": "Speaker A",
+                "sp": "مقرر الف",
                 "t": "مٹھائی کھائیے",
                 "r": "Mithai khaiye",
                 "en": "Eat sweets"
               },
               {
-                "sp": "Speaker B",
+                "sp": "مقرر ب",
                 "t": "نئے کپڑے پہنیے",
                 "r": "Nae kaprhe pehniye",
                 "en": "Wear new clothes"
               },
               {
-                "sp": "Speaker A",
+                "sp": "مقرر الف",
                 "t": "دیا جلائیے",
                 "r": "Diya jalaiye",
                 "en": "Light the lamp"
               },
               {
-                "sp": "Speaker B",
+                "sp": "مقرر ب",
                 "t": "دعا کیجیے",
                 "r": "Dua kijiye",
                 "en": "Offer prayers"
@@ -1854,6 +2418,288 @@
               "نیا سال"
             ],
             "srs_policy": "Only selected high-value lesson forms are preselected; actual mistakes and productive patterns may enter personalized review after learner evidence."
+          },
+          {
+            "id": "ur-c2-l9",
+            "title": "Edit an expert statement for register",
+            "learn": "Turn a dense expert sentence into a concise public statement without changing its confidence.",
+            "vocab": [
+              {
+                "t": "مسودہ",
+                "r": "musawadda",
+                "en": "draft",
+                "pos": "phrase"
+              },
+              {
+                "t": "اختصار",
+                "r": "ikhtisar",
+                "en": "concision",
+                "pos": "phrase"
+              },
+              {
+                "t": "درستگی",
+                "r": "durustagi",
+                "en": "accuracy",
+                "pos": "phrase"
+              },
+              {
+                "t": "قارئین",
+                "r": "qari'in",
+                "en": "readers",
+                "pos": "phrase"
+              },
+              {
+                "t": "اعتماد",
+                "r": "aitemaad",
+                "en": "confidence",
+                "pos": "phrase"
+              }
+            ],
+            "grammar": {
+              "title": "genre transformation",
+              "pattern": "اصل دعویٰ برقرار رکھیں؛ اصطلاح کی وضاحت کریں؛ یقین کی سطح نہ بڑھائیں",
+              "explain": "Simplify sentence structure and explain a technical term while preserving the original evidence and degree of certainty.",
+              "examples": [
+                {
+                  "t": "مسودہ تخصصی اصطلاحات سے بھرا ہوا ہے۔",
+                  "r": "musawadda takhassusi istilahat se bhara hua hai.",
+                  "en": "The draft is full of specialist terms."
+                },
+                {
+                  "t": "عوامی بیان میں ہر اصطلاح کی مختصر وضاحت دیں۔",
+                  "r": "awami bayan mein har istilah ki mukhtasar wazahat dein.",
+                  "en": "Give a brief explanation of each term in a public statement."
+                },
+                {
+                  "t": "زبان آسان ہو سکتی ہے، دعویٰ زیادہ قطعی نہیں۔",
+                  "r": "zaban aasan ho sakti hai, dawa zyada qatai nahin.",
+                  "en": "The wording can be simpler without making the claim more definite."
+                }
+              ],
+              "mistakes": [
+                {
+                  "wrong": "سادہ زبان کا مطلب ہے کہ نتیجہ قطعی ہو گیا۔",
+                  "right": "سادہ زبان وضاحت کرتی ہے؛ وہ شواہد کو مضبوط نہیں کرتی۔",
+                  "why": "Editing for accessibility must not increase the strength of the evidence."
+                }
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "استاد",
+                "t": "مسودہ تخصصی اصطلاحات سے بھرا ہوا ہے۔",
+                "r": "musawadda takhassusi istilahat se bhara hua hai.",
+                "en": "The draft is full of specialist terms."
+              },
+              {
+                "sp": "طالب علم",
+                "t": "عوامی بیان میں ہر اصطلاح کی مختصر وضاحت دیں۔",
+                "r": "awami bayan mein har istilah ki mukhtasar wazahat dein.",
+                "en": "Give a brief explanation of each term in a public statement."
+              },
+              {
+                "sp": "استاد",
+                "t": "زبان آسان ہو سکتی ہے، دعویٰ زیادہ قطعی نہیں۔",
+                "r": "zaban aasan ho sakti hai, dawa zyada qatai nahin.",
+                "en": "The wording can be simpler without making the claim more definite."
+              },
+              {
+                "sp": "طالب علم",
+                "t": "عوامی بیان میں ہر اصطلاح کی مختصر وضاحت دیں۔",
+                "r": "awami bayan mein har istilah ki mukhtasar wazahat dein.",
+                "en": "Give a brief explanation of each term in a public statement."
+              }
+            ],
+            "practice": [
+              {
+                "type": "multiple_choice",
+                "q": "Practice 1: [multiple choice] Edit an expert statement for register — Choose the meaning of مسودہ (musawadda) in this lesson.",
+                "answer": "draft",
+                "skill_target": "Urdu: right-to-left Nastaliq reading, احترام کے صیغے آپ/تم, postpositions, gender and honorific agreement, clause linking, and source-aware formal prose",
+                "options": [
+                  "draft",
+                  "concision",
+                  "accuracy",
+                  "readers"
+                ]
+              },
+              {
+                "type": "fill_in_the_blank",
+                "q": "Practice 2: [fill in the blank] Edit an expert statement for register — Type the Urdu expression meaning “concision”.",
+                "answer": "اختصار",
+                "skill_target": "Urdu: right-to-left Nastaliq reading, احترام کے صیغے آپ/تم, postpositions, gender and honorific agreement, clause linking, and source-aware formal prose"
+              },
+              {
+                "type": "translation",
+                "q": "Practice 3: [translation] Edit an expert statement for register — Interpret the Nastaliq script in context: مسودہ تخصصی اصطلاحات سے بھرا ہوا ہے۔ (musawadda takhassusi istilahat se bhara hua hai.).",
+                "answer": "The draft is full of specialist terms.",
+                "skill_target": "Urdu: right-to-left Nastaliq reading, احترام کے صیغے آپ/تم, postpositions, gender and honorific agreement, clause linking, and source-aware formal prose"
+              },
+              {
+                "type": "reverse_translation",
+                "q": "Practice 4: [reverse translation] Edit an expert statement for register — Write in Nastaliq script: Give a brief explanation of each term in a public statement..",
+                "answer": "عوامی بیان میں ہر اصطلاح کی مختصر وضاحت دیں۔",
+                "skill_target": "Urdu: right-to-left Nastaliq reading, احترام کے صیغے آپ/تم, postpositions, gender and honorific agreement, clause linking, and source-aware formal prose"
+              },
+              {
+                "type": "matching",
+                "q": "Practice 5: [matching] Edit an expert statement for register — Match درستگی to its lesson meaning.",
+                "answer": "accuracy",
+                "skill_target": "Urdu: right-to-left Nastaliq reading, احترام کے صیغے آپ/تم, postpositions, gender and honorific agreement, clause linking, and source-aware formal prose",
+                "options": [
+                  "accuracy",
+                  "draft",
+                  "concision"
+                ]
+              },
+              {
+                "type": "reorder",
+                "q": "Practice 6: [reorder] Edit an expert statement for register — Reconstruct the lesson model in coherent Urdu: The wording can be simpler without making the claim more definite..",
+                "answer": "زبان آسان ہو سکتی ہے، دعویٰ زیادہ قطعی نہیں۔",
+                "skill_target": "Urdu: right-to-left Nastaliq reading, احترام کے صیغے آپ/تم, postpositions, gender and honorific agreement, clause linking, and source-aware formal prose"
+              },
+              {
+                "type": "sentence_building",
+                "q": "Practice 7: [sentence building] Edit an expert statement for register — Build the sentence with the lesson pattern (اصل دعویٰ برقرار رکھیں؛ اصطلاح کی وضاحت کریں؛ یقین کی سطح نہ بڑھائیں): The draft is full of specialist terms..",
+                "answer": "مسودہ تخصصی اصطلاحات سے بھرا ہوا ہے۔",
+                "skill_target": "Urdu: right-to-left Nastaliq reading, احترام کے صیغے آپ/تم, postpositions, gender and honorific agreement, clause linking, and source-aware formal prose"
+              },
+              {
+                "type": "word_selection",
+                "q": "Practice 8: [word selection] Edit an expert statement for register — Select the Urdu form for “readers”.",
+                "answer": "قارئین",
+                "skill_target": "Urdu: right-to-left Nastaliq reading, احترام کے صیغے آپ/تم, postpositions, gender and honorific agreement, clause linking, and source-aware formal prose",
+                "options": [
+                  "قارئین",
+                  "اعتماد"
+                ]
+              },
+              {
+                "type": "error_correction",
+                "q": "Practice 9: [error correction] Edit an expert statement for register — Correct the model the lesson warns about: سادہ زبان کا مطلب ہے کہ نتیجہ قطعی ہو گیا۔",
+                "answer": "سادہ زبان وضاحت کرتی ہے؛ وہ شواہد کو مضبوط نہیں کرتی۔",
+                "skill_target": "Urdu: right-to-left Nastaliq reading, احترام کے صیغے آپ/تم, postpositions, gender and honorific agreement, clause linking, and source-aware formal prose"
+              },
+              {
+                "type": "dialogue_completion",
+                "q": "Practice 10: [dialogue completion] Edit an expert statement for register — Complete the exchange with the studied response to: The draft is full of specialist terms.",
+                "answer": "عوامی بیان میں ہر اصطلاح کی مختصر وضاحت دیں۔",
+                "skill_target": "Urdu: right-to-left Nastaliq reading, احترام کے صیغے آپ/تم, postpositions, gender and honorific agreement, clause linking, and source-aware formal prose"
+              },
+              {
+                "type": "reading_comprehension",
+                "q": "Practice 11: [reading comprehension] Edit an expert statement for register — Read “زبان آسان ہو سکتی ہے، دعویٰ زیادہ قطعی نہیں۔” (zaban aasan ho sakti hai, dawa zyada qatai nahin.). What does it mean?",
+                "answer": "The wording can be simpler without making the claim more definite.",
+                "skill_target": "Urdu: right-to-left Nastaliq reading, احترام کے صیغے آپ/تم, postpositions, gender and honorific agreement, clause linking, and source-aware formal prose"
+              },
+              {
+                "type": "paragraph_comprehension",
+                "q": "Practice 12: [paragraph comprehension] Edit an expert statement for register — Read the lesson dialogue as a whole and give its key move: Give a brief explanation of each term in a public statement.",
+                "answer": "عوامی بیان میں ہر اصطلاح کی مختصر وضاحت دیں۔",
+                "skill_target": "Urdu: right-to-left Nastaliq reading, احترام کے صیغے آپ/تم, postpositions, gender and honorific agreement, clause linking, and source-aware formal prose"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "Which meaning best fits مسودہ?",
+                "options": [
+                  "draft",
+                  "concision",
+                  "accuracy",
+                  "readers"
+                ],
+                "answer": 0,
+                "why": "مسودہ (musawadda) means draft in this lesson."
+              },
+              {
+                "q": "Which meaning best fits اختصار?",
+                "options": [
+                  "concision",
+                  "draft",
+                  "accuracy",
+                  "readers"
+                ],
+                "answer": 0,
+                "why": "اختصار (ikhtisar) means concision in this lesson."
+              },
+              {
+                "q": "Which meaning best fits درستگی?",
+                "options": [
+                  "accuracy",
+                  "draft",
+                  "concision",
+                  "readers"
+                ],
+                "answer": 0,
+                "why": "درستگی (durustagi) means accuracy in this lesson."
+              },
+              {
+                "q": "Which meaning best fits قارئین?",
+                "options": [
+                  "readers",
+                  "draft",
+                  "concision",
+                  "accuracy"
+                ],
+                "answer": 0,
+                "why": "قارئین (qari'in) means readers in this lesson."
+              },
+              {
+                "q": "Which meaning best fits اعتماد?",
+                "options": [
+                  "confidence",
+                  "draft",
+                  "concision",
+                  "accuracy"
+                ],
+                "answer": 0,
+                "why": "اعتماد (aitemaad) means confidence in this lesson."
+              }
+            ],
+            "flashcards": "auto:vocab",
+            "worksheet": {
+              "title": "Revise for a public audience",
+              "tasks": [
+                {
+                  "instruction": "Translate the first model into English.",
+                  "items": [
+                    "مسودہ تخصصی اصطلاحات سے بھرا ہوا ہے۔"
+                  ],
+                  "key": [
+                    "The draft is full of specialist terms."
+                  ]
+                },
+                {
+                  "instruction": "Use the lesson pattern in a new sentence.",
+                  "items": [
+                    "عوامی بیان میں ہر اصطلاح کی مختصر وضاحت دیں۔",
+                    "زبان آسان ہو سکتی ہے، دعویٰ زیادہ قطعی نہیں۔"
+                  ],
+                  "key": [
+                    "Give a brief explanation of each term in a public statement.",
+                    "The wording can be simpler without making the claim more definite."
+                  ]
+                },
+                {
+                  "instruction": "Integrated offline practice: read the first model, transform or extend it in Nastaliq script, then rehearse it as a dialogue. Self-check meaning, grammar, and register.",
+                  "items": [
+                    "مسودہ تخصصی اصطلاحات سے بھرا ہوا ہے۔",
+                    "مسودہ تخصصی اصطلاحات سے بھرا ہوا ہے۔"
+                  ],
+                  "key": [
+                    "The draft is full of specialist terms.",
+                    "The draft is full of specialist terms."
+                  ]
+                }
+              ]
+            },
+            "srs_candidates": [
+              "مسودہ",
+              "اختصار",
+              "درستگی",
+              "قارئین"
+            ],
+            "srs_policy": "Only these four high-value terms are preselected; lesson mistakes and productive patterns may enter personalized review after an actual error."
           }
         ]
       }
@@ -1912,6 +2758,95 @@
           "answer": "بارش ہو رہی ہے (Barish ho rahi hai)"
         }
       ]
+    },
+    "extra": {
+      "culture": {
+        "text": "Expert Urdu writing often signals how far a conclusion reaches. A plausible reading is not the same as a proven fact, and a pause or omission is not proof of a speaker's intention. Skilled mediation names the evidence, leaves room for uncertainty and avoids turning cultural conventions into universal rules.",
+        "source_url": "https://www.britannica.com/topic/Urdu-language"
+      },
+      "reading": {
+        "text": "بیان میں لفظ 'ممکن ہے' ایک حد قائم کرتا ہے۔ یہ دستیاب شواہد سے ایک قابلِ قبول تعبیر پیش کرتا ہے، مگر اسے آخری فیصلہ نہیں بناتا۔ مدیر نے اسی لیے اگلے جملے میں نمونے کی کمی درج کی، تاکہ قاری نتیجے کی بنیاد بھی دیکھ سکے۔",
+        "gloss": "The phrase 'it is possible' sets a limit in the statement. It offers a plausible interpretation from available evidence without making it a final verdict. The editor therefore recorded the sample's limitation in the next sentence so readers could see the basis of the conclusion.",
+        "original": true
+      },
+      "listening": {
+        "script": "ماہر: کیا خاموشی سے رضامندی ثابت ہوتی ہے؟<br>محرر: نہیں؛ یہ ایک ممکنہ اشارہ ہے، قطعی ثبوت نہیں۔<br>ماہر: پھر متن میں اس کا درجہ واضح رکھیں۔<br>محرر: میں اسے تعبیر کے طور پر لکھوں گا، حقیقت کے طور پر نہیں۔",
+        "gloss": "Expert: Does silence prove consent? Editor: No; it may be a signal, but it is not decisive proof. Expert: Then keep its status clear in the text. Editor: I will present it as an interpretation, not a fact.",
+        "voice_tag": "ur-PK"
+      },
+      "idioms": [
+        {
+          "t": "بالمقابل",
+          "literal": "by comparison",
+          "meaning": "on the other hand"
+        },
+        {
+          "t": "بغیر کسی ابہام کے",
+          "literal": "without ambiguity",
+          "meaning": "unambiguously"
+        },
+        {
+          "t": "بہر کیف",
+          "literal": "in any case",
+          "meaning": "nevertheless; in any event"
+        },
+        {
+          "t": "بالواسطہ اشارہ",
+          "literal": "an indirect indication",
+          "meaning": "an implication or hint"
+        },
+        {
+          "t": "حدِ امکان",
+          "literal": "the limit of possibility",
+          "meaning": "the extent that is feasible"
+        },
+        {
+          "t": "سیاق و سباق",
+          "literal": "context and setting",
+          "meaning": "the surrounding context"
+        },
+        {
+          "t": "دائرۂ کار",
+          "literal": "circle of work",
+          "meaning": "scope"
+        },
+        {
+          "t": "ازروئے شواہد",
+          "literal": "in view of evidence",
+          "meaning": "on the available evidence"
+        },
+        {
+          "t": "حتمی رائے",
+          "literal": "a final opinion",
+          "meaning": "a definitive judgment"
+        },
+        {
+          "t": "مفہوم متعین کرنا",
+          "literal": "to determine meaning",
+          "meaning": "to define an interpretation"
+        }
+      ],
+      "mistakes": [
+        {
+          "wrong": "خاموشی کا مطلب ضرور اتفاق ہے۔",
+          "right": "خاموشی کو اتفاق کا قطعی ثبوت نہیں سمجھنا چاہیے۔",
+          "why": "Silence alone does not prove agreement; mark the inference as uncertain."
+        },
+        {
+          "wrong": "یہ فیصلہ ہی مسئلہ کی وجہ تھا۔",
+          "right": "مسئلہ فیصلے کے نفاذ کے طریقے سے پیدا ہوا۔",
+          "why": "Use focus carefully to distinguish a decision from how it was implemented."
+        },
+        {
+          "wrong": "شواہد کے مطابق یہ حتمی طور پر درست ہے۔",
+          "right": "دستیاب شواہد کی روشنی میں یہ ایک قرینِ قیاس تعبیر ہے۔",
+          "why": "Calibrate certainty to the evidence and avoid an absolute verdict."
+        }
+      ],
+      "task": {
+        "title": "Urdu C2 reflection and production task",
+        "instructions": "Write a short response using two expressions from this level. State the audience, keep the address form consistent, and mark which claim is observed, reported or inferred. Read it aloud once and revise any phrase that overstates the evidence."
+      }
     }
   }
 }

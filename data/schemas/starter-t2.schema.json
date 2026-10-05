@@ -7,7 +7,7 @@
   "properties": {
     "code": { "type": "string", "pattern": "^[a-z]{2,3}$" },
     "script_lesson": { "type": "object", "required": ["title", "letters"], "properties": { "letters": { "type": "array", "minItems": 1 } } },
-    "words": { "type": "array", "minItems": 300, "items": { "type": "object", "required": ["t", "en"], "properties": { "t": { "type": "string", "minLength": 1 }, "r": { "type": "string" }, "ipa": { "type": "string" } } } },
+    "words": { "type": "array", "minItems": 300, "items": { "type": "object", "required": ["t", "en"], "properties": { "t": { "type": "string", "minLength": 1 }, "r": { "type": "string" }, "ipa": { "type": "string", "description": "Source-verified IPA only; never derive it from romanisation or browser TTS." }, "ipa_source": { "type": "string", "minLength": 1, "description": "A citation or URL identifying the source used to verify the IPA transcription." } }, "dependentRequired": { "ipa": ["ipa_source"] } } },
     "phrases": { "type": "array", "minItems": 50 },
     "dialogues": { "type": "array", "minItems": 10 },
     "grammar": { "type": "array", "minItems": 5 },

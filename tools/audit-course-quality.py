@@ -32,12 +32,15 @@ CEFR = ("A1", "A2", "B1", "B2", "C1", "C2")
 # evidence required for publication. Structural success cannot promote it.
 UNREVIEWED_PHASES = {"phase-3"}
 
-# Known files with generated/translated advanced fragments that can evade the
-# broad phrase scanner. Keep this explicit and reviewable rather than assuming
-# that a well-formed JSON document is instructionally sound.
-KNOWN_UNPUBLISHABLE = {
-    ("ko", "C1"): "known_synthetic_advanced_content",
-    ("ko", "C2"): "known_synthetic_advanced_content",
+# These C1/C2 lessons are an unreviewed advanced batch. Their phrase glosses
+# are repaired, but a native reviewer must still confirm the collocations and
+# naturalness before the existing noindex/publication hold is reconsidered.
+# This is deliberately separate from a content bug: generated code cannot
+# manufacture a native review record.
+REVIEW_REQUIRED_ADVANCED = {
+    (code, level)
+    for code in ("ar", "bn", "de", "it", "ja", "ko", "pt", "ru")
+    for level in ("C1", "C2")
 }
 
 PUBLIC_BUGS = {
@@ -95,9 +98,8 @@ def audit_level(course: dict, level: str) -> dict:
     issues = [name for name, pattern in PUBLIC_BUGS.items() if pattern.search(text)]
     if (course.get("phase") or "phase-1") in UNREVIEWED_PHASES:
         issues.append("unreviewed_expansion_batch")
-    explicit_block = KNOWN_UNPUBLISHABLE.get((course["code"], level))
-    if explicit_block:
-        issues.append(explicit_block)
+    if (course["code"], level) in REVIEW_REQUIRED_ADVANCED:
+        issues.append("advanced_batch_requires_native_review")
     if str(data.get("content_status") or "").upper() in {"INCOMPLETE", "RESEARCH_REQUIRED"}:
         issues.append("explicitly_unpublished")
     if data.get("indexable") is False:
@@ -108,9 +110,11 @@ def audit_level(course: dict, level: str) -> dict:
         issues.append("no_lessons")
     if tests <= 0:
         issues.append("no_level_test")
+    review_only = set(issues) == {"advanced_batch_requires_native_review"}
     return {
         "level": level,
-        "state": "PUBLIC_CONTENT_BUG" if issues else "PUBLISHABLE_EXISTING",
+        "state": ("REVIEW_REQUIRED" if review_only else
+                  "PUBLIC_CONTENT_BUG" if issues else "PUBLISHABLE_EXISTING"),
         "file": str(path.relative_to(ROOT)),
         "lessons": lessons,
         "test_items": tests,
@@ -143,13 +147,13 @@ def build() -> tuple[dict, dict]:
             else "PUBLISHABLE_PARTIAL" if publishable
             else "RESEARCH_REQUIRED"
         )
-        blocked = [row for row in checks if row["state"] == "PUBLIC_CONTENT_BUG"]
+        blocked = [row for row in checks if row["state"] != "PUBLISHABLE_EXISTING"]
         if target["complete"]:
             target["complete_reason"] = "CEFR A1–C2 pass structural and public filler checks. Editorial/source review remains required."
         elif publishable:
             target["complete_reason"] = (
                 f"Only {', '.join(publishable)} may be public; "
-                f"{', '.join(row['level'] for row in blocked) or 'remaining levels'} are blocked or unauthored."
+                f"{', '.join(row['level'] for row in blocked) or 'remaining levels'} are blocked, unauthored or require review."
             )
         else:
             target["complete_reason"] = "No CEFR level currently passes the public-content quality gate."
@@ -166,10 +170,11 @@ def build() -> tuple[dict, dict]:
     audit = {
         "schema_version": 1,
         "generated_on": "2026-09-20",
-        "method": "Conservative publication gate: blocks the unreviewed phase-3 expansion and known synthetic advanced files, then applies deterministic filler/placeholder, lesson and level-test checks. This does not substitute for native-speaker editorial review.",
+        "method": "Conservative publication gate: blocks the unreviewed phase-3 expansion and the C1/C2 advanced batch pending native review, then applies deterministic filler/placeholder, lesson and level-test checks. This does not substitute for native-speaker editorial review.",
         "states": {
             "PUBLISHABLE_EXISTING": "No deterministic blocker found; existing content only, not a claim of independent linguistic verification.",
-            "PUBLIC_CONTENT_BUG": "Must remain unpublished/noindex.",
+            "PUBLIC_CONTENT_BUG": "A deterministic public-content defect remains; keep unpublished/noindex.",
+            "REVIEW_REQUIRED": "The advanced batch has contextual glosses but awaits native review; keep unpublished/noindex.",
             "NOT_AUTHORED": "No level file exists.",
         },
         "summary": {
@@ -177,6 +182,7 @@ def build() -> tuple[dict, dict]:
             "complete": sum(r["complete"] for r in records),
             "partial": sum(r["quality_status"] == "PUBLISHABLE_PARTIAL" for r in records),
             "research_required": sum(r["quality_status"] == "RESEARCH_REQUIRED" for r in records),
+            "review_required_levels": sum(row["state"] == "REVIEW_REQUIRED" for r in records for row in r["levels"]),
             "level_states": dict(sorted(Counter(row["state"] for r in records for row in r["levels"]).items())),
         },
         "courses": records,
