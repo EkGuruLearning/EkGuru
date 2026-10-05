@@ -93,6 +93,7 @@ ULTRA_TESTS = [
     ("Phase 3 audit fields and non-fabrication safety", ["python3", "tools/test-phase3-originality-audit.py"]),
     ("world-course quiz bank bindings, topic maps and visible copy", ["python3", "tools/test-world-course-quiz-content.py"]),
     ("Spanish/French numbers lessons: complete source-matched 1–20 tables", ["python3", "tools/test-world-course-numbers-content.py"]),
+    ("Daily Hindi Day 23 future examples and task (repository consistency only)", ["python3", "tools/test-daily-hindi-future-content.py"]),
     ("published vocabulary excludes generated segmentation placeholders", ["python3", "tools/test-published-vocabulary.py"]),
     ("partial Phase 1 courses mark C1/C2 unpublished", ["python3", "tools/test-partial-course-publication.py"]),
     ("rendered Phase 2 root Indian topic parity", ["python3", "tools/audit-indian-topic-parity.py", "--check"]),
