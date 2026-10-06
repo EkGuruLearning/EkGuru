@@ -10,7 +10,8 @@
     "test:sheets": "node tools/test-apps-script.mjs",
     "test:e2e": "node tools/test-payment-e2e.mjs",
     "test:contract": "node tools/test-live-payment-contract.mjs",
-    "test:courses": "node tools/test-course-placeholders.mjs && node tools/test-course-levels.mjs && python3 tools/test-course-voice-buttons.py && python3 tools/audit-course-pronunciation.py --check && node tools/test-course-matching.mjs"
+    "test:course-reorder": "node tools/test-course-reorder.mjs",
+    "test:courses": "node tools/test-course-placeholders.mjs && node tools/test-course-levels.mjs && python3 tools/test-course-voice-buttons.py && python3 tools/audit-course-pronunciation.py --check && node tools/test-course-matching.mjs && node tools/test-course-reorder.mjs"
   },
   "devDependencies": {
     "ajv": "^8.20.0",

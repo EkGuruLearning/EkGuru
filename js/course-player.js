@@ -122,8 +122,8 @@ var CSS = [
 ".egc .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:0;border-radius:999px;background:linear-gradient(135deg,#4f32d9,#8b5cf6);color:#fff;font-weight:700;padding:12px 20px;font-size:.95rem;cursor:pointer;margin:6px;min-height:44px;transition:.2s;box-shadow:0 4px 12px rgba(79,50,217,.2);text-decoration:none}",
 ".egc .btn:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(79,50,217,.3)}.egc .btn.ghost{background:#fff;color:#10131f;border:1px solid #e4e4ef;box-shadow:none}.egc .btn.ghost:hover{border-color:#4f32d9;color:#4f32d9}.egc .btn.green{background:linear-gradient(135deg,#1d9e57,#10b981)}",
 ".egc .fb{font-weight:700;margin-top:10px;padding:8px 12px;border-radius:8px}.egc .fb.ok{color:#14713d;background:#e7f6ec}.egc .fb.no{color:#b42323;background:#fef1f1}.egc .why{font-size:.88rem;color:#4c5b70;margin-top:8px;padding:8px 12px;background:#f8f7fd;border-radius:8px}",
-".egc .ro-words{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0}.egc .ro-w{border:1px solid #4f32d9;border-radius:10px;padding:8px 12px;cursor:pointer;background:#f4f8ff;font-weight:600;transition:.2s;min-height:36px}.egc .ro-w:hover{background:#4f32d9;color:#fff;transform:translateY(-1px)}",
-".egc .ro-built{min-height:52px;border:2px dashed #9fb4d0;border-radius:12px;padding:12px;background:#fbfdff;margin:10px 0;font-size:1.05rem}",
+".egc .ro-words{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0}.egc .ro-w{appearance:none;border:1px solid #4f32d9;border-radius:10px;padding:8px 12px;cursor:pointer;background:#f4f8ff;font:inherit;font-weight:600;transition:.2s;min-height:44px}.egc .ro-w:hover:not(:disabled){background:#4f32d9;color:#fff;transform:translateY(-1px)}.egc .ro-w:focus-visible{outline:3px solid #1d9e57;outline-offset:2px}.egc .ro-w:disabled{cursor:default;opacity:.55}.egc .ro-instruction{font-size:.9rem;color:#4c5b70;margin:8px 0}",
+".egc .ro-built{min-height:52px;border:2px dashed #9fb4d0;border-radius:12px;padding:12px;background:#fbfdff;margin:10px 0;font-size:1.05rem;overflow-wrap:anywhere}",
 ".egc .match-instruction{font-size:.9rem;color:#4c5b70;margin:8px 0}.egc .match-list{display:grid;gap:10px;margin:12px 0}.egc .match-row{display:grid;grid-template-columns:minmax(120px,1fr) minmax(180px,1.35fr);gap:10px;align-items:center;padding:10px 12px;border:1px solid #e6e1fb;border-radius:12px;background:#fff}.egc .match-row label{font-weight:700;overflow-wrap:anywhere}.egc .match-row select{box-sizing:border-box;width:100%;min-height:44px;border:1px solid #d9d6e8;border-radius:10px;padding:8px 10px;background:#fff;color:#10131f;font:inherit}.egc .match-row select:focus{outline:0;border-color:#4f32d9;box-shadow:0 0 0 3px rgba(79,50,217,.12)}.egc .match-row select[aria-invalid='true'],.egc .match-row.match-incorrect select{border-color:#d64545}.egc .match-row.match-correct select{border-color:#1d9e57}.egc .match-answer{grid-column:1/-1;color:#14713d;font-size:.9rem}",
 ".egc .fc-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,180px),1fr));gap:12px}",
 ".egc .fc{border:1px solid #e6e1fb;border-radius:16px;padding:16px;min-height:100px;cursor:pointer;background:linear-gradient(180deg,#fff,#f6f4ff);text-align:center;transition:.25s;box-shadow:0 2px 8px rgba(0,0,0,.04)}.egc .fc:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(0,0,0,.08)}",
@@ -855,6 +855,111 @@ Player.prototype.buildMatching = function (host, pairs, onResult, code) {
   host.appendChild(check);
   return { instruction: instruction, list: list, rows: rows, selects: selects, check: check };
 };
+Player.prototype.buildReorder = function (host, answer, onResult, code) {
+  if (!host) return null;
+  var words = String(answer == null ? "" : answer).trim().split(/\s+/).filter(Boolean);
+  if (words.length < 2) return null;
+  var doc = document;
+  var pool = words.map(function (text, index) { return { text: text, index: index }; });
+  for (var i = pool.length - 1; i > 0; i--) {
+    var k = Math.floor(Math.random() * (i + 1));
+    var swap = pool[i]; pool[i] = pool[k]; pool[k] = swap;
+  }
+  /* Keep a non-trivial starting order when a random shuffle happens to land
+     on the answer, so a learner is still asked to reconstruct the sentence. */
+  if (pool.every(function (token, index) { return token.index === index; })) {
+    var first = pool[0]; pool[0] = pool[1]; pool[1] = first;
+  }
+  var built = [], checked = false, buttons = [];
+  var instruction = doc.createElement("p");
+  instruction.className = "ro-instruction";
+  instruction.textContent = "Select each word to add it to the end of your sentence. Select it again to remove it; you can also clear the order before checking.";
+  var builtBox = doc.createElement("div");
+  builtBox.className = "ro-built";
+  builtBox.setAttribute("role", "status");
+  builtBox.setAttribute("aria-live", "polite");
+  builtBox.setAttribute("aria-atomic", "true");
+  builtBox.setAttribute("aria-label", "Sentence order so far");
+  builtBox.setAttribute("lang", code || "und");
+  builtBox.setAttribute("dir", "auto");
+  var poolBox = doc.createElement("div");
+  poolBox.className = "ro-words";
+  poolBox.setAttribute("lang", code || "und");
+  poolBox.setAttribute("dir", "auto");
+  poolBox.setAttribute("role", "group");
+  poolBox.setAttribute("aria-label", "Available words; select each once");
+  function draw() {
+    builtBox.textContent = built.length
+      ? built.map(function (token) { return token.text; }).join(" ")
+      : "— choose words above —";
+  }
+  draw();
+  pool.forEach(function (token) {
+    var button = doc.createElement("button");
+    button.setAttribute("type", "button");
+    button.setAttribute("aria-pressed", "false");
+    button.setAttribute("aria-label", "Word " + (token.index + 1) + ": " + token.text + ". Select or remove from sentence order.");
+    button.setAttribute("lang", code || "und");
+    button.setAttribute("dir", "auto");
+    button.setAttribute("data-token-index", String(token.index));
+    button.className = "ro-w";
+    button.textContent = token.text;
+    button.addEventListener("click", function () {
+      if (checked) return;
+      var selectedAt = -1;
+      for (var selectedIndex = 0; selectedIndex < built.length; selectedIndex++) {
+        if (built[selectedIndex].index === token.index) { selectedAt = selectedIndex; break; }
+      }
+      if (selectedAt >= 0) {
+        built.splice(selectedAt, 1);
+        button.setAttribute("aria-pressed", "false");
+      } else {
+        built.push(token);
+        button.setAttribute("aria-pressed", "true");
+      }
+      draw();
+    });
+    buttons.push(button);
+    poolBox.appendChild(button);
+  });
+  var check = doc.createElement("button");
+  check.setAttribute("type", "button");
+  check.className = "btn";
+  check.textContent = "Check order";
+  check.addEventListener("click", function () {
+    if (checked) return;
+    if (built.length !== words.length) {
+      if (onResult) onResult(null, "Choose every word once before checking.", "");
+      return;
+    }
+    checked = true;
+    buttons.forEach(function (button) { button.disabled = true; });
+    check.disabled = true;
+    clear.disabled = true;
+    var correct = norm(built.map(function (token) { return token.text; }).join(" ")) === norm(answer);
+    if (onResult) onResult(correct, correct ? "Correct order." : "That order is not correct.", String(answer));
+  });
+  var clear = doc.createElement("button");
+  clear.setAttribute("type", "button");
+  clear.className = "btn ghost";
+  clear.textContent = "Clear order";
+  clear.addEventListener("click", function () {
+    if (checked) return;
+    built = [];
+    buttons.forEach(function (button) {
+      button.disabled = false;
+      button.setAttribute("aria-pressed", "false");
+    });
+    draw();
+    if (onResult) onResult(null, "", "");
+  });
+  host.appendChild(instruction);
+  host.appendChild(builtBox);
+  host.appendChild(poolBox);
+  host.appendChild(check);
+  host.appendChild(clear);
+  return { instruction: instruction, builtBox: builtBox, pool: poolBox, buttons: buttons, check: check, clear: clear };
+};
 Player.prototype.buildPractice = function (box, items, code, level, vocab) {
   var self = this;
   items.forEach(function (it, idx) {
@@ -911,24 +1016,19 @@ Player.prototype.buildPractice = function (box, items, code, level, vocab) {
         ol.appendChild(b);
       });
       body.appendChild(ol);
-    } else if (hasType(PRACTICE_REORDER, it.type)) {
-      var words = String(it.answer || "").split(/\s+/).filter(Boolean);
-      var pool = words.slice();
-      for (var i = pool.length - 1; i > 0; i--) { var k = Math.floor(Math.random() * (i + 1)); var t = pool[i]; pool[i] = pool[k]; pool[k] = t; }
-      var built = [], builtBox = el('<div class="ro-built"></div>'), poolBox = el('<div class="ro-words"></div>');
-      function draw() { builtBox.textContent = built.join(" ") || "— tap words —"; }
-      draw();
-      pool.forEach(function (w) {
-        var c = el('<span class="ro-w">' + esc(w) + "</span>");
-        c.addEventListener("click", function () { built.push(w); c.style.display = "none"; draw(); });
-        poolBox.appendChild(c);
-      });
-      var chk = el('<button class="btn">Check</button>'), clr = el('<button class="btn ghost">Clear</button>');
-      chk.addEventListener("click", function () {
-        if (norm(built.join(" ")) === norm(it.answer)) ok(); else no();
-      });
-      clr.addEventListener("click", function () { built = []; poolBox.querySelectorAll(".ro-w").forEach(function (x) { x.style.display = ""; }); draw(); fb.textContent = ""; });
-      body.appendChild(builtBox); body.appendChild(poolBox); body.appendChild(chk); body.appendChild(clr);
+    } else if (hasType(PRACTICE_REORDER, it.type) && String(it.answer || "").trim().split(/\s+/).filter(Boolean).length > 1) {
+      fb.setAttribute("role", "status");
+      fb.setAttribute("aria-live", "polite");
+      self.buildReorder(body, it.answer, function (correct, message, answerKey) {
+        if (correct === null) {
+          fb.className = "fb";
+          fb.textContent = message;
+        } else if (correct) {
+          ok("Correct order.");
+        } else {
+          no("Correct order: " + (answerKey || it.answer));
+        }
+      }, code);
     } else if (hasType(PRACTICE_SPEAK, it.type)) {
       var sb = el('<button class="btn">🔊 Listen</button>'), mb = el('<button class="btn green">I said it ✓</button>');
       sb.addEventListener("click", function () { if (!speak(it.answer, code)) { fb.className = "fb no"; fb.textContent = "Audio not available — read aloud!"; } });
@@ -1035,20 +1135,17 @@ Player.prototype.renderTest = function (d, key) {
         }
         grade(correct, false, answerKey);
       }, code);
-    } else if (it.type === "reorder") {
-      var words = String(it.answer || "").split(/\s+/).filter(Boolean);
-      var pool = words.slice();
-      for (var i = pool.length - 1; i > 0; i--) { var k = Math.floor(Math.random() * (i + 1)); var t = pool[i]; pool[i] = pool[k]; pool[k] = t; }
-      var built = [], builtBox = el('<div class="ro-built"></div>'), poolBox = el('<div class="ro-words"></div>');
-      builtBox.textContent = "— tap words —";
-      pool.forEach(function (w) {
-        var c = el('<span class="ro-w">' + esc(w) + "</span>");
-        c.addEventListener("click", function () { if (!graded) { built.push(w); c.style.display = "none"; builtBox.textContent = built.join(" "); } });
-        poolBox.appendChild(c);
-      });
-      var chk = el('<button class="btn">Check</button>');
-      chk.addEventListener("click", function () { grade(norm(built.join(" ")) === norm(it.answer)); });
-      body.appendChild(builtBox); body.appendChild(poolBox); body.appendChild(chk);
+    } else if (it.type === "reorder" && String(it.answer || "").trim().split(/\s+/).filter(Boolean).length > 1) {
+      fb.setAttribute("role", "status");
+      fb.setAttribute("aria-live", "polite");
+      self.buildReorder(body, it.answer, function (correct, message, answerKey) {
+        if (correct === null) {
+          fb.className = "fb";
+          fb.textContent = message;
+          return;
+        }
+        grade(correct, false, answerKey);
+      }, code);
     } else if (it.type === "speak") {
       var sb = el('<button class="btn">🔊 Listen</button>'), mb = el('<button class="btn green">I said it ✓</button>');
       sb.addEventListener("click", function () { speak(it.answer, code); });

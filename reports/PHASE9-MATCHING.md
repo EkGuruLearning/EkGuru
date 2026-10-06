@@ -21,6 +21,6 @@
 
 ## Still open
 
-- Broader quiz coverage for other required types (including fill-in, reorder, listening, and reading) and richer authored question data.
+- Broader quiz coverage for other required types (including fill-in, listening, and reading), richer authored question data, and any remaining interaction gaps. Sentence reordering has a separate keyboard-accessible increment in `reports/PHASE9-REORDER.md`; its linguistic review remains pending.
 - Printable worksheets (coordinate with the existing print-sheet pipeline), non-Latin-script typing coverage, and the custom deck builder.
 - Independent linguistic/native-speaker review of the reused lesson vocabulary and all course content remains pending.

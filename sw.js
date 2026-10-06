@@ -53,7 +53,10 @@
 /* v52 — ULTRA v3 device-only learning: bounded offline level snapshots, private/payment/contact routes
    never cached, runtime cache capped at 160 entries, voice/journal/theme scripts in the shell. The
    join and support pages are no longer pre-cached (forms and payment surfaces are never saved). */
-const BUILD_ID = "2026-10-01T00:00:00Z-v52-ultra-device-learning";
+/* v53 — the course-player's sentence reorder interaction now uses native,
+   keyboard-operable word buttons and a live sentence preview. Rotate the
+   shell cache so offline course learners receive the updated player too. */
+const BUILD_ID = "2026-10-06T00:00:00Z-v53-phase9-reorder-accessibility";
 const CACHE = "ekguru-" + BUILD_ID;
 
 /* Phase 6 §14 — "Save for offline" pins learner-chosen pages in a dedicated

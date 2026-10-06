@@ -81,8 +81,12 @@ the guard.
 * **Practice exercises ≥ 10 per topic** — **already satisfied in data**: 906 topics, min 24 items,
   median 24; the practice pages already render them (`js/practice-engine.js`).
 * **Quiz ≥ 20 items per level** — **already satisfied in data**: 312 levels, min 30, median 40; the
-  quiz pages already ship. The five question *types* the command lists (fill-in-the-blank, match
-  pairs, reorder, listening, reading) are not all present in the engine — that is the next quiz slice.
+  quiz pages already ship. Two focused `js/course-player.js` interaction slices now cover matching
+  pairs and sentence reordering (`reports/PHASE9-MATCHING.md` and
+  `reports/PHASE9-REORDER.md`). They do not complete the wider five-type requirement
+  (fill-in-the-blank, matching, reorder, listening, reading), and they do not audit all practice
+  engines or authored question diversity. Their coverage counts are schema/rendering measures, not
+  native-speaker or linguistic approval; broader quiz work remains open.
 * **Deck builder (custom decks, import, Anki export, share URL)** — not built.
 * **`build-practice.py`** — not built; the practice pages are generator-owned
   (`build-world-course.py`, `build-language-course.py`, `build-learn.py`) and adding a fourth writer
