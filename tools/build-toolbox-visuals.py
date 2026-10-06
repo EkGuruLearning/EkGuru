@@ -7,7 +7,7 @@ Prakash: "visuals in every language/subject matched to country theme + language
 The country plates cover the country pages. These are the subject pages: the
 thirteen tools a learner actually uses (alphabet, numbers, verbs, typing, quiz,
 flashcards, placement, pronunciation, phrasebook, date and time, planner,
-vocabulary) plus the toolbox index itself.
+vocabulary, text counter) plus the toolbox index itself.
 
 Every plate is DERIVED from the page it sits on — the same rows the learner can
 scroll to, the same counts, the same sample item. Nothing here is stock art and
@@ -291,6 +291,24 @@ def r_time_planner(h):
     }
 
 
+def r_text_counter(h):
+    """Summarise the counter's published counting rules, not a sample result."""
+    required = ("space-separated tokens", "Unicode code points", "punctuation groups", "blank-line block")
+    missing = [term for term in required if term not in h]
+    if missing:
+        raise SystemExit("text counter: missing counting-rule copy: " + ", ".join(missing))
+    return {
+        "title": "Hindi text counter", "native": "हिंदी",
+        "stat": "Five live measures for Hindi and mixed-script text",
+        "body": ("rows", [
+            ["Words", "space-separated tokens"],
+            ["Code points", "Unicode code points"],
+            ["Sentence endings", "punctuation groups"],
+            ["Paragraphs", "blank-line block"],
+        ]),
+    }
+
+
 def r_tools(h):
     """The hub lists its own tools in structured data — read that, so the plate
     can never show a tool the page does not have."""
@@ -311,7 +329,7 @@ def r_tools(h):
     if not names:
         raise SystemExit("toolbox hub: no ItemList found")
     return {
-        "title": "The toolbox", "native": "उपकरण",
+        "title": "Toolbox", "native": "उपकरण",
         "stat": "%d tools, free, and every one of them works with no network" % len(names),
         "body": ("list", [cut(n, 18) for n in names[:6]]),
     }
@@ -330,6 +348,7 @@ RECIPES = {
     "hindi-quiz": r_quiz,
     "hindi-flashcards": r_flashcards,
     "hindi-time-planner": r_time_planner,
+    "hindi-text-counter": r_text_counter,
     "tools": r_tools,
 }
 
@@ -337,7 +356,7 @@ CODE = {"hindi-alphabet": "अ", "hindi-numbers": "१", "hindi-verbs": "क",
         "hindi-date-time": "त", "hindi-phrasebook": "वा", "hindi-vocabulary": "श",
         "hindi-pronunciation": "उ", "hindi-typing": "⌨", "hindi-level-test": "स्त",
         "hindi-quiz": "?", "hindi-flashcards": "क", "hindi-time-planner": "⏱",
-        "tools": "उप"}
+        "hindi-text-counter": "अ", "tools": "उप"}
 
 
 # --------------------------------------------------------------------------

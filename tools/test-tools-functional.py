@@ -116,6 +116,31 @@ RECIPES = {
             }"""),
         ],
     },
+    "toolbox/hindi-text-counter/": {
+        "title_contains": "text counter",
+        "steps": [
+            ("mixed Hindi/English input updates words, code points and punctuation groups", """() => {
+              const i = document.getElementById('tc-input'); if (!i) return 'no #tc-input';
+              i.value = 'नमस्ते दुनिया।' + String.fromCharCode(10) + 'Hello, world!';
+              i.dispatchEvent(new Event('input', {bubbles:true}));
+              return document.getElementById('tc-words').textContent === '4' &&
+                     document.getElementById('tc-sentence-endings').textContent === '2' &&
+                     Number(document.getElementById('tc-code-points').textContent) > 0;
+            }"""),
+            ("clear empties the text and resets all five counts", """() => {
+              const c = document.getElementById('tc-clear'); if (!c) return 'no #tc-clear';
+              c.click();
+              return !document.getElementById('tc-input').value &&
+                     ['tc-words','tc-code-points','tc-no-whitespace','tc-sentence-endings','tc-paragraphs']
+                       .every(id => document.getElementById(id).textContent === '0');
+            }"""),
+            ("sample button restores the visible demonstration text", """() => {
+              document.getElementById('tc-sample').click();
+              return document.getElementById('tc-input').value.includes('नमस्ते') &&
+                     document.getElementById('tc-sentence-endings').textContent === '2';
+            }"""),
+        ],
+    },
     "toolbox/hindi-typing/": {
         "steps": [
             ("typing 'namaste' produces Devanagari in #tout", """async () => {

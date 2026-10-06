@@ -55,7 +55,7 @@ console.log(`\n1. a plate per tool (${slugs.length})\n`);
     [...missing, ...bad].join("; "));
   ok("the plates are drawn, not pasted — text stays text", raster.length === 0, raster.join("; "));
   ok("every plate is on the page it describes",
-    slugs.every((s) => existsSync(pageOf(s))) && slugs.length === 13,
+    slugs.every((s) => existsSync(pageOf(s))) && slugs.length === 14,
     `pages=${slugs.filter((s) => existsSync(pageOf(s))).length}`);
 }
 
