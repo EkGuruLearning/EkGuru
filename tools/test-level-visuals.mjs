@@ -20,7 +20,7 @@
 
    Run:  node tools/test-level-visuals.mjs
    ========================================================================== */
-import { readFileSync, existsSync } from "node:fs";
+import { readFileSync, existsSync, statSync } from "node:fs";
 import { createRequire } from "node:module";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
@@ -90,13 +90,15 @@ console.log("\n2. every figure exists, parses, and grows up\n");
     Object.keys(manifest.figures).length === langs.length * RUNGS.length,
     Object.keys(manifest.figures).length + " vs " + langs.length * RUNGS.length);
 
-  const missing = [], broken = [], wrongAge = [], wrongLevel = [];
+  const missing = [], broken = [], wrongAge = [], wrongLevel = [], oversized = [];
   const ages = {};
   for (const code of langs) {
     let previous = 0;
     for (const r of RUNGS) {
       const f = manifest.figures[code + "-" + r.id];
       if (!f || !existsSync(f.path)) { missing.push(code + "-" + r.id); continue; }
+      const size = statSync(f.path).size;
+      if (size > 20 * 1000) oversized.push(f.path + " (" + size + " bytes)");
       const svg = read(f.path);
       try {
         const doc = new JSDOM(svg, { contentType: "image/svg+xml" }).window.document;
@@ -113,6 +115,7 @@ console.log("\n2. every figure exists, parses, and grows up\n");
   ok("every figure is well-formed SVG", broken.length === 0, broken.slice(0, 4).join(", "));
   ok("every figure says the age of its level", wrongAge.length === 0, wrongAge.slice(0, 4).join(", "));
   ok("every figure is labelled with its level", wrongLevel.length === 0, wrongLevel.slice(0, 4).join(", "));
+  ok("every SVG figure is at most 20 KB", oversized.length === 0, oversized.slice(0, 4).join(", "));
   ok("the figures of a language are the same person growing older, rung by rung",
     Object.values(ages).every((a) => a.every((v, i) => i === 0 || v > a[i - 1])));
 
@@ -131,7 +134,7 @@ console.log("\n2. every figure exists, parses, and grows up\n");
 console.log("\n3. the strip is on the page, once, and it resolves\n");
 
 {
-  const bad = [];
+  const bad = [], badMedia = [], badAlts = [], oversizedGalleries = [];
   let hubs = 0, images = 0;
   for (const [code, info] of Object.entries(manifest.languages)) {
     const page = info.url;
@@ -146,12 +149,28 @@ console.log("\n3. the strip is on the page, once, and it resolves\n");
       bad.push(code + ": strip is outside <main>"); continue;
     }
     const block = html.slice(at, html.indexOf("<!-- ekguru:level-visuals:end -->"));
+    const imgTags = [...block.matchAll(/<img\b[^>]*>/g)].map((m) => m[0]);
     const srcs = [...block.matchAll(/<img src="([^"]+)"/g)].map((m) => m[1]);
     if (srcs.length !== RUNGS.length) { bad.push(code + ": " + srcs.length + " images"); continue; }
+    if (imgTags.some((tag) => !/\bloading="lazy"/.test(tag) || !/\bdecoding="async"/.test(tag))) {
+      badMedia.push(code + ": loading=lazy and decoding=async are required");
+    }
+    const renderedAlts = imgTags.map((tag) => (tag.match(/\balt="([^"]*)"/) || [])[1] || "");
+    const expectedAlts = RUNGS.map((r) => manifest.figures[code + "-" + r.id]?.alt || "");
+    if (renderedAlts.length !== expectedAlts.length ||
+        renderedAlts.some((alt, i) => !alt || alt !== expectedAlts[i])) {
+      badAlts.push(code + ": rendered alt text does not match the level/language manifest");
+    }
     const dir = path.dirname(page);
+    let payloadBytes = 0;
     for (const src of srcs) {
       images++;
-      if (!existsSync(path.normalize(path.join(dir, src)))) bad.push(code + ": " + src + " does not resolve");
+      const imagePath = path.normalize(path.join(dir, src));
+      if (!existsSync(imagePath)) bad.push(code + ": " + src + " does not resolve");
+      else payloadBytes += statSync(imagePath).size;
+    }
+    if (payloadBytes > 300 * 1000) {
+      oversizedGalleries.push(code + " (" + payloadBytes + " bytes)");
     }
     for (const r of RUNGS) {
       if (!block.includes("<b>" + r.label + "</b>")) bad.push(code + ": caption missing " + r.label);
@@ -169,6 +188,12 @@ console.log("\n3. the strip is on the page, once, and it resolves\n");
     bad.filter((b) => /images|alt texts|caption/.test(b)).length === 0, bad.slice(0, 4).join("; "));
   ok("every image path resolves from the page it is written on",
     bad.filter((b) => /resolve/.test(b)).length === 0, bad.slice(0, 4).join("; "));
+  ok("every gallery image uses native lazy loading and async decoding",
+    badMedia.length === 0, badMedia.slice(0, 4).join("; "));
+  ok("every rendered gallery alt matches its level/language manifest",
+    badAlts.length === 0, badAlts.slice(0, 4).join("; "));
+  ok("each page's eleven-figure gallery stays within 300 KB",
+    oversizedGalleries.length === 0, oversizedGalleries.slice(0, 4).join("; "));
   ok("every strip links to the page that explains the ladder",
     bad.filter((b) => /how-levels-work/.test(b)).length === 0, bad.slice(0, 4).join("; "));
   ok("32 hubs, 352 figures on the pages",

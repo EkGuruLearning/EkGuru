@@ -24,6 +24,6 @@ The reduced-motion regression check is source-level; no real-browser preference 
 ## Still open in Phase 10
 
 - Review language-specific colors, typography and any future cultural motifs with appropriate human/native-speaker or design reviewers; do not treat code-derived geometry as cultural representation.
-- Verify per-language illustrations, alt text, dark-mode behavior, lazy loading and image budgets.
+- Expand review of illustrations and alt text beyond the generated level galleries, including dark-mode behavior and a full-page image-weight audit. The 32-hub gallery's lazy loading, async decode and SVG/gallery byte limits are covered in `reports/PHASE10-VISUAL-ASSET-BUDGET.md`; this is not a full-page budget or human review.
 - Verify OG image coverage, the icon system, responsive breakpoints and print behavior against the command's gates.
 - Run a broad reduced-motion browser matrix across components and pages.
