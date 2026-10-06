@@ -89,6 +89,7 @@ ULTRA_TESTS = [
      ["python3", "tools/build-phase2-content-inventory.py", "--check"]),
     ("Phase 2 inventory fields, safety and scope", ["python3", "tools/test-phase2-content-inventory.py"]),
     ("Hindi hunger answer: source-backed restaurant phrase and Hindi next-step routing", ["python3", "tools/test-hindi-hunger-answer-content.py"]),
+    ("Phase 5 original-value Hindi numbers practice (repository consistency)", ["python3", "tools/test-phase5-ekguru-value.py"]),
     ("Phase 3 repository-backed originality audit is current (human review pending)",
      ["python3", "tools/build-phase3-originality-audit.py", "--check"]),
     ("Phase 3 audit fields and non-fabrication safety", ["python3", "tools/test-phase3-originality-audit.py"]),
