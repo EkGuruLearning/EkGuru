@@ -11,7 +11,7 @@
   var CONTROL = '.eg-voice,[data-voice-text],[data-sb-say],.spk,[data-say]';
   var LICENSES = ['CC0-1.0', 'CC-BY-4.0', 'CC-BY-SA-4.0', 'owner-recorded'];
   var synth = w.speechSynthesis || null, Utter = w.SpeechSynthesisUtterance || null;
-  var state = { last: null, audio: null, active: null, manifests: {}, rate: 0.8 };
+  var state = { last: null, audio: null, active: null, playing: false, manifests: {}, rate: 0.8 };
 
   function canon(tag) { return String(tag || '').replace(/_/g, '-'); }
   function primary(tag) { var p = canon(tag).split('-')[0].toLowerCase(); return ALIAS[p] || p; }
@@ -52,10 +52,15 @@
   }
   function label(e, text) { return 'Play ' + text + ' in ' + e.name; }
   function press(el, on) { if (el && el.setAttribute) el.setAttribute('aria-pressed', on ? 'true' : 'false'); }
+  function syncAuxControls() {
+    d.querySelectorAll('[data-eg-voice-slow],[data-eg-voice-repeat]').forEach(function (b) { b.disabled = !state.last; });
+    d.querySelectorAll('[data-eg-voice-stop]').forEach(function (b) { b.disabled = !state.playing; });
+  }
   function stop() {
     try { if (synth) synth.cancel(); } catch (_) { /* no-op */ }
     if (state.audio) { try { state.audio.pause(); } catch (_) { /* no-op */ } state.audio = null; }
-    press(state.active, false); state.active = null;
+    press(state.active, false); state.active = null; state.playing = false;
+    syncAuxControls();
   }
   function speak(text, x, rate, onend, el) {
     text = String(text == null ? '' : text).replace(/\s+/g, ' ').trim();
@@ -66,7 +71,13 @@
     stop(); state.last = { text: text, x: x, el: el || null };
     var r = rate || state.rate;
     if (el) { state.active = el; press(el, true); }
-    function done(ok) { press(el, false); if (state.active === el) state.active = null; if (!ok) say('Playback could not start or finish. Romanisation is still shown.'); if (typeof onend === 'function') { try { onend(ok); } catch (_) { /* caller error */ } } }
+    state.playing = true; syncAuxControls();
+    function done(ok) {
+      state.playing = false; press(el, false); if (state.active === el) state.active = null;
+      syncAuxControls();
+      if (!ok) say('Playback could not start or finish. Romanisation is still shown.');
+      if (typeof onend === 'function') { try { onend(ok); } catch (_) { /* caller error */ } }
+    }
     if (rec) {
       try {
         var a = new w.Audio(rec.url); a.playbackRate = r; state.audio = a;
@@ -129,7 +140,7 @@
       if (ok) { el.removeAttribute('aria-disabled'); el.removeAttribute('title'); }
       else { el.setAttribute('aria-disabled', 'true'); el.setAttribute('title', missing(x)); }
     });
-    fill();
+    fill(); syncAuxControls();
   }
   function fill() {
     d.querySelectorAll('[data-eg-voice-picker]').forEach(function (sel) {

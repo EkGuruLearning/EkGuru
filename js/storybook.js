@@ -273,35 +273,45 @@
       }
     }
 
-    /* ---- speed pill: one global TTS speed control (v142) ----
-       Fixed bottom-right, cycles 0.6× → 0.85× → 1× → 1.25×.
-       Label is English-first so foreign learners get it; title
-       carries the Hindi. Shown whenever speech works. */
+    /* ---- speed pill: one global TTS speed control ----
+       Fixed bottom-right, cycles 0.6× → 0.8× → 1×. Its accessible
+       name includes the current and next rate; a status message confirms changes. */
     if ("speechSynthesis" in window) {
       try {
         var RATES = [0.6, 0.8, 1];
         var pill = document.createElement("button");
+        var rateStatus = document.createElement("span");
         pill.type = "button";
         pill.className = "sb-speed";
-        pill.title = "Speech speed · बोलने की गति — tap to change";
-        pill.setAttribute("aria-label", "Change speech speed");
+        rateStatus.className = "sb-speed-status";
+        rateStatus.id = "sb-speed-status";
+        rateStatus.setAttribute("role", "status");
+        rateStatus.setAttribute("aria-live", "polite");
+        rateStatus.setAttribute("aria-atomic", "true");
+        pill.setAttribute("aria-describedby", rateStatus.id);
         var ri = 0;
         for (var q = 0; q < RATES.length; q++) {
           if (Math.abs(RATES[q] - ttsRate) < 0.01) ri = q;
         }
-        function paintRate() {
+        function paintRate(announce) {
           ttsRate = RATES[ri];
-          var icon = RATES[ri] < 0.6 ? "🐢" : (RATES[ri] >= 1 ? "🐇" : "🎙");
-          pill.innerHTML = icon + " <b>" + (RATES[ri] === 1 ? "1" : RATES[ri]) +
-            "×</b> <span>speed</span>";
-          if (window.EkGuruVoice) window.EkGuruVoice.setRate(RATES[ri]);
+          var next = RATES[(ri + 1) % RATES.length];
+          var shown = ttsRate === 1 ? "1" : String(ttsRate);
+          var icon = ttsRate <= 0.6 ? "🐢" : (ttsRate >= 1 ? "🐇" : "🎙");
+          pill.innerHTML = icon + " <b>" + shown + "×</b> <span>speed</span>";
+          var rateName = function (rate) { return rate === 1 ? "normal speed (1×)" : String(rate) + "× normal speed"; };
+          pill.setAttribute("aria-label", "Speech speed is " + rateName(ttsRate) + ". Activate to change to " + rateName(next) + ".");
+          pill.title = "Speech speed " + rateName(ttsRate) + ". Activate for " + rateName(next) + ".";
+          if (window.EkGuruVoice) window.EkGuruVoice.setRate(ttsRate);
+          if (announce) rateStatus.textContent = "Speech speed set to " + rateName(ttsRate) + ".";
         }
-        paintRate();
+        paintRate(false);
         pill.addEventListener("click", function (ev) {
           ev.stopPropagation();
           ri = (ri + 1) % RATES.length;
-          paintRate();
+          paintRate(true);
         });
+        document.body.appendChild(rateStatus);
         document.body.appendChild(pill);
       } catch (e) {}
     }
