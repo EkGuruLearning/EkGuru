@@ -30,6 +30,7 @@ var PRACTICE_CHOICE = ["choose", "multiple_choice", "matching", "word_selection"
 var PRACTICE_REORDER = ["reorder", "sentence_building", "listen_and_reorder", "discourse_ordering"];
 var PRACTICE_AUDIO = ["listening_comprehension", "dictation", "listen_and_choose", "listen_and_reorder", "listen_and_fill", "repeat_after_audio", "pronunciation", "shadowing"];
 var PRACTICE_SPEAK = ["speak", "repeat_after_audio", "pronunciation", "shadowing", "guided_speaking", "free_response", "roleplay"];
+var MATCH_INSTANCE = 0;
 function hasType(list, type) { return list.indexOf(type) >= 0; }
 function practiceLabel(type) { return String(type || "practice").replace(/_/g, " ").replace(/\b\w/g, function (c) { return c.toUpperCase(); }); }
 
@@ -73,7 +74,15 @@ function markTest(key, score) {
 /* Free, quota-free course-data API: versioned JSON is fetched once and cached above.
    Attempt state stays on-device, so reloads never erase question history or mastery. */
 function practiceId(code, item) {
-  var raw = code + "|" + String(item.type || "") + "|" + String(item.q || "") + "|" + String(item.answer || "");
+  var type = String(item.type || "");
+  var matchingShape = "";
+  if (type === "matching") {
+    /* The old matching prompt was rendered as one multiple-choice item. Keep
+       that saved history from being mistaken for the new pair activity. */
+    type = "matching-pairs-v2";
+    matchingShape = Array.isArray(item.pairs) ? JSON.stringify(item.pairs) : "lesson-vocabulary";
+  }
+  var raw = code + "|" + type + "|" + String(item.q || "") + "|" + String(item.answer || "") + "|" + matchingShape;
   var h = 2166136261;
   for (var i = 0; i < raw.length; i++) { h ^= raw.charCodeAt(i); h = Math.imul(h, 16777619); }
   return code + ":" + (h >>> 0).toString(36);
@@ -115,6 +124,7 @@ var CSS = [
 ".egc .fb{font-weight:700;margin-top:10px;padding:8px 12px;border-radius:8px}.egc .fb.ok{color:#14713d;background:#e7f6ec}.egc .fb.no{color:#b42323;background:#fef1f1}.egc .why{font-size:.88rem;color:#4c5b70;margin-top:8px;padding:8px 12px;background:#f8f7fd;border-radius:8px}",
 ".egc .ro-words{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0}.egc .ro-w{border:1px solid #4f32d9;border-radius:10px;padding:8px 12px;cursor:pointer;background:#f4f8ff;font-weight:600;transition:.2s;min-height:36px}.egc .ro-w:hover{background:#4f32d9;color:#fff;transform:translateY(-1px)}",
 ".egc .ro-built{min-height:52px;border:2px dashed #9fb4d0;border-radius:12px;padding:12px;background:#fbfdff;margin:10px 0;font-size:1.05rem}",
+".egc .match-instruction{font-size:.9rem;color:#4c5b70;margin:8px 0}.egc .match-list{display:grid;gap:10px;margin:12px 0}.egc .match-row{display:grid;grid-template-columns:minmax(120px,1fr) minmax(180px,1.35fr);gap:10px;align-items:center;padding:10px 12px;border:1px solid #e6e1fb;border-radius:12px;background:#fff}.egc .match-row label{font-weight:700;overflow-wrap:anywhere}.egc .match-row select{box-sizing:border-box;width:100%;min-height:44px;border:1px solid #d9d6e8;border-radius:10px;padding:8px 10px;background:#fff;color:#10131f;font:inherit}.egc .match-row select:focus{outline:0;border-color:#4f32d9;box-shadow:0 0 0 3px rgba(79,50,217,.12)}.egc .match-row select[aria-invalid='true'],.egc .match-row.match-incorrect select{border-color:#d64545}.egc .match-row.match-correct select{border-color:#1d9e57}.egc .match-answer{grid-column:1/-1;color:#14713d;font-size:.9rem}",
 ".egc .fc-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,180px),1fr));gap:12px}",
 ".egc .fc{border:1px solid #e6e1fb;border-radius:16px;padding:16px;min-height:100px;cursor:pointer;background:linear-gradient(180deg,#fff,#f6f4ff);text-align:center;transition:.25s;box-shadow:0 2px 8px rgba(0,0,0,.04)}.egc .fc:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(0,0,0,.08)}",
 ".egc .fc .front{font-weight:800;font-size:1.1rem;color:#4f32d9}.egc .fc .back{display:none}.egc .fc.flip .front{display:none}.egc .fc.flip .back{display:block}",
@@ -124,6 +134,7 @@ var CSS = [
 ".egc .count{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,140px),1fr));gap:10px}.egc .rules{background:linear-gradient(135deg,#f6f4ff,#fff);border:1px solid #e6e1fb;border-radius:12px;padding:14px 16px;margin-top:14px}",
 "@media(max-width:900px){.egc .grid{grid-template-columns:repeat(auto-fill,minmax(min(100%,240px),1fr))}}",
 "@media(max-width:640px){.egc{padding:12px}.egc .grid{grid-template-columns:1fr}.egc .alpha{grid-template-columns:repeat(auto-fill,minmax(100px,1fr))}.egc .fc-grid{grid-template-columns:repeat(auto-fill,minmax(140px,1fr))}.egc .navrow{flex-direction:column}.egc .btn{width:100%}}",
+"@media(max-width:640px){.egc .match-row{grid-template-columns:1fr}}",
 "@media print{.egc .noprint{display:none!important}.egc{max-width:none!important;padding:0!important}.egc .card,.egc .q{box-shadow:none!important;border:1px solid #999!important;break-inside:avoid}}",
 "/* Age-based visual theming */",
 ".egc.level-a1{background:linear-gradient(180deg,#fefce8 0,#fff 300px)}.egc.level-a2{background:linear-gradient(180deg,#f0fdf4 0,#fff 300px)}.egc.level-a3{background:linear-gradient(180deg,#ecfdf5 0,#fff 300px)}",
@@ -717,7 +728,7 @@ Player.prototype.renderLesson = function (d, key, lessonId) {
   window.scrollTo(0, 0);
   self.mount.querySelectorAll("[data-say]").forEach(function (b) { b.setAttribute("data-voice-lang", code); });
   if (window.EkGuruVoice) window.EkGuruVoice.mount(self.mount);
-  self.buildPractice(self.mount.querySelector("#egc-prac"), ls.practice || [], code, lv);
+  self.buildPractice(self.mount.querySelector("#egc-prac"), ls.practice || [], code, lv, ls.vocab || []);
   self.buildQuiz(self.mount.querySelector("#egc-quiz"), ls.quiz || [], code, null, lv);
   var fc = self.mount.querySelector("#egc-fc");
   var srsTerms = ls.srs_candidates || [];
@@ -736,12 +747,125 @@ Player.prototype.renderLesson = function (d, key, lessonId) {
 Player.prototype.checkText = function (input, answer) {
   return norm(input) === norm(answer);
 };
-Player.prototype.buildPractice = function (box, items, code, level) {
+Player.prototype.matchingPairs = function (item, vocab) {
+  var source;
+  if (item && Array.isArray(item.pairs)) {
+    source = item.pairs;
+  } else {
+    source = (Array.isArray(vocab) ? vocab : []).map(function (v) {
+      return { left: v && v.t, right: v && v.en };
+    });
+  }
+  var result = [], leftSeen = Object.create(null), rightSeen = Object.create(null);
+  source.forEach(function (pair) {
+    if (result.length >= 6 || !pair || typeof pair !== "object") return;
+    var left = pair.left != null ? pair.left : (pair.term != null ? pair.term : pair.t);
+    var right = pair.right != null ? pair.right : (pair.meaning != null ? pair.meaning : pair.en);
+    left = String(left == null ? "" : left).trim();
+    right = String(right == null ? "" : right).trim();
+    var leftKey = norm(left), rightKey = norm(right);
+    /* Duplicate glosses make a pair ambiguous: keep the first authored row
+       and let legacy items with too few distinct pairs use their old format. */
+    if (!leftKey || !rightKey || leftSeen[leftKey] || rightSeen[rightKey]) return;
+    leftSeen[leftKey] = true;
+    rightSeen[rightKey] = true;
+    result.push({ left: left, right: right });
+  });
+  return result;
+};
+Player.prototype.buildMatching = function (host, pairs, onResult, code) {
+  if (!host || !Array.isArray(pairs) || pairs.length < 2) return null;
+  var doc = document, instance = ++MATCH_INSTANCE;
+  var choices = pairs.map(function (pair, index) { return { index: index, text: pair.right }; });
+  for (var i = choices.length - 1; i > 0; i--) {
+    var k = Math.floor(Math.random() * (i + 1));
+    var swap = choices[i]; choices[i] = choices[k]; choices[k] = swap;
+  }
+  var instruction = doc.createElement("p");
+  instruction.className = "match-instruction";
+  instruction.textContent = "Choose a meaning for each word below. Each meaning is used once.";
+  var list = doc.createElement("div");
+  list.className = "match-list";
+  list.setAttribute("role", "group");
+  list.setAttribute("aria-label", "Vocabulary matching exercise");
+  var rows = [], selects = [];
+  pairs.forEach(function (pair, index) {
+    var row = doc.createElement("div");
+    row.className = "match-row";
+    var id = "egc-match-" + instance + "-" + index;
+    var label = doc.createElement("label");
+    label.setAttribute("for", id);
+    label.setAttribute("lang", code || "und");
+    label.setAttribute("dir", "auto");
+    label.textContent = pair.left;
+    var select = doc.createElement("select");
+    select.setAttribute("id", id);
+    select.setAttribute("aria-label", "Meaning for " + pair.left);
+    var placeholder = doc.createElement("option");
+    placeholder.value = "";
+    placeholder.textContent = "Choose a meaning…";
+    select.appendChild(placeholder);
+    choices.forEach(function (choice) {
+      var option = doc.createElement("option");
+      option.value = String(choice.index);
+      option.textContent = choice.text;
+      select.appendChild(option);
+    });
+    row.appendChild(label);
+    row.appendChild(select);
+    list.appendChild(row);
+    rows.push(row);
+    selects.push(select);
+  });
+  var check = doc.createElement("button");
+  check.setAttribute("type", "button");
+  check.className = "btn";
+  check.textContent = "Check matches";
+  var checked = false;
+  check.addEventListener("click", function () {
+    if (checked) return;
+    var complete = selects.every(function (select) { return select.value !== ""; });
+    if (!complete) {
+      if (onResult) onResult(null, "Choose a meaning for every word before checking.", "");
+      return;
+    }
+    checked = true;
+    var correct = true;
+    selects.forEach(function (select, index) {
+      var rowCorrect = select.value === String(index);
+      if (!rowCorrect) correct = false;
+      select.setAttribute("aria-invalid", rowCorrect ? "false" : "true");
+      select.disabled = true;
+      rows[index].classList.add(rowCorrect ? "match-correct" : "match-incorrect");
+    });
+    check.disabled = true;
+    var answerKey = pairs.map(function (pair) { return pair.left + " → " + pair.right; }).join("; ");
+    if (!correct) {
+      pairs.forEach(function (pair, index) {
+        var answer = doc.createElement("span");
+        answer.className = "match-answer";
+        answer.textContent = "Correct meaning: " + pair.right;
+        rows[index].appendChild(answer);
+      });
+    }
+    if (onResult) onResult(correct, correct ? "All pairs matched." : "Some pairs were incorrect; the correct meanings are shown below.", answerKey);
+  });
+  host.appendChild(instruction);
+  host.appendChild(list);
+  host.appendChild(check);
+  return { instruction: instruction, list: list, rows: rows, selects: selects, check: check };
+};
+Player.prototype.buildPractice = function (box, items, code, level, vocab) {
   var self = this;
   items.forEach(function (it, idx) {
+    var pairSet = it.type === "matching" ? self.matchingPairs(it, vocab || []) : [];
+    var pairMode = pairSet.length >= 2;
+    var question = pairMode && !Array.isArray(it.pairs)
+      ? "Match each vocabulary word from this lesson to its English meaning."
+      : (it.q || "");
     var prior = practiceHistory()[practiceId(code, it)];
     var historyNote = prior ? '<div class="why">Saved history: ' + prior.correct + '/' + prior.attempts + ' correct · attempts do not reset on reload</div>' : '';
-    var wrap = el('<div class="q"><span class="pill">' + esc(practiceLabel(it.type)) + '</span><br><b>' + (idx + 1) + ".</b> " + esc(it.q || "") + historyNote + '<div class="body"></div><div class="fb"></div></div>');
+    var wrap = el('<div class="q"><span class="pill">' + esc(practiceLabel(it.type)) + '</span><br><b>' + (idx + 1) + ".</b> " + esc(question) + historyNote + '<div class="body"></div><div class="fb"></div></div>');
     var body = wrap.querySelector(".body"), fb = wrap.querySelector(".fb"), recorded = false;
     function saveResult(good) { if (!recorded) { recordPractice(code, it, good, level); recorded = true; } }
     function ok(msg) { saveResult(true); fb.className = "fb ok"; fb.textContent = "✓ " + (msg || "Correct!"); }
@@ -758,6 +882,22 @@ Player.prototype.buildPractice = function (box, items, code, level) {
         skip.addEventListener("click", function () { fb.className = "fb"; fb.textContent = "Listening skipped: no matching voice. This item is not scored."; skip.disabled = true; });
         body.appendChild(skip); box.appendChild(wrap); return;
       }
+    }
+    if (pairMode) {
+      fb.setAttribute("role", "status");
+      fb.setAttribute("aria-live", "polite");
+      self.buildMatching(body, pairSet, function (correct, message) {
+        if (correct === null) {
+          fb.className = "fb";
+          fb.textContent = message;
+        } else if (correct) {
+          ok("All pairs matched.");
+        } else {
+          no(message);
+        }
+      }, code);
+      box.appendChild(wrap);
+      return;
     }
     if (hasType(PRACTICE_CHOICE, it.type)) {
       var ol = el('<div class="opts"></div>');
@@ -857,13 +997,13 @@ Player.prototype.renderTest = function (d, key) {
     var wrap = el('<div class="q"><b>Q' + (idx + 1) + ".</b> " + esc(it.q || "") + '<div class="body"></div><div class="fb"></div></div>');
     var body = wrap.querySelector(".body"), fb = wrap.querySelector(".fb");
     var graded = false;
-    function grade(good, unscored) {
+    function grade(good, unscored, expectedAnswer) {
       if (graded) return; graded = true; answered++;
       if (unscored) { fb.className = "fb"; fb.textContent = "Self-reported speaking was not heard or scored."; }
       else {
         recordPractice(code, it, good, lv);
         if (good) { score++; fb.className = "fb ok"; fb.textContent = "✓ Correct!"; }
-        else { fb.className = "fb no"; fb.textContent = "✗ Answer: " + it.answer; }
+        else { fb.className = "fb no"; fb.textContent = "✗ Answer: " + (expectedAnswer == null ? it.answer : expectedAnswer); }
       }
       scoreBox.textContent = "Score: " + score + " / " + scorable;
       if (answered >= items.length) {
@@ -883,6 +1023,18 @@ Player.prototype.renderTest = function (d, key) {
         });
         body.appendChild(b);
       });
+    } else if (it.type === "matching" && self.matchingPairs(it, []).length >= 2) {
+      var pairSet = self.matchingPairs(it, []);
+      fb.setAttribute("role", "status");
+      fb.setAttribute("aria-live", "polite");
+      self.buildMatching(body, pairSet, function (correct, message, answerKey) {
+        if (correct === null) {
+          fb.className = "fb";
+          fb.textContent = message;
+          return;
+        }
+        grade(correct, false, answerKey);
+      }, code);
     } else if (it.type === "reorder") {
       var words = String(it.answer || "").split(/\s+/).filter(Boolean);
       var pool = words.slice();
