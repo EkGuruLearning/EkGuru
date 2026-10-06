@@ -27,6 +27,8 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 os.chdir(ROOT)
 BASE = "https://ekguru.shop"
 MARK = "<!-- ekguru:storybook -->"
+TOPIC_VOICE_MARKER = "<!-- ekguru:topic-voice-controls:v1 -->"
+TOPIC_HUB_VOICE_MARKER = "<!-- ekguru:topic-hub-voice-controls:v2 -->"
 TOPIC_BUILDER_VERSION = "phase2-topic-depth-1"
 with open(__file__, "rb") as _source_file:
     TOPIC_BUILDER_SOURCE_FINGERPRINT = hashlib.sha256(_source_file.read()).hexdigest()[:16]
@@ -390,18 +392,122 @@ def practice_section(cfg, tp):
     return "\n".join(parts)
 
 
+_TOPIC_SCRIPT_BLOCKS = {
+    "bn": r"\u0980-\u09FF", "gu": r"\u0A80-\u0AFF",
+    "kn": r"\u0C80-\u0CFF", "ml": r"\u0D00-\u0D7F",
+    "mr": r"\u0900-\u097F", "pa": r"\u0A00-\u0A7F",
+    "ta": r"\u0B80-\u0BFF", "te": r"\u0C00-\u0C7F",
+    "ur": r"\u0600-\u06FF\u0750-\u077F\u08A0-\u08FF\uFB50-\uFDFF\uFE70-\uFEFF",
+}
+_TOPIC_SCRIPT_PATTERNS = {}
+
+
+def _topic_script_pattern(code):
+    block = _TOPIC_SCRIPT_BLOCKS.get(code)
+    if not block:
+        return None
+    if code not in _TOPIC_SCRIPT_PATTERNS:
+        char = "[" + block + "]"
+        joined = char + r"+(?:[\u200c\u200d]*" + char + r"+)*(?:[\s\u00a0]+" + char + r"+(?:[\u200c\u200d]*" + char + r"+)*)*"
+        _TOPIC_SCRIPT_PATTERNS[code] = re.compile(joined)
+    return _TOPIC_SCRIPT_PATTERNS[code]
+
+
+def _topic_speaker(text, code, language_name):
+    spoken = H.escape(text)
+    quoted = H.escape(text, quote=True)
+    label = H.escape("Play %s in %s" % (text, language_name), quote=True)
+    return ('<span lang="%s" dir="auto">%s</span>'
+            '<button type="button" class="ssay" data-sb-say="%s" data-voice-lang="%s" '
+            'aria-label="%s" aria-pressed="false"><span aria-hidden="true">🔊</span></button>') % (
+                H.escape(code, quote=True), spoken, quoted, H.escape(code, quote=True), label)
+
+
+def _foreign_topic_language(text, start, end, code, topic_slug):
+    """Use explicit Hindi comparison labels; otherwise shared Devanagari stays contextual."""
+    if code != "mr":
+        return None
+    value = str(text or "")
+    before = value[max(0, start - 120):start]
+    after = value[end:end + 80]
+    labels = list(re.finditer(r"\b(Hindi|Marathi)\s*[:=]\s*", before, re.I))
+    if labels and labels[-1].group(1).casefold() == "hindi":
+        return ("hi", "Hindi")
+    if re.search(r"\bHindi\s+$", before, re.I) or re.match(r"\s*\(\s*Hindi\s*\)", after, re.I):
+        return ("hi", "Hindi")
+    if topic_slug == "marathi-vs-hindi":
+        run = value[start:end].strip()
+        if run == "हिंदी" or re.search(r"(?:/|\bagainst(?:\s+Hindi)?)\s*$", before, re.I):
+            return ("hi", "Hindi")
+        if re.match(r"\s+stands\s+Hindi-classic\b", after, re.I):
+            return ("hi", "Hindi")
+    return None
+
+
+def _speaker_controls_in_text_nodes(page, code, language_name, topic_slug=""):
+    """Wrap visible target-script prose while skipping hidden, Hindi, and button text."""
+    pattern = _topic_script_pattern(code)
+    if not pattern:
+        return page
+    chunks = re.split(r"(<[^>]+>)", page)
+    output, skipped = [], []
+    void = {"area", "base", "br", "col", "embed", "hr", "img", "input", "link", "meta", "param", "source", "track", "wbr"}
+    for chunk in chunks:
+        if chunk.startswith("<"):
+            match = re.match(r"<\s*(/?)\s*([a-zA-Z0-9]+)\b", chunk)
+            if match:
+                closing, tag = match.groups(); tag = tag.lower()
+                if closing:
+                    if skipped and skipped[-1] == tag:
+                        skipped.pop()
+                elif not skipped and tag not in void:
+                    classes = re.search(r'''\bclass\s*=\s*(["'])(.*?)\1''', chunk, re.I)
+                    class_names = set(classes.group(2).split()) if classes else set()
+                    hidden = re.search(r'''\baria-hidden\s*=\s*(["'])true\1''', chunk, re.I)
+                    lang = re.search(r'''\blang\s*=\s*(["'])(.*?)\1''', chunk, re.I)
+                    explicitly_hindi = lang and lang.group(2).lower().split("-", 1)[0] == "hi"
+                    if tag in {"script", "style", "noscript", "button"} or hidden or explicitly_hindi or (tag == "td" and "bn" in class_names):
+                        skipped.append(tag)
+            output.append(chunk)
+        elif skipped:
+            output.append(chunk)
+        else:
+            def speak(match):
+                foreign = _foreign_topic_language(chunk, match.start(), match.end(), code, topic_slug)
+                return _topic_speaker(match.group(0), *(foreign or (code, language_name)))
+            output.append(pattern.sub(speak, chunk))
+    return "".join(output)
+
+
+
+def _speaker_controls_in_body(page, code, language_name, topic_slug=""):
+    """Limit language additions to visible body content, never head metadata."""
+    body = re.search(r"(<body\b[^>]*>)([\s\S]*?)(</body\s*>)", page, re.I)
+    if not body:
+        return page
+    content = _speaker_controls_in_text_nodes(
+        body.group(2), code, language_name, topic_slug)
+    return (page[:body.start()] + body.group(1) + content
+            + body.group(3) + page[body.end():])
+
+
 def topic_page(cfg, tp, prev_tp, next_tp, live):
     d, pre = cfg["dir"], "../../"
     url = "%s/%s/" % (d, tp["slug"])
+    language_name = re.sub(r"^Learn\s+", "", cfg["title"])
     rows = []
     for ph in tp["phrases"]:
+        spoken = H.escape(ph["bn"])
+        label = H.escape("Play %s in %s" % (ph["bn"], language_name), quote=True)
         rows.append(
-            "<tr><td>%s</td><td class=\"bn\" lang=\"%s\" dir=\"auto\">%s"
-            "<button class=\"ssay\" data-sb-say=\"%s\" aria-label=\"Hear it in %s\">"
-            "\U0001F50A</button></td><td><i>%s</i></td></tr>"
-            % (H.escape(ph["en"]), cfg["code"], H.escape(ph["bn"]),
-               H.escape(ph["bn"], quote=True), H.escape(cfg["title"]),
-               H.escape(ph["say"])))
+            '<tr><td>%s</td><td class="bn" lang="%s" dir="auto">%s'
+            '<button type="button" class="ssay" data-sb-say="%s" data-voice-lang="%s" '
+            'aria-label="%s" aria-pressed="false"><span aria-hidden="true">🔊</span></button>'
+            '</td><td><i>%s</i></td></tr>'
+            % (H.escape(ph["en"]), H.escape(cfg["code"], quote=True), spoken,
+               H.escape(ph["bn"], quote=True), H.escape(cfg["code"], quote=True),
+               label, H.escape(ph["say"]))
+        )
     faqs = "".join(
         "<div class=\"faq\"><b>%s</b><p>%s</p></div>"
         % (H.escape(f["q"]), H.escape(f["a"])) for f in tp["faqs"])
@@ -478,7 +584,8 @@ def topic_page(cfg, tp, prev_tp, next_tp, live):
             + "<body>\n" + "\n".join(body) + "\n" + footer(pre)
             + MARK + "\n" + '<script src="%sjs/storybook.js" defer></script>\n'
             % pre + "</body>\n</html>\n")
-    return page
+    page = _speaker_controls_in_body(page, cfg["code"], language_name, tp["slug"])
+    return page.replace("</body>", TOPIC_VOICE_MARKER + "\n</body>", 1)
 
 
 def hub_page(cfg, live, coming):
@@ -512,7 +619,8 @@ def hub_page(cfg, live, coming):
              {"@type": "ListItem", "position": i + 1, "name": t["title"],
               "url": "%s/%s/%s/" % (BASE, d, t["slug"])}
              for i, t in enumerate(live)]}]}
-    body = ["<div class=\"pw\" data-topic-hub-fingerprint=\"%s\">" % content_fingerprint(cfg),
+    body = [TOPIC_HUB_VOICE_MARKER,
+            "<div class=\"pw\" data-topic-hub-fingerprint=\"%s\">" % content_fingerprint(cfg),
             "<p class=\"crumb\"><a href=\"%s\">EkGuru</a> \u203a %s</p>"
             % (pre, H.escape(cfg["hub_title"])),
             '<div class="hero">',
@@ -546,11 +654,13 @@ def hub_page(cfg, live, coming):
             "</div>"]
     hub_desc = cfg["lede"] if cfg["title"].lower() in cfg["lede"].lower() else \
         "%s: %s" % (cfg["title"], cfg["lede"])
-    return (head(cfg["hub_title"], hub_desc, d + "/", pre,
+    page = (head(cfg["hub_title"], hub_desc, d + "/", pre,
                  json.dumps(ld, ensure_ascii=False))
             + "<body>\n" + "\n".join(body) + "\n" + footer(pre)
             + MARK + "\n" + '<script src="%sjs/storybook.js" defer></script>\n'
             % pre + "</body>\n</html>\n")
+    language_name = re.sub(r"^Learn\s+", "", cfg["title"])
+    return _speaker_controls_in_body(page, cfg["code"], language_name)
 
 
 def main():

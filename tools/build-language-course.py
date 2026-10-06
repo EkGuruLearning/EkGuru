@@ -13,9 +13,11 @@ Interactive labs reuse js/hindi-tools.js through the EKGURU_*_ACTIVE globals
 pages with localStorage checklists because the Hindi SRS/conversation engines
 have Hindi data baked in and must not show Hindi words inside another language.
 """
+import glob
 import html
 import json
 import os
+import re
 import sys
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -86,6 +88,150 @@ def E(s):
     return html.escape(str(s))
 
 
+_COURSE_VOICE_CODES = None
+COURSE_MARKER = "<!-- ekguru:course-voice-controls:v1 -->"
+_TARGET_SCRIPT_BLOCKS = {
+    "bn": r"\u0980-\u09FF", "gu": r"\u0A80-\u0AFF",
+    "kn": r"\u0C80-\u0CFF", "ml": r"\u0D00-\u0D7F",
+    "mr": r"\u0900-\u097F", "pa": r"\u0A00-\u0A7F",
+    "ta": r"\u0B80-\u0BFF", "te": r"\u0C00-\u0C7F",
+    "ur": r"\u0600-\u06FF\u0750-\u077F\u08A0-\u08FF\uFB50-\uFDFF\uFE70-\uFEFF",
+}
+_TARGET_SCRIPT_PATTERNS = {}
+
+
+def course_voice_code(language_name):
+    """Resolve speech tags from authored course metadata, not a name heuristic."""
+    global _COURSE_VOICE_CODES
+    if _COURSE_VOICE_CODES is None:
+        _COURSE_VOICE_CODES = {}
+        for path in glob.glob(os.path.join(ROOT, "tools", "lang-data", "*.json")):
+            with open(path, encoding="utf-8") as f:
+                data = json.load(f)
+            code = data.get("voice_code")
+            name = str(data.get("name") or "").strip().casefold()
+            if code and name:
+                if name in _COURSE_VOICE_CODES and _COURSE_VOICE_CODES[name] != code:
+                    raise ValueError("Ambiguous course voice code for " + name)
+                _COURSE_VOICE_CODES[name] = str(code)
+    return _COURSE_VOICE_CODES.get(str(language_name or "").strip().casefold())
+
+
+def target_script_pattern(language_name):
+    code = course_voice_code(language_name)
+    block = _TARGET_SCRIPT_BLOCKS.get(code)
+    if not block:
+        return None
+    if code not in _TARGET_SCRIPT_PATTERNS:
+        char = "[" + block + "]"
+        join = r"(?:[\u200c\u200d]*" + char + r"+)*(?:[\s\u00a0]+" + char + r"+(?:[\u200c\u200d]*" + char + r"+)*)*"
+        _TARGET_SCRIPT_PATTERNS[code] = re.compile(char + r"+" + join)
+    return _TARGET_SCRIPT_PATTERNS[code]
+
+
+def speaker_button(text, voice_code, language_name):
+    text = str(text or "").strip()
+    if not text or not voice_code:
+        return ""
+    return ('<button type="button" class="say" data-sb-say="%s" data-voice-lang="%s" '
+            'aria-label="%s" aria-pressed="false"><span aria-hidden="true">🔊</span></button>') % (
+                html.escape(text, quote=True), html.escape(voice_code, quote=True),
+                html.escape("Play %s in %s" % (text, language_name), quote=True))
+
+
+def _tagged_speaker_text(text, voice_code, language_name):
+    return ('<bdi lang="%s" dir="auto">%s</bdi>%s' % (
+        html.escape(voice_code, quote=True), E(text),
+        speaker_button(text, voice_code, language_name)))
+
+
+def explicit_foreign_voice(text, start, end, language_name):
+    """Honor an explicit Hindi label in shared Devanagari text, especially Marathi glosses."""
+    if course_voice_code(language_name) != "mr":
+        return None
+    value = str(text or "")
+    before = value[max(0, start - 120):start]
+    after = value[end:end + 80]
+    labels = list(re.finditer(r"\b(Hindi|Marathi)\s*[:=]\s*", before, re.I))
+    if labels and labels[-1].group(1).casefold() == "hindi":
+        return ("hi", "Hindi")
+    if re.search(r"\bHindi\s+$", before, re.I) or re.match(r"\s*\(\s*Hindi\s*\)", after, re.I):
+        return ("hi", "Hindi")
+    return None
+
+
+def tag_language_cells(page, code, language_name):
+    def fix(match):
+        tag = match.group(0)
+        if not re.match(r"<td\b", tag, re.I):
+            return tag
+        heading = re.search(r'''\bdata-h\s*=\s*(["'])(.*?)\1''', tag, re.I)
+        heading = html.unescape(heading.group(2)).strip().casefold() if heading else ""
+        lang = "hi" if heading == "hindi" else code if heading == str(language_name).casefold() else None
+        if not lang:
+            return tag
+        if re.search(r"\blang\s*=", tag, re.I):
+            tag = re.sub(r'''\blang\s*=\s*(["'])[^"']*\1''', 'lang="%s"' % lang, tag, count=1, flags=re.I)
+        else:
+            tag = tag[:-1] + ' lang="%s">' % lang
+        if not re.search(r"\bdir\s*=", tag, re.I):
+            tag = tag[:-1] + ' dir="auto">'
+        return tag
+    return re.sub(r"<td\b[^>]*>", fix, page, flags=re.I)
+
+
+def add_course_speaker_controls(page, code, language_name):
+    pattern = target_script_pattern(language_name)
+    if not pattern:
+        return page
+    void = {"area", "base", "br", "col", "embed", "hr", "img", "input", "link", "meta", "param", "source", "track", "wbr"}
+    chunks = re.split(r"(<[^>]*>)", page)
+    stack, output = [], []
+    for chunk in chunks:
+        if chunk.startswith("<"):
+            parsed = re.match(r"<\s*(/?)\s*([A-Za-z][\w:-]*)\b", chunk)
+            if parsed:
+                closing, tag = parsed.groups(); tag = tag.lower()
+                if closing:
+                    for i in range(len(stack) - 1, -1, -1):
+                        if stack[i][0] == tag:
+                            stack = stack[:i]
+                            break
+                elif tag not in void and not chunk.rstrip().endswith("/>"):
+                    lang_match = re.search(r'''\blang\s*=\s*(["'])(.*?)\1''', chunk, re.I)
+                    lang = html.unescape(lang_match.group(2)) if lang_match else None
+                    hidden = re.search(r'''\baria-hidden\s*=\s*(["'])true\1''', chunk, re.I)
+                    is_hindi_cell = tag == "td" and re.search(r'''\bdata-h\s*=\s*(["'])Hindi\1''', chunk, re.I)
+                    skip = tag in {"script", "style", "noscript", "button"} or bool(hidden or is_hindi_cell) or (lang or "").lower().split("-", 1)[0] == "hi"
+                    stack.append((tag, lang, skip))
+            output.append(chunk)
+            continue
+        if any(item[2] for item in stack):
+            output.append(chunk); continue
+        langs = [item[1] for item in stack if item[1]]
+        nearest = langs[-1].lower().split("-", 1)[0] if langs else ""
+        pieces, cursor = [], 0
+        for match in pattern.finditer(chunk):
+            pieces.append(chunk[cursor:match.start()])
+            foreign = explicit_foreign_voice(chunk, match.start(), match.end(), language_name)
+            if foreign:
+                marked = _tagged_speaker_text(match.group(0), *foreign)
+            elif nearest == code:
+                # Keep the authored target text visible; controls are additive.
+                marked = match.group(0) + speaker_button(match.group(0), code, language_name)
+            else:
+                marked = _tagged_speaker_text(match.group(0), code, language_name)
+            pieces.append(marked); cursor = match.end()
+        pieces.append(chunk[cursor:]); output.append("".join(pieces))
+    return "".join(output)
+
+
+def language_markup(body, language_name):
+    code = course_voice_code(language_name)
+    return add_course_speaker_controls(tag_language_cells(body, code, language_name), code, language_name) if code else body
+
+
+
 def shell(d, path, title, desc, body, depth, extra_scripts="", robots="index, follow"):  # noqa: E501
     r = "../" * depth
     canon = f"{BASE}/learn/{d['slug']}/{path}"
@@ -129,6 +275,7 @@ def shell(d, path, title, desc, body, depth, extra_scripts="", robots="index, fo
 {body}</div>
 {TRUST_FTR.format(r=r, name=E(d['name']))}
 {SCRIPTS.format(r=r, extra=extra_scripts)}
+{COURSE_MARKER}
 </body>
 </html>
 """
@@ -1553,6 +1700,7 @@ def build(slug):
         # section, and all ten link to one another (internal linking).
         if relpath in DEEPEN:
             body += "\n" + DEEPEN[relpath](d) + "\n" + _guide_links(d, relpath[:-1])
+        body = language_markup(body, d["name"])
         robots = "noindex, follow" if relpath in NOINDEX else "index, follow, max-snippet:-1, max-image-preview:large"
         page = shell(d, relpath, title, desc, body, depth, extra, robots)
         fp = os.path.join(out, relpath, "index.html")

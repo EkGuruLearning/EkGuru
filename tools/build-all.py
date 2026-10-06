@@ -11,6 +11,7 @@ deploys:
   2  world courses (every tools/course-data/*.py -> languages/<code>/…)
   3  Indian courses (9 lang-data slugs -> learn/<slug>/…)
   3a root Indian topic trees (nine /<language>/<topic>/ trees)
+  3b language-aware speaker controls for generated course and topic text
   4  phase7 registries (source of truth for speech tags, countries)
   5  phase7c registries (PRODUCTION/AVAILABLE/BETA split)
   6  phase7c pages (hub, per-language pages, home sync)
@@ -110,6 +111,8 @@ ULTRA_TESTS = [
     ("theme semantic AA contrast + motion budgets", ["node", "tools/test-theme-contrast.mjs"]),
     ("shared runtime freshness (voice.js is built from src/runtime)", ["node", "tools/build-runtime.mjs", "--check"]),
     ("voice: exact-language voices, no autoplay, honest fallback, licensed recordings, mic transcript", ["node", "tools/test-voice.mjs"]),
+    ("mounted voice controls: language, labels, pressed state and fallback (mocked runtime)", ["node", "tools/test-voice-mounted-controls.mjs"]),
+    ("Indian course/topic controls and visible target-script coverage", ["python3", "tools/test-language-course-voice-controls.py"]),
     ("device journal, SRS scheduling, streak/freeze, backup, privacy", ["node", "tools/test-retention.mjs"]),
     ("legacy migration, corrupt/future storage, quota and calendar regressions", ["node", "tools/test-learning-storage.mjs"]),
     ("offline worker: private routes, aggregate quota, rollback, concurrency", ["node", "tools/test-learning-worker.mjs"]),
@@ -142,6 +145,8 @@ def main():
         try:
             run("root Indian topic trees --check (generator fingerprints)",
                 ["python3", "tools/build-lang-topics.py", "--check"])
+            run("Indian course/topic speaker controls --check",
+                ["python3", "tools/patch-language-voice-controls.py", "--check"])
             run("experience bundle --check", ["python3", "tools/bundle-experience-css.py", "--check"])
             run("world artwork --check", ["python3", "tools/build-world-art.py", "--check"])
             run("course hub --check", ["python3", "tools/build-course-hub.py", "--check"])
@@ -235,6 +240,8 @@ def main():
     for slug in INDIAN_SLUGS:
         run("Indian course: " + slug, ["python3", "tools/build-language-course.py", slug])
     run("root Indian topic trees (nine languages)", ["python3", "tools/build-lang-topics.py"])
+    run("Indian course/topic speaker controls (preserve authored wording)",
+        ["python3", "tools/patch-language-voice-controls.py"])
     run("phase7 registries", ["python3", "tools/build-phase7-registries.py"])
     run("phase7c registries", ["python3", "tools/build-phase7c-registries.py"])
     run("phase7c pages", ["python3", "tools/build-phase7-pages.py"])
@@ -252,6 +259,8 @@ def main():
     run("course pronunciation coverage audit (source data only; may remain blocked)",
         ["python3", "tools/audit-course-pronunciation.py"])
     run("storybook injector (Hindi TTS + design)", ["python3", "tools/inject-storybook.py"])
+    run("speaker markup for injected language chapter banners",
+        ["python3", "tools/patch-language-voice-controls.py"])
     run("ads policy (which pages may load the ad script)", ["python3", "tools/inject-ads.py"])
     run("consent injector (cookie notice)", ["python3", "tools/inject-consent.py"])
     run("tutor script tags (langsync)", ["node", "tools/langsync.js"])
