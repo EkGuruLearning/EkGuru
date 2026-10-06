@@ -92,6 +92,9 @@ check("renders semantic, labelled buttons and a live sentence preview", () => {
   assert.notEqual(activity.buttons.map((button) => button.getAttribute("data-token-index")).join(","), "0,1,2,3");
   assert.equal(activity.builtBox.textContent, "— choose words above —");
 });
+check("reduced-motion preference suppresses the reorder tiles' transition and hover lift", () => {
+  assert.ok(source.includes("@media(prefers-reduced-motion:reduce){.egc .ro-w,.egc .ro-w:hover:not(:disabled){transition:none!important;transform:none!important}}"));
+});
 check("words toggle in sentence order without losing button focus, and Clear resets", () => {
   const host = new FakeElement("div");
   const activity = player.buildReorder(host, "red green blue", null, "en");

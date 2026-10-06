@@ -89,6 +89,9 @@ html[data-theme] .sb-dock-btn.sb-d-home{background:var(--eg-accent);color:var(--
   border-radius: .75rem;
   font-size: .85rem;
 }
+html[data-learning-language] .eg-appearance {
+  background-image: var(--eg-pattern, none);
+}
 .eg-settings-cur {
   display: inline-flex;
   align-items: center;

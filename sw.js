@@ -56,7 +56,10 @@
 /* v53 — the course-player's sentence reorder interaction now uses native,
    keyboard-operable word buttons and a live sentence preview. Rotate the
    shell cache so offline course learners receive the updated player too. */
-const BUILD_ID = "2026-10-06T00:00:00Z-v53-phase9-reorder-accessibility";
+/* v54 — course reorder motion is suppressed for reduced-motion users, and
+   language pages now consume their generated abstract pattern tokens. Rotate
+   the shell cache for updated shared assets. */
+const BUILD_ID = "2026-10-06T00:00:00Z-v54-phase10-themes-motion";
 const CACHE = "ekguru-" + BUILD_ID;
 
 /* Phase 6 §14 — "Save for offline" pins learner-chosen pages in a dedicated
