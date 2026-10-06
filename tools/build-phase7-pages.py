@@ -40,6 +40,9 @@ CORE_STYLE = """
 .lang-cell a.nm{color:var(--ink);text-decoration:none;display:inline-block;margin-bottom:2px}
 .lang-cell a.nm:hover{color:var(--brand)}
 .lang-cell .sub{display:block;color:var(--muted);font-size:.84rem;margin-top:3px}
+.lang-name-say{border:1px solid var(--line);background:var(--card,#fff);color:inherit;border-radius:999px;font:inherit;font-size:.82em;line-height:1;padding:3px 6px;margin:0 4px;vertical-align:middle;cursor:pointer}
+.lang-name-say:hover{border-color:var(--brand);color:var(--ink)}
+.lang-name-say:focus-visible{outline:2px solid currentColor;outline-offset:2px}
 .tag{display:inline-block;border-radius:999px;padding:3px 11px;font-size:.7rem;font-weight:800;letter-spacing:.04em;text-transform:uppercase;color:#fff;vertical-align:2px}
 .tag.on{background:#1a7f37}
 .tag.soon{background:#7f8c8d}
@@ -192,11 +195,23 @@ def languages_page():
             return loc[0]
         return l.get("speechTag") or (l["id"] + "-" + l["id"].upper())
 
+    def _voice_sub(l, suffix):
+        native = esc(l["nativeName"])
+        native_attr = native.replace('"', "&quot;")
+        tag = esc(_tag(l)).replace('"', "&quot;")
+        code = esc(l["id"]).replace('"', "&quot;")
+        label = esc("Play %s in %s" % (l["nativeName"], l["name"])).replace('"', "&quot;")
+        return (
+            '<span class="sub"><span lang="%s" dir="auto">%s</span> '
+            '<button type="button" class="ssay lang-name-say" data-say="%s" '
+            'data-say-lang="%s" data-voice-lang="%s" aria-label="%s" '
+            'aria-pressed="false"><span aria-hidden="true">🔊</span></button> · %s</span>'
+        ) % (tag, native, native_attr, tag, code, label, esc(suffix))
+
 
     prod_cards = "".join(
         '<div class="lang-cell"><span class="nm">%s <span class="tag on">Available</span></span>' % esc(l["name"]) +
-        '<span class="sub" data-say="%s" data-say-lang="%s">%s · %s script · free</span>' % (
-            esc(l["nativeName"]), esc(_tag(l)), esc(l["nativeName"]), esc(l["script"])) +
+        _voice_sub(l, "%s script · free" % l["script"]) +
         '<p><a class="btn" href="/learn/hindi/">Start learning %s</a></p></div>' % esc(l["name"])
         for l in prod)
 
@@ -204,8 +219,7 @@ def languages_page():
         '<div class="lang-cell"><span class="nm">%s <span class="tag on">Available</span>%s</span>' % (
             esc(l["name"]),
             ' <span class="tag new">\u2728 New hub</span>' if l["id"] == "bn" else "") +
-        '<span class="sub" data-say="%s" data-say-lang="%s">%s · %s script</span>' % (
-            esc(l["nativeName"]), esc(_tag(l)), esc(l["nativeName"]), esc(l["script"])) +
+        _voice_sub(l, "%s script" % l["script"]) +
         '<span class="sub">%d lessons · %d quiz questions · %d review cards — free</span>' % (
             (l.get("course") or {}).get("lessons", 0),
             (l.get("course") or {}).get("quizQuestions", 0),
@@ -222,9 +236,7 @@ def languages_page():
         '<a class="nm" href="/languages/%s/">%s <span class="tag beta">Starter · beta</span>%s</a>' % (
             esc(l["id"]), esc(l["name"]),
             (' <span class="tag beta">Course</span>' if l.get("course") else "")) +
-        '<span class="sub" data-say="%s" data-say-lang="%s">%s · %s script</span>' % (
-            esc(l["nativeName"]), esc(_tag(l)),
-            esc(l["nativeName"]), esc(l["script"])) +
+        _voice_sub(l, "%s script" % l["script"]) +
         '<span class="sub">%d words · %d phrases · %d grammar — free</span>' % (
             (l.get("starterCounts") or {}).get("vocab", 0),
             (l.get("starterCounts") or {}).get("phrase", 0),

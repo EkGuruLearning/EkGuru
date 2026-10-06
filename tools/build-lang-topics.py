@@ -423,6 +423,11 @@ def _topic_speaker(text, code, language_name):
                 H.escape(code, quote=True), spoken, quoted, H.escape(code, quote=True), label)
 
 
+def _topic_language_span(text, code):
+    return '<span lang="%s" dir="auto">%s</span>' % (
+        H.escape(code, quote=True), H.escape(text))
+
+
 def _foreign_topic_language(text, start, end, code, topic_slug):
     """Use explicit Hindi comparison labels; otherwise shared Devanagari stays contextual."""
     if code != "mr":
@@ -445,12 +450,14 @@ def _foreign_topic_language(text, start, end, code, topic_slug):
 
 
 def _speaker_controls_in_text_nodes(page, code, language_name, topic_slug=""):
-    """Wrap visible target-script prose while skipping hidden, Hindi, and button text."""
+    """Tag visible target prose and add controls only outside existing links."""
     pattern = _topic_script_pattern(code)
     if not pattern:
         return page
     chunks = re.split(r"(<[^>]+>)", page)
     output, skipped = [], []
+    language_context = []
+    anchor_depth = 0
     void = {"area", "base", "br", "col", "embed", "hr", "img", "input", "link", "meta", "param", "source", "track", "wbr"}
     for chunk in chunks:
         if chunk.startswith("<"):
@@ -458,26 +465,44 @@ def _speaker_controls_in_text_nodes(page, code, language_name, topic_slug=""):
             if match:
                 closing, tag = match.groups(); tag = tag.lower()
                 if closing:
+                    if tag == "a" and anchor_depth and not skipped:
+                        anchor_depth -= 1
                     if skipped and skipped[-1] == tag:
                         skipped.pop()
+                    for index in range(len(language_context) - 1, -1, -1):
+                        if language_context[index][0] == tag:
+                            language_context = language_context[:index]
+                            break
                 elif not skipped and tag not in void:
-                    classes = re.search(r'''\bclass\s*=\s*(["'])(.*?)\1''', chunk, re.I)
+                    classes = re.search(r"\bclass\s*=\s*(['\"])(.*?)\1", chunk, re.I)
                     class_names = set(classes.group(2).split()) if classes else set()
-                    hidden = re.search(r'''\baria-hidden\s*=\s*(["'])true\1''', chunk, re.I)
-                    lang = re.search(r'''\blang\s*=\s*(["'])(.*?)\1''', chunk, re.I)
-                    explicitly_hindi = lang and lang.group(2).lower().split("-", 1)[0] == "hi"
+                    hidden = re.search(r"\baria-hidden\s*=\s*(['\"])true\1", chunk, re.I)
+                    lang = re.search(r"\blang\s*=\s*(['\"])(.*?)\1", chunk, re.I)
+                    lang_value = lang.group(2) if lang else ""
+                    explicitly_hindi = lang and lang_value.lower().split("-", 1)[0] == "hi"
+                    if lang:
+                        language_context.append((tag, lang_value))
+                    if tag == "a":
+                        anchor_depth += 1
                     if tag in {"script", "style", "noscript", "button"} or hidden or explicitly_hindi or (tag == "td" and "bn" in class_names):
                         skipped.append(tag)
             output.append(chunk)
         elif skipped:
             output.append(chunk)
         else:
+            nearest = language_context[-1][1].lower().split("-", 1)[0] if language_context else ""
+
             def speak(match):
                 foreign = _foreign_topic_language(chunk, match.start(), match.end(), code, topic_slug)
-                return _topic_speaker(match.group(0), *(foreign or (code, language_name)))
+                route = foreign or (code, language_name)
+                if anchor_depth:
+                    # Link text is already a keyboard-operable link. Keep its
+                    # BCP-47 attribution without placing a second control inside.
+                    return match.group(0) if nearest == route[0] else _topic_language_span(match.group(0), route[0])
+                return _topic_speaker(match.group(0), *route)
+
             output.append(pattern.sub(speak, chunk))
     return "".join(output)
-
 
 
 def _speaker_controls_in_body(page, code, language_name, topic_slug=""):

@@ -102,4 +102,72 @@ for (const [category, path, expectedLang] of fixtures) {
   page.close();
 }
 
+{
+  const path = 'languages/index.html';
+  const source = read(path);
+  const languageMapMatch = read('js/voice-languages.js').match(/window\.EKGURU_VOICE_LANGUAGES=(\{[^\n]*\});/);
+  assert.ok(languageMapMatch, 'generated voice language map is present');
+  const languageMap = JSON.parse(languageMapMatch[1]);
+  const codes = [...new Set([...source.matchAll(/data-voice-lang="([^"]+)"/g)].map((m) => m[1]))];
+  const tags = codes.map((code) => languageMap[code]?.tag || code);
+  const voices = tags.map((lang, index) => ({
+    name: `Fixture ${lang}`, lang, voiceURI: `fixture-${index}`, localService: true,
+  }));
+  const page = mount(path, voices);
+  const buttons = [...page.document.querySelectorAll('button[data-say-lang]')];
+  check('global language directory: every spoken language name is a named native control outside links', () => {
+    assert.equal(buttons.length, 32);
+    for (const button of buttons) {
+      assert.equal(button.type, 'button');
+      assert.ok(button.getAttribute('aria-label')?.trim());
+      assert.equal(button.getAttribute('aria-pressed'), 'false');
+      assert.equal(button.closest('a'), null);
+    }
+  });
+  check('global language directory: each name speaks with its own marked locale', () => {
+    for (const button of buttons) {
+      const before = page.speech.length;
+      button.click();
+      assert.equal(page.speech.length, before + 1);
+      assert.equal(page.speech.at(-1).text, button.getAttribute('data-say'));
+      assert.equal(page.speech.at(-1).lang, button.getAttribute('data-say-lang'));
+      page.speech.at(-1).onend();
+    }
+  });
+  page.close();
+}
+
+{
+  const page = mount('world-languages/afghanistan/index.html', [
+    { name: 'Fixture Turkmen', lang: 'tk-TM', voiceURI: 'fixture-tk', localService: true },
+  ]);
+  const button = page.document.querySelector('button[data-lang="tk"][data-say="Türkmençe"]');
+  check('legacy data-lang controls honor their explicit language instead of falling back to Hindi', () => {
+    assert.ok(button);
+    assert.equal(button.getAttribute('aria-pressed'), 'false');
+    button.click();
+    assert.equal(page.speech.length, 1);
+    assert.equal(page.speech[0].text, 'Türkmençe');
+    assert.equal(page.speech[0].voice.lang, 'tk-TM');
+  });
+  page.close();
+}
+
+{
+  const page = mount('learn/aap-tum-tu-hindi/index.html', [
+    { name: 'Fixture Hindi', lang: 'hi-IN', voiceURI: 'fixture-hi', localService: true },
+  ]);
+  const button = page.document.querySelector('button.spk[data-sb-say]');
+  check('legacy Storybook speaker buttons receive a language-specific accessible name at mount', () => {
+    assert.ok(button);
+    assert.equal(button.type, 'button');
+    assert.equal(button.getAttribute('aria-label'), `Play ${button.getAttribute('data-sb-say')} in Hindi`);
+    assert.equal(button.getAttribute('aria-pressed'), 'false');
+    button.click();
+    assert.equal(page.speech[0].text, button.getAttribute('data-sb-say'));
+    assert.equal(page.speech[0].voice.lang, 'hi-IN');
+  });
+  page.close();
+}
+
 console.log(`PASS mounted controls ${checks}/${checks} (jsdom; mocked voices; native keyboard and assistive-technology behavior not tested)`);

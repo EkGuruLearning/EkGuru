@@ -75,6 +75,7 @@ class MarkupAudit(HTMLParser):
         self.script = re.compile("[" + SCRIPT_RANGES[code] + "]")
         self.stack: list[tuple[str, str | None, bool]] = []
         self.buttons: list[dict[str, str | None]] = []
+        self.nested_voice_controls: list[str] = []
         self.unlabelled_target_text: list[tuple[str, str]] = []
         self.visible_text: list[str] = []
 
@@ -82,6 +83,8 @@ class MarkupAudit(HTMLParser):
         values = dict(attrs)
         if tag == "button" and "data-sb-say" in values:
             self.buttons.append(values)
+            if any(parent == "a" for parent, _, _ in self.stack):
+                self.nested_voice_controls.append(values.get("data-sb-say", ""))
         if tag not in VOID:
             self.stack.append((tag, values.get("lang"), values.get("aria-hidden", "").lower() == "true"))
 
@@ -126,6 +129,8 @@ def audit_html(path: Path, code: str, allow_hindi_controls: bool = False) -> tup
     allowed = {code}
     if allow_hindi_controls:
         allowed.add("hi")
+    for spoken in parser.nested_voice_controls:
+        errors.append(f"{path}: speaker control for {spoken!r} is nested inside an anchor")
     visible = " ".join(" ".join(parser.visible_text).split())
     for button in parser.buttons:
         voice_lang = (button.get("data-voice-lang") or "").lower().split("-", 1)[0]
@@ -223,6 +228,24 @@ def run_temporary_generators(errors: list[str]) -> tuple[int, int, int]:
         errors.append("post-storybook chapter banner did not receive a Marathi control")
     if chapter_twice != chapter_after:
         errors.append("post-storybook chapter transform is not idempotent")
+
+    link_fixture = ('<html><body><p><a href="/bengali/">Learn '
+                    '<span lang="bn" dir="auto">বাংলা</span>'
+                    '<button type="button" data-sb-say="বাংলা" data-voice-lang="bn" '
+                    'aria-label="Play বাংলা in Bengali" aria-pressed="false">'
+                    '<span aria-hidden="true">🔊</span></button></a></p>'
+                    '<script>const sample = "<a><button data-sb-say=\\\"keep\\\">";</script></body></html>')
+    link_after = patcher.detach_voice_buttons_from_links(link_fixture)
+    before_text, after_text = TextContent(), TextContent()
+    before_text.feed(link_fixture); after_text.feed(link_after)
+    if before_text.text() != after_text.text():
+        errors.append("moving a speaker control out of a link changed visible authored text")
+    if '</a><button type="button" data-sb-say="বাংলা"' not in link_after:
+        errors.append("speaker control was not moved after the closing link")
+    if '<script>const sample = "<a><button data-sb-say=\\\"keep\\\">";</script>' not in link_after:
+        errors.append("link cleanup changed an inert script template")
+    if patcher.detach_voice_buttons_from_links(link_after) != link_after:
+        errors.append("link speaker cleanup is not idempotent")
 
     with tempfile.TemporaryDirectory(prefix="ekguru-voice-controls-") as tmp_name:
         temp = Path(tmp_name)

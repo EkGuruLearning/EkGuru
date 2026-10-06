@@ -117,7 +117,7 @@
     state.manifests[e.code] = keep; mount(); return keep.length;
   }
   function pageLanguage(el) {
-    var explicit = el.getAttribute('data-voice-lang') || el.getAttribute('data-voice-code') || el.getAttribute('data-say-lang') || el.getAttribute('data-saylang');
+    var explicit = el.getAttribute('data-voice-lang') || el.getAttribute('data-voice-code') || el.getAttribute('data-say-lang') || el.getAttribute('data-saylang') || el.getAttribute('data-lang');
     if (explicit) return explicit;
     var near = el.closest ? el.closest('[lang]') : null, root = d.documentElement.getAttribute('lang') || '';
     if (near && near !== d.documentElement && near.getAttribute('lang') && primary(near.getAttribute('lang')) !== primary(root)) return near.getAttribute('lang');
@@ -135,7 +135,7 @@
       if (el.classList.contains('eg-voice')) {
         el.hidden = false; el.textContent = '🔊';
         if (!el.getAttribute('aria-label')) el.setAttribute('aria-label', label(e, text));
-      } else if (!el.getAttribute('aria-label') && !el.textContent.trim()) el.setAttribute('aria-label', label(e, text));
+      } else if (!el.getAttribute('aria-label')) el.setAttribute('aria-label', label(e, text));
       el.setAttribute('aria-pressed', el.getAttribute('aria-pressed') || 'false');
       if (ok) { el.removeAttribute('aria-disabled'); el.removeAttribute('title'); }
       else { el.setAttribute('aria-disabled', 'true'); el.setAttribute('title', missing(x)); }

@@ -139,10 +139,13 @@ def speaker_button(text, voice_code, language_name):
                 html.escape("Play %s in %s" % (text, language_name), quote=True))
 
 
+def _tagged_language_text(text, voice_code):
+    return '<bdi lang="%s" dir="auto">%s</bdi>' % (
+        html.escape(voice_code, quote=True), E(text))
+
+
 def _tagged_speaker_text(text, voice_code, language_name):
-    return ('<bdi lang="%s" dir="auto">%s</bdi>%s' % (
-        html.escape(voice_code, quote=True), E(text),
-        speaker_button(text, voice_code, language_name)))
+    return _tagged_language_text(text, voice_code) + speaker_button(text, voice_code, language_name)
 
 
 def explicit_foreign_voice(text, start, end, language_name):
@@ -187,12 +190,15 @@ def add_course_speaker_controls(page, code, language_name):
     void = {"area", "base", "br", "col", "embed", "hr", "img", "input", "link", "meta", "param", "source", "track", "wbr"}
     chunks = re.split(r"(<[^>]*>)", page)
     stack, output = [], []
+    anchor_depth = 0
     for chunk in chunks:
         if chunk.startswith("<"):
             parsed = re.match(r"<\s*(/?)\s*([A-Za-z][\w:-]*)\b", chunk)
             if parsed:
                 closing, tag = parsed.groups(); tag = tag.lower()
                 if closing:
+                    if tag == "a" and anchor_depth and not any(item[2] for item in stack):
+                        anchor_depth -= 1
                     for i in range(len(stack) - 1, -1, -1):
                         if stack[i][0] == tag:
                             stack = stack[:i]
@@ -204,6 +210,8 @@ def add_course_speaker_controls(page, code, language_name):
                     is_hindi_cell = tag == "td" and re.search(r'''\bdata-h\s*=\s*(["'])Hindi\1''', chunk, re.I)
                     skip = tag in {"script", "style", "noscript", "button"} or bool(hidden or is_hindi_cell) or (lang or "").lower().split("-", 1)[0] == "hi"
                     stack.append((tag, lang, skip))
+                    if tag == "a" and not any(item[2] for item in stack):
+                        anchor_depth += 1
             output.append(chunk)
             continue
         if any(item[2] for item in stack):
@@ -214,7 +222,12 @@ def add_course_speaker_controls(page, code, language_name):
         for match in pattern.finditer(chunk):
             pieces.append(chunk[cursor:match.start()])
             foreign = explicit_foreign_voice(chunk, match.start(), match.end(), language_name)
-            if foreign:
+            route = foreign or (code, language_name)
+            if anchor_depth:
+                # The link itself is already interactive. Preserve language
+                # attribution but never nest a speaker button inside it.
+                marked = match.group(0) if nearest == route[0] else _tagged_language_text(match.group(0), route[0])
+            elif foreign:
                 marked = _tagged_speaker_text(match.group(0), *foreign)
             elif nearest == code:
                 # Keep the authored target text visible; controls are additive.

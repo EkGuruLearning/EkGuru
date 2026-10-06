@@ -112,6 +112,7 @@ ULTRA_TESTS = [
     ("shared runtime freshness (voice.js is built from src/runtime)", ["node", "tools/build-runtime.mjs", "--check"]),
     ("voice: exact-language voices, no autoplay, honest fallback, licensed recordings, mic transcript", ["node", "tools/test-voice.mjs"]),
     ("mounted voice controls: language, labels, pressed state and fallback (mocked runtime)", ["node", "tools/test-voice-mounted-controls.mjs"]),
+    ("page-wide native voice controls and no nested interactive links", ["python3", "tools/test-voice-page-coverage.py"]),
     ("voice speed/replay controls: availability, state and accessible labels", ["node", "tools/test-voice-ux.mjs"]),
     ("Indian course/topic controls and visible target-script coverage", ["python3", "tools/test-language-course-voice-controls.py"]),
     ("device journal, SRS scheduling, streak/freeze, backup, privacy", ["node", "tools/test-retention.mjs"]),

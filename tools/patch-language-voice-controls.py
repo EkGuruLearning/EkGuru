@@ -67,6 +67,29 @@ def add_marker(page: str, marker: str) -> str:
     return page + "\n" + marker + "\n"
 
 
+def detach_voice_buttons_from_links(page: str) -> str:
+    """Keep speaker buttons out of anchors while preserving their text and control."""
+    protected = re.compile(r"(<(?:script|style)\b[\s\S]*?</(?:script|style)\s*>)", re.I)
+    voice_button = re.compile(
+        r"<button\b(?=[^>]*\b(?:data-sb-say|data-voice-text|data-say|data-voice-kind)\b)[^>]*>"
+        r"[\s\S]*?</button\s*>", re.I)
+    anchor = re.compile(r"(<a\b[^>]*>)([\s\S]*?)(</a\s*>)", re.I)
+
+    def fix_anchor(match: re.Match[str]) -> str:
+        moved: list[str] = []
+
+        def take(button: re.Match[str]) -> str:
+            moved.append(button.group(0))
+            return ""
+
+        content = voice_button.sub(take, match.group(2))
+        return match.group(1) + content + match.group(3) + "".join(moved)
+
+    pieces = protected.split(page)
+    return "".join(piece if protected.fullmatch(piece) else anchor.sub(fix_anchor, piece)
+                   for piece in pieces)
+
+
 def patch_storybook_chapter(page: str, code: str, language_name: str, *, topic: bool) -> str:
     """Tag the banner injected after builders have emitted their page marker."""
     pattern = re.compile(
@@ -116,11 +139,13 @@ def update_topic_speaker_buttons(page: str, code: str, language_name: str) -> st
 def transform_course(path: Path, code: str, name: str) -> str:
     page = path.read_text(encoding="utf-8")
     if COURSE_MARKER in page:
-        return patch_storybook_chapter(page, code, name, topic=False)
+        return detach_voice_buttons_from_links(
+            patch_storybook_chapter(page, code, name, topic=False))
     page = COURSE.tag_language_cells(page, code, name)
     page = COURSE.add_course_speaker_controls(page, code, name)
     page = add_marker(page, COURSE_MARKER)
-    return patch_storybook_chapter(page, code, name, topic=False)
+    return detach_voice_buttons_from_links(
+        patch_storybook_chapter(page, code, name, topic=False))
 
 
 def expected_fingerprint(config: dict, topic: dict | None = None) -> str | None:
@@ -136,7 +161,8 @@ def transform_topic(path: Path, config: dict, topic: dict) -> str:
     if TOPIC_MARKER in page:
         if expected:
             page = update_fingerprint(page, "data-topic-fingerprint", expected)
-        return patch_storybook_chapter(page, code, language_name, topic=True)
+        return detach_voice_buttons_from_links(
+            patch_storybook_chapter(page, code, language_name, topic=True))
     page = tag_topic_phrase_cells(page, code)
     page = update_topic_speaker_buttons(page, code, language_name)
     body_transform = getattr(TOPICS, "_speaker_controls_in_body", TOPICS._speaker_controls_in_text_nodes)
@@ -144,7 +170,8 @@ def transform_topic(path: Path, config: dict, topic: dict) -> str:
     if expected:
         page = update_fingerprint(page, "data-topic-fingerprint", expected)
     page = add_marker(page, TOPIC_MARKER)
-    return patch_storybook_chapter(page, code, language_name, topic=True)
+    return detach_voice_buttons_from_links(
+        patch_storybook_chapter(page, code, language_name, topic=True))
 
 
 def transform_hub(path: Path, config: dict) -> str:
@@ -153,8 +180,8 @@ def transform_hub(path: Path, config: dict) -> str:
     if TOPIC_HUB_MARKER in page:
         if expected:
             page = update_fingerprint(page, "data-topic-hub-fingerprint", expected)
-        return patch_storybook_chapter(
-            page, config["code"], re.sub(r"^Learn\s+", "", config["title"]), topic=True)
+        return detach_voice_buttons_from_links(patch_storybook_chapter(
+            page, config["code"], re.sub(r"^Learn\s+", "", config["title"]), topic=True))
     page = page.replace(OLD_TOPIC_HUB_MARKER, "")
     language_name = re.sub(r"^Learn\s+", "", config["title"])
     body_transform = getattr(TOPICS, "_speaker_controls_in_body", TOPICS._speaker_controls_in_text_nodes)
@@ -162,8 +189,8 @@ def transform_hub(path: Path, config: dict) -> str:
     if expected:
         page = update_fingerprint(page, "data-topic-hub-fingerprint", expected)
     page = add_marker(page, TOPIC_HUB_MARKER)
-    return patch_storybook_chapter(
-        page, config["code"], re.sub(r"^Learn\s+", "", config["title"]), topic=True)
+    return detach_voice_buttons_from_links(patch_storybook_chapter(
+        page, config["code"], re.sub(r"^Learn\s+", "", config["title"]), topic=True))
 
 
 def process(path: Path, transform, check: bool) -> tuple[bool, str | None]:
