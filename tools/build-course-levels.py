@@ -60,6 +60,7 @@ import json
 import os
 import re
 import sys
+from functools import lru_cache
 import time
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -100,6 +101,11 @@ INDIAN = {"hi": "hindi", "bn": "bengali", "gu": "gujarati", "kn": "kannada",
 # course has the six. A level page takes its figure from its own rung.
 LEVEL_RUNG = {"A1": "a1", "A2": "a2", "B1": "b1", "B2": "b2", "C1": "c1", "C2": "c2"}
 NEXT_RUNG = {"A1": "a1p", "A2": "a2p", "B1": "b1p", "B2": "b2p", "C1": "c1p", "C2": ""}
+
+# The explicit code/script allowlist keeps new languages on the shared cover
+# until a matching bundled font has been added and checked.
+with open(os.path.join(ROOT, "data/og-image-coverage.json"), encoding="utf-8") as _og_coverage_file:
+    OG_IMAGE_LANGUAGES = json.load(_og_coverage_file)["languages"]
 
 CEFR_LEVELS = ["A1", "A2", "B1", "B2", "C1", "C2"]
 EXTRA_LEVELS = ["A3", "B3", "C3", "C4", "C5"]
@@ -181,6 +187,27 @@ def ipa_cell(item):
     return '<td data-h="IPA" lang="und" dir="ltr" class="lv-ipa">%s</td>' % _clean(value)
 
 
+@lru_cache(maxsize=None)
+def level_og_image(url):
+    """Return a custom OG URL only for CEFR pages covered by bundled fonts."""
+    match = re.fullmatch(r"languages/([a-z0-9-]+)/level/(a1|a2|b1|b2|c1|c2)/?", url)
+    if not match:
+        return ""
+    code, level = match.groups()
+    expected_script = OG_IMAGE_LANGUAGES.get(code)
+    if not expected_script:
+        return ""
+    theme_path = os.path.join(ROOT, "data", "themes", code + ".json")
+    try:
+        with open(theme_path, encoding="utf-8") as f:
+            script = json.load(f).get("script")
+    except (OSError, ValueError):
+        return ""
+    if script != expected_script:
+        return ""
+    return "%s/images/og/levels/%s-%s.png" % (BASE, code, level)
+
+
 def compose(up, title, desc, url, crumb, body, index=True):
     """The exact page write_page() would write, without writing it.
 
@@ -191,6 +218,21 @@ def compose(up, title, desc, url, crumb, body, index=True):
             + '    <p class="crumb">%s</p>\n' % crumb
             + body
             + foot(up))
+    image_url = level_og_image(url) if index else ""
+    if image_url:
+        image_alt = _attr(title + " course image")
+        og_cover = '<meta property="og:image" content="%s/images/og-cover.jpg">' % BASE
+        tw_cover = '<meta name="twitter:image" content="%s/images/og-cover.jpg">' % BASE
+        og_tag = ('<meta property="og:image" content="%s">\n'
+                  '<meta property="og:image:type" content="image/png">\n'
+                  '<meta property="og:image:width" content="1200">\n'
+                  '<meta property="og:image:height" content="630">\n'
+                  '<meta property="og:image:alt" content="%s">' % (image_url, image_alt))
+        tw_tag = ('<meta name="twitter:image" content="%s">\n'
+                  '<meta name="twitter:image:alt" content="%s">' % (image_url, image_alt))
+        if og_cover not in html or tw_cover not in html:
+            raise ValueError("level page head is missing its shared social image tags")
+        html = html.replace(og_cover, og_tag, 1).replace(tw_cover, tw_tag, 1)
     html = html.replace('data-ad-class="HIGH"', 'data-ad-class="INTERACTIVE_LEARNING"', 1)
     # Page-layer contract: linked CSS only — no per-page stylesheet block.
     html = re.sub(r"<style>.*?</style>\n?", "", html, count=1, flags=re.S)

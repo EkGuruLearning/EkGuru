@@ -147,6 +147,8 @@ def main():
             run("course hub --check", ["python3", "tools/build-course-hub.py", "--check"])
             run("course levels --check (the A1-C2 pages of every course)",
                 ["python3", "tools/build-course-levels.py", "--check"])
+            run("published language/level OG PNGs --check (resvg, 1200x630)",
+                ["python3", "tools/build-og-images.py", "--check"])
             run("course IPA/source coverage report --check",
                 ["python3", "tools/audit-course-pronunciation.py", "--check"])
             run("course romanisation --check (one scheme per course file)",
@@ -245,6 +247,8 @@ def main():
     run("course hub + home teaser", ["python3", "tools/build-course-hub.py"])
     run("course levels (A1-C2 pages, and the rail on every hub)",
         ["python3", "tools/build-course-levels.py"])
+    run("OG cards for published language-level pages (SVG to PNG via resvg)",
+        ["python3", "tools/build-og-images.py"])
     run("course pronunciation coverage audit (source data only; may remain blocked)",
         ["python3", "tools/audit-course-pronunciation.py"])
     run("storybook injector (Hindi TTS + design)", ["python3", "tools/inject-storybook.py"])

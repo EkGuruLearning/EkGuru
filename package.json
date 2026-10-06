@@ -14,6 +14,7 @@
     "test:courses": "node tools/test-course-placeholders.mjs && node tools/test-course-levels.mjs && python3 tools/test-course-voice-buttons.py && python3 tools/audit-course-pronunciation.py --check && node tools/test-course-matching.mjs && node tools/test-course-reorder.mjs"
   },
   "devDependencies": {
+    "@resvg/resvg-js": "^2.6.2",
     "ajv": "^8.20.0",
     "ajv-formats": "^3.0.1",
     "jsdom": "^30.1.0",

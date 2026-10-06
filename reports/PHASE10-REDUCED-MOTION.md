@@ -25,5 +25,5 @@ The reduced-motion regression check is source-level; no real-browser preference 
 
 - Review language-specific colors, typography and any future cultural motifs with appropriate human/native-speaker or design reviewers; do not treat code-derived geometry as cultural representation.
 - Expand review of illustrations and alt text beyond the generated level galleries, including dark-mode behavior and a full-page image-weight audit. The 32-hub gallery's lazy loading, async decode and SVG/gallery byte limits are covered in `reports/PHASE10-VISUAL-ASSET-BUDGET.md`; this is not a full-page budget or human review.
-- Verify OG image coverage, the icon system, responsive breakpoints and print behavior against the command's gates.
+- Continue the OG-image rollout: the first batch covers 38 of 92 published CEFR level pages across eight languages. The other 54 CEFR pages, 18 level-ladder pages and non-level pages remain outside this custom-image batch; see `reports/PHASE10-OG-LEVEL-IMAGES.md`. Full-site OG review, social-platform fetch/preview, the icon system, responsive breakpoints and print behavior remain pending.
 - Run a broad reduced-motion browser matrix across components and pages.
