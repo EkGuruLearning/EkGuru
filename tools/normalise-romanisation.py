@@ -56,6 +56,11 @@ NATIVE = re.compile(
     "\u0f00-\u0fff\u1000-\u109f\u1780-\u17ff\u3040-\u30ff\u4e00-\u9fff"
     "\uac00-\ud7af]")
 SKIP_BLOCKS = ("alphabet", "pronunciation", "counting")
+# Urdu A1 was the one outlier in its own course: it used marked transliteration,
+# while A2+ and the remaining rungs use the course's established ASCII scheme.
+# Normalize that single source file to the majority convention; keep marks in
+# the alphabet/pronunciation/counting explanations that define them.
+FORCE_ASCII = {("ur", "A1")}
 
 # The three romanisation lanes this repo writes: `r` is a romanisation by
 # contract; `say`/`rom` are the same idea in older rows; everything else is
@@ -139,7 +144,9 @@ def course_in_scope(path: str) -> tuple[bool, str]:
         return False, "no vocabulary"
     if LATIN.search(words[:400]):
         return False, "Latin-script course"
-    if not vocab_is_ascii(level):
+    stem = os.path.basename(path)[:-5]
+    code, _, rung = stem.partition("_")
+    if not vocab_is_ascii(level) and (code, rung) not in FORCE_ASCII:
         return False, "this course's romanisation already uses marks"
     return True, ""
 

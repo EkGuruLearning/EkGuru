@@ -111,11 +111,15 @@ LESSONS = [
             ("Asking and saying prices", [
                 "<b>C'est combien ?</b> and <b>Ça coûte combien ?</b> both mean \"how much is it?\". The answer is just the number with <b>euros</b>: <b>C'est dix euros</b> (it's ten euros), <b>Vingt euros</b> (twenty euros).",
             ]),
+            ("Recall check", [
+                "Cover the number table. Say 1–10 aloud, then write 11–20 from memory. Check <b>onze</b> and <b>quinze</b> for their z sound, keep the hyphens in <b>dix-sept</b> through <b>dix-neuf</b>, and remember that the final <b>-t</b> in <b>vingt</b> is silent. Finish with <b>C'est combien ?</b> and a price.",
+            ]),
         ],
         "table": (("Number", "French"), [
             ("1", "un"), ("2", "deux"), ("3", "trois"), ("4", "quatre"), ("5", "cinq"),
             ("6", "six"), ("7", "sept"), ("8", "huit"), ("9", "neuf"), ("10", "dix"),
-            ("16", "seize"), ("20", "vingt"),
+            ("11", "onze"), ("12", "douze"), ("13", "treize"), ("14", "quatorze"), ("15", "quinze"),
+            ("16", "seize"), ("17", "dix-sept"), ("18", "dix-huit"), ("19", "dix-neuf"), ("20", "vingt"),
         ]),
     },
     {

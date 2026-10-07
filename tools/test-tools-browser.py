@@ -17,7 +17,7 @@ BASE = "http://127.0.0.1:8899"
 TOOLS = [
     "toolbox/hindi-alphabet/", "toolbox/hindi-numbers/", "toolbox/hindi-phrasebook/",
     "toolbox/hindi-flashcards/", "toolbox/hindi-quiz/", "toolbox/hindi-level-test/",
-    "toolbox/hindi-typing/", "toolbox/hindi-time-planner/", "toolbox/hindi-verbs/",
+    "toolbox/hindi-typing/", "toolbox/hindi-text-counter/", "toolbox/hindi-time-planner/", "toolbox/hindi-verbs/",
     "toolbox/hindi-date-time/", "toolbox/hindi-pronunciation/", "toolbox/hindi-vocabulary/",
 ]
 LEARN = ["learn/", "learn/hindi-sentence-structure/", "learn/how-to-say-hello-in-hindi/",

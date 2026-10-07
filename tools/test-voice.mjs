@@ -48,6 +48,16 @@ const v = (lang, uri = lang, extra = {}) => ({ name: 'Fixture ' + uri, lang, voi
   t.close();
 }
 {
+  const t = device([v('ku', 'kurdish-macro'), v('kmr', 'kurmanji'), v('ps', 'pashto-macro'), v('pbu', 'northern-pashto')]);
+  ok('specific Kurdish and Northern Pashto tags retain registry values and match macro-language device aliases', () => {
+    assert.equal(t.V.tagFor('ku'), 'kmr');
+    assert.equal(t.V.tagFor('ps'), 'pbu');
+    assert.deepEqual([...t.V.voices('ku')].map((x) => x.lang).sort(), ['kmr', 'ku']);
+    assert.deepEqual([...t.V.voices('ps')].map((x) => x.lang).sort(), ['pbu', 'ps']);
+  });
+  t.close();
+}
+{
   const t = device([]);
   const rec = { text: 'नमस्ते', lang: 'hi-IN', url: '/audio/hi/namaste.mp3', kind: 'human', recorder: 'Fixture Recorder (test only)', license: 'CC-BY-4.0', source_url: 'https://example.com/test-fixture' };
   ok('a licensed same-language human recording is playable without any device voice and is attributed', () => { assert.equal(t.V.registerManifest({ lang: 'hi-IN', entries: [rec] }), 1); assert.equal(t.V.available('hi', 'नमस्ते'), true); t.btn().click(); assert.equal(t.state.audio.length, 1); assert.equal(t.state.speech.length, 0); assert.match(t.status(), /^Recorded by Fixture Recorder \(test only\) \(CC-BY-4\.0\)\./); });
@@ -67,7 +77,54 @@ const v = (lang, uri = lang, extra = {}) => ({ name: 'Fixture ' + uri, lang, voi
   Object.defineProperty(none.window.document, 'readyState', { value: 'complete' }); none.window.eval(read('js/voice-languages.js')); none.window.eval(read('js/voice.js')); none.window.eval(read('js/speech-ui.js'));
   ok('without SpeechRecognition the control says so honestly', () => assert.match(none.window.document.querySelector('[data-eg-transcript]').textContent, /not available in this browser/)); none.window.close();
 }
-ok('every course/starter language has a tag and an empty-or-licensed recording manifest', () => { const reg = JSON.parse(read('data/languages/registry.json')).languages.filter((r) => r.course || r.starter_pack); const map = new JSDOM('', { runScripts: 'outside-only' }).window; map.eval(read('js/voice-languages.js')); for (const r of reg) { assert.ok(map.EKGURU_VOICE_LANGUAGES[r.code], r.code); assert.match(map.EKGURU_VOICE_LANGUAGES[r.code].tag, /^[A-Za-z]{2,8}(-[A-Za-z0-9]{1,8})*$/); const m = JSON.parse(read(`data/audio-manifest/${r.code}.json`)); assert.ok(Array.isArray(m.entries)); } });
+const CORE_VOICE_TAGS = {
+  hi: 'hi-IN', bn: 'bn-IN', gu: 'gu-IN', mr: 'mr-IN', pa: 'pa-IN', ta: 'ta-IN', te: 'te-IN', ur: 'ur-PK',
+  ar: 'ar-SA', fr: 'fr-FR', de: 'de-DE', es: 'es-ES', it: 'it-IT', ja: 'ja-JP', ko: 'ko-KR', pt: 'pt-BR',
+  ru: 'ru-RU', zh: 'zh-CN',
+};
+ok('the 18 Phase 11 core course tags match the configured BCP-47 locale tags', () => {
+  const rows = new Map(JSON.parse(read('data/languages/registry.json')).languages.map((r) => [r.code, r]));
+  const w = new JSDOM('', { runScripts: 'outside-only' }).window;
+  w.eval(read('js/voice-languages.js'));
+  for (const [code, tag] of Object.entries(CORE_VOICE_TAGS)) {
+    assert.ok(rows.get(code)?.course || rows.get(code)?.starter_pack, `${code} is published`);
+    assert.equal(rows.get(code).speech_tag, tag, `${code} source tag`);
+    assert.equal(w.EKGURU_VOICE_LANGUAGES[code]?.tag, tag, `${code} generated tag`);
+  }
+  w.close();
+});
+ok('every course, starter-pack and language-pack code matches its registry tag and manifest', () => {
+  const rows = JSON.parse(read('data/languages/registry.json')).languages;
+  const byCode = new Map(rows.map((r) => [r.code, r]));
+  const expected = new Set(rows.filter((r) => r.course || r.starter_pack).map((r) => r.code));
+  for (const p of JSON.parse(read('data/language-packs.json')).packs) if (byCode.has(p.lang)) expected.add(p.lang);
+  const w = new JSDOM('', { runScripts: 'outside-only' }).window;
+  w.eval(read('js/voice-languages.js'));
+  const languages = w.EKGURU_VOICE_LANGUAGES;
+  for (const code of expected) {
+    const row = byCode.get(code), entry = languages[code];
+    assert.ok(entry, `${code} is in the generated map`);
+    assert.equal(entry.tag, row.speech_tag, `${code} matches its registry tag`);
+    assert.equal(entry.name, row.name, `${code} matches its registry name`);
+    assert.match(entry.tag, /^[A-Za-z]{2,8}(-[A-Za-z0-9]{1,8})*$/, `${code} tag shape`);
+    assert.equal(Intl.getCanonicalLocales(entry.tag).length, 1, `${code} parses as a BCP-47 locale`);
+    const manifest = JSON.parse(read(`data/audio-manifest/${code}.json`));
+    assert.equal(manifest.lang, row.speech_tag, `${code} manifest language tag`);
+    assert.ok(Array.isArray(manifest.entries), `${code} recording entries`);
+  }
+  let checkedAliases = 0;
+  const codeMap = JSON.parse(read('data/global/language-code-map.json')).canonical_course_codes;
+  for (const [canonical, details] of Object.entries(codeMap)) {
+    if (!languages[canonical]) continue;
+    for (const alias of details.aliases || []) {
+      if (alias.length !== 2 || alias === canonical) continue;
+      assert.deepEqual(languages[alias], languages[canonical], `${alias} uses ${canonical}'s voice tag`);
+      checkedAliases++;
+    }
+  }
+  assert.ok(checkedAliases > 0, 'legacy two-letter aliases are exercised');
+  w.close();
+});
 ok('voice.js stays within its 10KB budget and is the only speech engine in js/', () => { assert.ok(Buffer.byteLength(read('js/voice.js')) <= 10 * 1024); for (const f of readdirSync('js').filter((n) => n.endsWith('.js') && n !== 'voice.js')) { const t = read('js/' + f); assert.doesNotMatch(t, /new\s+(?:window\.)?SpeechSynthesisUtterance|speechSynthesis\.speak\s*\(|translate_tts|translate\.googleapis/, f); } });
 ok('known listening autoplay regression is absent', () => assert.doesNotMatch(read('js/practice-engine.js'), /play once on load/));
 console.log(`PASS voice ${checks}/${checks} (mocked devices; not Android/iOS/desktop voice availability evidence)`);

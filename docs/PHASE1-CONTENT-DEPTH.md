@@ -6,7 +6,29 @@ already quarantined as research-only by `tools/quarantine-language-surfaces.py`
 (noindex, `data-ad-class="RESEARCH_REQUIRED"`), so authoring them is a different
 phase — PHASE 6 (add more languages), not this one.
 
-Published (2026-10-03): `ar bn de es fr gu hi it ja ko mr pa pt ru ta te ur zh`.
+Published (2026-10-04): `ar bn de es fr gu hi it ja ko mr pa pt ru ta te ur zh`.
+
+## Current status — 2026-10-05
+
+The mechanical Phase 1 depth work is complete. `python3 tools/audit-phase1-gap.py
+--check` passes: all 18 published courses have 11/11 rungs, the required
+`extra` blocks, at least three lessons in each unit, valid level-test ranges,
+zero self-asserting mistake entries and zero English speaker labels. Urdu and
+Chinese now have the missing half-step modules, extras and third lessons. The
+advanced C1/C2 placeholder labels were replaced with contextual glosses in
+`ar bn de it ja ko pt ru zh` (864 items total); those unreviewed advanced batches
+remain held for native review where the publication audit requires it. Urdu's
+role labels and A1 romanisation are also consistent with its course conventions.
+
+Course pages, flashcard decks, learning data, copy index and generated layers
+were rebuilt. `python3 tools/build-all.py check` exits successfully. This is a
+mechanical build result, **not** native-review, source-verification, publication
+or AdSense approval: the separate audits still report 690 indexed language-gate
+failures, 90 reviewer gaps, 124 unverified source references, and source-linked
+IPA on 0/5,694 published vocabulary items. No review or verification record was
+created. Phase 2 has now started with the repository-only content inventory;
+production HTTP status and human review remain pending in
+`docs/PHASE2-CONTENT-INVENTORY.md`.
 
 ## What "done" means, mechanically
 
@@ -22,13 +44,13 @@ For a file `data/courses/<phase>/<code>_<rung>.json`:
 | rule | value | today |
 |---|---|---|
 | top-level required | `code`, `name`, `file_level`, `level` | ok |
-| `level.required` | `title`, `goals`, `units`, `test`, `extra` | **`extra` missing everywhere** |
-| `level.units` | 3–5 items | ok (count varies) |
+| `level.required` | `title`, `goals`, `units`, `test`, `extra` | all 11 rungs carry `extra` |
+| `level.units` | 3–5 items | ok |
 | `unit.required` | `id`, `title`, `lessons` | ok |
-| `unit.lessons` | **3–5 items** | **2 everywhere** |
+| `unit.lessons` | **3–5 items** | all units have at least 3 |
 | `lesson.required` | `id`, `title`, `learn`, `vocab`, `grammar`, `dialogue`, `practice`, `quiz`, `worksheet` | ok |
-| `test.items` | 10–20 | ok for the 18 published |
-| `extra.required` | `culture`, `reading`, `listening`, `idioms`, `mistakes`, `task` | — |
+| `test.items` | 10–20 | in range for every rung |
+| `extra.required` | `culture`, `reading`, `listening`, `idioms`, `mistakes`, `task` | present on all 11 rungs |
 
 Rungs (`tools/language-gate.py: RUNGS`):
 
@@ -36,10 +58,11 @@ Rungs (`tools/language-gate.py: RUNGS`):
 A1  A1+  A2  A2+  B1  B1+  B2  B2+  C1  C1+  C2      # 11
 ```
 
-Every published course carries 6 (`A1 A2 B1 B2 C1 C2`). The five legacy bridge
-files `A3` (EkGuru A2→B1 bridge) and `B3` (B2→C1 bridge) already exist as
-`INCOMPLETE` stubs and map cleanly onto `A2+` and `B2+`; `C3/C4/C5` are
-post-C2 extensions with no CEFR equivalent and stay as they are.
+At baseline every published course carried only the six CEFR files
+(`A1 A2 B1 B2 C1 C2`). All 18 now carry the five authored bridge rungs as well.
+The legacy `A3` (EkGuru A2→B1) and `B3` (B2→C1) files remain `INCOMPLETE`
+stubs, mapped to `A2+` and `B2+`; they have not been renamed or promoted.
+`C3/C4/C5` are post-C2 extensions with no CEFR equivalent and stay as they are.
 
 ## The measured gap
 
@@ -344,8 +367,28 @@ level. Their flashcards and practice lab, course/learning indexes, copy index
 and editorial metadata were refreshed. `build-all.py check` and
 `npm run test:courses` are green. The language-gate row is `FAIL
 ['no_native_review']` only; `unique_text_ratio` is 0.957 and
-`script_mismatch` is 0. The site-wide content batch tracked by Trap #9 remains
-separate and open for `ar bn de it ja ko pt ru`.
+`script_mismatch` is 0. The shared Trap #9 placeholder-gloss cleanup is now
+complete for `ar bn de it ja ko pt ru zh`; this did not change any native-review
+status.
+
+## Final Phase 1 mechanical audit — 2026-10-04
+
+Urdu and Chinese close the depth queue: the gap audit reports **18/18 courses
+at 11/11 rungs**, with no missing rung files or `extra` blocks, short units,
+out-of-range level tests, audited content defects or English speaker labels.
+Every unit has 3–5 lessons and each rung's test is in range. The final targeted
+checks also report zero Urdu romanisation repairs and no Urdu speaker labels;
+Chinese Pinyin spacing around punctuation was normalized, and both authoring
+modules are drift-free. The contextual C1/C2 placeholder-gloss repair covers 864
+items across `ar bn de it ja ko pt ru zh` and its `--check` is clean.
+
+The full `python3 tools/build-all.py check` exits 0; course-level tests pass
+37/37 and the published-vocabulary scan passes. This remains a build/content
+shape result only: the language publication gate, course-health review/source
+gaps and source-referenced pronunciation coverage remain blocked as listed at
+the top of this document. Phase 2 has started with the repository-only
+inventory; live HTTP crawling and human review remain pending. No native review
+or source verification has been represented as complete.
 
 ## Acceptance (from the command doc)
 
@@ -355,13 +398,20 @@ separate and open for `ar bn de it ja ko pt ru`.
 - voice tags on all vocabulary items
 - **no templated intros** — every page's opening paragraph differs
 
-The last two are the reason this cannot be closed by schema shape alone: the
-existing course text is templated (`"...analyse or produce the <Language> model
-with correct word order, negation, scope, and register"`), and the language gate
-already flags five languages with `unique_text_below_85` for exactly that. A
-generated file that satisfies the schema but repeats another language's
-sentences is not a PHASE 1 completion — see PART F (golden rules) and the
-"no templated intros" gate.
+These are now backed by mechanical checks for the published set: the current
+page-inventory `word_count` records 92 published ladder pages, all above 500
+words (minimum 9,800); all 18 published languages have `unique_text_ratio` at
+or above 0.905; the site originality report finds zero template-introduction
+groups; and the
+course voice test checks the rendered, correctly tagged controls against every
+published source entry. The older baseline note about five
+`unique_text_below_85` languages is no longer current: that signal now applies
+to `id` and `zsm`, outside this 18-language published set. These results do not
+replace native editorial review; all 18 T1 rows still carry `no_native_review`,
+and the broader originality report still has repeated-paragraph groups queued
+for editorial sampling. A generated file that satisfies schema shape alone is
+not a PHASE 1 completion — see PART F (golden rules) and the "no templated
+intros" gate.
 
 - **A speaker label is rendered content, not metadata.** `dialogue[].sp` is
   printed beside the line on the level page, so an English role word in a
@@ -490,14 +540,14 @@ pages (the ladder page's lesson/word/question counts move — ar went 24 → 36
 lessons) and `python3 tools/build-learning-data.py`, which rebuilds
 `data/learning/` from the course files and is checked separately.
 
-## Work order
+## Work order (completed 2026-10-04)
 
-1. One language end to end as a pilot: author `A1+`, patch the five existing
+1. Author one language end to end as a pilot: add `A1+`, patch the five CEFR
    rungs (`extra` + a third lesson per unit), then run
    `python3 tools/audit-phase1-gap.py` and `python3 tools/build-all.py check`.
-2. Repeat per language; keep each language one commit.
-3. Convert the A3/B3 bridges into real `A2+`/`B2+` rungs once their content is
-   authored, rather than shipping the stubs under a new name.
+2. Repeat for all 18 published languages; the queue is now complete.
+3. The authored `A2+`/`B2+` files are the mapped bridges. The legacy `A3`/`B3`
+   stubs remain `INCOMPLETE`; they have not been renamed or promoted.
 4. After any `data/courses/**` change, regenerate the pages that read it
    (`tools/build-course-levels.py`, then the rest of the documented order) and
    re-run the gates.

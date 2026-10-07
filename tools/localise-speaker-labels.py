@@ -31,6 +31,27 @@ ROOT = Path(__file__).resolve().parents[1]
 # Role label per language. Everyday nouns, not honorific titles: the label says
 # who is speaking, and it must read like the rest of the course's dialogues.
 LABELS: dict[str, dict[str, str]] = {
+    "ur": {
+        "Brother": "بھائی",
+        "Doctor": "ڈاکٹر",
+        "Granddaughter": "پوتی/نواسی",
+        "Grandmother": "دادی/نانی",
+        "Guest": "مہمان",
+        "Guide": "رہنما",
+        "Host": "میزبان",
+        "Learner": "سیکھنے والا",
+        "Manager": "منتظم",
+        "Newcomer": "نووارد",
+        "Patient": "مریض",
+        "Shopkeeper": "دکاندار",
+        "Sister": "بہن",
+        "Speaker A": "مقرر الف",
+        "Speaker B": "مقرر ب",
+        "Student": "طالب علم",
+        "Teacher": "استاد",
+        "Waiter": "ویٹر",
+        "You": "آپ",
+    },
     "mr": {
         "Doctor": "डॉक्टर",
         "Patient": "रुग्ण",

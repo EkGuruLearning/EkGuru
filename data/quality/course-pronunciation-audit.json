@@ -1,0 +1,908 @@
+{
+  "schema_version": 1,
+  "generated_by": "tools/audit-course-pronunciation.py",
+  "scope": "Levels published by data/courses/index.json; non-published drafts are excluded.",
+  "status": "BLOCKED",
+  "requirement": "Every published vocabulary item has source-verified IPA.",
+  "summary": {
+    "published_courses": 18,
+    "published_levels": 92,
+    "published_vocabulary_items": 5694,
+    "vocabulary_items_with_ipa": 0,
+    "vocabulary_items_with_ipa_source_reference": 0,
+    "vocabulary_ipa_coverage_percent": 0.0,
+    "vocabulary_ipa_source_reference_coverage_percent": 0.0,
+    "vocabulary_items_missing_ipa": 5694,
+    "vocabulary_items_missing_ipa_source_reference": 5694,
+    "all_target_text": {
+      "vocabulary": {
+        "items": 5694,
+        "with_ipa": 0,
+        "with_ipa_source_reference": 0
+      },
+      "grammar_examples": {
+        "items": 2484,
+        "with_ipa": 0,
+        "with_ipa_source_reference": 0
+      },
+      "dialogue": {
+        "items": 3317,
+        "with_ipa": 0,
+        "with_ipa_source_reference": 0
+      },
+      "idioms": {
+        "items": 920,
+        "with_ipa": 0,
+        "with_ipa_source_reference": 0
+      },
+      "reading": {
+        "items": 92,
+        "with_ipa": 0,
+        "with_ipa_source_reference": 0
+      },
+      "listening": {
+        "items": 92,
+        "with_ipa": 0,
+        "with_ipa_source_reference": 0
+      }
+    },
+    "languages_with_language_research_file": 17,
+    "general_language_research_source_records": 13,
+    "missing_published_source_files": []
+  },
+  "policy": {
+    "ipa": "Render only an author-supplied transcription. Never derive IPA from romanisation, a browser voice, or an unverified model.",
+    "source_evidence": "A language-level research_basis is not a citation for an individual IPA transcription.",
+    "review": "Coverage is not linguistic verification; qualified native-speaker or phonetics review remains a separate requirement."
+  },
+  "courses": [
+    {
+      "code": "ar",
+      "name": "Arabic",
+      "published_levels": [
+        "A1",
+        "A2",
+        "B1",
+        "B2"
+      ],
+      "language_research_file_present": true,
+      "language_research_source_records": 0,
+      "categories": {
+        "vocabulary": {
+          "items": 253,
+          "with_ipa": 0,
+          "with_ipa_source_reference": 0
+        },
+        "grammar_examples": {
+          "items": 108,
+          "with_ipa": 0,
+          "with_ipa_source_reference": 0
+        },
+        "dialogue": {
+          "items": 144,
+          "with_ipa": 0,
+          "with_ipa_source_reference": 0
+        },
+        "idioms": {
+          "items": 40,
+          "with_ipa": 0,
+          "with_ipa_source_reference": 0
+        },
+        "reading": {
+          "items": 4,
+          "with_ipa": 0,
+          "with_ipa_source_reference": 0
+        },
+        "listening": {
+          "items": 4,
+          "with_ipa": 0,
+          "with_ipa_source_reference": 0
+        }
+      },
+      "target_entries": 553,
+      "target_entries_with_ipa": 0
+    },
+    {
+      "code": "bn",
+      "name": "Bengali",
+      "published_levels": [
+        "A1",
+        "A2",
+        "B1",
+        "B2"
+      ],
+      "language_research_file_present": true,
+      "language_research_source_records": 0,
+      "categories": {
+        "vocabulary": {
+          "items": 252,
+          "with_ipa": 0,
+          "with_ipa_source_reference": 0
+        },
+        "grammar_examples": {
+          "items": 108,
+          "with_ipa": 0,
+          "with_ipa_source_reference": 0
+        },
+        "dialogue": {
+          "items": 144,
+          "with_ipa": 0,
+          "with_ipa_source_reference": 0
+        },
+        "idioms": {
+          "items": 40,
+          "with_ipa": 0,
+          "with_ipa_source_reference": 0
+        },
+        "reading": {
+          "items": 4,
+          "with_ipa": 0,
+          "with_ipa_source_reference": 0
+        },
+        "listening": {
+          "items": 4,
+          "with_ipa": 0,
+          "with_ipa_source_reference": 0
+        }
+      },
+      "target_entries": 552,
+      "target_entries_with_ipa": 0
+    },
+    {
+      "code": "de",
+      "name": "German",
+      "published_levels": [
+        "A1",
+        "A2",
+        "B1",
+        "B2"
+      ],
+      "language_research_file_present": true,
+      "language_research_source_records": 0,
+      "categories": {
+        "vocabulary": {
+          "items": 254,
+          "with_ipa": 0,
+          "with_ipa_source_reference": 0
+        },
+        "grammar_examples": {
+          "items": 108,
+          "with_ipa": 0,
+          "with_ipa_source_reference": 0
+        },
+        "dialogue": {
+          "items": 144,
+          "with_ipa": 0,
+          "with_ipa_source_reference": 0
+        },
+        "idioms": {
+          "items": 40,
+          "with_ipa": 0,
+          "with_ipa_source_reference": 0
+        },
+        "reading": {
+          "items": 4,
+          "with_ipa": 0,
+          "with_ipa_source_reference": 0
+        },
+        "listening": {
+          "items": 4,
+          "with_ipa": 0,
+          "with_ipa_source_reference": 0
+        }
+      },
+      "target_entries": 554,
+      "target_entries_with_ipa": 0
+    },
+    {
+      "code": "es",
+      "name": "Spanish",
+      "published_levels": [
+        "A1",
+        "A2",
+        "B1",
+        "B2",
+        "C1",
+        "C2"
+      ],
+      "language_research_file_present": true,
+      "language_research_source_records": 3,
+      "categories": {
+        "vocabulary": {
+          "items": 380,
+          "with_ipa": 0,
+          "with_ipa_source_reference": 0
+        },
+        "grammar_examples": {
+          "items": 162,
+          "with_ipa": 0,
+          "with_ipa_source_reference": 0
+        },
+        "dialogue": {
+          "items": 216,
+          "with_ipa": 0,
+          "with_ipa_source_reference": 0
+        },
+        "idioms": {
+          "items": 60,
+          "with_ipa": 0,
+          "with_ipa_source_reference": 0
+        },
+        "reading": {
+          "items": 6,
+          "with_ipa": 0,
+          "with_ipa_source_reference": 0
+        },
+        "listening": {
+          "items": 6,
+          "with_ipa": 0,
+          "with_ipa_source_reference": 0
+        }
+      },
+      "target_entries": 830,
+      "target_entries_with_ipa": 0
+    },
+    {
+      "code": "fr",
+      "name": "French",
+      "published_levels": [
+        "A1",
+        "A2",
+        "B1",
+        "B2",
+        "C1",
+        "C2"
+      ],
+      "language_research_file_present": true,
+      "language_research_source_records": 2,
+      "categories": {
+        "vocabulary": {
+          "items": 380,
+          "with_ipa": 0,
+          "with_ipa_source_reference": 0
+        },
+        "grammar_examples": {
+          "items": 162,
+          "with_ipa": 0,
+          "with_ipa_source_reference": 0
+        },
+        "dialogue": {
+          "items": 216,
+          "with_ipa": 0,
+          "with_ipa_source_reference": 0
+        },
+        "idioms": {
+          "items": 60,
+          "with_ipa": 0,
+          "with_ipa_source_reference": 0
+        },
+        "reading": {
+          "items": 6,
+          "with_ipa": 0,
+          "with_ipa_source_reference": 0
+        },
+        "listening": {
+          "items": 6,
+          "with_ipa": 0,
+          "with_ipa_source_reference": 0
+        }
+      },
+      "target_entries": 830,
+      "target_entries_with_ipa": 0
+    },
+    {
+      "code": "gu",
+      "name": "Gujarati",
+      "published_levels": [
+        "A1",
+        "A2",
+        "B1",
+        "B2",
+        "C1",
+        "C2"
+      ],
+      "language_research_file_present": true,
+      "language_research_source_records": 8,
+      "categories": {
+        "vocabulary": {
+          "items": 378,
+          "with_ipa": 0,
+          "with_ipa_source_reference": 0
+        },
+        "grammar_examples": {
+          "items": 162,
+          "with_ipa": 0,
+          "with_ipa_source_reference": 0
+        },
+        "dialogue": {
+          "items": 217,
+          "with_ipa": 0,
+          "with_ipa_source_reference": 0
+        },
+        "idioms": {
+          "items": 60,
+          "with_ipa": 0,
+          "with_ipa_source_reference": 0
+        },
+        "reading": {
+          "items": 6,
+          "with_ipa": 0,
+          "with_ipa_source_reference": 0
+        },
+        "listening": {
+          "items": 6,
+          "with_ipa": 0,
+          "with_ipa_source_reference": 0
+        }
+      },
+      "target_entries": 829,
+      "target_entries_with_ipa": 0
+    },
+    {
+      "code": "hi",
+      "name": "Hindi",
+      "published_levels": [
+        "A1",
+        "A2",
+        "B1",
+        "B2",
+        "C1",
+        "C2"
+      ],
+      "language_research_file_present": false,
+      "language_research_source_records": 0,
+      "categories": {
+        "vocabulary": {
+          "items": 432,
+          "with_ipa": 0,
+          "with_ipa_source_reference": 0
+        },
+        "grammar_examples": {
+          "items": 162,
+          "with_ipa": 0,
+          "with_ipa_source_reference": 0
+        },
+        "dialogue": {
+          "items": 216,
+          "with_ipa": 0,
+          "with_ipa_source_reference": 0
+        },
+        "idioms": {
+          "items": 60,
+          "with_ipa": 0,
+          "with_ipa_source_reference": 0
+        },
+        "reading": {
+          "items": 6,
+          "with_ipa": 0,
+          "with_ipa_source_reference": 0
+        },
+        "listening": {
+          "items": 6,
+          "with_ipa": 0,
+          "with_ipa_source_reference": 0
+        }
+      },
+      "target_entries": 882,
+      "target_entries_with_ipa": 0
+    },
+    {
+      "code": "it",
+      "name": "Italian",
+      "published_levels": [
+        "A1",
+        "A2",
+        "B1",
+        "B2"
+      ],
+      "language_research_file_present": true,
+      "language_research_source_records": 0,
+      "categories": {
+        "vocabulary": {
+          "items": 254,
+          "with_ipa": 0,
+          "with_ipa_source_reference": 0
+        },
+        "grammar_examples": {
+          "items": 108,
+          "with_ipa": 0,
+          "with_ipa_source_reference": 0
+        },
+        "dialogue": {
+          "items": 144,
+          "with_ipa": 0,
+          "with_ipa_source_reference": 0
+        },
+        "idioms": {
+          "items": 40,
+          "with_ipa": 0,
+          "with_ipa_source_reference": 0
+        },
+        "reading": {
+          "items": 4,
+          "with_ipa": 0,
+          "with_ipa_source_reference": 0
+        },
+        "listening": {
+          "items": 4,
+          "with_ipa": 0,
+          "with_ipa_source_reference": 0
+        }
+      },
+      "target_entries": 554,
+      "target_entries_with_ipa": 0
+    },
+    {
+      "code": "ja",
+      "name": "Japanese",
+      "published_levels": [
+        "A1",
+        "A2",
+        "B1",
+        "B2"
+      ],
+      "language_research_file_present": true,
+      "language_research_source_records": 0,
+      "categories": {
+        "vocabulary": {
+          "items": 252,
+          "with_ipa": 0,
+          "with_ipa_source_reference": 0
+        },
+        "grammar_examples": {
+          "items": 108,
+          "with_ipa": 0,
+          "with_ipa_source_reference": 0
+        },
+        "dialogue": {
+          "items": 145,
+          "with_ipa": 0,
+          "with_ipa_source_reference": 0
+        },
+        "idioms": {
+          "items": 40,
+          "with_ipa": 0,
+          "with_ipa_source_reference": 0
+        },
+        "reading": {
+          "items": 4,
+          "with_ipa": 0,
+          "with_ipa_source_reference": 0
+        },
+        "listening": {
+          "items": 4,
+          "with_ipa": 0,
+          "with_ipa_source_reference": 0
+        }
+      },
+      "target_entries": 553,
+      "target_entries_with_ipa": 0
+    },
+    {
+      "code": "ko",
+      "name": "Korean",
+      "published_levels": [
+        "A1",
+        "A2",
+        "B1",
+        "B2"
+      ],
+      "language_research_file_present": true,
+      "language_research_source_records": 0,
+      "categories": {
+        "vocabulary": {
+          "items": 252,
+          "with_ipa": 0,
+          "with_ipa_source_reference": 0
+        },
+        "grammar_examples": {
+          "items": 108,
+          "with_ipa": 0,
+          "with_ipa_source_reference": 0
+        },
+        "dialogue": {
+          "items": 145,
+          "with_ipa": 0,
+          "with_ipa_source_reference": 0
+        },
+        "idioms": {
+          "items": 40,
+          "with_ipa": 0,
+          "with_ipa_source_reference": 0
+        },
+        "reading": {
+          "items": 4,
+          "with_ipa": 0,
+          "with_ipa_source_reference": 0
+        },
+        "listening": {
+          "items": 4,
+          "with_ipa": 0,
+          "with_ipa_source_reference": 0
+        }
+      },
+      "target_entries": 553,
+      "target_entries_with_ipa": 0
+    },
+    {
+      "code": "mr",
+      "name": "Marathi",
+      "published_levels": [
+        "A1",
+        "A2",
+        "B1",
+        "B2",
+        "C1",
+        "C2"
+      ],
+      "language_research_file_present": true,
+      "language_research_source_records": 0,
+      "categories": {
+        "vocabulary": {
+          "items": 294,
+          "with_ipa": 0,
+          "with_ipa_source_reference": 0
+        },
+        "grammar_examples": {
+          "items": 162,
+          "with_ipa": 0,
+          "with_ipa_source_reference": 0
+        },
+        "dialogue": {
+          "items": 216,
+          "with_ipa": 0,
+          "with_ipa_source_reference": 0
+        },
+        "idioms": {
+          "items": 60,
+          "with_ipa": 0,
+          "with_ipa_source_reference": 0
+        },
+        "reading": {
+          "items": 6,
+          "with_ipa": 0,
+          "with_ipa_source_reference": 0
+        },
+        "listening": {
+          "items": 6,
+          "with_ipa": 0,
+          "with_ipa_source_reference": 0
+        }
+      },
+      "target_entries": 744,
+      "target_entries_with_ipa": 0
+    },
+    {
+      "code": "pa",
+      "name": "Punjabi",
+      "published_levels": [
+        "A1",
+        "A2",
+        "B1",
+        "B2",
+        "C1",
+        "C2"
+      ],
+      "language_research_file_present": true,
+      "language_research_source_records": 0,
+      "categories": {
+        "vocabulary": {
+          "items": 294,
+          "with_ipa": 0,
+          "with_ipa_source_reference": 0
+        },
+        "grammar_examples": {
+          "items": 162,
+          "with_ipa": 0,
+          "with_ipa_source_reference": 0
+        },
+        "dialogue": {
+          "items": 217,
+          "with_ipa": 0,
+          "with_ipa_source_reference": 0
+        },
+        "idioms": {
+          "items": 60,
+          "with_ipa": 0,
+          "with_ipa_source_reference": 0
+        },
+        "reading": {
+          "items": 6,
+          "with_ipa": 0,
+          "with_ipa_source_reference": 0
+        },
+        "listening": {
+          "items": 6,
+          "with_ipa": 0,
+          "with_ipa_source_reference": 0
+        }
+      },
+      "target_entries": 745,
+      "target_entries_with_ipa": 0
+    },
+    {
+      "code": "pt",
+      "name": "Portuguese",
+      "published_levels": [
+        "A1",
+        "A2",
+        "B1",
+        "B2"
+      ],
+      "language_research_file_present": true,
+      "language_research_source_records": 0,
+      "categories": {
+        "vocabulary": {
+          "items": 255,
+          "with_ipa": 0,
+          "with_ipa_source_reference": 0
+        },
+        "grammar_examples": {
+          "items": 108,
+          "with_ipa": 0,
+          "with_ipa_source_reference": 0
+        },
+        "dialogue": {
+          "items": 144,
+          "with_ipa": 0,
+          "with_ipa_source_reference": 0
+        },
+        "idioms": {
+          "items": 40,
+          "with_ipa": 0,
+          "with_ipa_source_reference": 0
+        },
+        "reading": {
+          "items": 4,
+          "with_ipa": 0,
+          "with_ipa_source_reference": 0
+        },
+        "listening": {
+          "items": 4,
+          "with_ipa": 0,
+          "with_ipa_source_reference": 0
+        }
+      },
+      "target_entries": 555,
+      "target_entries_with_ipa": 0
+    },
+    {
+      "code": "ru",
+      "name": "Russian",
+      "published_levels": [
+        "A1",
+        "A2",
+        "B1",
+        "B2"
+      ],
+      "language_research_file_present": true,
+      "language_research_source_records": 0,
+      "categories": {
+        "vocabulary": {
+          "items": 252,
+          "with_ipa": 0,
+          "with_ipa_source_reference": 0
+        },
+        "grammar_examples": {
+          "items": 108,
+          "with_ipa": 0,
+          "with_ipa_source_reference": 0
+        },
+        "dialogue": {
+          "items": 144,
+          "with_ipa": 0,
+          "with_ipa_source_reference": 0
+        },
+        "idioms": {
+          "items": 40,
+          "with_ipa": 0,
+          "with_ipa_source_reference": 0
+        },
+        "reading": {
+          "items": 4,
+          "with_ipa": 0,
+          "with_ipa_source_reference": 0
+        },
+        "listening": {
+          "items": 4,
+          "with_ipa": 0,
+          "with_ipa_source_reference": 0
+        }
+      },
+      "target_entries": 552,
+      "target_entries_with_ipa": 0
+    },
+    {
+      "code": "ta",
+      "name": "Tamil",
+      "published_levels": [
+        "A1",
+        "A2",
+        "B1",
+        "B2",
+        "C1",
+        "C2"
+      ],
+      "language_research_file_present": true,
+      "language_research_source_records": 0,
+      "categories": {
+        "vocabulary": {
+          "items": 378,
+          "with_ipa": 0,
+          "with_ipa_source_reference": 0
+        },
+        "grammar_examples": {
+          "items": 162,
+          "with_ipa": 0,
+          "with_ipa_source_reference": 0
+        },
+        "dialogue": {
+          "items": 216,
+          "with_ipa": 0,
+          "with_ipa_source_reference": 0
+        },
+        "idioms": {
+          "items": 60,
+          "with_ipa": 0,
+          "with_ipa_source_reference": 0
+        },
+        "reading": {
+          "items": 6,
+          "with_ipa": 0,
+          "with_ipa_source_reference": 0
+        },
+        "listening": {
+          "items": 6,
+          "with_ipa": 0,
+          "with_ipa_source_reference": 0
+        }
+      },
+      "target_entries": 828,
+      "target_entries_with_ipa": 0
+    },
+    {
+      "code": "te",
+      "name": "Telugu",
+      "published_levels": [
+        "A1",
+        "A2",
+        "B1",
+        "B2",
+        "C1",
+        "C2"
+      ],
+      "language_research_file_present": true,
+      "language_research_source_records": 0,
+      "categories": {
+        "vocabulary": {
+          "items": 378,
+          "with_ipa": 0,
+          "with_ipa_source_reference": 0
+        },
+        "grammar_examples": {
+          "items": 162,
+          "with_ipa": 0,
+          "with_ipa_source_reference": 0
+        },
+        "dialogue": {
+          "items": 216,
+          "with_ipa": 0,
+          "with_ipa_source_reference": 0
+        },
+        "idioms": {
+          "items": 60,
+          "with_ipa": 0,
+          "with_ipa_source_reference": 0
+        },
+        "reading": {
+          "items": 6,
+          "with_ipa": 0,
+          "with_ipa_source_reference": 0
+        },
+        "listening": {
+          "items": 6,
+          "with_ipa": 0,
+          "with_ipa_source_reference": 0
+        }
+      },
+      "target_entries": 828,
+      "target_entries_with_ipa": 0
+    },
+    {
+      "code": "ur",
+      "name": "Urdu",
+      "published_levels": [
+        "A1",
+        "A2",
+        "B1",
+        "B2",
+        "C1",
+        "C2"
+      ],
+      "language_research_file_present": true,
+      "language_research_source_records": 0,
+      "categories": {
+        "vocabulary": {
+          "items": 378,
+          "with_ipa": 0,
+          "with_ipa_source_reference": 0
+        },
+        "grammar_examples": {
+          "items": 162,
+          "with_ipa": 0,
+          "with_ipa_source_reference": 0
+        },
+        "dialogue": {
+          "items": 216,
+          "with_ipa": 0,
+          "with_ipa_source_reference": 0
+        },
+        "idioms": {
+          "items": 60,
+          "with_ipa": 0,
+          "with_ipa_source_reference": 0
+        },
+        "reading": {
+          "items": 6,
+          "with_ipa": 0,
+          "with_ipa_source_reference": 0
+        },
+        "listening": {
+          "items": 6,
+          "with_ipa": 0,
+          "with_ipa_source_reference": 0
+        }
+      },
+      "target_entries": 828,
+      "target_entries_with_ipa": 0
+    },
+    {
+      "code": "zh",
+      "name": "Chinese",
+      "published_levels": [
+        "A1",
+        "A2",
+        "B1",
+        "B2",
+        "C1",
+        "C2"
+      ],
+      "language_research_file_present": true,
+      "language_research_source_records": 0,
+      "categories": {
+        "vocabulary": {
+          "items": 378,
+          "with_ipa": 0,
+          "with_ipa_source_reference": 0
+        },
+        "grammar_examples": {
+          "items": 162,
+          "with_ipa": 0,
+          "with_ipa_source_reference": 0
+        },
+        "dialogue": {
+          "items": 217,
+          "with_ipa": 0,
+          "with_ipa_source_reference": 0
+        },
+        "idioms": {
+          "items": 60,
+          "with_ipa": 0,
+          "with_ipa_source_reference": 0
+        },
+        "reading": {
+          "items": 6,
+          "with_ipa": 0,
+          "with_ipa_source_reference": 0
+        },
+        "listening": {
+          "items": 6,
+          "with_ipa": 0,
+          "with_ipa_source_reference": 0
+        }
+      },
+      "target_entries": 829,
+      "target_entries_with_ipa": 0
+    }
+  ]
+}

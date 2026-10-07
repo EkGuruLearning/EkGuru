@@ -224,6 +224,12 @@ LESSONS = [
     [
      "<b>¿Cuánto cuesta?</b> means \"how much does it cost?\" (one thing); <b>¿Cuánto cuestan?</b> for several. The answer is just the number: <b>Diez euros</b> (ten euros). In most of Latin America you will also hear <b>¿Cuánto es?</b>."
     ]
+   ],
+   [
+    "Recall check",
+    [
+     "Cover the number table. Say 1–10 aloud, then write 11–20 from memory. Check that <b>dieciséis</b> keeps its accent and that <b>uno</b> shortens to <b>un</b> before a masculine noun. Finish by saying a price with <b>diez euros</b>."
+    ]
    ]
   ],
   "table": [
@@ -273,8 +279,40 @@ LESSONS = [
      "diez"
     ],
     [
+     "11",
+     "once"
+    ],
+    [
+     "12",
+     "doce"
+    ],
+    [
+     "13",
+     "trece"
+    ],
+    [
+     "14",
+     "catorce"
+    ],
+    [
      "15",
      "quince"
+    ],
+    [
+     "16",
+     "dieciséis"
+    ],
+    [
+     "17",
+     "diecisiete"
+    ],
+    [
+     "18",
+     "dieciocho"
+    ],
+    [
+     "19",
+     "diecinueve"
     ],
     [
      "20",

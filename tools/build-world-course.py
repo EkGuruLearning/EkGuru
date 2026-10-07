@@ -138,13 +138,13 @@ def build_course_hub(C):
         '  <h2>Practice and review</h2>\n'
         '  <ul class="linklist">\n'
         '  <li><a href="/languages/%s/practice/">Practice lab</a><span>Recognition drills on vocabulary and grammar, with the %s computer voice.</span></li>\n'
-        '  <li><a href="/languages/%s/quiz/">Topic quiz</a><span>20 multiple-choice questions with explanations; the set rotates daily.</span></li>\n'
+        '  <li><a href="/languages/%s/quiz/">Topic quiz</a><span>%d questions across lesson topics; available round lengths vary by topic.</span></li>\n'
         '  <li><a href="/languages/%s/review/">Review deck</a><span>Spaced repetition of the words and phrases, saved on this device only.</span></li>\n'
         '  </ul>\n'
         '  <p><a class="btn" href="/languages/%s/">%s starter pack</a> '
         '<a class="btn" href="/languages/">All languages</a></p>\n'
     ) % (esc_html(C["name"]), esc_html(C["name"]), esc_html(C["note"]), lessons,
-         C["code"], C["name"], C["code"], C["code"], C["code"], C["name"])
+         C["code"], C["name"], C["code"], len(C["QUIZ"]), C["code"], C["code"], C["name"])
     write_page("languages/%s/course/index.html" % C["code"], "../../../",
                "Learn %s — free course" % C["name"],
                "A free %s course: six lessons, a practice lab, a topic quiz and a spaced-repetition review deck — all in your browser." % C["name"],
@@ -241,90 +241,208 @@ def build_practice(C):
 
 def build_quiz(C):
     code = C["code"]
-    body = (
-        '  <h1>%s Topic Quiz <span style="display:inline-block;border-radius:999px;padding:2px 10px;font-size:.72rem;font-weight:700;color:#fff;background:#1a7f37;vertical-align:4px">Available</span></h1>\n'
-        '  <p class="lede">20 multiple-choice questions with explanations, drawn from the %s lessons.</p>\n'
-        '  <div class="row" style="gap:12px;flex-wrap:wrap;align-items:end">\n'
-        '    <div><label for="%s-q-topic">Topic</label><br><select id="%s-q-topic"></select></div>\n'
-        '    <div><label for="%s-q-n">Questions</label><br><select id="%s-q-n">\n'
-        '      <option value="5">5</option><option value="10">10</option><option value="20">20</option></select></div>\n'
-        '    <button type="button" class="btn" id="%s-q-start">Start</button>\n'
-        '  </div>\n'
-        '  <p class="muted hint" style="font-size:.8rem;margin-top:8px">Questions rotate each day for the same topic '
-        '(rule-based, not random) — come back tomorrow for a new set.</p>\n'
-        '  <div id="%s-q-body" style="margin-top:16px"></div>\n'
-        '  <h2>How the %s quiz works</h2>\n'
-        '  <p>Every question is drawn from the %s lesson bank on this site, not from a generic list. '
-        'Choose a topic and a length — five questions for a short break, twenty for a proper session — and '
-        'each answer comes back with a short explanation plus a link to the lesson it came from. The set '
-        'rotates with the date, so the same topic gives you different questions tomorrow; that is deliberate, '
-        'because recognising a question is not the same as knowing the word.</p>\n'
-        '  <h2>Getting the most out of a score</h2>\n'
-        '  <p>Read the explanations for the ones you missed before starting another round, and treat anything '
-        'under half as a signal to re-read that %s lesson rather than to grind more questions. Wrong answers '
-        'are the useful ones — they tell you which word has not stuck yet.</p>\n'
-        '  <script>\n'
-        '  (function () {\n'
-        '    "use strict";\n'
-        '    function esc(s){return String(s==null?"":s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");}\n'
-        '    function shuffle(a){var o=a.slice();for(var i=o.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=o[i];o[i]=o[j];o[j]=t;}return o;}\n'
-        '    function dayShuffle(a, salt, when){var d=when||new Date();var key=d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0")+":"+(salt||"");var h=2166136261;for(var i=0;i<key.length;i++){h^=key.charCodeAt(i);h=Math.imul(h,16777619);}var s=h>>>0;var o=a.slice();var rnd=function(){s|=0;s=(s+0x6D2B79F5)|0;var t=Math.imul(s^(s>>>15),1|s);t=(t+Math.imul(t^(t>>>7),61|t))^t;return((t^(t>>>14))>>>0)/4294967296;};for(var i=o.length-1;i>0;i--){var j=Math.floor(rnd()*(i+1));var tmp=o[i];o[i]=o[j];o[j]=tmp;}return o;}\n'
-        '    var state = null, sel = document.getElementById("%s-q-topic");\n'
-        '    function init() {\n'
-        '      var Q = (window.%s && window.%s.quiz) || [];\n'
-        '      var topics = {}; Q.forEach(function(q){ topics[q.topic]=1; });\n'
-        '      sel.innerHTML = Object.keys(topics).map(function(t){ return \'<option value="\'+esc(t)+\'">\'+esc(t)+\'</option>\'; }).join("");\n'
-        '      document.getElementById("%s-q-start").addEventListener("click", function(){\n'
-        '        var topic = sel.value; var n = parseInt(document.getElementById("%s-q-n").value, 10);\n'
-        '        var pool = Q.filter(function(q){ return q.topic === topic; });\n'
-        '        var use = dayShuffle(pool, "quiz:" + topic).slice(0, n);\n'
-        '        if (!use.length) { document.getElementById("%s-q-body").innerHTML = "<p class=\\"muted\\">No questions for this topic yet.</p>"; return; }\n'
-        '        state = { i:0, correct:0, use:use }; renderQuestion();\n'
-        '      });\n'
-        '    }\n'
-        '    function renderQuestion() {\n'
-        '      var b = document.getElementById("%s-q-body");\n'
-        '      if (!state || state.i >= state.use.length) { b.innerHTML = state ? "<p>Finished.</p>" : ""; return; }\n'
-        '      var q = state.use[state.i];\n'
-        '      var opts = shuffle(q.opts.slice());\n'
-        '      b.innerHTML = \'<p class="muted">Question \' + (state.i+1) + \' of \' + state.use.length + \' — \' + esc(q.topic) + \'</p>\' +\n'
-        '        \'<p style="font-weight:700;font-size:1.05rem">\' + esc(q.q) + \'</p>\' +\n'
-        '        opts.map(function(o,idx){ return \'<button type="button" class="btn ghost" style="display:block;width:100%%;text-align:left;margin:6px 0" data-opt="\'+idx+\'">\'+esc(o)+\'</button>\'; }).join("") +\n'
-        '        \'<div id="%s-q-fb" style="margin-top:10px"></div>\';\n'
-        '      b.querySelectorAll("[data-opt]").forEach(function(btn){\n'
-        '        btn.addEventListener("click", function(){\n'
-        '          var chosen = opts[parseInt(btn.getAttribute("data-opt"),10)];\n'
-        '          var ok = chosen === q.a; if (ok) state.correct++;\n'
-        '          var fb = b.querySelector("#%s-q-fb");\n'
-        '          fb.innerHTML = \'<p style="font-weight:600;color:\' + (ok ? "var(--green,#1a7f37)" : "var(--red,#b3261e)") + \'\">\' +\n'
-        '            (ok ? "Correct." : "Not quite — the answer was “" + esc(q.a) + "”.") + \'</p>\' +\n'
-        '            \'<p class="muted">\' + esc(q.explain) + \'</p>\' +\n'
-        '            \'<button type="button" class="btn" id="%s-q-next">Next</button>\';\n'
-        '          b.querySelector("#%s-q-next").addEventListener("click", function(){ state.i++; renderQuestion(); });\n'
-        '        });\n'
-        '      });\n'
-        '    }\n'
-        '    if (window.%s) init();\n'
-        '    else window.addEventListener("load", init);\n'
-        '  })();\n'
-        '  </script>\n'
-    ) % (esc_html(C["name"]), esc_html(C["name"]), code, code, code, code, code, code,
-         code, C["jsvar"], C["jsvar"], code, code, code, code, code, code, code, code, C["jsvar"],
-         esc_html(C["name"]), esc_html(C["name"]), esc_html(C["name"]))
-    # A language CODE is not a language NAME: the heading read
-    # "How the ar quiz works", "How the zh quiz works". The code stays where
-    # it belongs — element ids and file paths — and the reader sees the name.
-    body = body.replace("How the %s quiz works" % code,
-                        "How the %s quiz works" % esc_html(C["name"]))
+    jsvar = C["jsvar"]
+    name = esc(C["name"])
+    quiz = C["QUIZ"]
+
+    # Build a user-facing map from the repository quiz bank itself. It gives
+    # learners an honest per-topic count and a direct route back to the lesson
+    # that supplied each question, rather than implying that every topic has
+    # 20 questions.
+    topic_groups = {}
+    for question in quiz:
+        topic = str(question.get("topic") or "general")
+        group = topic_groups.setdefault(topic, {"count": 0, "lessons": []})
+        group["count"] += 1
+        lesson_slug = question.get("lesson")
+        if lesson_slug and lesson_slug not in group["lessons"]:
+            group["lessons"].append(lesson_slug)
+
+    lesson_by_slug = {lesson["slug"]: lesson for lesson in C["LESSONS"]}
+    topic_rows = []
+    for topic in sorted(topic_groups):
+        group = topic_groups[topic]
+        topic_label = topic.replace("_", " ").replace("-", " ").title()
+        lesson_links = []
+        for lesson_slug in group["lessons"]:
+            lesson = lesson_by_slug.get(lesson_slug)
+            if lesson:
+                lesson_links.append(
+                    '<a href="/languages/%s/lessons/%s/">%s</a>'
+                    % (esc(code), esc(lesson_slug), esc(lesson["title"]))
+                )
+        count = group["count"]
+        question_label = "question" if count == 1 else "questions"
+        review_text = " · ".join(lesson_links) if lesson_links else "No source lesson is mapped yet."
+        topic_rows.append(
+            '<li><b>%s</b><span>%d %s<br>Review: %s</span></li>'
+            % (esc(topic_label), count, question_label, review_text)
+        )
+    topic_map = "\n".join(topic_rows)
+
+    # Use named literal tokens rather than positional %-formatting: the old
+    # template accidentally shifted internal JS identifiers into visible copy
+    # and put the language code in the quiz's runtime bindings.
+    body = """  <h1>__NAME__ Topic Quiz <span style="display:inline-block;border-radius:999px;padding:2px 10px;font-size:.72rem;font-weight:700;color:#fff;background:#1a7f37;vertical-align:4px">Available</span></h1>
+  <p class="lede">Practise with the __QUESTION_COUNT__ questions in the __NAME__ course bank. Choose a topic and a round size; each answer includes an explanation and a link to its source lesson.</p>
+  <div class="row" style="gap:12px;flex-wrap:wrap;align-items:end">
+    <div><label for="__CODE__-q-topic">Topic</label><br><select id="__CODE__-q-topic"></select></div>
+    <div><label for="__CODE__-q-n">Round size</label><br><select id="__CODE__-q-n" disabled><option value="">Loading question counts…</option></select></div>
+    <button type="button" class="btn" id="__CODE__-q-start" disabled>Start</button>
+  </div>
+  <p class="muted hint" style="font-size:.8rem;margin-top:8px">Question order is fixed for the day and changes on a later day. A shorter round may draw a different subset; an all-questions round uses the same topic bank in a different order.</p>
+  <div id="__CODE__-q-body" style="margin-top:16px"></div>
+  <h2>How the __NAME__ quiz works</h2>
+  <p>The course bank currently contains __QUESTION_COUNT__ questions across __TOPIC_COUNT__ topics. The topic picker selects the question pool, and the round-size menu only offers lengths that pool can supply. After each answer, use the explanation and source-lesson link to repair a specific gap rather than repeating the same round without review.</p>
+  <h2>Question bank by topic</h2>
+  <p>Counts below are for the selected topic, not for the whole course. Choose “All available” for a complete pass through a smaller topic; its round may contain fewer than five questions because no extra questions are invented.</p>
+  <ul class="linklist">
+__TOPIC_MAP__
+  </ul>
+  <h2>Use a result to choose your next study step</h2>
+  <p>Read the explanation, then open its linked lesson. If the same __NAME__ word or pattern trips you up again, write a fresh example before restarting. The score is feedback on recall from this small course bank; it is not a language-level placement or a fluency assessment.</p>
+  <script>
+  (function () {
+    "use strict";
+    function escText(s) {
+      return String(s == null ? "" : s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&#39;");
+    }
+    function shuffle(a) {
+      var o = a.slice();
+      for (var i = o.length - 1; i > 0; i--) {
+        var j = Math.floor(Math.random() * (i + 1));
+        var t = o[i]; o[i] = o[j]; o[j] = t;
+      }
+      return o;
+    }
+    function dayShuffle(a, salt, when) {
+      var d = when || new Date();
+      var key = d.getFullYear() + "-" + String(d.getMonth() + 1).padStart(2, "0") + "-" + String(d.getDate()).padStart(2, "0") + ":" + (salt || "");
+      var h = 2166136261;
+      for (var i = 0; i < key.length; i++) { h ^= key.charCodeAt(i); h = Math.imul(h, 16777619); }
+      var s = h >>> 0;
+      var rnd = function () {
+        s |= 0; s = (s + 0x6D2B79F5) | 0;
+        var t = Math.imul(s ^ (s >>> 15), 1 | s);
+        t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
+        return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+      };
+      var o = a.slice();
+      for (var j = o.length - 1; j > 0; j--) {
+        var k = Math.floor(rnd() * (j + 1));
+        var tmp = o[j]; o[j] = o[k]; o[k] = tmp;
+      }
+      return o;
+    }
+
+    var Q = [];
+    var state = null;
+    var topicSelect = document.getElementById("__CODE__-q-topic");
+    var countSelect = document.getElementById("__CODE__-q-n");
+    var startButton = document.getElementById("__CODE__-q-start");
+
+    function questionsForTopic() {
+      var topic = topicSelect.value;
+      return Q.filter(function (q) { return q.topic === topic; });
+    }
+    function refreshRoundSizes() {
+      var count = questionsForTopic().length;
+      var choices = [5, 10, 20].filter(function (n) { return n < count; });
+      var options = choices.map(function (n) {
+        return '<option value="' + n + '">' + n + ' questions</option>';
+      });
+      if (count) options.push('<option value="all">All ' + count + ' available</option>');
+      if (!options.length) options.push('<option value="">No questions available</option>');
+      countSelect.innerHTML = options.join("");
+      countSelect.disabled = !count;
+      startButton.disabled = !count;
+    }
+    function startRound() {
+      var pool = questionsForTopic();
+      var requested = countSelect.value === "all" ? pool.length : parseInt(countSelect.value, 10);
+      if (!pool.length || !requested || isNaN(requested)) {
+        document.getElementById("__CODE__-q-body").innerHTML = '<p class="muted">No questions are available for this topic yet.</p>';
+        return;
+      }
+      var use = dayShuffle(pool, "quiz:" + topicSelect.value).slice(0, Math.min(requested, pool.length));
+      state = { i: 0, correct: 0, use: use, answered: false };
+      renderQuestion();
+    }
+    function renderQuestion() {
+      var box = document.getElementById("__CODE__-q-body");
+      if (!state) { box.innerHTML = ""; return; }
+      if (state.i >= state.use.length) {
+        var pct = Math.round((state.correct / state.use.length) * 100);
+        box.innerHTML = '<div class="note"><b>Round complete.</b> You got ' + state.correct + ' of ' + state.use.length + ' correct (' + pct + '%).' +
+          '<p>Review any missed source lesson before choosing another round.</p>' +
+          '<button type="button" class="btn" id="__CODE__-q-restart">Start this topic again</button></div>';
+        box.querySelector("#__CODE__-q-restart").addEventListener("click", startRound);
+        return;
+      }
+      state.answered = false;
+      var q = state.use[state.i];
+      var opts = shuffle((q.opts || []).slice());
+      box.innerHTML = '<p class="muted">Question ' + (state.i + 1) + ' of ' + state.use.length + ' — ' + escText(q.topic) + '</p>' +
+        '<p style="font-weight:700;font-size:1.05rem">' + escText(q.q) + '</p>' +
+        opts.map(function (o, idx) {
+          return '<button type="button" class="btn ghost" style="display:block;width:100%;text-align:left;margin:6px 0" data-opt="' + idx + '">' + escText(o) + '</button>';
+        }).join("") +
+        '<div id="__CODE__-q-fb" style="margin-top:10px"></div>';
+      box.querySelectorAll("[data-opt]").forEach(function (button) {
+        button.addEventListener("click", function () {
+          if (state.answered) return;
+          state.answered = true;
+          box.querySelectorAll("[data-opt]").forEach(function (option) { option.disabled = true; });
+          var chosen = opts[parseInt(button.getAttribute("data-opt"), 10)];
+          var correct = chosen === q.a;
+          if (correct) state.correct++;
+          var feedback = box.querySelector("#__CODE__-q-fb");
+          var lessonHref = q.lesson ? "/languages/__CODE__/lessons/" + encodeURIComponent(q.lesson) + "/" : "";
+          var lessonLink = lessonHref ? '<p><a href="' + escText(lessonHref) + '">Review the source lesson</a></p>' : "";
+          feedback.innerHTML = '<p style="font-weight:600;color:' + (correct ? "var(--green,#1a7f37)" : "var(--red,#b3261e)") + '">' +
+            (correct ? "Correct." : "Not quite — the answer was “" + escText(q.a) + "”.") + '</p>' +
+            '<p class="muted">' + escText(q.explain) + '</p>' + lessonLink +
+            '<button type="button" class="btn" id="__CODE__-q-next">Next</button>';
+          box.querySelector("#__CODE__-q-next").addEventListener("click", function () { state.i++; renderQuestion(); });
+        });
+      });
+    }
+    function init() {
+      Q = (window.__JSVAR__ && window.__JSVAR__.quiz) || [];
+      var topics = {};
+      Q.forEach(function (q) { topics[q.topic] = true; });
+      var names = Object.keys(topics).sort();
+      topicSelect.innerHTML = names.map(function (topic) {
+        return '<option value="' + escText(topic) + '">' + escText(topic.replace(/[_-]/g, " ").replace(/\b\w/g, function (ch) { return ch.toUpperCase(); })) + '</option>';
+      }).join("");
+      topicSelect.addEventListener("change", refreshRoundSizes);
+      startButton.addEventListener("click", startRound);
+      refreshRoundSizes();
+    }
+    if (window.__JSVAR__) init();
+    else window.addEventListener("load", init);
+  })();
+  </script>
+"""
+    replacements = {
+        "__NAME__": name,
+        "__CODE__": esc(code),
+        "__JSVAR__": jsvar,
+        "__QUESTION_COUNT__": str(len(quiz)),
+        "__TOPIC_COUNT__": str(len(topic_groups)),
+        "__TOPIC_MAP__": topic_map,
+    }
+    for token, value in replacements.items():
+        body = body.replace(token, value)
+
     write_page("languages/%s/quiz/index.html" % code, "../../../",
                "%s Quiz — Topic Questions with Explanations" % C["name"],
-               "A free %s topic quiz: multiple-choice questions with explanations, drawn from the %s lessons. The set rotates daily." % (C["name"], C["name"]),
+               "A free %s topic quiz with per-topic question counts, explanations and links to the source lessons." % C["name"],
                "languages/%s/quiz/" % code,
                '<a href="/">EkGuru</a> › <a href="/languages/">Languages</a> › <a href="/languages/%s/">%s</a> › Quiz'
-               % (code, esc_html(C["name"])),
+               % (code, esc(C["name"])),
                body, scripts=["course-%s.js" % code], index=True)
     return "languages/%s/quiz/index.html" % code
-
 
 def build_review(C):
     code = C["code"]

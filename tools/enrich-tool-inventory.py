@@ -57,6 +57,12 @@ DESC = {
         "output": "Devanagari text with copy button; alternate spellings handled.",
         "dataSource": "Deterministic transliteration map (bundled).",
     },
+    "hindi-text-counter": {
+        "purpose": "Count whitespace-separated tokens, Unicode code points, approximate sentence-ending punctuation groups and non-empty paragraphs in Hindi or mixed-script text.",
+        "input": "Hindi or mixed-script text typed or pasted into a textarea.",
+        "output": "Live token, code-point, punctuation-group and paragraph counts, with optional sample, copy and clear controls.",
+        "dataSource": "Local JavaScript rules only; no language API, text upload or text persistence.",
+    },
     "hindi-verbs": {
         "purpose": "The 20 most common verbs in present, past and future, with gender agreement shown.",
         "input": "Verb + tense selection.",

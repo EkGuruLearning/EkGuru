@@ -98,25 +98,25 @@
             },
             "dialogue": [
               {
-                "sp": "Speaker A",
+                "sp": "مقرر الف",
                 "t": "ڈاکٹر کو بلائیے",
                 "r": "Doctor ko bulaiye",
                 "en": "Call a doctor"
               },
               {
-                "sp": "Speaker B",
+                "sp": "مقرر ب",
                 "t": "مجھے سرکاری ہسپتال لے چلیے",
                 "r": "Mujhe sarkari hospital le chaliye",
                 "en": "Take me to hospital"
               },
               {
-                "sp": "Speaker A",
+                "sp": "مقرر الف",
                 "t": "دوائی کی دکان کہاں ہے؟",
                 "r": "Davai ki dukan kahan hai?",
                 "en": "Where is the pharmacy?"
               },
               {
-                "sp": "Speaker B",
+                "sp": "مقرر ب",
                 "t": "یہ دوا لیجیے",
                 "r": "Ye dava lijiye",
                 "en": "Take this medicine"
@@ -194,7 +194,7 @@
               },
               {
                 "type": "dialogue_completion",
-                "q": "Practice 10 [dialogue completion] — Comparing treatment options: Complete Speaker B’s turn appropriately: Take me to hospital",
+                "q": "Practice 10 [dialogue completion] — Comparing treatment options: Complete مقرر ب’s turn appropriately: Take me to hospital",
                 "answer": "مجھے سرکاری ہسپتال لے چلیے",
                 "skill_target": "Urdu dialogue completion: Urdu agreement, postpositions, honorificity, and formal versus everyday register"
               },
@@ -408,25 +408,25 @@
             },
             "dialogue": [
               {
-                "sp": "Speaker A",
+                "sp": "مقرر الف",
                 "t": "ای میل بھیجیے",
                 "r": "Email bhejiye",
                 "en": "Send the email"
               },
               {
-                "sp": "Speaker B",
+                "sp": "مقرر ب",
                 "t": "پرنٹ نکالیے",
                 "r": "Print nikaliye",
                 "en": "Take a printout"
               },
               {
-                "sp": "Speaker A",
+                "sp": "مقرر الف",
                 "t": "تنخواہ کب ملے گی؟",
                 "r": "Tankhvah kab milegi?",
                 "en": "When is the salary?"
               },
               {
-                "sp": "Speaker B",
+                "sp": "مقرر ب",
                 "t": "کل مجھے چھٹی چاہیے",
                 "r": "Kal mujhe chhutti chahiye",
                 "en": "I need leave tomorrow"
@@ -634,6 +634,288 @@
               "اسکینر"
             ],
             "srs_policy": "Only selected high-value lesson forms are preselected; actual mistakes and productive patterns may enter personalized review after learner evidence."
+          },
+          {
+            "id": "ur-b2-l7",
+            "title": "Compare treatment options",
+            "learn": "Compare two options against stated needs and avoid giving medical advice beyond your role.",
+            "vocab": [
+              {
+                "t": "علاج",
+                "r": "ilaaj",
+                "en": "treatment",
+                "pos": "phrase"
+              },
+              {
+                "t": "متبادل",
+                "r": "mutabadil",
+                "en": "alternative",
+                "pos": "phrase"
+              },
+              {
+                "t": "فائدہ",
+                "r": "faida",
+                "en": "benefit",
+                "pos": "phrase"
+              },
+              {
+                "t": "خطرہ",
+                "r": "khatra",
+                "en": "risk",
+                "pos": "phrase"
+              },
+              {
+                "t": "ماہر",
+                "r": "maahir",
+                "en": "specialist",
+                "pos": "phrase"
+              }
+            ],
+            "grammar": {
+              "title": "qualified comparison",
+              "pattern": "ایک طرف ...؛ دوسری طرف ...؛ ماہر سے مشورہ",
+              "explain": "Balance two options and refer clinical decisions to a qualified professional. A comparison is not a diagnosis.",
+              "examples": [
+                {
+                  "t": "ایک طریقے کا فائدہ کم وقت ہے۔",
+                  "r": "ek tareeqe ka faida kam waqt hai.",
+                  "en": "One option's benefit is that it takes less time."
+                },
+                {
+                  "t": "دوسری طرف اس کے کچھ خطرات بھی ہیں۔",
+                  "r": "doosri taraf is ke kuch khatraat bhi hain.",
+                  "en": "On the other hand, it also has some risks."
+                },
+                {
+                  "t": "حتمی انتخاب سے پہلے ماہر سے مشورہ کریں۔",
+                  "r": "hatmi intikhab se pehle maahir se mashwara karein.",
+                  "en": "Consult a specialist before making a final choice."
+                }
+              ],
+              "mistakes": [
+                {
+                  "wrong": "یہ علاج سب کے لیے بہترین ہے۔",
+                  "right": "یہ طریقہ بعض مریضوں کے لیے مناسب ہو سکتا ہے۔",
+                  "why": "Qualify a treatment claim and avoid a universal recommendation."
+                }
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "استاد",
+                "t": "ایک طریقے کا فائدہ کم وقت ہے۔",
+                "r": "ek tareeqe ka faida kam waqt hai.",
+                "en": "One option's benefit is that it takes less time."
+              },
+              {
+                "sp": "طالب علم",
+                "t": "دوسری طرف اس کے کچھ خطرات بھی ہیں۔",
+                "r": "doosri taraf is ke kuch khatraat bhi hain.",
+                "en": "On the other hand, it also has some risks."
+              },
+              {
+                "sp": "استاد",
+                "t": "حتمی انتخاب سے پہلے ماہر سے مشورہ کریں۔",
+                "r": "hatmi intikhab se pehle maahir se mashwara karein.",
+                "en": "Consult a specialist before making a final choice."
+              },
+              {
+                "sp": "طالب علم",
+                "t": "دوسری طرف اس کے کچھ خطرات بھی ہیں۔",
+                "r": "doosri taraf is ke kuch khatraat bhi hain.",
+                "en": "On the other hand, it also has some risks."
+              }
+            ],
+            "practice": [
+              {
+                "type": "multiple_choice",
+                "q": "Practice 1: [multiple choice] Compare treatment options — Choose the meaning of علاج (ilaaj) in this lesson.",
+                "answer": "treatment",
+                "skill_target": "Urdu: right-to-left Nastaliq reading, احترام کے صیغے آپ/تم, postpositions, gender and honorific agreement, clause linking, and source-aware formal prose",
+                "options": [
+                  "treatment",
+                  "alternative",
+                  "benefit",
+                  "risk"
+                ]
+              },
+              {
+                "type": "fill_in_the_blank",
+                "q": "Practice 2: [fill in the blank] Compare treatment options — Type the Urdu expression meaning “alternative”.",
+                "answer": "متبادل",
+                "skill_target": "Urdu: right-to-left Nastaliq reading, احترام کے صیغے آپ/تم, postpositions, gender and honorific agreement, clause linking, and source-aware formal prose"
+              },
+              {
+                "type": "translation",
+                "q": "Practice 3: [translation] Compare treatment options — Interpret the Nastaliq script in context: ایک طریقے کا فائدہ کم وقت ہے۔ (ek tareeqe ka faida kam waqt hai.).",
+                "answer": "One option's benefit is that it takes less time.",
+                "skill_target": "Urdu: right-to-left Nastaliq reading, احترام کے صیغے آپ/تم, postpositions, gender and honorific agreement, clause linking, and source-aware formal prose"
+              },
+              {
+                "type": "reverse_translation",
+                "q": "Practice 4: [reverse translation] Compare treatment options — Write in Nastaliq script: On the other hand, it also has some risks..",
+                "answer": "دوسری طرف اس کے کچھ خطرات بھی ہیں۔",
+                "skill_target": "Urdu: right-to-left Nastaliq reading, احترام کے صیغے آپ/تم, postpositions, gender and honorific agreement, clause linking, and source-aware formal prose"
+              },
+              {
+                "type": "matching",
+                "q": "Practice 5: [matching] Compare treatment options — Match فائدہ to its lesson meaning.",
+                "answer": "benefit",
+                "skill_target": "Urdu: right-to-left Nastaliq reading, احترام کے صیغے آپ/تم, postpositions, gender and honorific agreement, clause linking, and source-aware formal prose",
+                "options": [
+                  "benefit",
+                  "treatment",
+                  "alternative"
+                ]
+              },
+              {
+                "type": "reorder",
+                "q": "Practice 6: [reorder] Compare treatment options — Reconstruct the lesson model in coherent Urdu: Consult a specialist before making a final choice..",
+                "answer": "حتمی انتخاب سے پہلے ماہر سے مشورہ کریں۔",
+                "skill_target": "Urdu: right-to-left Nastaliq reading, احترام کے صیغے آپ/تم, postpositions, gender and honorific agreement, clause linking, and source-aware formal prose"
+              },
+              {
+                "type": "sentence_building",
+                "q": "Practice 7: [sentence building] Compare treatment options — Build the sentence with the lesson pattern (ایک طرف ...؛ دوسری طرف ...؛ ماہر سے مشورہ): One option's benefit is that it takes less time..",
+                "answer": "ایک طریقے کا فائدہ کم وقت ہے۔",
+                "skill_target": "Urdu: right-to-left Nastaliq reading, احترام کے صیغے آپ/تم, postpositions, gender and honorific agreement, clause linking, and source-aware formal prose"
+              },
+              {
+                "type": "word_selection",
+                "q": "Practice 8: [word selection] Compare treatment options — Select the Urdu form for “risk”.",
+                "answer": "خطرہ",
+                "skill_target": "Urdu: right-to-left Nastaliq reading, احترام کے صیغے آپ/تم, postpositions, gender and honorific agreement, clause linking, and source-aware formal prose",
+                "options": [
+                  "خطرہ",
+                  "ماہر"
+                ]
+              },
+              {
+                "type": "error_correction",
+                "q": "Practice 9: [error correction] Compare treatment options — Correct the model the lesson warns about: یہ علاج سب کے لیے بہترین ہے۔",
+                "answer": "یہ طریقہ بعض مریضوں کے لیے مناسب ہو سکتا ہے۔",
+                "skill_target": "Urdu: right-to-left Nastaliq reading, احترام کے صیغے آپ/تم, postpositions, gender and honorific agreement, clause linking, and source-aware formal prose"
+              },
+              {
+                "type": "dialogue_completion",
+                "q": "Practice 10: [dialogue completion] Compare treatment options — Complete the exchange with the studied response to: One option's benefit is that it takes less time.",
+                "answer": "دوسری طرف اس کے کچھ خطرات بھی ہیں۔",
+                "skill_target": "Urdu: right-to-left Nastaliq reading, احترام کے صیغے آپ/تم, postpositions, gender and honorific agreement, clause linking, and source-aware formal prose"
+              },
+              {
+                "type": "reading_comprehension",
+                "q": "Practice 11: [reading comprehension] Compare treatment options — Read “حتمی انتخاب سے پہلے ماہر سے مشورہ کریں۔” (hatmi intikhab se pehle maahir se mashwara karein.). What does it mean?",
+                "answer": "Consult a specialist before making a final choice.",
+                "skill_target": "Urdu: right-to-left Nastaliq reading, احترام کے صیغے آپ/تم, postpositions, gender and honorific agreement, clause linking, and source-aware formal prose"
+              },
+              {
+                "type": "paragraph_comprehension",
+                "q": "Practice 12: [paragraph comprehension] Compare treatment options — Read the lesson dialogue as a whole and give its key move: On the other hand, it also has some risks.",
+                "answer": "دوسری طرف اس کے کچھ خطرات بھی ہیں۔",
+                "skill_target": "Urdu: right-to-left Nastaliq reading, احترام کے صیغے آپ/تم, postpositions, gender and honorific agreement, clause linking, and source-aware formal prose"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "Which meaning best fits علاج?",
+                "options": [
+                  "treatment",
+                  "alternative",
+                  "benefit",
+                  "risk"
+                ],
+                "answer": 0,
+                "why": "علاج (ilaaj) means treatment in this lesson."
+              },
+              {
+                "q": "Which meaning best fits متبادل?",
+                "options": [
+                  "alternative",
+                  "treatment",
+                  "benefit",
+                  "risk"
+                ],
+                "answer": 0,
+                "why": "متبادل (mutabadil) means alternative in this lesson."
+              },
+              {
+                "q": "Which meaning best fits فائدہ?",
+                "options": [
+                  "benefit",
+                  "treatment",
+                  "alternative",
+                  "risk"
+                ],
+                "answer": 0,
+                "why": "فائدہ (faida) means benefit in this lesson."
+              },
+              {
+                "q": "Which meaning best fits خطرہ?",
+                "options": [
+                  "risk",
+                  "treatment",
+                  "alternative",
+                  "benefit"
+                ],
+                "answer": 0,
+                "why": "خطرہ (khatra) means risk in this lesson."
+              },
+              {
+                "q": "Which meaning best fits ماہر?",
+                "options": [
+                  "specialist",
+                  "treatment",
+                  "alternative",
+                  "benefit"
+                ],
+                "answer": 0,
+                "why": "ماہر (maahir) means specialist in this lesson."
+              }
+            ],
+            "flashcards": "auto:vocab",
+            "worksheet": {
+              "title": "Compare options responsibly",
+              "tasks": [
+                {
+                  "instruction": "Translate the first model into English.",
+                  "items": [
+                    "ایک طریقے کا فائدہ کم وقت ہے۔"
+                  ],
+                  "key": [
+                    "One option's benefit is that it takes less time."
+                  ]
+                },
+                {
+                  "instruction": "Use the lesson pattern in a new sentence.",
+                  "items": [
+                    "دوسری طرف اس کے کچھ خطرات بھی ہیں۔",
+                    "حتمی انتخاب سے پہلے ماہر سے مشورہ کریں۔"
+                  ],
+                  "key": [
+                    "On the other hand, it also has some risks.",
+                    "Consult a specialist before making a final choice."
+                  ]
+                },
+                {
+                  "instruction": "Integrated offline practice: read the first model, transform or extend it in Nastaliq script, then rehearse it as a dialogue. Self-check meaning, grammar, and register.",
+                  "items": [
+                    "ایک طریقے کا فائدہ کم وقت ہے۔",
+                    "ایک طریقے کا فائدہ کم وقت ہے۔"
+                  ],
+                  "key": [
+                    "One option's benefit is that it takes less time.",
+                    "One option's benefit is that it takes less time."
+                  ]
+                }
+              ]
+            },
+            "srs_candidates": [
+              "علاج",
+              "متبادل",
+              "فائدہ",
+              "خطرہ"
+            ],
+            "srs_policy": "Only these four high-value terms are preselected; lesson mistakes and productive patterns may enter personalized review after an actual error."
           }
         ]
       },
@@ -722,25 +1004,25 @@
             },
             "dialogue": [
               {
-                "sp": "Speaker A",
+                "sp": "مقرر الف",
                 "t": "دھیان سے سنیے",
                 "r": "Dhyan se suniye",
                 "en": "Listen carefully"
               },
               {
-                "sp": "Speaker B",
+                "sp": "مقرر ب",
                 "t": "چپ چاپ بیٹھیے",
                 "r": "Chup chaap baithiye",
                 "en": "Sit quietly"
               },
               {
-                "sp": "Speaker A",
+                "sp": "مقرر الف",
                 "t": "کھڑے ہو جائیے",
                 "r": "Kharhe ho jaiye",
                 "en": "Stand up"
               },
               {
-                "sp": "Speaker B",
+                "sp": "مقرر ب",
                 "t": "مجھ سے پوچھیے",
                 "r": "Mujh se puchhiye",
                 "en": "Ask me"
@@ -1017,25 +1299,25 @@
             },
             "dialogue": [
               {
-                "sp": "Speaker A",
+                "sp": "مقرر الف",
                 "t": "کیسی اچھی ہوا!",
                 "r": "Kaisi achhi hava!",
                 "en": "What a pleasant wind!"
               },
               {
-                "sp": "Speaker B",
+                "sp": "مقرر ب",
                 "t": "چھاتا لے لیجیے",
                 "r": "Chhata le lijiye",
                 "en": "Take an umbrella"
               },
               {
-                "sp": "Speaker A",
+                "sp": "مقرر الف",
                 "t": "سورج نکلا",
                 "r": "Suraj nikla",
                 "en": "The sun rose"
               },
               {
-                "sp": "Speaker B",
+                "sp": "مقرر ب",
                 "t": "رات ہو گئی",
                 "r": "Raat ho gai",
                 "en": "Night fell"
@@ -1125,7 +1407,7 @@
               },
               {
                 "type": "dialogue_completion",
-                "q": "Practice 15 [dialogue completion] — Forecasts and consequences: Complete Speaker A’s turn appropriately: The sun rose",
+                "q": "Practice 15 [dialogue completion] — Forecasts and consequences: Complete مقرر الف’s turn appropriately: The sun rose",
                 "answer": "سورج نکلا",
                 "skill_target": "Urdu dialogue completion: Urdu agreement, postpositions, honorificity, and formal versus everyday register"
               }
@@ -1245,6 +1527,288 @@
               "بعد دوپہر"
             ],
             "srs_policy": "Only selected high-value lesson forms are preselected; actual mistakes and productive patterns may enter personalized review after learner evidence."
+          },
+          {
+            "id": "ur-b2-l8",
+            "title": "Explain a formal procedure",
+            "learn": "Give a procedural instruction and clarify who is responsible for the next step.",
+            "vocab": [
+              {
+                "t": "درخواست",
+                "r": "darkhwast",
+                "en": "application",
+                "pos": "phrase"
+              },
+              {
+                "t": "دستخط",
+                "r": "dastkhat",
+                "en": "signature",
+                "pos": "phrase"
+              },
+              {
+                "t": "منسلک",
+                "r": "munsalik",
+                "en": "attached",
+                "pos": "phrase"
+              },
+              {
+                "t": "منظوری",
+                "r": "manzoori",
+                "en": "approval",
+                "pos": "phrase"
+              },
+              {
+                "t": "ذمہ دار",
+                "r": "zimmedar",
+                "en": "responsible",
+                "pos": "phrase"
+              }
+            ],
+            "grammar": {
+              "title": "passive and responsibility",
+              "pattern": "درخواست جمع کی جاتی ہے؛ ذمہ داری ... کے پاس ہے",
+              "explain": "Use the passive for a procedure when the actor is unimportant, then name the responsible role for the next action.",
+              "examples": [
+                {
+                  "t": "درخواست دفتر میں جمع کی جاتی ہے۔",
+                  "r": "darkhwast daftar mein jama ki jaati hai.",
+                  "en": "The application is submitted to the office."
+                },
+                {
+                  "t": "دستخط شدہ نقل ساتھ منسلک ہے۔",
+                  "r": "dastkhat shuda naqal saath munsalik hai.",
+                  "en": "A signed copy is attached."
+                },
+                {
+                  "t": "منظوری کی اطلاع کل دی جائے گی۔",
+                  "r": "manzoori ki ittila kal di jaegi.",
+                  "en": "The approval notice will be given tomorrow."
+                }
+              ],
+              "mistakes": [
+                {
+                  "wrong": "درخواست دفتر میں جمع کرتا ہے۔",
+                  "right": "درخواست دفتر میں جمع کی جاتی ہے۔",
+                  "why": "The passive procedure sentence needs the feminine agreement of درخواست."
+                }
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "استاد",
+                "t": "درخواست دفتر میں جمع کی جاتی ہے۔",
+                "r": "darkhwast daftar mein jama ki jaati hai.",
+                "en": "The application is submitted to the office."
+              },
+              {
+                "sp": "طالب علم",
+                "t": "دستخط شدہ نقل ساتھ منسلک ہے۔",
+                "r": "dastkhat shuda naqal saath munsalik hai.",
+                "en": "A signed copy is attached."
+              },
+              {
+                "sp": "استاد",
+                "t": "منظوری کی اطلاع کل دی جائے گی۔",
+                "r": "manzoori ki ittila kal di jaegi.",
+                "en": "The approval notice will be given tomorrow."
+              },
+              {
+                "sp": "طالب علم",
+                "t": "دستخط شدہ نقل ساتھ منسلک ہے۔",
+                "r": "dastkhat shuda naqal saath munsalik hai.",
+                "en": "A signed copy is attached."
+              }
+            ],
+            "practice": [
+              {
+                "type": "multiple_choice",
+                "q": "Practice 1: [multiple choice] Explain a formal procedure — Choose the meaning of درخواست (darkhwast) in this lesson.",
+                "answer": "application",
+                "skill_target": "Urdu: right-to-left Nastaliq reading, احترام کے صیغے آپ/تم, postpositions, gender and honorific agreement, clause linking, and source-aware formal prose",
+                "options": [
+                  "application",
+                  "signature",
+                  "attached",
+                  "approval"
+                ]
+              },
+              {
+                "type": "fill_in_the_blank",
+                "q": "Practice 2: [fill in the blank] Explain a formal procedure — Type the Urdu expression meaning “signature”.",
+                "answer": "دستخط",
+                "skill_target": "Urdu: right-to-left Nastaliq reading, احترام کے صیغے آپ/تم, postpositions, gender and honorific agreement, clause linking, and source-aware formal prose"
+              },
+              {
+                "type": "translation",
+                "q": "Practice 3: [translation] Explain a formal procedure — Interpret the Nastaliq script in context: درخواست دفتر میں جمع کی جاتی ہے۔ (darkhwast daftar mein jama ki jaati hai.).",
+                "answer": "The application is submitted to the office.",
+                "skill_target": "Urdu: right-to-left Nastaliq reading, احترام کے صیغے آپ/تم, postpositions, gender and honorific agreement, clause linking, and source-aware formal prose"
+              },
+              {
+                "type": "reverse_translation",
+                "q": "Practice 4: [reverse translation] Explain a formal procedure — Write in Nastaliq script: A signed copy is attached..",
+                "answer": "دستخط شدہ نقل ساتھ منسلک ہے۔",
+                "skill_target": "Urdu: right-to-left Nastaliq reading, احترام کے صیغے آپ/تم, postpositions, gender and honorific agreement, clause linking, and source-aware formal prose"
+              },
+              {
+                "type": "matching",
+                "q": "Practice 5: [matching] Explain a formal procedure — Match منسلک to its lesson meaning.",
+                "answer": "attached",
+                "skill_target": "Urdu: right-to-left Nastaliq reading, احترام کے صیغے آپ/تم, postpositions, gender and honorific agreement, clause linking, and source-aware formal prose",
+                "options": [
+                  "attached",
+                  "application",
+                  "signature"
+                ]
+              },
+              {
+                "type": "reorder",
+                "q": "Practice 6: [reorder] Explain a formal procedure — Reconstruct the lesson model in coherent Urdu: The approval notice will be given tomorrow..",
+                "answer": "منظوری کی اطلاع کل دی جائے گی۔",
+                "skill_target": "Urdu: right-to-left Nastaliq reading, احترام کے صیغے آپ/تم, postpositions, gender and honorific agreement, clause linking, and source-aware formal prose"
+              },
+              {
+                "type": "sentence_building",
+                "q": "Practice 7: [sentence building] Explain a formal procedure — Build the sentence with the lesson pattern (درخواست جمع کی جاتی ہے؛ ذمہ داری ... کے پاس ہے): The application is submitted to the office..",
+                "answer": "درخواست دفتر میں جمع کی جاتی ہے۔",
+                "skill_target": "Urdu: right-to-left Nastaliq reading, احترام کے صیغے آپ/تم, postpositions, gender and honorific agreement, clause linking, and source-aware formal prose"
+              },
+              {
+                "type": "word_selection",
+                "q": "Practice 8: [word selection] Explain a formal procedure — Select the Urdu form for “approval”.",
+                "answer": "منظوری",
+                "skill_target": "Urdu: right-to-left Nastaliq reading, احترام کے صیغے آپ/تم, postpositions, gender and honorific agreement, clause linking, and source-aware formal prose",
+                "options": [
+                  "منظوری",
+                  "ذمہ دار"
+                ]
+              },
+              {
+                "type": "error_correction",
+                "q": "Practice 9: [error correction] Explain a formal procedure — Correct the model the lesson warns about: درخواست دفتر میں جمع کرتا ہے۔",
+                "answer": "درخواست دفتر میں جمع کی جاتی ہے۔",
+                "skill_target": "Urdu: right-to-left Nastaliq reading, احترام کے صیغے آپ/تم, postpositions, gender and honorific agreement, clause linking, and source-aware formal prose"
+              },
+              {
+                "type": "dialogue_completion",
+                "q": "Practice 10: [dialogue completion] Explain a formal procedure — Complete the exchange with the studied response to: The application is submitted to the office.",
+                "answer": "دستخط شدہ نقل ساتھ منسلک ہے۔",
+                "skill_target": "Urdu: right-to-left Nastaliq reading, احترام کے صیغے آپ/تم, postpositions, gender and honorific agreement, clause linking, and source-aware formal prose"
+              },
+              {
+                "type": "reading_comprehension",
+                "q": "Practice 11: [reading comprehension] Explain a formal procedure — Read “منظوری کی اطلاع کل دی جائے گی۔” (manzoori ki ittila kal di jaegi.). What does it mean?",
+                "answer": "The approval notice will be given tomorrow.",
+                "skill_target": "Urdu: right-to-left Nastaliq reading, احترام کے صیغے آپ/تم, postpositions, gender and honorific agreement, clause linking, and source-aware formal prose"
+              },
+              {
+                "type": "paragraph_comprehension",
+                "q": "Practice 12: [paragraph comprehension] Explain a formal procedure — Read the lesson dialogue as a whole and give its key move: A signed copy is attached.",
+                "answer": "دستخط شدہ نقل ساتھ منسلک ہے۔",
+                "skill_target": "Urdu: right-to-left Nastaliq reading, احترام کے صیغے آپ/تم, postpositions, gender and honorific agreement, clause linking, and source-aware formal prose"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "Which meaning best fits درخواست?",
+                "options": [
+                  "application",
+                  "signature",
+                  "attached",
+                  "approval"
+                ],
+                "answer": 0,
+                "why": "درخواست (darkhwast) means application in this lesson."
+              },
+              {
+                "q": "Which meaning best fits دستخط?",
+                "options": [
+                  "signature",
+                  "application",
+                  "attached",
+                  "approval"
+                ],
+                "answer": 0,
+                "why": "دستخط (dastkhat) means signature in this lesson."
+              },
+              {
+                "q": "Which meaning best fits منسلک?",
+                "options": [
+                  "attached",
+                  "application",
+                  "signature",
+                  "approval"
+                ],
+                "answer": 0,
+                "why": "منسلک (munsalik) means attached in this lesson."
+              },
+              {
+                "q": "Which meaning best fits منظوری?",
+                "options": [
+                  "approval",
+                  "application",
+                  "signature",
+                  "attached"
+                ],
+                "answer": 0,
+                "why": "منظوری (manzoori) means approval in this lesson."
+              },
+              {
+                "q": "Which meaning best fits ذمہ دار?",
+                "options": [
+                  "responsible",
+                  "application",
+                  "signature",
+                  "attached"
+                ],
+                "answer": 0,
+                "why": "ذمہ دار (zimmedar) means responsible in this lesson."
+              }
+            ],
+            "flashcards": "auto:vocab",
+            "worksheet": {
+              "title": "Document a procedure",
+              "tasks": [
+                {
+                  "instruction": "Translate the first model into English.",
+                  "items": [
+                    "درخواست دفتر میں جمع کی جاتی ہے۔"
+                  ],
+                  "key": [
+                    "The application is submitted to the office."
+                  ]
+                },
+                {
+                  "instruction": "Use the lesson pattern in a new sentence.",
+                  "items": [
+                    "دستخط شدہ نقل ساتھ منسلک ہے۔",
+                    "منظوری کی اطلاع کل دی جائے گی۔"
+                  ],
+                  "key": [
+                    "A signed copy is attached.",
+                    "The approval notice will be given tomorrow."
+                  ]
+                },
+                {
+                  "instruction": "Integrated offline practice: read the first model, transform or extend it in Nastaliq script, then rehearse it as a dialogue. Self-check meaning, grammar, and register.",
+                  "items": [
+                    "درخواست دفتر میں جمع کی جاتی ہے۔",
+                    "درخواست دفتر میں جمع کی جاتی ہے۔"
+                  ],
+                  "key": [
+                    "The application is submitted to the office.",
+                    "The application is submitted to the office."
+                  ]
+                }
+              ]
+            },
+            "srs_candidates": [
+              "درخواست",
+              "دستخط",
+              "منسلک",
+              "منظوری"
+            ],
+            "srs_policy": "Only these four high-value terms are preselected; lesson mistakes and productive patterns may enter personalized review after an actual error."
           }
         ]
       },
@@ -1333,25 +1897,25 @@
             },
             "dialogue": [
               {
-                "sp": "Speaker A",
+                "sp": "مقرر الف",
                 "t": "بیٹھیے",
                 "r": "Baithiye",
                 "en": "Sit down"
               },
               {
-                "sp": "Speaker B",
+                "sp": "مقرر ب",
                 "t": "تھوڑا اور کھائیے",
                 "r": "Thodha aur khaiye",
                 "en": "Eat a little more"
               },
               {
-                "sp": "Speaker A",
+                "sp": "مقرر الف",
                 "t": "بہت مزیدار ہے!",
                 "r": "Bahut mazedar hai!",
                 "en": "It is very tasty!"
               },
               {
-                "sp": "Speaker B",
+                "sp": "مقرر ب",
                 "t": "بس، پیٹ بھر گیا",
                 "r": "Bas, pet bhar gaya",
                 "en": "Enough, I am full"
@@ -1640,25 +2204,25 @@
             },
             "dialogue": [
               {
-                "sp": "Speaker A",
+                "sp": "مقرر الف",
                 "t": "مٹھائی کھائیے",
                 "r": "Mithai khaiye",
                 "en": "Eat sweets"
               },
               {
-                "sp": "Speaker B",
+                "sp": "مقرر ب",
                 "t": "نئے کپڑے پہنیے",
                 "r": "Nae kaprhe pehniye",
                 "en": "Wear new clothes"
               },
               {
-                "sp": "Speaker A",
+                "sp": "مقرر الف",
                 "t": "دیا جلائیے",
                 "r": "Diya jalaiye",
                 "en": "Light the lamp"
               },
               {
-                "sp": "Speaker B",
+                "sp": "مقرر ب",
                 "t": "دعا کیجیے",
                 "r": "Dua kijiye",
                 "en": "Offer prayers"
@@ -1854,6 +2418,288 @@
               "عیدی"
             ],
             "srs_policy": "Only selected high-value lesson forms are preselected; actual mistakes and productive patterns may enter personalized review after learner evidence."
+          },
+          {
+            "id": "ur-b2-l9",
+            "title": "Qualify a cultural comparison",
+            "learn": "Compare two practices without treating either community as uniform.",
+            "vocab": [
+              {
+                "t": "روایت",
+                "r": "riwayat",
+                "en": "tradition",
+                "pos": "phrase"
+              },
+              {
+                "t": "کمیونٹی",
+                "r": "community",
+                "en": "community",
+                "pos": "phrase"
+              },
+              {
+                "t": "فرق",
+                "r": "farq",
+                "en": "difference",
+                "pos": "phrase"
+              },
+              {
+                "t": "سیاق",
+                "r": "siyaaq",
+                "en": "context",
+                "pos": "phrase"
+              },
+              {
+                "t": "عمومی",
+                "r": "umoomi",
+                "en": "general",
+                "pos": "phrase"
+              }
+            ],
+            "grammar": {
+              "title": "concession and scope",
+              "pattern": "اگرچہ ...، مگر ...؛ ہر جگہ یکساں نہیں",
+              "explain": "Acknowledge a similarity or difference, then state the scope. Avoid universal statements about a diverse community.",
+              "examples": [
+                {
+                  "t": "کچھ خاندان یہ روایت برقرار رکھتے ہیں۔",
+                  "r": "kuch khandan ye riwayat barqarar rakhte hain.",
+                  "en": "Some families maintain this tradition."
+                },
+                {
+                  "t": "سیاق کے لحاظ سے طریقہ بدل سکتا ہے۔",
+                  "r": "siyaaq ke lihaz se tareeqa badal sakta hai.",
+                  "en": "The practice may change according to context."
+                },
+                {
+                  "t": "اس لیے ایک عمومی دعویٰ مناسب نہیں۔",
+                  "r": "is liye ek umoomi dawa munasib nahin.",
+                  "en": "Therefore a universal claim is not appropriate."
+                }
+              ],
+              "mistakes": [
+                {
+                  "wrong": "ہر خاندان یہ روایت ہمیشہ مناتا ہے۔",
+                  "right": "کچھ خاندان یہ روایت مناتے ہیں، مگر طریقہ مختلف ہو سکتا ہے۔",
+                  "why": "Use a bounded claim instead of generalising about every family."
+                }
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "استاد",
+                "t": "کچھ خاندان یہ روایت برقرار رکھتے ہیں۔",
+                "r": "kuch khandan ye riwayat barqarar rakhte hain.",
+                "en": "Some families maintain this tradition."
+              },
+              {
+                "sp": "طالب علم",
+                "t": "سیاق کے لحاظ سے طریقہ بدل سکتا ہے۔",
+                "r": "siyaaq ke lihaz se tareeqa badal sakta hai.",
+                "en": "The practice may change according to context."
+              },
+              {
+                "sp": "استاد",
+                "t": "اس لیے ایک عمومی دعویٰ مناسب نہیں۔",
+                "r": "is liye ek umoomi dawa munasib nahin.",
+                "en": "Therefore a universal claim is not appropriate."
+              },
+              {
+                "sp": "طالب علم",
+                "t": "سیاق کے لحاظ سے طریقہ بدل سکتا ہے۔",
+                "r": "siyaaq ke lihaz se tareeqa badal sakta hai.",
+                "en": "The practice may change according to context."
+              }
+            ],
+            "practice": [
+              {
+                "type": "multiple_choice",
+                "q": "Practice 1: [multiple choice] Qualify a cultural comparison — Choose the meaning of روایت (riwayat) in this lesson.",
+                "answer": "tradition",
+                "skill_target": "Urdu: right-to-left Nastaliq reading, احترام کے صیغے آپ/تم, postpositions, gender and honorific agreement, clause linking, and source-aware formal prose",
+                "options": [
+                  "tradition",
+                  "community",
+                  "difference",
+                  "context"
+                ]
+              },
+              {
+                "type": "fill_in_the_blank",
+                "q": "Practice 2: [fill in the blank] Qualify a cultural comparison — Type the Urdu expression meaning “community”.",
+                "answer": "کمیونٹی",
+                "skill_target": "Urdu: right-to-left Nastaliq reading, احترام کے صیغے آپ/تم, postpositions, gender and honorific agreement, clause linking, and source-aware formal prose"
+              },
+              {
+                "type": "translation",
+                "q": "Practice 3: [translation] Qualify a cultural comparison — Interpret the Nastaliq script in context: کچھ خاندان یہ روایت برقرار رکھتے ہیں۔ (kuch khandan ye riwayat barqarar rakhte hain.).",
+                "answer": "Some families maintain this tradition.",
+                "skill_target": "Urdu: right-to-left Nastaliq reading, احترام کے صیغے آپ/تم, postpositions, gender and honorific agreement, clause linking, and source-aware formal prose"
+              },
+              {
+                "type": "reverse_translation",
+                "q": "Practice 4: [reverse translation] Qualify a cultural comparison — Write in Nastaliq script: The practice may change according to context..",
+                "answer": "سیاق کے لحاظ سے طریقہ بدل سکتا ہے۔",
+                "skill_target": "Urdu: right-to-left Nastaliq reading, احترام کے صیغے آپ/تم, postpositions, gender and honorific agreement, clause linking, and source-aware formal prose"
+              },
+              {
+                "type": "matching",
+                "q": "Practice 5: [matching] Qualify a cultural comparison — Match فرق to its lesson meaning.",
+                "answer": "difference",
+                "skill_target": "Urdu: right-to-left Nastaliq reading, احترام کے صیغے آپ/تم, postpositions, gender and honorific agreement, clause linking, and source-aware formal prose",
+                "options": [
+                  "difference",
+                  "tradition",
+                  "community"
+                ]
+              },
+              {
+                "type": "reorder",
+                "q": "Practice 6: [reorder] Qualify a cultural comparison — Reconstruct the lesson model in coherent Urdu: Therefore a universal claim is not appropriate..",
+                "answer": "اس لیے ایک عمومی دعویٰ مناسب نہیں۔",
+                "skill_target": "Urdu: right-to-left Nastaliq reading, احترام کے صیغے آپ/تم, postpositions, gender and honorific agreement, clause linking, and source-aware formal prose"
+              },
+              {
+                "type": "sentence_building",
+                "q": "Practice 7: [sentence building] Qualify a cultural comparison — Build the sentence with the lesson pattern (اگرچہ ...، مگر ...؛ ہر جگہ یکساں نہیں): Some families maintain this tradition..",
+                "answer": "کچھ خاندان یہ روایت برقرار رکھتے ہیں۔",
+                "skill_target": "Urdu: right-to-left Nastaliq reading, احترام کے صیغے آپ/تم, postpositions, gender and honorific agreement, clause linking, and source-aware formal prose"
+              },
+              {
+                "type": "word_selection",
+                "q": "Practice 8: [word selection] Qualify a cultural comparison — Select the Urdu form for “context”.",
+                "answer": "سیاق",
+                "skill_target": "Urdu: right-to-left Nastaliq reading, احترام کے صیغے آپ/تم, postpositions, gender and honorific agreement, clause linking, and source-aware formal prose",
+                "options": [
+                  "سیاق",
+                  "عمومی"
+                ]
+              },
+              {
+                "type": "error_correction",
+                "q": "Practice 9: [error correction] Qualify a cultural comparison — Correct the model the lesson warns about: ہر خاندان یہ روایت ہمیشہ مناتا ہے۔",
+                "answer": "کچھ خاندان یہ روایت مناتے ہیں، مگر طریقہ مختلف ہو سکتا ہے۔",
+                "skill_target": "Urdu: right-to-left Nastaliq reading, احترام کے صیغے آپ/تم, postpositions, gender and honorific agreement, clause linking, and source-aware formal prose"
+              },
+              {
+                "type": "dialogue_completion",
+                "q": "Practice 10: [dialogue completion] Qualify a cultural comparison — Complete the exchange with the studied response to: Some families maintain this tradition.",
+                "answer": "سیاق کے لحاظ سے طریقہ بدل سکتا ہے۔",
+                "skill_target": "Urdu: right-to-left Nastaliq reading, احترام کے صیغے آپ/تم, postpositions, gender and honorific agreement, clause linking, and source-aware formal prose"
+              },
+              {
+                "type": "reading_comprehension",
+                "q": "Practice 11: [reading comprehension] Qualify a cultural comparison — Read “اس لیے ایک عمومی دعویٰ مناسب نہیں۔” (is liye ek umoomi dawa munasib nahin.). What does it mean?",
+                "answer": "Therefore a universal claim is not appropriate.",
+                "skill_target": "Urdu: right-to-left Nastaliq reading, احترام کے صیغے آپ/تم, postpositions, gender and honorific agreement, clause linking, and source-aware formal prose"
+              },
+              {
+                "type": "paragraph_comprehension",
+                "q": "Practice 12: [paragraph comprehension] Qualify a cultural comparison — Read the lesson dialogue as a whole and give its key move: The practice may change according to context.",
+                "answer": "سیاق کے لحاظ سے طریقہ بدل سکتا ہے۔",
+                "skill_target": "Urdu: right-to-left Nastaliq reading, احترام کے صیغے آپ/تم, postpositions, gender and honorific agreement, clause linking, and source-aware formal prose"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "Which meaning best fits روایت?",
+                "options": [
+                  "tradition",
+                  "community",
+                  "difference",
+                  "context"
+                ],
+                "answer": 0,
+                "why": "روایت (riwayat) means tradition in this lesson."
+              },
+              {
+                "q": "Which meaning best fits کمیونٹی?",
+                "options": [
+                  "community",
+                  "tradition",
+                  "difference",
+                  "context"
+                ],
+                "answer": 0,
+                "why": "کمیونٹی (community) means community in this lesson."
+              },
+              {
+                "q": "Which meaning best fits فرق?",
+                "options": [
+                  "difference",
+                  "tradition",
+                  "community",
+                  "context"
+                ],
+                "answer": 0,
+                "why": "فرق (farq) means difference in this lesson."
+              },
+              {
+                "q": "Which meaning best fits سیاق?",
+                "options": [
+                  "context",
+                  "tradition",
+                  "community",
+                  "difference"
+                ],
+                "answer": 0,
+                "why": "سیاق (siyaaq) means context in this lesson."
+              },
+              {
+                "q": "Which meaning best fits عمومی?",
+                "options": [
+                  "general",
+                  "tradition",
+                  "community",
+                  "difference"
+                ],
+                "answer": 0,
+                "why": "عمومی (umoomi) means general in this lesson."
+              }
+            ],
+            "flashcards": "auto:vocab",
+            "worksheet": {
+              "title": "Write a balanced comparison",
+              "tasks": [
+                {
+                  "instruction": "Translate the first model into English.",
+                  "items": [
+                    "کچھ خاندان یہ روایت برقرار رکھتے ہیں۔"
+                  ],
+                  "key": [
+                    "Some families maintain this tradition."
+                  ]
+                },
+                {
+                  "instruction": "Use the lesson pattern in a new sentence.",
+                  "items": [
+                    "سیاق کے لحاظ سے طریقہ بدل سکتا ہے۔",
+                    "اس لیے ایک عمومی دعویٰ مناسب نہیں۔"
+                  ],
+                  "key": [
+                    "The practice may change according to context.",
+                    "Therefore a universal claim is not appropriate."
+                  ]
+                },
+                {
+                  "instruction": "Integrated offline practice: read the first model, transform or extend it in Nastaliq script, then rehearse it as a dialogue. Self-check meaning, grammar, and register.",
+                  "items": [
+                    "کچھ خاندان یہ روایت برقرار رکھتے ہیں۔",
+                    "کچھ خاندان یہ روایت برقرار رکھتے ہیں۔"
+                  ],
+                  "key": [
+                    "Some families maintain this tradition.",
+                    "Some families maintain this tradition."
+                  ]
+                }
+              ]
+            },
+            "srs_candidates": [
+              "روایت",
+              "کمیونٹی",
+              "فرق",
+              "سیاق"
+            ],
+            "srs_policy": "Only these four high-value terms are preselected; lesson mistakes and productive patterns may enter personalized review after an actual error."
           }
         ]
       }
@@ -1912,6 +2758,95 @@
           "answer": "بارش ہو رہی ہے (Barish ho rahi hai)"
         }
       ]
+    },
+    "extra": {
+      "culture": {
+        "text": "Urdu public and professional writing uses several ways to signal respect, distance and disagreement. A careful writer can challenge a claim while acknowledging the other person's proposal. Formal phrases should not be copied blindly into a family conversation, where a shorter, warmer expression may fit better.",
+        "source_url": "https://www.britannica.com/topic/Urdu-language"
+      },
+      "reading": {
+        "text": "محکمہ نے منصوبے کے نتائج جاری کیے، مگر رپورٹ میں ایک حد بھی لکھی۔ صرف تین علاقوں سے معلومات جمع ہوئی تھیں۔ مصنف نے اس لیے سفارش کی کہ اگلے مرحلے میں مزید علاقوں کو شامل کیا جائے۔",
+        "gloss": "The department released the project's results, but the report also stated a limitation. Information had been collected from only three areas. The author therefore recommended including more areas in the next stage.",
+        "original": true
+      },
+      "listening": {
+        "script": "محرر: کیا ہم سفارش کو حتمی فیصلہ لکھیں؟<br>محقق: بہتر ہے اسے دستیاب نمونے سے وابستہ رکھیں۔<br>محرر: میں یہ حد واضح کر دوں گا۔<br>محقق: شکریہ، اس سے دعویٰ درست حد میں رہے گا۔",
+        "gloss": "Editor: Should we write the recommendation as a final decision? Researcher: It is better to tie it to the available sample. Editor: I will make that limitation clear. Researcher: Thank you; that will keep the claim within its proper scope.",
+        "voice_tag": "ur-PK"
+      },
+      "idioms": [
+        {
+          "t": "مدنظر رکھنا",
+          "literal": "to keep in view",
+          "meaning": "to take into account"
+        },
+        {
+          "t": "نکتہ اٹھانا",
+          "literal": "to raise a point",
+          "meaning": "to raise an issue"
+        },
+        {
+          "t": "رائے سے اختلاف کرنا",
+          "literal": "to differ with a view",
+          "meaning": "to disagree with an opinion"
+        },
+        {
+          "t": "پہلو اجاگر کرنا",
+          "literal": "to make a side prominent",
+          "meaning": "to highlight an aspect"
+        },
+        {
+          "t": "حد مقرر کرنا",
+          "literal": "to set a limit",
+          "meaning": "to define a boundary"
+        },
+        {
+          "t": "وجہ بیان کرنا",
+          "literal": "to state a reason",
+          "meaning": "to explain why"
+        },
+        {
+          "t": "نتیجہ اخذ کرنا",
+          "literal": "to infer a result",
+          "meaning": "to draw a conclusion"
+        },
+        {
+          "t": "توجہ دلانا",
+          "literal": "to draw attention",
+          "meaning": "to point something out"
+        },
+        {
+          "t": "عملی صورت دینا",
+          "literal": "to give a practical form",
+          "meaning": "to put into practice"
+        },
+        {
+          "t": "ازسرِنو جائزہ",
+          "literal": "review anew",
+          "meaning": "a fresh review"
+        }
+      ],
+      "mistakes": [
+        {
+          "wrong": "اگرچہ منصوبہ مفید ہے، لیکن مگر مہنگا ہے۔",
+          "right": "اگرچہ منصوبہ مفید ہے، مگر مہنگا ہے۔",
+          "why": "Choose one contrast linker rather than stacking alternatives."
+        },
+        {
+          "wrong": "اعداد اس بات کو ثابت ہیں۔",
+          "right": "اعداد اس بات کی تائید کرتے ہیں۔",
+          "why": "Use an idiomatic evidence verb and avoid claiming proof beyond the data."
+        },
+        {
+          "wrong": "آپ کی رائے غلط ہے، اس لیے میں اختلاف کرتا ہوں۔",
+          "right": "میں اس نکتے سے مختلف نتیجہ اخذ کرتا ہوں۔",
+          "why": "Disagree with a claim precisely instead of dismissing the person."
+        }
+      ],
+      "task": {
+        "title": "Urdu B2 reflection and production task",
+        "instructions": "Write a short response using two expressions from this level. State the audience, keep the address form consistent, and mark which claim is observed, reported or inferred. Read it aloud once and revise any phrase that overstates the evidence."
+      }
     }
   }
 }

@@ -196,7 +196,7 @@ def main():
         "weights": js_css_weights(),
         "admin": admin_panels(),
         "preExistingSystems": {
-            "toolRegistry": "js/tool-registry.js (12 tools)",
+            "toolRegistry": "js/tool-registry.js (13 tools)",
             "learnQuality": "js/learn-quality.js",
             "learningPaths": "js/learning-paths.js",
             "practiceBank": "js/practice-bank.js",

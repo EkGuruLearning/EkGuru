@@ -11,12 +11,16 @@ from lib.ultra_content import ROOT, load, pages, route
 
 SLOTS = ['head', 'assets', 'byline', 'notice', 'audio', 'continue', 'today', 'placement', 'lesson', 'privacy', 'appearance']
 SLUG_CODE = {'hindi': 'hi', 'bengali': 'bn', 'gujarati': 'gu', 'kannada': 'kn', 'malayalam': 'ml', 'marathi': 'mr', 'punjabi': 'pa', 'tamil': 'ta', 'telugu': 'te', 'urdu': 'ur'}
+# Long-form world-course guides live under readable slugs rather than codes.
+# Keep them out of SLUG_CODE so they are not mistaken for generated course hubs.
+WORLD_GUIDE_CODES = {'arabic': 'ar', 'spanish': 'es', 'german': 'de'}
 LOCALES = ['ar', 'de', 'es', 'fr', 'ja', 'pt']
 REGISTRY = {r['code']: r for r in load('data/languages/registry.json', {'languages': []})['languages']}
 AVAILABLE = {l['code'] for l in load('data/learning/index.json', {'languages': []})['languages']}
 LEVEL_PAGES = set(load('data/learning/offline-levels.json', {'levels': {}})['levels'])
 UTILITY = re.compile(r'^/(?:privacy|terms|disclaimer|copyright|cookie-policy|monetization-disclosure|contact|search|offline|tutor|join|support|booking|checkout|payment|admin|404|find-tutors|courses|start|editorial-policy|authors|review|design)(?:[/.]|$)')
 NEW_PAGES = {'editorial-policy/index.html', 'authors/prakash/index.html', 'learn/progress/index.html', 'review/index.html', 'design/index.html'}
+AI_DRAFT_PREFIXES = ('learn/arabic/', 'learn/spanish/', 'learn/german/')
 UI = {  # appearance control + byline labels per UI locale (policy/review pages stay English and are linked with hreflang)
     'en': {'appearance': 'Settings', 'appearance': 'Appearance', 'opts': ['System', 'Light', 'Dark', 'High contrast'], 'policy': 'Editorial policy', 'journal': 'Learning journal', 'written': 'Written by: authorship not independently recorded', 'maintained': 'Maintained by', 'reviewed': 'Reviewed by: not recorded', 'updated': 'Updated: ', 'unknown': 'legacy editorial date unknown', 'corrections': 'Editorial policy and corrections'},
     'ar': {'appearance': 'الإعدادات', 'appearance': 'المظهر', 'opts': ['النظام', 'فاتح', 'داكن', 'تباين عالٍ'], 'policy': 'سياسة التحرير (بالإنجليزية)', 'journal': 'سجل التعلم (بالإنجليزية)', 'written': 'التأليف: لم يوثّق بشكل مستقل', 'maintained': 'صيانة الموقع:', 'reviewed': 'المراجعة: لا يوجد سجل', 'updated': 'التحديث: ', 'unknown': 'تاريخ التحرير القديم غير معروف', 'corrections': 'سياسة التحرير والتصحيحات (بالإنجليزية)'},
@@ -53,6 +57,7 @@ def learning_code(rel):
     parts = rel.split('/')
     if parts[0] == 'languages' and len(parts) > 2 and parts[1] in REGISTRY: return parts[1]
     if parts[0] == 'learn' and len(parts) > 2 and parts[1] in SLUG_CODE: return SLUG_CODE[parts[1]]
+    if parts[0] == 'learn' and len(parts) > 2 and parts[1] in WORLD_GUIDE_CODES: return WORLD_GUIDE_CODES[parts[1]]
     if parts[0] in SLUG_CODE and len(parts) > 1: return SLUG_CODE[parts[0]]
     return 'hi'
 
@@ -87,7 +92,8 @@ def byline_block(rel, code, metadata, locale):
     u = UI[locale]
     meta = metadata.get(rel, {})
     date = f'<time datetime="{meta["updated"]}">{meta["updated"]}</time>' if meta.get('updated') else E(u['unknown'])
-    author = 'Written by: AI-assisted draft for owner review' if rel in NEW_PAGES else u['written']
+    is_ai_draft = rel in NEW_PAGES or rel.startswith(AI_DRAFT_PREFIXES)
+    author = 'Written by: AI-assisted draft for owner review' if is_ai_draft else u['written']
     rtl = ' dir="rtl"' if locale == 'ar' else ' dir="ltr"'
     return block('byline', f'<p class="eg-byline" lang="{locale}"{rtl} data-eg-chrome="editorial">{E(author)}. {E(u["maintained"])} <a href="/authors/prakash/" hreflang="en">Prakash</a>. {E(u["reviewed"])}. {E(u["updated"])}{date}. <a href="/editorial-policy/" hreflang="en">{E(u["corrections"])}</a>.</p>')
 

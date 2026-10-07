@@ -1,10 +1,11 @@
 {
   "schema_version": 1,
   "generated_on": "2026-09-20",
-  "method": "Conservative publication gate: blocks the unreviewed phase-3 expansion and known synthetic advanced files, then applies deterministic filler/placeholder, lesson and level-test checks. This does not substitute for native-speaker editorial review.",
+  "method": "Conservative publication gate: blocks the unreviewed phase-3 expansion and the C1/C2 advanced batch pending native review, then applies deterministic filler/placeholder, lesson and level-test checks. This does not substitute for native-speaker editorial review.",
   "states": {
     "PUBLISHABLE_EXISTING": "No deterministic blocker found; existing content only, not a claim of independent linguistic verification.",
-    "PUBLIC_CONTENT_BUG": "Must remain unpublished/noindex.",
+    "PUBLIC_CONTENT_BUG": "A deterministic public-content defect remains; keep unpublished/noindex.",
+    "REVIEW_REQUIRED": "The advanced batch has contextual glosses but awaits native review; keep unpublished/noindex.",
     "NOT_AUTHORED": "No level file exists."
   },
   "summary": {
@@ -12,9 +13,11 @@
     "complete": 10,
     "partial": 8,
     "research_required": 71,
+    "review_required_levels": 16,
     "level_states": {
-      "PUBLIC_CONTENT_BUG": 442,
-      "PUBLISHABLE_EXISTING": 92
+      "PUBLIC_CONTENT_BUG": 426,
+      "PUBLISHABLE_EXISTING": 92,
+      "REVIEW_REQUIRED": 16
     }
   },
   "courses": [
@@ -153,22 +156,22 @@
         },
         {
           "level": "C1",
-          "state": "PUBLIC_CONTENT_BUG",
+          "state": "REVIEW_REQUIRED",
           "file": "data/courses/phase-1/ar_C1.json",
           "lessons": 9,
           "test_items": 10,
           "issues": [
-            "sentence_fragment_as_definition"
+            "advanced_batch_requires_native_review"
           ]
         },
         {
           "level": "C2",
-          "state": "PUBLIC_CONTENT_BUG",
+          "state": "REVIEW_REQUIRED",
           "file": "data/courses/phase-1/ar_C2.json",
           "lessons": 9,
           "test_items": 10,
           "issues": [
-            "sentence_fragment_as_definition"
+            "advanced_batch_requires_native_review"
           ]
         }
       ]
@@ -220,22 +223,22 @@
         },
         {
           "level": "C1",
-          "state": "PUBLIC_CONTENT_BUG",
+          "state": "REVIEW_REQUIRED",
           "file": "data/courses/phase-1/bn_C1.json",
           "lessons": 9,
           "test_items": 10,
           "issues": [
-            "sentence_fragment_as_definition"
+            "advanced_batch_requires_native_review"
           ]
         },
         {
           "level": "C2",
-          "state": "PUBLIC_CONTENT_BUG",
+          "state": "REVIEW_REQUIRED",
           "file": "data/courses/phase-1/bn_C2.json",
           "lessons": 9,
           "test_items": 10,
           "issues": [
-            "sentence_fragment_as_definition"
+            "advanced_batch_requires_native_review"
           ]
         }
       ]
@@ -375,22 +378,22 @@
         },
         {
           "level": "C1",
-          "state": "PUBLIC_CONTENT_BUG",
+          "state": "REVIEW_REQUIRED",
           "file": "data/courses/phase-1/de_C1.json",
           "lessons": 9,
           "test_items": 10,
           "issues": [
-            "sentence_fragment_as_definition"
+            "advanced_batch_requires_native_review"
           ]
         },
         {
           "level": "C2",
-          "state": "PUBLIC_CONTENT_BUG",
+          "state": "REVIEW_REQUIRED",
           "file": "data/courses/phase-1/de_C2.json",
           "lessons": 9,
           "test_items": 10,
           "issues": [
-            "sentence_fragment_as_definition"
+            "advanced_batch_requires_native_review"
           ]
         }
       ]
@@ -1212,22 +1215,22 @@
         },
         {
           "level": "C1",
-          "state": "PUBLIC_CONTENT_BUG",
+          "state": "REVIEW_REQUIRED",
           "file": "data/courses/phase-1/it_C1.json",
           "lessons": 9,
           "test_items": 10,
           "issues": [
-            "sentence_fragment_as_definition"
+            "advanced_batch_requires_native_review"
           ]
         },
         {
           "level": "C2",
-          "state": "PUBLIC_CONTENT_BUG",
+          "state": "REVIEW_REQUIRED",
           "file": "data/courses/phase-1/it_C2.json",
           "lessons": 9,
           "test_items": 10,
           "issues": [
-            "sentence_fragment_as_definition"
+            "advanced_batch_requires_native_review"
           ]
         }
       ]
@@ -1279,22 +1282,22 @@
         },
         {
           "level": "C1",
-          "state": "PUBLIC_CONTENT_BUG",
+          "state": "REVIEW_REQUIRED",
           "file": "data/courses/phase-1/ja_C1.json",
           "lessons": 9,
           "test_items": 10,
           "issues": [
-            "sentence_fragment_as_definition"
+            "advanced_batch_requires_native_review"
           ]
         },
         {
           "level": "C2",
-          "state": "PUBLIC_CONTENT_BUG",
+          "state": "REVIEW_REQUIRED",
           "file": "data/courses/phase-1/ja_C2.json",
           "lessons": 9,
           "test_items": 10,
           "issues": [
-            "sentence_fragment_as_definition"
+            "advanced_batch_requires_native_review"
           ]
         }
       ]
@@ -1434,22 +1437,22 @@
         },
         {
           "level": "C1",
-          "state": "PUBLIC_CONTENT_BUG",
+          "state": "REVIEW_REQUIRED",
           "file": "data/courses/phase-1/ko_C1.json",
           "lessons": 9,
           "test_items": 10,
           "issues": [
-            "known_synthetic_advanced_content"
+            "advanced_batch_requires_native_review"
           ]
         },
         {
           "level": "C2",
-          "state": "PUBLIC_CONTENT_BUG",
+          "state": "REVIEW_REQUIRED",
           "file": "data/courses/phase-1/ko_C2.json",
           "lessons": 9,
           "test_items": 10,
           "issues": [
-            "known_synthetic_advanced_content"
+            "advanced_batch_requires_native_review"
           ]
         }
       ]
@@ -1892,22 +1895,22 @@
         },
         {
           "level": "C1",
-          "state": "PUBLIC_CONTENT_BUG",
+          "state": "REVIEW_REQUIRED",
           "file": "data/courses/phase-1/pt_C1.json",
           "lessons": 9,
           "test_items": 10,
           "issues": [
-            "sentence_fragment_as_definition"
+            "advanced_batch_requires_native_review"
           ]
         },
         {
           "level": "C2",
-          "state": "PUBLIC_CONTENT_BUG",
+          "state": "REVIEW_REQUIRED",
           "file": "data/courses/phase-1/pt_C2.json",
           "lessons": 9,
           "test_items": 10,
           "issues": [
-            "sentence_fragment_as_definition"
+            "advanced_batch_requires_native_review"
           ]
         }
       ]
@@ -2047,22 +2050,22 @@
         },
         {
           "level": "C1",
-          "state": "PUBLIC_CONTENT_BUG",
+          "state": "REVIEW_REQUIRED",
           "file": "data/courses/phase-1/ru_C1.json",
           "lessons": 9,
           "test_items": 10,
           "issues": [
-            "sentence_fragment_as_definition"
+            "advanced_batch_requires_native_review"
           ]
         },
         {
           "level": "C2",
-          "state": "PUBLIC_CONTENT_BUG",
+          "state": "REVIEW_REQUIRED",
           "file": "data/courses/phase-1/ru_C2.json",
           "lessons": 9,
           "test_items": 10,
           "issues": [
-            "sentence_fragment_as_definition"
+            "advanced_batch_requires_native_review"
           ]
         }
       ]
@@ -2568,7 +2571,7 @@
           "level": "A1",
           "state": "PUBLISHABLE_EXISTING",
           "file": "data/courses/phase-2/ur_A1.json",
-          "lessons": 6,
+          "lessons": 9,
           "test_items": 10,
           "issues": []
         },
@@ -2576,7 +2579,7 @@
           "level": "A2",
           "state": "PUBLISHABLE_EXISTING",
           "file": "data/courses/phase-2/ur_A2.json",
-          "lessons": 6,
+          "lessons": 9,
           "test_items": 10,
           "issues": []
         },
@@ -2584,7 +2587,7 @@
           "level": "B1",
           "state": "PUBLISHABLE_EXISTING",
           "file": "data/courses/phase-2/ur_B1.json",
-          "lessons": 6,
+          "lessons": 9,
           "test_items": 10,
           "issues": []
         },
@@ -2592,7 +2595,7 @@
           "level": "B2",
           "state": "PUBLISHABLE_EXISTING",
           "file": "data/courses/phase-2/ur_B2.json",
-          "lessons": 6,
+          "lessons": 9,
           "test_items": 10,
           "issues": []
         },
@@ -2600,7 +2603,7 @@
           "level": "C1",
           "state": "PUBLISHABLE_EXISTING",
           "file": "data/courses/phase-2/ur_C1.json",
-          "lessons": 6,
+          "lessons": 9,
           "test_items": 10,
           "issues": []
         },
@@ -2608,7 +2611,7 @@
           "level": "C2",
           "state": "PUBLISHABLE_EXISTING",
           "file": "data/courses/phase-2/ur_C2.json",
-          "lessons": 6,
+          "lessons": 9,
           "test_items": 10,
           "issues": []
         }
@@ -2809,7 +2812,7 @@
           "level": "A1",
           "state": "PUBLISHABLE_EXISTING",
           "file": "data/courses/phase-1/zh_A1.json",
-          "lessons": 6,
+          "lessons": 9,
           "test_items": 10,
           "issues": []
         },
@@ -2817,7 +2820,7 @@
           "level": "A2",
           "state": "PUBLISHABLE_EXISTING",
           "file": "data/courses/phase-1/zh_A2.json",
-          "lessons": 6,
+          "lessons": 9,
           "test_items": 10,
           "issues": []
         },
@@ -2825,7 +2828,7 @@
           "level": "B1",
           "state": "PUBLISHABLE_EXISTING",
           "file": "data/courses/phase-1/zh_B1.json",
-          "lessons": 6,
+          "lessons": 9,
           "test_items": 10,
           "issues": []
         },
@@ -2833,7 +2836,7 @@
           "level": "B2",
           "state": "PUBLISHABLE_EXISTING",
           "file": "data/courses/phase-1/zh_B2.json",
-          "lessons": 6,
+          "lessons": 9,
           "test_items": 10,
           "issues": []
         },
@@ -2841,7 +2844,7 @@
           "level": "C1",
           "state": "PUBLISHABLE_EXISTING",
           "file": "data/courses/phase-1/zh_C1.json",
-          "lessons": 6,
+          "lessons": 9,
           "test_items": 10,
           "issues": []
         },
@@ -2849,7 +2852,7 @@
           "level": "C2",
           "state": "PUBLISHABLE_EXISTING",
           "file": "data/courses/phase-1/zh_C2.json",
-          "lessons": 6,
+          "lessons": 9,
           "test_items": 10,
           "issues": []
         }

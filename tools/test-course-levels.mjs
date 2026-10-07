@@ -222,6 +222,18 @@ for (const lv of LEVELS) {
 ok("Telugu rendered level pages expose no synthetic contextual-segment glosses",
   contextualFillerPages.length === 0, contextualFillerPages.slice(0, 5).join(", "));
 
+const advancedGlossPages = [];
+for (const code of ["ar", "bn", "de", "it", "ja", "ko", "pt", "ru"]) {
+  for (const lv of ["c1", "c2"]) {
+    const page = `languages/${code}/level/${lv}/index.html`;
+    if (!exists(page)) continue;
+    const html = read(page);
+    if (/\bdiscourse\s+segment\s+\d+\s*(?:in|:)/i.test(html)) advancedGlossPages.push(page);
+  }
+}
+ok("advanced C1/C2 pages show contextual glosses, not generated segment labels",
+  advancedGlossPages.length === 0, advancedGlossPages.slice(0, 5).join(", "));
+
 const teC1Page = exists("languages/te/level/c1/index.html")
   ? read("languages/te/level/c1/index.html") : "";
 const teC2Page = exists("languages/te/level/c2/index.html")

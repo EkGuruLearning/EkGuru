@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-/* WCAG 2.x contrast for every per-language theme in light, dark and high-contrast modes, plus motion/voice size budgets. */
+/* WCAG 2.x contrast for per-language themes, neutral-pattern parity, and motion/voice budgets. */
 import fs from 'node:fs';
 import zlib from 'node:zlib';
 const read = (f) => fs.readFileSync(f, 'utf8');
@@ -26,11 +26,32 @@ function need(label, fg, bg, min) {
 }
 const registry = JSON.parse(read('data/languages/registry.json')).languages.filter((r) => r.course || r.starter_pack);
 const themes = fs.readdirSync('data/themes').filter((f) => f.endsWith('.json')).map((f) => JSON.parse(read('data/themes/' + f)));
+const patterns = new Set();
 if (themes.length !== registry.length) failures.push(`theme count ${themes.length} != registry course/starter languages ${registry.length}`);
+const ultra = read('css/ultra.css');
+if (!ultra.includes('html[data-learning-language] .eg-appearance {') ||
+    !ultra.includes('background-image: var(--eg-pattern, none);')) {
+  failures.push('generated per-language pattern is not applied to a visible language-page surface');
+}
 for (const theme of themes) {
   const reg = registry.find((r) => r.code === theme.code);
   if (!reg) { failures.push(`${theme.code}: theme without registry row`); continue; }
   if (theme.direction !== reg.direction) failures.push(`${theme.code}: direction ${theme.direction} != registry ${reg.direction}`);
+  const patternMatch = typeof theme.pattern === 'string'
+    ? theme.pattern.match(/^abstract geometric line pattern; language-code-derived angle ([0-9.]+)°, spacing ([0-9]+)px; decorative only, not a cultural motif$/)
+    : null;
+  if (!patternMatch) failures.push(`${theme.code}: missing neutral, language-code-derived pattern metadata`);
+  else {
+    if (patterns.has(theme.pattern)) failures.push(`${theme.code}: duplicate per-language abstract pattern`);
+    patterns.add(theme.pattern);
+    const themeCssPath = `css/themes/${theme.code}.css`;
+    if (!fs.existsSync(themeCssPath)) failures.push(`${theme.code}: generated theme CSS is missing`);
+    else {
+      const [_, angle, spacing] = patternMatch;
+      const expectedPattern = `--eg-pattern:repeating-linear-gradient(${angle}deg,transparent 0 ${spacing}px,var(--eg-soft) ${spacing}px ${Number(spacing) + 1}px)`;
+      if (!read(themeCssPath).includes(expectedPattern)) failures.push(`${theme.code}: pattern metadata and generated CSS differ`);
+    }
+  }
   for (const mode of ['light', 'dark', 'contrast']) {
     const t = { ...base[mode], accent: theme[mode].accent, 'accent-contrast': theme[mode].accent_contrast };
     const L = `${theme.code}/${mode}`;
@@ -50,4 +71,4 @@ if (fs.existsSync('js/voice.js') && Buffer.byteLength(read('js/voice.js')) > 10 
 if (!/prefers-reduced-motion:\s*reduce/.test(tokens) || !/prefers-reduced-motion:\s*reduce/.test(read('css/ultra.css'))) failures.push('reduced-motion CSS missing');
 if (!/matchMedia\('\(prefers-reduced-motion: reduce\)'\)/.test(read('js/ui-motion.js'))) failures.push('ui-motion does not read reduced motion');
 if (failures.length) { console.error('FAIL theme contrast/budgets\n' + failures.slice(0, 40).join('\n')); process.exit(1); }
-console.log(`PASS theme contrast: ${themes.length} themes × 3 modes, ${pairs} semantic pairs; motion/voice budgets and reduced-motion hooks present`);
+console.log(`PASS theme contrast: ${themes.length} themes × 3 modes, ${patterns.size} unique abstract patterns, ${pairs} semantic pairs; motion/voice budgets and reduced-motion hooks present`);

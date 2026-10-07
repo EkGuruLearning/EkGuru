@@ -210,8 +210,14 @@ def main() -> int:
           f"{total_test} file(s) with test items out of range")
     print(f"  legacy bridges already on disk and mappable: "
           f"{', '.join(f'{k}->{v}' for k, v in LEGACY_BRIDGES.items())}")
-    print("\n  The gap, in one line: every published course carries 6 of the 11 CEFR rungs, "
-          "no rung carries the `extra` block, and units hold 2 lessons where the schema wants 3-5.")
+    if gaps := (total_missing or total_extra or total_lessons or total_test or total_defects or total_labels):
+        print("\n  The gap, in one line: "
+              f"{total_missing} rung file(s), {total_extra} missing extra block(s), "
+              f"{total_lessons} short unit(s), {total_test} test-range issue(s), "
+              f"{total_defects} content defect(s), and {total_labels} English role label(s).")
+    else:
+        print("\n  The gap, in one line: none of the audited Phase 1 depth, `extra`, "
+              "third-lesson, test-range, content-defect or role-label checks remain.")
     print("  Acceptance for PHASE 1 (from the command doc): at least A1-B2 published per language, "
           "500+ words of unique content per level page, voice tags on vocabulary, no templated intros.")
     gaps = total_missing or total_extra or total_lessons or total_test or total_defects or total_labels

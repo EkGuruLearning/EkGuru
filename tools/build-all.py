@@ -10,6 +10,8 @@ deploys:
   1  sheetsync (LIVE tutors/reviews/settings -> js/tutors/_overrides.js)
   2  world courses (every tools/course-data/*.py -> languages/<code>/…)
   3  Indian courses (9 lang-data slugs -> learn/<slug>/…)
+  3a root Indian topic trees (nine /<language>/<topic>/ trees)
+  3b language-aware speaker controls for generated course and topic text
   4  phase7 registries (source of truth for speech tags, countries)
   5  phase7c registries (PRODUCTION/AVAILABLE/BETA split)
   6  phase7c pages (hub, per-language pages, home sync)
@@ -75,10 +77,33 @@ ULTRA_BUILDS = [
     ("trust, journal, review and design pages (all noindex)", ["python3", "tools/build-ultra-pages.py"]),
     ("language quality gate report (failures reported, never hidden; no page edited)", ["python3", "tools/language-gate.py"]),
     ("course health report", ["python3", "tools/course-health.py"]),
+    ("Phase 1: complete authored depth and no open mechanical gaps", ["python3", "tools/audit-phase1-gap.py", "--check"]),
+    ("Phase 1: contextual glosses for advanced phrase lessons", ["python3", "tools/repair-phase1-advanced-glosses.py", "--check"]),
+    ("world-language long-form Learn content (Phase 3)", ["python3", "tools/build-world-phase3.py"]),
     ("flashcard decks + lab: sizes, ids, keyboard, SRS (PHASE 9)",
      ["node", "tools/test-flashcards.mjs"]),
 ]
 ULTRA_TESTS = [
+    ("Phase 2 public-page inventory is current (repository-only)",
+     ["python3", "tools/build-full-page-inventory.py", "--check"]),
+    ("Phase 2 detailed content inventory is current (live HTTP pending)",
+     ["python3", "tools/build-phase2-content-inventory.py", "--check"]),
+    ("Phase 2 inventory fields, safety and scope", ["python3", "tools/test-phase2-content-inventory.py"]),
+    ("Hindi hunger answer: source-backed restaurant phrase and Hindi next-step routing", ["python3", "tools/test-hindi-hunger-answer-content.py"]),
+    ("Phase 5 original-value Hindi numbers practice (repository consistency)", ["python3", "tools/test-phase5-ekguru-value.py"]),
+    ("Phase 6 Hindi text counter rules, UI events and page contract", ["node", "tools/test-hindi-text-counter.mjs"]),
+    ("Phase 7 answer-first Q&A placement (structural check only)", ["python3", "tools/test-answer-first-pages.py"]),
+    ("Phase 3 repository-backed originality audit is current (human review pending)",
+     ["python3", "tools/build-phase3-originality-audit.py", "--check"]),
+    ("Phase 3 audit fields and non-fabrication safety", ["python3", "tools/test-phase3-originality-audit.py"]),
+    ("world-course quiz bank bindings, topic maps and visible copy", ["python3", "tools/test-world-course-quiz-content.py"]),
+    ("Spanish/French numbers lessons: complete source-matched 1–20 tables", ["python3", "tools/test-world-course-numbers-content.py"]),
+    ("Daily Hindi Day 23 future examples and task (repository consistency only)", ["python3", "tools/test-daily-hindi-future-content.py"]),
+    ("published vocabulary excludes generated segmentation placeholders", ["python3", "tools/test-published-vocabulary.py"]),
+    ("partial Phase 1 courses mark C1/C2 unpublished", ["python3", "tools/test-partial-course-publication.py"]),
+    ("rendered Phase 2 root Indian topic parity", ["python3", "tools/audit-indian-topic-parity.py", "--check"]),
+    ("Indian beginner leads use their authored language data", ["python3", "tools/test-language-course-uniqueness.py"]),
+    ("Phase 3 long-form Learn posts (130 guides across Indian tracks + Hindi, Spanish, Arabic and German)", ["python3", "tools/test-phase3-content.py"]),
     ("immutable owner indexing/canonical contract", ["python3", "tools/ultra/contract.py"]),
     ("own-content dates are current (never a rebuild timestamp)", ["python3", "tools/update-editorial-metadata.py", "--check"]),
     ("site features on every page are current (additive, strip-invertible)", ["python3", "tools/apply-ultra.py", "--check"]),
@@ -86,6 +111,10 @@ ULTRA_TESTS = [
     ("theme semantic AA contrast + motion budgets", ["node", "tools/test-theme-contrast.mjs"]),
     ("shared runtime freshness (voice.js is built from src/runtime)", ["node", "tools/build-runtime.mjs", "--check"]),
     ("voice: exact-language voices, no autoplay, honest fallback, licensed recordings, mic transcript", ["node", "tools/test-voice.mjs"]),
+    ("mounted voice controls: language, labels, pressed state and fallback (mocked runtime)", ["node", "tools/test-voice-mounted-controls.mjs"]),
+    ("page-wide native voice controls and no nested interactive links", ["python3", "tools/test-voice-page-coverage.py"]),
+    ("voice speed/replay controls: availability, state and accessible labels", ["node", "tools/test-voice-ux.mjs"]),
+    ("Indian course/topic controls and visible target-script coverage", ["python3", "tools/test-language-course-voice-controls.py"]),
     ("device journal, SRS scheduling, streak/freeze, backup, privacy", ["node", "tools/test-retention.mjs"]),
     ("legacy migration, corrupt/future storage, quota and calendar regressions", ["node", "tools/test-learning-storage.mjs"]),
     ("offline worker: private routes, aggregate quota, rollback, concurrency", ["node", "tools/test-learning-worker.mjs"]),
@@ -116,11 +145,19 @@ def main():
         # undecorated pages; the decoration is restored afterwards and verified separately below.
         run("strip ultra decoration for the legacy checks", ["python3", "tools/apply-ultra.py", "--strip"])
         try:
+            run("root Indian topic trees --check (generator fingerprints)",
+                ["python3", "tools/build-lang-topics.py", "--check"])
+            run("Indian course/topic speaker controls --check",
+                ["python3", "tools/patch-language-voice-controls.py", "--check"])
             run("experience bundle --check", ["python3", "tools/bundle-experience-css.py", "--check"])
             run("world artwork --check", ["python3", "tools/build-world-art.py", "--check"])
             run("course hub --check", ["python3", "tools/build-course-hub.py", "--check"])
             run("course levels --check (the A1-C2 pages of every course)",
                 ["python3", "tools/build-course-levels.py", "--check"])
+            run("published language/level OG PNGs --check (resvg, 1200x630)",
+                ["python3", "tools/build-og-images.py", "--check"])
+            run("course IPA/source coverage report --check",
+                ["python3", "tools/audit-course-pronunciation.py", "--check"])
             run("course romanisation --check (one scheme per course file)",
                 ["python3", "tools/normalise-romanisation.py"])
             run("tutor script tags --check", ["node", "tools/langsync.js", "--check"])
@@ -147,6 +184,8 @@ def main():
                 ["node", "tools/test-level-visuals.mjs"])
             run("course levels test (every course readable at every level)",
                 ["node", "tools/test-course-levels.mjs"])
+            run("course voice controls + optional IPA renderer test",
+                ["python3", "tools/test-course-voice-buttons.py"])
             run("country visuals test (numbers match the data)",
                 ["node", "tools/test-country-visuals.mjs"])
             run("toolbox visuals test (the plates cannot lie about the pages)",
@@ -202,6 +241,9 @@ def main():
     run("world courses (all)", ["python3", "tools/build-world-course.py"])
     for slug in INDIAN_SLUGS:
         run("Indian course: " + slug, ["python3", "tools/build-language-course.py", slug])
+    run("root Indian topic trees (nine languages)", ["python3", "tools/build-lang-topics.py"])
+    run("Indian course/topic speaker controls (preserve authored wording)",
+        ["python3", "tools/patch-language-voice-controls.py"])
     run("phase7 registries", ["python3", "tools/build-phase7-registries.py"])
     run("phase7c registries", ["python3", "tools/build-phase7c-registries.py"])
     run("phase7c pages", ["python3", "tools/build-phase7-pages.py"])
@@ -214,7 +256,13 @@ def main():
     run("course hub + home teaser", ["python3", "tools/build-course-hub.py"])
     run("course levels (A1-C2 pages, and the rail on every hub)",
         ["python3", "tools/build-course-levels.py"])
+    run("OG cards for published language-level pages (SVG to PNG via resvg)",
+        ["python3", "tools/build-og-images.py"])
+    run("course pronunciation coverage audit (source data only; may remain blocked)",
+        ["python3", "tools/audit-course-pronunciation.py"])
     run("storybook injector (Hindi TTS + design)", ["python3", "tools/inject-storybook.py"])
+    run("speaker markup for injected language chapter banners",
+        ["python3", "tools/patch-language-voice-controls.py"])
     run("ads policy (which pages may load the ad script)", ["python3", "tools/inject-ads.py"])
     run("consent injector (cookie notice)", ["python3", "tools/inject-consent.py"])
     run("tutor script tags (langsync)", ["node", "tools/langsync.js"])
@@ -245,6 +293,13 @@ def main():
     run("copy index (ownership fingerprints)", ["node", "tools/build-copy-index.js"])
     run("truthful editorial dates", ["python3", "tools/update-editorial-metadata.py"])
     run("site features on every page (theme, voice, journal, bylines, honest notices)", ["python3", "tools/apply-ultra.py"])
+    run("partial Phase 1 course publication boundary", ["python3", "tools/test-partial-course-publication.py"])
+    run("rendered Phase 2 root Indian topic parity + report",
+        ["python3", "tools/audit-indian-topic-parity.py", "--write-report"])
+    run("Phase 2: full public-page technical inventory", ["python3", "tools/build-full-page-inventory.py"])
+    run("Phase 2: detailed content inventory", ["python3", "tools/build-phase2-content-inventory.py"])
+    run("Phase 3 master-command originality audit and human-review queue",
+        ["python3", "tools/build-phase3-originality-audit.py"])
     run("doctor", ["node", "tools/doctor.js"])
     print("\n══════════════════════════════════════════")
     print("build-all complete — every step passed.")

@@ -127,16 +127,18 @@ def band_for(path, countries, by_country):
     if band:
         return band
     segs = path.lstrip("./").split("/")
+    # These roots are Hindi surfaces. Resolve them before inspecting the slug:
+    # a Hindi answer title such as "i-am-hungry" can contain the language
+    # code "am" and otherwise receive an unrelated Amharic next-step band.
+    if segs[0] in ("answers", "ask", "daily-hindi", "name-in-hindi"):
+        courses = blp.course_index()
+        if "hi" in courses:
+            return blp.lesson_band(courses["hi"], "hi")
     for seg in segs:
         course = blp.language_of_folder(seg)
         if course:
             code, data = course
             return blp.lesson_band(data, code)
-    # answers/ and ask/ are Hindi pages: point at what they are about.
-    if segs[0] in ("answers", "ask", "daily-hindi", "name-in-hindi"):
-        courses = blp.course_index()
-        if "hi" in courses:
-            return blp.lesson_band(courses["hi"], "hi")
     return None
 
 

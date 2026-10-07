@@ -13,9 +13,11 @@ Interactive labs reuse js/hindi-tools.js through the EKGURU_*_ACTIVE globals
 pages with localStorage checklists because the Hindi SRS/conversation engines
 have Hindi data baked in and must not show Hindi words inside another language.
 """
+import glob
 import html
 import json
 import os
+import re
 import sys
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -86,6 +88,163 @@ def E(s):
     return html.escape(str(s))
 
 
+_COURSE_VOICE_CODES = None
+COURSE_MARKER = "<!-- ekguru:course-voice-controls:v1 -->"
+_TARGET_SCRIPT_BLOCKS = {
+    "bn": r"\u0980-\u09FF", "gu": r"\u0A80-\u0AFF",
+    "kn": r"\u0C80-\u0CFF", "ml": r"\u0D00-\u0D7F",
+    "mr": r"\u0900-\u097F", "pa": r"\u0A00-\u0A7F",
+    "ta": r"\u0B80-\u0BFF", "te": r"\u0C00-\u0C7F",
+    "ur": r"\u0600-\u06FF\u0750-\u077F\u08A0-\u08FF\uFB50-\uFDFF\uFE70-\uFEFF",
+}
+_TARGET_SCRIPT_PATTERNS = {}
+
+
+def course_voice_code(language_name):
+    """Resolve speech tags from authored course metadata, not a name heuristic."""
+    global _COURSE_VOICE_CODES
+    if _COURSE_VOICE_CODES is None:
+        _COURSE_VOICE_CODES = {}
+        for path in glob.glob(os.path.join(ROOT, "tools", "lang-data", "*.json")):
+            with open(path, encoding="utf-8") as f:
+                data = json.load(f)
+            code = data.get("voice_code")
+            name = str(data.get("name") or "").strip().casefold()
+            if code and name:
+                if name in _COURSE_VOICE_CODES and _COURSE_VOICE_CODES[name] != code:
+                    raise ValueError("Ambiguous course voice code for " + name)
+                _COURSE_VOICE_CODES[name] = str(code)
+    return _COURSE_VOICE_CODES.get(str(language_name or "").strip().casefold())
+
+
+def target_script_pattern(language_name):
+    code = course_voice_code(language_name)
+    block = _TARGET_SCRIPT_BLOCKS.get(code)
+    if not block:
+        return None
+    if code not in _TARGET_SCRIPT_PATTERNS:
+        char = "[" + block + "]"
+        join = r"(?:[\u200c\u200d]*" + char + r"+)*(?:[\s\u00a0]+" + char + r"+(?:[\u200c\u200d]*" + char + r"+)*)*"
+        _TARGET_SCRIPT_PATTERNS[code] = re.compile(char + r"+" + join)
+    return _TARGET_SCRIPT_PATTERNS[code]
+
+
+def speaker_button(text, voice_code, language_name):
+    text = str(text or "").strip()
+    if not text or not voice_code:
+        return ""
+    return ('<button type="button" class="say" data-sb-say="%s" data-voice-lang="%s" '
+            'aria-label="%s" aria-pressed="false"><span aria-hidden="true">🔊</span></button>') % (
+                html.escape(text, quote=True), html.escape(voice_code, quote=True),
+                html.escape("Play %s in %s" % (text, language_name), quote=True))
+
+
+def _tagged_language_text(text, voice_code):
+    return '<bdi lang="%s" dir="auto">%s</bdi>' % (
+        html.escape(voice_code, quote=True), E(text))
+
+
+def _tagged_speaker_text(text, voice_code, language_name):
+    return _tagged_language_text(text, voice_code) + speaker_button(text, voice_code, language_name)
+
+
+def explicit_foreign_voice(text, start, end, language_name):
+    """Honor an explicit Hindi label in shared Devanagari text, especially Marathi glosses."""
+    if course_voice_code(language_name) != "mr":
+        return None
+    value = str(text or "")
+    before = value[max(0, start - 120):start]
+    after = value[end:end + 80]
+    labels = list(re.finditer(r"\b(Hindi|Marathi)\s*[:=]\s*", before, re.I))
+    if labels and labels[-1].group(1).casefold() == "hindi":
+        return ("hi", "Hindi")
+    if re.search(r"\bHindi\s+$", before, re.I) or re.match(r"\s*\(\s*Hindi\s*\)", after, re.I):
+        return ("hi", "Hindi")
+    return None
+
+
+def tag_language_cells(page, code, language_name):
+    def fix(match):
+        tag = match.group(0)
+        if not re.match(r"<td\b", tag, re.I):
+            return tag
+        heading = re.search(r'''\bdata-h\s*=\s*(["'])(.*?)\1''', tag, re.I)
+        heading = html.unescape(heading.group(2)).strip().casefold() if heading else ""
+        lang = "hi" if heading == "hindi" else code if heading == str(language_name).casefold() else None
+        if not lang:
+            return tag
+        if re.search(r"\blang\s*=", tag, re.I):
+            tag = re.sub(r'''\blang\s*=\s*(["'])[^"']*\1''', 'lang="%s"' % lang, tag, count=1, flags=re.I)
+        else:
+            tag = tag[:-1] + ' lang="%s">' % lang
+        if not re.search(r"\bdir\s*=", tag, re.I):
+            tag = tag[:-1] + ' dir="auto">'
+        return tag
+    return re.sub(r"<td\b[^>]*>", fix, page, flags=re.I)
+
+
+def add_course_speaker_controls(page, code, language_name):
+    pattern = target_script_pattern(language_name)
+    if not pattern:
+        return page
+    void = {"area", "base", "br", "col", "embed", "hr", "img", "input", "link", "meta", "param", "source", "track", "wbr"}
+    chunks = re.split(r"(<[^>]*>)", page)
+    stack, output = [], []
+    anchor_depth = 0
+    for chunk in chunks:
+        if chunk.startswith("<"):
+            parsed = re.match(r"<\s*(/?)\s*([A-Za-z][\w:-]*)\b", chunk)
+            if parsed:
+                closing, tag = parsed.groups(); tag = tag.lower()
+                if closing:
+                    if tag == "a" and anchor_depth and not any(item[2] for item in stack):
+                        anchor_depth -= 1
+                    for i in range(len(stack) - 1, -1, -1):
+                        if stack[i][0] == tag:
+                            stack = stack[:i]
+                            break
+                elif tag not in void and not chunk.rstrip().endswith("/>"):
+                    lang_match = re.search(r'''\blang\s*=\s*(["'])(.*?)\1''', chunk, re.I)
+                    lang = html.unescape(lang_match.group(2)) if lang_match else None
+                    hidden = re.search(r'''\baria-hidden\s*=\s*(["'])true\1''', chunk, re.I)
+                    is_hindi_cell = tag == "td" and re.search(r'''\bdata-h\s*=\s*(["'])Hindi\1''', chunk, re.I)
+                    skip = tag in {"script", "style", "noscript", "button"} or bool(hidden or is_hindi_cell) or (lang or "").lower().split("-", 1)[0] == "hi"
+                    stack.append((tag, lang, skip))
+                    if tag == "a" and not any(item[2] for item in stack):
+                        anchor_depth += 1
+            output.append(chunk)
+            continue
+        if any(item[2] for item in stack):
+            output.append(chunk); continue
+        langs = [item[1] for item in stack if item[1]]
+        nearest = langs[-1].lower().split("-", 1)[0] if langs else ""
+        pieces, cursor = [], 0
+        for match in pattern.finditer(chunk):
+            pieces.append(chunk[cursor:match.start()])
+            foreign = explicit_foreign_voice(chunk, match.start(), match.end(), language_name)
+            route = foreign or (code, language_name)
+            if anchor_depth:
+                # The link itself is already interactive. Preserve language
+                # attribution but never nest a speaker button inside it.
+                marked = match.group(0) if nearest == route[0] else _tagged_language_text(match.group(0), route[0])
+            elif foreign:
+                marked = _tagged_speaker_text(match.group(0), *foreign)
+            elif nearest == code:
+                # Keep the authored target text visible; controls are additive.
+                marked = match.group(0) + speaker_button(match.group(0), code, language_name)
+            else:
+                marked = _tagged_speaker_text(match.group(0), code, language_name)
+            pieces.append(marked); cursor = match.end()
+        pieces.append(chunk[cursor:]); output.append("".join(pieces))
+    return "".join(output)
+
+
+def language_markup(body, language_name):
+    code = course_voice_code(language_name)
+    return add_course_speaker_controls(tag_language_cells(body, code, language_name), code, language_name) if code else body
+
+
+
 def shell(d, path, title, desc, body, depth, extra_scripts="", robots="index, follow"):  # noqa: E501
     r = "../" * depth
     canon = f"{BASE}/learn/{d['slug']}/{path}"
@@ -129,6 +288,7 @@ def shell(d, path, title, desc, body, depth, extra_scripts="", robots="index, fo
 {body}</div>
 {TRUST_FTR.format(r=r, name=E(d['name']))}
 {SCRIPTS.format(r=r, extra=extra_scripts)}
+{COURSE_MARKER}
 </body>
 </html>
 """
@@ -146,7 +306,10 @@ def tri_table(rows, col3="target", note_key="note"):
     out = ['<table class="tbl tri"><thead><tr><th>English</th><th>Hindi</th>',
            f'<th>{E(col3)}</th><th>Say it</th></tr></thead><tbody>']
     for w in rows:
-        cells = f"<td>{E(w['en'])}</td><td>{E(w['hi'])}</td><td>{E(w['t'])}</td><td>{E(w['r'])}</td>"
+        cells = (f'<td data-h="English">{E(w["en"])}</td>'
+                 f'<td data-h="Hindi">{E(w["hi"])}</td>'
+                 f'<td data-h="{E(col3)}">{E(w["t"])}</td>'
+                 f'<td data-h="Say it">{E(w["r"])}</td>')
         if w.get(note_key):
             cells += f"</tr><tr><td></td><td colspan=\"3\" style=\"color:var(--muted);font-size:.85rem\">{E(w[note_key])}</td>"
         out.append("<tr>" + cells + "</tr>")
@@ -1184,6 +1347,14 @@ def p_speaking_alone(d):
 
 def deep_beginner(d):
     n = d["name"]
+    greetings = d.get("greetings") or []
+    first_greeting = greetings[0] if greetings else {}
+    greeting_target = E(first_greeting.get("t") or n)
+    greeting_roman = E(first_greeting.get("r") or "")
+    greeting_meaning = E(first_greeting.get("en") or "greeting")
+    script_name = E(d.get("script_name") or "writing system")
+    script_note = E(d.get("script_note") or "Practise reading the script alongside its romanisation.")
+    difficulty = E(d.get("difficulty") or "Build the routine from short, repeatable sessions.")
     weeks = _ol([
         "<b>Week 1 — sounds.</b> The pronunciation vowel and consonant tables, two letters a day, said aloud. "
         "Add five greetings from the conversation page.",
@@ -1196,7 +1367,8 @@ def deep_beginner(d):
     plan = _h2("Your first 30 days, week by week") + _p(
         "Most courses fail because they never say what to do <i>on Tuesday</i>. Here is a four-week plan built on "
         "the pages of this site, sized for twenty minutes a day. If you miss a day, do not restart the week — just "
-        "carry on.") + weeks
+        "carry on. For " + E(n) + ", anchor the first session to <b>" + greeting_target + "</b> (" + greeting_roman +
+        "): " + greeting_meaning + ". Then keep this " + script_name + " note beside you: " + script_note) + weeks
     keep = _h2("What to learn first — and what to ignore for now") + _ul([
         "<b>Learn now:</b> greetings, pronouns, numbers to 20, the present tense, and the words you use about "
         "yourself.",
@@ -1208,34 +1380,84 @@ def deep_beginner(d):
                      "build five simple sentences about your day. That is the whole beginner bar — there is nothing "
                      "mysterious waiting behind it.")
     hello = _h2("How to say hello, out loud") + tri_table(d["greetings"][:8], col3=n) + _p(
-        "Say every row aloud twice, then close the table and try from memory. This is the most rewarding first hour "
-        "of the whole language, because these eight lines get used every day once you arrive.")
+        "Say every row aloud twice, then close the table and try from memory. Start with <b>" + greeting_target +
+        "</b> (" + greeting_roman + ") — “" + greeting_meaning + "” — and then return to the " + script_name +
+        " spelling without the romanisation. The other greetings on this " + E(n) + " table show how the setting "
+        "or relationship changes the words you choose.")
     memory = _h2("How to remember the words") + _p(
-        "Three techniques do most of the work in the first month, and none of them requires an app.",
-        "<b>Say it out loud.</b> Words you only read are stored weakly. Every word on this site has a pronunciation "
-        "column precisely so you can say it while you read it.",
-        "<b>Attach it to something.</b> A word learned inside a sentence about your own life is remembered far "
-        "better than a word learned from a list. When you meet a new word, immediately say one true sentence with it.",
-        "<b>Meet it again.</b> Five minutes of review on three separate days beats one hour of cramming, every time. "
-        "That is what the review deck and the quiz are for.") + _ul([
+        "Three techniques do most of the work in the first month, and none of them requires an app. For " +
+        E(n) + ", make the first remembered item <b>" + greeting_target + "</b> (" + greeting_roman +
+        ") rather than a disconnected sound on a list.",
+        "<b>Say it out loud.</b> Words you only read are stored weakly. Compare " + greeting_target + " with its " +
+        greeting_roman + " reading, then say it again without looking. The " + script_name + " detail above tells you " +
+        "what to notice in the written form.",
+        "<b>Attach it to something.</b> Put " + greeting_target + " into a real scene: imagine the person, choose " +
+        "the greeting that fits, then add one sentence about your own day using a word from the " + E(n) +
+        " vocabulary table. A word learned in a true sentence is easier to retrieve than one learned alone.",
+        "<b>Meet it again.</b> Schedule " + greeting_target + " for a short review on three separate days, then use " +
+        "the " + E(n) + " review deck and quiz to check other words. Five minutes spread across the week is more useful " +
+        "than one hour of cramming.") + _ul([
         "<b>Ten spare minutes?</b> Read the letter tables aloud and run ten words through the review deck.",
         "<b>Thirty spare minutes?</b> Twenty minutes on the current week's page, then ten minutes of quiz questions.",
         "<b>A whole evening?</b> Do not study for three hours. Do the usual twenty minutes and watch something in "
         "the language instead — listening is not wasted time."]) + _p(
-        "The learners who reach the end of this course are not the ones with the most free time. They are the ones "
-        "who kept the daily session small enough to survive a bad week.")
+        "The learners who reach the end are not necessarily the ones with the most free time. They are the ones "
+        "who keep a " + E(n) + " session small enough to survive a bad week: repeat " + greeting_target +
+        ", review one card, and return tomorrow.")
     expects = _h2("What this level is, and what it is not") + _p(
-        "The beginner stage is not a smaller version of fluency. It is a separate skill with its own finish line: "
-        "reading without panic, greeting people correctly, handling numbers, and building simple true sentences "
-        "about your own life.",
+        "The beginner stage is not a smaller version of fluency. For " + E(n) + ", its first finish line is concrete: " +
+        "read <b>" + greeting_target + "</b> without leaning on " + greeting_roman + ", handle the numbers on the page, " +
+        "and build simple sentences about your own life in the " + script_name + ".",
         "It is normal at this stage to understand far more than you can say, and it is normal to forget a word you "
-        "learned yesterday. Neither is a sign that you are doing it wrong. What matters is that the twenty minutes "
-        "happen, that you say things out loud, and that you keep returning to words before they disappear entirely.",
-        "When the four weeks above are done, do not jump to advanced material. Take the topics one at a time — "
-        "food, shopping, travel, time — and make sure each one is usable before you move on. A learner who can "
-        "really use five topics will out-converse a learner who has skimmed fifteen.",
-        "One last honest note: " + E(d["difficulty"]) if d.get("difficulty") else "")
+        "learned yesterday. Neither means you are doing it wrong. In " + E(n) + ", keep the daily session short, say " +
+        "the greeting and its romanisation aloud, then return to the written form. Here is the language-specific " +
+        "difficulty to plan around: " + difficulty,
+        "When the four weeks above are done, do not jump to advanced material. Take one topic at a time — food, " +
+        "shopping, travel or time — and make it usable before moving on. For " + E(n) + ", your check is to read " +
+        "<b>" + greeting_target + "</b>, recall its meaning, and then continue with a word from the next topic. A learner " +
+        "who can really use five topics will out-converse a learner who has skimmed fifteen.",
+        "Treat the difficulty note as a planning cue, not a deadline. In " + E(n) + ", revisit the written greeting " +
+        "and its romanisation each week; notice when you can read " + greeting_target + " without leaning on " +
+        greeting_roman + ", then move on to the next line in the table.")
     return plan + keep + ready + hello + memory + expects
+
+
+def refresh_beginner_content(slug):
+    """Refresh only the generator-owned beginner depth section in a live page.
+
+    Legacy pages carry shared layers (storybook, shell, consent, theme, review
+    notice and editorial metadata). A content-only refresh preserves those
+    layers and, importantly, never rewrites robots or canonical decisions.
+    """
+    if not slug or not slug.isascii() or not slug.isalpha() or slug.lower() != slug:
+        raise ValueError("expected one language slug")
+    data_path = os.path.join(ROOT, "tools", "lang-data", slug + ".json")
+    page_path = os.path.join(ROOT, "learn", slug, "beginner", "index.html")
+    if not os.path.isfile(data_path) or not os.path.isfile(page_path):
+        raise FileNotFoundError("missing language data or beginner page for " + slug)
+    with open(data_path, encoding="utf-8") as f:
+        d = json.load(f)
+    with open(page_path, encoding="utf-8") as f:
+        page = f.read()
+
+    start = "<h2>Your first 30 days, week by week</h2>"
+    end = "<h2>More guides in this course</h2>"
+    if page.count(start) != 1 or page.count(end) != 1 or page.index(start) >= page.index(end):
+        raise ValueError("beginner content boundaries are missing or ambiguous: " + page_path)
+    left = page.index(start)
+    right = page.index(end, left)
+    section = deep_beginner(d)
+    # The page already has its own indentation immediately before the heading.
+    # Remove the generator's leading indentation so it is not doubled on insert.
+    if section.startswith("  "):
+        section = section[2:]
+    refreshed = page[:left] + section + page[right:]
+    if refreshed != page:
+        with open(page_path, "w", encoding="utf-8") as f:
+            f.write(refreshed)
+        print(f"{slug}: refreshed beginner content only; page shell and indexing preserved")
+    else:
+        print(f"{slug}: beginner content already current")
 
 
 def deep_pronunciation(d):
@@ -1491,6 +1713,7 @@ def build(slug):
         # section, and all ten link to one another (internal linking).
         if relpath in DEEPEN:
             body += "\n" + DEEPEN[relpath](d) + "\n" + _guide_links(d, relpath[:-1])
+        body = language_markup(body, d["name"])
         robots = "noindex, follow" if relpath in NOINDEX else "index, follow, max-snippet:-1, max-image-preview:large"
         page = shell(d, relpath, title, desc, body, depth, extra, robots)
         fp = os.path.join(out, relpath, "index.html")
@@ -1563,4 +1786,12 @@ def build(slug):
 
 
 if __name__ == "__main__":
-    build(sys.argv[1])
+    if len(sys.argv) == 3 and sys.argv[2] == "--refresh-beginner-content":
+        refresh_beginner_content(sys.argv[1])
+    elif len(sys.argv) == 2:
+        build(sys.argv[1])
+    else:
+        raise SystemExit(
+            "Usage: python3 tools/build-language-course.py <slug> "
+            "[--refresh-beginner-content]"
+        )

@@ -98,25 +98,25 @@
             },
             "dialogue": [
               {
-                "sp": "Speaker A",
+                "sp": "مقرر الف",
                 "t": "ڈاکٹر کو بلائیے",
                 "r": "Doctor ko bulaiye",
                 "en": "Call a doctor"
               },
               {
-                "sp": "Speaker B",
+                "sp": "مقرر ب",
                 "t": "مجھے سرکاری ہسپتال لے چلیے",
                 "r": "Mujhe sarkari hospital le chaliye",
                 "en": "Take me to hospital"
               },
               {
-                "sp": "Speaker A",
+                "sp": "مقرر الف",
                 "t": "دوائی کی دکان کہاں ہے؟",
                 "r": "Davai ki dukan kahan hai?",
                 "en": "Where is the pharmacy?"
               },
               {
-                "sp": "Speaker B",
+                "sp": "مقرر ب",
                 "t": "یہ دوا لیجیے",
                 "r": "Ye dava lijiye",
                 "en": "Take this medicine"
@@ -194,7 +194,7 @@
               },
               {
                 "type": "dialogue_completion",
-                "q": "Practice 10 [dialogue completion] — Nuanced public-health communication: Complete Speaker B’s turn appropriately: Take me to hospital",
+                "q": "Practice 10 [dialogue completion] — Nuanced public-health communication: Complete مقرر ب’s turn appropriately: Take me to hospital",
                 "answer": "مجھے سرکاری ہسپتال لے چلیے",
                 "skill_target": "Urdu dialogue completion: Urdu agreement, postpositions, honorificity, and formal versus everyday register"
               },
@@ -408,25 +408,25 @@
             },
             "dialogue": [
               {
-                "sp": "Speaker A",
+                "sp": "مقرر الف",
                 "t": "ای میل بھیجیے",
                 "r": "Email bhejiye",
                 "en": "Send the email"
               },
               {
-                "sp": "Speaker B",
+                "sp": "مقرر ب",
                 "t": "پرنٹ نکالیے",
                 "r": "Print nikaliye",
                 "en": "Take a printout"
               },
               {
-                "sp": "Speaker A",
+                "sp": "مقرر الف",
                 "t": "تنخواہ کب ملے گی؟",
                 "r": "Tankhvah kab milegi?",
                 "en": "When is the salary?"
               },
               {
-                "sp": "Speaker B",
+                "sp": "مقرر ب",
                 "t": "کل مجھے چھٹی چاہیے",
                 "r": "Kal mujhe chhutti chahiye",
                 "en": "I need leave tomorrow"
@@ -634,6 +634,288 @@
               "پن"
             ],
             "srs_policy": "Only selected high-value lesson forms are preselected; actual mistakes and productive patterns may enter personalized review after learner evidence."
+          },
+          {
+            "id": "ur-c1-l7",
+            "title": "Distinguish observation from attribution",
+            "learn": "Separate what a field note records from what an institution reports.",
+            "vocab": [
+              {
+                "t": "مشاہدہ",
+                "r": "mushahida",
+                "en": "observation",
+                "pos": "phrase"
+              },
+              {
+                "t": "ماخذ",
+                "r": "maakhaz",
+                "en": "source",
+                "pos": "phrase"
+              },
+              {
+                "t": "بیان",
+                "r": "bayan",
+                "en": "statement",
+                "pos": "phrase"
+              },
+              {
+                "t": "نسبت",
+                "r": "nisbat",
+                "en": "attribution",
+                "pos": "phrase"
+              },
+              {
+                "t": "تعبیر",
+                "r": "taabeer",
+                "en": "interpretation",
+                "pos": "phrase"
+              }
+            ],
+            "grammar": {
+              "title": "three evidence frames",
+              "pattern": "میں نے دیکھا ...؛ ماخذ کے مطابق ...؛ اس سے ... کا امکان",
+              "explain": "Use distinct frames for direct observation, an attributed statement and an inference. Do not let the third sound like the first.",
+              "examples": [
+                {
+                  "t": "موقع پر دو تختیاں دیکھی گئیں۔",
+                  "r": "mauqe par do takhtiyan dekhi gain.",
+                  "en": "Two plaques were observed at the site."
+                },
+                {
+                  "t": "محکمہ کے بیان کے مطابق، دونوں بعد میں نصب ہوئیں۔",
+                  "r": "mahkama ke bayan ke mutabiq, donon baad mein nasb huin.",
+                  "en": "According to the department statement, both were installed later."
+                },
+                {
+                  "t": "مزید تاریخ کے بغیر قطعی نتیجہ ممکن نہیں۔",
+                  "r": "mazeed tareekh ke baghair qatai natija mumkin nahin.",
+                  "en": "Without further dating, a definitive conclusion is not possible."
+                }
+              ],
+              "mistakes": [
+                {
+                  "wrong": "محکمہ نے یقیناً یہی ثابت کیا۔",
+                  "right": "محکمہ کے بیان کے مطابق یہی امکان ظاہر ہوتا ہے۔",
+                  "why": "Attribute the interpretation and preserve the source's uncertainty."
+                }
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "استاد",
+                "t": "موقع پر دو تختیاں دیکھی گئیں۔",
+                "r": "mauqe par do takhtiyan dekhi gain.",
+                "en": "Two plaques were observed at the site."
+              },
+              {
+                "sp": "طالب علم",
+                "t": "محکمہ کے بیان کے مطابق، دونوں بعد میں نصب ہوئیں۔",
+                "r": "mahkama ke bayan ke mutabiq, donon baad mein nasb huin.",
+                "en": "According to the department statement, both were installed later."
+              },
+              {
+                "sp": "استاد",
+                "t": "مزید تاریخ کے بغیر قطعی نتیجہ ممکن نہیں۔",
+                "r": "mazeed tareekh ke baghair qatai natija mumkin nahin.",
+                "en": "Without further dating, a definitive conclusion is not possible."
+              },
+              {
+                "sp": "طالب علم",
+                "t": "محکمہ کے بیان کے مطابق، دونوں بعد میں نصب ہوئیں۔",
+                "r": "mahkama ke bayan ke mutabiq, donon baad mein nasb huin.",
+                "en": "According to the department statement, both were installed later."
+              }
+            ],
+            "practice": [
+              {
+                "type": "multiple_choice",
+                "q": "Practice 1: [multiple choice] Distinguish observation from attribution — Choose the meaning of مشاہدہ (mushahida) in this lesson.",
+                "answer": "observation",
+                "skill_target": "Urdu: right-to-left Nastaliq reading, احترام کے صیغے آپ/تم, postpositions, gender and honorific agreement, clause linking, and source-aware formal prose",
+                "options": [
+                  "observation",
+                  "source",
+                  "statement",
+                  "attribution"
+                ]
+              },
+              {
+                "type": "fill_in_the_blank",
+                "q": "Practice 2: [fill in the blank] Distinguish observation from attribution — Type the Urdu expression meaning “source”.",
+                "answer": "ماخذ",
+                "skill_target": "Urdu: right-to-left Nastaliq reading, احترام کے صیغے آپ/تم, postpositions, gender and honorific agreement, clause linking, and source-aware formal prose"
+              },
+              {
+                "type": "translation",
+                "q": "Practice 3: [translation] Distinguish observation from attribution — Interpret the Nastaliq script in context: موقع پر دو تختیاں دیکھی گئیں۔ (mauqe par do takhtiyan dekhi gain.).",
+                "answer": "Two plaques were observed at the site.",
+                "skill_target": "Urdu: right-to-left Nastaliq reading, احترام کے صیغے آپ/تم, postpositions, gender and honorific agreement, clause linking, and source-aware formal prose"
+              },
+              {
+                "type": "reverse_translation",
+                "q": "Practice 4: [reverse translation] Distinguish observation from attribution — Write in Nastaliq script: According to the department statement, both were installed later..",
+                "answer": "محکمہ کے بیان کے مطابق، دونوں بعد میں نصب ہوئیں۔",
+                "skill_target": "Urdu: right-to-left Nastaliq reading, احترام کے صیغے آپ/تم, postpositions, gender and honorific agreement, clause linking, and source-aware formal prose"
+              },
+              {
+                "type": "matching",
+                "q": "Practice 5: [matching] Distinguish observation from attribution — Match بیان to its lesson meaning.",
+                "answer": "statement",
+                "skill_target": "Urdu: right-to-left Nastaliq reading, احترام کے صیغے آپ/تم, postpositions, gender and honorific agreement, clause linking, and source-aware formal prose",
+                "options": [
+                  "statement",
+                  "observation",
+                  "source"
+                ]
+              },
+              {
+                "type": "reorder",
+                "q": "Practice 6: [reorder] Distinguish observation from attribution — Reconstruct the lesson model in coherent Urdu: Without further dating, a definitive conclusion is not possible..",
+                "answer": "مزید تاریخ کے بغیر قطعی نتیجہ ممکن نہیں۔",
+                "skill_target": "Urdu: right-to-left Nastaliq reading, احترام کے صیغے آپ/تم, postpositions, gender and honorific agreement, clause linking, and source-aware formal prose"
+              },
+              {
+                "type": "sentence_building",
+                "q": "Practice 7: [sentence building] Distinguish observation from attribution — Build the sentence with the lesson pattern (میں نے دیکھا ...؛ ماخذ کے مطابق ...؛ اس سے ... کا امکان): Two plaques were observed at the site..",
+                "answer": "موقع پر دو تختیاں دیکھی گئیں۔",
+                "skill_target": "Urdu: right-to-left Nastaliq reading, احترام کے صیغے آپ/تم, postpositions, gender and honorific agreement, clause linking, and source-aware formal prose"
+              },
+              {
+                "type": "word_selection",
+                "q": "Practice 8: [word selection] Distinguish observation from attribution — Select the Urdu form for “attribution”.",
+                "answer": "نسبت",
+                "skill_target": "Urdu: right-to-left Nastaliq reading, احترام کے صیغے آپ/تم, postpositions, gender and honorific agreement, clause linking, and source-aware formal prose",
+                "options": [
+                  "نسبت",
+                  "تعبیر"
+                ]
+              },
+              {
+                "type": "error_correction",
+                "q": "Practice 9: [error correction] Distinguish observation from attribution — Correct the model the lesson warns about: محکمہ نے یقیناً یہی ثابت کیا۔",
+                "answer": "محکمہ کے بیان کے مطابق یہی امکان ظاہر ہوتا ہے۔",
+                "skill_target": "Urdu: right-to-left Nastaliq reading, احترام کے صیغے آپ/تم, postpositions, gender and honorific agreement, clause linking, and source-aware formal prose"
+              },
+              {
+                "type": "dialogue_completion",
+                "q": "Practice 10: [dialogue completion] Distinguish observation from attribution — Complete the exchange with the studied response to: Two plaques were observed at the site.",
+                "answer": "محکمہ کے بیان کے مطابق، دونوں بعد میں نصب ہوئیں۔",
+                "skill_target": "Urdu: right-to-left Nastaliq reading, احترام کے صیغے آپ/تم, postpositions, gender and honorific agreement, clause linking, and source-aware formal prose"
+              },
+              {
+                "type": "reading_comprehension",
+                "q": "Practice 11: [reading comprehension] Distinguish observation from attribution — Read “مزید تاریخ کے بغیر قطعی نتیجہ ممکن نہیں۔” (mazeed tareekh ke baghair qatai natija mumkin nahin.). What does it mean?",
+                "answer": "Without further dating, a definitive conclusion is not possible.",
+                "skill_target": "Urdu: right-to-left Nastaliq reading, احترام کے صیغے آپ/تم, postpositions, gender and honorific agreement, clause linking, and source-aware formal prose"
+              },
+              {
+                "type": "paragraph_comprehension",
+                "q": "Practice 12: [paragraph comprehension] Distinguish observation from attribution — Read the lesson dialogue as a whole and give its key move: According to the department statement, both were installed later.",
+                "answer": "محکمہ کے بیان کے مطابق، دونوں بعد میں نصب ہوئیں۔",
+                "skill_target": "Urdu: right-to-left Nastaliq reading, احترام کے صیغے آپ/تم, postpositions, gender and honorific agreement, clause linking, and source-aware formal prose"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "Which meaning best fits مشاہدہ?",
+                "options": [
+                  "observation",
+                  "source",
+                  "statement",
+                  "attribution"
+                ],
+                "answer": 0,
+                "why": "مشاہدہ (mushahida) means observation in this lesson."
+              },
+              {
+                "q": "Which meaning best fits ماخذ?",
+                "options": [
+                  "source",
+                  "observation",
+                  "statement",
+                  "attribution"
+                ],
+                "answer": 0,
+                "why": "ماخذ (maakhaz) means source in this lesson."
+              },
+              {
+                "q": "Which meaning best fits بیان?",
+                "options": [
+                  "statement",
+                  "observation",
+                  "source",
+                  "attribution"
+                ],
+                "answer": 0,
+                "why": "بیان (bayan) means statement in this lesson."
+              },
+              {
+                "q": "Which meaning best fits نسبت?",
+                "options": [
+                  "attribution",
+                  "observation",
+                  "source",
+                  "statement"
+                ],
+                "answer": 0,
+                "why": "نسبت (nisbat) means attribution in this lesson."
+              },
+              {
+                "q": "Which meaning best fits تعبیر?",
+                "options": [
+                  "interpretation",
+                  "observation",
+                  "source",
+                  "statement"
+                ],
+                "answer": 0,
+                "why": "تعبیر (taabeer) means interpretation in this lesson."
+              }
+            ],
+            "flashcards": "auto:vocab",
+            "worksheet": {
+              "title": "Annotate evidence levels",
+              "tasks": [
+                {
+                  "instruction": "Translate the first model into English.",
+                  "items": [
+                    "موقع پر دو تختیاں دیکھی گئیں۔"
+                  ],
+                  "key": [
+                    "Two plaques were observed at the site."
+                  ]
+                },
+                {
+                  "instruction": "Use the lesson pattern in a new sentence.",
+                  "items": [
+                    "محکمہ کے بیان کے مطابق، دونوں بعد میں نصب ہوئیں۔",
+                    "مزید تاریخ کے بغیر قطعی نتیجہ ممکن نہیں۔"
+                  ],
+                  "key": [
+                    "According to the department statement, both were installed later.",
+                    "Without further dating, a definitive conclusion is not possible."
+                  ]
+                },
+                {
+                  "instruction": "Integrated offline practice: read the first model, transform or extend it in Nastaliq script, then rehearse it as a dialogue. Self-check meaning, grammar, and register.",
+                  "items": [
+                    "موقع پر دو تختیاں دیکھی گئیں۔",
+                    "موقع پر دو تختیاں دیکھی گئیں۔"
+                  ],
+                  "key": [
+                    "Two plaques were observed at the site.",
+                    "Two plaques were observed at the site."
+                  ]
+                }
+              ]
+            },
+            "srs_candidates": [
+              "مشاہدہ",
+              "ماخذ",
+              "بیان",
+              "نسبت"
+            ],
+            "srs_policy": "Only these four high-value terms are preselected; lesson mistakes and productive patterns may enter personalized review after an actual error."
           }
         ]
       },
@@ -722,25 +1004,25 @@
             },
             "dialogue": [
               {
-                "sp": "Speaker A",
+                "sp": "مقرر الف",
                 "t": "دھیان سے سنیے",
                 "r": "Dhyan se suniye",
                 "en": "Listen carefully"
               },
               {
-                "sp": "Speaker B",
+                "sp": "مقرر ب",
                 "t": "چپ چاپ بیٹھیے",
                 "r": "Chup chaap baithiye",
                 "en": "Sit quietly"
               },
               {
-                "sp": "Speaker A",
+                "sp": "مقرر الف",
                 "t": "کھڑے ہو جائیے",
                 "r": "Kharhe ho jaiye",
                 "en": "Stand up"
               },
               {
-                "sp": "Speaker B",
+                "sp": "مقرر ب",
                 "t": "مجھ سے پوچھیے",
                 "r": "Mujh se puchhiye",
                 "en": "Ask me"
@@ -1017,25 +1299,25 @@
             },
             "dialogue": [
               {
-                "sp": "Speaker A",
+                "sp": "مقرر الف",
                 "t": "کیسی اچھی ہوا!",
                 "r": "Kaisi achhi hava!",
                 "en": "What a pleasant wind!"
               },
               {
-                "sp": "Speaker B",
+                "sp": "مقرر ب",
                 "t": "چھاتا لے لیجیے",
                 "r": "Chhata le lijiye",
                 "en": "Take an umbrella"
               },
               {
-                "sp": "Speaker A",
+                "sp": "مقرر الف",
                 "t": "سورج نکلا",
                 "r": "Suraj nikla",
                 "en": "The sun rose"
               },
               {
-                "sp": "Speaker B",
+                "sp": "مقرر ب",
                 "t": "رات ہو گئی",
                 "r": "Raat ho gai",
                 "en": "Night fell"
@@ -1245,6 +1527,288 @@
               "پورا چاند"
             ],
             "srs_policy": "Only selected high-value lesson forms are preselected; actual mistakes and productive patterns may enter personalized review after learner evidence."
+          },
+          {
+            "id": "ur-c1-l8",
+            "title": "Offer a diplomatic alternative",
+            "learn": "Disagree with a proposal while naming the constraint and a workable alternative.",
+            "vocab": [
+              {
+                "t": "تجویز",
+                "r": "tajweez",
+                "en": "proposal",
+                "pos": "phrase"
+              },
+              {
+                "t": "محدودیت",
+                "r": "mahdoodiyat",
+                "en": "constraint",
+                "pos": "phrase"
+              },
+              {
+                "t": "متبادل",
+                "r": "mutabadil",
+                "en": "alternative",
+                "pos": "phrase"
+              },
+              {
+                "t": "نفاذ",
+                "r": "nafaz",
+                "en": "implementation",
+                "pos": "phrase"
+              },
+              {
+                "t": "گنجائش",
+                "r": "gunjaish",
+                "en": "room; scope",
+                "pos": "phrase"
+              }
+            ],
+            "grammar": {
+              "title": "mitigated disagreement",
+              "pattern": "آپ کی تجویز قابلِ غور ہے؛ تاہم ...؛ ایک متبادل یہ ہو سکتا ہے",
+              "explain": "Acknowledge a proposal before naming the implementation constraint. Offer an alternative as a possibility, not an order.",
+              "examples": [
+                {
+                  "t": "آپ کی تجویز قابلِ غور ہے۔",
+                  "r": "aap ki tajweez qabil-e-ghaur hai.",
+                  "en": "Your proposal merits consideration."
+                },
+                {
+                  "t": "تاہم موجودہ عملے کی گنجائش محدود ہے۔",
+                  "r": "taham maujooda amle ki gunjaish mehdood hai.",
+                  "en": "However, the available staffing capacity is limited."
+                },
+                {
+                  "t": "ایک متبادل یہ ہو سکتا ہے کہ مرحلہ وار آغاز کیا جائے۔",
+                  "r": "ek mutabadil ye ho sakta hai ke marhala waar aaghaz kiya jae.",
+                  "en": "One alternative may be to begin in stages."
+                }
+              ],
+              "mistakes": [
+                {
+                  "wrong": "آپ کی تجویز غلط ہے؛ یہ کریں۔",
+                  "right": "آپ کی تجویز قابلِ غور ہے، تاہم مرحلہ وار نفاذ زیادہ موزوں ہو سکتا ہے۔",
+                  "why": "Mitigate disagreement and explain the constraint rather than dismissing the proposal."
+                }
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "استاد",
+                "t": "آپ کی تجویز قابلِ غور ہے۔",
+                "r": "aap ki tajweez qabil-e-ghaur hai.",
+                "en": "Your proposal merits consideration."
+              },
+              {
+                "sp": "طالب علم",
+                "t": "تاہم موجودہ عملے کی گنجائش محدود ہے۔",
+                "r": "taham maujooda amle ki gunjaish mehdood hai.",
+                "en": "However, the available staffing capacity is limited."
+              },
+              {
+                "sp": "استاد",
+                "t": "ایک متبادل یہ ہو سکتا ہے کہ مرحلہ وار آغاز کیا جائے۔",
+                "r": "ek mutabadil ye ho sakta hai ke marhala waar aaghaz kiya jae.",
+                "en": "One alternative may be to begin in stages."
+              },
+              {
+                "sp": "طالب علم",
+                "t": "تاہم موجودہ عملے کی گنجائش محدود ہے۔",
+                "r": "taham maujooda amle ki gunjaish mehdood hai.",
+                "en": "However, the available staffing capacity is limited."
+              }
+            ],
+            "practice": [
+              {
+                "type": "multiple_choice",
+                "q": "Practice 1: [multiple choice] Offer a diplomatic alternative — Choose the meaning of تجویز (tajweez) in this lesson.",
+                "answer": "proposal",
+                "skill_target": "Urdu: right-to-left Nastaliq reading, احترام کے صیغے آپ/تم, postpositions, gender and honorific agreement, clause linking, and source-aware formal prose",
+                "options": [
+                  "proposal",
+                  "constraint",
+                  "alternative",
+                  "implementation"
+                ]
+              },
+              {
+                "type": "fill_in_the_blank",
+                "q": "Practice 2: [fill in the blank] Offer a diplomatic alternative — Type the Urdu expression meaning “constraint”.",
+                "answer": "محدودیت",
+                "skill_target": "Urdu: right-to-left Nastaliq reading, احترام کے صیغے آپ/تم, postpositions, gender and honorific agreement, clause linking, and source-aware formal prose"
+              },
+              {
+                "type": "translation",
+                "q": "Practice 3: [translation] Offer a diplomatic alternative — Interpret the Nastaliq script in context: آپ کی تجویز قابلِ غور ہے۔ (aap ki tajweez qabil-e-ghaur hai.).",
+                "answer": "Your proposal merits consideration.",
+                "skill_target": "Urdu: right-to-left Nastaliq reading, احترام کے صیغے آپ/تم, postpositions, gender and honorific agreement, clause linking, and source-aware formal prose"
+              },
+              {
+                "type": "reverse_translation",
+                "q": "Practice 4: [reverse translation] Offer a diplomatic alternative — Write in Nastaliq script: However, the available staffing capacity is limited..",
+                "answer": "تاہم موجودہ عملے کی گنجائش محدود ہے۔",
+                "skill_target": "Urdu: right-to-left Nastaliq reading, احترام کے صیغے آپ/تم, postpositions, gender and honorific agreement, clause linking, and source-aware formal prose"
+              },
+              {
+                "type": "matching",
+                "q": "Practice 5: [matching] Offer a diplomatic alternative — Match متبادل to its lesson meaning.",
+                "answer": "alternative",
+                "skill_target": "Urdu: right-to-left Nastaliq reading, احترام کے صیغے آپ/تم, postpositions, gender and honorific agreement, clause linking, and source-aware formal prose",
+                "options": [
+                  "alternative",
+                  "proposal",
+                  "constraint"
+                ]
+              },
+              {
+                "type": "reorder",
+                "q": "Practice 6: [reorder] Offer a diplomatic alternative — Reconstruct the lesson model in coherent Urdu: One alternative may be to begin in stages..",
+                "answer": "ایک متبادل یہ ہو سکتا ہے کہ مرحلہ وار آغاز کیا جائے۔",
+                "skill_target": "Urdu: right-to-left Nastaliq reading, احترام کے صیغے آپ/تم, postpositions, gender and honorific agreement, clause linking, and source-aware formal prose"
+              },
+              {
+                "type": "sentence_building",
+                "q": "Practice 7: [sentence building] Offer a diplomatic alternative — Build the sentence with the lesson pattern (آپ کی تجویز قابلِ غور ہے؛ تاہم ...؛ ایک متبادل یہ ہو سکتا ہے): Your proposal merits consideration..",
+                "answer": "آپ کی تجویز قابلِ غور ہے۔",
+                "skill_target": "Urdu: right-to-left Nastaliq reading, احترام کے صیغے آپ/تم, postpositions, gender and honorific agreement, clause linking, and source-aware formal prose"
+              },
+              {
+                "type": "word_selection",
+                "q": "Practice 8: [word selection] Offer a diplomatic alternative — Select the Urdu form for “implementation”.",
+                "answer": "نفاذ",
+                "skill_target": "Urdu: right-to-left Nastaliq reading, احترام کے صیغے آپ/تم, postpositions, gender and honorific agreement, clause linking, and source-aware formal prose",
+                "options": [
+                  "نفاذ",
+                  "گنجائش"
+                ]
+              },
+              {
+                "type": "error_correction",
+                "q": "Practice 9: [error correction] Offer a diplomatic alternative — Correct the model the lesson warns about: آپ کی تجویز غلط ہے؛ یہ کریں۔",
+                "answer": "آپ کی تجویز قابلِ غور ہے، تاہم مرحلہ وار نفاذ زیادہ موزوں ہو سکتا ہے۔",
+                "skill_target": "Urdu: right-to-left Nastaliq reading, احترام کے صیغے آپ/تم, postpositions, gender and honorific agreement, clause linking, and source-aware formal prose"
+              },
+              {
+                "type": "dialogue_completion",
+                "q": "Practice 10: [dialogue completion] Offer a diplomatic alternative — Complete the exchange with the studied response to: Your proposal merits consideration.",
+                "answer": "تاہم موجودہ عملے کی گنجائش محدود ہے۔",
+                "skill_target": "Urdu: right-to-left Nastaliq reading, احترام کے صیغے آپ/تم, postpositions, gender and honorific agreement, clause linking, and source-aware formal prose"
+              },
+              {
+                "type": "reading_comprehension",
+                "q": "Practice 11: [reading comprehension] Offer a diplomatic alternative — Read “ایک متبادل یہ ہو سکتا ہے کہ مرحلہ وار آغاز کیا جائے۔” (ek mutabadil ye ho sakta hai ke marhala waar aaghaz kiya jae.). What does it mean?",
+                "answer": "One alternative may be to begin in stages.",
+                "skill_target": "Urdu: right-to-left Nastaliq reading, احترام کے صیغے آپ/تم, postpositions, gender and honorific agreement, clause linking, and source-aware formal prose"
+              },
+              {
+                "type": "paragraph_comprehension",
+                "q": "Practice 12: [paragraph comprehension] Offer a diplomatic alternative — Read the lesson dialogue as a whole and give its key move: However, the available staffing capacity is limited.",
+                "answer": "تاہم موجودہ عملے کی گنجائش محدود ہے۔",
+                "skill_target": "Urdu: right-to-left Nastaliq reading, احترام کے صیغے آپ/تم, postpositions, gender and honorific agreement, clause linking, and source-aware formal prose"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "Which meaning best fits تجویز?",
+                "options": [
+                  "proposal",
+                  "constraint",
+                  "alternative",
+                  "implementation"
+                ],
+                "answer": 0,
+                "why": "تجویز (tajweez) means proposal in this lesson."
+              },
+              {
+                "q": "Which meaning best fits محدودیت?",
+                "options": [
+                  "constraint",
+                  "proposal",
+                  "alternative",
+                  "implementation"
+                ],
+                "answer": 0,
+                "why": "محدودیت (mahdoodiyat) means constraint in this lesson."
+              },
+              {
+                "q": "Which meaning best fits متبادل?",
+                "options": [
+                  "alternative",
+                  "proposal",
+                  "constraint",
+                  "implementation"
+                ],
+                "answer": 0,
+                "why": "متبادل (mutabadil) means alternative in this lesson."
+              },
+              {
+                "q": "Which meaning best fits نفاذ?",
+                "options": [
+                  "implementation",
+                  "proposal",
+                  "constraint",
+                  "alternative"
+                ],
+                "answer": 0,
+                "why": "نفاذ (nafaz) means implementation in this lesson."
+              },
+              {
+                "q": "Which meaning best fits گنجائش?",
+                "options": [
+                  "room; scope",
+                  "proposal",
+                  "constraint",
+                  "alternative"
+                ],
+                "answer": 0,
+                "why": "گنجائش (gunjaish) means room; scope in this lesson."
+              }
+            ],
+            "flashcards": "auto:vocab",
+            "worksheet": {
+              "title": "Draft a diplomatic reply",
+              "tasks": [
+                {
+                  "instruction": "Translate the first model into English.",
+                  "items": [
+                    "آپ کی تجویز قابلِ غور ہے۔"
+                  ],
+                  "key": [
+                    "Your proposal merits consideration."
+                  ]
+                },
+                {
+                  "instruction": "Use the lesson pattern in a new sentence.",
+                  "items": [
+                    "تاہم موجودہ عملے کی گنجائش محدود ہے۔",
+                    "ایک متبادل یہ ہو سکتا ہے کہ مرحلہ وار آغاز کیا جائے۔"
+                  ],
+                  "key": [
+                    "However, the available staffing capacity is limited.",
+                    "One alternative may be to begin in stages."
+                  ]
+                },
+                {
+                  "instruction": "Integrated offline practice: read the first model, transform or extend it in Nastaliq script, then rehearse it as a dialogue. Self-check meaning, grammar, and register.",
+                  "items": [
+                    "آپ کی تجویز قابلِ غور ہے۔",
+                    "آپ کی تجویز قابلِ غور ہے۔"
+                  ],
+                  "key": [
+                    "Your proposal merits consideration.",
+                    "Your proposal merits consideration."
+                  ]
+                }
+              ]
+            },
+            "srs_candidates": [
+              "تجویز",
+              "محدودیت",
+              "متبادل",
+              "نفاذ"
+            ],
+            "srs_policy": "Only these four high-value terms are preselected; lesson mistakes and productive patterns may enter personalized review after an actual error."
           }
         ]
       },
@@ -1333,25 +1897,25 @@
             },
             "dialogue": [
               {
-                "sp": "Speaker A",
+                "sp": "مقرر الف",
                 "t": "بیٹھیے",
                 "r": "Baithiye",
                 "en": "Sit down"
               },
               {
-                "sp": "Speaker B",
+                "sp": "مقرر ب",
                 "t": "تھوڑا اور کھائیے",
                 "r": "Thodha aur khaiye",
                 "en": "Eat a little more"
               },
               {
-                "sp": "Speaker A",
+                "sp": "مقرر الف",
                 "t": "بہت مزیدار ہے!",
                 "r": "Bahut mazedar hai!",
                 "en": "It is very tasty!"
               },
               {
-                "sp": "Speaker B",
+                "sp": "مقرر ب",
                 "t": "بس، پیٹ بھر گیا",
                 "r": "Bas, pet bhar gaya",
                 "en": "Enough, I am full"
@@ -1366,7 +1930,7 @@
               },
               {
                 "type": "dialogue_completion",
-                "q": "Practice 6 [dialogue completion] — Intergenerational viewpoints: Complete Speaker B’s turn appropriately: Eat a little more",
+                "q": "Practice 6 [dialogue completion] — Intergenerational viewpoints: Complete مقرر ب’s turn appropriately: Eat a little more",
                 "answer": "تھوڑا اور کھائیے",
                 "skill_target": "Urdu dialogue completion: Urdu agreement, postpositions, honorificity, and formal versus everyday register"
               },
@@ -1638,25 +2202,25 @@
             },
             "dialogue": [
               {
-                "sp": "Speaker A",
+                "sp": "مقرر الف",
                 "t": "مٹھائی کھائیے",
                 "r": "Mithai khaiye",
                 "en": "Eat sweets"
               },
               {
-                "sp": "Speaker B",
+                "sp": "مقرر ب",
                 "t": "نئے کپڑے پہنیے",
                 "r": "Nae kaprhe pehniye",
                 "en": "Wear new clothes"
               },
               {
-                "sp": "Speaker A",
+                "sp": "مقرر الف",
                 "t": "دیا جلائیے",
                 "r": "Diya jalaiye",
                 "en": "Light the lamp"
               },
               {
-                "sp": "Speaker B",
+                "sp": "مقرر ب",
                 "t": "دعا کیجیے",
                 "r": "Dua kijiye",
                 "en": "Offer prayers"
@@ -1854,6 +2418,288 @@
               "محرم"
             ],
             "srs_policy": "Only selected high-value lesson forms are preselected; actual mistakes and productive patterns may enter personalized review after learner evidence."
+          },
+          {
+            "id": "ur-c1-l9",
+            "title": "Synthesize two accounts",
+            "learn": "Combine two sources and state one limit on the synthesis.",
+            "vocab": [
+              {
+                "t": "مطالعہ",
+                "r": "mutalia",
+                "en": "study",
+                "pos": "phrase"
+              },
+              {
+                "t": "موازنہ",
+                "r": "muwaazana",
+                "en": "comparison",
+                "pos": "phrase"
+              },
+              {
+                "t": "سیاق",
+                "r": "siyaaq",
+                "en": "context",
+                "pos": "phrase"
+              },
+              {
+                "t": "اختلاف",
+                "r": "ikhtilaf",
+                "en": "difference",
+                "pos": "phrase"
+              },
+              {
+                "t": "نتیجہ",
+                "r": "natija",
+                "en": "finding",
+                "pos": "phrase"
+              }
+            ],
+            "grammar": {
+              "title": "cross-source synthesis",
+              "pattern": "دونوں مطالعات کو ساتھ پڑھنے سے ...؛ تاہم ...",
+              "explain": "Synthesize shared findings while preserving a difference in sample, setting or method.",
+              "examples": [
+                {
+                  "t": "دونوں مطالعات میں شرکت بڑھی ہے۔",
+                  "r": "donon mutaliaat mein shirkat barhi hai.",
+                  "en": "Participation increased in both studies."
+                },
+                {
+                  "t": "تاہم ایک مطالعہ شہری علاقوں تک محدود تھا۔",
+                  "r": "taham ek mutalia shahri ilaqon tak mehdood tha.",
+                  "en": "However, one study was limited to urban areas."
+                },
+                {
+                  "t": "یہ فرق نتائج کی تعبیر پر اثر انداز ہو سکتا ہے۔",
+                  "r": "ye farq nataij ki taabeer par asar andaaz ho sakta hai.",
+                  "en": "This difference may affect how the results are interpreted."
+                }
+              ],
+              "mistakes": [
+                {
+                  "wrong": "دونوں مطالعات ایک جیسے ہیں۔",
+                  "right": "دونوں میں ایک مشترک رجحان ہے، مگر ان کے سیاق مختلف ہیں۔",
+                  "why": "Name a shared trend without erasing differences between study contexts."
+                }
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "استاد",
+                "t": "دونوں مطالعات میں شرکت بڑھی ہے۔",
+                "r": "donon mutaliaat mein shirkat barhi hai.",
+                "en": "Participation increased in both studies."
+              },
+              {
+                "sp": "طالب علم",
+                "t": "تاہم ایک مطالعہ شہری علاقوں تک محدود تھا۔",
+                "r": "taham ek mutalia shahri ilaqon tak mehdood tha.",
+                "en": "However, one study was limited to urban areas."
+              },
+              {
+                "sp": "استاد",
+                "t": "یہ فرق نتائج کی تعبیر پر اثر انداز ہو سکتا ہے۔",
+                "r": "ye farq nataij ki taabeer par asar andaaz ho sakta hai.",
+                "en": "This difference may affect how the results are interpreted."
+              },
+              {
+                "sp": "طالب علم",
+                "t": "تاہم ایک مطالعہ شہری علاقوں تک محدود تھا۔",
+                "r": "taham ek mutalia shahri ilaqon tak mehdood tha.",
+                "en": "However, one study was limited to urban areas."
+              }
+            ],
+            "practice": [
+              {
+                "type": "multiple_choice",
+                "q": "Practice 1: [multiple choice] Synthesize two accounts — Choose the meaning of مطالعہ (mutalia) in this lesson.",
+                "answer": "study",
+                "skill_target": "Urdu: right-to-left Nastaliq reading, احترام کے صیغے آپ/تم, postpositions, gender and honorific agreement, clause linking, and source-aware formal prose",
+                "options": [
+                  "study",
+                  "comparison",
+                  "context",
+                  "difference"
+                ]
+              },
+              {
+                "type": "fill_in_the_blank",
+                "q": "Practice 2: [fill in the blank] Synthesize two accounts — Type the Urdu expression meaning “comparison”.",
+                "answer": "موازنہ",
+                "skill_target": "Urdu: right-to-left Nastaliq reading, احترام کے صیغے آپ/تم, postpositions, gender and honorific agreement, clause linking, and source-aware formal prose"
+              },
+              {
+                "type": "translation",
+                "q": "Practice 3: [translation] Synthesize two accounts — Interpret the Nastaliq script in context: دونوں مطالعات میں شرکت بڑھی ہے۔ (donon mutaliaat mein shirkat barhi hai.).",
+                "answer": "Participation increased in both studies.",
+                "skill_target": "Urdu: right-to-left Nastaliq reading, احترام کے صیغے آپ/تم, postpositions, gender and honorific agreement, clause linking, and source-aware formal prose"
+              },
+              {
+                "type": "reverse_translation",
+                "q": "Practice 4: [reverse translation] Synthesize two accounts — Write in Nastaliq script: However, one study was limited to urban areas..",
+                "answer": "تاہم ایک مطالعہ شہری علاقوں تک محدود تھا۔",
+                "skill_target": "Urdu: right-to-left Nastaliq reading, احترام کے صیغے آپ/تم, postpositions, gender and honorific agreement, clause linking, and source-aware formal prose"
+              },
+              {
+                "type": "matching",
+                "q": "Practice 5: [matching] Synthesize two accounts — Match سیاق to its lesson meaning.",
+                "answer": "context",
+                "skill_target": "Urdu: right-to-left Nastaliq reading, احترام کے صیغے آپ/تم, postpositions, gender and honorific agreement, clause linking, and source-aware formal prose",
+                "options": [
+                  "context",
+                  "study",
+                  "comparison"
+                ]
+              },
+              {
+                "type": "reorder",
+                "q": "Practice 6: [reorder] Synthesize two accounts — Reconstruct the lesson model in coherent Urdu: This difference may affect how the results are interpreted..",
+                "answer": "یہ فرق نتائج کی تعبیر پر اثر انداز ہو سکتا ہے۔",
+                "skill_target": "Urdu: right-to-left Nastaliq reading, احترام کے صیغے آپ/تم, postpositions, gender and honorific agreement, clause linking, and source-aware formal prose"
+              },
+              {
+                "type": "sentence_building",
+                "q": "Practice 7: [sentence building] Synthesize two accounts — Build the sentence with the lesson pattern (دونوں مطالعات کو ساتھ پڑھنے سے ...؛ تاہم ...): Participation increased in both studies..",
+                "answer": "دونوں مطالعات میں شرکت بڑھی ہے۔",
+                "skill_target": "Urdu: right-to-left Nastaliq reading, احترام کے صیغے آپ/تم, postpositions, gender and honorific agreement, clause linking, and source-aware formal prose"
+              },
+              {
+                "type": "word_selection",
+                "q": "Practice 8: [word selection] Synthesize two accounts — Select the Urdu form for “difference”.",
+                "answer": "اختلاف",
+                "skill_target": "Urdu: right-to-left Nastaliq reading, احترام کے صیغے آپ/تم, postpositions, gender and honorific agreement, clause linking, and source-aware formal prose",
+                "options": [
+                  "اختلاف",
+                  "نتیجہ"
+                ]
+              },
+              {
+                "type": "error_correction",
+                "q": "Practice 9: [error correction] Synthesize two accounts — Correct the model the lesson warns about: دونوں مطالعات ایک جیسے ہیں۔",
+                "answer": "دونوں میں ایک مشترک رجحان ہے، مگر ان کے سیاق مختلف ہیں۔",
+                "skill_target": "Urdu: right-to-left Nastaliq reading, احترام کے صیغے آپ/تم, postpositions, gender and honorific agreement, clause linking, and source-aware formal prose"
+              },
+              {
+                "type": "dialogue_completion",
+                "q": "Practice 10: [dialogue completion] Synthesize two accounts — Complete the exchange with the studied response to: Participation increased in both studies.",
+                "answer": "تاہم ایک مطالعہ شہری علاقوں تک محدود تھا۔",
+                "skill_target": "Urdu: right-to-left Nastaliq reading, احترام کے صیغے آپ/تم, postpositions, gender and honorific agreement, clause linking, and source-aware formal prose"
+              },
+              {
+                "type": "reading_comprehension",
+                "q": "Practice 11: [reading comprehension] Synthesize two accounts — Read “یہ فرق نتائج کی تعبیر پر اثر انداز ہو سکتا ہے۔” (ye farq nataij ki taabeer par asar andaaz ho sakta hai.). What does it mean?",
+                "answer": "This difference may affect how the results are interpreted.",
+                "skill_target": "Urdu: right-to-left Nastaliq reading, احترام کے صیغے آپ/تم, postpositions, gender and honorific agreement, clause linking, and source-aware formal prose"
+              },
+              {
+                "type": "paragraph_comprehension",
+                "q": "Practice 12: [paragraph comprehension] Synthesize two accounts — Read the lesson dialogue as a whole and give its key move: However, one study was limited to urban areas.",
+                "answer": "تاہم ایک مطالعہ شہری علاقوں تک محدود تھا۔",
+                "skill_target": "Urdu: right-to-left Nastaliq reading, احترام کے صیغے آپ/تم, postpositions, gender and honorific agreement, clause linking, and source-aware formal prose"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "Which meaning best fits مطالعہ?",
+                "options": [
+                  "study",
+                  "comparison",
+                  "context",
+                  "difference"
+                ],
+                "answer": 0,
+                "why": "مطالعہ (mutalia) means study in this lesson."
+              },
+              {
+                "q": "Which meaning best fits موازنہ?",
+                "options": [
+                  "comparison",
+                  "study",
+                  "context",
+                  "difference"
+                ],
+                "answer": 0,
+                "why": "موازنہ (muwaazana) means comparison in this lesson."
+              },
+              {
+                "q": "Which meaning best fits سیاق?",
+                "options": [
+                  "context",
+                  "study",
+                  "comparison",
+                  "difference"
+                ],
+                "answer": 0,
+                "why": "سیاق (siyaaq) means context in this lesson."
+              },
+              {
+                "q": "Which meaning best fits اختلاف?",
+                "options": [
+                  "difference",
+                  "study",
+                  "comparison",
+                  "context"
+                ],
+                "answer": 0,
+                "why": "اختلاف (ikhtilaf) means difference in this lesson."
+              },
+              {
+                "q": "Which meaning best fits نتیجہ?",
+                "options": [
+                  "finding",
+                  "study",
+                  "comparison",
+                  "context"
+                ],
+                "answer": 0,
+                "why": "نتیجہ (natija) means finding in this lesson."
+              }
+            ],
+            "flashcards": "auto:vocab",
+            "worksheet": {
+              "title": "Write a bounded synthesis",
+              "tasks": [
+                {
+                  "instruction": "Translate the first model into English.",
+                  "items": [
+                    "دونوں مطالعات میں شرکت بڑھی ہے۔"
+                  ],
+                  "key": [
+                    "Participation increased in both studies."
+                  ]
+                },
+                {
+                  "instruction": "Use the lesson pattern in a new sentence.",
+                  "items": [
+                    "تاہم ایک مطالعہ شہری علاقوں تک محدود تھا۔",
+                    "یہ فرق نتائج کی تعبیر پر اثر انداز ہو سکتا ہے۔"
+                  ],
+                  "key": [
+                    "However, one study was limited to urban areas.",
+                    "This difference may affect how the results are interpreted."
+                  ]
+                },
+                {
+                  "instruction": "Integrated offline practice: read the first model, transform or extend it in Nastaliq script, then rehearse it as a dialogue. Self-check meaning, grammar, and register.",
+                  "items": [
+                    "دونوں مطالعات میں شرکت بڑھی ہے۔",
+                    "دونوں مطالعات میں شرکت بڑھی ہے۔"
+                  ],
+                  "key": [
+                    "Participation increased in both studies.",
+                    "Participation increased in both studies."
+                  ]
+                }
+              ]
+            },
+            "srs_candidates": [
+              "مطالعہ",
+              "موازنہ",
+              "سیاق",
+              "اختلاف"
+            ],
+            "srs_policy": "Only these four high-value terms are preselected; lesson mistakes and productive patterns may enter personalized review after an actual error."
           }
         ]
       }
@@ -1912,6 +2758,95 @@
           "answer": "بارش ہو رہی ہے (Barish ho rahi hai)"
         }
       ]
+    },
+    "extra": {
+      "culture": {
+        "text": "Advanced Urdu prose can shift between a direct account, a source-attributed claim and an interpretation. These are different evidence levels. A reader should be able to tell which details were observed, which came from a report and which are the writer's inference. This distinction is useful in academic and public communication.",
+        "source_url": "https://www.britannica.com/topic/Urdu-language"
+      },
+      "reading": {
+        "text": "دونوں مطالعات کو ساتھ پڑھنے سے ایک فرق سامنے آتا ہے۔ پہلی تحقیق نے شہری علاقوں کو دیکھا، جبکہ دوسری نے دیہی مراکز کا جائزہ لیا۔ اس لیے نتائج میں فرق کو صرف طریقۂ کار سے منسوب نہیں کیا جا سکتا؛ نمونے کا سیاق بھی اہم ہے۔",
+        "gloss": "Reading the two studies together reveals a difference. The first study examined urban areas, while the second reviewed rural centres. The difference in results therefore cannot be attributed only to method; the context of the sample also matters.",
+        "original": true
+      },
+      "listening": {
+        "script": "محقق: کیا یہ دونوں نتائج ایک دوسرے کی تردید کرتے ہیں؟<br>محرر: ضروری نہیں؛ ان کے نمونے مختلف ہیں۔<br>محقق: پھر خلاصے میں یہ فرق واضح ہونا چاہیے۔<br>محرر: جی، میں دونوں نتائج کو ان کے سیاق کے ساتھ بیان کروں گا۔",
+        "gloss": "Researcher: Do these findings contradict one another? Editor: Not necessarily; their samples differ. Researcher: Then the summary should make that difference clear. Editor: Yes, I will report both findings with their contexts.",
+        "voice_tag": "ur-PK"
+      },
+      "idioms": [
+        {
+          "t": "زیرِ بحث",
+          "literal": "under discussion",
+          "meaning": "currently being discussed"
+        },
+        {
+          "t": "حرفِ آخر",
+          "literal": "the final word",
+          "meaning": "a definitive statement"
+        },
+        {
+          "t": "لبِ لباب",
+          "literal": "the lip of the lip",
+          "meaning": "the essence or summary"
+        },
+        {
+          "t": "من و عن",
+          "literal": "exactly as it is",
+          "meaning": "without alteration"
+        },
+        {
+          "t": "بادی النظر میں",
+          "literal": "at first sight",
+          "meaning": "at first glance"
+        },
+        {
+          "t": "بہرصورت",
+          "literal": "in every case",
+          "meaning": "in any event"
+        },
+        {
+          "t": "اس تناظر میں",
+          "literal": "in this context",
+          "meaning": "in this frame of reference"
+        },
+        {
+          "t": "قابلِ توجہ",
+          "literal": "worthy of attention",
+          "meaning": "noteworthy"
+        },
+        {
+          "t": "مفروضہ قائم کرنا",
+          "literal": "to establish a hypothesis",
+          "meaning": "to formulate an assumption"
+        },
+        {
+          "t": "نتائج اخذ کرنا",
+          "literal": "to infer results",
+          "meaning": "to draw findings"
+        }
+      ],
+      "mistakes": [
+        {
+          "wrong": "رپورٹ نے کہا کہ اثر ہر جگہ یکساں ہے۔",
+          "right": "رپورٹ کے مطابق اثر علاقوں کے لحاظ سے مختلف ہے۔",
+          "why": "Attribute a claim to the report and preserve its qualification."
+        },
+        {
+          "wrong": "یہ ثابت کرتا ہے کہ ہر فرد ایسا کرتا ہے۔",
+          "right": "یہ نمونہ اس رجحان کی طرف اشارہ کرتا ہے۔",
+          "why": "A limited sample does not establish a universal claim."
+        },
+        {
+          "wrong": "میں آپ کو رد کرتا ہوں۔",
+          "right": "میں اس تعبیر کے دائرے کو محدود کرنا چاہتا ہوں۔",
+          "why": "A diplomatic correction addresses the interpretation, not the person."
+        }
+      ],
+      "task": {
+        "title": "Urdu C1 reflection and production task",
+        "instructions": "Write a short response using two expressions from this level. State the audience, keep the address form consistent, and mark which claim is observed, reported or inferred. Read it aloud once and revise any phrase that overstates the evidence."
+      }
     }
   }
 }

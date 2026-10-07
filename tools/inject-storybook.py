@@ -49,11 +49,16 @@ HINT = ('<p class="sb-hint">🔊 <b>Tap any speaker button to hear Hindi spoken.
 HINT_WORDS = ('<p class="sb-hint">🔊 <b>Tap any speaker button to hear the words on this '
               "page spoken.</b> Too fast or slow? Use the <b>speed</b> button at the "
               "bottom-right of the page.</p>")
+HINT_COUNTER = ('<p class="sb-hint">This counter has no Hindi speaker buttons. Its sample is for counting only, not a reviewed Hindi lesson. '
+                'See the notes below for counting rules and limitations. The shared speed control does not change the totals.</p>')
 HINDI_PATHS = ("learn/hindi", "hindi-tutor", "toolbox/hindi", "learn-hindi-",
                "daily-hindi", "languages/hi/", "/hindi/", "hindi/index.html")
 
 
 def hint_for(path):
+    normalised = path.replace(os.sep, "/")
+    if normalised.endswith("toolbox/hindi-text-counter/index.html"):
+        return HINT_COUNTER
     return HINT if any(bit in path for bit in HINDI_PATHS) else HINT_WORDS
 DEVA = re.compile(r"[\u0900-\u097F]")
 

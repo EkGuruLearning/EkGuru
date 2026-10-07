@@ -64,6 +64,13 @@ window.EKGURU_TOOL_REGISTRY = [
     last_tested: "2026-09-11"
   },
   {
+    slug: "hindi-text-counter", name: "Hindi text counter",
+    path: "/toolbox/hindi-text-counter/", category: "writing",
+    version: "v1", owner: "EkGuru admin",
+    deps: [], fallback: "Counting notes remain visible; live totals need JavaScript.",
+    last_tested: "pending"
+  },
+  {
     slug: "hindi-verbs", name: "Hindi verb explorer",
     path: "/toolbox/hindi-verbs/", category: "grammar",
     version: "v4", owner: "EkGuru admin",

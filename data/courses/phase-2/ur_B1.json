@@ -98,25 +98,25 @@
             },
             "dialogue": [
               {
-                "sp": "Speaker A",
+                "sp": "مقرر الف",
                 "t": "ڈاکٹر کو بلائیے",
                 "r": "Doctor ko bulaiye",
                 "en": "Call a doctor"
               },
               {
-                "sp": "Speaker B",
+                "sp": "مقرر ب",
                 "t": "مجھے سرکاری ہسپتال لے چلیے",
                 "r": "Mujhe sarkari hospital le chaliye",
                 "en": "Take me to hospital"
               },
               {
-                "sp": "Speaker A",
+                "sp": "مقرر الف",
                 "t": "دوائی کی دکان کہاں ہے؟",
                 "r": "Davai ki dukan kahan hai?",
                 "en": "Where is the pharmacy?"
               },
               {
-                "sp": "Speaker B",
+                "sp": "مقرر ب",
                 "t": "یہ دوا لیجیے",
                 "r": "Ye dava lijiye",
                 "en": "Take this medicine"
@@ -194,7 +194,7 @@
               },
               {
                 "type": "dialogue_completion",
-                "q": "Practice 10 [dialogue completion] — Connected health explanations: Complete Speaker B’s turn appropriately: Take me to hospital",
+                "q": "Practice 10 [dialogue completion] — Connected health explanations: Complete مقرر ب’s turn appropriately: Take me to hospital",
                 "answer": "مجھے سرکاری ہسپتال لے چلیے",
                 "skill_target": "Urdu dialogue completion: Urdu agreement, postpositions, honorificity, and formal versus everyday register"
               },
@@ -408,25 +408,25 @@
             },
             "dialogue": [
               {
-                "sp": "Speaker A",
+                "sp": "مقرر الف",
                 "t": "ای میل بھیجیے",
                 "r": "Email bhejiye",
                 "en": "Send the email"
               },
               {
-                "sp": "Speaker B",
+                "sp": "مقرر ب",
                 "t": "پرنٹ نکالیے",
                 "r": "Print nikaliye",
                 "en": "Take a printout"
               },
               {
-                "sp": "Speaker A",
+                "sp": "مقرر الف",
                 "t": "تنخواہ کب ملے گی؟",
                 "r": "Tankhvah kab milegi?",
                 "en": "When is the salary?"
               },
               {
-                "sp": "Speaker B",
+                "sp": "مقرر ب",
                 "t": "کل مجھے چھٹی چاہیے",
                 "r": "Kal mujhe chhutti chahiye",
                 "en": "I need leave tomorrow"
@@ -634,6 +634,288 @@
               "گاہک"
             ],
             "srs_policy": "Only selected high-value lesson forms are preselected; actual mistakes and productive patterns may enter personalized review after learner evidence."
+          },
+          {
+            "id": "ur-b1-l7",
+            "title": "Separate a report from your inference",
+            "learn": "Summarise a report and clearly mark one inference as provisional.",
+            "vocab": [
+              {
+                "t": "رپورٹ",
+                "r": "report",
+                "en": "report",
+                "pos": "phrase"
+              },
+              {
+                "t": "اعداد",
+                "r": "aadaad",
+                "en": "figures",
+                "pos": "phrase"
+              },
+              {
+                "t": "نمونہ",
+                "r": "namuna",
+                "en": "sample",
+                "pos": "phrase"
+              },
+              {
+                "t": "رجحان",
+                "r": "rujhan",
+                "en": "trend",
+                "pos": "phrase"
+              },
+              {
+                "t": "عارضی",
+                "r": "aarzi",
+                "en": "provisional",
+                "pos": "phrase"
+              }
+            ],
+            "grammar": {
+              "title": "source attribution",
+              "pattern": "رپورٹ کے مطابق ...؛ اس سے ... کا امکان ہے",
+              "explain": "Use کے مطابق to attribute a claim. Use امکان to mark an inference rather than presenting it as the source's statement.",
+              "examples": [
+                {
+                  "t": "رپورٹ کے مطابق استعمال بڑھا ہے۔",
+                  "r": "report ke mutabiq istemal barha hai.",
+                  "en": "According to the report, use has increased."
+                },
+                {
+                  "t": "نمونہ محدود ہے، اس لیے رجحان عارضی ہے۔",
+                  "r": "namuna mehdood hai, is liye rujhan aarzi hai.",
+                  "en": "The sample is limited, so the trend is provisional."
+                },
+                {
+                  "t": "اس سے مزید تحقیق کا امکان ظاہر ہوتا ہے۔",
+                  "r": "is se mazeed tehqeeq ka imkan zahir hota hai.",
+                  "en": "This suggests the possibility of further research."
+                }
+              ],
+              "mistakes": [
+                {
+                  "wrong": "رپورٹ کے مطابق شاید یہ ثابت ہے۔",
+                  "right": "رپورٹ کے مطابق یہ رجحان دکھائی دیتا ہے۔",
+                  "why": "Do not combine attribution with a stronger certainty than the source supports."
+                }
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "استاد",
+                "t": "رپورٹ کے مطابق استعمال بڑھا ہے۔",
+                "r": "report ke mutabiq istemal barha hai.",
+                "en": "According to the report, use has increased."
+              },
+              {
+                "sp": "طالب علم",
+                "t": "نمونہ محدود ہے، اس لیے رجحان عارضی ہے۔",
+                "r": "namuna mehdood hai, is liye rujhan aarzi hai.",
+                "en": "The sample is limited, so the trend is provisional."
+              },
+              {
+                "sp": "استاد",
+                "t": "اس سے مزید تحقیق کا امکان ظاہر ہوتا ہے۔",
+                "r": "is se mazeed tehqeeq ka imkan zahir hota hai.",
+                "en": "This suggests the possibility of further research."
+              },
+              {
+                "sp": "طالب علم",
+                "t": "نمونہ محدود ہے، اس لیے رجحان عارضی ہے۔",
+                "r": "namuna mehdood hai, is liye rujhan aarzi hai.",
+                "en": "The sample is limited, so the trend is provisional."
+              }
+            ],
+            "practice": [
+              {
+                "type": "multiple_choice",
+                "q": "Practice 1: [multiple choice] Separate a report from your inference — Choose the meaning of رپورٹ (report) in this lesson.",
+                "answer": "report",
+                "skill_target": "Urdu: right-to-left Nastaliq reading, احترام کے صیغے آپ/تم, postpositions, gender and honorific agreement, clause linking, and source-aware formal prose",
+                "options": [
+                  "report",
+                  "figures",
+                  "sample",
+                  "trend"
+                ]
+              },
+              {
+                "type": "fill_in_the_blank",
+                "q": "Practice 2: [fill in the blank] Separate a report from your inference — Type the Urdu expression meaning “figures”.",
+                "answer": "اعداد",
+                "skill_target": "Urdu: right-to-left Nastaliq reading, احترام کے صیغے آپ/تم, postpositions, gender and honorific agreement, clause linking, and source-aware formal prose"
+              },
+              {
+                "type": "translation",
+                "q": "Practice 3: [translation] Separate a report from your inference — Interpret the Nastaliq script in context: رپورٹ کے مطابق استعمال بڑھا ہے۔ (report ke mutabiq istemal barha hai.).",
+                "answer": "According to the report, use has increased.",
+                "skill_target": "Urdu: right-to-left Nastaliq reading, احترام کے صیغے آپ/تم, postpositions, gender and honorific agreement, clause linking, and source-aware formal prose"
+              },
+              {
+                "type": "reverse_translation",
+                "q": "Practice 4: [reverse translation] Separate a report from your inference — Write in Nastaliq script: The sample is limited, so the trend is provisional..",
+                "answer": "نمونہ محدود ہے، اس لیے رجحان عارضی ہے۔",
+                "skill_target": "Urdu: right-to-left Nastaliq reading, احترام کے صیغے آپ/تم, postpositions, gender and honorific agreement, clause linking, and source-aware formal prose"
+              },
+              {
+                "type": "matching",
+                "q": "Practice 5: [matching] Separate a report from your inference — Match نمونہ to its lesson meaning.",
+                "answer": "sample",
+                "skill_target": "Urdu: right-to-left Nastaliq reading, احترام کے صیغے آپ/تم, postpositions, gender and honorific agreement, clause linking, and source-aware formal prose",
+                "options": [
+                  "sample",
+                  "report",
+                  "figures"
+                ]
+              },
+              {
+                "type": "reorder",
+                "q": "Practice 6: [reorder] Separate a report from your inference — Reconstruct the lesson model in coherent Urdu: This suggests the possibility of further research..",
+                "answer": "اس سے مزید تحقیق کا امکان ظاہر ہوتا ہے۔",
+                "skill_target": "Urdu: right-to-left Nastaliq reading, احترام کے صیغے آپ/تم, postpositions, gender and honorific agreement, clause linking, and source-aware formal prose"
+              },
+              {
+                "type": "sentence_building",
+                "q": "Practice 7: [sentence building] Separate a report from your inference — Build the sentence with the lesson pattern (رپورٹ کے مطابق ...؛ اس سے ... کا امکان ہے): According to the report, use has increased..",
+                "answer": "رپورٹ کے مطابق استعمال بڑھا ہے۔",
+                "skill_target": "Urdu: right-to-left Nastaliq reading, احترام کے صیغے آپ/تم, postpositions, gender and honorific agreement, clause linking, and source-aware formal prose"
+              },
+              {
+                "type": "word_selection",
+                "q": "Practice 8: [word selection] Separate a report from your inference — Select the Urdu form for “trend”.",
+                "answer": "رجحان",
+                "skill_target": "Urdu: right-to-left Nastaliq reading, احترام کے صیغے آپ/تم, postpositions, gender and honorific agreement, clause linking, and source-aware formal prose",
+                "options": [
+                  "رجحان",
+                  "عارضی"
+                ]
+              },
+              {
+                "type": "error_correction",
+                "q": "Practice 9: [error correction] Separate a report from your inference — Correct the model the lesson warns about: رپورٹ کے مطابق شاید یہ ثابت ہے۔",
+                "answer": "رپورٹ کے مطابق یہ رجحان دکھائی دیتا ہے۔",
+                "skill_target": "Urdu: right-to-left Nastaliq reading, احترام کے صیغے آپ/تم, postpositions, gender and honorific agreement, clause linking, and source-aware formal prose"
+              },
+              {
+                "type": "dialogue_completion",
+                "q": "Practice 10: [dialogue completion] Separate a report from your inference — Complete the exchange with the studied response to: According to the report, use has increased.",
+                "answer": "نمونہ محدود ہے، اس لیے رجحان عارضی ہے۔",
+                "skill_target": "Urdu: right-to-left Nastaliq reading, احترام کے صیغے آپ/تم, postpositions, gender and honorific agreement, clause linking, and source-aware formal prose"
+              },
+              {
+                "type": "reading_comprehension",
+                "q": "Practice 11: [reading comprehension] Separate a report from your inference — Read “اس سے مزید تحقیق کا امکان ظاہر ہوتا ہے۔” (is se mazeed tehqeeq ka imkan zahir hota hai.). What does it mean?",
+                "answer": "This suggests the possibility of further research.",
+                "skill_target": "Urdu: right-to-left Nastaliq reading, احترام کے صیغے آپ/تم, postpositions, gender and honorific agreement, clause linking, and source-aware formal prose"
+              },
+              {
+                "type": "paragraph_comprehension",
+                "q": "Practice 12: [paragraph comprehension] Separate a report from your inference — Read the lesson dialogue as a whole and give its key move: The sample is limited, so the trend is provisional.",
+                "answer": "نمونہ محدود ہے، اس لیے رجحان عارضی ہے۔",
+                "skill_target": "Urdu: right-to-left Nastaliq reading, احترام کے صیغے آپ/تم, postpositions, gender and honorific agreement, clause linking, and source-aware formal prose"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "Which meaning best fits رپورٹ?",
+                "options": [
+                  "report",
+                  "figures",
+                  "sample",
+                  "trend"
+                ],
+                "answer": 0,
+                "why": "رپورٹ (report) means report in this lesson."
+              },
+              {
+                "q": "Which meaning best fits اعداد?",
+                "options": [
+                  "figures",
+                  "report",
+                  "sample",
+                  "trend"
+                ],
+                "answer": 0,
+                "why": "اعداد (aadaad) means figures in this lesson."
+              },
+              {
+                "q": "Which meaning best fits نمونہ?",
+                "options": [
+                  "sample",
+                  "report",
+                  "figures",
+                  "trend"
+                ],
+                "answer": 0,
+                "why": "نمونہ (namuna) means sample in this lesson."
+              },
+              {
+                "q": "Which meaning best fits رجحان?",
+                "options": [
+                  "trend",
+                  "report",
+                  "figures",
+                  "sample"
+                ],
+                "answer": 0,
+                "why": "رجحان (rujhan) means trend in this lesson."
+              },
+              {
+                "q": "Which meaning best fits عارضی?",
+                "options": [
+                  "provisional",
+                  "report",
+                  "figures",
+                  "sample"
+                ],
+                "answer": 0,
+                "why": "عارضی (aarzi) means provisional in this lesson."
+              }
+            ],
+            "flashcards": "auto:vocab",
+            "worksheet": {
+              "title": "Summarise a report carefully",
+              "tasks": [
+                {
+                  "instruction": "Translate the first model into English.",
+                  "items": [
+                    "رپورٹ کے مطابق استعمال بڑھا ہے۔"
+                  ],
+                  "key": [
+                    "According to the report, use has increased."
+                  ]
+                },
+                {
+                  "instruction": "Use the lesson pattern in a new sentence.",
+                  "items": [
+                    "نمونہ محدود ہے، اس لیے رجحان عارضی ہے۔",
+                    "اس سے مزید تحقیق کا امکان ظاہر ہوتا ہے۔"
+                  ],
+                  "key": [
+                    "The sample is limited, so the trend is provisional.",
+                    "This suggests the possibility of further research."
+                  ]
+                },
+                {
+                  "instruction": "Integrated offline practice: read the first model, transform or extend it in Nastaliq script, then rehearse it as a dialogue. Self-check meaning, grammar, and register.",
+                  "items": [
+                    "رپورٹ کے مطابق استعمال بڑھا ہے۔",
+                    "رپورٹ کے مطابق استعمال بڑھا ہے۔"
+                  ],
+                  "key": [
+                    "According to the report, use has increased.",
+                    "According to the report, use has increased."
+                  ]
+                }
+              ]
+            },
+            "srs_candidates": [
+              "رپورٹ",
+              "اعداد",
+              "نمونہ",
+              "رجحان"
+            ],
+            "srs_policy": "Only these four high-value terms are preselected; lesson mistakes and productive patterns may enter personalized review after an actual error."
           }
         ]
       },
@@ -722,25 +1004,25 @@
             },
             "dialogue": [
               {
-                "sp": "Speaker A",
+                "sp": "مقرر الف",
                 "t": "دھیان سے سنیے",
                 "r": "Dhyan se suniye",
                 "en": "Listen carefully"
               },
               {
-                "sp": "Speaker B",
+                "sp": "مقرر ب",
                 "t": "چپ چاپ بیٹھیے",
                 "r": "Chup chaap baithiye",
                 "en": "Sit quietly"
               },
               {
-                "sp": "Speaker A",
+                "sp": "مقرر الف",
                 "t": "کھڑے ہو جائیے",
                 "r": "Kharhe ho jaiye",
                 "en": "Stand up"
               },
               {
-                "sp": "Speaker B",
+                "sp": "مقرر ب",
                 "t": "مجھ سے پوچھیے",
                 "r": "Mujh se puchhiye",
                 "en": "Ask me"
@@ -1022,25 +1304,25 @@
             },
             "dialogue": [
               {
-                "sp": "Speaker A",
+                "sp": "مقرر الف",
                 "t": "کیسی اچھی ہوا!",
                 "r": "Kaisi achhi hava!",
                 "en": "What a pleasant wind!"
               },
               {
-                "sp": "Speaker B",
+                "sp": "مقرر ب",
                 "t": "چھاتا لے لیجیے",
                 "r": "Chhata le lijiye",
                 "en": "Take an umbrella"
               },
               {
-                "sp": "Speaker A",
+                "sp": "مقرر الف",
                 "t": "سورج نکلا",
                 "r": "Suraj nikla",
                 "en": "The sun rose"
               },
               {
-                "sp": "Speaker B",
+                "sp": "مقرر ب",
                 "t": "رات ہو گئی",
                 "r": "Raat ho gai",
                 "en": "Night fell"
@@ -1107,7 +1389,7 @@
               },
               {
                 "type": "dialogue_completion",
-                "q": "Practice 12 [dialogue completion] — Weather causes and conditions: Complete Speaker B’s turn appropriately: Night fell",
+                "q": "Practice 12 [dialogue completion] — Weather causes and conditions: Complete مقرر ب’s turn appropriately: Night fell",
                 "answer": "رات ہو گئی",
                 "skill_target": "Urdu dialogue completion: Urdu agreement, postpositions, honorificity, and formal versus everyday register"
               },
@@ -1245,6 +1527,288 @@
               "شبنم"
             ],
             "srs_policy": "Only selected high-value lesson forms are preselected; actual mistakes and productive patterns may enter personalized review after learner evidence."
+          },
+          {
+            "id": "ur-b1-l8",
+            "title": "Explain a workplace change",
+            "learn": "Describe what changed, give a reason and report the next action.",
+            "vocab": [
+              {
+                "t": "تبدیلی",
+                "r": "tabdeeli",
+                "en": "change",
+                "pos": "phrase"
+              },
+              {
+                "t": "وجہ",
+                "r": "wajah",
+                "en": "reason",
+                "pos": "phrase"
+              },
+              {
+                "t": "ذمہ داری",
+                "r": "zimmedari",
+                "en": "responsibility",
+                "pos": "phrase"
+              },
+              {
+                "t": "تربیت",
+                "r": "tarbiyat",
+                "en": "training",
+                "pos": "phrase"
+              },
+              {
+                "t": "اقدام",
+                "r": "iqdaam",
+                "en": "step",
+                "pos": "phrase"
+              }
+            ],
+            "grammar": {
+              "title": "relative clause with جو",
+              "pattern": "وہ تبدیلی جو ...؛ اس لیے ...",
+              "explain": "Use جو to connect a noun to a clause that explains it. Keep the reason separate from the action that follows.",
+              "examples": [
+                {
+                  "t": "جو تبدیلی ہوئی، اس کی وجہ نئی ذمہ داری تھی۔",
+                  "r": "jo tabdeeli hui, us ki wajah nai zimmedari thi.",
+                  "en": "The change that occurred was due to a new responsibility."
+                },
+                {
+                  "t": "ٹیم کو مختصر تربیت دی جائے گی۔",
+                  "r": "team ko mukhtasar tarbiyat di jaegi.",
+                  "en": "The team will receive brief training."
+                },
+                {
+                  "t": "اس کے بعد ہم نتیجے کا جائزہ لیں گے۔",
+                  "r": "is ke baad hum natije ka jaiza lenge.",
+                  "en": "After that we will review the result."
+                }
+              ],
+              "mistakes": [
+                {
+                  "wrong": "جو تبدیلی ہوا، اس کی وجہ نئی ذمہ داری تھی۔",
+                  "right": "جو تبدیلی ہوئی، اس کی وجہ نئی ذمہ داری تھی۔",
+                  "why": "تبدیلی is feminine, so ہوئی agrees with it."
+                }
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "استاد",
+                "t": "جو تبدیلی ہوئی، اس کی وجہ نئی ذمہ داری تھی۔",
+                "r": "jo tabdeeli hui, us ki wajah nai zimmedari thi.",
+                "en": "The change that occurred was due to a new responsibility."
+              },
+              {
+                "sp": "طالب علم",
+                "t": "ٹیم کو مختصر تربیت دی جائے گی۔",
+                "r": "team ko mukhtasar tarbiyat di jaegi.",
+                "en": "The team will receive brief training."
+              },
+              {
+                "sp": "استاد",
+                "t": "اس کے بعد ہم نتیجے کا جائزہ لیں گے۔",
+                "r": "is ke baad hum natije ka jaiza lenge.",
+                "en": "After that we will review the result."
+              },
+              {
+                "sp": "طالب علم",
+                "t": "ٹیم کو مختصر تربیت دی جائے گی۔",
+                "r": "team ko mukhtasar tarbiyat di jaegi.",
+                "en": "The team will receive brief training."
+              }
+            ],
+            "practice": [
+              {
+                "type": "multiple_choice",
+                "q": "Practice 1: [multiple choice] Explain a workplace change — Choose the meaning of تبدیلی (tabdeeli) in this lesson.",
+                "answer": "change",
+                "skill_target": "Urdu: right-to-left Nastaliq reading, احترام کے صیغے آپ/تم, postpositions, gender and honorific agreement, clause linking, and source-aware formal prose",
+                "options": [
+                  "change",
+                  "reason",
+                  "responsibility",
+                  "training"
+                ]
+              },
+              {
+                "type": "fill_in_the_blank",
+                "q": "Practice 2: [fill in the blank] Explain a workplace change — Type the Urdu expression meaning “reason”.",
+                "answer": "وجہ",
+                "skill_target": "Urdu: right-to-left Nastaliq reading, احترام کے صیغے آپ/تم, postpositions, gender and honorific agreement, clause linking, and source-aware formal prose"
+              },
+              {
+                "type": "translation",
+                "q": "Practice 3: [translation] Explain a workplace change — Interpret the Nastaliq script in context: جو تبدیلی ہوئی، اس کی وجہ نئی ذمہ داری تھی۔ (jo tabdeeli hui, us ki wajah nai zimmedari thi.).",
+                "answer": "The change that occurred was due to a new responsibility.",
+                "skill_target": "Urdu: right-to-left Nastaliq reading, احترام کے صیغے آپ/تم, postpositions, gender and honorific agreement, clause linking, and source-aware formal prose"
+              },
+              {
+                "type": "reverse_translation",
+                "q": "Practice 4: [reverse translation] Explain a workplace change — Write in Nastaliq script: The team will receive brief training..",
+                "answer": "ٹیم کو مختصر تربیت دی جائے گی۔",
+                "skill_target": "Urdu: right-to-left Nastaliq reading, احترام کے صیغے آپ/تم, postpositions, gender and honorific agreement, clause linking, and source-aware formal prose"
+              },
+              {
+                "type": "matching",
+                "q": "Practice 5: [matching] Explain a workplace change — Match ذمہ داری to its lesson meaning.",
+                "answer": "responsibility",
+                "skill_target": "Urdu: right-to-left Nastaliq reading, احترام کے صیغے آپ/تم, postpositions, gender and honorific agreement, clause linking, and source-aware formal prose",
+                "options": [
+                  "responsibility",
+                  "change",
+                  "reason"
+                ]
+              },
+              {
+                "type": "reorder",
+                "q": "Practice 6: [reorder] Explain a workplace change — Reconstruct the lesson model in coherent Urdu: After that we will review the result..",
+                "answer": "اس کے بعد ہم نتیجے کا جائزہ لیں گے۔",
+                "skill_target": "Urdu: right-to-left Nastaliq reading, احترام کے صیغے آپ/تم, postpositions, gender and honorific agreement, clause linking, and source-aware formal prose"
+              },
+              {
+                "type": "sentence_building",
+                "q": "Practice 7: [sentence building] Explain a workplace change — Build the sentence with the lesson pattern (وہ تبدیلی جو ...؛ اس لیے ...): The change that occurred was due to a new responsibility..",
+                "answer": "جو تبدیلی ہوئی، اس کی وجہ نئی ذمہ داری تھی۔",
+                "skill_target": "Urdu: right-to-left Nastaliq reading, احترام کے صیغے آپ/تم, postpositions, gender and honorific agreement, clause linking, and source-aware formal prose"
+              },
+              {
+                "type": "word_selection",
+                "q": "Practice 8: [word selection] Explain a workplace change — Select the Urdu form for “training”.",
+                "answer": "تربیت",
+                "skill_target": "Urdu: right-to-left Nastaliq reading, احترام کے صیغے آپ/تم, postpositions, gender and honorific agreement, clause linking, and source-aware formal prose",
+                "options": [
+                  "تربیت",
+                  "اقدام"
+                ]
+              },
+              {
+                "type": "error_correction",
+                "q": "Practice 9: [error correction] Explain a workplace change — Correct the model the lesson warns about: جو تبدیلی ہوا، اس کی وجہ نئی ذمہ داری تھی۔",
+                "answer": "جو تبدیلی ہوئی، اس کی وجہ نئی ذمہ داری تھی۔",
+                "skill_target": "Urdu: right-to-left Nastaliq reading, احترام کے صیغے آپ/تم, postpositions, gender and honorific agreement, clause linking, and source-aware formal prose"
+              },
+              {
+                "type": "dialogue_completion",
+                "q": "Practice 10: [dialogue completion] Explain a workplace change — Complete the exchange with the studied response to: The change that occurred was due to a new responsibility.",
+                "answer": "ٹیم کو مختصر تربیت دی جائے گی۔",
+                "skill_target": "Urdu: right-to-left Nastaliq reading, احترام کے صیغے آپ/تم, postpositions, gender and honorific agreement, clause linking, and source-aware formal prose"
+              },
+              {
+                "type": "reading_comprehension",
+                "q": "Practice 11: [reading comprehension] Explain a workplace change — Read “اس کے بعد ہم نتیجے کا جائزہ لیں گے۔” (is ke baad hum natije ka jaiza lenge.). What does it mean?",
+                "answer": "After that we will review the result.",
+                "skill_target": "Urdu: right-to-left Nastaliq reading, احترام کے صیغے آپ/تم, postpositions, gender and honorific agreement, clause linking, and source-aware formal prose"
+              },
+              {
+                "type": "paragraph_comprehension",
+                "q": "Practice 12: [paragraph comprehension] Explain a workplace change — Read the lesson dialogue as a whole and give its key move: The team will receive brief training.",
+                "answer": "ٹیم کو مختصر تربیت دی جائے گی۔",
+                "skill_target": "Urdu: right-to-left Nastaliq reading, احترام کے صیغے آپ/تم, postpositions, gender and honorific agreement, clause linking, and source-aware formal prose"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "Which meaning best fits تبدیلی?",
+                "options": [
+                  "change",
+                  "reason",
+                  "responsibility",
+                  "training"
+                ],
+                "answer": 0,
+                "why": "تبدیلی (tabdeeli) means change in this lesson."
+              },
+              {
+                "q": "Which meaning best fits وجہ?",
+                "options": [
+                  "reason",
+                  "change",
+                  "responsibility",
+                  "training"
+                ],
+                "answer": 0,
+                "why": "وجہ (wajah) means reason in this lesson."
+              },
+              {
+                "q": "Which meaning best fits ذمہ داری?",
+                "options": [
+                  "responsibility",
+                  "change",
+                  "reason",
+                  "training"
+                ],
+                "answer": 0,
+                "why": "ذمہ داری (zimmedari) means responsibility in this lesson."
+              },
+              {
+                "q": "Which meaning best fits تربیت?",
+                "options": [
+                  "training",
+                  "change",
+                  "reason",
+                  "responsibility"
+                ],
+                "answer": 0,
+                "why": "تربیت (tarbiyat) means training in this lesson."
+              },
+              {
+                "q": "Which meaning best fits اقدام?",
+                "options": [
+                  "step",
+                  "change",
+                  "reason",
+                  "responsibility"
+                ],
+                "answer": 0,
+                "why": "اقدام (iqdaam) means step in this lesson."
+              }
+            ],
+            "flashcards": "auto:vocab",
+            "worksheet": {
+              "title": "Report a workplace change",
+              "tasks": [
+                {
+                  "instruction": "Translate the first model into English.",
+                  "items": [
+                    "جو تبدیلی ہوئی، اس کی وجہ نئی ذمہ داری تھی۔"
+                  ],
+                  "key": [
+                    "The change that occurred was due to a new responsibility."
+                  ]
+                },
+                {
+                  "instruction": "Use the lesson pattern in a new sentence.",
+                  "items": [
+                    "ٹیم کو مختصر تربیت دی جائے گی۔",
+                    "اس کے بعد ہم نتیجے کا جائزہ لیں گے۔"
+                  ],
+                  "key": [
+                    "The team will receive brief training.",
+                    "After that we will review the result."
+                  ]
+                },
+                {
+                  "instruction": "Integrated offline practice: read the first model, transform or extend it in Nastaliq script, then rehearse it as a dialogue. Self-check meaning, grammar, and register.",
+                  "items": [
+                    "جو تبدیلی ہوئی، اس کی وجہ نئی ذمہ داری تھی۔",
+                    "جو تبدیلی ہوئی، اس کی وجہ نئی ذمہ داری تھی۔"
+                  ],
+                  "key": [
+                    "The change that occurred was due to a new responsibility.",
+                    "The change that occurred was due to a new responsibility."
+                  ]
+                }
+              ]
+            },
+            "srs_candidates": [
+              "تبدیلی",
+              "وجہ",
+              "ذمہ داری",
+              "تربیت"
+            ],
+            "srs_policy": "Only these four high-value terms are preselected; lesson mistakes and productive patterns may enter personalized review after an actual error."
           }
         ]
       },
@@ -1333,25 +1897,25 @@
             },
             "dialogue": [
               {
-                "sp": "Speaker A",
+                "sp": "مقرر الف",
                 "t": "بیٹھیے",
                 "r": "Baithiye",
                 "en": "Sit down"
               },
               {
-                "sp": "Speaker B",
+                "sp": "مقرر ب",
                 "t": "تھوڑا اور کھائیے",
                 "r": "Thodha aur khaiye",
                 "en": "Eat a little more"
               },
               {
-                "sp": "Speaker A",
+                "sp": "مقرر الف",
                 "t": "بہت مزیدار ہے!",
                 "r": "Bahut mazedar hai!",
                 "en": "It is very tasty!"
               },
               {
-                "sp": "Speaker B",
+                "sp": "مقرر ب",
                 "t": "بس، پیٹ بھر گیا",
                 "r": "Bas, pet bhar gaya",
                 "en": "Enough, I am full"
@@ -1641,25 +2205,25 @@
             },
             "dialogue": [
               {
-                "sp": "Speaker A",
+                "sp": "مقرر الف",
                 "t": "مٹھائی کھائیے",
                 "r": "Mithai khaiye",
                 "en": "Eat sweets"
               },
               {
-                "sp": "Speaker B",
+                "sp": "مقرر ب",
                 "t": "نئے کپڑے پہنیے",
                 "r": "Nae kaprhe pehniye",
                 "en": "Wear new clothes"
               },
               {
-                "sp": "Speaker A",
+                "sp": "مقرر الف",
                 "t": "دیا جلائیے",
                 "r": "Diya jalaiye",
                 "en": "Light the lamp"
               },
               {
-                "sp": "Speaker B",
+                "sp": "مقرر ب",
                 "t": "دعا کیجیے",
                 "r": "Dua kijiye",
                 "en": "Offer prayers"
@@ -1859,6 +2423,288 @@
               "مہندی"
             ],
             "srs_policy": "Only selected high-value lesson forms are preselected; actual mistakes and productive patterns may enter personalized review after learner evidence."
+          },
+          {
+            "id": "ur-b1-l9",
+            "title": "Discuss a weather contingency",
+            "learn": "Explain a plan for bad weather without claiming the forecast is certain.",
+            "vocab": [
+              {
+                "t": "پیش گوئی",
+                "r": "peshgoi",
+                "en": "forecast",
+                "pos": "phrase"
+              },
+              {
+                "t": "بارش",
+                "r": "barish",
+                "en": "rain",
+                "pos": "phrase"
+              },
+              {
+                "t": "متبادل",
+                "r": "mutabadil",
+                "en": "alternative",
+                "pos": "phrase"
+              },
+              {
+                "t": "منسوخ",
+                "r": "mansooh",
+                "en": "cancelled",
+                "pos": "phrase"
+              },
+              {
+                "t": "ممکن",
+                "r": "mumkin",
+                "en": "possible",
+                "pos": "phrase"
+              }
+            ],
+            "grammar": {
+              "title": "conditional plan",
+              "pattern": "اگر ... تو ہم ...",
+              "explain": "Use اگر ... تو to link a condition to a planned response. A forecast is not a guarantee, so keep possibility language.",
+              "examples": [
+                {
+                  "t": "اگر بارش ہوئی تو ہم اندر بیٹھیں گے۔",
+                  "r": "agar barish hui to hum andar baithenge.",
+                  "en": "If it rains, we will sit indoors."
+                },
+                {
+                  "t": "پیش گوئی میں تبدیلی ممکن ہے۔",
+                  "r": "peshgoi mein tabdeeli mumkin hai.",
+                  "en": "The forecast may change."
+                },
+                {
+                  "t": "متبادل جگہ پہلے سے طے کر لیجیے۔",
+                  "r": "mutabadil jagah pehle se tai kar lijiye.",
+                  "en": "Please decide on an alternative place in advance."
+                }
+              ],
+              "mistakes": [
+                {
+                  "wrong": "اگر بارش ہوگی تو ہم اندر بیٹھے۔",
+                  "right": "اگر بارش ہوئی تو ہم اندر بیٹھیں گے۔",
+                  "why": "The condition uses ہوئی and the planned result uses بیٹھیں گے."
+                }
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "استاد",
+                "t": "اگر بارش ہوئی تو ہم اندر بیٹھیں گے۔",
+                "r": "agar barish hui to hum andar baithenge.",
+                "en": "If it rains, we will sit indoors."
+              },
+              {
+                "sp": "طالب علم",
+                "t": "پیش گوئی میں تبدیلی ممکن ہے۔",
+                "r": "peshgoi mein tabdeeli mumkin hai.",
+                "en": "The forecast may change."
+              },
+              {
+                "sp": "استاد",
+                "t": "متبادل جگہ پہلے سے طے کر لیجیے۔",
+                "r": "mutabadil jagah pehle se tai kar lijiye.",
+                "en": "Please decide on an alternative place in advance."
+              },
+              {
+                "sp": "طالب علم",
+                "t": "پیش گوئی میں تبدیلی ممکن ہے۔",
+                "r": "peshgoi mein tabdeeli mumkin hai.",
+                "en": "The forecast may change."
+              }
+            ],
+            "practice": [
+              {
+                "type": "multiple_choice",
+                "q": "Practice 1: [multiple choice] Discuss a weather contingency — Choose the meaning of پیش گوئی (peshgoi) in this lesson.",
+                "answer": "forecast",
+                "skill_target": "Urdu: right-to-left Nastaliq reading, احترام کے صیغے آپ/تم, postpositions, gender and honorific agreement, clause linking, and source-aware formal prose",
+                "options": [
+                  "forecast",
+                  "rain",
+                  "alternative",
+                  "cancelled"
+                ]
+              },
+              {
+                "type": "fill_in_the_blank",
+                "q": "Practice 2: [fill in the blank] Discuss a weather contingency — Type the Urdu expression meaning “rain”.",
+                "answer": "بارش",
+                "skill_target": "Urdu: right-to-left Nastaliq reading, احترام کے صیغے آپ/تم, postpositions, gender and honorific agreement, clause linking, and source-aware formal prose"
+              },
+              {
+                "type": "translation",
+                "q": "Practice 3: [translation] Discuss a weather contingency — Interpret the Nastaliq script in context: اگر بارش ہوئی تو ہم اندر بیٹھیں گے۔ (agar barish hui to hum andar baithenge.).",
+                "answer": "If it rains, we will sit indoors.",
+                "skill_target": "Urdu: right-to-left Nastaliq reading, احترام کے صیغے آپ/تم, postpositions, gender and honorific agreement, clause linking, and source-aware formal prose"
+              },
+              {
+                "type": "reverse_translation",
+                "q": "Practice 4: [reverse translation] Discuss a weather contingency — Write in Nastaliq script: The forecast may change..",
+                "answer": "پیش گوئی میں تبدیلی ممکن ہے۔",
+                "skill_target": "Urdu: right-to-left Nastaliq reading, احترام کے صیغے آپ/تم, postpositions, gender and honorific agreement, clause linking, and source-aware formal prose"
+              },
+              {
+                "type": "matching",
+                "q": "Practice 5: [matching] Discuss a weather contingency — Match متبادل to its lesson meaning.",
+                "answer": "alternative",
+                "skill_target": "Urdu: right-to-left Nastaliq reading, احترام کے صیغے آپ/تم, postpositions, gender and honorific agreement, clause linking, and source-aware formal prose",
+                "options": [
+                  "alternative",
+                  "forecast",
+                  "rain"
+                ]
+              },
+              {
+                "type": "reorder",
+                "q": "Practice 6: [reorder] Discuss a weather contingency — Reconstruct the lesson model in coherent Urdu: Please decide on an alternative place in advance..",
+                "answer": "متبادل جگہ پہلے سے طے کر لیجیے۔",
+                "skill_target": "Urdu: right-to-left Nastaliq reading, احترام کے صیغے آپ/تم, postpositions, gender and honorific agreement, clause linking, and source-aware formal prose"
+              },
+              {
+                "type": "sentence_building",
+                "q": "Practice 7: [sentence building] Discuss a weather contingency — Build the sentence with the lesson pattern (اگر ... تو ہم ...): If it rains, we will sit indoors..",
+                "answer": "اگر بارش ہوئی تو ہم اندر بیٹھیں گے۔",
+                "skill_target": "Urdu: right-to-left Nastaliq reading, احترام کے صیغے آپ/تم, postpositions, gender and honorific agreement, clause linking, and source-aware formal prose"
+              },
+              {
+                "type": "word_selection",
+                "q": "Practice 8: [word selection] Discuss a weather contingency — Select the Urdu form for “cancelled”.",
+                "answer": "منسوخ",
+                "skill_target": "Urdu: right-to-left Nastaliq reading, احترام کے صیغے آپ/تم, postpositions, gender and honorific agreement, clause linking, and source-aware formal prose",
+                "options": [
+                  "منسوخ",
+                  "ممکن"
+                ]
+              },
+              {
+                "type": "error_correction",
+                "q": "Practice 9: [error correction] Discuss a weather contingency — Correct the model the lesson warns about: اگر بارش ہوگی تو ہم اندر بیٹھے۔",
+                "answer": "اگر بارش ہوئی تو ہم اندر بیٹھیں گے۔",
+                "skill_target": "Urdu: right-to-left Nastaliq reading, احترام کے صیغے آپ/تم, postpositions, gender and honorific agreement, clause linking, and source-aware formal prose"
+              },
+              {
+                "type": "dialogue_completion",
+                "q": "Practice 10: [dialogue completion] Discuss a weather contingency — Complete the exchange with the studied response to: If it rains, we will sit indoors.",
+                "answer": "پیش گوئی میں تبدیلی ممکن ہے۔",
+                "skill_target": "Urdu: right-to-left Nastaliq reading, احترام کے صیغے آپ/تم, postpositions, gender and honorific agreement, clause linking, and source-aware formal prose"
+              },
+              {
+                "type": "reading_comprehension",
+                "q": "Practice 11: [reading comprehension] Discuss a weather contingency — Read “متبادل جگہ پہلے سے طے کر لیجیے۔” (mutabadil jagah pehle se tai kar lijiye.). What does it mean?",
+                "answer": "Please decide on an alternative place in advance.",
+                "skill_target": "Urdu: right-to-left Nastaliq reading, احترام کے صیغے آپ/تم, postpositions, gender and honorific agreement, clause linking, and source-aware formal prose"
+              },
+              {
+                "type": "paragraph_comprehension",
+                "q": "Practice 12: [paragraph comprehension] Discuss a weather contingency — Read the lesson dialogue as a whole and give its key move: The forecast may change.",
+                "answer": "پیش گوئی میں تبدیلی ممکن ہے۔",
+                "skill_target": "Urdu: right-to-left Nastaliq reading, احترام کے صیغے آپ/تم, postpositions, gender and honorific agreement, clause linking, and source-aware formal prose"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "Which meaning best fits پیش گوئی?",
+                "options": [
+                  "forecast",
+                  "rain",
+                  "alternative",
+                  "cancelled"
+                ],
+                "answer": 0,
+                "why": "پیش گوئی (peshgoi) means forecast in this lesson."
+              },
+              {
+                "q": "Which meaning best fits بارش?",
+                "options": [
+                  "rain",
+                  "forecast",
+                  "alternative",
+                  "cancelled"
+                ],
+                "answer": 0,
+                "why": "بارش (barish) means rain in this lesson."
+              },
+              {
+                "q": "Which meaning best fits متبادل?",
+                "options": [
+                  "alternative",
+                  "forecast",
+                  "rain",
+                  "cancelled"
+                ],
+                "answer": 0,
+                "why": "متبادل (mutabadil) means alternative in this lesson."
+              },
+              {
+                "q": "Which meaning best fits منسوخ?",
+                "options": [
+                  "cancelled",
+                  "forecast",
+                  "rain",
+                  "alternative"
+                ],
+                "answer": 0,
+                "why": "منسوخ (mansooh) means cancelled in this lesson."
+              },
+              {
+                "q": "Which meaning best fits ممکن?",
+                "options": [
+                  "possible",
+                  "forecast",
+                  "rain",
+                  "alternative"
+                ],
+                "answer": 0,
+                "why": "ممکن (mumkin) means possible in this lesson."
+              }
+            ],
+            "flashcards": "auto:vocab",
+            "worksheet": {
+              "title": "Make a weather plan",
+              "tasks": [
+                {
+                  "instruction": "Translate the first model into English.",
+                  "items": [
+                    "اگر بارش ہوئی تو ہم اندر بیٹھیں گے۔"
+                  ],
+                  "key": [
+                    "If it rains, we will sit indoors."
+                  ]
+                },
+                {
+                  "instruction": "Use the lesson pattern in a new sentence.",
+                  "items": [
+                    "پیش گوئی میں تبدیلی ممکن ہے۔",
+                    "متبادل جگہ پہلے سے طے کر لیجیے۔"
+                  ],
+                  "key": [
+                    "The forecast may change.",
+                    "Please decide on an alternative place in advance."
+                  ]
+                },
+                {
+                  "instruction": "Integrated offline practice: read the first model, transform or extend it in Nastaliq script, then rehearse it as a dialogue. Self-check meaning, grammar, and register.",
+                  "items": [
+                    "اگر بارش ہوئی تو ہم اندر بیٹھیں گے۔",
+                    "اگر بارش ہوئی تو ہم اندر بیٹھیں گے۔"
+                  ],
+                  "key": [
+                    "If it rains, we will sit indoors.",
+                    "If it rains, we will sit indoors."
+                  ]
+                }
+              ]
+            },
+            "srs_candidates": [
+              "پیش گوئی",
+              "بارش",
+              "متبادل",
+              "منسوخ"
+            ],
+            "srs_policy": "Only these four high-value terms are preselected; lesson mistakes and productive patterns may enter personalized review after an actual error."
           }
         ]
       }
@@ -1917,6 +2763,95 @@
           "answer": "بارش ہو رہی ہے (Barish ho rahi hai)"
         }
       ]
+    },
+    "extra": {
+      "culture": {
+        "text": "Urdu's everyday vocabulary includes words with different histories and registers. Persian- and Arabic-derived words are common in formal writing, while speakers may choose shorter everyday alternatives in conversation. Neither register is a measure of a speaker's intelligence; select words for audience and purpose, and note regional variation.",
+        "source_url": "https://www.britannica.com/topic/Urdu-language"
+      },
+      "reading": {
+        "text": "کمیٹی نے پہلے مقامی رہائشیوں کی بات سنی، پھر پانی کی فراہمی کے اعداد دیکھے۔ ایک رکن نے بتایا کہ دو محلوں میں دباؤ کم ہے۔ دوسرے رکن نے تجویز دی کہ اگلی میٹنگ سے پہلے مزید پیمائش کی جائے۔",
+        "gloss": "The committee first listened to local residents and then reviewed water-supply figures. One member reported low pressure in two neighbourhoods. Another suggested taking more measurements before the next meeting.",
+        "original": true
+      },
+      "listening": {
+        "script": "رکن اول: کیا اعداد دونوں محلوں کی صورتِ حال دکھاتے ہیں؟<br>رکن دوم: ابھی نہیں؛ ایک جگہ کا نمونہ کم ہے۔<br>رکن اول: پھر نتیجہ عارضی لکھتے ہیں۔<br>رکن دوم: جی، اور اگلی میٹنگ میں نئی پیمائش دیکھیں گے۔",
+        "gloss": "Member one: Do the figures show the situation in both neighbourhoods? Member two: Not yet; the sample from one area is small. Member one: Then we will label the conclusion provisional. Member two: Yes, and review new measurements at the next meeting.",
+        "voice_tag": "ur-PK"
+      },
+      "idioms": [
+        {
+          "t": "کان دھرنا",
+          "literal": "to lend an ear",
+          "meaning": "to listen attentively"
+        },
+        {
+          "t": "دل چھوٹا کرنا",
+          "literal": "to make the heart small",
+          "meaning": "to become discouraged"
+        },
+        {
+          "t": "بات کا بتنگڑ بنانا",
+          "literal": "to make a molehill a mountain",
+          "meaning": "to exaggerate an issue"
+        },
+        {
+          "t": "رائے قائم کرنا",
+          "literal": "to establish an opinion",
+          "meaning": "to form a view"
+        },
+        {
+          "t": "ذمہ داری اٹھانا",
+          "literal": "to lift responsibility",
+          "meaning": "to take responsibility"
+        },
+        {
+          "t": "پیش نظر رکھنا",
+          "literal": "to keep before the eyes",
+          "meaning": "to keep in mind"
+        },
+        {
+          "t": "نتیجہ نکالنا",
+          "literal": "to draw a result",
+          "meaning": "to reach a conclusion"
+        },
+        {
+          "t": "رابطہ رکھنا",
+          "literal": "to keep contact",
+          "meaning": "to stay in touch"
+        },
+        {
+          "t": "بات سمجھ میں آنا",
+          "literal": "the matter entering understanding",
+          "meaning": "to understand"
+        },
+        {
+          "t": "قدم اٹھانا",
+          "literal": "to lift a step",
+          "meaning": "to take action"
+        }
+      ],
+      "mistakes": [
+        {
+          "wrong": "کیونکہ بارش ہوئی، اس لیے ہم دیر سے پہنچے۔",
+          "right": "بارش ہوئی، اس لیے ہم دیر سے پہنچے۔",
+          "why": "Avoid stacking causal conjunctions when one clear link is enough."
+        },
+        {
+          "wrong": "اس نے کہا کہ وہ آتا ہے کل۔",
+          "right": "اس نے کہا کہ وہ کل آئے گا/گی۔",
+          "why": "Place the time phrase naturally and keep reported time consistent."
+        },
+        {
+          "wrong": "ہم نے مسئلہ حل کیا گیا۔",
+          "right": "ہم نے مسئلہ حل کیا۔",
+          "why": "Do not combine an active subject marker with a passive construction."
+        }
+      ],
+      "task": {
+        "title": "Urdu B1 reflection and production task",
+        "instructions": "Write a short response using two expressions from this level. State the audience, keep the address form consistent, and mark which claim is observed, reported or inferred. Read it aloud once and revise any phrase that overstates the evidence."
+      }
     }
   }
 }
