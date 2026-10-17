@@ -59,7 +59,15 @@ const TOUCHED = [
   "llms.txt", "manifest.webmanifest", "404.html",
   "index.html",
   "es/index.html", "fr/index.html", "de/index.html", "pt/index.html",
-  "ja/index.html", "ar/index.html"
+  "ja/index.html", "ar/index.html",
+  /* build-market-pages also switches directory metadata and roster ItemLists
+     between the live and empty fixture states. Snapshot every localized page
+     it rewrites so this regression leaves the worktree exactly as it found it. */
+  "es/find-tutors.html", "fr/find-tutors.html", "de/find-tutors.html",
+  "pt/find-tutors.html", "ja/find-tutors.html", "ar/find-tutors.html",
+  "es/join.html", "fr/join.html", "de/join.html",
+  "pt/join.html", "ja/join.html", "ar/join.html",
+  ...siteData.loadSite().tutors.map((t) => "tutor/" + t.id + "/index.html")
 ];
 const snapshot = new Map();
 for (const f of TOUCHED) {
@@ -111,6 +119,16 @@ function phase(activeYes) {
 }
 
 function head(html) { return html.slice(0, html.indexOf("</head>")); }
+function metaValue(html, name) {
+  const tag = (html.match(/<meta\b[^>]*>/gi) || []).find((candidate) =>
+    new RegExp("\\bname=[\"']" + name + "[\"']", "i").test(candidate));
+  const value = tag && /\bcontent=["']([^"']*)["']/i.exec(tag);
+  return value ? value[1] : "";
+}
+function titleValue(html) {
+  const match = /<title\b[^>]*>([\s\S]*?)<\/title>/i.exec(html);
+  return match ? match[1].trim() : "";
+}
 
 try {
   /* =====================================================
@@ -150,6 +168,15 @@ try {
   check("404.html links the profile again", f4041.includes("tutor/" + FLIP_ID + "/"));
 
   const ft1 = readFileSync(join(ROOT, "find-tutors.html"), "utf8");
+  check("find-tutors active metadata describes the public roster",
+    /Find a Hindi tutor/.test(titleValue(ft1)) &&
+    /Browse public Hindi tutor profiles/.test(metaValue(ft1, "description")) &&
+    !/None are currently listed/.test(metaValue(ft1, "description")));
+  const esFt1 = readFileSync(join(ROOT, "es/find-tutors.html"), "utf8");
+  check("Spanish directory active metadata is localized and roster-aware",
+    /Encuentra un tutor/.test(titleValue(esFt1)) &&
+    /Explora perfiles públicos/.test(metaValue(esFt1, "description")) &&
+    !/Ahora no hay perfiles/.test(metaValue(esFt1, "description")));
   const list1 = JSON.parse(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/.exec(ft1)[1]);
   const itemList1 = (list1["@graph"] || []).find((n) => n["@type"] === "ItemList") || list1;
   check("find-tutors ItemList has 1 item again",
@@ -202,6 +229,14 @@ try {
   check("404.html: free course door", f4042.includes('href="learn/hindi/"'));
 
   const ft2 = readFileSync(join(ROOT, "find-tutors.html"), "utf8");
+  check("find-tutors empty metadata says no public profiles, not false availability",
+    /Hindi tutor directory/.test(titleValue(ft2)) &&
+    /None are currently listed for booking/.test(metaValue(ft2, "description")) &&
+    !/price filter|rating filter|verified tutor/i.test(metaValue(ft2, "description")));
+  const esFt2 = readFileSync(join(ROOT, "es/find-tutors.html"), "utf8");
+  check("Spanish directory empty metadata is localized and explicit",
+    /Directorio de tutores/.test(titleValue(esFt2)) &&
+    /Ahora no hay perfiles para reservar/.test(metaValue(esFt2, "description")));
   const list2 = JSON.parse(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/.exec(ft2)[1]);
   const itemList2 = (list2["@graph"] || []).find((n) => n["@type"] === "ItemList") || list2;
   check("find-tutors ItemList is empty (numberOfItems 0)",

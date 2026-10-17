@@ -47,9 +47,12 @@ const globRe = (pattern) => {
 const url = (rel) => "/" + rel;
 const excluded = (u) => EXCLUDED.some((p) =>
   p.endsWith("/") ? (u === p || u.startsWith(p)) : u === p);
+const isNoindex = (html = "") =>
+  /<meta\b(?=[^>]*\bname=["']robots["'])(?=[^>]*\bcontent=["'][^"']*noindex)/i.test(html);
 const classify = (u, html = "") => {
   for (const pattern of (CLASSES.ADMIN || {}).match || []) { if (globRe(pattern).test(u)) return "ADMIN"; }
-  if (/<meta\b(?=[^>]*\bname=["']robots["'])(?=[^>]*\bcontent=["'][^"']*noindex)/i.test(html)) return "RESEARCH_REQUIRED";
+  if (/\bclass=["'][^"']*\bresearch-notice\b[^"']*["']/i.test(html) ||
+      /\bdata-publication-state=["']research-required["']/i.test(html)) return "RESEARCH_REQUIRED";
   for (const name of ["TRANSACTIONAL", "UTILITY", "INTERACTIVE_LEARNING", "HIGH_CONTENT", "MEDIUM_CONTENT"]) {
     for (const pattern of (CLASSES[name] || {}).match || []) {
       if (pattern === "/" ? (u === "/" || u === "/index.html") : globRe(pattern).test(u)) return name;
@@ -62,8 +65,11 @@ console.log("\n1. the policy is complete\n");
 
 ok("every class the loader list names exists",
   [...ALLOWED].every((c) => c in CLASSES), [...ALLOWED].filter((c) => !(c in CLASSES)).join(", "));
-ok("every route class has patterns; the noindex override is explicit",
-  Object.entries(CLASSES).every(([n,c]) => Array.isArray(c.match) && (c.match.length || n === "RESEARCH_REQUIRED")));
+ok("content classes have routes; research-required is marker-based",
+  Object.entries(CLASSES).every(([n,c]) => Array.isArray(c.match) &&
+    (n === "RESEARCH_REQUIRED" ? c.match.length === 0 : c.match.length > 0)));
+ok("noindex alone does not alter the content class",
+  classify("/toolbox/hindi-text-counter/", '<meta name="robots" content="noindex, follow">') === "INTERACTIVE_LEARNING");
 ok("every class says why it exists",
   Object.values(CLASSES).every((c) => c.why));
 ok("the interactive class may never load the loader",
@@ -86,10 +92,11 @@ const rows = files.map((rel) => {
   const m = html.match(/<html\b[^>]*data-ad-class="([^"]+)"/);
   return {
     rel, u, cls, declared: m && m[1],
+    noindex: isNoindex(html),
     loader: /adsbygoogle\.js/.test(html),
     units: (html.match(/class="[^"]*adsbygoogle[^"]*"/g) || []).length,
     marks: (html.match(/ekguru:adsense:start/g) || []).length,
-    may: ALLOWED.has(cls) && !excluded(u),
+    may: ALLOWED.has(cls) && !excluded(u) && !isNoindex(html),
   };
 });
 
@@ -100,6 +107,9 @@ ok(`every page states its own class (${rows.length} pages)`, wrongClass.length =
 const stray = rows.filter((r) => !r.may && r.loader);
 ok("no page the policy excludes carries the ad loader", stray.length === 0,
   stray.slice(0, 6).map((r) => `${r.rel} (${r.cls})`).join(", "));
+const noindexWithLoader = rows.filter((r) => r.noindex && r.loader);
+ok("noindex stays a separate loader exclusion, not a content class", noindexWithLoader.length === 0,
+  noindexWithLoader.slice(0, 6).map((r) => r.rel).join(", "));
 
 const strayUnits = rows.filter((r) => !r.may && r.units);
 ok("no excluded page carries an ad unit", strayUnits.length === 0,

@@ -23,6 +23,7 @@ import glob
 import json
 import os
 import re
+import subprocess
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 os.chdir(ROOT)
@@ -203,7 +204,11 @@ def qc(h, entry):
 
 def main():
     assert len(DATA) == 38
-    tpl = open("learn-hindi-from-maldives/index.html", encoding="utf-8").read()
+    # Immutable source template: the rendered Maldives page is also one of
+    # the 196 public outputs and receives the zero-tutor availability policy.
+    # Keep the source outside the public HTML tree so a rebuild cannot use an
+    # already-transformed page as its own template.
+    tpl = open("tools/templates/country-funnel-base.tmpl", encoding="utf-8").read()
     names = names_by_slug()
     assert len(names) == 196, len(names)
     ordered = sorted(names)
@@ -268,6 +273,11 @@ def main():
     s = s.replace("</urlset>", urls + "</urlset>")
     open(sp, "w", encoding="utf-8").write(s)
     print("sitemap: +38 urls")
+
+    # The generated pages must reflect the public roster, not the tutor files
+    # which were used when the original Maldives template was written. This
+    # pass preserves robots and canonical status; those are owner-controlled.
+    subprocess.run(["node", "tools/apply-country-tutor-availability.js"], check=True)
 
 
 if __name__ == "__main__":

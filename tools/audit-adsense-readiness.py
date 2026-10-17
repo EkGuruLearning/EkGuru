@@ -60,6 +60,18 @@ COURSE_LEVELS=('A1','A2','B1','B2','C1','C2')
 PRACTICE_STANDARD_PATH=ROOT/'data/quality/global-practice-standard.json'
 PRACTICE_STANDARD=json.loads(PRACTICE_STANDARD_PATH.read_text()) if PRACTICE_STANDARD_PATH.exists() else {'level_policy':{}}
 PRACTICE_MINIMUMS={k:v['minimum_distinct_types'] for k,v in PRACTICE_STANDARD.get('level_policy',{}).items()}
+COURSE_T1_SCHEMA=json.loads((ROOT/'data/schemas/course-t1.schema.json').read_text(encoding='utf-8'))
+COURSE_T1_LEVELS=set(COURSE_T1_SCHEMA['properties']['file_level']['enum'])
+COURSE_T1_LEVEL_SCHEMA=COURSE_T1_SCHEMA['properties']['level']
+COURSE_T1_UNIT_SCHEMA=COURSE_T1_SCHEMA['$defs']['unit']
+COURSE_T1_UNITS=COURSE_T1_LEVEL_SCHEMA['properties']['units']
+COURSE_T1_UNIT_LESSONS=COURSE_T1_UNIT_SCHEMA['properties']['lessons']
+COURSE_T1_TEST_ITEMS=COURSE_T1_LEVEL_SCHEMA['properties']['test']['properties']['items']
+COURSE_T1_LESSON_SCHEMA=COURSE_T1_SCHEMA['$defs']['lesson']
+COURSE_T1_LESSON_PROPERTIES=COURSE_T1_LESSON_SCHEMA['properties']
+COURSE_T1_PRACTICE=COURSE_T1_LESSON_PROPERTIES['practice']
+COURSE_T1_QUIZ=COURSE_T1_LESSON_PROPERTIES['quiz']
+COURSE_T1_DIALOGUE=COURSE_T1_LESSON_PROPERTIES['dialogue']
 PLAYER_SOURCE=(ROOT/'js/course-player.js').read_text(errors='ignore') if (ROOT/'js/course-player.js').exists() else ''
 TTS_CODES=set(re.findall(r'\b([a-z]{2,3}):\s*"[a-z]{2,3}(?:-[A-Z]{2})?"',PLAYER_SOURCE))
 
@@ -218,25 +230,96 @@ def page_audit():
   x['publishability']='REVIEW_REQUIRED' if x['issues'] else 'PASS'
  return pages,dups
 
+def in_schema_range(value, schema):
+ if not isinstance(value, list): return False
+ return len(value) >= schema.get('minItems', 0) and len(value) <= schema.get('maxItems', float('inf'))
+
+def test_count(course):
+ level=course.get('level') if isinstance(course,dict) else None
+ test=level.get('test') if isinstance(level,dict) else None
+ if not isinstance(test,dict) and isinstance(course,dict):
+  test=course.get('test')
+ items=test.get('items') if isinstance(test,dict) else None
+ return len(items) if isinstance(items,list) else 0
+
 def course_audit():
  rows=[]
  for p in sorted((ROOT/'data/courses').glob('phase-*/*.json')):
   try: d=json.loads(p.read_text())
-  except Exception as e: rows.append({'path':str(p.relative_to(ROOT)),'status':'FAIL','issues':['invalid_json',str(e)]}); continue
+  except Exception as e:
+   rows.append({'path':str(p.relative_to(ROOT)),'status':'FAIL','issues':['invalid_json',str(e)]})
+   continue
   if not isinstance(d,dict) or 'level' not in d: continue
-  units=d.get('level',{}).get('units',[]); lessons=[l for u in units for l in u.get('lessons',[])]
+  level_data=d.get('level') if isinstance(d.get('level'),dict) else {}
+  units=level_data.get('units',[])
+  units=units if isinstance(units,list) else []
+  lessons=[l for u in units if isinstance(u,dict) for l in (u.get('lessons') or [])]
   issues=[]
-  if len(units)!=3 or len(lessons)!=6 or any(len(u.get('lessons',[]))!=2 for u in units): issues.append('not_3_units_x_2_lessons')
-  for l in lessons:
-   for key in ('learn','vocab','grammar','dialogue','practice','quiz','worksheet'):
-    if not l.get(key): issues.append(f"{l.get('id','?')}:missing_{key}")
-   if len(l.get('practice',[]))<5: issues.append(f"{l.get('id','?')}:thin_practice")
-  practices=[x for l in lessons for x in l.get('practice',[]) if isinstance(x,dict)]
-  types={x.get('type') for x in practices if x.get('type')}
   lv=d.get('file_level','')
+  t1=lv in COURSE_T1_LEVELS
+  tests=test_count(d)
+  structure_pass=True
+  lesson_schema_pass=True
+  practice_schema_pass=True
+  assessment_pass=True
+
+  if not units:
+   issues.append('no_units')
+   structure_pass=False
+  elif t1 and not in_schema_range(units,COURSE_T1_UNITS):
+   issues.append('unit_count_outside_t1_schema')
+   structure_pass=False
+
+  if not lessons:
+   issues.append('no_lessons')
+   structure_pass=False
+
+  if t1:
+   for index, unit in enumerate(units, 1):
+    unit_lessons=unit.get('lessons') if isinstance(unit,dict) else None
+    if not in_schema_range(unit_lessons,COURSE_T1_UNIT_LESSONS):
+     unit_id=unit.get('id',str(index)) if isinstance(unit,dict) else str(index)
+     issues.append(f'{unit_id}:lesson_count_outside_t1_schema')
+     structure_pass=False
+   if not (COURSE_T1_TEST_ITEMS['minItems'] <= tests <= COURSE_T1_TEST_ITEMS['maxItems']):
+    issues.append('level_test_count_outside_t1_schema')
+    assessment_pass=False
+   required=COURSE_T1_LESSON_SCHEMA['required']
+   practice_floor=COURSE_T1_PRACTICE['minItems']
+  else:
+   if tests <= 0:
+    issues.append('no_level_test')
+    assessment_pass=False
+   required=('learn','vocab','grammar','dialogue','practice','quiz','worksheet')
+   practice_floor=5
+
+  for lesson in lessons:
+   if not isinstance(lesson,dict):
+    issues.append('invalid_lesson_record')
+    lesson_schema_pass=False
+    continue
+   for key in required:
+    if not lesson.get(key):
+     issues.append(f"{lesson.get('id','?')}:missing_{key}")
+     lesson_schema_pass=False
+   practice=lesson.get('practice')
+   if not isinstance(practice,list) or len(practice)<practice_floor:
+    suffix='practice_below_t1_schema_min' if t1 else 'thin_practice'
+    issues.append(f"{lesson.get('id','?')}:{suffix}")
+    practice_schema_pass=False
+   if t1:
+    for key, schema in (('dialogue',COURSE_T1_DIALOGUE),('quiz',COURSE_T1_QUIZ)):
+     value=lesson.get(key)
+     if not in_schema_range(value,schema):
+      issues.append(f"{lesson.get('id','?')}:{key}_below_t1_schema_min")
+      lesson_schema_pass=False
+
+  practices=[x for lesson in lessons if isinstance(lesson,dict)
+             for x in (lesson.get('practice') or []) if isinstance(x,dict)]
+  types={x.get('type') for x in practices if x.get('type')}
   minimum=PRACTICE_MINIMUMS.get(lv,5)
   practice_pass=len(types)>=minimum
-  skill_coverage_pass=practice_pass and all(x.get('skill_target') for x in practices)
+  skill_coverage_pass=practice_pass and bool(practices) and all(x.get('skill_target') for x in practices)
   if not practice_pass: issues.append(f'narrow_practice_ecosystem_{len(types)}_below_{minimum}')
   if not all(x.get('skill_target') for x in practices): issues.append('practice_skill_targets_missing')
   advanced_terms=('register','inference','stance','argument','rhetoric','semantic','academic','professional','idiom','discourse','style','pragmatic')
@@ -255,8 +338,23 @@ def course_audit():
   # pass with an explicit synthetic/unavailable fallback on every audio item;
   # this is honest NOT_APPLICABLE behavior, not a native-recording claim.
   voice_pass=code in TTS_CODES or documented_audio or (not audio_items and research_profile)
-  gates={'CONTENT':'PASS' if len(lessons)==6 and not any('missing_' in x for x in issues) else 'REVIEW_REQUIRED','PRACTICE':'PASS' if practice_pass else 'REVIEW_REQUIRED','SKILL_COVERAGE':'PASS' if skill_coverage_pass else 'REVIEW_REQUIRED','LEVEL_APPROPRIATENESS':'PASS' if advanced_pass else 'REVIEW_REQUIRED','LANGUAGE_SPECIFIC':'PASS' if research_profile else 'REVIEW_REQUIRED','VOICE_AUDIO':'PASS' if voice_pass else 'REVIEW_REQUIRED','PLAYER':'PASS'}
-  rows.append({'path':str(p.relative_to(ROOT)),'language':code,'level':lv,'lesson_count':len(lessons),'practice_type_count':len(types),'minimum_practice_type_count':minimum,'gates':gates,'status':'PASS' if not issues and all(x=='PASS' for x in gates.values()) else 'REVIEW_REQUIRED','issues':sorted(set(issues))})
+  gates={
+   'CONTENT':'PASS' if structure_pass and lesson_schema_pass else 'REVIEW_REQUIRED',
+   'PRACTICE':'PASS' if practice_pass and practice_schema_pass else 'REVIEW_REQUIRED',
+   'SKILL_COVERAGE':'PASS' if skill_coverage_pass else 'REVIEW_REQUIRED',
+   'ASSESSMENT':'PASS' if assessment_pass else 'REVIEW_REQUIRED',
+   'LEVEL_APPROPRIATENESS':'PASS' if advanced_pass else 'REVIEW_REQUIRED',
+   'LANGUAGE_SPECIFIC':'PASS' if research_profile else 'REVIEW_REQUIRED',
+   'VOICE_AUDIO':'PASS' if voice_pass else 'REVIEW_REQUIRED',
+   'PLAYER':'PASS'
+  }
+  rows.append({
+   'path':str(p.relative_to(ROOT)), 'language':code, 'level':lv,
+   'lesson_count':len(lessons), 'practice_type_count':len(types),
+   'minimum_practice_type_count':minimum, 'gates':gates,
+   'status':'PASS' if not issues and all(x=='PASS' for x in gates.values()) else 'REVIEW_REQUIRED',
+   'issues':sorted(set(issues))
+  })
  return rows
 
 def selftest():
@@ -317,6 +415,25 @@ def selftest():
         print('FAIL  entity selftest — HTML entities changed the content signature: ' + repr(decoded))
         return 1
     print('ok    content audit: HTML entities are decoded before signatures are compared')
+
+    # The live T1 schema allows 3–5 units and 3–5 lessons per unit. The old
+    # 3 × 2 / six-total heuristic incorrectly sent the 3 × 3 published levels
+    # to review. Keep this regression tied to the schema source itself.
+    schema_units = [{"lessons": [{}, {}, {}]} for _ in range(3)]
+    if not in_schema_range(schema_units, COURSE_T1_UNITS) or not all(
+        in_schema_range(unit["lessons"], COURSE_T1_UNIT_LESSONS) for unit in schema_units
+    ):
+        print('FAIL  course schema selftest — valid 3 × 3 T1 level rejected')
+        return 1
+    if in_schema_range([{}, {}], COURSE_T1_UNIT_LESSONS):
+        print('FAIL  course schema selftest — T1 lesson floor was not enforced')
+        return 1
+    test_schema = COURSE_T1_LEVEL_SCHEMA['properties']['test']['properties']['items']
+    test_sample = {'level': {'test': {'items': [{}] * test_schema['minItems']}}}
+    if test_count(test_sample) != test_schema['minItems'] or test_count({'test': {'items': [{}, {}]}}) != 2:
+        print('FAIL  course schema selftest — level test items were not counted')
+        return 1
+    print('ok    course audit: unit/lesson/test cardinality follows the T1 JSON Schema')
     return 0
 
 

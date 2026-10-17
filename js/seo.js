@@ -1,15 +1,11 @@
 /* =========================================================
    EkGuru — Advanced SEO engine
    ---------------------------------------------------------
-   Runs BEFORE main.js. Injects, per page and per language:
-     · <title> + meta description + keywords
-     · canonical + hreflang (7 markets + x-default)
-     · Open Graph + Twitter Card
-     · JSON-LD: Organization, WebSite+SearchAction, BreadcrumbList,
-                Course, Person, Service, FAQPage, AggregateRating,
-                Review, VideoObject
-   All of it is data-driven from tutors-data.js + site-config.js,
-   so it stays correct automatically when you edit your data.
+   Runs before main.js. Injects per-page metadata, canonical/hreflang,
+   social cards and JSON-LD. Homepage copy comes from js/i18n.js; tutor
+   profiles use the public tutor data. FAQ/HowTo markup is emitted only
+   when it matches visible course content. No tutor Offer/Service/Rating
+   claims are generated here.
    ========================================================= */
 (function () {
   "use strict";
@@ -17,63 +13,8 @@
   var S = window.EKGURU_SITE || {};
   var M = window.EKGURU_MARKETS || [];
   var T = window.EKGURU_TUTORS || [];
+  var I18N = window.EKGURU_I18N || {};
   var BASE = (S.baseUrl || "").replace(/\/?$/, "/");
-
-  /* =========================================================
-     A PRICE IN PROSE IS A PRICE THAT GOES STALE  (v63)
-     ---------------------------------------------------------
-     THE BUG. Seven meta descriptions and one FAQ answer had "$3"
-     typed into them, in seven languages:
-
-       "Private 1-on-1 Hindi lessons from $3 …"
-       "Clases particulares desde 3 $ …"
-       "Private 1-on-1 Hindi lessons start at $3 for a 50-minute
-        session."      ← this one is published as FAQPage schema
-
-     $3 came from a tutor FILE. The Google Sheet later said $10 and
-     the cheapest tutor on the site became $8. Those strings kept
-     advertising $3 — in the search snippet, which is the first
-     thing anyone sees, and in structured data, which is what
-     Google quotes as an answer.
-
-     A published price is a quote. Advertising one nobody can book
-     is a misleading price indication, and the FAQ version is worse
-     than the meta one because Google may show it as a direct
-     answer without the visitor ever reaching the site.
-
-     Fixed with a token filled from the live tutor list. Same idea
-     and the same token names as js/main.js fillTokens() — the two
-     are separate because this file runs standalone on pages that
-     do not load main.js.
-
-     ⚠️ These are META tags: they are read once, at page load, and
-     the sheet may not have arrived yet. So this ALSO re-runs on
-     ekguru:sheet — see the listener at the bottom of this file.
-     Without that, the description would carry the file's price on
-     a first visit, which is precisely the bug it is fixing.
-     ========================================================= */
-  function money(usd) {
-    try {
-      if (window.EkGuruPrice && window.EkGuruPrice.price) return window.EkGuruPrice.price(usd);
-    } catch (e) {}
-    return (S.currency || "$") + usd;
-  }
-
-  function fillTokens(str) {
-    if (typeof str !== "string" || str.indexOf("{") === -1) return str;
-    /* Read the global every time, not the T captured at load: the
-       sheet mutates that array in place and may have hidden the
-       tutor who used to be cheapest. */
-    var live = window.EKGURU_TUTORS || [];
-    var prices = live.map(function (x) { return Number(x.priceUSD) || 0; })
-                     .filter(function (n) { return n > 0; });
-    return str
-      /* Empty rather than "$0" or "$Infinity" — Math.min of an empty
-         array is Infinity and would have printed literally. */
-      .replace(/\{minPrice\}/g, prices.length ? money(Math.min.apply(null, prices)) : "")
-      .replace(/\{maxPrice\}/g, prices.length ? money(Math.max.apply(null, prices)) : "")
-      .replace(/\{tutors\}/g, String(live.length));
-  }
 
   /* ---------- helpers ---------- */
   function page() {
@@ -83,12 +24,22 @@
   function lang() {
     try {
       var q = new URLSearchParams(location.search).get("lang");
-      if (q) return q;
+      if (q && M.some(function (m) { return m.code === q; })) return q;
+    } catch (e) {}
+
+    /* The translated directory is authoritative. A saved preference must
+       not make /es/ return English metadata while the page itself is Spanish. */
+    var parts = location.pathname.split("/").filter(Boolean);
+    for (var i = 0; i < M.length; i++) {
+      if (parts[0] === M[i].code) return M[i].code;
+    }
+
+    try {
       var s = localStorage.getItem("ekguru_lang");
-      if (s) return s;
+      if (s && M.some(function (m) { return m.code === s; })) return s;
     } catch (e) {}
     var nav = (navigator.language || "en").slice(0, 2);
-    for (var i = 0; i < M.length; i++) if (M[i].code === nav) return nav;
+    for (var j = 0; j < M.length; j++) if (M[j].code === nav) return nav;
     return "en";
   }
   function meta(attr, key, content) {
@@ -130,35 +81,6 @@
      1. Per-page copy (title / description / keywords)
      ========================================================= */
   var COPY = {
-    "index.html": {
-      en: {
-        t: "Learn Hindi Online with a Private Tutor | EkGuru",
-        d: "Explore Hindi tutor profiles and request private 1-on-1 online lessons covering speaking, reading, writing and Devanagari.",
-        k: "learn hindi online, hindi tutor profiles, private hindi lessons, speak hindi, devanagari, hindi for beginners, online hindi classes, 1-on-1 hindi lessons"
-      },
-      es: { t: "Aprende hindi online con un profesor particular | EkGuru", d: "Explora perfiles de profesores de hindi. Comprueba la experiencia, las materias, el precio mostrado y la disponibilidad de cada perfil antes de solicitar una clase.", k: "aprender hindi, profesor de hindi, clases de hindi online, hindi para principiantes" },
-      /* v50: was "Apprenez l'hindi en ligne avec un professeur particulier | EkGuru"
-         — 65 characters, so Google cut the brand off. French is wordier than
-         English and was the only pack over the ~60-character limit. */
-      fr: { t: "Cours d'hindi en ligne — profils de professeurs | EkGuru", d: "Explorez les profils de professeurs d'hindi. Vérifiez le parcours, les matières, le prix affiché et les disponibilités avant une demande.", k: "apprendre l'hindi, professeur d'hindi, cours d'hindi en ligne, hindi débutant" },
-      de: { t: "Hindi online lernen mit Privatlehrer | EkGuru", d: "Sieh dir Hindi-Lehrkraftprofile an. Prüfe den angegebenen Hintergrund, die Fächer, den angezeigten Preis und die Verfügbarkeit vor einer Anfrage.", k: "hindi lernen, hindi lehrer, hindi online kurs, hindi für anfänger" },
-      pt: { t: "Aprenda hindi online com professor particular | EkGuru", d: "Explore perfis de professores de hindi. Confira a experiência, as matérias, o preço exibido e a disponibilidade antes de solicitar uma aula.", k: "aprender hindi, professor de hindi, aulas de hindi online, hindi para iniciantes" },
-      ja: { t: "オンラインでヒンディー語を学ぶ | EkGuru マンツーマンレッスン", d: "ヒンディー語講師のプロフィールを確認し、申告された言語背景、科目、表示料金、空き状況を見てからレッスンをリクエストできます。", k: "ヒンディー語 オンライン, ヒンディー語 講師, ヒンディー語 レッスン, ヒンディー語 初心者" },
-      ar: { t: "تعلم اللغة الهندية عبر الإنترنت مع معلم خاص | EkGuru", d: "استعرض ملفات معلمي الهندية وتحقق من الخلفية والمواد والسعر المعروض والتوفر قبل إرسال طلب درس.", k: "تعلم الهندية, معلم لغة هندية, دروس هندية اونلاين, الهندية للمبتدئين" }
-    },
-    "find-tutors.html": {
-      en: {
-        t: "Find a Hindi Tutor Online | Tutor Profiles — EkGuru",
-        d: "Browse Hindi tutor profiles and filter by level, displayed price and rating. Check each profile’s stated language background and availability.",
-        k: "find hindi tutor, hindi tutor profiles, online hindi lessons, hindi tutor for beginners"
-      },
-      es: { t: "Encuentra un profesor de hindi online | EkGuru", d: "Explora perfiles de profesores de hindi y filtra por nivel, precio mostrado y valoración. Comprueba los datos de cada perfil antes de solicitar una clase.", k: "profesor de hindi online, buscar profesor hindi" },
-      fr: { t: "Trouvez un professeur d'hindi en ligne | EkGuru", d: "Parcourez les profils de professeurs d'hindi et filtrez par niveau, prix affiché et note. Vérifiez les détails avant une demande.", k: "professeur d'hindi en ligne, trouver prof hindi" },
-      de: { t: "Hindi-Lehrer online finden | EkGuru", d: "Hindi-Lehrkraftprofile nach Niveau, angezeigtem Preis und Bewertung filtern. Angaben vor einer Anfrage prüfen.", k: "hindi lehrer finden, hindi nachhilfe online" },
-      pt: { t: "Encontre um professor de hindi online | EkGuru", d: "Veja perfis de professores de hindi e filtre por nível, preço exibido e avaliação. Confira os detalhes antes de solicitar uma aula.", k: "professor de hindi online, encontrar professor hindi" },
-      ja: { t: "ヒンディー語講師を探す | EkGuru", d: "ヒンディー語講師のプロフィールをレベル、表示料金、評価で絞り込み、申告内容を確認してからリクエストできます。", k: "ヒンディー語 講師 探す, ヒンディー語 家庭教師" },
-      ar: { t: "ابحث عن معلم لغة هندية عبر الإنترنت | EkGuru", d: "تصفح ملفات معلمي الهندية وصفِّ حسب المستوى والسعر المعروض والتقييم، ثم تحقق من التفاصيل قبل الطلب.", k: "معلم هندية اونلاين, البحث عن معلم هندية" }
-    },
     "join.html": {
       en: {
         t: "Become a Hindi Tutor — Teach on EkGuru | Free Tutor Listing",
@@ -174,7 +96,32 @@
     }
   };
 
+  function directoryCopy(locale) {
+    var live = window.EKGURU_TUTORS;
+    var hasPublicTutors = Array.isArray(live) && live.length > 0;
+    var prefix = hasPublicTutors ? "seo.findActive" : "seo.findEmpty";
+    var pack = I18N[locale] || I18N.en || {};
+    var fallback = I18N.en || {};
+    return {
+      t: pack[prefix + "Title"] || fallback[prefix + "Title"] || "Hindi tutor directory | EkGuru",
+      d: pack[prefix + "Description"] || fallback[prefix + "Description"] || "Tutor profiles are listed here when public. Free Hindi lessons and self-study tools are available.",
+      k: "Hindi tutor directory, Hindi course, Hindi learning"
+    };
+  }
+
+  function homeCopy(locale) {
+    var pack = I18N[locale] || I18N.en || {};
+    var fallback = I18N.en || {};
+    return {
+      t: pack["seo.homeTitle"] || fallback["seo.homeTitle"] || "Learn Hindi Online — Free Course | EkGuru",
+      d: pack["seo.homeDescription"] || fallback["seo.homeDescription"] || "Start a free, self-paced Hindi course with lessons, practice and learning tools. No subscription or account required.",
+      k: "learn Hindi online, free Hindi course, Devanagari, Hindi practice"
+    };
+  }
+
   function copyFor() {
+    if (pg === "index.html") return homeCopy(L);
+    if (pg === "find-tutors.html") return directoryCopy(L);
     if (tutor) {
       var per = { "50 min": "50-minute" };
       /* only advertise numbers we actually have: a brand-new tutor should not
@@ -249,8 +196,8 @@
         k: [tutor.name + " hindi tutor", "online hindi tutor", "private hindi lessons"].concat(tutor.teaches || []).join(", ").toLowerCase()
       };
     }
-    var block = COPY[pg] || COPY["index.html"];
-    return block[L] || block.en;
+    var block = COPY[pg];
+    return block ? (block[L] || block.en) : homeCopy("en");
   }
 
   /* which pages have a real translated file on disk */
@@ -258,16 +205,7 @@
     return ["index.html", "find-tutors.html", "join.html"].indexOf(page) > -1;
   }
 
-  /* v63: resolve {minPrice} ONCE, here, rather than at each of the
-     nine places c.t and c.d are used. Missing one of those nine —
-     og:description, say — would publish a raw "{minPrice}" to
-     Facebook while the page itself looked fine. Doing it at the
-     source makes that impossible. */
-  var c = (function () {
-    var raw = copyFor(), out = {};
-    Object.keys(raw).forEach(function (k) { out[k] = fillTokens(raw[k]); });
-    return out;
-  })();
+  var c = copyFor();
 
   /* =========================================================
      2. Head tags
@@ -444,7 +382,7 @@
     alternateName: "EkGuru Learning",
     url: BASE,
     slogan: S.tagline,
-    description: "EkGuru publishes Hindi learning resources and independent tutor profiles for one-to-one online lesson requests.",
+    description: "EkGuru publishes free Hindi lessons, self-paced courses, practice and learning tools.",
     email: S.email,
     logo: { "@type": "ImageObject", url: BASE + "images/sushila.jpg" },
     foundingDate: String(S.foundingYear || 2024),
@@ -532,28 +470,26 @@
     }
   }
 
-  /* --- FAQ (rich result eligible) --- */
-  var FAQ = {
-    en: [
-      ["How much does an online Hindi lesson cost on EkGuru?", "Profiles show the tutor's stated USD price and an estimated local-currency display. Confirm the current price, billing currency and terms before booking."],
-      ["Do I need to know any Hindi before starting?", "EkGuru has free beginner materials. For paid lessons, check the levels stated on each profile and ask whether your starting point is suitable."],
-      ["What language background do tutors have?", "Each profile states the tutor’s language background and subjects. Review those tutor-provided details before sending an enquiry."],
-      ["Can I request a trial lesson?", "Trial terms are not universal or guaranteed. Ask about the current format, price and cancellation terms before booking."],
-      ["How are the lessons delivered?", "Profiles describe online one-to-one lessons. Confirm the video platform, duration and timing in the enquiry response before booking."],
-      ["Which timezones do you cover?", "No timezone coverage is guaranteed. Include your timezone and preferred times in the enquiry and wait for availability confirmation."],
-      ["How do I contact a tutor?", "Send an enquiry from a profile; EkGuru may forward it using the contact information on file. You can also review a linked external profile directly."],
-      ["Can I apply to become a Hindi tutor on EkGuru?", "You can submit the requested profile information from the Become a Tutor page. Publication and current terms are confirmed during review."]
-    ]
-  };
-  var faqList = (FAQ[L] || FAQ.en).map(function (qa) {
-    /* v63: the cost answer carries {minPrice} and this list is
-       published as FAQPage schema, so the token MUST be resolved
-       before it reaches Google. An unresolved "{minPrice}" in
-       structured data is an invalid answer; a stale "$3" is a
-       worse one, because it is wrong rather than obviously broken. */
-    return [fillTokens(qa[0]), fillTokens(qa[1])];
-  });
-  if (pg === "index.html") {
+  /* FAQ copy comes from the same localized strings used by the visible home
+     page. The availability answer follows the PUBLIC roster and is refreshed
+     when the sheet changes. Schema is emitted only where the FAQ is visible. */
+  function translated(key) {
+    var pack = I18N[L] || {};
+    if (pack[key] != null) return pack[key];
+    return (I18N.en && I18N.en[key]) || key;
+  }
+  function homeFaq() {
+    var live = window.EKGURU_TUTORS;
+    var hasPublicTutors = Array.isArray(live) && live.length > 0;
+    var list = [];
+    for (var i = 1; i <= 6; i++) {
+      var suffix = i === 5 ? (hasPublicTutors ? "available" : "empty") : "a";
+      list.push([translated("home.faq." + i + ".q"), translated("home.faq." + i + "." + suffix)]);
+    }
+    return list;
+  }
+  var faqList = homeFaq();
+  if (pg === "index.html" && document.getElementById("faq-list")) {
     graph.push({
       "@type": "FAQPage",
       "@id": canonical + "#faq",
@@ -564,46 +500,27 @@
   }
   window.EKGURU_FAQ = faqList;
 
-  /* --- Speakable (voice assistants) --- */
-  graph.push({
-    "@type": "WebPage",
-    "@id": canonical + "#webpage",
-    url: canonical,
-    name: c.t,
-    description: c.d,
-    inLanguage: market.locale,
-    isPartOf: { "@id": BASE + "#website" },
-    about: { "@id": BASE + "#organization" },
-    speakable: {
-      "@type": "SpeakableSpecification",
-      cssSelector: ["h1", ".pf-headline", ".lead", ".sec-head p"]
-    },
-    potentialAction: {
-      "@type": "ReadAction",
-      target: [canonical]
-    }
-  });
-
-  /* --- HowTo: "how to start learning Hindi" — earns a rich result --- */
-  if (pg === "index.html") {
-    graph.push({
-      "@type": "HowTo",
-      "@id": BASE + "#howto",
-      name: "How to start learning Hindi online with a private tutor",
-      description: "Three steps to request a first one-to-one Hindi lesson from a tutor profile.",
-      totalTime: "PT10M",
-      step: [
-        { "@type": "HowToStep", position: 1, name: "Choose your tutor",
-          text: "Browse tutor profiles, check the stated background, terms and any reviews, then choose the teacher who fits your goal.",
-          url: BASE + "find-tutors.html" },
-        { "@type": "HowToStep", position: 2, name: "Send an enquiry",
-          text: "Open a tutor profile, include your timezone and preferred times, and send a lesson enquiry.",
-          url: BASE + "find-tutors.html" },
-        { "@type": "HowToStep", position: 3, name: "Confirm current details",
-          text: "Wait for confirmation of the current price, format and availability before booking.",
-          url: BASE }
-      ]
+  /* --- HowTo mirrors the three visible self-study steps below. --- */
+  if (pg === "index.html" && document.getElementById("how")) {
+    var howPack = I18N[L] || I18N.en || {};
+    function howText(key) { return howPack[key] || (I18N.en && I18N.en[key]) || ""; }
+    var howSteps = [1, 2, 3].map(function (position) {
+      return {
+        "@type": "HowToStep",
+        position: position,
+        name: howText("how.s" + position + "t"),
+        text: howText("how.s" + position + "d")
+      };
     });
+    if (howSteps.every(function (step) { return step.name && step.text; })) {
+      graph.push({
+        "@type": "HowTo",
+        "@id": canonical + "#howto",
+        name: howText("how.title"),
+        description: howText("how.sub"),
+        step: howSteps
+      });
+    }
   }
 
   /* --- Founder: Person entity, knowledge-graph eligible --- */
@@ -684,82 +601,45 @@
   window.EKGURU_LANG = L;
   window.EKGURU_MARKET = market;
 
-  /* =========================================================
-     RE-RESOLVE THE PRICE TOKENS WHEN THE SHEET LANDS  (v63)
-     ---------------------------------------------------------
-     THE HALF-FIX THAT WOULD HAVE SHIPPED WITHOUT THIS.
-
-     Tokenising the strings was not enough. This file runs at page
-     load; js/sheet.js answers a few hundred milliseconds later. So
-     on a FIRST visit — every visitor from Google — the description
-     and the FAQ schema were resolved against the tutor FILES, not
-     the sheet.
-
-     Caught by testing it properly: with the sheet saying the
-     cheapest tutor was $22, the visible prose said $22 (main.js
-     repaints) while the meta description and the FAQPage schema
-     both still said $8. Half the page telling the truth is not a
-     fix; it is a harder bug to find later.
-
-     So the same three things are rewritten on ekguru:sheet. They
-     are cheap string swaps on tags that are already in the head.
-
-     Why the schema is rebuilt rather than patched: it is one JSON
-     blob, and a regex over published structured data is how you
-     end up with invalid JSON in front of Google. jsonld() replaces
-     the whole node by id, which is atomic. */
-  function refreshPriceClaims() {
+  /* The sheet can change which tutor profiles are public after the first
+     paint. Refresh roster-aware metadata and the homepage availability FAQ
+     together. Home copy stays course-first; directory copy follows the public
+     roster without inventing price, rating, or current availability claims. */
+  function refreshLocalizedCopy() {
     try {
       var raw = copyFor();
-      var t = fillTokens(raw.t), d = fillTokens(raw.d);
+      var title = raw.t, description = raw.d;
+      if (document.title !== title) document.title = title;
+      meta("name", "description", description);
+      meta("name", "DC.description", description);
+      meta("property", "og:title", title);
+      meta("property", "og:description", description);
+      meta("name", "twitter:title", title);
+      meta("name", "twitter:description", description);
 
-      if (document.title !== t) document.title = t;
-      meta("name", "description", d);
-      meta("name", "DC.description", d);
-      meta("property", "og:title", t);
-      meta("property", "og:description", d);
-      meta("name", "twitter:title", t);
-      meta("name", "twitter:description", d);
-
-      /* The FAQ cost answer carries {minPrice} and is published as
-         FAQPage schema, so Google can quote it as a direct answer
-         without the visitor ever loading the page. A stale figure
-         here is the single most consequential place a wrong price
-         can sit.
-
-         The FAQ is one node inside the single #ekguru-jsonld @graph,
-         not a script of its own — so find it by @type and rewrite
-         the whole blob. Never patch published structured data with
-         a regex; that is how you ship invalid JSON to Google. */
+      faqList = homeFaq();
+      window.EKGURU_FAQ = faqList;
       var node = document.getElementById("ekguru-jsonld");
-      if (node) {
-        var data = JSON.parse(node.textContent);
-        var faq = (data["@graph"] || []).filter(function (x) {
-          return x["@type"] === "FAQPage";
-        })[0];
-        /* Rebuild from the SOURCE strings, not from what is in the
-           document. The tokens there were already resolved on the
-           first pass, so filling them again would find nothing and
-           silently leave the old figure — a fix that quietly does
-           nothing is worse than no fix, because the test passes. */
-        var src = FAQ[L] || FAQ.en;
-        if (faq && Array.isArray(faq.mainEntity) && faq.mainEntity.length === src.length) {
-          faq.mainEntity = src.map(function (qa) {
-            return {
-              "@type": "Question",
-              name: fillTokens(qa[0]),
-              acceptedAnswer: { "@type": "Answer", text: fillTokens(qa[1]) }
-            };
-          });
-          node.textContent = JSON.stringify(data);
-        }
+      if (!node) return;
+      var data = JSON.parse(node.textContent);
+      var faq = (data["@graph"] || []).filter(function (x) {
+        return x["@type"] === "FAQPage";
+      })[0];
+      if (faq) {
+        faq.mainEntity = faqList.map(function (qa) {
+          return {
+            "@type": "Question",
+            name: qa[0],
+            acceptedAnswer: { "@type": "Answer", text: qa[1] }
+          };
+        });
+        node.textContent = JSON.stringify(data);
       }
     } catch (e) {
-      /* A failure here must never take the page down — the tags
-         already hold the previous, valid values. */
-      if (window.console && console.warn) console.warn("[EkGuru seo] price refresh", e);
+      /* Search metadata must never interrupt page rendering. */
+      if (window.console && console.warn) console.warn("[EkGuru seo] copy refresh", e);
     }
   }
 
-  window.addEventListener("ekguru:sheet", refreshPriceClaims);
+  window.addEventListener("ekguru:sheet", refreshLocalizedCopy);
 })();
