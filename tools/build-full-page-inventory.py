@@ -23,6 +23,7 @@ from __future__ import annotations
 import concurrent.futures as cf
 import hashlib
 import html as htmllib
+import importlib.util
 import json
 import os
 import re
@@ -30,6 +31,15 @@ import sys
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 os.chdir(ROOT)
+TOOLS = os.path.join(ROOT, "tools")
+sys.path.insert(0, TOOLS)
+_audit_spec = importlib.util.spec_from_file_location(
+    "full_page_shared_content_audit", os.path.join(TOOLS, "audit-adsense-readiness.py")
+)
+if _audit_spec is None or _audit_spec.loader is None:
+    raise RuntimeError("cannot load shared content audit")
+PAGE_AUDIT = importlib.util.module_from_spec(_audit_spec)
+_audit_spec.loader.exec_module(PAGE_AUDIT)
 BASE = "https://ekguru.shop/"
 OUT = "data/quality/full-page-inventory.json"
 
@@ -60,23 +70,15 @@ RE_MAIN = re.compile(r"<main[\s>]", re.I)
 RE_SKIP = re.compile(r"skip", re.I)
 RE_VIEWPORT = re.compile(r'<meta[^>]+name=["\']viewport["\']', re.I)
 RE_SCRIPT = re.compile(r"<script.*?</script>", re.I | re.S)
-RE_STYLE = re.compile(r"<style.*?</style>", re.I | re.S)
 RE_TAGS = re.compile(r"<[^>]+>")
-CJK = re.compile(r"[぀-ヿ㐀-䶿一-鿿가-힯]")
-THAI = re.compile(r"[฀-๿]")
-
-
 def words(text: str) -> int:
-    unspaced = len(CJK.findall(text)) + len(THAI.findall(text))
-    stripped = CJK.sub(" ", THAI.sub(" ", text))
-    return unspaced + len([w for w in stripped.split() if any(ch.isalnum() for ch in w)])
+    """Use the same conservative script-aware counter as Phase 2."""
+    return PAGE_AUDIT.count_words(text)
 
 
 def visible_text(src: str) -> str:
-    t = RE_SCRIPT.sub(" ", src)
-    t = RE_STYLE.sub(" ", t)
-    t = RE_TAGS.sub(" ", t)
-    return htmllib.unescape(re.sub(r"\s+", " ", t)).strip()
+    """Count visible page content after the shared site chrome is removed."""
+    return PAGE_AUDIT.visible_content_text(src)
 
 
 def meta_content(tag_match, src):

@@ -240,12 +240,8 @@ def explicit_page_facts(source: str, rel: str, editorial_pages: dict) -> dict:
 
 
 def main_content_text(source: str) -> str:
-    # Remove known shared site chrome/review notices before counting content.
-    content_source = PAGE_AUDIT.CHROME.sub(" ", source)
-    parser = PAGE_AUDIT.Scan()
-    parser.feed(content_source)
-    parser.close()
-    return re.sub(r"\s+", " ", " ".join(parser.text)).strip()
+    """Use the same body-copy boundary as the master readiness audit."""
+    return re.sub(r"\s+", " ", PAGE_AUDIT.visible_content_text(source)).strip()
 
 
 def build_inventory() -> dict:

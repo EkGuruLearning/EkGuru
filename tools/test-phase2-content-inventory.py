@@ -66,6 +66,10 @@ def main() -> int:
         else:
             if page.get("canonical") != full_map[rel].get("canonical"):
                 errors.append(f"{rel}: canonical differs between the two inventories")
+            if page.get("word_count") != full_map[rel].get("word_count"):
+                errors.append(f"{rel}: body word count differs between the two inventories")
+            if page.get("indexable") != full_map[rel].get("indexable"):
+                errors.append(f"{rel}: indexability differs between the two inventories")
             if page.get("internal_inlinks") != full_map[rel].get("inbound_link_count"):
                 errors.append(f"{rel}: inlink count differs between the two inventories")
             if page.get("internal_outlinks") != full_map[rel].get("internal_link_count"):
@@ -99,6 +103,13 @@ def main() -> int:
             errors.append(f"{rel}: current noindex state is not preserved in the recommendation")
         if page.get("indexable") is True and page.get("action") == "NOINDEX":
             errors.append(f"{rel}: recommendation would change current indexation without evidence")
+
+    expected_thin_indexable = sorted(
+        page["source_file"] for page in pages
+        if page.get("indexable") and int(page.get("word_count") or 0) < 250
+    )
+    if full_report.get("summary", {}).get("thin_indexable") != expected_thin_indexable:
+        errors.append("full-page thin-indexable summary differs from shared body-word-count rule")
 
     summary = report.get("summary") or {}
     if summary.get("repository_html_pages") != len(pages):

@@ -172,10 +172,27 @@ CHROME = re.compile(
     r"|<aside\b[^>]*class=\"(?:pg-)?cta(?:-box)?\b[^\"]*\"[^>]*>[\s\S]*?</aside>", re.I)
 
 
+PUBLISHER_ID_RE = re.compile(r'ca-pub-\d+')
+
+def mismatched_publisher_ids(source, expected):
+ return sorted({found for found in PUBLISHER_ID_RE.findall(source) if found != expected})
+
 def signature(text):
  # Template-risk signature deliberately removes volatile names/numbers/currency.
  x=norm(text); x=re.sub(r'\b\d+(?: \d+)*\b','#',x)
  return hashlib.sha256(x.encode()).hexdigest()[:20]
+
+def visible_content_text(raw):
+ """Visible body copy after shared chrome, templates and scripts are excluded.
+
+ The Phase 2 inventory and AdSense readiness audit must count the same
+ editorial text; navigation, bylines, review notices and shared footer copy
+ must not make a short learning page appear substantial.
+ """
+ body=CHROME.sub(' ',raw)
+ body=re.sub(r'<head\b[^>]*>[\s\S]*?</head\s*>',' ',body,flags=re.I)
+ parser=Scan(); parser.feed(body); parser.close()
+ return ' '.join(parser.text)
 
 def content_paragraphs(raw):
  """Return substantial body paragraphs after removing shared site chrome."""
@@ -186,13 +203,13 @@ def content_paragraphs(raw):
 def page_audit():
  pages=[]; title_map=defaultdict(list); meta_map=defaultdict(list); intro_map=defaultdict(list); paragraph_map=defaultdict(list)
  for p in html_files():
-  raw=p.read_text('utf-8',errors='ignore'); s=Scan(); s.feed(raw); text=' '.join(s.text)
+  raw=p.read_text('utf-8',errors='ignore'); s=Scan(); s.feed(raw); s.close(); text=visible_content_text(raw)
   # WORD COUNT, SCRIPT-AWARE. Japanese, Chinese and Thai are written without
   # spaces, so splitting on whitespace reported a complete Japanese page as 56
   # "words" against 293 for the identical Spanish one — and /ja/join.html was
   # then listed as thin, which is exactly the page an AdSense reviewer is not
-  # looking at. A CJK character carries about as much information as a word, so
-  # it is counted as one; Latin and other spaced scripts are counted as before.
+  # looking at. Unspaced scripts use the conservative per-script ratios above;
+  # the same script-aware counter is shared with the Phase 2 inventory.
   words_counted=count_words(text)
   rel=str(p.relative_to(ROOT))
   paras=content_paragraphs(raw)
@@ -227,7 +244,8 @@ def page_audit():
   if x['path'] in risk: x['issues'].append('duplicate_or_template_similarity')
   if re.match(r'learn-hindi-(?:from|for)-[^/]+/index\.html$',x['path']):
    x['issues'].append('scalable_localization_editorial_review')
-  x['publishability']='REVIEW_REQUIRED' if x['issues'] else 'PASS'
+  x['publishability']=('HELD_NOINDEX' if x['noindex'] else
+                       ('REVIEW_REQUIRED' if x['issues'] else 'PASS'))
  return pages,dups
 
 def in_schema_range(value, schema):
@@ -360,9 +378,8 @@ def course_audit():
 def selftest():
     """The counter, on the cases that made it wrong.
 
-    Expected numbers are the number of CJK characters plus spaced words in each
-    sample — written out rather than computed, so a change in the regex has to
-    be a deliberate change here too.
+    Expected values follow the conservative per-script approximation and are
+    written out rather than computed, so a change in the counter is deliberate.
     """
     checks = [
         ("plain English", "The quick brown fox jumps over the lazy dog.", 9),
@@ -372,7 +389,7 @@ def selftest():
         ("Chinese is unspaced", "学习印地语的学生可以免费使用本站。", 8),
         # 17 Thai letters once the vowel and tone marks are set aside, three to a word
         ("Thai is unspaced", "ฉันเรียนภาษาฮินดีทุกวัน", 6),
-        # 9 Japanese characters (round(9/2)=5, banker's rounding down) plus "EkGuru" and "2026"
+        # 9 Japanese characters (ceil(9/2)=5) plus "EkGuru" and "2026"
         ("mixed script", "EkGuru は 2026 年に始まりました", 7),
     ]
     bad = ["%s: got %d, expected %d" % (name, count_words(text), expected)
@@ -402,6 +419,27 @@ def selftest():
         print('FAIL  chrome selftest — review notice leaked into content: ' + repr(paragraphs))
         return 1
     print('ok    content audit: review/bio/audio chrome is not treated as the page introduction')
+
+    body_sample = (
+        '<html><head><title>Shared metadata title</title></head><body>'
+        '<header>Shared menu home courses support and contact links.</header>'
+        '<main><h1>Topic title</h1><p>This page explains one specific learner task with a worked example.</p></main>'
+        '<footer>Shared privacy terms support and copyright links.</footer></body></html>'
+    )
+    body_text = visible_content_text(body_sample)
+    expected_body = 'Topic title This page explains one specific learner task with a worked example.'
+    if body_text != expected_body:
+        print('FAIL  body-text selftest — shared chrome leaked into word count: ' + repr(body_text))
+        return 1
+    print('ok    content audit: word counts use visible body copy, not shared header/footer chrome')
+
+    expected_publisher = 'ca-pub-8175326569491671'
+    foreign_publisher = 'ca-pub-0000000000000000'
+    publisher_sample = f'client={expected_publisher}; invalid={foreign_publisher}'
+    if mismatched_publisher_ids(publisher_sample, expected_publisher) != [foreign_publisher]:
+        print('FAIL  publisher selftest — a foreign publisher ID was not detected')
+        return 1
+    print('ok    monetization audit: foreign publisher IDs are detected')
 
     entity_text = (
         'A learner&#x27;s map &amp; notebook can help them remember the route '
@@ -440,12 +478,13 @@ def selftest():
 def main():
  pages,dups=page_audit(); courses=course_audit()
  thin=[x['path'] for x in pages if 'depth_review_under_250_words' in x['issues']]
- # Thin is only a publication risk where the page can be indexed. A 404 or a
- # JS shell that carries noindex is a utility page: Google does not judge it
- # for thin content, and the honest number for a re-submission is the
- # indexable one. The full list stays, for triage.
+ # Thin is only a publication risk where the page can be indexed. Keep noindex
+ # utilities and held research pages in the inventory, but do not mix them into
+ # the live indexable-page review queue.
  thin_indexable=[x['path'] for x in pages if 'depth_review_under_250_words' in x['issues'] and not x['noindex']]
- review=[x['path'] for x in pages if x['publishability']=='REVIEW_REQUIRED']
+ indexable_pages=[x for x in pages if not x['noindex']]
+ review=[x['path'] for x in indexable_pages if x['publishability']=='REVIEW_REQUIRED']
+ held_noindex_review=[x['path'] for x in pages if x['noindex'] and x['issues']]
  trust={k:{'path':v,'exists':(ROOT/v).exists(),'status':'PASS' if (ROOT/v).exists() else 'REVIEW_REQUIRED'} for k,v in TRUST.items()}
  trust_ok=all(x['exists'] for k,x in trust.items() if k!='cookie_or_consent')
  canonical=sum(bool(x['canonical']) for x in pages); h1=sum(x['h1_count']==1 for x in pages); main=sum(x['main_landmark'] for x in pages)
@@ -463,8 +502,8 @@ def main():
  for page in pages:
   src=(ROOT/page['path']).read_text(errors='ignore')
   if src.count('pagead2.googlesyndication.com/pagead/js/adsbygoogle.js')>1: duplicate_loaders.append(page['path'])
-  for found in set(re.findall(r'ca-pub-\\d{16}',src)):
-   if client and found!=client: wrong_ids.append({'path':page['path'],'id':found})
+  for found in mismatched_publisher_ids(src,client):
+   wrong_ids.append({'path':page['path'],'id':found})
  monetization={
   'status':'REVIEW_REQUIRED' if duplicate_loaders or wrong_ids or ads_lines!=[expected] else 'PARTIAL',
   'ads_txt':{'status':'PASS' if ads_lines==[expected] else 'FAIL','actual':ads_lines,'expected':[expected]},
@@ -477,7 +516,14 @@ def main():
  }
  result={
   'schema_version':1,'generated_at':dt.datetime.now(dt.timezone.utc).isoformat(),'scope':'all repository public HTML and course JSON','approval_claim':'NOT_ASSESSED — this audit does not claim or predict Google AdSense approval','standard':'docs/GLOBAL_QUALITY_STANDARD.md',
-  'content_depth':{'status':state(not thin_indexable,partial=bool(pages) and len(thin_indexable)<len(pages)//10),'pages_scanned':len(pages),'heuristic_review_threshold_words':250,'thin_page_count':len(thin),'thin_indexable_page_count':len(thin_indexable),'note':'Threshold is a triage signal, not a word-count publication rule. The count that matters for publication is thin_indexable: a noindex utility page (404, a JS shell that redirects) is short on purpose and is not judged for depth. CJK and Thai text is counted per character — those scripts have no spaces, and counting them by whitespace made a complete Japanese page look thin.'},
+  'content_depth':{
+   'status':'PASS' if not thin_indexable else 'REVIEW_REQUIRED',
+   'pages_scanned':len(pages),
+   'word_count_scope':'visible body text after shared navigation, review/byline notices, and other known site chrome are removed',
+   'heuristic_review_threshold_words':250,
+   'thin_page_count':len(thin),
+   'thin_indexable_page_count':len(thin_indexable),
+   'note':'The 250-word threshold is triage, not a publication rule or quality verdict. Indexable pages below it need human review; do not add filler or change robots/canonical from this signal alone. Noindex utility/placeholders remain separate. CJK and Thai use the repository script-aware counter.'},
   'originality':{'status':'REVIEW_REQUIRED' if any(dups.values()) else 'PASS','exact_duplicate_title_groups':len(dups['titles']),'exact_duplicate_meta_groups':len(dups['meta_descriptions']),'template_intro_groups':len(dups['introductions']),'repeated_paragraph_groups':len(dups['paragraphs'])},
   'duplicate_risk':{'status':'REVIEW_REQUIRED' if any(dups[k] for k in ('titles','meta_descriptions','introductions')) else 'PASS','affected_page_count':len({p for k in ('titles','meta_descriptions','introductions') for ps in dups[k].values() for p in ps}),'indexable_affected_page_count':len({p for k in ('titles','meta_descriptions','introductions') for ps in dups[k].values() for p in ps} - {x['path'] for x in pages if x['noindex']}),'indexable_affected_note':'affected_page_count includes noindex placeholder pages (level placeholders, JS shells) that Google does not index; indexable_affected_page_count is the number that matters for review.','repeated_paragraph_groups_for_editorial_sampling':len(dups['paragraphs']),'groups':dups,
       'note':'Every group is a paragraph an editor should look at, not proof of duplication. The two pages in the introductions group are the same tutor rendered twice — a home-page card and a roster row share her subject list because it is her list. Shared data is not doorway content; a page whose whole body repeats another page is.'},
@@ -490,10 +536,18 @@ def main():
   'accessibility':{'status':state(main==len(pages),partial=main>0),'main_landmark_pages':main,'note':'Automated source signals only; keyboard, screen reader, contrast, captions, and zoom require rendered audit.'},
   'ad_safety':{'status':'REVIEW_REQUIRED' if ads else 'PARTIAL','pages_loading_or_marking_ads':ads,'note':'Placement, consent, content/ad balance, mobile accidental-click risk, and approval status require rendered and policy review.'},
   'google_monetization':monetization,
-  'page_quality':{'status':'REVIEW_REQUIRED' if review else 'PASS','pass_count':len(pages)-len(review),'review_required_count':len(review),'course_pass_count':len(courses)-len(course_review),'course_review_required_count':len(course_review)},
+  'page_quality':{
+   'status':'REVIEW_REQUIRED' if review else 'PASS',
+   'indexable_page_count':len(indexable_pages),
+   'pass_count':len(indexable_pages)-len(review),
+   'review_required_count':len(review),
+   'held_noindex_page_count':len(pages)-len(indexable_pages),
+   'held_noindex_review_count':len(held_noindex_review),
+   'course_pass_count':len(courses)-len(course_review),
+   'course_review_required_count':len(course_review)},
   'thin_page_count':len(thin),'thin_indexable_page_count':len(thin_indexable),'thin_indexable':thin_indexable,'review_required_count':len(review)+len(course_review),
   'course_quality':{'status':'REVIEW_REQUIRED' if course_review else 'PASS','files_scanned':len(courses),'review_required_count':len(course_review),'rows':courses},
-  'review_queue':{'pages':review,'courses':course_review,'thin_pages':thin,'thin_indexable':thin_indexable},
+  'review_queue':{'pages':review,'held_noindex':held_noindex_review,'courses':course_review,'thin_pages':thin,'thin_indexable':thin_indexable},
   'page_inventory':pages,
   'limitations':['Similarity is conservative exact/template-signature triage, not semantic plagiarism detection.','No static audit can establish linguistic correctness, legal compliance, rendered accessibility, mobile UX, ad placement safety, or AdSense approval.','All REVIEW_REQUIRED items need repair or documented human review before mass publication.']
  }
