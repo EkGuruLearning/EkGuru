@@ -1367,6 +1367,7 @@
     try { applyI18n(); } catch (e) { warnQuiet("translations", e); }
     try { renderTextVersions(); } catch (e) { warnQuiet("text versions", e); }
     try { renderHome(); } catch (e) { warnQuiet("home", e); }
+    try { renderFaq(); } catch (e) { warnQuiet("faq", e); }
     try { renderFind(); } catch (e) { warnQuiet("find-tutors", e); }
     try { renderProfile(); } catch (e) { warnQuiet("profile", e); }
     try { wireVideos(document); } catch (e) { warnQuiet("video", e); }

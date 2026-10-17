@@ -90,20 +90,16 @@ function waitForLoad(dom) {
   const letters = [...doc.querySelectorAll("[data-xp-letters] .xp-letter")];
   check("home: hero letters present", letters.length === 4);
 
-  // home search suggestions
-  const q = doc.getElementById("home-q");
-  q.value = "numbers";
-  q.dispatchEvent(new window.Event("input"));
-  await new Promise((r) => setTimeout(r, 260));
-  const sugg = doc.getElementById("home-sugg");
-  check("home: suggestion panel opens with results", sugg && !sugg.hidden && sugg.querySelectorAll("a").length > 0,
-    sugg ? `${sugg.querySelectorAll("a").length} links` : "no panel");
-  check("home: suggestions link to real pages",
-    sugg && [...sugg.querySelectorAll("a")].every((a) => a.getAttribute("href") && a.getAttribute("href").length > 2));
-  // once the index has arrived, the placeholder rows are replaced by real hits
-  await new Promise((r) => setTimeout(r, 400));
-  check("home: index results replace the placeholder",
-    sugg && /number|Numbers/.test(sugg.textContent), sugg ? sugg.textContent.slice(0, 80) : "");
+  // The homepage now leads with the free self-study course rather than an
+  // unpopulated tutor-search box. Keep the primary route explicit and real.
+  const courseCta = doc.querySelector(".xp-searchbox a.btn");
+  check("home: primary CTA opens the free Hindi course",
+    !!courseCta && courseCta.getAttribute("href") === "learn/hindi/" &&
+      /free Hindi course/i.test(courseCta.textContent));
+  check("home: the removed tutor-search form leaves no dead controls",
+    !doc.getElementById("home-q") && !doc.getElementById("home-sugg"));
+  check("home: course CTA and browse link remain distinct",
+    !!courseCta && !!doc.querySelector('.xp-hero-actions a[href="courses/"]'));
 }
 
 /* ---------- search page ------------------------------------------------ */

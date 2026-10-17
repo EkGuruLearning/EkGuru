@@ -47,11 +47,24 @@ def desired(slug: str, name: str, reason: str, text: str) -> str:
         text = re.sub(r'(<html\b[^>]*\bdata-ad-class=["\'])[^"\']*', r'\1RESEARCH_REQUIRED', text, count=1, flags=re.I)
     else:
         text = re.sub(r"<html\b", '<html data-ad-class="RESEARCH_REQUIRED"', text, count=1, flags=re.I)
-    text = re.sub(r'<script\b[^>]*type=["\']application/ld\+json["\'][^>]*>.*?</script>', "", text, flags=re.I | re.S)
+    if re.search(r"<html\b[^>]*\bdata-publication-state=", text, re.I):
+        text = re.sub(r'(<html\b[^>]*\bdata-publication-state=["\'])[^"\']*', r'\1research-required', text, count=1, flags=re.I)
+    else:
+        text = re.sub(r"<html\b", '<html data-publication-state="research-required"', text, count=1, flags=re.I)
+    text = re.sub(r'\s*<script\b[^>]*type=["\']application/ld\+json["\'][^>]*>.*?</script>\s*', "\n", text, flags=re.I | re.S)
     schema = json.dumps({"@context": "https://schema.org", "@type": "WebPage", "name": title,
                          "url": url, "description": desc}, ensure_ascii=False, separators=(",", ":"))
+    schema_tag = f'<script type="application/ld+json">{schema}</script>'
     text = re.sub(r'\s*</head>', "\n</head>", text, count=1, flags=re.I)
-    text = text.replace("</head>", f'<script type="application/ld+json">{schema}</script>\n</head>', 1)
+    # apply-ultra owns the marked asset block. Keep this page-level schema
+    # before that block when decorated, so a later --strip/restore cycle stays
+    # byte-stable instead of making the quarantine check look stale on every
+    # full build.
+    ultra_assets = "<!-- ekguru:ultra-assets:start -->"
+    if ultra_assets in text:
+        text = text.replace(ultra_assets, schema_tag + "\n" + ultra_assets, 1)
+    else:
+        text = text.replace("</head>", schema_tag + "\n</head>", 1)
     text = re.sub(r"<main\b.*?</main>", main, text, count=1, flags=re.I | re.S)
     return text
 

@@ -2,20 +2,20 @@
 /* ==========================================================================
    EkGuru — THE READING LAYER, PROVEN
    --------------------------------------------------------------------------
-   tools/build-legacy-pages.py moves 969 hand-written pages onto one stylesheet
+   tools/build-legacy-pages.py moves 970 hand-written pages onto one stylesheet
    (css/experience.css §25) and writes the two bands the site was missing. The
    risk in a change like that is not "does the CSS look right" — it is silent
    damage: a page that quietly lost its styles, a page that got the bands twice,
    a table whose cells were renamed but not relabelled, a "one class, one place"
-   that turns back into 969 copies on the next generator run.
+   that turns back into 970 copies on the next generator run.
 
    This test is the guard against exactly that. It reads the real files, not a
    fixture, and it fails loudly if the invariants drift:
 
-     1. the class is on 969 pages and on no page that already has the v200
+     1. the class is on 970 pages and on no page that already has the v200
         system (the five exceptions stay untouched)
      2. the duplicated body CSS stays gone — a byte budget for the whole site,
-        not for one page, because the failure mode is 969 pages drifting back
+        not for one page, because the failure mode is 970 pages drifting back
         one rule at a time
      3. the bands appear exactly once per page, and inside <footer>/<nav>, which
         is what keeps them out of the copy index
@@ -73,7 +73,7 @@ for (const p of pages) {
 }
 
 /* ---------- 1. the class is where it should be, and nowhere else ---------- */
-check("the reading layer is on every hand-written page", legacy.length === 969,
+check("the reading layer is on every hand-written page", legacy.length === 970,
   legacy.length + " page(s)");
 /* 1705 = 1672 existing page-layer pages (including the 45 Indian course posts
    and 2 Hindi Phase 3 posts) + the Spanish, Arabic and German Phase 3 hubs and
@@ -97,7 +97,7 @@ for (const [p, h] of legacy) {
   if (css > worst[1]) worst = [p, css];
 }
 const withStyle = legacy.filter(([, h]) => /<style/.test(h)).length;
-check("the 969 copies of the body CSS are gone",
+check("the 970 copies of the body CSS are gone",
   cssBytes < 4000 && withStyle <= 3,
   cssBytes + " bytes left in " + withStyle + " page(s), worst: " + worst[0] + " (" + worst[1] + " B)");
 

@@ -75,12 +75,15 @@ class MarkupAudit(HTMLParser):
         self.script = re.compile("[" + SCRIPT_RANGES[code] + "]")
         self.stack: list[tuple[str, str | None, bool]] = []
         self.buttons: list[dict[str, str | None]] = []
+        self.romanization_spans: list[dict[str, str | None]] = []
         self.nested_voice_controls: list[str] = []
         self.unlabelled_target_text: list[tuple[str, str]] = []
         self.visible_text: list[str] = []
 
     def handle_starttag(self, tag: str, attrs):
         values = dict(attrs)
+        if tag == "span" and "fc-roman" in (values.get("class") or "").split():
+            self.romanization_spans.append(values)
         if tag == "button" and "data-sb-say" in values:
             self.buttons.append(values)
             if any(parent == "a" for parent, _, _ in self.stack):
@@ -147,6 +150,13 @@ def audit_html(path: Path, code: str, allow_hindi_controls: bool = False) -> tup
             errors.append(f"{path}: speaker control has empty spoken text")
         elif spoken not in visible:
             errors.append(f"{path}: speaker text {spoken!r} is not visibly preserved")
+
+    for roman in parser.romanization_spans:
+        language = (roman.get("lang") or "").lower().split("-")
+        if not language or language[0] != code or "latn" not in language[1:]:
+            errors.append(f"{path}: romanization must carry lang={code}-Latn (got {roman.get('lang')!r})")
+        if (roman.get("dir") or "").lower() != "ltr":
+            errors.append(f"{path}: romanization must be explicitly left-to-right")
 
     for lang, sample in parser.unlabelled_target_text:
         errors.append(f"{path}: target-script prose lacks lang={code} or lang=hi (nearest={lang!r}): {sample!r}")

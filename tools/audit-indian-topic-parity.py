@@ -108,15 +108,26 @@ def page_errors(cfg: dict, topic: dict, path: Path) -> tuple[list[str], dict]:
         errors.append(f"{path.relative_to(ROOT)}: practice does not call out a common mistake")
 
     phrase_count = len(topic.get("phrases", []))
-    speakers = re.findall(r"<button\b[^>]*\bdata-sb-say=[\"']", core, re.I)
-    if len(speakers) != phrase_count:
-        errors.append(f"{path.relative_to(ROOT)}: {len(speakers)} phrase speaker buttons for {phrase_count} phrases")
+    phrase_table = re.search(
+        r'<table\b(?=[^>]*\bclass=["\'][^"\']*\bphr\b[^"\']*["\'])[^>]*>([\s\S]*?)</table>',
+        core, re.I,
+    )
+    phrase_markup = phrase_table.group(1) if phrase_table else ""
     target_cells = re.findall(
-        r"<td\b(?=[^>]*\blang=[\"']" + re.escape(topic_code) + r"[\"'])"
-        r"(?=[^>]*\bdir=[\"']auto[\"'])[^>]*>", core, re.I,
+        r'<td\b(?=[^>]*\blang=["\']' + re.escape(topic_code) + r'["\'])'
+        r'(?=[^>]*\bdir=["\']auto["\'])[^>]*>([\s\S]*?)</td>',
+        phrase_markup, re.I,
     )
     if len(target_cells) != phrase_count:
-        errors.append(f"{path.relative_to(ROOT)}: {len(target_cells)} correctly tagged target-script cells for {phrase_count} phrases")
+        errors.append(f"{path.relative_to(ROOT)}: {len(target_cells)} correctly tagged phrase cells for {phrase_count} phrases")
+    # Other tables can contain useful speakable words (including sound
+    # examples), so only count controls inside the authored phrase cells.
+    speakers = sum(
+        len(re.findall(r'<button\b[^>]*\bdata-sb-say=["\']', cell, re.I))
+        for cell in target_cells
+    )
+    if speakers != phrase_count:
+        errors.append(f"{path.relative_to(ROOT)}: {speakers} phrase-table speaker buttons for {phrase_count} phrases")
     if not re.search(r"<script\b[^>]*src=[\"'][^\"']*js/storybook\.js", raw, re.I):
         errors.append(f"{path.relative_to(ROOT)}: shared storybook voice runtime is not loaded")
     if not re.search(r"<script\b[^>]*src=[\"'][^\"']*/js/voice\.js", raw, re.I):
@@ -135,7 +146,7 @@ def page_errors(cfg: dict, topic: dict, path: Path) -> tuple[list[str], dict]:
         "path": path.relative_to(ROOT).as_posix(),
         "content_words": word_count,
         "phrase_count": phrase_count,
-        "voice_buttons": len(speakers),
+        "voice_buttons": speakers,
         "opening_signature": signature(opening) if opening else "",
         "article_signature": signature(article_text),
     }

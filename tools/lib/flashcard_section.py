@@ -61,7 +61,9 @@ def flashcard_section(code, name, script_name="", limit=STATIC_CARDS):
     for c in cards[:limit]:
         target = html.escape(c["t"])
         meaning = html.escape(c["en"])
-        roman = (" · <span class=\"fc-roman\" dir=\"ltr\">%s</span>" % html.escape(c["r"])) if c.get("r") else ""
+        roman_lang = html.escape(code + "-Latn")
+        roman = (" · <span class=\"fc-roman\" lang=\"%s\" dir=\"ltr\">%s</span>"
+                 % (roman_lang, html.escape(c["r"]))) if c.get("r") else ""
         # dir="auto" lets the word follow its own script (Arabic, Hebrew) while
         # the list itself stays in the page direction.
         rows.append("      <li><b lang=\"%s\" dir=\"auto\">%s</b>%s — %s</li>" % (lang_attr, target, roman, meaning))
@@ -80,7 +82,7 @@ def flashcard_section(code, name, script_name="", limit=STATIC_CARDS):
         )
     else:
         static_note = (
-            "This language's published deck has %d cards. The interactive lab shows one card at "
+            "This language's deck has %d cards. The interactive lab shows one card at "
             "a time, flips on Enter or Space, moves with the arrow keys, and can save a card to "
             "your review queue." % len(cards)
         )

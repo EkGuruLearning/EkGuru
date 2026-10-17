@@ -28,15 +28,17 @@
    js/i18n.js it does not go on the page. That is what keeps the six markets
    from promising something the English page does not.
 
-   WHAT IS PRESERVED (never touched)
-   ---------------------------------
-     · <head>          title, description, canonical, hreflang set, og tags,
-                       AdSense block, JSON-LD
+   WHAT IS PRESERVED
+   -----------------
+     · <head>          canonical, hreflang set, AdSense block and unrelated
+                       JSON-LD remain intact. Localized title, description,
+                       OG/Twitter copy and tutor ItemLists are updated from
+                       js/i18n.js and the current public roster.
      · <header>        the market's own navigation
      · <footer>        both footers, including the trust footer
      · <script> tags   i18n, tutors, rates, pricing, analytics, experience
-   Only the <main> element is rewritten, so a re-run can never lose SEO work
-   that was done on those pages.
+   The translated home <main> is generated from its localized sources; the
+   other market-page content stays intact.
 
    Run:  node tools/build-market-pages.js [--check]
          --check exits 1 if a page on disk is out of date (CI/gate use)
@@ -117,6 +119,57 @@ const esc = (s) =>
     .replace(/</g, "&lt;")
     .replace(/>/g, "&gt;");
 
+const escAttr = (s) => esc(s).replace(/"/g, "&quot;");
+
+function replaceMetaContent(head, attr, key, value, file) {
+  const tags = head.match(/<meta\b[^>]*>/gi) || [];
+  const keyRe = new RegExp("\\b" + attr + "\\s*=\\s*([\"'])" + key + "\\1", "i");
+  const tag = tags.find((candidate) => keyRe.test(candidate));
+  if (!tag) throw new Error(file + ': missing meta ' + attr + '="' + key + '"');
+  const contentRe = /\bcontent\s*=\s*("[^"]*"|'[^']*')/i;
+  const end = tag.endsWith("/>") ? "/>" : ">";
+  const base = tag.slice(0, -end.length);
+  const next = contentRe.test(tag)
+    ? tag.replace(contentRe, 'content="' + escAttr(value) + '"')
+    : base + ' content="' + escAttr(value) + '"' + end;
+  return head.replace(tag, next);
+}
+
+function updatePageMetadata(head, title, description, file) {
+  const titleRe = /<title\b[^>]*>[\s\S]*?<\/title>/i;
+  if (!titleRe.test(head)) throw new Error(file + ": missing <title>");
+  let next = head.replace(titleRe, "<title>" + esc(title) + "</title>");
+  [
+    ["name", "description", description],
+    ["property", "og:title", title],
+    ["property", "og:description", description],
+    ["name", "twitter:title", title],
+    ["name", "twitter:description", description]
+  ].forEach(([metaAttr, key, value]) => {
+    next = replaceMetaContent(next, metaAttr, key, value, file);
+  });
+  return next;
+}
+
+function updateHomeMetadata(head, lang, t, file) {
+  return updatePageMetadata(
+    head,
+    t(lang, "seo.homeTitle"),
+    t(lang, "seo.homeDescription"),
+    file
+  );
+}
+
+function updateFindTutorsMetadata(head, lang, t, hasPublicTutors, file) {
+  const prefix = hasPublicTutors ? "seo.findActive" : "seo.findEmpty";
+  return updatePageMetadata(
+    head,
+    t(lang, prefix + "Title"),
+    t(lang, prefix + "Description"),
+    file
+  );
+}
+
 /* Every string goes through this. A missing key throws rather than shipping an
    English word inside a Spanish sentence — the build should fail loudly, not
    quietly produce a half-translated page. */
@@ -158,18 +211,33 @@ function hero(lang, t, tutors, price) {
       ? `<p class="stars" style="margin:6px 0 10px">${"★".repeat(
           Math.max(1, Math.min(5, Math.round(Number(first.rating) || 0)))
         )} ${Number(first.rating).toFixed(1)}</p>`
-      : `<p class="sm" style="margin:6px 0 10px">${esc(t(lang0, "hero.chip1"))}</p>`;
+      : `<p class="sm" style="margin:6px 0 10px">${esc(t(lang0, "pf.noReviews"))}</p>`;
   const withReviews = tutors.filter((x) => Number(x.reviewsCount) > 0);
   const statRating = withReviews.length
     ? `${(
         withReviews.reduce((a, x) => a + (Number(x.rating) || 0), 0) / withReviews.length
       ).toFixed(1)}★`
     : "—";
+  const heroActions = tutors.length
+    ? `<a class="btn btn-primary btn-lg" href="../find-tutors.html?lang=${lang0}" data-i18n="nav.cta">${esc(t(lang0, "nav.cta"))}</a>
+        <a class="btn btn-ghost btn-lg" href="../courses/" data-i18n="nav.courses">${esc(t(lang0, "nav.courses"))}</a>`
+    : `<a class="btn btn-primary btn-lg" href="../learn/hindi/" data-i18n="tutors.emptyCta">${esc(t(lang0, "tutors.emptyCta"))}</a>
+        <a class="btn btn-ghost btn-lg" href="../courses/" data-i18n="nav.courses">${esc(t(lang0, "nav.courses"))}</a>`;
+  const priceStat =
+    price == null
+      ? "<b>—</b>"
+      : `<b data-usd="${price}" data-usd-mode="bare">$${price}</b>`;
+  const stats = tutors.length
+    ? `<ul class="xp-stats xp-stagger">
+        <li class="xp-stat"><b>${tutors.length}</b><span data-i18n="hero.stat1">${esc(t(lang0, "hero.stat1"))}</span></li>
+        <li class="xp-stat">${priceStat}<span data-i18n="hero.stat4">${esc(t(lang0, "hero.stat4"))}</span></li>
+        <li class="xp-stat"><b>${statRating}</b><span data-i18n="hero.stat3">${esc(t(lang0, "hero.stat3"))}</span></li>
+      </ul>`
+    : "";
 
-  /* U0 (30 Sep 2026) — with zero public tutors there is no profile to
-     feature and no prices to quote. The hero card carries the honest
-     empty state (same keys as tools/lib/zero-state.js), the price stat
-     shows "—", and the price claim card is skipped entirely below. */
+  /* With no public tutor, the course becomes the primary action and the
+     tutor-only metrics disappear. The roster remains the single source for
+     any profile and price claims. */
   const card = first
     ? `      <div class="hero-card xp-sheen">
         <a class="hc-link" href="../tutor/${esc(first.id)}/" aria-label="${esc(first.name)}"></a>
@@ -202,12 +270,7 @@ function hero(lang, t, tutors, price) {
       <p class="xp-lead" data-i18n="hero.lead">${esc(t(lang0, "hero.lead"))}</p>
 
       <div class="xp-hero-actions">
-        <a class="btn btn-primary btn-lg" href="../find-tutors.html?lang=${lang0}" data-i18n="nav.cta">${esc(
-    t(lang0, "nav.cta")
-  )}</a>
-        <a class="btn btn-ghost btn-lg" href="../courses/" data-i18n="nav.courses">${esc(
-    t(lang0, "nav.courses")
-  )}</a>
+${heroActions}
       </div>
 
       <ul class="xp-trust">
@@ -216,21 +279,7 @@ function hero(lang, t, tutors, price) {
         <li data-i18n="hero.trust3">${esc(t(lang0, "hero.trust3"))}</li>
       </ul>
 
-      <ul class="xp-stats xp-stagger">
-        <li class="xp-stat"><b>${tutors.length}</b><span data-i18n="hero.stat1">${esc(
-    t(lang0, "hero.stat1")
-  )}</span></li>
-        <li class="xp-stat">${
-          price == null
-            ? `<b>—</b>`
-            : `<b data-usd="${price}" data-usd-mode="bare">$${price}</b>`
-        }<span data-i18n="hero.stat4">${esc(
-    t(lang0, "hero.stat4")
-  )}</span></li>
-        <li class="xp-stat"><b>${statRating}</b><span data-i18n="hero.stat3">${esc(
-    t(lang0, "hero.stat3")
-  )}</span></li>
-      </ul>
+${stats}
     </div>
 
     <div class="xp-visual xp-rise">
@@ -281,15 +330,10 @@ ${items}
 }
 
 function why(t, lang, price) {
-  /* U0 — card 3 is a price claim ("profiles list lessons from {minPrice}").
-     With zero public tutors there is no price to quote and no profile to
-     point at, so the claim is not made at all: three honest cards beat one
-     false one. */
   const cards = [1, 2, 3, 4]
-    .filter((i) => i !== 3 || price != null)
     .map(
       (i) => `      <article class="xp-card">
-        <div class="xp-card-ico" aria-hidden="true">${["🎯", "🗣️", "💸", "🕒"][i - 1]}</div>
+        <div class="xp-card-ico" aria-hidden="true">${["🎯", "🗣️", "📚", "🕒"][i - 1]}</div>
         <h3 data-i18n="why.w${i}t">${esc(t(lang, "why.w" + i + "t"))}</h3>
         <p data-i18n="why.w${i}d">${withPrice(esc(t(lang, "why.w" + i + "d")), price)}</p>
       </article>`
@@ -474,14 +518,11 @@ function cta(t, lang) {
       <h2 data-i18n="cta.title">${esc(t(lang, "cta.title"))}</h2>
       <p data-i18n="cta.sub">${esc(t(lang, "cta.sub"))}</p>
       <div class="xp-hero-actions" style="justify-content:center">
-        <a class="btn btn-primary btn-lg" href="../find-tutors.html?lang=${lang}" data-i18n="cta.btn1">${esc(
+        <a class="btn btn-primary btn-lg" href="../learn/hindi/" data-i18n="cta.btn1">${esc(
     t(lang, "cta.btn1")
   )}</a>
-        <a class="btn btn-ghost btn-lg" href="../contact/" data-i18n="cta.btn2">${esc(
+        <a class="btn btn-ghost btn-lg" href="../courses/" data-i18n="cta.btn2">${esc(
     t(lang, "cta.btn2")
-  )}</a>
-        <a class="btn btn-ghost btn-lg" href="../courses/" data-i18n="nav.courses">${esc(
-    t(lang, "nav.courses")
   )}</a>
       </div>
     </div>
@@ -574,7 +615,8 @@ function build(lang, site, t) {
   /* U0 — only PUBLIC tutors (registry ∩ sheet active=yes) reach the
      page and its ItemList. */
   const publics = site.publicTutors;
-  parts.head = updateTutorItemList(stripHeadStyles(tagBody(parts.head)), lang, publics, file);
+  parts.head = updateHomeMetadata(stripHeadStyles(tagBody(parts.head)), lang, t, file);
+  parts.head = updateTutorItemList(parts.head, lang, publics, file);
 
   const price = publics.length
     ? publics.reduce(
@@ -615,24 +657,37 @@ function main() {
     );
   }
 
-  /* The locale find-tutors and join pages carry the same "#tutors" ItemList
-     in their JSON-LD. Nothing kept it in step with the registry, so after
-     three tutors left the public roster those pages still told search
-     engines about four tutors, two of them on noindex pages. Same list, same
-     source, same check. U0: the list is the PUBLIC roster — hidden tutors
-     are out of it. */
-  for (const lang of MARKETS) {
-    for (const name of ["find-tutors.html", "join.html"]) {
-      const file = path.join(lang, name);
-      if (!fs.existsSync(file)) continue;
-      const before = fs.readFileSync(file, "utf8");
-      if (!/"@id":"[^"]*#tutors"/.test(before)) continue;
-      const after = updateTutorItemList(before, lang, site.publicTutors, file);
-      if (before === after) { console.log("ok    " + file + " tutor list current"); continue; }
-      if (check) { console.log("STALE " + file + " (tutor ItemList)"); stale++; continue; }
-      fs.writeFileSync(file, after);
-      console.log("wrote " + file + " (tutor ItemList: " + site.publicTutors.length + " public tutors)");
+  /* Directory metadata and ItemLists share the current public roster. The
+     static page and its schema must both stop implying that profiles are
+     available when the registry is empty; the page still links to the free
+     course in that state. */
+  const findPages = [["en", "find-tutors.html"]].concat(
+    MARKETS.map((lang) => [lang, path.join(lang, "find-tutors.html")])
+  );
+  for (const [lang, file] of findPages) {
+    if (!fs.existsSync(file)) continue;
+    const before = fs.readFileSync(file, "utf8");
+    let after = updateFindTutorsMetadata(before, lang, t, site.publicTutors.length > 0, file);
+    if (/"@id":"[^"]*#tutors"/.test(after)) {
+      after = updateTutorItemList(after, lang, site.publicTutors, file);
     }
+    if (before === after) { console.log("ok    " + file + " directory metadata and roster current"); continue; }
+    if (check) { console.log("STALE " + file + " (directory metadata/roster)"); stale++; continue; }
+    fs.writeFileSync(file, after);
+    console.log("wrote " + file + " (directory metadata; " + site.publicTutors.length + " public tutors)");
+  }
+
+  /* The locale join pages also carry the public tutor ItemList. */
+  for (const lang of MARKETS) {
+    const file = path.join(lang, "join.html");
+    if (!fs.existsSync(file)) continue;
+    const before = fs.readFileSync(file, "utf8");
+    if (!/"@id":"[^"]*#tutors"/.test(before)) continue;
+    const after = updateTutorItemList(before, lang, site.publicTutors, file);
+    if (before === after) { console.log("ok    " + file + " tutor list current"); continue; }
+    if (check) { console.log("STALE " + file + " (tutor ItemList)"); stale++; continue; }
+    fs.writeFileSync(file, after);
+    console.log("wrote " + file + " (tutor ItemList: " + site.publicTutors.length + " public tutors)");
   }
 
   if (check && stale) {

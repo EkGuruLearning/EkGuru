@@ -24,13 +24,47 @@ function check(name, ok, extra = "") {
 }
 
 const home = read("index.html");
-const dom = new JSDOM(home, { url: "https://ekguru.shop/" });
+const dom = new JSDOM(home, { url: "https://ekguru.shop/", runScripts: "outside-only" });
 const doc = dom.window.document;
 const experience = read("css/experience.css");
 const features = read("js/features.js");
 const i18n = read("js/i18n.js");
 const marquee = read("js/country-marquee.js");
 const visual = read("js/visual-learning.js");
+
+/* Exercise the real runtime SEO engine in an isolated DOM: the FAQ and HowTo
+   JSON-LD must match the copy already visible in the static homepage. */
+const seoWindow = dom.window;
+seoWindow.EKGURU_SITE = {
+  baseUrl: "https://ekguru.shop/", brand: "EkGuru",
+  tagline: "One Student. One Goal. One Guru."
+};
+seoWindow.EKGURU_MARKETS = [{ code: "en", locale: "en-US", country: "United States", dir: "ltr" }];
+seoWindow.EKGURU_TUTORS = [];
+seoWindow.eval(i18n);
+seoWindow.eval(read("js/seo.js"));
+const seoGraph = JSON.parse(doc.getElementById("ekguru-jsonld").textContent);
+const seoNodes = seoGraph["@graph"] || [];
+const faqSchema = seoNodes.find((node) => node["@type"] === "FAQPage");
+const howSchema = seoNodes.find((node) => node["@type"] === "HowTo");
+const visibleFaq = [...doc.querySelectorAll("#faq-list details")].map((item) => [
+  item.querySelector("summary").textContent.trim(), item.querySelector("p").textContent.trim()
+]);
+const visibleHow = [...doc.querySelectorAll("#how .xp-step")].map((item) => [
+  item.querySelector("b").textContent.trim(), item.querySelector("p").textContent.trim()
+]);
+const schemaFaq = faqSchema ? faqSchema.mainEntity.map((q) => [q.name, q.acceptedAnswer.text]) : [];
+const schemaHow = howSchema ? howSchema.step.map((step) => [step.name, step.text]) : [];
+check("SEO: visible FAQ and FAQPage structured data match exactly",
+  !!faqSchema && JSON.stringify(schemaFaq) === JSON.stringify(visibleFaq));
+check("SEO: visible self-study steps and HowTo structured data match exactly",
+  !!howSchema && JSON.stringify(schemaHow) === JSON.stringify(visibleHow));
+check("SEO: localized homepage title and description come from i18n",
+  doc.title === seoWindow.EKGURU_I18N.en["seo.homeTitle"] &&
+  doc.querySelector('meta[name="description"]').content === seoWindow.EKGURU_I18N.en["seo.homeDescription"]);
+check("SEO: empty public tutor roster produces an empty ItemList with no Offer claims",
+  seoNodes.some((node) => node["@type"] === "ItemList" && node.numberOfItems === 0 && node.itemListElement.length === 0) &&
+  !seoNodes.some((node) => ["Offer", "Service", "AggregateRating", "Review"].includes(node["@type"])));
 
 /* ── 1–3 · one design scale ────────────────────────────────────────────────
    The comment blocks in css/experience.css and index.html #critical promise a
@@ -80,8 +114,9 @@ check("4: the hero badge carries the sentence-case variant",
 check("4: the badge copy is not shouted",
   !!badge && badge.textContent.trim() === badge.textContent.trim().replace(/\s+/g, " ") &&
   !/ONLINE|BOOK NOW/.test(badge.textContent));
-check("4: the English i18n badge matches the static copy (lowercase 'online')",
-  /"hero\.badge": "100% Hindi · 1-on-1 online"/.test(i18n));
+check("4: the English i18n badge matches the static self-study copy",
+  /"hero\.badge": "Free Hindi course · self-paced"/.test(i18n) && !!badge &&
+  badge.textContent.includes("Free Hindi course · self-paced"));
 
 /* ── 5 · no skipped heading level ───────────────────────────────────────── */
 check("5: visual-learning.js inserts a level-2 heading after an existing <h2>",
@@ -184,8 +219,11 @@ check("19: the hero offers one secondary door, not a row of them",
   heroLinks.length === 1, heroLinks.join(" | "));
 check("20: the ambiguous 'Find My Guru' label is gone from the page",
   !/>\s*Find My Guru\s*</.test(home) && !/data-i18n="tutors.all"/.test(home));
-check("19: the search bar keeps the one primary action",
-  (doc.querySelectorAll(".xp-searchbar .btn-primary").length === 1));
+const homeCourseCta = doc.querySelector(".xp-searchbox > a.btn-primary");
+check("19: the hero's primary action opens the free Hindi course",
+  !!homeCourseCta && homeCourseCta.getAttribute("href") === "learn/hindi/" &&
+  /Start the free Hindi course/.test(homeCourseCta.textContent) &&
+  !doc.querySelector(".xp-searchbar"));
 
 /* ── 21 · the rail agrees with the section below it ────────────────────── */
 const railItems = [...doc.querySelectorAll("[data-xp-rail] .xp-rail-item")];

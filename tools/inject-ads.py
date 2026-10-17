@@ -126,12 +126,19 @@ def is_excluded(url):
     return False
 
 
-def classify(rel, page_html=None):
-    """The page's class — what kind of page it is.
+def is_noindex(page_html):
+    head = (page_html or "").split("</head>", 1)[0]
+    return bool(re.search(
+        r'<meta\b(?=[^>]*\bname=["\']robots["\'])(?=[^>]*\bcontent=["\'][^"\']*noindex)',
+        head, re.I
+    ))
 
-    Noindex is a publication state, not a content-length shortcut. Draft and
-    research pages remain ad-ineligible even if a path later moves or acquires
-    enough prose to resemble an article.
+
+def classify(rel, page_html=None):
+    """The page's content class — never its robots/indexability state.
+
+    A research notice is an editorial publication class. Noindex is a separate
+    loader gate in may_load(), so adding or removing it cannot relabel content.
     """
     if page_html is None:
         try:
@@ -143,12 +150,20 @@ def classify(rel, page_html=None):
     # Owner-only consoles remain ADMIN even though they also carry noindex.
     if any(match(pattern, url) for pattern in CLASSES["ADMIN"]["match"]):
         return "ADMIN"
-    head = page_html.split("</head>", 1)[0]
-    if re.search(r'<meta\b(?=[^>]*\bname=["\']robots["\'])(?=[^>]*\bcontent=["\'][^"\']*noindex)', head, re.I):
-        return "RESEARCH_REQUIRED"
-    if "research-notice" in page_html or 'data-publication-state="research-required"' in page_html:
+    has_research_notice = bool(re.search(
+        r'\bclass=["\'][^"\']*\b(?:research-notice|language-status-notice)\b[^"\']*["\']',
+        page_html, re.I
+    ))
+    has_research_state = bool(re.search(
+        r'\bdata-publication-state=["\']research-required["\']',
+        page_html, re.I
+    ))
+    if has_research_notice or has_research_state:
         return "RESEARCH_REQUIRED"
 
+    # Classifies the page's purpose, not whether it is indexable. A noindex
+    # learning tool remains INTERACTIVE_LEARNING; may_load() separately keeps
+    # every noindex page loader-free.
     for name in CLASS_ORDER:
         for pattern in CLASSES[name]["match"]:
             if match(pattern, url):
@@ -159,7 +174,15 @@ def classify(rel, page_html=None):
 def may_load(rel, page_html=None):
     """(class, allowed, why) — the policy decision, in one place."""
     url = to_url(rel)
+    if page_html is None:
+        try:
+            with open(rel, encoding="utf-8") as f:
+                page_html = f.read()
+        except (OSError, UnicodeDecodeError):
+            page_html = ""
     cls = classify(rel, page_html)
+    if is_noindex(page_html):
+        return cls, False, "noindex"
     if is_excluded(url):
         return cls, False, "excluded_paths"
     if cls not in ALLOWED:

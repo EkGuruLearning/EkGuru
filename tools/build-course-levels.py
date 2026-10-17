@@ -75,6 +75,13 @@ _bhp = importlib.util.module_from_spec(_spec)
 _spec.loader.exec_module(_bhp)
 head, foot, write_page = _bhp.head, _bhp.foot, _bhp.write_page
 
+# Reuse the course renderer's script matcher and speaker markup so native-script
+# title runs in generated navigation are tagged and controls remain outside links.
+_lang_spec = importlib.util.spec_from_file_location(
+    "build_language_course", os.path.join(ROOT, "tools", "build-language-course.py"))
+_lang_course = importlib.util.module_from_spec(_lang_spec)
+_lang_spec.loader.exec_module(_lang_course)
+
 
 CATALOGUE = "data/courses/index.json"
 LEVEL_FILE = "data/levels.json"
@@ -1087,16 +1094,38 @@ def ladder_page(code, course, levels, loaded, rungmap, figs):
 # the rail on the parent hub
 # ---------------------------------------------------------------------------
 
+def annotated_course_copy(text, code, language_name):
+    """Return tagged title copy and standalone controls for target-script runs."""
+    text = str(text or "")
+    pattern = _lang_course.target_script_pattern(language_name)
+    if not pattern:
+        return _clean(text), ""
+    parts, controls, cursor = [], [], 0
+    for match in pattern.finditer(text):
+        parts.append(_clean(text[cursor:match.start()]))
+        foreign = _lang_course.explicit_foreign_voice(
+            text, match.start(), match.end(), language_name)
+        lang, spoken_name = foreign if foreign else (code, language_name)
+        parts.append(_lang_course._tagged_language_text(match.group(0), lang))
+        controls.append(_lang_course.speaker_button(match.group(0), lang, spoken_name))
+        cursor = match.end()
+    parts.append(_clean(text[cursor:]))
+    return "".join(parts), "".join(controls)
+
+
 def rail_block(code, course, levels, loaded):
     rows = []
     for lv, data in zip(levels, loaded):
         if lv not in CEFR_LEVELS or not is_publishable(data, code, lv):
             continue
         n = counts_of(data, code, course["name"])
+        level_title = ((data or {}).get("level") or {}).get("title", "")
+        marked_title, controls = annotated_course_copy(
+            level_title, code, course.get("name", code))
         rows.append('<li><a href="/languages/%s/level/%s/"><b>%s</b> %s'
-                    "<span>%d lessons · %d questions</span></a></li>"
-                    % (code, lv.lower(), lv, _clean(((data or {}).get("level") or {}).get("title", "")),
-                       n["lessons"], n["practice"] + n["quiz"] + n["test"]))
+                    "<span>%d lessons · %d questions</span></a>%s</li>"
+                    % (code, lv.lower(), lv, marked_title,
+                       n["lessons"], n["practice"] + n["quiz"] + n["test"], controls))
     return (RAIL_START + "\n"
             '<section class="lv-levels" aria-labelledby="lv-levels-h">\n'
             '<h2 id="lv-levels-h">This course, level by level, in plain HTML</h2>\n'

@@ -340,7 +340,7 @@
   "ad_policy": {
     "schema_version": 1,
     "reviewed_at": "2026-09-29",
-    "rule": "Only HIGH_CONTENT and MEDIUM_CONTENT pages carry the AdSense account loader and verification meta, so Google can review the site. Every other class stays ad-free. Serving remains off in js/monetization.js (ADS_RUNTIME_ENABLED = false) and advertising consent stays unavailable in js/cookie-consent.js until approval.",
+    "rule": "Only indexable, non-excluded HIGH_CONTENT and MEDIUM_CONTENT pages carry the AdSense account loader and verification meta for site review. Noindex is an independent loader block, not a content class. Every other class stays ad-free. Serving remains off in js/monetization.js (ADS_RUNTIME_ENABLED = false) and advertising consent stays unavailable in js/cookie-consent.js until approval.",
     "loader_allowed": [
       "HIGH_CONTENT",
       "MEDIUM_CONTENT"
@@ -357,7 +357,7 @@
       },
       "RESEARCH_REQUIRED": {
         "match": [],
-        "why": "noindex, draft, research and otherwise unpublished pages: never monetised"
+        "why": "draft, research and otherwise unpublished content: never monetised; noindex is an independent loader block"
       },
       "TRANSACTIONAL": {
         "match": [
