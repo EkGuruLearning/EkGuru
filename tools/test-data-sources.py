@@ -30,17 +30,21 @@ Offline verification (no network — used in the audit sandbox):
            csv/ekguru_content.csv) and skips the network + Apps Script
            health check. This is how the check code itself is tested.
 
-In both live modes the Google Apps Script endpoint answers its health JSON.
-That one probe is retried up to three times, 5s apart, and the attempt it
-answered on is printed: the endpoint has timed out transiently in CI (the
-same commit green on one run, red on the next, 3 Oct 2026). A genuinely
-unreachable endpoint still fails the run — it just takes ~10s more to say so.
+In both live modes the Google Apps Script endpoint is probed for health JSON.
+That probe is retried up to three times, 5s apart. A 403 is reported as an
+UNVERIFIED external-health warning, not a pass: CI cannot distinguish Google
+blocking a datacenter request from an endpoint access/deployment problem.
+Other failures remain fatal. The public Sheet data/schema checks remain gating.
 
-Exit code 0 = all pass, 1 = any failure.
+Exit code 0 = all gating checks pass (a 403 health probe is explicitly
+unverified, not passed); 1 = any gating failure.
 """
-import csv, io, json, re, sys, time, urllib.request
+import csv, io, json, re, sys, time, urllib.error, urllib.request
 from collections import Counter
 from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from lib.appscript_health import is_unverified_appscript_403
 
 ROOT = Path(__file__).resolve().parent.parent
 _raw = __import__("os").environ.get("EKGURU_TEST_FIXTURE_DIR") or ""
@@ -104,6 +108,7 @@ def data_rows(rows):
     return [r for r in rows[1:] if r and r[0] and not r[0].startswith("#")]
 
 failures = []
+warnings = []
 checks = 0
 fallback_used = []
 
@@ -285,13 +290,24 @@ else:
         if tries > 1:
             print(f"  [Apps Script] answered on attempt {tries}/3 (the earlier timeout was transient)")
     except Exception as e:
-        check("Apps Script: reachable", False, f"{type(e).__name__}: {e} (after 3 attempts)")
+        if is_unverified_appscript_403(e):
+            warning = (
+                "Apps Script health returned HTTP 403; endpoint status is UNVERIFIED "
+                "(could be Google datacenter gating or deployment access settings)."
+            )
+            warnings.append(warning)
+            print(f"  [WARN] {warning}")
+        else:
+            check("Apps Script: reachable", False, f"{type(e).__name__}: {e} (after 3 attempts)")
 
 verdict = "PASS"
 if failures:
     verdict = "FAIL"
 elif fallback_used:
     verdict = "PASS (tsv fallback)"
+if warnings and not failures:
+    qualifier = "; ".join(warnings)
+    verdict = f"{verdict} (external health unverified: {qualifier})"
 print(f"\nMODE={MODE}: {checks} checks, {len(failures)} failures — {verdict}")
 if fallback_used:
     print("  tsv fallback used for:", ", ".join(fallback_used))

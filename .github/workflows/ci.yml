@@ -49,6 +49,7 @@ jobs:
 
       - name: "Data-source tests (network: published Sheet endpoints, csv -> tsv fallback)"
         run: |
+          python3 tools/test-appscript-health.py
           python3 tools/test-data-sources.py 2>&1 | tee /tmp/ds.out
           ec=${PIPESTATUS[0]}
           { echo "### test-data-sources.py (exit $ec)"; echo '```'; grep -E "FAIL|failures —|MODE=" /tmp/ds.out || true; tail -n 25 /tmp/ds.out; echo '```'; } >> "$GITHUB_STEP_SUMMARY"
