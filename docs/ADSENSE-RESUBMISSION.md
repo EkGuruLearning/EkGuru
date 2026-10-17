@@ -1,131 +1,135 @@
-# Re-submitting EkGuru to AdSense — what to send, and what to say
+# AdSense review: repository status and owner checklist
 
-Written 18 September 2026, after the review of 14 September. This is the packet
-for the *next* submission: what Google said, what was actually wrong, what has
-changed since, and the exact steps at the console. It is a checklist and an
-honest record, not a promise of approval — approval is Google's decision alone.
+Updated 17 October 2026. This is a repository-side readiness packet, not a claim
+about Google's decision. Google alone determines eligibility and approval. The
+counts below are automated triage evidence; they do not establish approval,
+originality, native-speaker quality, or live production behavior.
 
 Publisher ID: `pub-8175326569491671` · ads.txt seller: the same, `DIRECT`,
 certification authority `f08c47fec0942fa0`.
 
----
+## Account notice: verify before quoting
 
-## 1 · What the email actually said
+An earlier project note describes an AdSense notice mentioning insufficient
+content and low content quality. The exact account message, site status, and
+date have not been independently verified in this repository work. Check the
+owner's AdSense account and the original email before quoting that wording or
+using it as the confirmed reason for a decision.
 
-> "Your site is not ready to show ads yet: your site needs some small changes
-> before it can be approved." — with the standard note about **insufficient
-> content** and **low content quality**.
+## Current repository evidence
 
-Two things follow from that wording, and they shaped every round since:
+The reports were rebuilt on 17 October 2026 after aligning the readiness audit,
+full-page inventory, and Phase 2 inventory on the same visible-body extractor.
+Shared navigation, header/footer text, review notices, and `<head>` metadata are
+not counted as page body content. These current `data/quality/` reports supersede
+the dated snapshots under `reports/`; in particular, an older zero-thin-page
+count is not supported by the corrected body-text audit.
 
-- "small changes" is boilerplate. The two named problems are not small, and
-  treating them as small is how a site gets rejected twice.
-- **Insufficient content** and **low content quality** are different complaints.
-  A site can have 1,500 pages and still be rejected if most of them are thin,
-  templated, or written by a robot with nothing to say.
+| Check | Current result | What it means / does not mean |
+|---|---:|---|
+| Public HTML inventory | 2,721 pages: 1,006 indexable, 1,715 `noindex` | Static repository inventory; not a live crawl. No robots or canonical changes were made by these audits. |
+| Body-depth triage | 76 indexable pages below 250 counted words; 1,089 pages total below the heuristic, of which 1,013 are `noindex` | All 76 indexable pages are under `/learn/` and classified as learning content. The 250-word cutoff is a review heuristic, not a Google minimum or automatic quality verdict. Review substance and task fit; do not add filler to reach a number. |
+| Readiness page queue | 130 indexable pages: 76 body-depth reviews and 54 scalable-localization editorial reviews | The queue identifies work for a person; it is not a set of policy violations. |
+| Phase 3 review priorities | P1: 76 · P2: 739 · P3: 191 | These priorities cover all 1,006 indexable pages. Recorded human editorial, native-language, source-fact, and external-similarity reviews completed: **0**. |
+| Course inventory | 1,069 course files: 196 pass and 873 require review in the readiness audit | A machine pass is not independent linguistic or pedagogical verification. |
+| Language/course release gate | `BLOCKED`: 690 baseline-indexable language-related URLs map to failing language profiles; course health separately lists 90 reviewer gaps and 124 unverified source references across 40 languages | Repository release gates, not Google's findings. These counts overlap other queues and do not authorize indexation changes. |
+| Static technical inventory | 0 broken links; 0 indexable/sitemap mismatches; 0 `noindex` pages in the sitemap; 0 canonical mismatches | These are repository checks only. Phase 2 has live HTTP status pending for all 2,721 pages. |
+| Ad policy | 504 pages are marked/eligible to load the AdSense loader under the repository policy | The loader gate is code-checked; placement, consent, rendered mobile behavior, and account configuration still need review. Ad serving remains disabled in `js/monetization.js`. |
+| Publisher configuration | `ads.txt`, publisher-ID consistency, duplicate-loader, and page-class checks pass locally | This does not verify the live domain, AdSense account, a certified CMP, Auto ads settings, or approval. Consent and account-format status remain `REVIEW_REQUIRED`; approval is `NOT_ASSESSED`. |
 
-## 2 · What was actually wrong here
+Current machine-readable evidence:
 
-Found by auditing the repository rather than guessing:
+- `data/quality/adsense-readiness.json`
+- `data/quality/full-page-inventory.json`
+- `data/quality/phase2-content-inventory.json`
+- `data/quality/phase3-originality-audit.json`
+- `data/quality/language-gate.json`
+- `data/quality/course-health.json`
+- `data/monetization/google-monetization.json`
 
-| Finding | Then | Now |
-|---|---|---|
-| Pages under 250 words | 89 | 2 — both `noindex` utility pages (404, a JS shell) |
-| **Indexable** thin pages | 89 | **0** |
-| Pages missing an `h1` | many | 0 (`test-page-skeleton`, 1,566 pages) |
-| Canonicals pointing at the old GitHub Pages host | 546 | 0 |
-| Languages reachable but with nothing in them ("coming soon" hubs) | yes | removed — a language appears only when real lessons exist |
-| Duplicate intros across localised market pages | 6 pages | pages extended per locale |
-| A band on 1,527 pages claiming "never an ad on the free material" | — | corrected: the practice is ad-free, the pages around it are not |
-| The whole of A2–C2 of every course, plus A1 of 29 languages | reachable only inside a JavaScript player on a `#` route — invisible to a crawler | **273 real pages** at `/languages/<code>/level/<a1..c2>/`, plain HTML, answers included (`tools/build-course-levels.py`) |
+### How to interpret the page reviews
 
-The audit that produces these numbers is `tools/audit-adsense-readiness.py`; the
-machine-readable copy is `data/quality/adsense-readiness.json`.
+The 76 under-threshold pages are review candidates, not automatically bad
+pages. Check each page against its actual learning task: whether it provides
+useful original instruction, examples, practice, answers or guidance, and
+whether language claims and facts are sound. Improve a page only where a
+specific learner need is unmet; do not pad text to satisfy an automated count.
 
-## 3 · What the site is now
+The remaining 54 indexable page reviews concern scalable country/language
+localization and need editorial confirmation that the localized details are
+accurate and useful. Phase 3 flags all 1,006 indexable pages for some level of
+priority review; its automated similarity signals are not proof of copying or
+originality. Human review is still unrecorded.
 
-- **1,838 pages scanned**, 234 courses, **technical SEO PASS on all of them**
-  (title, meta description, exactly one `h1`, canonical, main landmark).
-- **0 indexable thin pages.** The two that remain short are deliberately short
-  and `noindex` — a 404 that tries to be an article is filler. The 273 new level
-  pages average several thousand words each, and the smallest is over 1,500.
-- **Creative work, not filler:** 32 languages with their own practice, quiz and
-  review engines; 352 level figures generated from the ladder (a learner whose
-  age is the level — a child at A1, an elder at C2); 193 country plates, each
-  built from the same language-country data as the page under it, showing the
-  country's own name in its own script and two honest numbers (languages
-  documented here, languages actually taught here); 13 plates for the toolbox
-  subject pages and the toolbox index, each drawn from the page's own rows so
-  the picture and the tool can never disagree; an eleven-rung
-  level reference page (`/how-levels-work/`) that says plainly that CEFR has six
-  levels and that the other five are half-steps; 32 tutor pages with real
-  profiles; a cookie policy that names every cookie.
-- **The courses are readable without JavaScript.** Every level of every one of
-  the 39 courses is a page: 273 pages carrying the lessons, the vocabulary with
-  romanisation, the grammar, the dialogues, all the practice questions, the quiz,
-  the worksheet, the answers and the ten-item level test. Before this round that
-  material existed only behind `/courses/#/<code>/<level>` — a hash route, which
-  is not a URL a crawler can read. This is the "insufficient content" answer in
-  its most literal form: the content was written and unreachable.
-- **Ad policy enforced in code:** the loader is present on 1,442 pages, absent
-  on 398 by policy — practice, quizzes, worksheets, typing, review, the course
-  player, **the 273 level pages** (a learner is mid-task there from top to
-  bottom), legal pages, contact, admin.
-- **ads.txt** is correct and the canonical domain is consistent everywhere.
+**Do not change `noindex`, canonical, or domain status based on these counts.**
+Those changes require the site owner's permission and a separate page-level
+indexation decision. Keep Googlebot and human-visible content aligned.
 
-## 4 · The account-side steps — these are not code, and they are not done
+## Remaining work before a resubmission decision
 
-Do these at the AdSense console, in this order, before pressing "Request review":
+1. **Review the 76 P1 learning pages.** Record the named reviewer, date, page,
+   language, evidence/source checks, and outcome. Make content changes only
+   when they add genuine learner value. If a page should not be indexed, raise
+   that as an owner decision; do not change its robots or canonical here.
+2. **Continue the broader editorial queue.** Review the 739 P2 and 191 P3 pages
+   for originality, accuracy, localization, and fit to user intent. The audit
+   currently records no completed human, native-language, source-fact, or
+   external-similarity checks.
+3. **Clear the language/course release-gate findings.** `data/quality/language-gate.json`
+   reports `BLOCKED`, with 690 baseline-indexable language-related URLs tied to
+   failing profiles. `data/quality/course-health.json` separately records 90
+   reviewer gaps and 124 unverified source references across 40 languages; the
+   counts overlap other queues. Obtain named, digest-bound native/editorial
+   review and verify sources. These are not instructions to remove or
+   deindex existing pages.
+4. **Complete course review.** Triage the 873 course files still marked for
+   review. Resolve known Telugu C1/C2 practice-coverage gaps (12/28 and 12/32
+   practice types respectively) through subject-matter review, not automatic
+   expansion.
+5. **Review language and profile warnings.** Malayalam romanization/script
+   presentation needs human review. Three tutor drafts—Hemlata, Sarshtee
+   Baliyan, and Tara—remain outside the tutor registry; do not present them as
+   verified profiles.
+6. **Run a production crawl and visual review.** Check HTTP status, redirects,
+   canonical and robots behavior, rendered page content, ad placement, consent,
+   mobile layouts, keyboard/accessibility behavior, and page performance on the
+   live domain. The repository inventory currently has 2,721 HTTP checks
+   pending.
+7. **Verify account-side settings.** Confirm the actual site status and notice
+   in AdSense; verify domain ownership and live `ads.txt`; configure and test a
+   Google-certified CMP/IAB TCF and regional privacy messages where applicable;
+   verify Auto ads formats, exclusions, and ad load; and confirm any payment or
+   tax requirements in the account. These cannot be established from source
+   code.
+8. **Make the resubmission decision only after review.** Recheck the production
+   site and the owner-controlled account configuration. No automated audit in
+   this repository can predict Google's outcome.
 
-1. **Privacy & messaging → GDPR message.** The site's own cookie notice is
-   informational only and is *not* a consent mechanism; the repository says so
-   out loud (docs/GOOGLE_MONETIZATION.md, `consent.status` in
-   data/monetization/google-monetization.json). For EEA/UK/Switzerland traffic,
-   configure Google's certified CMP (IAB TCF) before the review, or set the
-   account to non-personalised ads in those regions.
-2. **Site → verify ownership** for `ekguru.shop` (the Search Console meta tag is
-   already on every page, so this should resolve on its own).
-3. **ads.txt** should show as authorised (it can take days after a crawl).
-4. **Auto ads: turn on in-page formats only** for the review. Leave vignettes,
-   anchors, multiplex and ad intents off — they are off in this repository's
-   policy too.
-5. **Page exclusions in the account** must match the repository's list
-   (`data/monetization/google-monetization.json` → `excluded_paths`): practice,
-   quizzes, support, join, contact, legal, search, 404, tutor shell. The script
-   is not loaded there, but the account setting is the second lock on the same
-   door.
-6. **Payment address and tax info**, or the account stays limited regardless.
+## Optional short note for the review request
 
-## 5 · The request itself
+Fill the brackets only with changes verified on the live site and settings
+confirmed in the owner's AdSense account; do not send the placeholders:
 
-When requesting review, one or two sentences is enough — Google's reviewers do
-not act on prose, but a clear statement helps a human who opens the site:
+> EkGuru is a free Hindi-learning site. Since the previous review, we have
+> [briefly list site-side changes verified in production]. Our consent/privacy
+> and ad-format settings are [state only what was confirmed in the account].
+> Please review the current site.
 
-> EkGuru is a free Hindi-learning site. Since the last review we have removed
-> every thin indexable page, published 32 real language courses with practice
-> and quizzes, corrected the site's own claims about advertising, and kept ads
-> off every practice page by policy. The account-side consent configuration is
-> in place. Requesting a new review.
+A concise request does not substitute for improving the site or completing
+account-side setup. Remove any statement that cannot be independently confirmed.
 
-## 6 · After approval — what this repository already forbids
-
-- No ad during practice, a quiz, a worksheet, a typing drill or an exam attempt.
-- No ad on support, join, contact, booking, legal pages or the admin console.
-- No advertorial that looks like a lesson, no ad that imitates an EkGuru button.
-- No growth in ad density without a written experiment
-  (`docs/GOOGLE_AD_MANAGER_SCALE_PLAN.md`).
-
-## 7 · How to check the site's own side, any time
+## Repository checks
 
 ```bash
-python3 tools/audit-adsense-readiness.py          # content-quality numbers
-python3 tools/audit-adsense-readiness.py --selftest   # the counter, on unspaced scripts
-node tools/adsready.js --local                    # ads.txt, canonicals, sitemaps, legal pages
-node tools/adsready.js                            # the same facts against the live site (needs network)
-python3 tools/build-all.py check                  # every generator's gate + every test
+python3 tools/audit-adsense-readiness.py --selftest
+python3 tools/audit-adsense-readiness.py
+python3 tools/build-full-page-inventory.py --check
+python3 tools/build-phase2-content-inventory.py --check
+python3 tools/test-phase2-content-inventory.py
+python3 tools/build-phase3-originality-audit.py --check
+python3 tools/build-all.py check
 ```
 
-`tools/adsready.js` writes `reports/adsready.json` (live) and
-`reports/adsready-local.json` (repository mode). Neither tool predicts approval;
-they exist so that a rejection is never a surprise about something the
-repository could have caught.
+`tools/adsready.js --local` checks repository-side publisher configuration;
+without `--local`, it attempts live checks and requires network access. Neither
+mode predicts AdSense approval.
