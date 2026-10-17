@@ -29,6 +29,13 @@ for p in pages():
     robots = Page(base).meta.get('robots'); 
     if Page(raw).meta.get('robots') != robots: fail(rel, 'robots changed by decoration')
     if Page(raw).canonical != Page(base).canonical: fail(rel, 'canonical changed by decoration')
+for locale in au.LOCALES:
+    rel = f'{locale}/index.html'; raw = (ROOT / rel).read_text(encoding='utf-8')
+    head = raw.split('</head>', 1)[0]
+    assets = head.find('<!-- ekguru:ultra-assets:start -->')
+    style = head.find('<style')
+    if assets >= 0 and style >= 0 and assets > style:
+        fail(rel, 'shared stylesheet block moved after the page-specific style')
 for rel in au.NEW_PAGES:
     p = ROOT / rel; raw = p.read_text(encoding='utf-8'); s = Page(raw)
     if not s.noindex: fail(rel, 'new page must be noindex')

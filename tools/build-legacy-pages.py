@@ -545,7 +545,16 @@ def splice_bands(html, path, countries, by_country):
              + support_band(page_lang(html)) + BAND_END + "\n")
     if BAND_START in html:
         start = html.index(BAND_START)
-        end = html.index(BAND_END, start) + len(BAND_END)
+        end = html.find(BAND_END, start)
+        if end == -1:
+            # One historical tool page had the generated band opener but no
+            # closer. Its next-step and support content run to the end of main;
+            # recover that block instead of crashing the master build check.
+            end = html.find("</main>", start)
+            if end == -1:
+                raise SystemExit("ERROR: %s has an unclosed page band and no </main>" % path)
+        else:
+            end += len(BAND_END)
         tail = html[end:]
         tail = tail[1:] if tail.startswith("\n") else tail
         return html[:start] + block + tail

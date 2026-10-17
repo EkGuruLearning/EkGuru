@@ -15,6 +15,7 @@ SLUG_CODE = {'hindi': 'hi', 'bengali': 'bn', 'gujarati': 'gu', 'kannada': 'kn', 
 # Keep them out of SLUG_CODE so they are not mistaken for generated course hubs.
 WORLD_GUIDE_CODES = {'arabic': 'ar', 'spanish': 'es', 'german': 'de'}
 LOCALES = ['ar', 'de', 'es', 'fr', 'ja', 'pt']
+MARKET_HOMES = {f'{locale}/index.html' for locale in LOCALES}
 REGISTRY = {r['code']: r for r in load('data/languages/registry.json', {'languages': []})['languages']}
 AVAILABLE = {l['code'] for l in load('data/learning/index.json', {'languages': []})['languages']}
 LEVEL_PAGES = set(load('data/learning/offline-levels.json', {'levels': {}})['levels'])
@@ -139,7 +140,14 @@ def transform(raw, rel, metadata):
     raw = re.sub(r'<html\b', f'<html data-learning-language="{code}"', raw, count=1, flags=re.I)
     m = re.search(r'<head\b[^>]*>', raw, re.I)
     if m: raw = raw[:m.end()] + head_block(raw, rel, code) + raw[m.end():]
-    if '</head>' in raw: raw = raw.replace('</head>', assets_block(rel, code, learning) + '</head>', 1)
+    assets = assets_block(rel, code, learning)
+    # The six market homes have local overrides; shared styles must stay before
+    # their <style> block so the page-specific rules retain precedence.
+    style = re.search(r'<style\b', raw, re.I) if rel in MARKET_HOMES else None
+    if style:
+        raw = raw[:style.start()] + assets + raw[style.start():]
+    elif '</head>' in raw:
+        raw = raw.replace('</head>', assets + '</head>', 1)
     h1 = re.search(r'</h1>', raw)
     home = rel == 'index.html' or bool(re.match(r'^(?:ar|de|es|fr|ja|pt)/index\.html$', rel))  # hero pages keep the footer links only
     if h1 and not home and (rel in NEW_PAGES or not UTILITY.match(url)):

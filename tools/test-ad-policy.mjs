@@ -51,7 +51,7 @@ const isNoindex = (html = "") =>
   /<meta\b(?=[^>]*\bname=["']robots["'])(?=[^>]*\bcontent=["'][^"']*noindex)/i.test(html);
 const classify = (u, html = "") => {
   for (const pattern of (CLASSES.ADMIN || {}).match || []) { if (globRe(pattern).test(u)) return "ADMIN"; }
-  if (/\bclass=["'][^"']*\bresearch-notice\b[^"']*["']/i.test(html) ||
+  if (/\bclass=["'][^"']*\b(?:research-notice|language-status-notice)\b[^"']*["']/i.test(html) ||
       /\bdata-publication-state=["']research-required["']/i.test(html)) return "RESEARCH_REQUIRED";
   for (const name of ["TRANSACTIONAL", "UTILITY", "INTERACTIVE_LEARNING", "HIGH_CONTENT", "MEDIUM_CONTENT"]) {
     for (const pattern of (CLASSES[name] || {}).match || []) {
@@ -70,6 +70,10 @@ ok("content classes have routes; research-required is marker-based",
     (n === "RESEARCH_REQUIRED" ? c.match.length === 0 : c.match.length > 0)));
 ok("noindex alone does not alter the content class",
   classify("/toolbox/hindi-text-counter/", '<meta name="robots" content="noindex, follow">') === "INTERACTIVE_LEARNING");
+ok("language publication notices classify as research-required",
+  classify("/kannada/alphabet/", '<aside class="note language-status-notice">Research archive</aside>') === "RESEARCH_REQUIRED");
+ok("unpublished tutor metadata classifies as research-required",
+  classify("/tutor/hemlata/", '<html data-publication-state="research-required">') === "RESEARCH_REQUIRED");
 ok("every class says why it exists",
   Object.values(CLASSES).every((c) => c.why));
 ok("the interactive class may never load the loader",

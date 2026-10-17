@@ -108,7 +108,7 @@ can never drift from the colours the page uses.
 | the `<script>` tags that load the tutors | `js/tutors/_registry.js` | `tools/langsync.js` |
 | `hindi-tutor/*`, `tutor/`, `*/find-tutors.html` | `js/tutors/*` | `tools/build-roster-rows.js` |
 | the header and footer on **every** page | the settings tab (tagline, email, mode) | `tools/build-shell.js` |
-| the 969 pre-v200 pages: body design, the support band, each page's next step | `css/experience.css` §25 + the page itself | `tools/build-legacy-pages.py` |
+| the 970 pre-v200 pages: body design, the support band, each page's next step | `css/experience.css` §25 + the page itself | `tools/build-legacy-pages.py` |
 | `/terms/ /privacy/ /disclaimer/ /copyright/` contents card + clause ids | the page's own headings | `tools/build-legal-pages.py` |
 
 The market pages are generated because six hand-edited copies is exactly how
@@ -171,7 +171,7 @@ and marks the block `.xp-doc`. It never touches a word: the tool compares the
 prose before and after and refuses to write if they differ, because legal
 wording is the last thing a build script should rewrite to suit a stylesheet.
 
-## The reading layer (the 969 hand-written pages)
+## The reading layer (the 970 hand-written pages)
 
 Every page written before the v200 system — 195 country funnels, the language
 topic pages, `daily-hindi/*`, the toolbox, the tutor lists, the answers — used
@@ -202,7 +202,7 @@ same components they always had — `.lede`, `.facts`, `.faq`, `.chips`, `.card`
   `pw-legacy`, so no rule in the layer can reach them, and `.card` keeps two
   meanings safely (a link card in `.cards`, a flashcard inside a tool).
 
-Two bands are added to every one of the 969 pages, both as chrome
+Two bands are added to every one of the 970 pages, both as chrome
 (`<footer>`/`<nav>`) so the copy index reads them as chrome and not as prose:
 
 * `.pw-support` — the promise the site makes everywhere else and, until now,
@@ -213,8 +213,8 @@ Two bands are added to every one of the 969 pages, both as chrome
   `/courses/by-country/` is built from) and links to `/courses/?country=XX`;
   a language page links to its own course.
 
-Prose is untouched: a jsdom pass over all 969 pages compares the text before
-and after the rewrite, and 969/969 come out byte-identical.
+Prose is untouched: a jsdom pass over all 970 pages compares the text before
+and after the rewrite, and 970/970 come out byte-identical.
 
 ## The page layer (the other 555 hand-written pages)
 
@@ -261,7 +261,7 @@ python3 tools/bundle-experience-css.py --check   # css/experience.css → css/st
 python3 tools/build-world-art.py   --check       # the nine market emblems
 python3 tools/build-course-hub.py  --check       # /courses/ + the home teaser
 python3 tools/build-course-countries.py --check   # /courses/by-country/ + its sitemaps
-python3 tools/build-legacy-pages.py --check       # the 969 pages on the reading layer
+python3 tools/build-legacy-pages.py --check       # the 970 pages on the reading layer
 python3 tools/build-page-layer.py  --check       # the 555 pages on the page layer
 node    tools/langsync.js          --check       # tutor <script> tags, all 23 pages
 node    tools/build-tutor-pages.js --check       # profiles + sitemaps + feed
@@ -274,7 +274,7 @@ node    tools/test-search-facets.mjs             # country + language dropdowns
 node    tools/test-shell-drawer.mjs              # one owner of the menu button
 node    tools/test-copy-index.mjs                # the ownership matcher
 node    tools/test-course-country.mjs            # course search by country, both ways
-node    tools/test-reading-layer.mjs             # one stylesheet, two bands, 969 pages
+node    tools/test-reading-layer.mjs             # one stylesheet, two bands, 970 pages
 node    tools/build-shell.js            --check  # header + footer on 1,563 pages
 node    tools/build-copy-index.js       --check  # ownership fingerprints
 python3 tools/build-legal-pages.py      --check  # the five legal pages' contents cards

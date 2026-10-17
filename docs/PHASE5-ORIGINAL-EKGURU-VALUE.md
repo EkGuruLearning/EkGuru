@@ -23,7 +23,7 @@ Passed:
 
 - `python3 tools/test-phase5-ekguru-value.py` — all exercise prompts and revealed answers match the repository's Hindi numbers tool data and page examples.
 - `python3 tools/build-legacy-pages.py --check --only hindi/numbers/index.html` — the page remains current on the reading layer.
-- `node tools/test-reading-layer.mjs` — all 14 reading-layer checks pass across 969 pages.
+- `node tools/test-reading-layer.mjs` — all 14 reading-layer checks pass across 970 pages.
 - `python3 -m py_compile tools/test-phase5-ekguru-value.py`
 - `git diff --check`
 

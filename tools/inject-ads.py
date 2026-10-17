@@ -151,7 +151,7 @@ def classify(rel, page_html=None):
     if any(match(pattern, url) for pattern in CLASSES["ADMIN"]["match"]):
         return "ADMIN"
     has_research_notice = bool(re.search(
-        r'\bclass=["\'][^"\']*\bresearch-notice\b[^"\']*["\']',
+        r'\bclass=["\'][^"\']*\b(?:research-notice|language-status-notice)\b[^"\']*["\']',
         page_html, re.I
     ))
     has_research_state = bool(re.search(

@@ -87,17 +87,20 @@ def main() -> int:
     if summary.get("content_or_indexation_changes_performed") != 0:
         errors.append("summary claims content or indexation changes")
 
-    # Regression: this is visible page copy, not merely an implementation
-    # identifier in script, and the triage must retain it for editor attention.
+    # Regression: this course-code identifier appears in executable script,
+    # not visible page copy. It must not be reported as unresolved prose; the
+    # synthetic visible-token case below verifies that real copy is still caught.
     arabic_quiz = next((p for p in pages if p.get("source_file") == "languages/ar/quiz/index.html"), None)
     if not arabic_quiz:
         errors.append("Arabic quiz page is missing from the audit")
     else:
         signals = arabic_quiz["repository_evidence"]["structural_signals"]
-        if "EKGURU_COURSE_AR" not in signals.get("unresolved_template_token_candidates", []):
-            errors.append("visible Arabic quiz course-code token was not surfaced for review")
-        if "visible_unresolved_template_token_candidate" not in arabic_quiz.get("automated_flags", []):
-            errors.append("visible token candidate has no review flag")
+        if "EKGURU_COURSE_AR" not in (ROOT / "languages/ar/quiz/index.html").read_text(encoding="utf-8"):
+            errors.append("Arabic quiz implementation fixture changed unexpectedly")
+        if "EKGURU_COURSE_AR" in signals.get("unresolved_template_token_candidates", []):
+            errors.append("script-only Arabic quiz course-code identifier was misclassified as visible copy")
+        if "visible_unresolved_template_token_candidate" in arabic_quiz.get("automated_flags", []):
+            errors.append("script-only Arabic quiz identifier received a visible-copy review flag")
 
     # Synthetic extraction regression: chrome should not be sampled as content,
     # but visible examples, a mistake heading, controls and unresolved tokens should.
