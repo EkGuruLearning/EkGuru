@@ -7,10 +7,33 @@
    live site pick them up, without touching a file or pushing
    anything.
 
-   Change a price in the Sheet, and within an hour every
-   visitor sees the new price. Add a tutor's video link, mark
-   someone unavailable, correct a typo in a bio — all from a
+   Change a price in the Sheet, and every visitor sees the new
+   price within seconds once the live feed is switched on (see
+   LIVE FEED below), or within about five minutes on Google's
+   published link alone. Add a tutor's video link, mark someone
+   unavailable, correct a typo in a bio — all from a
    spreadsheet on your phone.
+
+   LIVE FEED (28 Oct 2026)
+
+   Google caches a published CSV for about five minutes. When
+   js/site-config.js has feed.url set to an Apps Script /exec
+   address (apps-script/LiveFeed.gs), this file asks that feed
+   FIRST, and falls back to the published CSV if the feed is
+   slow, down or answers with a web page. Blank feed.url means
+   the feed is off and nothing changes. js/reviews.js and
+   js/settings.js do the same.
+
+   NEW TUTORS (the approved column)
+
+   A row for someone with no js/tutors/<id>.js is published
+   only when ALL of these hold: approved is yes (or true, 1, y,
+   approved), active is not no, the row has a name, the photo is
+   a real image (not a placeholder) and the id is lowercase
+   letters, numbers and hyphens. A blank approved cell means
+   not approved. A tutor already in js/tutors/_registry.js
+   does not need approved. Rows that fail are named, with the
+   reason, in the console and in EkGuruSheet.info().unknown.
 
    ---------------------------------------------------------
    HOW IT WORKS, AND ITS ONE REAL LIMITATION
@@ -42,9 +65,11 @@
      id | name | priceUSD | lessonLength | headline | city
      video | whatsapp | email | active | bio | tags | teaches
 
-     · id        must match js/tutors/<id>.js exactly
+     · id        must match js/tutors/<id>.js exactly, unless the
+                 row is a new guru with approved=yes (see above)
      · video     the 11-character YouTube id, not the full URL
      · active    put "no" or "false" to hide a tutor entirely
+     · approved  "yes" publishes a new guru who has no file yet
      · tags      comma separated
      · teaches   comma separated
      · blank     a blank cell changes nothing, it does not
@@ -75,6 +100,32 @@
   var S = window.EKGURU_SITE || {};
   var CFG = S.sheet || {};
   var url = String(CFG.csvUrl || "").trim();
+
+  /* =========================================================
+     THE LIVE FEED (28 Oct 2026)
+     ---------------------------------------------------------
+     Google's "Publish to web" CSV is cached by Google for about
+     five minutes, and nothing in the browser can shorten that.
+     apps-script/LiveFeed.gs reads the same workbook directly and
+     returns the same CSV text, so every parser below works on it
+     unchanged. It is tried FIRST; the published CSV and then TSV
+     stay behind it as fallbacks, so a feed that is down or not
+     deployed yet never costs the site its data.
+
+     S.feed.url is validated hard: it must be an Apps Script
+     /exec address and nothing else (the "second-key-here"
+     lesson, js/site-config.js). A blank or malformed value means
+     the feed is simply off.
+
+     feedUrl() is duplicated in js/reviews.js and js/settings.js.
+     tools/test-live-feed.js asserts the three agree. */
+  function feedUrl(tab) {
+    var F = S.feed || {};
+    var base = String(F.url || "").trim();
+    if (!/^https:\/\/script\.google\.com\/macros\/s\/[A-Za-z0-9_-]+\/exec$/.test(base)) return "";
+    var sec = Number(F.cacheSeconds) > 0 ? Number(F.cacheSeconds) : 30;
+    return base + "?tab=" + encodeURIComponent(tab) + "&t=" + Math.floor(Date.now() / (sec * 1000));
+  }
 
   var CACHE_KEY = "ekguru_sheet_v1";
   var MAX_AGE = (Number(CFG.cacheMinutes) || 60) * 60 * 1000;
@@ -228,7 +279,7 @@
      bottom of the file, after FIELDS exists. The function is
      declared, so calling it later is safe; calling it earlier is
      not. */
-  var configured = !!url && typeof window.fetch === "function";
+  var configured = (!!url || !!feedUrl("tutors")) && typeof window.fetch === "function";
 
   /* ---------------------------------------------------------
      A delimited-text parser that handles quoted fields, because
@@ -656,8 +707,28 @@
      ========================================================= */
   var MASTER = null;
 
+  /* 28 Oct 2026 — "no tutor list" and "an EMPTY tutor list" are
+     different pages, and they used to be treated as one.
+
+     A pre-rendered profile or city page loads this file WITHOUT
+     js/tutors-data.js, so window.EKGURU_TUTORS does not exist: the
+     page only displays one record and must create nothing.
+
+     A listing page (home, find-tutors) does run tutors-data.js. When
+     every registry tutor is switched off in the sheet, the baked
+     hidden list (js/tutors/_overrides.js) leaves that array EMPTY,
+     but it is still an array that the page renders from. Testing
+     "length === 0" took that page for a profile page, so a newly
+     approved guru was never created and an un-hidden registry tutor
+     never came back. HAS_LIST remembers, from the first look, whether
+     the array existed at all. */
+  var HAS_LIST = false;
+
   function master() {
-    if (!MASTER) MASTER = (window.EKGURU_TUTORS || []).slice();
+    if (!MASTER) {
+      HAS_LIST = Array.isArray(window.EKGURU_TUTORS);
+      MASTER = (window.EKGURU_TUTORS || []).slice();
+    }
     return MASTER;
   }
 
@@ -815,7 +886,7 @@
            is hidden. Dropping the row outright left hidden tutors
            standing on exactly those pages. (v130) */
         if (isHidden) {
-          if (!MASTER || !MASTER.length) {
+          if (!HAS_LIST) {
             byId[r.id] = { id: r.id, _recordOnly: true, _hiddenBySheet: true };
             hidden++;
           }
@@ -841,7 +912,7 @@
            reads the values straight off the record. Keep the row so
            it can, and create nothing.
            ========================================================= */
-        if (!MASTER || !MASTER.length) {
+        if (!HAS_LIST) {
           byId[r.id] = { id: r.id, _recordOnly: true };
           Object.keys(FIELDS).forEach(function (col) {
             var raw = pick(r, lower, col);
@@ -855,21 +926,44 @@
           return;
         }
 
-        /* Publication gate (27 Sep 2026). The sheet may update a tutor
-           who is already in the reviewed public registry. It may not
-           invent a public profile. Draft rows (Hemlata, Tara, Sarshtee
-           and any future sheet-only id) were reappearing on the live
-           homepage — including placeholder photos — because active=yes
+        /* Publication gate (27 Sep 2026, reopened 28 Oct 2026).
+
+           27 Sep: the sheet could update a tutor who was already in
+           the reviewed public registry, but it could not invent a
+           public profile. Draft rows (Hemlata, Tara, Sarshtee and
+           any later sheet-only id) kept reappearing on the live
+           homepage, placeholder photos included, because active=yes
            took the create path and bypassed js/tutors/_registry.js.
-           Static profile pages for those drafts stay noindex; the
-           runtime must not undo that. Adding a tutor still means the
-           reviewed registry, then a rebuild. */
+
+           28 Oct: the owner wants new gurus to appear as soon as a
+           row is marked ready, without a code change. The registry
+           alone made that impossible, so the gate is now TWO ways in:
+
+             1. the id is in the reviewed registry (as before), or
+             2. the row says approved=yes.
+
+           Everything else is unchanged and still enforced below:
+           a name, a real (non-placeholder) photo, a safe id, and
+           active not set to no. A new applicant therefore stays
+           private until the owner writes approved=yes, which is the
+           consent and review step. A blank or missing approved
+           column means "not approved". */
         var reviewed = {};
         (window.EKGURU_TUTOR_ORDER || []).forEach(function (id) {
           reviewed[String(id).toLowerCase()] = 1;
         });
-        if (!reviewed[r.id]) {
-          skipped.push(r.id + " (not in reviewed public registry)");
+        var approved = /^(yes|true|1|y|approved)$/i.test(
+          String(pick(r, lower, "approved") || "").trim());
+        if (!reviewed[r.id] && !approved) {
+          skipped.push(r.id + " (not approved: write approved=yes in the sheet to publish)");
+          return;
+        }
+        /* The id becomes a URL (tutor.html?id=...) and a data attribute,
+           so only a plain slug is allowed. Anything else is refused
+           rather than cleaned up: a quietly rewritten id would point
+           the card at a different tutor than the row the owner edited. */
+        if (!/^[a-z0-9][a-z0-9-]{1,59}$/.test(r.id)) {
+          skipped.push(r.id + " (id must be lowercase letters, numbers and hyphens)");
           return;
         }
         t = buildFromRow(r, lower);
@@ -1003,7 +1097,7 @@
        the SAME URL with output=tsv. tools/sheet-fetch.js is the
        build-side twin of this logic; tools/test-sheet-fetch.mjs
        proves the two agree. */
-    function tryOne(url, fmt) {
+    function tryOne(url, fmt, label) {
       var ctrl = null, timer = null;
       try { ctrl = new AbortController(); } catch (e) {}
       if (ctrl) timer = setTimeout(function () { try { ctrl.abort(); } catch (e) {} }, 8000);
@@ -1030,7 +1124,7 @@
         })
         .catch(function (e) {
           if (timer) clearTimeout(timer);
-          e.message = fmt.toUpperCase() + ": " + e.message;
+          e.message = (label || fmt).toUpperCase() + ": " + e.message;
           throw e;
         });
     }
@@ -1041,14 +1135,27 @@
       return u + (u.indexOf("?") === -1 ? "?" : "&") + "output=tsv";
     }
 
+    /* Sources in the order they are tried: the live feed (if one is
+       configured), then the published CSV, then the same URL as TSV.
+       With no feed this is exactly the CSV-then-TSV chain it was. */
+    function fetchRows() {
+      var tries = [];
+      var f = feedUrl("tutors");
+      if (f) tries.push(function () { return tryOne(f, "csv", "feed"); });
+      if (url) {
+        tries.push(function () { return tryOne(url, "csv"); });
+        tries.push(function () { return tryOne(tsvVariant(url), "tsv"); });
+      }
+      var errors = [];
+      function next(i) {
+        if (i >= tries.length) return Promise.reject(new Error(errors.join(" / ")));
+        return tries[i]().catch(function (e) { errors.push(e.message); return next(i + 1); });
+      }
+      return next(0);
+    }
+
     function once(attempt) {
-      return tryOne(url, "csv")
-        .catch(function (csvErr) {
-          /* Non-200 or non-CSV on output=csv: same URL as TSV. */
-          return tryOne(tsvVariant(url), "tsv").catch(function (tsvErr) {
-            throw new Error(csvErr.message + " / " + tsvErr.message);
-          });
-        })
+      return fetchRows()
         .then(function (rows) {
           /* Report columns the code expects but the sheet lacks, so a
              silently-dead column is visible instead of mysterious.

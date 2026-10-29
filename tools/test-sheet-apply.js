@@ -312,6 +312,78 @@ setTimeout(function () {
       !made,
       made ? made.name + " / $" + made.priceUSD : "correctly withheld");
 
+    /* ---- approved=yes pass (28 Oct 2026) ---------------------------------
+       The owner wants a new guru to appear as soon as a row is marked ready,
+       with no code change. The second way in is an `approved` column. These
+       cases prove the gate opens only for approved=yes AND still enforces the
+       checks that were already there: a name, a real photo, a safe id, and
+       active not set to no. Every other row must stay private. */
+    const APPROVED_COLS = CSV_HEAD.concat(["approved"]);
+    const rowFor = function (over) {
+      return APPROVED_COLS.map(function (h) {
+        if (Object.prototype.hasOwnProperty.call(over, h)) return over[h];
+        return "";
+      }).map(function (v) {
+        return /[",\n]/.test(String(v)) ? '"' + String(v).replace(/"/g, '""') + '"' : String(v);
+      }).join(",");
+    };
+    const base = function (id, extra) {
+      return Object.assign({
+        id: id, active: "yes", name: "Test " + id, subject: "Hindi", priceUSD: "9",
+        lessonLength: "50 min", photo: "images/" + id + ".jpg",
+        headline: "Added from the sheet with approved=yes", approved: "yes"
+      }, extra || {});
+    };
+    const MATRIX = [
+      ["yes-tutor",   base("yes-tutor"),                                    true,  "approved=yes publishes"],
+      ["true-tutor",  base("true-tutor", { approved: "TRUE" }),             true,  "approved=TRUE publishes"],
+      ["one-tutor",   base("one-tutor", { approved: "1" }),                 true,  "approved=1 publishes"],
+      ["blank-tutor", base("blank-tutor", { approved: "" }),                false, "a blank approved cell stays private"],
+      ["no-tutor",    base("no-tutor", { approved: "no" }),                 false, "approved=no stays private"],
+      ["maybe-tutor", base("maybe-tutor", { approved: "pending" }),         false, "approved=pending stays private"],
+      ["hidden-tutor",base("hidden-tutor", { active: "no" }),               false, "approved=yes but active=no stays hidden"],
+      ["nophoto-tutor",base("nophoto-tutor", { photo: "" }),                false, "approved=yes with no photo stays private"],
+      ["holder-tutor",base("holder-tutor", { photo: "images/placeholder.svg" }), false, "approved=yes with a placeholder photo stays private"],
+      ["noname-tutor",base("noname-tutor", { name: "" }),                   false, "approved=yes with no name stays private"],
+      ["Bad Id!",     base("Bad Id!"),                                      false, "approved=yes with an unsafe id is refused"]
+    ];
+    const withApproved = CSV_ROWS.map(function (r, i) {
+      const cells = r.map(function (v) {
+        return /[",\n]/.test(String(v)) ? '"' + String(v).replace(/"/g, '""') + '"' : String(v);
+      });
+      /* header gets the column name, every existing row gets a blank cell */
+      return cells.concat([i === 0 ? "approved" : ""]).join(",");
+    }).join("\r\n") + "\r\n" + MATRIX.map(function (m) { return rowFor(m[1]); }).join("\r\n") + "\r\n";
+    csvText = withApproved;
+
+    return window.EkGuruSheet.refresh().then(function () {
+      const ids = window.EKGURU_TUTORS.map(function (t) { return t.id; });
+      MATRIX.forEach(function (m) {
+        check(m[3], (ids.indexOf(m[0]) > -1) === m[2],
+          m[0] + " present=" + (ids.indexOf(m[0]) > -1));
+      });
+      const y = window.EKGURU_TUTORS.filter(function (t) { return t.id === "yes-tutor"; })[0];
+      check("an approved row carries its fields to the site (name, price, photo)",
+        !!y && y.name === "Test yes-tutor" && y.priceUSD === 9 && /yes-tutor\.jpg$/.test(y.photo),
+        y && JSON.stringify({ n: y.name, p: y.priceUSD, ph: y.photo }));
+      check("an approved row never carries marketplace metrics",
+        !!y && (!y.rating || Number(y.rating) === 0) && !y.preplyUrl, y && y.rating);
+      const info2 = window.EkGuruSheet.info && window.EkGuruSheet.info();
+      const skipped = (info2 && info2.unknown) || [];
+      check("the skipped list explains why an unapproved row stays private",
+        skipped.some(function (s) { return /blank-tutor.*not approved/.test(s); }), JSON.stringify(skipped).slice(0, 300));
+      check("the skipped list explains why a photo-less approved row stays private",
+        skipped.some(function (s) { return /nophoto-tutor.*placeholder photo/.test(s); }), JSON.stringify(skipped).slice(0, 300));
+
+      /* take the matrix tutors back out so the stale-sheet pass below sees
+         exactly the roster it was written for */
+      MATRIX.forEach(function (m) {
+        const k = window.EKGURU_TUTORS.findIndex(function (t) { return t.id === m[0]; });
+        if (k > -1) window.EKGURU_TUTORS.splice(k, 1);
+      });
+      return window.EkGuruSheet.refresh();
+    }).then(function () {
+
     /* ---- third pass: the stale-sheet regression (27 Sep 2026) ----------
        The live sheet carried Sushila's external-marketplace values
        (rating 5 / 3 reviews / 40 lessons / superTutor / her profile
@@ -354,6 +426,7 @@ setTimeout(function () {
         ? "ALL SHEET-APPLY TESTS PASSED — sheet edits (incl. video links) apply; marketplace metrics and profile links never do (27 Sep 2026 policy)."
         : failures + " FAILURE(S)"));
       process.exit(failures === 0 ? 0 : 1);
+    });
     });
   });
 }, 300);

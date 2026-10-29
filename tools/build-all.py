@@ -226,6 +226,7 @@ def main():
                 ["node", "tools/test-refresh-quiet.mjs"])
             run("page skeleton test (one main, skip link lands)", ["node", "tools/test-page-skeleton.mjs"])
             run("sheet-apply test (sheet row -> site)", ["node", "tools/test-sheet-apply.js"])
+            run("live-feed test (apps script feed, loaders, privacy)", ["node", "tools/test-live-feed.js"])
             run("sheetsync policy test (build side refuses marketplace values)",
                 ["node", "tools/test-sheetsync-policy.js"])
             run("no-competitor-attribution gate (public output + rendered strings)",

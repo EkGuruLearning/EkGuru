@@ -720,6 +720,39 @@ window.EKGURU_SITE = {
   },
 
   /* =========================================================
+     LIVE FEED (Apps Script)
+     ---------------------------------------------------------
+     Google's "Publish to web" CSV is cached by Google for about
+     five minutes, so a sheet edit can take that long to reach the
+     site. The live feed reads the cells directly, and clears its
+     own cache the moment the sheet is edited.
+
+     BLANK = OFF. While url is empty the site behaves exactly as it
+     did before and reads only the published CSV, so this file is
+     safe to merge before the script is deployed.
+
+     TO TURN ON (about five minutes, once):
+       1. Open the EkGuru DB sheet, Extensions, Apps Script.
+       2. Paste apps-script/LiveFeed.gs, then Deploy, New deployment,
+          Web app, Execute as: Me, Who has access: Anyone.
+       3. Paste the /exec address below.
+     Full steps: apps-script/LIVE-FEED-SETUP.md
+
+     js/sheet.js, js/reviews.js and js/settings.js ask the feed first
+     and fall back to the published CSV if the feed is slow or down.
+     Only an address of the exact form
+       https://script.google.com/macros/s/<id>/exec
+     is accepted; anything else is ignored.
+
+     cacheSeconds is the browser-side time bucket. The script has its
+     own 30 second cache that is cleared on every edit.
+     ========================================================= */
+  feed: {
+    url: "",
+    cacheSeconds: 30
+  },
+
+  /* =========================================================
      REAL CALENDAR BOOKING
      ---------------------------------------------------------
      Opt-in per tutor. Add  calLink: "username/50min"  to a

@@ -5808,3 +5808,22 @@ html[dir="rtl"] .xp-hero-copy > .ekg-greeting-line {
   .fc-chip,
   .fc-actions .btn { min-height: 44px; }
 }
+
+/* =========================================================
+   HEADER CALL-TO-ACTION KEEPS ITS WHITE TEXT  (29 Oct 2026)
+   ---------------------------------------------------------
+   `.nav a` (specificity 0,1,1) sets the link colour to the body ink
+   and out-ranked `.btn-primary` (0,1,0), so the "Start the free course"
+   button in the header showed dark grey text on a violet-to-pink
+   gradient, a contrast ratio of about 1.1 to 1. This rule is more
+   specific than `.nav a` in both the inline critical CSS and the
+   bundle, so it wins whatever the load order is. It uses the same
+   token the in-page buttons use, so the dark and contrast themes in
+   css/ultra.css still take over.
+   ========================================================= */
+.nav a.btn-primary,
+.nav a.btn-primary:hover,
+.nav a.btn-primary:focus-visible,
+.hdr .nav a.btn-primary {
+  color: var(--xp-ink-on-brand, #fff);
+}

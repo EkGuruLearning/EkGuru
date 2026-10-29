@@ -31,6 +31,29 @@ holidayUntil, holidayNote, specialities, badge, trialMinutes, packageDiscount,
 responseHours, intro, exams, photo, thumb, banner, videoTitle, countryFlag,
 about, experience, methodology, bio`
 
+### The `approved` column (publish switch for new gurus)
+
+`approved` is **not** one of the 48 schema columns above and is deliberately
+kept out of `FIELDS` in `js/sheet.js`: it is a switch the loader reads, not a
+value that is copied onto the profile. Add it once, by hand, to the live
+`tutors` tab (any position after `id`). The committed pack does not carry it,
+so a fresh upload of the pack publishes nobody by accident.
+
+| Cell says | Result |
+|---|---|
+| `yes`, `true`, `1`, `y`, `approved` (any case) | the guru is published, provided the checks below also pass |
+| blank, `no`, `pending`, anything else | stays private |
+
+Even with `approved=yes`, a row is still refused when it has no `name`, no real
+`photo` (placeholders do not count), an `id` that is not lowercase letters,
+numbers and hyphens, or `active=no`. A tutor who is already in
+`js/tutors/_registry.js` does not need `approved`; the registry is the older,
+equivalent way in.
+
+`apps-script/LiveFeed.gs` passes `approved` through to the site. It removes
+`email`, `notification_email`, `formKey`, `whatsapp` and anything that looks
+like a phone, password, token or bank column before the CSV leaves Google.
+
 ### The operational email field (`notification_email`)
 
 - **`notification_email` is the canonical operational inbox** for a tutor's
@@ -90,6 +113,9 @@ EKGURU_TEST_CSV=csv/ekguru_tutors.local.csv node tools/test-sheet-apply.js
 - Blank cell = **keep the current value**, never "erase". The word `none`
   clears a field where that is supported.
 - `active: no` hides a tutor from the site.
+- `approved: yes` publishes a tutor who has no file in `js/tutors/` yet. A blank
+  or missing `approved` cell means not approved. See "The `approved` column"
+  below.
 - A phone number in `whatsapp` is ignored on purpose — personal numbers are
   never published.
 
