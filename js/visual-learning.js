@@ -123,7 +123,7 @@
         // Celebration
         var celebration = document.createElement('div');
         celebration.style.cssText = 'position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);background:#fff;border:2px solid #10b981;border-radius:16px;padding:20px;box-shadow:0 12px 40px rgba(0,0,0,.15);z-index:10000;text-align:center';
-        celebration.innerHTML = '<div style="font-size:2rem">🎉</div><b>Great tracing!</b><br><small>Keep practicing handwriting</small>';
+        celebration.innerHTML = '<div style="font-size:2rem">🎉</div><b>Great tracing!</b><br><small>Keep practising handwriting</small>';
         document.body.appendChild(celebration);
         setTimeout(function() { if (celebration.parentNode) celebration.parentNode.removeChild(celebration); }, 2000);
       });

@@ -137,7 +137,7 @@ lesson("A1", "A1-U1", {
     "flashcards": "auto:vocab",
     "srs_candidates": ["कहाँ", "से", "शहर", "मैं जयपुर से हूँ"],
     "srs_policy": ("Only these four high-value terms are preselected; lesson mistakes and productive patterns "
-                   "may enter personalized review after an actual error."),
+                   "may enter personalised review after an actual error."),
     "worksheet": ws("Origin worksheet", [
         task("Write the Hindi for each place word.", ["where", "here", "there", "city"],
              ["कहाँ", "यहाँ", "वहाँ", "शहर"]),
@@ -223,7 +223,7 @@ lesson("A1", "A1-U2", {
     "flashcards": "auto:vocab",
     "srs_candidates": ["क्या", "यह", "ये", "क्या यह चाय है?"],
     "srs_policy": ("Only these four high-value terms are preselected; lesson mistakes and productive patterns "
-                   "may enter personalized review after an actual error."),
+                   "may enter personalised review after an actual error."),
     "worksheet": ws("Questions about things", [
         task("Write the Hindi for each word.", ["what", "this", "these", "yes", "no"],
              ["क्या", "यह", "ये", "हाँ", "नहीं"]),
@@ -310,7 +310,7 @@ lesson("A1", "A1-U3", {
     "flashcards": "auto:vocab",
     "srs_candidates": ["बोलिए", "सुनिए", "दीजिए", "ज़रा धीरे बोलिए"],
     "srs_policy": ("Only these four high-value terms are preselected; lesson mistakes and productive patterns "
-                   "may enter personalized review after an actual error."),
+                   "may enter personalised review after an actual error."),
     "worksheet": ws("Polite requests", [
         task("Write the respectful imperative of each verb.", ["सुनना", "करना", "देना", "आना"],
              ["सुनिए", "कीजिए", "दीजिए", "आइए"]),
@@ -398,7 +398,7 @@ lesson("A2", "A2-U1", {
     "flashcards": "auto:vocab",
     "srs_candidates": ["कल", "परसों", "आज", "पिछले हफ़्ते"],
     "srs_policy": ("Only these four high-value terms are preselected; lesson mistakes and productive patterns "
-                   "may enter personalized review after an actual error."),
+                   "may enter personalised review after an actual error."),
     "worksheet": ws("कल in both directions", [
         task("Say which day each sentence is about.", ["कल मैं स्कूल गया।", "कल मैं स्कूल जाऊँगा।", "कल मैं स्कूल जाऊँगी।"],
              ["yesterday", "tomorrow (a boy or man speaking)", "tomorrow (a girl or woman speaking)"]),
@@ -487,7 +487,7 @@ lesson("A2", "A2-U2", {
     "flashcards": "auto:vocab",
     "srs_candidates": ["ने", "मैंने", "उसने", "मैंने चाय पी"],
     "srs_policy": ("Only these four high-value terms are preselected; lesson mistakes and productive patterns "
-                   "may enter personalized review after an actual error."),
+                   "may enter personalised review after an actual error."),
     "worksheet": ws("The ने worksheet", [
         task("ने or no ने? Write the correct sentence.", ["I went home.", "I ate food.", "She read a book."],
              ["मैं घर गया।", "मैंने खाना खाया।", "उसने किताब पढ़ी।"]),
@@ -577,7 +577,7 @@ lesson("A2", "A2-U3", {
     "flashcards": "auto:vocab",
     "srs_candidates": ["थाली", "बिल", "दिखाइए", "मुझे एक थाली दीजिए"],
     "srs_policy": ("Only these four high-value terms are preselected; lesson mistakes and productive patterns "
-                   "may enter personalized review after an actual error."),
+                   "may enter personalised review after an actual error."),
     "worksheet": ws("At the restaurant", [
         task("Write the Hindi for each item.", ["menu", "plate/thali", "bill", "spicy", "sweet"],
              ["मेन्यू", "थाली", "बिल", "तीखा", "मीठा"]),
@@ -671,7 +671,7 @@ lesson("B1", "B1-U1", {
     "flashcards": "auto:vocab",
     "srs_candidates": ["किसने", "अभी तक", "कभी नहीं", "मैंने अभी तक नहीं पढ़ी"],
     "srs_policy": ("Only these four high-value terms are preselected; lesson mistakes and productive patterns "
-                   "may enter personalized review after an actual error."),
+                   "may enter personalised review after an actual error."),
     "worksheet": ws("Questions and negatives with ने", [
         task("Ask with किसने.", ["this food — who made", "this letter — who wrote"],
              ["यह खाना किसने बनाया?", "यह चिट्ठी किसने लिखी?"]),
@@ -767,7 +767,7 @@ lesson("B1", "B1-U2", {
     "flashcards": "auto:vocab",
     "srs_candidates": ["मत", "चिंता", "जल्दी", "चिंता मत कीजिए"],
     "srs_policy": ("Only these four high-value terms are preselected; lesson mistakes and productive patterns "
-                   "may enter personalized review after an actual error."),
+                   "may enter personalised review after an actual error."),
     "worksheet": ws("Polite negatives", [
         task("Turn each order into a polite negative command.", ["जल्दी कीजिए।", "बोलिए।"],
              ["जल्दी मत कीजिए।", "मत बोलिए।"]),
@@ -867,7 +867,7 @@ lesson("B1", "B1-U3", {
     "flashcards": "auto:vocab",
     "srs_candidates": ["सहमत", "मेरे ख़याल से", "दूसरी ओर", "सही कहा आपने"],
     "srs_policy": ("Only these four high-value terms are preselected; lesson mistakes and productive patterns "
-                   "may enter personalized review after an actual error."),
+                   "may enter personalised review after an actual error."),
     "worksheet": ws("Agreeing and disagreeing", [
         task("Write the Hindi for each phrase.", ["in my opinion", "you are right", "on the other hand", "even then"],
              ["मेरे ख़याल से", "सही कहा आपने", "दूसरी ओर", "तो भी"]),
@@ -964,7 +964,7 @@ lesson("B2", "B2-U1", {
     "flashcards": "auto:vocab",
     "srs_candidates": ["शायद", "हो सकता है", "ज़रूर", "काश"],
     "srs_policy": ("Only these four high-value terms are preselected; lesson mistakes and productive patterns "
-                   "may enter personalized review after an actual error."),
+                   "may enter personalised review after an actual error."),
     "worksheet": ws("The possibility ladder", [
         task("Rank these from least to most certain.", ["ज़रूर होगा", "हो सकता है", "शायद"],
              ["शायद", "हो सकता है", "ज़रूर होगा"]),
@@ -1068,7 +1068,7 @@ lesson("B2", "B2-U2", {
     "flashcards": "auto:vocab",
     "srs_candidates": ["मगर", "सबूत", "दलील", "कोई शक नहीं"],
     "srs_policy": ("Only these four high-value terms are preselected; lesson mistakes and productive patterns "
-                   "may enter personalized review after an actual error."),
+                   "may enter personalised review after an actual error."),
     "worksheet": ws("Concede and argue", [
         task("Write the Hindi for each phrase.", ["no doubt", "but", "the truth is", "conclusion"],
              ["कोई शक नहीं", "मगर", "सच तो यह है", "निष्कर्ष"]),
@@ -1175,7 +1175,7 @@ lesson("B2", "B2-U3", {
     "flashcards": "auto:vocab",
     "srs_candidates": ["मुहावरा", "हाथ मलना", "आँखों का तारा", "चार चाँद लगाना"],
     "srs_policy": ("Only these four high-value terms are preselected; lesson mistakes and productive patterns "
-                   "may enter personalized review after an actual error."),
+                   "may enter personalised review after an actual error."),
     "worksheet": ws("Idioms in your own sentences", [
         task("Write the meaning of each idiom in English.", ["मुँह में पानी आना", "हाथ मलना", "अंधे की लाठी"],
              ["to crave something", "to regret", "somebody’s only support"]),
@@ -1287,7 +1287,7 @@ lesson("C1", "hi-c1-u1", {
     "flashcards": "auto:vocab",
     "srs_candidates": ["कार्यवृत्त", "प्रस्ताव", "सर्वसम्मति", "स्थगित करना"],
     "srs_policy": ("Only these four high-value terms are preselected; lesson mistakes and productive patterns "
-                   "may enter personalized review after an actual error."),
+                   "may enter personalised review after an actual error."),
     "worksheet": ws("Minutes and motions", [
         task("Write the Hindi for each term.", ["agenda", "minutes", "motion", "unanimously"],
              ["कार्यसूची", "कार्यवृत्त", "प्रस्ताव", "सर्वसम्मति से"]),
@@ -1397,7 +1397,7 @@ lesson("C1", "hi-c1-u2", {
     "flashcards": "auto:vocab",
     "srs_candidates": ["प्रति-तर्क", "उपसंहार", "सीमा", "प्रस्तावना"],
     "srs_policy": ("Only these four high-value terms are preselected; lesson mistakes and productive patterns "
-                   "may enter personalized review after an actual error."),
+                   "may enter personalised review after an actual error."),
     "worksheet": ws("The five moves", [
         task("Write the Hindi term for each move.", ["framing", "the case", "objection", "reply", "conclusion"],
              ["प्रस्तावना", "पक्ष", "प्रति-तर्क", "खंडन", "उपसंहार"]),
@@ -1512,7 +1512,7 @@ lesson("C1", "hi-c1-u3", {
     "flashcards": "auto:vocab",
     "srs_candidates": ["आशय", "सारांश", "शब्दशः", "सरल शब्दों में कहें तो"],
     "srs_policy": ("Only these four high-value terms are preselected; lesson mistakes and productive patterns "
-                   "may enter personalized review after an actual error."),
+                   "may enter personalised review after an actual error."),
     "worksheet": ws("Mediating a text", [
         task("Write the Hindi for each mediation term.", ["intent", "summary", "word for word", "in plain language"],
              ["आशय", "सारांश", "शब्दशः", "सरल भाषा में"]),
@@ -1632,7 +1632,7 @@ lesson("C2", "hi-c2-u1", {
     "flashcards": "auto:vocab",
     "srs_candidates": ["पूर्वधारणा", "निहितार्थ", "निगमन", "मान लिया गया"],
     "srs_policy": ("Only these four high-value terms are preselected; lesson mistakes and productive patterns "
-                   "may enter personalized review after an actual error."),
+                   "may enter personalised review after an actual error."),
     "worksheet": ws("Testing the layers", [
         task("Write the Hindi term for each layer.", ["assertion", "implicature", "presupposition", "inference"],
              ["अभिकथन", "निहितार्थ", "पूर्वधारणा", "निगमन"]),
@@ -1748,7 +1748,7 @@ lesson("C2", "hi-c2-u2", {
     "flashcards": "auto:vocab",
     "srs_candidates": ["उद्धरण", "आधार", "भिन्नता", "अप्रमाणित"],
     "srs_policy": ("Only these four high-value terms are preselected; lesson mistakes and productive patterns "
-                   "may enter personalized review after an actual error."),
+                   "may enter personalised review after an actual error."),
     "worksheet": ws("Sourcing and synthesis", [
         task("Write the Hindi for each reporting term.", ["citation", "basis", "divergence", "unverified"],
              ["उद्धरण", "आधार", "भिन्नता", "अप्रमाणित"]),
@@ -1864,7 +1864,7 @@ lesson("C2", "hi-c2-u3", {
     "flashcards": "auto:vocab",
     "srs_candidates": ["रूपांतरण", "भाव-निष्ठा", "संक्षिप्तीकरण", "यह तथ्य ही"],
     "srs_policy": ("Only these four high-value terms are preselected; lesson mistakes and productive patterns "
-                   "may enter personalized review after an actual error."),
+                   "may enter personalised review after an actual error."),
     "worksheet": ws("Recasting with fidelity", [
         task("Write the Hindi for each stylistic operation.", ["recasting", "condensation", "expansion",
              "fidelity of sense"], ["रूपांतरण", "संक्षिप्तीकरण", "विस्तार", "भाव-निष्ठा"]),

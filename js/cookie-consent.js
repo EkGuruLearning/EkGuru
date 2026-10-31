@@ -133,11 +133,11 @@
         '<div class="consent-actions">' +
           '<button type="button" class="consent-btn consent-accept" id="consent-accept-all">✓ Accept all</button>' +
           '<button type="button" class="consent-btn consent-reject" id="consent-reject">✕ Only essential</button>' +
-          '<button type="button" class="consent-settings" id="consent-customize">Customize</button>' +
+          '<button type="button" class="consent-settings" id="consent-customize">Customise</button>' +
         '</div>' +
       '</div>' +
       '<div id="consent-custom" style="display:none;max-width:1160px;margin:16px auto 0;padding:16px;border:1px solid #e4e4ef;border-radius:12px;background:#f8f7fd">' +
-        '<h3 style="margin:0 0 12px;font-size:1rem">Customize privacy choices</h3>' +
+        '<h3 style="margin:0 0 12px;font-size:1rem">Customise privacy choices</h3>' +
         '<div style="display:grid;gap:12px">' +
           '<label style="display:flex;gap:10px;align-items:start"><input type="checkbox" checked disabled> <span><b>Necessary</b> — records this privacy choice</span></label>' +
           '<label style="display:flex;gap:10px;align-items:start"><input type="checkbox" id="cc-functional"> <span><b>Functional</b> — remembers progress, language, offline saves</span></label>' +

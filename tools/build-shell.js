@@ -148,7 +148,7 @@ const COLUMNS = [
     ["About EkGuru", "ftr.about2", "about"],
     ["Privacy policy", "ftr.privacy", "privacy"],
     ["Terms of use", "ftr.terms", "terms"],
-    ["Monetization disclosure", "ftr.monetization", "monetization"],
+    ["Monetisation disclosure", "ftr.monetization", "monetization"],
     ["Disclaimer", "ftr.disclaimer", "disclaimer"],
     ["Copyright", "ftr.copyright", "copyright"],
     ["Cookie policy", "ftr.cookies", "cookies"],
