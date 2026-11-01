@@ -24,7 +24,6 @@ SUPPLEMENT = "sitemap-published.xml"
 REQUIRED_CORE = [
     "/",
     "/about/",
-    "/live-class/",
     "/privacy/",
     "/terms/",
     "/cookie-policy/",
