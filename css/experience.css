@@ -5827,3 +5827,70 @@ html[dir="rtl"] .xp-hero-copy > .ekg-greeting-line {
 .hdr .nav a.btn-primary {
   color: var(--xp-ink-on-brand, #fff);
 }
+
+/* =========================================================
+   RESPONSIVE FIXES FOUND IN THE 1 NOVEMBER 2026 AUDIT
+   ---------------------------------------------------------
+   1. Legal tables (Privacy's collection and processors tables) were
+      wider than the reading column, so on a desktop the table scrolled
+      sideways. They now fill the column and their cells wrap.
+      Scoped to .legal so the wide language tables are not affected.
+   2. On a phone the fixed "Privacy settings" chip and the chat button
+      sit over the last lines of a page. Bottom padding keeps the end of
+      every page reachable above them.
+   3. Touch targets: the cookie-settings button is 34 px tall on a phone.
+      It now meets the 44 px minimum for touch screens.
+   ========================================================= */
+.legal table.tbl,
+.xp-doc table.tbl { display: table; width: 100%; max-width: 100%; }
+.legal table.tbl th,
+.legal table.tbl td { white-space: normal; overflow-wrap: anywhere; vertical-align: top; }
+
+@media (max-width: 640px) {
+  body { padding-bottom: 84px; }
+}
+
+@media (pointer: coarse) {
+  .consent-settings,
+  #consent-customize { min-height: 44px; min-width: 44px; }
+}
+
+/* Phones: a legal table keeps its columns and scrolls inside its own box,
+   rather than pushing the whole page sideways. */
+@media (max-width: 640px) {
+  .legal table.tbl { display: block; overflow-x: auto; }
+}
+
+/* Touch targets on phones: the "Hear language" button on course cards and
+   the close button on the toast were 31 and 24 pixels tall or wide. */
+@media (pointer: coarse) {
+  .course-voice { min-height: 44px; min-width: 44px; padding-inline: 12px; }
+}
+
+/* Tutor profile on a phone: the single column was sized to its widest child
+   (the grid track was 1fr, which grows to the content's minimum width), so
+   the bio and photo ran about 170 px past a 360 px screen and were clipped by
+   the page's overflow rule, with no scrollbar. The track now may shrink, and
+   the children may shrink with it. */
+@media (max-width: 980px) {
+  .pf-layout { grid-template-columns: minmax(0, 1fr); }
+  .pf-layout > * { min-width: 0; }
+  .pf-layout img,
+  .pf-layout iframe,
+  .pf-layout video { max-width: 100%; height: auto; }
+}
+
+/* Legal tables: the legacy rule "nowrap" on the first column made a
+   label such as "Information we collect" as wide as the whole table, so
+   at 768 px the table ran about 240 px past its column. Labels now wrap
+   inside the column on every width. This selector is more specific than
+   the legacy rule above, so it wins. */
+.pw-legacy .legal table.tbl td:first-child,
+.legal table.tbl td:first-child { white-space: normal; }
+.legal table.tbl th:first-child { min-width: 0; }
+
+/* Touch targets: the close (×) button on the currency tip was 24 px wide.
+   On a touch screen it now meets the 44 px minimum. */
+@media (pointer: coarse) {
+  .cur-tip-x { min-width: 44px; min-height: 44px; }
+}
