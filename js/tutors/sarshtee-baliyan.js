@@ -102,9 +102,9 @@ ekguruTutor({
      copy back to the student. Nothing to switch on here.
 
      ⚠️ ONE-TIME: she must activate that address once with the mail
-     relay or the first request bounces. Open tools/mail-activate.html,
-     press the button on her row, then ask her to click "Activate
-     Form" in the email that arrives. Once only, forever.
+     relay or the first request bounces. The first booking sends her an
+     activation email from FormSubmit; she clicks "Activate Form" in it.
+     Once only, forever.
      ================================================================ */
   formKey: "",                        // optional public alias; "" keeps it simple
 

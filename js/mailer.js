@@ -31,9 +31,8 @@
        from then on arrives normally, forever.
 
      · Do this yourself before launch rather than letting a real
-       student trigger it. Open  tools/mail-activate.html  in a
-       browser and press the button next to each tutor. Then ask
-       each tutor to click the activation link in their inbox.
+       student trigger it. The first booking to each tutor sends an
+       activation email; ask each tutor to click the link in their inbox.
 
      · EkGuruLearning@gmail.com must be activated too — it is on
        the list in that page.
@@ -62,8 +61,7 @@
   /* The relay endpoint. FormSubmit accepts either a plain email
      address or a random alias string, e.g.
        https://formsubmit.co/ajax/xxxxxxxxxxxxxxxxx
-     The alias hides the address from spam bots. See
-     tools/mail-activate.html for how to get one.               */
+     The alias hides the address from spam bots.               */
   var ENDPOINT = "https://formsubmit.co/ajax/";
 
   /* =========================================================
@@ -1185,8 +1183,7 @@
      empty {"message":""} instead of {"success":"true"} and the
      submission does NOT appear in the archive. The plain address
      endpoint answers {"success":"true"} and does deliver. So the
-     alias is not used for sending — see ALIAS NOTE in
-     tools/mail-activate.html. This helper exists so the code is
+     alias is not used for sending. This helper exists so the code is
      ready if FormSubmit fixes it. */
   function isAlias(v) {
     return !!v && v.indexOf("@") === -1 && /^[a-z0-9]{4,20}$/i.test(v);
@@ -1711,7 +1708,7 @@
         var needsActivation = /needs activation|activate form|will be activ/i.test(why);
         if (needsActivation) {
           markSpent(active.id,
-            active.label + " — recipient address not activated on this relay (tools/mail-activate.html)");
+            active.label + " — recipient address not activated on this relay (activate it from the FormSubmit email)");
           /* A forced provider that is now spent must be dropped,
              or the retry picks it again and loops forever. pick()
              then selects the next capable relay for this payload. */

@@ -84,8 +84,8 @@ window.EKGURU_SITE = {
                     so the raw address is not in the page source.
 
      ⚠️ Each recipient address must be activated ONCE with the
-     mail relay before it will receive anything. Open
-     tools/mail-activate.html and follow the steps there.
+     mail relay before it will receive anything. The first booking
+     sends an activation email from FormSubmit; click its link once.
      ========================================================= */
   mail: {
     enabled: true,

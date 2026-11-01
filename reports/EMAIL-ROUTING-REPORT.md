@@ -130,7 +130,7 @@ Capability matrix: `reports/email-provider-matrix.json`.
 1. **Web3Forms delivery** cannot be verified from this sandbox (Cloudflare
    blocks datacenter IPs). Verify from a real user browser; the site is
    configured with 5 valid-UUID keys.
-2. **FormSubmit activation** — open `tools/mail-activate.html` and click the
+2. **FormSubmit activation** — click the
    activation link FormSubmit emailed to `EkGuruLearning@gmail.com`, then clear
    the quota/sent stores in the Mail centre. Until then StaticForms carries
    your-own-inbox mail (free, working).

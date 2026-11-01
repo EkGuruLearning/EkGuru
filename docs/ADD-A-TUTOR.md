@@ -149,8 +149,8 @@ keeps `email` separate from `notification_email`. `.gitignore` covers
 
 * Her **email** is in the sheet's `notification_email` column only. Booking
   mail reaches her from there; the public page shows the EkGuru contact address.
-  One-time step: open `tools/mail-activate.html`, press the button on her row,
-  and ask her to click **Activate Form** in the mail that arrives.
+  One-time step: the first booking sends her an activation mail from FormSubmit,
+  and she clicks **Activate Form** in it.
 * Her **WhatsApp number is not published anywhere.** `js/tutors-data.js` strips
   personal numbers from every tutor object as a hard rule, with one escape
   hatch: `allowPhone: true` in the tutor's own file, and only with her written
