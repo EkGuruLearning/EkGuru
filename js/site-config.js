@@ -753,6 +753,19 @@ window.EKGURU_SITE = {
   },
 
   /* =========================================================
+     ONLINE FORMS (apply, review, sign-up)
+     ---------------------------------------------------------
+     BLANK = OFF. The forms fall back to email, as before.
+     To turn on: deploy apps-script/Intake.gs as its OWN Apps
+     Script project (Execute as Me, Anyone), then paste its
+     /exec address here. Full steps: apps-script/INTAKE-SETUP.md
+     Nothing submitted is published. Every row is pending.
+     ========================================================= */
+  intake: {
+    url: ""
+  },
+
+  /* =========================================================
      REAL CALENDAR BOOKING
      ---------------------------------------------------------
      Opt-in per tutor. Add  calLink: "username/50min"  to a

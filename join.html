@@ -114,6 +114,7 @@ and is applied without blocking rendering. */
 </header>
 <script src="js/site-shell.js" defer></script>
 <script src="js/copywatch.js" defer></script>
+<script src="js/intake.js" defer></script>
 <!-- ekguru:shell-header:end -->
 <a class="skip" href="#main">Skip to content</a>
 <div id="app-error"></div>
@@ -151,6 +152,24 @@ and is applied without blocking rendering. */
 <li data-i18n="join.step7">Contact email</li>
 <li data-i18n="join.step8">Links to your existing teaching profiles, if you have them</li>
 </ol>
+<form class="intake-form" data-intake="application" action="mailto:EkGuruLearning@gmail.com" method="post" enctype="text/plain" style="margin-top:8px">
+<h3 style="margin:0 0 6px">Apply online</h3>
+<p class="muted" style="margin:0 0 14px;font-size:.92rem">Takes about five minutes. Nothing goes live until we have checked you and you have said yes.</p>
+<label>Full name <input name="name" required maxlength="80" autocomplete="name"></label>
+<label>Email (kept private, never shown on the site) <input name="email" type="email" required maxlength="120" autocomplete="email"></label>
+<label>City <input name="city" maxlength="80"></label>
+<label>Country <input name="country" maxlength="60"></label>
+<label>What you teach <input name="subject" required maxlength="60" placeholder="Hindi conversation, Hindi for beginners"></label>
+<label>Price per 50-minute lesson, in USD <input name="rate_usd" type="number" min="1" max="200" step="1"></label>
+<label>Weekly availability and your timezone <input name="availability" maxlength="300"></label>
+<label>About you and how you teach (150 to 250 words) <textarea name="bio" required maxlength="1500" rows="6"></textarea></label>
+<label>Photo link, https (optional) <input name="photo_link" type="url" maxlength="300"></label>
+<label>Intro video link (optional) <input name="video_link" type="url" maxlength="300"></label>
+<div aria-hidden="true" style="position:absolute;left:-10000px;width:1px;height:1px;overflow:hidden"><label>Leave this empty <input name="website" tabindex="-1" autocomplete="off"></label></div>
+<label class="consent" style="display:flex;gap:10px;align-items:flex-start;font-size:.92rem"><input type="checkbox" name="consent" value="yes" required style="margin-top:4px"> <span>I agree that EkGuru keeps these details to check my application and to reply to me. I can ask for them to be deleted at any time.</span></label>
+<button class="btn btn-primary btn-block" type="submit" style="margin-top:12px">Send my application</button>
+</form>
+<p class="muted" style="margin:14px 0 0;font-size:.92rem">Prefer email? Use the button below.</p>
 <a class="btn btn-primary btn-lg" data-i18n="join.emailBtn" href="mailto:EkGuruLearning@gmail.com" id="join-mail" style="margin-top:20px">Email your application</a>
 <p class="muted join-alt" id="join-alt" style="margin-top:12px;font-size:.9rem">
 <a data-email="" href="mailto:EkGuruLearning@gmail.com">EkGuruLearning@gmail.com</a>

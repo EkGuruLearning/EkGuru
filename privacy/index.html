@@ -156,6 +156,9 @@ Messages are reviewed by the site owner.</p>
 <tr><td>Your name and email</td><td>Only if you send a booking request or use
 the contact form</td><td>To reply to you</td><td>Sent through the configured relay to the relevant recipient and retained in provider inboxes.</td></tr>
 <tr><td>What you wrote</td><td>Same</td><td>To answer it</td><td>Same</td></tr>
+<tr><td>Tutor application: name, email, city, country, what you teach, rate, availability, bio, optional photo and video links</td><td>Only if you send the online application form on the Join page</td><td>To check your application and reply to you. Your email is never shown on the site</td><td>Stored in a private tab of EkGuru&rsquo;s Google Sheet, with status pending. Only the owner reads it. Published only after the owner approves you, and then only the public profile fields.</td></tr>
+<tr><td>Student review: your first name, the tutor, the stars, your text, an optional lesson date and an optional email</td><td>Only if you send the review form</td><td>To check it is genuine before it appears</td><td>Stored in a private tab with status pending. Shown on the site only after the owner approves it. The optional email is never shown.</td></tr>
+<tr><td>Learner sign-up: email, your goal and level, and an optional name</td><td>Only if you send the sign-up form</td><td>To reply to you about the course</td><td>Stored in a private tab. Never published or shared.</td></tr>
 <tr><td>Page views</td><td>Only after you allow analytics in Privacy settings</td><td>To know which pages are useful</td>
 <td>GoatCounter, cookieless and aggregated</td></tr>
 <tr><td>Flashcard progress, chosen language and currency</td><td>If you use the tools</td>
@@ -163,7 +166,7 @@ the contact form</td><td>To reply to you</td><td>Sent through the configured rel
 </table>
 <h2 id="what-this-site-does-not-do">What this site does <em>not</em> do</h2>
 <ul>
-<li><b>No accounts.</b> There is no sign-up anywhere on EkGuru.</li>
+<li><b>No accounts or passwords.</b> You never need one to read, to book or to send a form. Sending a form does not create an account.</li>
 <li><b>Optional cookieless analytics.</b> GoatCounter is requested only after consent, sets no analytics cookie and creates no cross-site identifier.</li>
 <li><b>No mailing list.</b> There is no newsletter. Your address is used to
   reply to you and for nothing else.</li>
@@ -176,6 +179,7 @@ relays. Your name, address and message pass through whichever of these handles
 your submission, and each has its own privacy policy:</p>
 <table class="tbl">
 <tr><th>Service</th><th>What it does for us</th></tr>
+<tr><td>Google Apps Script (intake forms)</td><td>Stores online applications, reviews and sign-ups in a private tab of our Google Sheet. Only the owner reads them. Google retains the sheet under its own policies.</td></tr>
 <tr><td>Google Apps Script / Gmail</td><td>Primary route for contact and booking email when the deploy-time relay credential is configured.</td></tr>
 <tr><td><a href="https://web3forms.com" rel="nofollow noopener" target="_blank">Web3Forms</a></td><td>Fallback delivery route when configured. The form falls back to the visitor’s own mail app if no relay accepts it.</td></tr>
 <tr><td><a href="https://razorpay.com" rel="nofollow noopener" target="_blank">Razorpay</a></td><td>Hosts the optional support-payment page and processes the payment details entered there. EkGuru does not receive card, UPI or bank credentials.</td></tr>
