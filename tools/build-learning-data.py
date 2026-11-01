@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Bounded on-device learning inputs from the CURRENTLY available levels. Never authorizes a course.
+"""Bounded on-device learning inputs from the CURRENTLY available levels. Never authorises a course.
 
 Writes data/learning/index.json (languages -> levels -> lessons + one listening sample),
 data/learning/placement/<code>.json (recognition questions that already exist in the level data) and
@@ -63,7 +63,7 @@ def build(check=False):
                           'quality': 'Native review is not recorded. Existing levels remain available under the owner indexing freeze, not under U4 approval.'})
             ok = save_json(f'data/learning/placement/{code}.json', {'version': 1, 'code': code, 'questions': questions,
                            'note': 'A rough adaptive recognition check using question keys that already exist in the level data. Not a certified CEFR test; native/editorial review is pending.'}, check) and ok
-    ok = save_json('data/learning/index.json', {'version': 1, 'languages': index, 'publication': 'No new level is published or authorized by this feature.'}, check) and ok
+    ok = save_json('data/learning/index.json', {'version': 1, 'languages': index, 'publication': 'No new level is published or authorised by this feature.'}, check) and ok
     ok = save_json('data/learning/offline-levels.json', {'version': 1, 'max_files_per_level': MAX_FILES, 'max_bytes_per_level': MAX_BYTES, 'levels': offline}, check) and ok
     print(f'learning inputs: {len(index)} available languages, {len(offline)} bounded level downloads; no new course publication')
     return 0 if ok else 1

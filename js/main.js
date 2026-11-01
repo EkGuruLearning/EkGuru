@@ -796,6 +796,10 @@
     var hc = $("#hero-tutor");
     if (hc && TUTORS.length) {
       var x = TUTORS[0];
+      /* The empty-state flag was set on an earlier paint (or in the
+         pre-rendered HTML). Once a guru exists the card is no longer
+         the empty state, so the flag goes too. */
+      hc.removeAttribute("data-eg-empty");
       hc.innerHTML =
         '<a class="hc-link" href="' + langHref("tutor.html", "id=" + encodeURIComponent(x.id)) + '" aria-label="' + esc(x.name) + ' — view profile"></a>' +
         '<img data-safe src="' + esc(x.photo) + '" alt="' + esc(x.name) + '" width="96" height="96">' +

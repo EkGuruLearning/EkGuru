@@ -75,6 +75,17 @@
   var CFG = S.reviews || {};
   var url = String(CFG.csvUrl || "").trim();
 
+  /* Live feed (28 Oct 2026). Same function as js/sheet.js and
+     js/settings.js; tools/test-live-feed.js asserts all three agree.
+     Blank or malformed S.feed.url means the feed is off. */
+  function feedUrl(tab) {
+    var F = S.feed || {};
+    var base = String(F.url || "").trim();
+    if (!/^https:\/\/script\.google\.com\/macros\/s\/[A-Za-z0-9_-]+\/exec$/.test(base)) return "";
+    var sec = Number(F.cacheSeconds) > 0 ? Number(F.cacheSeconds) : 30;
+    return base + "?tab=" + encodeURIComponent(tab) + "&t=" + Math.floor(Date.now() / (sec * 1000));
+  }
+
   var CACHE_KEY = "ekguru_reviews_v1";
   var MAX_AGE = (Number(CFG.cacheMinutes) || 60) * 60 * 1000;
 
@@ -333,12 +344,12 @@
     }
   }
 
-  function fetchSheet() {
+  function fetchRecords(u) {
     var ctrl = null, timer = null;
     try { ctrl = new AbortController(); } catch (e) {}
     if (ctrl) timer = setTimeout(function () { try { ctrl.abort(); } catch (e) {} }, 8000);
 
-    return root.fetch(url, { signal: ctrl ? ctrl.signal : undefined, cache: "default" })
+    return root.fetch(u, { signal: ctrl ? ctrl.signal : undefined, cache: "default" })
       .then(function (r) {
         if (!r.ok) throw new Error("HTTP " + r.status);
         return r.text();
@@ -350,12 +361,23 @@
         }
         var recs = parseCSV(csv);
         if (!recs.length) throw new Error("no rows");
+        return recs;
+      })
+      .catch(function (e) { if (timer) clearTimeout(timer); throw e; });
+  }
+
+  function fetchSheet() {
+    /* The live feed first (if configured), then the published CSV. */
+    var f = feedUrl("reviews");
+    var first = f ? fetchRecords(f).catch(function () { return url ? fetchRecords(url) : Promise.reject(new Error("feed failed")); })
+                  : fetchRecords(url);
+    return first
+      .then(function (recs) {
         writeCache(recs);
         apply(recs);
         announce();
       })
       .catch(function (e) {
-        if (timer) clearTimeout(timer);
         if (root.console && console.warn) {
           console.warn("[EkGuru] reviews sheet not loaded: " + e.message +
             " — the tutor files are being used instead.");
@@ -371,13 +393,13 @@
     info: function () { return root.EKGURU_REVIEWS_INFO || { loaded: false }; },
     refresh: function () {
       try { localStorage.removeItem(CACHE_KEY); } catch (e) {}
-      return url ? fetchSheet() : Promise.resolve();
+      return (url || feedUrl("reviews")) ? fetchSheet() : Promise.resolve();
     },
     validate: validate,
     MIN_TEXT: MIN_TEXT
   };
 
-  if (!url) return;
+  if (!url && !feedUrl("reviews")) return;
   if (typeof root.fetch !== "function") return;
 
   /* v62: same stale-while-revalidate change as js/sheet.js. A cache

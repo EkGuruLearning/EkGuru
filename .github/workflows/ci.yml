@@ -67,6 +67,8 @@ jobs:
       - name: Sheet sync policy (runtime + build side, adversarial)
         run: |
           node tools/test-sheet-apply.js
+          node tools/test-live-feed.js
+          node tools/test-intake.js
           node tools/test-sheetsync-policy.js
           node tools/test-sheet-fetch.mjs
 

@@ -16,6 +16,43 @@ is the tutor's own.
 
 Then the spreadsheet row (below) and one commit.
 
+## Two ways a tutor goes live
+
+| Way | Who does it | When the profile appears | What it gives |
+|---|---|---|---|
+| **A. The sheet** (`approved=yes`) | the owner, in the spreadsheet only | within seconds, on every page that lists tutors (and at `tutor.html?id=<id>`) | no code change, no rebuild. No pre-rendered page, so Google cannot index it yet |
+| **B. The registry** (steps 1 to 7 below) | the owner, with the build tools | on the next deploy | the full set: a static profile page, sitemap entry, structured data, long-tail lists |
+
+Use A to put a verified guru in front of students the same day. Use B afterwards
+so the guru also gets a search-friendly page. Doing A does not stop B: when the
+id is later added to the registry, the registry takes over and `approved` stops
+mattering.
+
+### How way A works (the `approved` column)
+
+A new row in the `tutors` tab stays **private** until every one of these is true:
+
+1. the `approved` cell says `yes` (also accepted: `true`, `1`, `y`, `approved`);
+2. the `active` cell is not `no`;
+3. the row has a `name`;
+4. the `photo` cell holds a real photo, not a placeholder: an `images/<file>.jpg`
+   path in this repository, or an `https` link to an image;
+5. the `id` is lowercase letters, numbers and hyphens only, such as `asha-verma`.
+
+A blank or missing `approved` cell means **not approved**. That is deliberate.
+Applications arrive from the form and by email, and nobody should be published
+before the owner has checked identity, documents and consent. Writing `yes` is
+that decision.
+
+If a row does not appear, open the browser console on any page. The site names
+the row and the reason, for example
+`asha-verma (not approved: write approved=yes in the sheet to publish)` or
+`asha-verma (placeholder photo, not published)`.
+
+Marketplace figures (rating, review count, lessons taught, super-tutor badge,
+profile links on other platforms) are never taken from the sheet, approved or
+not. See `csv/README.md`.
+
 ```bash
 # after steps 1 and 2, from the repo root:
 node tools/langsync.js                 # 3 — the script tags, all 23 pages
@@ -94,6 +131,7 @@ keeps `email` separate from `notification_email`. `.gitignore` covers
 |---|---|---|
 | `id` | `sarshtee-baliyan` | ⛔ never change it after this: it is her URL |
 | `active` | `yes` | `no` hides her everywhere, without deleting anything |
+| `approved` | `yes` once her documents and consent are checked | a sheet-only guru is published only when this says `yes`. Not part of the 48-column pack: add one column named `approved` to the live tab (see `csv/README.md`) |
 | `priceUSD` | `8` | she quoted **$8–10 to start**; the site shows one number, so this is her starting price — change this cell when she settles on a rate |
 | `availability` | `Mon-Sat 17:00,18:00,19:00,20:00` | lesson **start** times, 24-hour, each lesson 50 min. Her window is 5–9 PM IST, so the last lesson starts at 20:00 and ends 20:50 |
 | `video` | *(blank)* | no intro video yet. Paste the 11-character YouTube id when she records one |
@@ -111,8 +149,8 @@ keeps `email` separate from `notification_email`. `.gitignore` covers
 
 * Her **email** is in the sheet's `notification_email` column only. Booking
   mail reaches her from there; the public page shows the EkGuru contact address.
-  One-time step: open `tools/mail-activate.html`, press the button on her row,
-  and ask her to click **Activate Form** in the mail that arrives.
+  One-time step: the first booking sends her an activation mail from FormSubmit,
+  and she clicks **Activate Form** in it.
 * Her **WhatsApp number is not published anywhere.** `js/tutors-data.js` strips
   personal numbers from every tutor object as a hard rule, with one escape
   hatch: `allowPhone: true` in the tutor's own file, and only with her written

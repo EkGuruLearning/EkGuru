@@ -7,7 +7,7 @@
   "use strict";
 
   var LEVEL_AGES = {
-    A1: { age: 'child', emoji: '👶', label: 'Children (5-10)', desc: 'Playful, colorful, simple', colors: ['#fef3c7', '#fde68a'] },
+    A1: { age: 'child', emoji: '👶', label: 'Children (5-10)', desc: 'Playful, colourful, simple', colors: ['#fef3c7', '#fde68a'] },
     A2: { age: 'teen', emoji: '🧒', label: 'Kids (10-14)', desc: 'Fun, energetic, curious', colors: ['#d1fae5', '#a7f3d0'] },
     A3: { age: 'young', emoji: '👦', label: 'Young Teens (14-18)', desc: 'Learning, exploring', colors: ['#dbeafe', '#bfdbfe'] },
     B1: { age: 'adult-young', emoji: '🧑', label: 'Young Adults (18-30)', desc: 'Confident, social', colors: ['#e0e7ff', '#c7d2fe'] },

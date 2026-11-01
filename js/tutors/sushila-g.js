@@ -121,14 +121,14 @@ ekguruTutor({
      student. That happens automatically — nothing to switch on here.
 
      ⚠️ ONE-TIME: that address must be activated once with the mail
-     relay or the first request will bounce. Open tools/mail-activate.html,
-     press the button on Sushila's row, then ask Sushila to click
-     "Activate Form" in the email that arrives. Once only, forever.
+     relay or the first request will bounce. The first booking sends Sushila
+     an activation email from FormSubmit; Sushila clicks "Activate Form" in it.
+     Once only, forever.
 
      formKey : optional. Leave "" and the address above is used, which
      means it appears in the page source where spam bots can read it.
      If Sushila would rather keep it private, get a FormSubmit alias
-     (a random string, see tools/mail-activate.html) and paste it here
+     (a random string that FormSubmit gives you as an alias) and paste it here
      instead — bookings still arrive, the address stays hidden.
      ================================================================ */
   formKey: "",                        // ← optional, hides the address above

@@ -77,6 +77,17 @@
      add keys, never override them (see fetchSheet). */
   var supportUrl = String(CFG.supportCsvUrl || "").trim();
 
+  /* Live feed (28 Oct 2026). Same function as js/sheet.js and
+     js/reviews.js; tools/test-live-feed.js asserts all three agree.
+     Blank or malformed S.feed.url means the feed is off. */
+  function feedUrl(tab) {
+    var F = S.feed || {};
+    var base = String(F.url || "").trim();
+    if (!/^https:\/\/script\.google\.com\/macros\/s\/[A-Za-z0-9_-]+\/exec$/.test(base)) return "";
+    var sec = Number(F.cacheSeconds) > 0 ? Number(F.cacheSeconds) : 30;
+    return base + "?tab=" + encodeURIComponent(tab) + "&t=" + Math.floor(Date.now() / (sec * 1000));
+  }
+
   var CACHE_KEY = "ekguru_settings_v2";
   var MAX_AGE = (Number(CFG.cacheMinutes) || 5) * 60 * 1000;
 
@@ -330,12 +341,20 @@
       .catch(function (e) { if (timer) clearTimeout(timer); throw e; });
   }
 
+  /* Feed first (when configured), then the published CSV. */
+  function fetchFirst(feed, csv) {
+    if (!feed) return fetchOne(csv);
+    return fetchOne(feed).catch(function () {
+      return csv ? fetchOne(csv) : Promise.reject(new Error("feed failed"));
+    });
+  }
+
   function fetchSheet() {
-    var jobs = [fetchOne(url)];
-    if (supportUrl) {
+    var jobs = [fetchFirst(feedUrl("settings"), url)];
+    if (supportUrl || feedUrl("support")) {
       /* The support tab is optional: if it fails, the main tab's
          values still apply and only a warning is logged. */
-      jobs.push(fetchOne(supportUrl).catch(function (e) {
+      jobs.push(fetchFirst(feedUrl("support"), supportUrl).catch(function (e) {
         if (root.console && console.warn) {
           console.warn("[EkGuru] support sheet not loaded: " + e.message +
             " — main settings still applied.");
@@ -390,11 +409,11 @@
     info: function () { return root.EKGURU_SETTINGS_INFO || { loaded: false }; },
     refresh: function () {
       try { root.localStorage && root.localStorage.removeItem(CACHE_KEY); } catch (e) {}
-      return url ? fetchSheet() : Promise.resolve();
+      return (url || feedUrl("settings")) ? fetchSheet() : Promise.resolve();
     }
   };
 
-  if (!url || typeof root.fetch !== "function") return;
+  if ((!url && !feedUrl("settings")) || typeof root.fetch !== "function") return;
 
   var cached = readCache();
   if (cached) {

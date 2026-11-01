@@ -312,10 +312,24 @@ if (require.main === module) (async function main() {
   const reviewMap = buildReviews(reviews);
   const overrides = {};
   const hidden = [];
+  const skippedUnregistered = [];
   const HIDE_RE = /^(no|false|0|n|hidden)$/i;
+  /* 28 Oct 2026 — the build bakes ONLY tutors who are in the reviewed
+     registry. A sheet row for someone who is not in js/tutors/_registry.js
+     (an applicant, a draft, a row with approved=yes but no tutor file) is
+     published at RUN TIME by js/sheet.js, and never written into this file.
+     Before this gate the build baked every named row, which put an
+     applicant's bio, rate and photo link into a committed, public file in
+     git. An approved sheet-only tutor shows on the site within seconds of
+     the sheet change; the static profile page still needs the registry. */
+  const registrySrc = fs.readFileSync(path.join(__dirname, "..", "js", "tutors", "_registry.js"), "utf8");
+  const orderBlock = /window\.EKGURU_TUTOR_ORDER\s*=\s*\[([\s\S]*?)\]/.exec(registrySrc);
+  const registered = new Set(((orderBlock && orderBlock[1]) || "").match(/"[a-z0-9-]+"/g)
+    .map(x => x.slice(1, -1)));
   for (const row of tutors) {
     const id = String(row.id || "").trim().toLowerCase();
     if (!id || id.charAt(0) === "#") continue;   // the #help row
+    if (!registered.has(id)) { skippedUnregistered.push(id); continue; }
     /* v130 — active=no hides the tutor everywhere. No overrides are
        baked for them, and the id joins EKGURU_SHEET_HIDDEN so the
        FIRST paint — before the live sheet arrives — already excludes
@@ -342,6 +356,10 @@ if (require.main === module) (async function main() {
       if (t.rating === undefined) t.rating = 0;
     }
     overrides[id] = t;
+  }
+
+  if (skippedUnregistered.length) {
+    console.log(`  not baked (not in the reviewed registry, so runtime-only): ${skippedUnregistered.join(", ")}`);
   }
 
   const settingsObj = {};

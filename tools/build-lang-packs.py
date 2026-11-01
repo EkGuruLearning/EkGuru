@@ -66,7 +66,7 @@ PACKS = {
             ("good", "guud", "pleasant, right, of quality", "adjective", "basics"),
             ("bad", "bad", "not good", "adjective", "basics"),
             ("help", "help", "to make something easier for someone", "verb", "actions"),
-            ("come", "kum", "to move toward here", "verb", "actions"),
+            ("come", "kum", "to move towards here", "verb", "actions"),
             ("go", "goh", "to move away from here", "verb", "actions"),
         ],
         "phrases": [

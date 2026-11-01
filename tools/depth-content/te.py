@@ -638,13 +638,13 @@ THIRD["C1"] = [
 THIRD["C2"] = [
     _third("C2", 1, _lesson(
         "Explaining Telugu text encoding",
-        "Explain why a Telugu character sequence may need normalization before search or comparison, without equating encoded data with pronunciation.",
-        [("ఎన్‌కోడింగ్", "encoding", "noun"), ("సంకేత బిందువు", "code point", "noun"), ("సాధారణీకరణ", "normalization", "noun"), ("వ్యంజన సమూహం", "consonant cluster", "noun"), ("శోధన", "search", "noun")],
+        "Explain why a Telugu character sequence may need normalisation before search or comparison, without equating encoded data with pronunciation.",
+        [("ఎన్‌కోడింగ్", "encoding", "noun"), ("సంకేత బిందువు", "code point", "noun"), ("సాధారణీకరణ", "normalisation", "noun"), ("వ్యంజన సమూహం", "consonant cluster", "noun"), ("శోధన", "search", "noun")],
         ("technical condition and consequence", "ఒకవేళ + condition, అయితే + consequence", "Use ఒకవేళ ... అయితే to state a condition and its consequence. Keep the distinction between a Unicode sequence, a displayed glyph and a spoken form explicit; encoding alone does not decide how a word is pronounced."),
-        [("ఒకవేళ రెండు పాఠ్యాలు వేర్వేరు క్రమాల్లో నిల్వైతే, శోధన విఫలమవచ్చు.", "If two texts are stored in different sequences, search may fail."), ("సాధారణీకరణ చేసిన తర్వాత అక్షర క్రమాన్ని పోల్చవచ్చు.", "After normalization, the character sequence can be compared."), ("సంకేత బిందువు ఉచ్చారణకు సమానం కాదు.", "A code point is not the same thing as pronunciation.")],
+        [("ఒకవేళ రెండు పాఠ్యాలు వేర్వేరు క్రమాల్లో నిల్వైతే, శోధన విఫలమవచ్చు.", "If two texts are stored in different sequences, search may fail."), ("సాధారణీకరణ చేసిన తర్వాత అక్షర క్రమాన్ని పోల్చవచ్చు.", "After normalisation, the character sequence can be compared."), ("సంకేత బిందువు ఉచ్చారణకు సమానం కాదు.", "A code point is not the same thing as pronunciation.")],
         [("సంకేత బిందువు మాటను పలుకుతుంది.", "సంకేత బిందువు అక్షరాన్ని సూచిస్తుంది.", "A code point represents a character value; it does not itself speak a word." )],
-        [("ఇంజినీర్", "శోధనలో ఒకే పదం ఎందుకు కనిపించదు?", "Why does the same word not appear in search?"), ("భాషావేత్త", "రెండు అక్షర క్రమాలు వేర్వేరుగా నిల్వై ఉండవచ్చు.", "Two character sequences may have been stored differently."), ("ఇంజినీర్", "సాధారణీకరణ చేస్తే సమస్య పూర్తిగా పోతుందా?", "Will normalization remove the problem completely?"), ("భాషావేత్త", "అన్ని సమస్యలు కాదు; పరీక్షించి పరిమితిని చెప్పాలి.", "Not every problem; we should test and state the limitation." )],
-        ("Write a technical explanation", [("State the condition that can affect search.", ["వేర్వేరు క్రమాల్లో", "శోధన"], ["in different sequences", "search"]), ("State one limit of normalization.", ["అన్ని సమస్యలు కాదు", "పరిమితి"], ["not every problem", "limitation"])])
+        [("ఇంజినీర్", "శోధనలో ఒకే పదం ఎందుకు కనిపించదు?", "Why does the same word not appear in search?"), ("భాషావేత్త", "రెండు అక్షర క్రమాలు వేర్వేరుగా నిల్వై ఉండవచ్చు.", "Two character sequences may have been stored differently."), ("ఇంజినీర్", "సాధారణీకరణ చేస్తే సమస్య పూర్తిగా పోతుందా?", "Will normalisation remove the problem completely?"), ("భాషావేత్త", "అన్ని సమస్యలు కాదు; పరీక్షించి పరిమితిని చెప్పాలి.", "Not every problem; we should test and state the limitation." )],
+        ("Write a technical explanation", [("State the condition that can affect search.", ["వేర్వేరు క్రమాల్లో", "శోధన"], ["in different sequences", "search"]), ("State one limit of normalisation.", ["అన్ని సమస్యలు కాదు", "పరిమితి"], ["not every problem", "limitation"])])
     )),
     _third("C2", 2, _lesson(
         "Comparing a transcript with a recording",

@@ -84,8 +84,8 @@ window.EKGURU_SITE = {
                     so the raw address is not in the page source.
 
      ⚠️ Each recipient address must be activated ONCE with the
-     mail relay before it will receive anything. Open
-     tools/mail-activate.html and follow the steps there.
+     mail relay before it will receive anything. The first booking
+     sends an activation email from FormSubmit; click its link once.
      ========================================================= */
   mail: {
     enabled: true,
@@ -717,6 +717,52 @@ window.EKGURU_SITE = {
        to; it exists so the behaviour is a setting rather than a
        hardcoded decision buried in js/sheet.js. */
     alwaysRevalidate: true
+  },
+
+  /* =========================================================
+     LIVE FEED (Apps Script)
+     ---------------------------------------------------------
+     Google's "Publish to web" CSV is cached by Google for about
+     five minutes, so a sheet edit can take that long to reach the
+     site. The live feed reads the cells directly, and clears its
+     own cache the moment the sheet is edited.
+
+     BLANK = OFF. While url is empty the site behaves exactly as it
+     did before and reads only the published CSV, so this file is
+     safe to merge before the script is deployed.
+
+     TO TURN ON (about five minutes, once):
+       1. Open the EkGuru DB sheet, Extensions, Apps Script.
+       2. Paste apps-script/LiveFeed.gs, then Deploy, New deployment,
+          Web app, Execute as: Me, Who has access: Anyone.
+       3. Paste the /exec address below.
+     Full steps: apps-script/LIVE-FEED-SETUP.md
+
+     js/sheet.js, js/reviews.js and js/settings.js ask the feed first
+     and fall back to the published CSV if the feed is slow or down.
+     Only an address of the exact form
+       https://script.google.com/macros/s/<id>/exec
+     is accepted; anything else is ignored.
+
+     cacheSeconds is the browser-side time bucket. The script has its
+     own 30 second cache that is cleared on every edit.
+     ========================================================= */
+  feed: {
+    url: "",
+    cacheSeconds: 30
+  },
+
+  /* =========================================================
+     ONLINE FORMS (apply, review, sign-up)
+     ---------------------------------------------------------
+     BLANK = OFF. The forms fall back to email, as before.
+     To turn on: deploy apps-script/Intake.gs as its OWN Apps
+     Script project (Execute as Me, Anyone), then paste its
+     /exec address here. Full steps: apps-script/INTAKE-SETUP.md
+     Nothing submitted is published. Every row is pending.
+     ========================================================= */
+  intake: {
+    url: ""
   },
 
   /* =========================================================

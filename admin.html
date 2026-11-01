@@ -1174,7 +1174,7 @@ someone@example.com" rows="6" style="width:100%;font:inherit;padding:11px 13px;b
       <select id="payFilterStatus" style="padding:6px 10px;font-size:.88rem">
         <option value="">All statuses</option>
         <option value="captured">Captured</option>
-        <option value="authorized">Authorized</option>
+        <option value="authorized">Authorised</option>
         <option value="failed">Failed</option>
         <option value="refunded">Refunded</option>
       </select>
@@ -3232,7 +3232,7 @@ someone@example.com" rows="6" style="width:100%;font:inherit;padding:11px 13px;b
 "  preplyUrl: \"\",\n\n" +
 "  /* Where their booking requests go. This address must be\n" +
 "     activated once with the mail relay before it receives\n" +
-"     anything — see tools/mail-activate.html. */\n" +
+"     anything. The first booking sends an activation email; the owner clicks it once. */\n" +
 "  email: " + js(v("nt-email").trim() || (window.EKGURU_SITE || {}).email || "") + ",\n" +
 "  whatsapp: \"\",\n\n" +
 "  tags: [\"Patient\", \"Friendly\"],\n" +
@@ -4335,8 +4335,8 @@ someone@example.com" rows="6" style="width:100%;font:inherit;padding:11px 13px;b
         '<p class="sub" style="margin-top:6px"><b>Activation check (v97):</b> FormSubmit ' +
         "answered <i>“This form needs Activation”</i> to a live probe on 11 Sep 2026, so it is " +
         "currently retired for the month and your-own-inbox mail is carried by StaticForms. " +
-        "To restore FormSubmit, open <code>tools/mail-activate.html</code> and activate " +
-        "<code>" + esc(siteEmail()) + "</code> — then clear the quota/sent stores in the Mail centre.</p>";
+        "To restore FormSubmit, send one test booking to activate " +
+        "<code>" + esc(siteEmail()) + "</code>. FormSubmit then emails that inbox an “Activate Form” link to click once. Then clear the quota/sent stores in the Mail centre.</p>";
 
       rl.parentNode.insertBefore(relayBox, rl.nextSibling);
     }
@@ -6387,7 +6387,7 @@ someone@example.com" rows="6" style="width:100%;font:inherit;padding:11px 13px;b
       <a href="about/">About EkGuru</a>
       <a href="privacy/">Privacy policy</a>
       <a href="terms/">Terms of use</a>
-      <a href="monetization-disclosure/">Monetization disclosure</a>
+      <a href="monetization-disclosure/">Monetisation disclosure</a>
       <a href="disclaimer/">Disclaimer</a>
       <a href="copyright/">Copyright</a>
       <a href="cookie-policy/">Cookie policy</a>
