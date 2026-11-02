@@ -144,8 +144,7 @@ try {
     !site1.publicTutors.some((t) => t.id === "shikha-dutta"));
 
   const prof1 = readFileSync(join(ROOT, "tutor", FLIP_ID, "index.html"), "utf8");
-  check("profile is indexable again", /content="index, follow/.test(head(prof1)));
-  check("profile has no noindex", !/noindex/.test(head(prof1)));
+  check("active profile remains noindex under the owner indexing freeze", /content="noindex, follow"/.test(head(prof1)));
   check("profile carries Person JSON-LD again", /"@type":\s*"Person"/.test(prof1));
   check("profile booking CTAs return (tutor.html?id=" + FLIP_ID + ")",
     new RegExp("tutor\\.html\\?id=" + FLIP_ID).test(prof1));

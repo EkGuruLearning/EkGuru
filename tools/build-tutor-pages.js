@@ -564,14 +564,10 @@ function build(t, roster, publics, hidden) {
     out = out.replace(re, () => value);
   };
 
-  /* U0 — the robots meta is THE index switch for a hidden profile. Public:
-     index, follow (the long-form directives Google already has). Hidden
-     (sheet active=no): noindex, follow — the page stays reachable for
-     anyone holding a link, but it is out of search and out of every
-     discovery surface. */
-  const robotsWanted = hidden
-    ? '<meta name="robots" content="noindex, follow">'
-    : '<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">';
+  /* Owner indexing freeze: tutor profile pages remain noindex until the
+     owner explicitly changes the canonical/indexing contract. The active
+     switch controls cards, booking and discovery surfaces, not search indexing. */
+  const robotsWanted = '<meta name="robots" content="noindex, follow">';
   if (/<meta(?=[^>]*\bname="robots")[^>]*>/.test(out)) {
     out = out.replace(/<meta(?=[^>]*\bname="robots")[^>]*>/, () => robotsWanted);
   } else {
