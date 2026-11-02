@@ -39,6 +39,9 @@ import os
 import re
 import sys
 
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "lib"))
+import en_in  # Indian English spellings for every deck (see tools/indian-english.py)
+
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 os.chdir(ROOT)
 
@@ -203,6 +206,14 @@ def main():
     stale, written, report = [], 0, {}
     for code, deck in sorted(decks.items()):
         p = payload(deck)
+        # Indian English: convert the prose values once, so the JS and JSON agree.
+        orig = p
+        p = json.loads(en_in.convert_json_text(json.dumps(orig, ensure_ascii=False))[0])
+        # ids and category names are identifiers the tests and the SRS key on, so keep them exact.
+        for oc, cc in zip(orig["cards"], p["cards"]):
+            for k in ("id", "cat"):
+                if k in oc:
+                    cc[k] = oc[k]
         if not p["cards"]:
             continue                      # a language with no authored vocab gets no deck
         blob_js = ("/* Generated from the authored course vocabulary by "
