@@ -149,6 +149,9 @@ def _convert_prose(token: str) -> tuple[str, int]:
     return "".join(out), n + k
 
 
+_IDENT_BEFORE = re.compile(r'"(?:id|cat)"\s*:\s*$')
+
+
 def convert_json_text(raw: str) -> tuple[str, int]:
     """Convert only the prose string VALUES of a JSON document.
 
@@ -166,6 +169,8 @@ def convert_json_text(raw: str) -> tuple[str, int]:
         token = m.group(0)
         if _KEY_TAIL.match(raw, m.end()):
             continue  # a key
+        if _IDENT_BEFORE.search(raw[max(0, m.start() - 40):m.start()]):
+            continue  # the value of an id or cat field: a code identifier, not prose
         body = token[1:-1]
         if not re.fullmatch(r"[A-Za-z]+", body) and " " not in body:
             continue  # a slug, file name or code identifier, not English prose
