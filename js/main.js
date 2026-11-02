@@ -140,10 +140,20 @@
   }
   function safeImg(el) {
     el.onerror = function () {
+      /* Drive file links often resolve through lh3.googleusercontent.com,
+         but that endpoint can fail for an otherwise shared file. Try Drive's
+         thumbnail endpoint once before falling back to the neutral avatar. */
+      var failedSrc = String(el.currentSrc || el.src || "");
+      var driveId = /(?:lh\d?\.googleusercontent\.com\/d\/|drive\.google\.com\/(?:file\/d\/|open\?id=|uc\?[^#]*id=|thumbnail\?[^#]*id=))([A-Za-z0-9_-]{10,})/.exec(failedSrc);
+      if (driveId && el.dataset.driveRetry !== "1") {
+        el.dataset.driveRetry = "1";
+        el.src = "https://drive.google.com/thumbnail?id=" + driveId[1] + "&sz=w800";
+        return;
+      }
       if (el.dataset.fbk === "1") {
         el.onerror = null;
         el.src = "data:image/svg+xml;utf8," + encodeURIComponent(
-          '<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200"><rect width="200" height="200" fill="#5b3df5"/><circle cx="100" cy="78" r="34" fill="#fff"/><path d="M32 200a68 68 0 01136 0z" fill="#fff"/></svg>');
+          '<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200"><defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#6741d9"/><stop offset="1" stop-color="#a855f7"/></linearGradient></defs><rect width="200" height="200" rx="32" fill="url(#g)"/><circle cx="100" cy="78" r="34" fill="#fff" fill-opacity=".92"/><path d="M32 200a68 68 0 01136 0z" fill="#fff" fill-opacity=".92"/></svg>');
         return;
       }
       el.dataset.fbk = "1";

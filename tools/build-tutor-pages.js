@@ -272,7 +272,7 @@ function headBlock(t, price, hidden) {
 
   return `  <header class="pr-head">
     <picture>
-      ${webp ? '<source srcset="' + relImage(webp) + '" type="image/webp">\n      ' : ""}<img class="pr-photo" src="${esc(photo)}" alt="${attr(t.name + ", online Hindi tutor from " + (t.city || t.country || "India"))}" width="200" height="200" itemprop="image" decoding="async">
+      ${webp ? '<source srcset="' + relImage(webp) + '" type="image/webp">\n      ' : ""}<img class="pr-photo" data-eg-photo-fallback src="${esc(photo)}" alt="${attr(t.name + ", online Hindi tutor from " + (t.city || t.country || "India"))}" width="200" height="200" itemprop="image" decoding="async">
     </picture>
     <div>
       <h1 itemprop="name" data-t="${t.id}" data-f="name">${esc(t.name)}</h1>
@@ -618,6 +618,12 @@ function build(t, roster, publics, hidden) {
   /* the footer lists every PUBLIC tutor — registry order, hidden ones out
      (U0: a hidden profile is linked from nowhere) */
   out = out.replace(/<h3>Tutors<\/h3>[\s\S]*?<\/div>/, () => footerTutors(publics));
+
+  /* Static profiles do not load main.js, so install the tiny image recovery
+     handler directly on these pages. */
+  if (!out.includes("js/photo-fallback.js")) {
+    out = out.replace("</body>", '<script defer src="../../js/photo-fallback.js"></script>\n</body>');
+  }
 
   return out;
 }
