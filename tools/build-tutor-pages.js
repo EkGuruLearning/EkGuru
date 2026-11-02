@@ -272,7 +272,7 @@ function headBlock(t, price, hidden) {
 
   return `  <header class="pr-head">
     <picture>
-      ${webp ? '<source srcset="' + relImage(webp) + '" type="image/webp">\n      ' : ""}<img class="pr-photo" src="${esc(photo)}" alt="${attr(t.name + ", online Hindi tutor from " + (t.city || t.country || "India"))}" width="200" height="200" itemprop="image" decoding="async">
+      ${webp ? '<source srcset="' + relImage(webp) + '" type="image/webp">\n      ' : ""}<img class="pr-photo" data-eg-photo-fallback src="${esc(photo)}" alt="${attr(t.name + ", online Hindi tutor from " + (t.city || t.country || "India"))}" width="200" height="200" itemprop="image" decoding="async">
     </picture>
     <div>
       <h1 itemprop="name" data-t="${t.id}" data-f="name">${esc(t.name)}</h1>
@@ -564,14 +564,10 @@ function build(t, roster, publics, hidden) {
     out = out.replace(re, () => value);
   };
 
-  /* U0 — the robots meta is THE index switch for a hidden profile. Public:
-     index, follow (the long-form directives Google already has). Hidden
-     (sheet active=no): noindex, follow — the page stays reachable for
-     anyone holding a link, but it is out of search and out of every
-     discovery surface. */
-  const robotsWanted = hidden
-    ? '<meta name="robots" content="noindex, follow">'
-    : '<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">';
+  /* Owner indexing freeze: tutor profile pages remain noindex until the
+     owner explicitly changes the canonical/indexing contract. The active
+     switch controls cards, booking and discovery surfaces, not search indexing. */
+  const robotsWanted = '<meta name="robots" content="noindex, follow">';
   if (/<meta(?=[^>]*\bname="robots")[^>]*>/.test(out)) {
     out = out.replace(/<meta(?=[^>]*\bname="robots")[^>]*>/, () => robotsWanted);
   } else {
@@ -618,6 +614,12 @@ function build(t, roster, publics, hidden) {
   /* the footer lists every PUBLIC tutor — registry order, hidden ones out
      (U0: a hidden profile is linked from nowhere) */
   out = out.replace(/<h3>Tutors<\/h3>[\s\S]*?<\/div>/, () => footerTutors(publics));
+
+  /* Static profiles do not load main.js, so install the tiny image recovery
+     handler directly on these pages. */
+  if (!out.includes("js/photo-fallback.js")) {
+    out = out.replace("</body>", '<script defer src="../../js/photo-fallback.js"></script>\n</body>');
+  }
 
   return out;
 }
@@ -757,22 +759,16 @@ function updateIndexFiles(roster, stamp, check) {
     results.push("wrote " + file + " (" + what + ")");
   };
 
-  /* sitemap-tutors.xml — the tutor set only */
-  let st = pruneTutorEntries(fs.readFileSync("sitemap-tutors.xml", "utf8"), tutors, "sitemap");
-  for (const t of tutors) {
-    st = upsertUrlBlock(
-      st,
-      t.id,
-      `  <url>\n    <loc>${SITE}/tutor/${t.id}/</loc>\n    <lastmod>${stamp}</lastmod>\n    <changefreq>weekly</changefreq>\n    <priority>0.9</priority>\n  </url>`
-    );
-  }
-  write("sitemap-tutors.xml", st, tutors.length + " tutor URLs");
+  /* Tutor profiles are deliberately `noindex, follow` under the owner
+     indexing freeze. Keep them out of both sitemaps (including image entries)
+     until the profile indexing policy changes; public roster visibility and
+     the tutor feed are independent of search indexing. */
+  let st = pruneTutorEntries(fs.readFileSync("sitemap-tutors.xml", "utf8"), [], "sitemap");
+  write("sitemap-tutors.xml", st, "0 indexable tutor URLs (profiles noindex)");
 
-  /* sitemap.xml — the same entries, with the image markup Google uses */
-  let sm = pruneTutorImageEntries(fs.readFileSync("sitemap.xml", "utf8"), tutors);
-  sm = pruneTutorEntries(sm, tutors, "sitemap");
-  for (const t of tutors) sm = upsertUrlBlock(sm, t.id, sitemapEntry(t, stamp));
-  write("sitemap.xml", sm, tutors.length + " tutor URLs");
+  let sm = pruneTutorImageEntries(fs.readFileSync("sitemap.xml", "utf8"), []);
+  sm = pruneTutorEntries(sm, [], "sitemap");
+  write("sitemap.xml", sm, "0 indexable tutor URLs (profiles noindex)");
 
   /* feed.xml — items, with the channel's build date */
   let feed = pruneTutorEntries(fs.readFileSync("feed.xml", "utf8"), tutors, "feed");

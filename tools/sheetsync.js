@@ -60,8 +60,14 @@ const yes = v => /^(yes|true|1|y)$/i.test(String(v || ""));
 function normalizePhoto(v) {
   v = String(v == null ? "" : v).trim();
   if (!v) return null;
-  let m = /drive\.google\.com\/(?:file\/d\/|open\?id=|uc\?[^#]*id=|d\/)([A-Za-z0-9_-]{10,})/.exec(v);
-  if (m) return "https://lh3.googleusercontent.com/d/" + m[1] + "=w800";
+  const isDriveHost = /^https:\/\/(?:drive\.google\.com|drive\.usercontent\.google\.com|docs\.google\.com)\//i.test(v);
+  let m = isDriveHost && /\/(?:file\/d|d)\/([A-Za-z0-9_-]{10,})/.exec(v);
+  let driveId = m && m[1];
+  if (!driveId && isDriveHost) {
+    m = /[?&]id=([A-Za-z0-9_-]{10,})(?:[&#]|$)/i.exec(v);
+    if (m) driveId = m[1];
+  }
+  if (driveId) return "https://lh3.googleusercontent.com/d/" + driveId + "=w800";
   m = /^https:\/\/lh\d\.googleusercontent\.com\/d\/([A-Za-z0-9_-]{10,})/.exec(v);
   if (m) return "https://lh3.googleusercontent.com/d/" + m[1] + "=w800";
   if (/^https:\/\/[^\s]+\.(jpg|jpeg|png|webp|avif)(\?[^\s]*)?$/i.test(v)) return v;
@@ -408,4 +414,4 @@ window.EKGURU_SHEET_HIDDEN = ${JSON.stringify(hidden)};
   console.log(`  emails written: ${Object.values(overrides).filter(t => t.email).length}`);
 })();
 
-module.exports = { buildTutor, buildReviews, MARKETPLACE_SOURCES };
+module.exports = { buildTutor, buildReviews, MARKETPLACE_SOURCES, normalizePhoto };

@@ -1446,7 +1446,7 @@ def refresh_beginner_content(slug):
         raise ValueError("beginner content boundaries are missing or ambiguous: " + page_path)
     left = page.index(start)
     right = page.index(end, left)
-    section = deep_beginner(d)
+    section = language_markup(deep_beginner(d), d["name"])
     # The page already has its own indentation immediately before the heading.
     # Remove the generator's leading indentation so it is not doubled on insert.
     if section.startswith("  "):

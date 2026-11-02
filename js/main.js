@@ -138,12 +138,38 @@
       "?subject=" + encodeURIComponent(subject) +
       "&body=" + encodeURIComponent(body);
   }
+  function drivePhotoId(url) {
+    url = String(url || "");
+    var m = /lh\d?\.googleusercontent\.com\/d\/([A-Za-z0-9_-]{10,})/i.exec(url);
+    if (m) return m[1];
+    if (!/^https:\/\/(?:drive\.google\.com|drive\.usercontent\.google\.com|docs\.google\.com)\//i.test(url)) return "";
+    m = /\/(?:file\/d|d)\/([A-Za-z0-9_-]{10,})/i.exec(url);
+    if (m) return m[1];
+    m = /[?&]id=([A-Za-z0-9_-]{10,})(?:[&#]|$)/i.exec(url);
+    return m ? m[1] : "";
+  }
   function safeImg(el) {
     el.onerror = function () {
+      /* Public Drive files can fail through one Google image endpoint while
+         another works. Try the thumbnail, view, and user-content routes before
+         using the local avatar; private Drive files still correctly fall back. */
+      var failedSrc = String(el.currentSrc || el.src || "");
+      var driveId = drivePhotoId(failedSrc);
+      var attempt = Number(el.dataset.driveRetry || 0);
+      var driveSources = driveId ? [
+        "https://drive.google.com/thumbnail?id=" + driveId + "&sz=w800",
+        "https://drive.google.com/uc?export=view&id=" + driveId,
+        "https://drive.usercontent.google.com/download?id=" + driveId + "&export=view"
+      ] : [];
+      if (attempt < driveSources.length) {
+        el.dataset.driveRetry = String(attempt + 1);
+        el.src = driveSources[attempt];
+        return;
+      }
       if (el.dataset.fbk === "1") {
         el.onerror = null;
         el.src = "data:image/svg+xml;utf8," + encodeURIComponent(
-          '<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200"><rect width="200" height="200" fill="#5b3df5"/><circle cx="100" cy="78" r="34" fill="#fff"/><path d="M32 200a68 68 0 01136 0z" fill="#fff"/></svg>');
+          '<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200"><defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#6741d9"/><stop offset="1" stop-color="#a855f7"/></linearGradient></defs><rect width="200" height="200" rx="32" fill="url(#g)"/><circle cx="100" cy="78" r="34" fill="#fff" fill-opacity=".92"/><path d="M32 200a68 68 0 01136 0z" fill="#fff" fill-opacity=".92"/></svg>');
         return;
       }
       el.dataset.fbk = "1";
