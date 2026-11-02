@@ -151,9 +151,9 @@ try {
   check("profile has no hidden-notice markers", !/data-eg-hidden/.test(prof1));
 
   const sitemapT = readFileSync(join(ROOT, "sitemap-tutors.xml"), "utf8");
-  check("sitemap-tutors.xml lists the profile", sitemapT.includes("/tutor/" + FLIP_ID + "/"));
+  check("sitemap-tutors.xml excludes the noindex profile", !sitemapT.includes("/tutor/" + FLIP_ID + "/"));
   const sitemap = readFileSync(join(ROOT, "sitemap.xml"), "utf8");
-  check("sitemap.xml lists the profile", sitemap.includes("/tutor/" + FLIP_ID + "/"));
+  check("sitemap.xml excludes the noindex profile", !sitemap.includes("/tutor/" + FLIP_ID + "/"));
   const feed = readFileSync(join(ROOT, "feed.xml"), "utf8");
   check("feed.xml carries the profile item", feed.includes("/tutor/" + FLIP_ID + "/"));
 

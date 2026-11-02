@@ -414,6 +414,15 @@ function rebuild(html, file, shell, dict) {
      it, and a stale index cuts into the middle of the footer — which is
      exactly the corruption this comment exists to prevent. */
   const hadHeader = between(out, H_START, H_END);
+  /* A page may have a page-specific script beside the header inside its shell
+     markers (join.html historically loads intake.js here). Preserve those
+     scripts when the shared header is refreshed; only the shared shell and
+     copywatch scripts belong to the generator. */
+  const preservedHeaderScripts = hadHeader
+    ? [...hadHeader.body.matchAll(/<script\b[\s\S]*?<\/script>/gi)]
+      .map((match) => match[0])
+      .filter((script) => !/(?:js\/site-shell\.js|js\/copywatch\.js)/.test(script))
+    : [];
   if (hadHeader) out = out.slice(0, hadHeader.i) + HOLD_H + out.slice(hadHeader.j);
   const hadFooter = between(out, F_START, F_END);
   if (hadFooter) out = out.slice(0, hadFooter.i) + HOLD_F + out.slice(hadFooter.j);
@@ -428,7 +437,12 @@ function rebuild(html, file, shell, dict) {
 
   /* 3. put the shell back — fresh markup at the old position, or a new one */
   if (out.includes(HOLD_H)) {
-    out = out.split(HOLD_H).join(headerHTML(p, shell, loc, dict, hasMain));
+    let freshHeader = headerHTML(p, shell, loc, dict, hasMain);
+    if (preservedHeaderScripts.length) {
+      freshHeader = freshHeader.replace(H_END,
+        preservedHeaderScripts.join("\n") + "\n" + H_END);
+    }
+    out = out.split(HOLD_H).join(freshHeader);
     touched = true;
   } else {
     const m = out.match(/<body[^>]*>/i);

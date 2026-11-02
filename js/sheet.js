@@ -219,9 +219,17 @@
     v = String(v == null ? "" : v).trim();
     if (!v) return null;
 
-    /* Drive: /file/d/<id>/…  ·  ?id=<id>  ·  /d/<id> */
-    var m = /drive\.google\.com\/(?:file\/d\/|open\?id=|uc\?[^#]*id=|d\/)([A-Za-z0-9_-]{10,})/.exec(v);
-    if (m) return "https://lh3.googleusercontent.com/d/" + m[1] + "=w800";
+    /* Google Drive share links appear in several valid shapes: file/d/id,
+       open?id=id, uc?export=download&id=id, thumbnail?id=id, and Drive's
+       download host. Extract the stable file id, not the viewer URL. */
+    var isDriveHost = /^https:\/\/(?:drive\.google\.com|drive\.usercontent\.google\.com|docs\.google\.com)\//i.test(v);
+    var m = isDriveHost && /\/(?:file\/d|d)\/([A-Za-z0-9_-]{10,})/.exec(v);
+    var driveId = m && m[1];
+    if (!driveId && isDriveHost) {
+      m = /[?&]id=([A-Za-z0-9_-]{10,})(?:[&#]|$)/i.exec(v);
+      if (m) driveId = m[1];
+    }
+    if (driveId) return "https://lh3.googleusercontent.com/d/" + driveId + "=w800";
 
     /* already the direct Google form — leave it, but strip any
        existing size suffix so ours is the only one */

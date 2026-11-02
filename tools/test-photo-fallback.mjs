@@ -9,14 +9,15 @@ const document = { addEventListener(type, fn, capture) {
   handler = fn;
 } };
 vm.runInNewContext(fs.readFileSync("js/photo-fallback.js", "utf8"), {
-  document, String, encodeURIComponent
+  document, String, Number, encodeURIComponent
 });
 
+const id = "1x6sYnW58CYKZeC9abLsEbM5Gd1nGivH4";
 const img = {
   tagName: "IMG",
   dataset: {},
   attributes: { "data-eg-photo-fallback": "" },
-  src: "https://lh3.googleusercontent.com/d/1x6sYnW58CYKZeC9abLsEbM5Gd1nGivH4=w800",
+  src: "https://lh3.googleusercontent.com/d/" + id + "=w800",
   get currentSrc() { return this.src; },
   hasAttribute(name) { return Object.hasOwn(this.attributes, name); },
   removeAttribute(name) { delete this.attributes[name]; },
@@ -25,9 +26,13 @@ const img = {
 const fail = () => handler({ target: img });
 
 fail();
-assert.equal(img.src, "https://drive.google.com/thumbnail?id=1x6sYnW58CYKZeC9abLsEbM5Gd1nGivH4&sz=w800");
+assert.equal(img.src, "https://drive.google.com/thumbnail?id=" + id + "&sz=w800");
 fail();
-assert.equal(img.src, "../../images/placeholder-tutor.jpg");
+assert.equal(img.src, "https://drive.google.com/uc?export=view&id=" + id);
+fail();
+assert.equal(img.src, "https://drive.usercontent.google.com/download?id=" + id + "&export=view");
+fail();
+assert.equal(img.src, "/images/placeholder-tutor.jpg");
 fail();
 assert.match(img.src, /^data:image\/svg\+xml/);
-console.log("PASS  Drive thumbnail retry -> local avatar -> inline fallback");
+console.log("PASS  Drive thumbnail -> view -> user-content -> local avatar -> inline fallback");

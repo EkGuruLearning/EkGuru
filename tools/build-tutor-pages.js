@@ -759,22 +759,16 @@ function updateIndexFiles(roster, stamp, check) {
     results.push("wrote " + file + " (" + what + ")");
   };
 
-  /* sitemap-tutors.xml — the tutor set only */
-  let st = pruneTutorEntries(fs.readFileSync("sitemap-tutors.xml", "utf8"), tutors, "sitemap");
-  for (const t of tutors) {
-    st = upsertUrlBlock(
-      st,
-      t.id,
-      `  <url>\n    <loc>${SITE}/tutor/${t.id}/</loc>\n    <lastmod>${stamp}</lastmod>\n    <changefreq>weekly</changefreq>\n    <priority>0.9</priority>\n  </url>`
-    );
-  }
-  write("sitemap-tutors.xml", st, tutors.length + " tutor URLs");
+  /* Tutor profiles are deliberately `noindex, follow` under the owner
+     indexing freeze. Keep them out of both sitemaps (including image entries)
+     until the profile indexing policy changes; public roster visibility and
+     the tutor feed are independent of search indexing. */
+  let st = pruneTutorEntries(fs.readFileSync("sitemap-tutors.xml", "utf8"), [], "sitemap");
+  write("sitemap-tutors.xml", st, "0 indexable tutor URLs (profiles noindex)");
 
-  /* sitemap.xml — the same entries, with the image markup Google uses */
-  let sm = pruneTutorImageEntries(fs.readFileSync("sitemap.xml", "utf8"), tutors);
-  sm = pruneTutorEntries(sm, tutors, "sitemap");
-  for (const t of tutors) sm = upsertUrlBlock(sm, t.id, sitemapEntry(t, stamp));
-  write("sitemap.xml", sm, tutors.length + " tutor URLs");
+  let sm = pruneTutorImageEntries(fs.readFileSync("sitemap.xml", "utf8"), []);
+  sm = pruneTutorEntries(sm, [], "sitemap");
+  write("sitemap.xml", sm, "0 indexable tutor URLs (profiles noindex)");
 
   /* feed.xml — items, with the channel's build date */
   let feed = pruneTutorEntries(fs.readFileSync("feed.xml", "utf8"), tutors, "feed");

@@ -138,16 +138,32 @@
       "?subject=" + encodeURIComponent(subject) +
       "&body=" + encodeURIComponent(body);
   }
+  function drivePhotoId(url) {
+    url = String(url || "");
+    var m = /lh\d?\.googleusercontent\.com\/d\/([A-Za-z0-9_-]{10,})/i.exec(url);
+    if (m) return m[1];
+    if (!/^https:\/\/(?:drive\.google\.com|drive\.usercontent\.google\.com|docs\.google\.com)\//i.test(url)) return "";
+    m = /\/(?:file\/d|d)\/([A-Za-z0-9_-]{10,})/i.exec(url);
+    if (m) return m[1];
+    m = /[?&]id=([A-Za-z0-9_-]{10,})(?:[&#]|$)/i.exec(url);
+    return m ? m[1] : "";
+  }
   function safeImg(el) {
     el.onerror = function () {
-      /* Drive file links often resolve through lh3.googleusercontent.com,
-         but that endpoint can fail for an otherwise shared file. Try Drive's
-         thumbnail endpoint once before falling back to the neutral avatar. */
+      /* Public Drive files can fail through one Google image endpoint while
+         another works. Try the thumbnail, view, and user-content routes before
+         using the local avatar; private Drive files still correctly fall back. */
       var failedSrc = String(el.currentSrc || el.src || "");
-      var driveId = /(?:lh\d?\.googleusercontent\.com\/d\/|drive\.google\.com\/(?:file\/d\/|open\?id=|uc\?[^#]*id=|thumbnail\?[^#]*id=))([A-Za-z0-9_-]{10,})/.exec(failedSrc);
-      if (driveId && el.dataset.driveRetry !== "1") {
-        el.dataset.driveRetry = "1";
-        el.src = "https://drive.google.com/thumbnail?id=" + driveId[1] + "&sz=w800";
+      var driveId = drivePhotoId(failedSrc);
+      var attempt = Number(el.dataset.driveRetry || 0);
+      var driveSources = driveId ? [
+        "https://drive.google.com/thumbnail?id=" + driveId + "&sz=w800",
+        "https://drive.google.com/uc?export=view&id=" + driveId,
+        "https://drive.usercontent.google.com/download?id=" + driveId + "&export=view"
+      ] : [];
+      if (attempt < driveSources.length) {
+        el.dataset.driveRetry = String(attempt + 1);
+        el.src = driveSources[attempt];
         return;
       }
       if (el.dataset.fbk === "1") {

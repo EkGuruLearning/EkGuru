@@ -7,15 +7,27 @@
     if (!img || img.tagName !== "IMG" || !img.hasAttribute("data-eg-photo-fallback")) return;
 
     var src = String(img.currentSrc || img.src || "");
-    var match = /(?:lh\d?\.googleusercontent\.com\/d\/|drive\.google\.com\/(?:file\/d\/|open\?id=|uc\?[^#]*id=|thumbnail\?[^#]*id=))([A-Za-z0-9_-]{10,})/.exec(src);
-    if (match && img.dataset.driveRetry !== "1") {
-      img.dataset.driveRetry = "1";
-      img.src = "https://drive.google.com/thumbnail?id=" + match[1] + "&sz=w800";
+    var match = /lh\d?\.googleusercontent\.com\/d\/([A-Za-z0-9_-]{10,})/i.exec(src);
+    if (!match && /^https:\/\/(?:drive\.google\.com|drive\.usercontent\.google\.com|docs\.google\.com)\//i.test(src)) {
+      match = /\/(?:file\/d|d)\/([A-Za-z0-9_-]{10,})/i.exec(src) ||
+        /[?&]id=([A-Za-z0-9_-]{10,})(?:[&#]|$)/i.exec(src);
+    }
+    var driveId = match && match[1];
+    var attempt = Number(img.dataset.driveRetry || 0);
+    var driveSources = driveId ? [
+      "https://drive.google.com/thumbnail?id=" + driveId + "&sz=w800",
+      "https://drive.google.com/uc?export=view&id=" + driveId,
+      "https://drive.usercontent.google.com/download?id=" + driveId + "&export=view"
+    ] : [];
+    if (attempt < driveSources.length) {
+      img.dataset.driveRetry = String(attempt + 1);
+      img.src = driveSources[attempt];
       return;
     }
     if (img.dataset.localRetry !== "1") {
       img.dataset.localRetry = "1";
-      img.src = "../../images/placeholder-tutor.jpg";
+      img.removeAttribute("srcset");
+      img.src = "/images/placeholder-tutor.jpg";
       return;
     }
     img.removeAttribute("srcset");
