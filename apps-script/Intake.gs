@@ -117,6 +117,33 @@ var INTAKE_KINDS = {
       level:  { type: "enum",  values: ["Never studied", "A1 to A2", "B1 and above", "Not sure"] },
       source: { type: "text",  max: 60 }
     }
+  },
+  /* A lesson booking request. Columns match the "bookings" tab, which
+     keeps every detail the booking email carries, so nothing is lost if
+     an email is deleted or a mail provider fails. */
+  booking: {
+    tab: "bookings",
+    header: ["booking_ref", "requested_at", "tutor_id", "student_name", "student_email",
+             "student_whatsapp", "preferred_times_ist", "status", "confirmed_time_ist",
+             "tutor_reply_at", "notes", "lesson", "price_usd", "student_level", "student_goal",
+             "student_timezone", "source_page", "tutor_email", "sent_via", "email_delivery"],
+    fields: {
+      booking_ref:        { type: "text",  max: 20,  required: true },
+      tutor_id:           { type: "slug",  max: 60,  required: true },
+      student_name:       { type: "text",  max: 60,  required: true },
+      student_email:      { type: "email", max: 120, required: true },
+      student_whatsapp:   { type: "text",  max: 30 },
+      preferred_times_ist:{ type: "text",  max: 120, required: true },
+      lesson:             { type: "text",  max: 60 },
+      price_usd:          { type: "text",  max: 12 },
+      student_level:      { type: "text",  max: 60 },
+      student_goal:       { type: "text",  max: 200 },
+      student_timezone:   { type: "text",  max: 60 },
+      source_page:        { type: "url",   max: 300 },
+      tutor_email:        { type: "email", max: 120 },
+      sent_via:           { type: "text",  max: 60 },
+      email_delivery:     { type: "text",  max: 120 }
+    }
   }
 };
 
@@ -238,8 +265,12 @@ function intakeAppend_(kind, spec, ref, values) {
   var when = new Date();
   var row = spec.header.map(function (h) {
     if (h === "timestamp") return when;
+    if (h === "requested_at") {
+      return Utilities.formatDate(when, "Asia/Kolkata", "yyyy-MM-dd HH:mm") + " IST";
+    }
     if (h === "reference") return "EG-" + ref;
-    if (h === "status") return "pending";
+    if (h === "booking_ref") return values.booking_ref || ("EK-" + ref);
+    if (h === "status") return spec === INTAKE_KINDS.booking ? "requested" : "pending";
     if (h === "approved") return "";
     if (h === "notes") return values.notes || "";
     return values[h] !== undefined ? values[h] : "";
