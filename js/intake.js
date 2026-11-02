@@ -28,7 +28,7 @@
   "use strict";
 
   var S = (window.EKGURU_SITE || {});
-  var KINDS = { application: 1, review: 1, signup: 1 };
+  var KINDS = { application: 1, review: 1, signup: 1, booking: 1 };
   var TIMEOUT_MS = 15000;
 
   function intakeUrl() {
@@ -46,12 +46,14 @@
     var rules = {
       application: { name: 80, email: 120, subject: 60, bio: 1500 },
       review:      { tutor_id: 60, reviewer_name: 60, text: 800 },
-      signup:      { email: 120 }
+      signup:      { email: 120 },
+      booking:     { student_name: 60, student_email: 120, preferred_times_ist: 120 }
     }[kind];
     var required = {
       application: ["name", "email", "subject", "bio"],
       review:      ["tutor_id", "reviewer_name", "stars", "text"],
-      signup:      ["email", "goal"]
+      signup:      ["email", "goal"],
+      booking:     ["booking_ref", "tutor_id", "student_name", "student_email", "preferred_times_ist"]
     }[kind];
     for (var i = 0; i < required.length; i++) {
       var v = String(fields[required[i]] == null ? "" : fields[required[i]]).trim();

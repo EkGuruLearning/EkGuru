@@ -854,6 +854,32 @@
 
     var rec = logBooking("sending", null, "", ref, studentEmailNorm);
 
+    /* Also save the full booking to the EkGuru sheet's bookings tab, when
+       the online intake is switched on (js/site-config.js intake.url). It
+       is fire-and-forget: the email still goes out whatever happens here,
+       and nothing is shown to the student if the save fails. */
+    try {
+      if (window.EkGuruIntake && window.EkGuruIntake.ready()) {
+        window.EkGuruIntake.submit("booking", {
+          booking_ref: ref,
+          tutor_id: modalTutor.id,
+          student_name: studentName,
+          student_email: studentEmail,
+          student_whatsapp: "",
+          preferred_times_ist: (chosen ? slotLabel() : "") || "Not chosen",
+          lesson: "Trial lesson, 50 min",
+          price_usd: String(modalTutor.priceUSD || ""),
+          student_level: ($("#bk-level") || {}).value || "",
+          student_goal: (($("#bk-goal") || {}).value || "").trim(),
+          student_timezone: ($("#bk-tz") || {}).value || "",
+          source_page: location.href,
+          tutor_email: "",
+          sent_via: "EkGuru booking form",
+          email_delivery: "sending"
+        }, true, "");
+      }
+    } catch (e) {}
+
     window.EkGuruMail.send({
       ref: ref,
       tutor: modalTutor,
