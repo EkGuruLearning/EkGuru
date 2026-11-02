@@ -1,22 +1,20 @@
 #!/usr/bin/env node
-/* Loader smoke test against the LIVE production Sheet (U0 rewrite, 30 Sep 2026).
+/* Loader smoke test against the LIVE production Sheet.
 
    What it proves, in CI (this is the network step):
 
    1. The published Sheet is reachable through the shared fetch contract:
-      output=csv first, output=tsv fallback (Google's csv endpoint for this
-      workbook answers HTTP 500 while tsv answers 200). When csv is down the
-      run reports the fallback — that is the PASS path, not a failure.
-   2. js/sheet.js applies that live data through the exact browser code path
-      (parse -> records -> applyRecords) and the roster it publishes is
-      EXACTLY the publication rule:
+      output=csv first, output=tsv fallback. When csv is down the run reports
+      the fallback — that is the PASS path, not a failure.
+   2. js/sheet.js applies the fetched data through the exact browser code path
+      (parse -> records -> applyRecords) and publishes exactly the current
+      rule: active registry tutors, plus approved=yes sheet-only tutors that
+      have a safe id, name and real non-placeholder photo. Approved, active
+      Sheet rows are intentional public listings; their dynamic profiles stay
+      noindex until the static publication workflow runs.
 
-          public tutor = in the reviewed registry  AND  sheet active=yes
-
-      With every row active=no (the 30 Sep 2026 state) that is the empty
-      roster — an empty EKGURU_TUTORS is then correct, not a failure. The
-      expectations are DERIVED from the fetched rows, so flipping one row
-      back to active=yes keeps this test honest without editing it.
+   Expectations are derived from the fetched rows, so changes to the approved
+   roster do not make this smoke test stale.
 
    Run:  node tools/test-sheet-loader.js
    ============================================================ */
@@ -55,8 +53,18 @@ const REGISTRY = (() => {
   const head = SHEET_FETCH.headerOf(rows);
   const recs = SHEET_FETCH.toRecords(rows);
   const isHidden = (r) => /^(no|false|0|n|hidden)$/i.test(String(r.active || "yes").trim());
+  const approved = (r) => /^(yes|true|1|y|approved)$/i.test(String(r.approved || "").trim());
+  const hasRealPhoto = (r) => {
+    const photo = String(r.photo || "").trim();
+    return !!photo && !/placeholder/i.test(photo);
+  };
+  const safeId = (r) => /^[a-z0-9][a-z0-9-]{1,59}$/.test(String(r.id || ""));
   const shouldShow = recs
-    .filter((r) => r.id && r.id.charAt(0) !== "#" && REGISTRY.indexOf(r.id) > -1 && !isHidden(r))
+    .filter((r) => {
+      if (!r.id || r.id.charAt(0) === "#" || isHidden(r)) return false;
+      if (REGISTRY.indexOf(r.id) > -1) return true;
+      return approved(r) && safeId(r) && !!String(r.name || "").trim() && hasRealPhoto(r);
+    })
     .map((r) => r.id);
 
   /* ---- 2. the browser code path against the same live bytes ---- */
@@ -103,7 +111,7 @@ const REGISTRY = (() => {
     console.log("EKGURU_SHEET_INFO:", JSON.stringify(info));
     const missing = warns.filter((w) => /missing columns/.test(w));
     console.log("tutors published after apply:", window.EKGURU_TUTORS.map((t) => t.id).join(", ") || "(none)");
-    console.log("expected (registry ∩ active=yes):", shouldShow.join(", ") || "(none)");
+    console.log("expected (active registry + approved/photo-eligible sheet rows):", shouldShow.join(", ") || "(none)");
 
     let ok = true;
     if (info.loaded !== true) { console.log("FAIL: sheet did not load"); ok = false; }

@@ -37,8 +37,13 @@ test("J2 home to tutors", async ({ page }) => {
      placeholder-photo row (Tara in the current Sheet) must still stay out. */
   const hemlataCard = page.locator('.tcard[data-id="hemlata"]');
   if (await hemlataCard.count()) {
-    await expect(hemlataCard.first().getByRole("link").first())
-      .toHaveAttribute("href", /tutor\.html\?id=hemlata/);
+    const profileLink = hemlataCard.first().getByRole("link").first();
+    await expect(profileLink).toHaveAttribute("href", /tutor\.html\?id=hemlata/);
+    await profileLink.click();
+    await expect(page).toHaveURL(/tutor\.html\?id=hemlata/);
+    await expect(page.locator('meta[name="robots"]'))
+      .toHaveAttribute("content", /noindex/);
+    await page.goto(base + "/find-tutors.html");
   }
   await expect(page.locator('.tcard[data-id="tara"]')).toHaveCount(0);
   /* The directory shows either a live roster or its honest empty state; both
