@@ -5894,3 +5894,9 @@ html[dir="rtl"] .xp-hero-copy > .ekg-greeting-line {
 @media (pointer: coarse) {
   .cur-tip-x { min-width: 44px; min-height: 44px; }
 }
+
+/* Phone: the currency notice sat at the top of the screen and covered the
+   homepage headline on load. It now sits at the bottom edge instead. */
+@media (max-width: 640px) {
+  .cur-tip { top: auto; bottom: 16px; }
+}
