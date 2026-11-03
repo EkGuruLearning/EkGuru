@@ -382,7 +382,7 @@ const fields = { name: "Asha", email: "asha@example.com", subject: "Hindi", bio:
   check("the form falls back to a mailto action", !!form && /action="mailto:EkGuruLearning@gmail\.com"/.test(form[0]));
   check("join.html loads js/intake.js", /src="js\/intake\.js"/.test(join));
   const cfg = fs.readFileSync(path.join(ROOT, "js", "site-config.js"), "utf8");
-  const m = /intake:\s*\{\s*url:\s*"([^"]*)"/.exec(cfg);
+  const m = /intake:\s*\{[\s\S]*?url:\s*"([^"]*)"/.exec(cfg);
   check("js/site-config.js has an intake block, blank or a valid /exec", !!m && (m[1] === "" || /^https:\/\/script\.google\.com\/macros\/s\/[A-Za-z0-9_-]+\/exec$/.test(m[1])), m && m[1]);
 
   console.log("\n" + (failures === 0 ? "ALL INTAKE TESTS PASSED" : failures + " FAILURE(S)"));

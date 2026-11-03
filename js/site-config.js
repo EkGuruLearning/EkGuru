@@ -750,8 +750,8 @@ window.EKGURU_SITE = {
   /* =========================================================
      ONLINE FORMS + BOOKINGS (apply, review, sign-up, booking)
      ---------------------------------------------------------
-     ⚠️ BLANK = OFF, AND "OFF" MEANS NO SHEET ROW AT ALL.
-     While this is blank, EkGuruIntake.ready() is false, the
+     ⚠️ IF THIS IS EVER BLANK AGAIN, "OFF" MEANS NO SHEET ROW.
+     While blank, EkGuruIntake.ready() is false, the
      booking button stays disabled ("Online booking is
      unavailable until the private bookings sheet is
      connected") and NOTHING a student books can reach the
@@ -773,7 +773,16 @@ window.EKGURU_SITE = {
      requested, for the owner to check first.
      ========================================================= */
   intake: {
-    url: ""
+    /* LIVE — wired 3 Nov 2026. Deployment "Version 1, 3 Nov 2026 20:35 IST",
+       id AKfycbwWJiuuZ5…TV3LtN, bound to the EkGuru DB sheet.
+       Health verified 3 Nov 2026: {"ok":true,"version":"1.0.0",
+       "pendingRows":{"applications":11,"bookings":4,…}}.
+       ⚠️ The deployed editor code is still Intake.gs v1.0.0. Paste the
+       v1.1.0 file from apps-script/Intake.gs into that same project and
+       Manage deployments -> Edit -> Version: New version -> Deploy.
+       Editing the existing deployment keeps THIS url unchanged; do not
+       create a new deployment (that would mint a new url). */
+    url: "https://script.google.com/macros/s/AKfycbwWJiuuZ5rqyPyEVd71svw-ggqW_kzjyXVl-7hE2lo8hPcgbAdkLjLl7hvmciTV3LtN/exec"
   },
 
   /* =========================================================

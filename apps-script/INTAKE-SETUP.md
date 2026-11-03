@@ -72,6 +72,21 @@ Sending the same booking again does not create a second row — the script
 answers `duplicate: true` for the same `booking_ref`. Delete the test row
 afterwards.
 
+## Updating the script later (URL must not change)
+
+When `apps-script/Intake.gs` changes in the repo, update the **same**
+deployment so the `/exec` URL in `js/site-config.js` keeps working:
+
+1. EkGuru DB sheet → Extensions → Apps Script, paste the new file, Save.
+2. **Deploy → Manage deployments → ✏️ Edit** (on the existing deployment)
+   → **Version: New version** → Deploy. Never "New deployment" — that
+   mints a different URL and the site would silently go back to off.
+3. Re-open `<url>?action=health` and confirm the new `"version"` (and,
+   from v1.1.0, `"spreadsheetBound": true`).
+
+Current live deployment (owner, 3 Nov 2026): id `AKfycbwWJiuu…TV3LtN`,
+first deployed with Intake.gs v1.0.0; the v1.1.0 update above is pending.
+
 ## Approving someone
 
 **A tutor application** (tab `applications`):
