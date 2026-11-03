@@ -1057,12 +1057,15 @@
 
     var days = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
     var av = x.availability || {};
-    var sched = days.map(function (d) {
-      var sl = av[d] || [];
-      return '<div><div class="d">' + esc(t("days." + d)) + "</div>" +
-        (sl.length ? sl.map(function (s) { return '<div class="slot">' + esc(s) + "</div>"; }).join("")
-                   : '<div class="slot off">—</div>') + "</div>";
-    }).join("");
+    var hasSlots = days.some(function (d) { return (av[d] || []).length > 0; });
+    var sched = hasSlots
+      ? days.map(function (d) {
+          var sl = av[d] || [];
+          return '<div><div class="d">' + esc(t("days." + d)) + "</div>" +
+            (sl.length ? sl.map(function (s) { return '<div class="slot">' + esc(s) + "</div>"; }).join("")
+                       : '<div class="slot off">—</div>') + "</div>";
+        }).join("")
+      : '<p class="muted" style="grid-column:1/-1">No fixed weekly times are published for this tutor yet — send a booking request or an email with the times that suit you.</p>';
 
     /* Reviews. On a phone these become a swipeable carousel (see
        features.js); on a desktop they stay as a normal stack. The
@@ -1114,7 +1117,7 @@
             esc(t("pf.textVersion")) + "</a></p>" +
           "</div></div></div></section>" +
 
-      '<div class="wrap"><div class="pf-layout"><main>' +
+      '<div class="wrap"><div class="pf-layout"><div class="pf-main">' +
         '<section class="panel reveal"><h2><span class="ico">👋</span>' + esc(t("pf.about")) + "</h2>" +
           (x.about || []).map(function (p) { return "<p>" + esc(p) + "</p>"; }).join("") + "</section>" +
 
@@ -1124,19 +1127,29 @@
             '" target="_blank" rel="noopener">' + esc(t("pf.watchOn")) + " ↗</a></p>" : "") +
         "</section>" +
 
-        '<section class="panel reveal"><h2><span class="ico">🎓</span>' + esc(t("pf.experience")) + '</h2><ul class="list">' +
-          (x.experience || []).map(function (v) { return "<li>" + esc(v) + "</li>"; }).join("") + "</ul></section>" +
+        /* Empty sections are omitted, never shown as blank panels — a
+           heading over nothing reads as a broken page. A tutor with no
+           stated experience/method skips those panels, exactly like the
+           pre-rendered profile generator (build-tutor-pages.js) does. */
+        ((x.experience || []).length
+          ? '<section class="panel reveal"><h2><span class="ico">🎓</span>' + esc(t("pf.experience")) + '</h2><ul class="list">' +
+            x.experience.map(function (v) { return "<li>" + esc(v) + "</li>"; }).join("") + "</ul></section>"
+          : "") +
 
-        '<section class="panel reveal"><h2><span class="ico">🧭</span>' + esc(t("pf.method")) + '</h2><div class="method">' +
-          (x.methodology || []).map(function (m) {
-            return '<div class="m"><b>' + esc(m.title) + "</b><span>" + esc(m.desc) + "</span></div>";
-          }).join("") + "</div></section>" +
+        ((x.methodology || []).length
+          ? '<section class="panel reveal"><h2><span class="ico">🧭</span>' + esc(t("pf.method")) + '</h2><div class="method">' +
+            x.methodology.map(function (m) {
+              return '<div class="m"><b>' + esc(m.title) + "</b><span>" + esc(m.desc) + "</span></div>";
+            }).join("") + "</div></section>"
+          : "") +
 
         '<section class="panel reveal"><h2><span class="ico">📚</span>' + esc(t("pf.teaches")) + "</h2>" +
           '<div class="tags">' + (x.teaches || []).map(function (v) { return '<span class="tag hi">' + esc(v) + "</span>"; }).join("") + "</div>" +
           '<dl class="kv" style="margin-top:18px">' +
             "<dt>" + esc(t("pf.levels")) + "</dt><dd>" + esc((x.levels || []).join(", ")) + "</dd>" +
-            "<dt>" + esc(t("pf.speaks")) + "</dt><dd>" + (x.speaks || []).map(function (s) { return esc(s.lang) + " (" + esc(s.level) + ")"; }).join(", ") + "</dd>" +
+            ((x.speaks || []).length
+              ? "<dt>" + esc(t("pf.speaks")) + "</dt><dd>" + x.speaks.map(function (s) { return esc(s.lang) + " (" + esc(s.level) + ")"; }).join(", ") + "</dd>"
+              : "") +
             "<dt>" + esc(t("pf.location")) + "</dt><dd>" + esc(x.city || x.country) + "</dd>" +
             "<dt>" + esc(t("pf.timezone")) + "</dt><dd>" + esc(x.timezone || "IST") + "</dd>" +
           "</dl></section>" +
@@ -1146,7 +1159,7 @@
           '<p class="sched-note">' + esc(t("pf.schedNote")) + " " + esc(x.timezone || "IST") + ". " + esc(t("pf.schedNote2")) + "</p></section>" +
 
         '<section class="panel reveal"><h2><span class="ico">💬</span>' + esc(t("pf.reviews")) + "</h2>" + revs + "</section>" +
-      "</main><aside><div class=\"side\"><div class=\"side-card reveal\">" +
+      "</div><aside><div class=\"side\"><div class=\"side-card reveal\">" +
         '<div class="side-price"><b data-usd="' + esc(x.priceUSD) + '" data-usd-mode="full">' + pxFull(x.priceUSD) + "</b><span>" + esc(t("pf.profilePrice")) + " · " + esc(x.lessonLength || "50 min") + " " + esc(t("card.lesson")) + "</span></div>" +
         bookBtn(x, "btn-block") +
         '<a class="btn btn-ghost btn-block" href="' + mail + '">' + esc(t("pf.email")) + "</a>" +
@@ -1154,7 +1167,9 @@
         '<div class="trust">' +
           (x.trialAvailable ? "<div><span>✅</span>" + esc(t("pf.trial")) + "</div>" : "") +
           "<div><span>🕒</span>" + esc(x.timezone || "IST") + "</div>" +
-          "<div><span>🗣️</span>" + esc((x.speaks || []).map(function (s) { return s.lang; }).join(" · ")) + "</div>" +
+          ((x.speaks || []).length
+            ? "<div><span>🗣️</span>" + esc(x.speaks.map(function (s) { return s.lang; }).join(" · ")) + "</div>"
+            : "") +
           "<div><span>🔒</span>" + esc(t("pf.oneOnOne")) + "</div>" +
         "</div></div></div></aside></div></div>";
 

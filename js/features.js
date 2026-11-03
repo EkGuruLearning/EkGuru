@@ -1209,7 +1209,16 @@
     var name = ($("#bk-name") || {}).value.trim();
     var email = ($("#bk-email") || {}).value.trim();
     var msg = "";
-    if (!chosen) msg = t("book.noSlot");
+    /* A tutor with no published weekly slots (e.g. availability not
+       filled in yet) has nothing to pick — requiring a slot made their
+       booking form a dead end that could never be sent. With no slots
+       to choose from, the request goes through and the student states
+       their preferred times in the goal/message (sent as
+       preferred_times_ist = "Not chosen" for the tutor to arrange). */
+    var anySlot = false;
+    var avAll = (modalTutor && modalTutor.availability) || {};
+    for (var dk in avAll) { if ((avAll[dk] || []).length) { anySlot = true; break; } }
+    if (!chosen && anySlot) msg = t("book.noSlot");
     else if (!name || !email) msg = t("book.required");
     else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) msg = t("book.badEmail");
     if (msg) {
