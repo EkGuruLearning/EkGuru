@@ -11,6 +11,11 @@ const fs = require("fs");
 const ROOT = path.join(__dirname, "..");
 
 global.window = {};
+global.document = {
+  readyState: "complete",
+  querySelectorAll: () => [],
+  addEventListener: () => {}
+};
 global.localStorage = { getItem: () => null, setItem: () => {}, removeItem: () => {} };
 global.location = { href: "https://ekguru.shop/find-tutors.html" };
 
@@ -45,7 +50,7 @@ console.log("\n=== ROUTING (your rules → the relay actually chosen) ===");
 const L = {
   bookingStudent:    "Booking  → STUDENT  (top-rank = Apps Script)",
   bookingTutor:      "Booking  → TUTOR    (top-rank = Apps Script)",
-  bookingInternal:   "Booking  → EKGURU   (unlimited/FormSubmit)",
+  bookingInternal:   "Booking  → EKGURU   (no email; private sheet only)",
   contactVisitor:    "Contact  → VISITOR  (top-rank = Apps Script)",
   contactInternal:   "Contact  → EKGURU   (unlimited/FormSubmit)",
   adminOutbound:     "Admin    → RECIPIENT (Apps Script)",
@@ -54,5 +59,6 @@ const L = {
 Object.keys(L).forEach((k) => {
   console.log("  " + L[k].padEnd(46) + " →  " + (map[k] || "(none)"));
 });
+console.log("  Booking owner-email policy:", map.bookingInternalPolicy || "UNSPECIFIED");
 console.log("\nAdmin outbound fallbacks (if Apps Script fails):",
   (map.adminOutboundFallbacks || []).join(" → ") || "(none)");

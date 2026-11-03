@@ -989,7 +989,6 @@ My lessons are conversation first." rows="4"></textarea></label>
 <select id="moTestType" style="font:inherit">
 <option value="BOOKING_STUDENT_CONFIRMATION">Booking — student confirmation (Priya)</option>
 <option value="BOOKING_TUTOR_NOTIFICATION">Booking — tutor notification (Tara)</option>
-<option value="BOOKING_EKGURU_NOTIFICATION">Booking — internal record</option>
 <option value="CONTACT_VISITOR_CONFIRMATION">Contact — visitor confirmation</option>
 <option value="CONTACT_EKGURU_NOTIFICATION">Contact — internal</option>
 <option value="ADMIN_CONTACT_OUTBOUND">Admin → recipient</option>
@@ -5133,6 +5132,7 @@ someone@example.com" rows="6" style="width:100%;font:inherit;padding:11px 13px;b
     if (routes && E && E.ROUTES) {
       routes.innerHTML = "<tr><th>Message type</th><th>From</th><th>To</th>" +
         "<th>Reply-To</th><th>Template</th></tr>" +
+        '<tr><td>Booking record</td><td>—</td><td>Private bookings sheet (no email)</td><td>—</td><td>—</td></tr>' +
         E.ROUTES.map(function (r) {
           return "<tr><td><code>" + esc(r.type) + "</code></td><td>" + esc(r.from) +
             "</td><td>" + esc(r.to) + "</td><td>" + esc(r.replyTo) +
@@ -5143,7 +5143,9 @@ someone@example.com" rows="6" style="width:100%;font:inherit;padding:11px 13px;b
     /* ---- template health ---- */
     var tplBox = el("moTemplates");
     if (tplBox && E && E.FIXTURES && E.ROLE_QA) {
-      tplBox.innerHTML = Object.keys(E.FIXTURES).map(function (k) {
+      tplBox.innerHTML = Object.keys(E.FIXTURES).filter(function (k) {
+        return k !== "bookingInternal";
+      }).map(function (k) {
         var r = E.render(k, E.FIXTURES[k]);
         var qa = E.ROLE_QA[k] || { mustSay: [], mustNotSay: [] };
         var txt = r.ok ? (r.subject + " " + r.html + " " + r.text).toLowerCase() : "";
@@ -5169,7 +5171,7 @@ someone@example.com" rows="6" style="width:100%;font:inherit;padding:11px 13px;b
     if (dv) {
       var store = window.EkGuruStore;
       var rows = store ? store.all().slice(0, 8) : [];
-      dv.innerHTML = "<tr><th>Ref</th><th>Student</th><th>Tutor</th><th>Internal</th>" +
+      dv.innerHTML = "<tr><th>Ref</th><th>Student</th><th>Tutor</th><th>EkGuru email</th>" +
         "<th>Tutor email</th></tr>" +
         (rows.length
           ? rows.map(function (b) {
@@ -5192,7 +5194,7 @@ someone@example.com" rows="6" style="width:100%;font:inherit;padding:11px 13px;b
     /* ---- previews ---- */
     var pv = el("moPreview");
     if (pv && E && E.FIXTURES) {
-      var order = ["bookingStudent", "bookingTutor", "bookingInternal",
+      var order = ["bookingStudent", "bookingTutor",
                    "contactVisitor", "contactInternal",
                    "adminOutbound", "adminInternalCopy"];
       pv.innerHTML = order.map(function (k) {
@@ -5229,7 +5231,6 @@ someone@example.com" rows="6" style="width:100%;font:inherit;padding:11px 13px;b
       var type2key = {
         "BOOKING_STUDENT_CONFIRMATION": "bookingStudent",
         "BOOKING_TUTOR_NOTIFICATION": "bookingTutor",
-        "BOOKING_EKGURU_NOTIFICATION": "bookingInternal",
         "CONTACT_VISITOR_CONFIRMATION": "contactVisitor",
         "CONTACT_EKGURU_NOTIFICATION": "contactInternal",
         "ADMIN_CONTACT_OUTBOUND": "adminOutbound",

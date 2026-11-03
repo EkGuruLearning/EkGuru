@@ -283,7 +283,7 @@ def shell(d, path, title, desc, body, depth, extra_scripts="", robots="index, fo
 <script type="application/ld+json">{json.dumps(ld, ensure_ascii=False)}</script>
 
 </head>
-<body>
+<body data-topic="lang-{d['slug']}">
 <div class="art">
 {body}</div>
 {TRUST_FTR.format(r=r, name=E(d['name']))}

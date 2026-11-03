@@ -1,49 +1,20 @@
 /* =========================================================
    EkGuru — MAILER
    ---------------------------------------------------------
-   WHAT THIS FILE DOES
-   ---------------------------------------------------------
-   When a student presses "Send booking request" in the booking
-   box, this file actually SENDS a real email. Three people get
-   it, from one single press:
+   Booking messages go only to the booked tutor and the student.
+   EkGuru/owner receives the booking record in the private bookings
+   sheet; the owner is never a booking-email recipient or fallback.
 
-       1. THE TUTOR      → their own personal inbox
-                           (js/tutors/<name>.js  →  email: "...")
-       2. EKGURU         → EkGuruLearning@gmail.com  (our copy)
-                           (js/site-config.js  →  email: "...")
-       3. THE STUDENT    → the address they typed in the form,
-                           so they have a record of their request
+   Booking sends are gated by the private intake endpoint and by a
+   valid tutor-owned notification address. The booking client saves
+   the record to the sheet before it calls this mailer. Delivery uses
+   the configured Apps Script relay and its Web3Forms fallback. The
+   browser reports provider acceptance, not proof of inbox delivery.
 
-   There is no server and no database anywhere in EkGuru, so the
-   sending is done by a free form-to-email relay (FormSubmit).
-   The browser posts the booking details to it and it delivers
-   the mail. Nothing is stored by us.
-
-   ---------------------------------------------------------
-   ⚠️  ONE-TIME ACTIVATION — READ THIS
-   ---------------------------------------------------------
-   FormSubmit will not send mail to an address until the owner of
-   that address has clicked an activation link ONCE. So:
-
-     · The very FIRST booking request sent to a tutor will not
-       reach them. Instead FormSubmit emails that tutor a
-       "Activate Form" link. Once they click it, every request
-       from then on arrives normally, forever.
-
-     · Do this yourself before launch rather than letting a real
-       student trigger it. The first booking to each tutor sends an
-       activation email; ask each tutor to click the link in their inbox.
-
-     · EkGuruLearning@gmail.com must be activated too — it is on
-       the list in that page.
-
-   ---------------------------------------------------------
-   IF YOU EVER WANT TO SWITCH THIS OFF
-   ---------------------------------------------------------
-   In js/site-config.js set   mail: { enabled: false }
-   The booking box then goes back to the old behaviour: it opens
-   the student's own email app with the message pre-written.
-   Nothing breaks either way.
+   If mail is disabled or not configured, the booking action stays
+   unavailable. A mailto rescue is offered only after the sheet has
+   accepted the booking, and addresses only the tutor plus the student.
+   Contact and admin messages have their own recipient policies below.
    ========================================================= */
 
 (function () {
@@ -58,82 +29,18 @@
   var SITE = window.EKGURU_SITE || {};
   var CFG = SITE.mail || {};
 
-  /* The relay endpoint. FormSubmit accepts either a plain email
-     address or a random alias string, e.g.
-       https://formsubmit.co/ajax/xxxxxxxxxxxxxxxxx
-     The alias hides the address from spam bots.               */
+  /* Legacy FormSubmit endpoint retained for provider diagnostics only;
+     it is excluded from the production booking chain. */
   var ENDPOINT = "https://formsubmit.co/ajax/";
 
-  /* =========================================================
-     TWO PROVIDERS, AND WHY
-     ---------------------------------------------------------
-     FormSubmit puts "Your friends from, FormSubmit Team" and a
-     sponsor advert at the bottom of every email it sends. There
-     is no setting to remove it — I checked their documentation
-     and their templates page. It is how the free tier is paid
-     for, and it is not something code on our side can strip,
-     because the footer is added by their server after we hand
-     over the message.
-
-     Web3Forms does not brand its emails on the free tier. It
-     allows 250 submissions a month, needs no account beyond an
-     access key emailed to you, and works from a static page.
-     That is comfortably more than four tutors will receive.
-
-     So: put a Web3Forms access key in js/site-config.js and
-     every email goes out unbranded, from EkGuru, with a link
-     back to the site and Prakash's name at the bottom. Leave it
-     blank and FormSubmit continues exactly as before, branding
-     and all — nothing breaks either way.
-
-         js/site-config.js
-           mail: { web3formsKey: "your-access-key-here" }
-
-     Get a key free at https://web3forms.com — enter your email,
-     it arrives in one message. No signup, no card.
-     ========================================================= */
+  /* Booking relay order: Apps Script primary, Web3Forms fallback.
+     The provider endpoint/credentials are owner-managed. Provider-added
+     footer behavior and actual mailbox delivery require a live test. */
   var W3F_ENDPOINT = "https://api.web3forms.com/submit";
 
-  /* =========================================================
-     THE PROVIDER CHAIN  (v55)
-     ---------------------------------------------------------
-     Prakash asked for more free relays that need no per-address
-     activation, all falling back to one another.
-
-     WHAT WAS SURVEYED, and why most were rejected:
-
-       Web3Forms    ✓ no activation, 250/mo, unbranded.
-       FormSubmit   ✓ works, but EVERY recipient address must be
-                      activated once by clicking a link. Shikha's
-                      still is not, which is exactly the problem.
-       Formspree    ✗ free tier is 50/mo AND requires you to
-                      create a form in their dashboard first.
-       StaticForms  ✓ free, unlimited, no dashboard — you request
-                      an access key by email and use it forever.
-       Getform      ✗ 50/mo, dashboard-created endpoint.
-       Formcarry    ✗ 100/mo, dashboard-created endpoint.
-       Basin        ✗ 100/mo, dashboard-created endpoint.
-       EmailJS      ✗ needs a template built in their UI plus a
-                      connected Gmail account — more setup, not less.
-
-     So the ones that genuinely need no per-recipient activation
-     are Web3Forms and StaticForms. Both are wired here. Anything
-     that needs a dashboard-built endpoint was deliberately left
-     out: it moves work onto Prakash rather than off him.
-
-     HOW THE CHAIN BEHAVES
-
-       1. try each ENABLED provider in order
-       2. a quota refusal marks that provider spent for the month
-          and moves straight to the next one, resending the same
-          message — the student never sees a failure
-       3. FormSubmit is always last, because it is the only one
-          that can bounce for an unactivated address
-       4. if every provider refuses, the booking falls back to the
-          student's own email app, exactly as before
-
-     Adding another provider later is one entry in this array.
-     ========================================================= */
+  /* Production booking chain is bounded by LIVE_IDS below. The
+     provider registry still carries legacy entries for admin visibility,
+     but those relays are not eligible for booking delivery. */
   /* BUG FOUND v59 — WRONG DOMAIN.
 
      This said api.staticforms.XYZ. The service Prakash actually
@@ -377,11 +284,9 @@
       label: "Web3Forms",
       branded: false,
       quotaNote: "250 emails a month",
-      /* METERED. 250 a month, and when they are gone they are gone
-         until the 1st. Read by ownInboxRelay() below: anything
-         addressed to an inbox WE own must never be paid for out of
-         this budget, because our own inbox is already activated on
-         the free unlimited relay. See v86. */
+      /* Metered recipient-addressed fallback. Booking deliveries use
+         this only for an explicitly addressed student or tutor; owner
+         booking copies are disabled and do not consume this route. */
       metered: true,
       /* It honours the `to` field, so it can deliver to a named
          third party. StaticForms cannot — see there. */
@@ -646,9 +551,8 @@
       label: "StaticForms",
       branded: false,
       quotaNote: "no monthly cap",
-      /* Not metered — but it ignores the recipient entirely and
-         delivers wherever the KEY is registered, so it is only ever
-         a floor, never a choice. */
+      /* Legacy provider. It cannot address a recipient and is not a
+         booking fallback; owner inboxes are never booking recipients. */
       metered: false,
       ignoresRecipient: true,
       /* It cannot honour a recipient at all (see below), so it
@@ -667,11 +571,8 @@
          entirely still returns success. So it cannot send a tutor
          their own copy; everything lands in EkGuru's inbox.
 
-         That is fine as a FALLBACK — a booking reaching Prakash is
-         infinitely better than a booking failing — but it is the
-         reason StaticForms sits below Web3Forms in the chain rather
-         than above it, and the reason the message it sends says
-         plainly at the top who it was meant for. */
+         It is not a valid booking fallback: booking recipients are
+         limited to the booked tutor and student. */
       enabled: function () { return !!(CFG.staticFormsKey && String(CFG.staticFormsKey).trim()); },
       build: function (to, payload) {
         /* StaticForms uses its own field names and flattens
@@ -711,56 +612,14 @@
       label: "FormSubmit",
       branded: true,
       quotaNote: "unlimited and free forever, but each address must be activated once",
-      /* FREE AND UNLIMITED. This is the relay every message
-         addressed to one of OUR OWN inboxes must use — see
-         ownInboxRelay(). Our inboxes are activated once and forever,
-         so the activation caveat that makes this relay useless for
-         strangers does not apply to us at all. */
+      /* Retired provider. It is not selected by the live chain. */
       metered: false,
       ignoresRecipient: false,
-      /* =========================================================
-         THE ONLY FREE RELAY THAT ACTUALLY DELIVERS A CC   (v79)
-         ---------------------------------------------------------
-         Prakash: "web3 jo paid aur only limited hai wo use karo
-         student copy mein aur tutor ko send karne mein record ke
-         liye; contact ke liye formsubmit free wala use karo jo
-         unlimited hai."
-
-         The instinct is right and the reasoning is worth writing
-         down, because it is the opposite of what the chain did:
-
-           Web3Forms   250/month, unbranded, single recipient only.
-                       A metered resource. Spend it where the
-                       polish is worth it and no CC is needed.
-           FormSubmit  free forever, no monthly cap, `_cc` works.
-                       Branded footer. Spend it where volume and
-                       CC matter more than a footer.
-
-         So `_cc` in a payload now ROUTES the message, rather than
-         being a field that may or may not survive. See pick().
-
-         The activation caveat is unchanged and is the reason the
-         student is a CC on a post to OUR inbox rather than a post
-         addressed at them: FormSubmit will not deliver to an
-         address whose owner has never clicked an activation link,
-         and a stranger never has. A CC needs no activation.
-         ========================================================= */
+      /* Retired provider history: do not treat this relay as a live
+         booking route. The live booking policy is tutor + student only. */
       cannotCC: false,
-      /* ⚠️ IT CANNOT REACH SOMEBODY WE HAVE NEVER MAILED BEFORE.
-         Every recipient address must be activated once by its
-         owner clicking a link. That is fine for our own two
-         inboxes — activated once, forever — and impossible for a
-         visitor who has just filled in the contact form.
-
-         Re-verified against the live endpoint on 10 Sep 2026:
-         posting to a fresh address returns
-           {"success":"false","message":"This form needs Activation..."}
-         and, worse, emails an activation link to a person who did
-         not ask for one.
-
-         A CC has no such requirement, which is why the student's
-         booking receipt rides as a CC here. But a message
-         ADDRESSED to a stranger must go via Web3Forms. */
+      /* No longer selectable; keep recipient limitations explicit for
+         old configuration, but never route booking mail to the owner. */
       canAddressStrangers: false,
       /* Retired from the live chain. Kept so leftover config and
          the dashboard can still name it; chain() never selects it. */
@@ -794,36 +653,9 @@
     });
   }
 
-  /* =========================================================
-     pick(payload) — THE RIGHT RELAY FOR *THIS* MESSAGE   (v79)
-     ---------------------------------------------------------
-     Until v79 there was one chain for everything, and the first
-     usable provider won regardless of what the message needed.
-     That is how the student's receipt vanished: it carried a
-     _cc, Web3Forms was first, Web3Forms drops cc on the free
-     plan, and it answers success anyway.
-
-     Choosing per MESSAGE rather than per SITE is the fix, and it
-     is also what Prakash asked for in plain terms — spend the
-     metered, unbranded relay where it helps, and use the free
-     unlimited one where CC or volume matters.
-
-       needs a CC   → only relays that can actually deliver one
-       everything   → the normal chain, best first
-       else
-
-     A capability, never a hardcoded provider name. Add a fourth
-     relay tomorrow, set cannotCC on it correctly, and this
-     function needs no edit. Naming providers here is how you get
-     the fourteen-hardcoded-values problem this project keeps
-     rediscovering.
-
-     If NOTHING can CC — every capable relay spent — we do not
-     drop the recipient silently, which is the whole bug. We fall
-     back to the best available and mark the payload so send()
-     posts a SEPARATE message to that person instead. Degraded,
-     visible, and nobody is quietly left out.
-     ========================================================= */
+  /* Choose only a configured provider that can address the intended
+     recipient. Booking uses this stranger-capable path for the student
+     and tutor; owner-inbox routing is reserved for contact/admin copies. */
   function pick(payload, except, strangerOnly) {
     except = except || [];
     var usable = chain().filter(function (p) {
@@ -848,58 +680,9 @@
     return usable[0];
   }
 
-  /* =========================================================
-     v86 — OUR OWN INBOX IS NEVER PAID FOR
-     ---------------------------------------------------------
-     Prakash: "jo mail EkGuruLearning@gmail.com ko aaye vo free
-     wale se hi aana chahiye — record wali aur contact wali."
-
-     He is right, and it is not only a preference — it is the
-     single biggest waste in the mail budget.
-
-     WHAT WAS HAPPENING (v81–v85)
-     Web3Forms sits first in the chain, so pick() handed it every
-     payload that carried no _cc. That included the two messages
-     addressed to OUR OWN inbox:
-
-         [record] <ref> — student → tutor      (every booking)
-         the booking record when the tutor has no personal
-         address, which is 3 tutors out of 4
-
-     Both were burning the 250-a-month metered quota to deliver
-     mail to an address that FormSubmit can reach for free,
-     forever, with no cap.
-
-     WHY IT IS SAFE, AND WHY IT IS ONLY SAFE FOR *US*
-     FormSubmit refuses any recipient whose owner has not clicked
-     an activation link. That is what makes it useless for a
-     student or a fresh tutor. It is completely irrelevant for
-     EkGuruLearning@gmail.com, which was activated once, in v49,
-     and stays activated forever. So for our own inbox FormSubmit
-     is strictly better: same delivery, zero cost, no cap.
-
-     THE ARITHMETIC
-     A booking used to spend 3 Web3Forms sends (tutor, record,
-     student receipt). With 3 of the 4 tutors routing to our own
-     inbox, one of those was doubly wasteful. Now:
-
-         tutor has own address   → 2 metered (tutor + student)
-         tutor routes to us      → 1 metered (student only)
-
-     Roughly 83 bookings a month became 125–250. The receipt to
-     the student is the one thing only Web3Forms can do, and now
-     it gets the whole budget.
-
-     ⚠️ CAPABILITY, NOT A NAME. This picks "cheapest relay that
-     can actually deliver to an address we control" — it does not
-     say "formsubmit". Add a fourth free relay tomorrow with
-     metered:false and it is used with no edit here. Writing a
-     provider id into logic is the hardcoded-value problem this
-     project has now rediscovered fifteen times.
-     ========================================================= */
-
-  /* Every inbox EkGuru itself owns and has activated. Anything in
-     this list can be reached by the free unlimited relay. */
+  /* Internal inbox routing is used only for contact and admin copies.
+     Booking records go to the private sheet; booking email recipients are
+     exclusively the student and the booked tutor. */
   function ourInboxes() {
     var list = [];
     if (isEmail(SITE.email)) list.push(String(SITE.email).toLowerCase());
@@ -914,37 +697,22 @@
     return ourInboxes().indexOf(String(addr).toLowerCase()) > -1;
   }
 
-  /* The relay to use for a message addressed to one of our own
-     inboxes: free, uncapped, and able to honour a recipient.
-     Returns null if none is usable right now, in which case the
-     caller falls through to the normal chain — a preference is a
-     preference, never a requirement, and mail must never be lost
-     because the cheap route is unavailable. */
-  /* v101 — INTERNAL MAIL GOES VIA THE HIGH-CAPACITY INTERNAL
-     RELAYS FIRST, Apps Script as fallback (RESET §14/§15).
-     EkGuru's own inbox is already activated on FormSubmit (free,
-     unlimited), with StaticForms next; the Apps Script relay —
-     which is PRIMARY for student/tutor/visitor mail — is only the
-     fallback for internal mail, so a booking burst never eats the
-     Gmail daily cap on messages addressed to ourselves. */
-  var INTERNAL_ORDER = ["formsubmit", "staticforms", "appsscript"];
+  /* Relay for contact/admin copies addressed to an EkGuru-owned inbox.
+     Booking notifications do not use this route: booking email is sent
+     only to the student and the booked tutor. */
+  var INTERNAL_ORDER = ["appsscript"];
 
   function ownInboxRelay(to, except) {
     except = except || [];
     var usable = chain().filter(function (p) {
       if (except.indexOf(p.id) !== -1) return false;
       if (p.metered) return false;
-      /* v97 — a relay that ignores the recipient is still fine for
-         a message addressed to an inbox WE own, because its key is
-         registered to that inbox and the message lands there. It
-         only becomes a problem when the target is somebody else's
-         address. This is what lets StaticForms carry our-own-inbox
-         mail for free when FormSubmit is down or unactivated. */
+      /* Ignore-recipient relays are safe only when their configured
+         destination is an inbox the site owns. */
       if (p.ignoresRecipient) return isOurs(to);
       return true;
     });
-    /* v101 — prefer the high-capacity internal relays in a fixed
-       order; anything unlisted follows after them. */
+    /* Prefer the currently supported owned-inbox relay. */
     usable.sort(function (a, b) {
       var ia = INTERNAL_ORDER.indexOf(a.id), ib = INTERNAL_ORDER.indexOf(b.id);
       if (ia === -1) ia = 99;
@@ -954,9 +722,8 @@
     return usable[0] || null;
   }
 
-  /* postOwn(to, payload) — post to an address WE own, preferring
-     the free relay. Falls back to post() untouched. Every retry,
-     timeout, throttle and quota rule stays in post(). */
+  /* postOwn() is reserved for contact/admin messages addressed to an
+     owned inbox. Booking mail must not call this helper. */
   function postOwn(to, payload) {
     /* A payload carrying a _cc still has to go somewhere that can
        CC; pick() knows that rule, so do not override it here. The
@@ -975,41 +742,9 @@
     return chain().some(function (p) { return !p.cannotCC; });
   }
 
-  /* =========================================================
-     PROVIDER CHOICE, AND THE QUOTA FALLBACK  (v54)
-     ---------------------------------------------------------
-     Web3Forms' free tier is 250 emails a month. One booking sends
-     three (tutor, EkGuru, student receipt), so the ceiling is
-     roughly 83 bookings a month — far more than four tutors will
-     see, but not infinite.
-
-     THE QUESTION THAT PROMPTED THIS: "limit reach karne pr
-     automatic change ho jayega na?" The answer, before this
-     change, was NO. useWeb3Forms() returned true whenever a key
-     existed, so once the quota ran out every send would fail and
-     the student would be told their booking could not be sent —
-     with a perfectly good FormSubmit path sitting unused.
-
-     Now: the first time Web3Forms refuses for a quota reason we
-     record it and switch to FormSubmit for the rest of the month.
-     The only visible difference is that their footer comes back.
-     A booking is never lost because of a billing limit.
-
-     The flag is stored per-month, so it clears itself on the 1st
-     without anyone having to remember. It lives in localStorage,
-     which means it is per-browser — imperfect, but a static site
-     has nowhere else to put it, and the worst case is one extra
-     failed attempt per visitor rather than a lost booking.
-     ========================================================= */
-  /* v55: the quota store is now PER PROVIDER, because there is more
-     than one metered relay in the chain. It was a single flag when
-     only Web3Forms had a limit.
-
-     Stored as "<provider>:<year>-<month>", so a spent provider frees
-     itself on the 1st with nobody having to remember. localStorage
-     means it is per-browser — imperfect, but a static site has
-     nowhere else, and the worst case is one wasted attempt per
-     visitor rather than a lost booking. */
+  /* Provider failures, quota limits, and auth refusals retire that route
+     and continue through the remaining configured providers. The exhausted
+     route state is scoped to this browser and resets each month. */
   var QUOTA_KEY = "ekguru_mail_quota_v2";
 
   function thisMonth() {
@@ -1211,15 +946,12 @@
   var LIVE_IDS = ["appsscript", "web3forms"];
   function isLive(p) { return LIVE_IDS.indexOf(p.id) !== -1; }
 
-  /* Where the tutor's copy should go.
-     A tutor file may set  formKey: "abc123..."  to use a hidden
-     alias instead of publishing their raw address. If they have
-     not, we use their email. If they have neither, EkGuru's
-     address is used so a request is never simply lost.          */
+  /* Booking mail must target a valid tutor-owned address. */
   function tutorTarget(tutor) {
-    /* The recipient for the tutor's copy is exactly what
-       notificationEmail() resolves — one chain, one answer. */
-    return notificationEmail(tutor);
+    var target = notificationEmail(tutor);
+    if (!isEmail(target)) return "";
+    if (isEmail(SITE.email) && target.toLowerCase() === SITE.email.toLowerCase()) return "";
+    return target;
   }
 
   /* v101 — DATA-DRIVEN TUTOR EMAIL RESOLUTION  (RESET §11)
@@ -1228,14 +960,10 @@
        notification_email (canonical operational field — the Sheet
           column the reset command requires; also accepted under
           the camelCase runtime name notificationEmail)
-       → formKey (hidden FormSubmit alias, does not publish the
-          raw address)
-       → email (legacy public profile email — kept only for
-          migration compatibility)
-       → siteKey / SITE.email (EkGuru inbox — honest fallback)
-     js/sheet.js applies the published sheet to the tutor object
-     before the mailer sees it, so an owner can change where a
-     tutor's mail lands without a deploy. */
+       → formKey (accepted only when it is itself a valid email)
+       → email (legacy profile email, kept for migration compatibility)
+     There is deliberately no siteKey/SITE.email fallback for bookings.
+     js/sheet.js applies the published sheet before the mailer sees it. */
   function idemKey(entity, type, email) {
     var parts = [String(entity || "").toUpperCase(), String(type || "")];
     var em = String(email || "").trim().toLowerCase();
@@ -1250,13 +978,12 @@
       var tutor = ctx.tutor || {};
       var student = isEmail(ctx.studentEmail || ctx.email) ? String(ctx.studentEmail || ctx.email).trim() : "";
       var state = tutorEmailState(tutor);
-      var tutorAddr = state === "ACTIVE+VALID" ? notificationEmail(tutor) : "";
+      var tutorAddr = state === "ACTIVE+VALID" ? tutorTarget(tutor) : "";
       return {
         student: student,
         tutor: tutorAddr,
-        internal: internal,
         tutorState: state,
-        tutorUnavailable: state !== "ACTIVE+VALID"
+        tutorUnavailable: !tutorAddr
       };
     }
     if (kind === "contact") {
@@ -1271,17 +998,15 @@
   function notificationEmail(tutor) {
     if (tutor && isEmail(tutor.notificationEmail)) return String(tutor.notificationEmail).trim();
     if (tutor && isEmail(tutor.notification_email)) return String(tutor.notification_email).trim();
-    if (tutor && tutor.formKey) return String(tutor.formKey).trim();
+    if (tutor && isEmail(tutor.formKey)) return String(tutor.formKey).trim();
     if (tutor && isEmail(tutor.email)) return String(tutor.email).trim();
-    if (CFG.siteKey) return String(CFG.siteKey).trim();
-    return isEmail(SITE.email) ? SITE.email : "";
+    return "";
   }
 
   /* v101 — TUTOR EMAIL STATE  (RESET §11)
      Classify each tutor, never silently reroute:
        ACTIVE+VALID     a real operational address exists
-       ACTIVE+MISSING   no address on file → TUTOR_EMAIL_UNAVAILABLE,
-                        routed through EkGuru, reported honestly
+       ACTIVE+MISSING   no address on file; booking email is blocked
        ACTIVE+INVALID   an address exists but is not a valid email
        UNPUBLISHED      hidden (active:no) — no tutor copy is sent
        DISABLED         explicitly disabled — no tutor copy is sent
@@ -1295,7 +1020,7 @@
     if (tutor && (tutor._hiddenBySheet || tutor.hidden)) return "UNPUBLISHED";
     if (tutor && isEmail(tutor.notificationEmail)) return "ACTIVE+VALID";
     if (tutor && isEmail(tutor.notification_email)) return "ACTIVE+VALID";
-    if (tutor && tutor.formKey) return "ACTIVE+VALID";
+    if (tutor && tutor.formKey) return isEmail(tutor.formKey) ? "ACTIVE+VALID" : "ACTIVE+INVALID";
     if (tutor && tutor.email && !isEmail(tutor.email)) return "ACTIVE+INVALID";
     if (tutor && isEmail(tutor.email)) return "ACTIVE+VALID";
     return "ACTIVE+MISSING";
@@ -1335,32 +1060,11 @@
     return payload;
   }
 
-  /* Everyone who should receive a copy, minus the main recipient
-     so nobody is mailed twice.                                   */
+  /* The only additional booking recipient is the student. */
   function copyList(tutor, studentEmail) {
-    var main = tutorTarget(tutor).toLowerCase();
-    var out = [];
-
-    if (CFG.copyToSite !== false && isEmail(SITE.email) &&
-        SITE.email.toLowerCase() !== main) out.push(SITE.email);
-
-    if (CFG.copyToStudent !== false && isEmail(studentEmail) &&
-        studentEmail.toLowerCase() !== main) out.push(studentEmail);
-
-    /* Any extra addresses you want on every booking — an ops
-       inbox, a co-founder, a spreadsheet-by-email service.
-       js/site-config.js  →  mail: { alwaysCc: ["x@y.com"] }     */
-    (CFG.alwaysCc || []).forEach(function (e) {
-      if (isEmail(e) && e.toLowerCase() !== main) out.push(e);
-    });
-
-    /* de-duplicate, case-insensitively */
-    var seen = {}, uniq = [];
-    out.forEach(function (e) {
-      var k = e.toLowerCase();
-      if (!seen[k]) { seen[k] = 1; uniq.push(e); }
-    });
-    return uniq;
+    var main = String(tutorTarget(tutor) || "").toLowerCase();
+    if (!isEmail(studentEmail) || String(studentEmail).toLowerCase() === main) return [];
+    return [String(studentEmail).trim()];
   }
 
 
@@ -1392,10 +1096,8 @@
   /* ---------------------------------------------------------
      Send each copy as its OWN request.
      ---------------------------------------------------------
-     One request per recipient, with no CC field anywhere. That
-     is what keeps the three audiences separate: nobody's address
-     appears in anyone else's headers, and each person receives
-     only the version written for them.
+     One request per recipient, with no CC field. Each recipient
+     receives only the version written for their role.
      --------------------------------------------------------- */
   /* postVia(provider, to, payload) — force ONE relay, keeping every
      retry, timeout, throttle and quota rule that post() already has.
@@ -1626,10 +1328,8 @@
            back with that text; the same requests sent one at a time
            all succeeded.
 
-           A real booking sends two or three emails together, which is
-           enough to trip it. That is what produced "We could not send
-           that just now" on a booking that was otherwise perfectly
-           fine.
+           A multi-recipient workflow sends messages close together,
+           so retry handling stays bounded and provider-specific.
 
            So: if we are plainly not on file://, treat that message as
            a throttle and retry with a short backoff rather than
@@ -1837,15 +1537,14 @@
 
   var Mail = {
 
-    /* Is real sending switched on and usable in this browser? */
-    available: function () {
+    /* Is booking sending enabled with a valid tutor address? */
+    available: function (tutor) {
       return CFG.enabled !== false &&
              typeof window.fetch === "function" &&
-             !!tutorTarget(null);
+             !!tutorTarget(tutor);
     },
 
-    /* Who would be mailed — used by the confirmation screen so
-       the student can see exactly where their request went.     */
+    /* Booking recipients are tutor + student only. */
     recipients: function (tutor, studentEmail) {
       return {
         to: tutorTarget(tutor),
@@ -1878,7 +1577,10 @@
         return Promise.reject(new Error("Too many booking requests from this browser. Please wait a few minutes, or send from your own email app."));
       }
       if (!target) {
-        return Promise.reject(new Error("No recipient address configured"));
+        return Promise.reject(new Error("No valid tutor booking address configured"));
+      }
+      if (!isEmail(data.email)) {
+        return Promise.reject(new Error("A valid student email is required"));
       }
       if (typeof window.fetch !== "function") {
         return Promise.reject(new Error("This browser cannot send in the background"));
@@ -1889,35 +1591,8 @@
       /* Every key below becomes a labelled row in the email the
          tutor receives, in this order. Rename a key and the label
          in the email changes with it.                            */
-      /* =========================================================
-         THREE AUDIENCES, THREE DIFFERENT EMAILS
-         ---------------------------------------------------------
-         This used to be ONE email CC'd to all three people, which
-         meant the student received the tutor's full working copy:
-         the tutor's private inbox address, the platform notes, the
-         internal distribution list. That is a privacy problem, and
-         it is not information a student needs.
-
-         Now each recipient gets a message written for them, and
-         each is sent separately so no address is disclosed to
-         anyone else. No CC is used anywhere.
-
-           TUTOR     everything they need to teach and reply —
-                     the student's name, email, level, goal, the
-                     requested time. This is the working copy.
-
-           EKGURU    everything, plus the operational detail: which
-                     page it came from, the distribution list, the
-                     tutor's inbox. This is the record.
-
-           STUDENT   only what is theirs: their reference, who they
-                     booked, when, what it costs, what happens next.
-                     They do NOT see the tutor's private inbox, nor
-                     any internal note.
-
-         The reference is identical in all three, so any of you can
-         match them up without any of you seeing the others' detail.
-         ========================================================= */
+      /* Two separate, role-specific booking messages: tutor and student.
+         The owner record is in the private sheet, never in email. */
       var now = new Date();
       var ref = data.ref || "";
       var lesson = tutor.lessonLength || "50 min";
@@ -1929,29 +1604,11 @@
       var when = data.slot || "a time still to be agreed";
       var studentName = data.name || "A student";
       var tutorName = tutor.name || "the tutor";
-      var brand = SITE.brand || "EkGuru";
-
-      /* Who is actually being written to, kept private per copy. */
-      /* Our own sign-off, on every email. FormSubmit adds theirs
-         underneath on the free tier; with a Web3Forms key set, this
-         is the only footer the reader sees. */
-      var founder = (SITE.founder && SITE.founder.name) || "Prakash";
-      var signOff =
-        (SITE.brand || "EkGuru") + " — " + (SITE.tagline || "") + "\n" +
-        (SITE.baseUrl || "") + "\n" +
-        founder + ", founder" +
-        ((SITE.founder && SITE.founder.linkedin) ? " — " + SITE.founder.linkedin : "") + "\n" +
-        (SITE.email || "");
-
       var studentLine = studentName + (data.email ? " <" + data.email + ">" : "");
       var tutorLine = tutorName + (target.indexOf("@") > -1 ? " <" + target + ">" : "");
 
       var copies = cc.map(function (a) {
-        if (data.email && a.toLowerCase() === String(data.email).toLowerCase())
-          return studentName + " <" + a + "> (their own copy)";
-        if (SITE.email && a.toLowerCase() === String(SITE.email).toLowerCase())
-          return brand + " <" + a + "> (platform copy)";
-        return a;
+        return studentName + " <" + a + "> (their own copy)";
       });
 
       /* ---------- 1. THE TUTOR'S COPY — the working copy ----------
@@ -1995,54 +1652,6 @@
         }, kTutor, refKey ? refKey + ":tutor" : "");
       }
 
-      /* ---------- 2. EKGURU'S COPY — the full record ----------
-         v101 — rows mirror the SIMPLE internal template, so the
-         FormSubmit-rendered copy (rows only) reads exactly like the
-         Apps Script html/text version. One simple record. */
-      function siteBody() {
-        return withTemplate({
-          _subject: "New booking request — " + studentName + " → " + tutorName + " | " + ref,
-          _template: "table",
-          _captcha: "false",
-
-          "Reference Number": ref || "(none)",
-          "Student": studentName,
-          "Student Email": data.email || "",
-          "Tutor": tutorName,
-          "Tutor Email": tutorEmailState(tutor) === "ACTIVE+VALID" ? target : "TUTOR_EMAIL_UNAVAILABLE",
-          "Date & Time": when,
-          "Timezone": data.timezone || "",
-          "Lesson": lessonType,
-          "Student's message": data.message || data.goal || "",
-          "Booking Status": "Request received",
-          "Email Delivery": "Student: sending · Tutor: " +
-            (tutorEmailState(tutor) === "ACTIVE+VALID" ? "sending" : "not attempted") +
-            " · Internal: sending",
-          "Next Admin Action": "Confirm the time with the tutor.",
-          "Source": data.pageUrl || (location && location.href) || "",
-
-          email: data.email || SITE.email || ""
-        }, "booking_internal_record", {
-          bookingId: ref,
-          studentName: studentName,
-          studentEmail: data.email || "",
-          tutorName: tutorName,
-          tutorId: tutor.id || "",
-          tutorEmail: tutorEmailState(tutor) === "ACTIVE+VALID" ? target : "TUTOR_EMAIL_UNAVAILABLE",
-          date: when,
-          time: "",
-          timezone: data.timezone || "",
-          lessonType: lessonType,
-          studentRequirement: (data.goal || data.message || ""),
-          bookingStatus: "Request received",
-          studentDeliveryStatus: "SENDING",
-          tutorDeliveryStatus: (tutorEmailState(tutor) === "ACTIVE+VALID" ? "SENDING" : "NOT_ATTEMPTED"),
-          internalDeliveryStatus: "SENDING",
-          adminNextAction: "Confirm the time with the tutor.",
-          sourcePage: data.pageUrl || (location && location.href) || ""
-        }, kInternal, refKey ? refKey + ":internal" : "");
-      }
-
       /* ---------- 3. THE STUDENT'S RECEIPT — only what is theirs ----------
          Deliberately omits: the tutor's inbox address, the page URL,
          the distribution list, and every internal note. A student
@@ -2084,65 +1693,12 @@
 
       /* post() now lives at module scope — see the note above it. */
 
-      /* =========================================================
-         WHY THE STUDENT'S COPY IS A CC AND NOT ITS OWN REQUEST
-         ---------------------------------------------------------
-         v32 posted a separate request to the student's address so
-         each audience got its own message. That was wrong, and it
-         broke real bookings.
-
-         FormSubmit will not send to an address until the OWNER of
-         that address has clicked an "Activate Form" link. That is
-         fine for our two fixed inboxes — they are activated once
-         and never again. But a student is a stranger whose address
-         we have never seen before. Posting to it made FormSubmit
-         email THEM an activation link instead of their receipt, and
-         demand they authorise a service they have never heard of.
-
-         Verified 08/09/2026 against two unseen addresses:
-             POST /ajax/somerandomstudent99@gmail.com
-             -> "This form needs Activation..."
-         Every single student would have hit this. No receipt would
-         ever have arrived.
-
-         The _cc field has no such requirement: it rides along on a
-         message sent to an already-activated inbox. So the student
-         is CC'd on their own receipt, which is sent TO our own
-         activated address.
-
-         Privacy is still preserved, because the receipt they are
-         copied on is the student-safe body — it carries no tutor
-         inbox, no page URL and no internal notes. That was the
-         actual point of v32 and it is unchanged.
-         ========================================================= */
-
-      var ourInbox = (CFG.siteKey || SITE.email);
-      var targetIsUs = isEmail(SITE.email) &&
-                       SITE.email.toLowerCase() === String(target).toLowerCase();
-
-      /* v97 — WAS THE TUTOR'S OWN ADDRESS ACTUALLY AVAILABLE?
-         The command forbids silently rerouting a tutor's mail to a
-         generic inbox and calling it done. When a tutor has neither
-         a formKey alias nor a personal email, the request is routed
-         through the EkGuru inbox and the state is marked
-         TUTOR_EMAIL_UNAVAILABLE — reported to EkGuru, shown to the
-         student honestly, and never confused with a delivery to the
-         tutor's own mailbox. */
-      var tutorHasDirect = !!(tutor && (tutor.formKey || isEmail(tutor.email)));
-      var tutorEmailStatus = tutorHasDirect
-        ? (tutor.formKey ? "ALIAS" : "PERSONAL")
-        : "TUTOR_EMAIL_UNAVAILABLE";
-
-      /* Idempotency keys — BOOKING-{ref}-TUTOR / -STUDENT / -INTERNAL.
-         Guarded() skips a job whose key already succeeded in this
-         browser, so a double-click or a refresh cannot send twice. */
+      /* The student receives a separate, student-safe message. It is
+         never a CC on the tutor message, and the owner is not copied. */
+      var tutorEmailStatus = tutor && tutor.formKey ? "ALIAS" : "PERSONAL";
       var refKey = ref ? String(ref).toUpperCase() : "";
-      /* v101 — idempotency key = entityId:messageType (RESET §16).
-         BOOK-123:booking_student_confirmation etc. One event → one
-         effective message per role, across client AND relay. */
       var kTutor = refKey ? idemKey(refKey, "booking_tutor_notification", target) : "";
       var kStudent = refKey ? idemKey(refKey, "booking_student_confirmation", data.email) : "";
-      var kInternal = refKey ? idemKey(refKey, "booking_internal_record", SITE.email) : "";
 
       /* v97 — an ADMIN RETRY must be able to actually re-send a role
          that already succeeded (e.g. the student lost their receipt).
@@ -2151,124 +1707,24 @@
       if (data.force && refKey) {
         try {
           var smF = sentMap();
-          [kTutor, kStudent, kInternal].forEach(function (k) { if (k) delete smF[k]; });
+          [kTutor, kStudent].forEach(function (k) { if (k) delete smF[k]; });
           localStorage.setItem(SENT_KEY, JSON.stringify(smF));
         } catch (e) {}
       }
 
-      /* When a tutor has not yet given us a personal address, their
-         bookings come to our inbox — so `target` and our inbox are
-         the same place. Sending both the tutor copy and the record
-         would arrive as two near-identical emails.
-
-         Hemlata's booking showed the other half of this: you saw
-         the tutor's working copy, not the operational record, so
-         the page URL and the distribution list were missing. The
-         record is the more complete of the two, so when they are
-         the same inbox we send THAT one, once.
-
-         The tutor copy is the primary either way: if it fails the
-         booking failed. */
-      /* v86 — anything addressed to an inbox WE own goes through
-         the free unlimited relay, not the metered one. See
-         ownInboxRelay(). `targetIsUs` is exactly the case where a
-         tutor has no personal address yet, which is 3 of our 4
-         tutors, so this is the common path, not the edge case. */
-      var jobs = [guarded(targetIsUs ? kInternal : kTutor, target, function () {
-        return targetIsUs
-          ? postOwn(target, siteBody())      /* our inbox — free relay */
-          : post(target, tutorBody());       /* a real tutor address   */
+      /* Only the booked tutor and student receive booking email.
+         If either route is unavailable, never substitute the owner. */
+      var jobs = [guarded(kTutor, target, function () {
+        return post(target, tutorBody());
       })];
-
-      if (CFG.copyToSite !== false && isEmail(SITE.email) && !targetIsUs) {
-        /* THE RECORD. Prakash: "record wali free wale se hi aani
-           chahiye." It is addressed to us, so it costs nothing. */
-        jobs.push(guarded(kInternal, ourInbox, function () { return postOwn(ourInbox, siteBody()); }));
-      }
-
-      /* =========================================================
-         v81 — THE STUDENT'S RECEIPT IS ADDRESSED TO THE STUDENT
-         ---------------------------------------------------------
-         Prakash: "sabhi ke liye fix karo."
-
-         He asked for the contact form's copy to go to the sender
-         rather than arriving in our inbox as a CC. The booking
-         receipt had exactly the same shape and the same problem,
-         so it gets exactly the same fix — one rule, both flows,
-         rather than the contact form quietly behaving better than
-         the booking form.
-
-         WAS:  post → EkGuruLearning@gmail.com,  CC: the student
-               subject "[student copy] ..."
-               Delivered to US. The student saw it only because
-               they were CC'd on a message addressed to somebody
-               else, which threads oddly and trips some spam
-               filters.
-
-         NOW:  post → the student, addressed TO them, no CC.
-               Nothing about our inbox is in their headers.
-
-         WHY IT COULD NOT BE DONE BEFORE, AND CAN NOW
-         FormSubmit refuses any recipient whose owner has not
-         clicked an activation link, and a student is by definition
-         an address we have never mailed. Re-probed against the
-         live endpoint on 10 Sep 2026 with a browser Origin header:
-
-           POST /ajax/never-a-real-person@example.com
-           → {"success":"false","message":"This form needs Activation..."}
-
-         Web3Forms has no such step — the ACCOUNT is verified by
-         the access key, not the recipient. So the receipt goes
-         there, chosen by the canAddressStrangers capability rather
-         than by a hardcoded provider name.
-
-         The fallback is the old path, unchanged: if Web3Forms is
-         spent for the month or unconfigured, the receipt reverts
-         to our inbox with the student CC'd. Worse, but never lost. */
-      var studentTo = (CFG.copyToStudent !== false && isEmail(data.email) &&
-                       String(data.email).toLowerCase() !== String(target).toLowerCase())
-                       ? data.email : null;
-
-      if (studentTo) {
-        jobs.push(guarded(kStudent, studentTo, function () {
-          /* v99 — chain() (sendable-aware) rather than a raw
-             enabled() filter: the student's receipt must be carried
-             by a relay that can genuinely send right now, not by a
-             token-less Apps Script that is guaranteed to refuse. */
-          var direct = chain().filter(function (p) {
-            return p.canAddressStrangers;
-          })[0];
-
-          if (direct) {
-            /* Their own message. The "[student copy]" prefix is
-               dropped: it existed only to distinguish the message
-               in OUR inbox, and it is meaningless — faintly
-               insulting, even — on the copy the student receives. */
-            return postVia(direct, studentTo, studentBody());
-          }
-
-          /* No relay can reach a stranger. Old path. */
-          if (!isEmail(SITE.email)) return Promise.resolve({ to: studentTo, ok: false,
-            error: "No configured route to the student" });
-          var receipt = studentBody();
-          receipt._cc = studentTo;
-          receipt._subject = "[student copy] " + receipt._subject;
-          /* Addressed to us, CC'd to them. Ours, so free relay —
-             and the free relay is also the only one that can
-             actually deliver the CC. Both rules point the same way. */
-          return postOwn(ourInbox, receipt);
-        }));
-      }
-
-      /* Any extra operational inboxes get the full record. These are
-         addresses you control, so you can activate them once. */
-      (CFG.alwaysCc || []).forEach(function (extra) {
-        if (isEmail(extra) && extra.toLowerCase() !== String(target).toLowerCase()) {
-          /* These are addresses YOU control and activated, so they
-             are ours and they are free. */
-          jobs.push(function () { return postOwn(extra, siteBody()); });
-        }
-      });
+      var studentTo = String(data.email).trim();
+      jobs.push(guarded(kStudent, studentTo, function () {
+        var direct = chain().filter(function (p) { return p.canAddressStrangers; })[0];
+        if (!direct) return Promise.resolve({ to: studentTo, ok: false,
+          state: "EXHAUSTED", errorClass: "NO_ROUTE",
+          error: "No configured route to the student" });
+        return postVia(direct, studentTo, studentBody());
+      }));
 
       /* =========================================================
          ONE AT A TIME, NOT ALL AT ONCE
@@ -2282,25 +1738,6 @@
         i = i || 0; out = out || [];
         if (i >= list.length) return Promise.resolve(out);
         return list[i]().then(function (r) {
-          /* v79 — THE CC FALLBACK.
-             post() returns needsSplit when the message required a
-             CC and no usable relay could deliver one. Rather than
-             drop that person in silence — which is precisely the
-             bug that hid the student's receipt — send them their
-             own message directly. It is a worse path (a stranger's
-             address may not be activated with FormSubmit) but a
-             visible one: if it fails, it fails loudly and lands in
-             `failed`, instead of reporting success. */
-          if (r && r.needsSplit && r.ccTarget) {
-            var direct = r.payload || {};
-            delete direct._cc;
-            return post(r.ccTarget, direct).then(function (r2) {
-              out.push(r2);
-              if (i + 1 >= list.length) return out;
-              return new Promise(function (res) { setTimeout(res, 250); })
-                .then(function () { return runSequential(list, i + 1, out); });
-            });
-          }
           out.push(r);
           if (i + 1 >= list.length) return out;
           return new Promise(function (res) { setTimeout(res, 250); })
@@ -2318,47 +1755,10 @@
         return {
           ok: true,
           to: target,
-          /* Everyone who actually received something, for the
-             confirmation screen and the ledger. The student is a CC
-             recipient rather than a POST target, so they have to be
-             added explicitly — leaving them out made the receipt say
-             "a copy also went to: EkGuru" and omit the student's own
-             copy, which was the one they most needed to see. */
-          /* Everyone who actually received something, for the
-             confirmation screen and the ledger.
-
-             v81: the student is now usually a DIRECT recipient
-             rather than a CC, so they appear in `delivered` on
-             their own. The old code inferred their presence from
-             "did a post to our inbox succeed", which after this
-             change would have reported them as having received a
-             copy when the direct send had in fact failed — the
-             screen lying to a student about an email that never
-             arrived. The fallback path still CCs them, so both
-             cases are handled explicitly and neither is guessed. */
-          cc: (function () {
-            var out = [], seenAddr = {};
-            delivered.forEach(function (a) {
-              if (a === target) return;
-              var k = String(a).toLowerCase();
-              if (!seenAddr[k]) { seenAddr[k] = 1; out.push(a); }
-            });
-            /* The CC fallback: the receipt went to our inbox with
-               the student CC'd, so they are not in `delivered`
-               under their own address. Only claim it if THAT
-               specific job succeeded. */
-            if (studentTo && !seenAddr[String(studentTo).toLowerCase()]) {
-              var ccDelivered = results.some(function (r) {
-                return r.ok && r.ccTo &&
-                  String(r.ccTo).toLowerCase() === String(studentTo).toLowerCase();
-              });
-              if (ccDelivered) {
-                seenAddr[String(studentTo).toLowerCase()] = 1;
-                out.push(studentTo);
-              }
-            }
-            return out;
-          })(),
+          /* The only non-primary recipient is the student. */
+          cc: delivered.filter(function (a) {
+            return String(a).toLowerCase() !== String(target).toLowerCase();
+          }),
           failed: failed.map(function (r) {
             return { to: r.to, error: r.error, state: r.state || "FAILED",
                      via: r.via || "", errorClass: r.errorClass || "UNKNOWN" };
@@ -2376,26 +1776,14 @@
           state: "ACCEPTED",
           accepted: true,
           tutorEmailStatus: tutorEmailStatus,
-          tutorEmailUnavailable: tutorEmailStatus === "TUTOR_EMAIL_UNAVAILABLE",
-          tutorEmailNote: tutorEmailStatus === "TUTOR_EMAIL_UNAVAILABLE"
-            ? "This tutor has no personal address on file; the request went to the EkGuru inbox for forwarding."
-            : "",
+          tutorEmailUnavailable: false,
+          tutorEmailNote: "",
           emailStates: (function () {
-            var okAddrs = delivered.map(function (a) { return String(a).toLowerCase(); });
-            var stuLc = studentTo ? String(studentTo).toLowerCase() : "";
-            var siteLc = String(SITE.email || "").toLowerCase();
-            var studentAccepted = studentTo && (
-              okAddrs.indexOf(stuLc) > -1 ||
-              results.some(function (r) { return r.ok && r.ccTo && String(r.ccTo).toLowerCase() === stuLc; })
-            );
+            var accepted = delivered.map(function (a) { return String(a).toLowerCase(); });
             return {
-              tutor: tutorEmailStatus === "TUTOR_EMAIL_UNAVAILABLE"
-                ? "TUTOR_EMAIL_UNAVAILABLE"
-                : (targetIsUs
-                    ? (primary.ok ? "ACCEPTED" : "FAILED")     /* merged into the record */
-                    : (okAddrs.indexOf(String(target).toLowerCase()) > -1 ? "ACCEPTED" : "FAILED")),
-              internal: (okAddrs.indexOf(siteLc) > -1) ? "ACCEPTED" : "FAILED",
-              student: studentTo ? (studentAccepted ? "ACCEPTED" : "FAILED") : null
+              tutor: accepted.indexOf(String(target).toLowerCase()) >= 0 ? "ACCEPTED" : "FAILED",
+              internal: "NOT_SENT_BY_POLICY",
+              student: accepted.indexOf(String(studentTo).toLowerCase()) >= 0 ? "ACCEPTED" : "FAILED"
             };
           })(),
           /* v99 — PER-ROLE DELIVERY DETAIL (the P0's section 15).
@@ -2409,52 +1797,24 @@
              after every stranger-capable route is EXHAUSTED, never
              dressed up as success. */
           emailDelivery: (function () {
-            function find(addr) {
-              if (!addr) return null;
-              var a = String(addr).toLowerCase();
-              for (var i = 0; i < results.length; i++) {
-                var r = results[i];
-                if (String(r.to || "").toLowerCase() === a) return r;
-                if (r.ccTo && String(r.ccTo).toLowerCase() === a) return r;
-              }
-              return null;
-            }
             function role(addr) {
-              var r = find(addr);
-              if (!r) return null;
-              var status = r.ok ? "ACCEPTED"
-                : (r.errorClass === "NO_ROUTE" || r.errorClass === "AUTH" ||
-                   r.errorClass === "NETWORK" || r.errorClass === "TIMEOUT")
-                  ? "EXHAUSTED" : "FAILED";
+              var r = results.filter(function (item) {
+                return String(item.to || "").toLowerCase() === String(addr).toLowerCase();
+              })[0];
+              if (!r) return { status: "FAILED", provider: "", lastAttempt: now.toISOString(),
+                lastError: "No provider result", retryCount: 0, messageId: "", recipient: addr };
               return {
-                status: status,
-                provider: r.via || "",
-                lastAttempt: now.toISOString(),
-                lastError: r.error || "",
-                retryCount: (r.attempts || 0),
-                messageId: r.msgId || "",
-                recipient: addr
+                status: r.ok ? "ACCEPTED" : ((r.errorClass === "NO_ROUTE" || r.errorClass === "AUTH" ||
+                  r.errorClass === "NETWORK" || r.errorClass === "TIMEOUT") ? "EXHAUSTED" : "FAILED"),
+                provider: r.via || "", lastAttempt: now.toISOString(), lastError: r.error || "",
+                retryCount: r.attempts || 0, messageId: r.msgId || "", recipient: addr
               };
             }
-            var merged = targetIsUs ? {
-              status: primary.ok ? "ACCEPTED" : "EXHAUSTED",
-              provider: primary.via || "",
-              lastAttempt: now.toISOString(),
-              lastError: primary.error || "",
-              retryCount: (primary.attempts || 0),
-              messageId: primary.msgId || "",
-              recipient: target,
-              merged: true
-            } : null;
             return {
-              student: studentTo ? role(studentTo) : null,
-              tutor: tutorEmailStatus === "TUTOR_EMAIL_UNAVAILABLE"
-                ? { status: "TUTOR_EMAIL_UNAVAILABLE", provider: "",
-                    lastAttempt: now.toISOString(), lastError: "",
-                    retryCount: 0, messageId: "",
-                    recipient: (CFG.siteKey || SITE.email || "") }
-                : (merged || role(target)),
-              internal: merged || role(SITE.email || "")
+              tutor: role(target),
+              student: role(studentTo),
+              internal: { status: "NOT_SENT_BY_POLICY", provider: "", lastAttempt: "",
+                lastError: "", retryCount: 0, messageId: "", recipient: "" }
             };
           })()
         };
@@ -2493,14 +1853,9 @@
                         removes the "did that send?" email that
                         otherwise follows every silent form.
 
-       The acknowledgement is a CC on a post addressed to OUR OWN
-       inbox, never a post addressed to the visitor. Same reason
-       the booking receipt is: FormSubmit refuses to deliver to an
-       address whose owner has not clicked an activation link, and
-       a stranger never has. Posting straight at them produced a
-       bounce AND an activation email to a person who did not ask
-       for one. (Recorded here because it has been rediscovered
-       twice.)
+       The contact acknowledgement now uses a direct, stranger-capable
+       recipient route when configured. This is separate from booking:
+       booking mail is directly addressed only to the tutor and student.
 
        WHY IT IS NOT compose()
        compose() is the admin dashboard's tool: it takes a
@@ -3433,22 +2788,16 @@
     sentLog: function () { return sentMap(); },
     clearSent: clearSent,
 
-    /* v100 — single source of truth for tutor email resolution.
-       The booking snapshot and the admin dashboard both ask this
-       instead of re-implementing the chain, so a tutor added via a
-       Sheet row flows through with no new code. Returns
-         { state, target, available } where available means a real
-       operational address exists (ACTIVE+VALID); otherwise the
-       message is TUTOR_EMAIL_UNAVAILABLE and target is the EkGuru
-       inbox. */
+    /* Single source of truth for tutor email resolution. Missing or
+       invalid values return an empty target; never the owner inbox. */
     resolveRecipients: resolveRecipients,
 
     tutorEmailInfo: function (tutor) {
       return {
         state: tutorEmailState(tutor),
         target: tutorTarget(tutor),
-        notificationEmail: notificationEmail(tutor),
-        available: !tutorEmailUnavailable(tutor)
+        notificationEmail: tutorTarget(tutor),
+        available: !!tutorTarget(tutor) && !tutorEmailUnavailable(tutor)
       };
     },
 
@@ -3480,7 +2829,8 @@
         }),
         bookingStudent: id(stranger[0]),
         bookingTutor: id(stranger[0]),
-        bookingInternal: id(internal),
+        bookingInternal: null,
+        bookingInternalPolicy: "NOT_SENT_BY_POLICY",
         contactVisitor: id(stranger[0]),
         contactInternal: id(internal),
         adminOutbound: id(outbound[0]),
@@ -3494,12 +2844,16 @@
        (an inbox the owner controls: the site inbox or an alwaysCc
        entry). Refuses any other address — this is a test button,
        not a way to spam a stranger from the dashboard.
-       type must be one of the five whitelisted message types;
+       type must be a whitelisted non-booking-owner message type;
        vars are the template variables. The subject is prefixed
        [TEST] so the owner's inbox can filter it. Returns ACCEPTED
        on success — never DELIVERED. */
     testSend: function (type, to, vars) {
       var controlled = ourInboxes();
+      if (window.EKGURU_EMAIL && window.EKGURU_EMAIL.canonical &&
+          window.EKGURU_EMAIL.canonical(type) === "booking_internal_record") {
+        return Promise.reject(new Error("Booking owner email is disabled by policy; the booking record is stored in the private sheet."));
+      }
       if (!isEmail(to)) {
         return Promise.reject(new Error("A valid recipient is required"));
       }
