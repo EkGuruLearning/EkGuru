@@ -1,0 +1,206 @@
+/* =========================================================
+   EkGuru — HOME FUTURE LAYER (additive, home page only)
+   ---------------------------------------------------------
+   Loaded last on index.html, so it wins ties without touching
+   the generated critical CSS or css/experience.css. It fixes
+   the surfaces the shared dark/contrast layer (css/ultra.css)
+   does not know about — the home hero's white glass pieces —
+   and adds the futuristic background, tablet polish and the
+   Hindi practice widget styles.
+
+   Rules of the layer (kept, or the tests that guard them):
+     · every colour comes from the --eg-* theme tokens, so
+       light / dark / contrast all stay WCAG-checked
+       (tools/test-theme-contrast.mjs owns those tokens);
+     · every animation is opt-in under
+       (prefers-reduced-motion: no-preference) only;
+     · touch targets stay >= 44px; text never below .78rem.
+   ========================================================= */
+
+/* ---------- 1. Futuristic page background (all themes) ----------
+   Two token-tinted aurora fields fixed behind the page, plus a
+   faint grid. Decorative only: pointer-events none, content
+   sits above, and contrast mode flattens it to plain black. */
+body::before {
+  content: ""; position: fixed; inset: 0; z-index: -2; pointer-events: none;
+  background:
+    radial-gradient(58rem 34rem at 12% -8%, color-mix(in srgb, var(--eg-accent) 16%, transparent), transparent 62%),
+    radial-gradient(52rem 32rem at 88% 4%, color-mix(in srgb, var(--eg-accent) 10%, transparent), transparent 60%),
+    radial-gradient(46rem 30rem at 50% 108%, color-mix(in srgb, var(--eg-accent) 9%, transparent), transparent 62%),
+    var(--eg-bg);
+}
+body::after {
+  content: ""; position: fixed; inset: 0; z-index: -1; pointer-events: none; opacity: .5;
+  background-image:
+    linear-gradient(color-mix(in srgb, var(--eg-ink) 4%, transparent) 1px, transparent 1px),
+    linear-gradient(90deg, color-mix(in srgb, var(--eg-ink) 4%, transparent) 1px, transparent 1px);
+  background-size: 44px 44px;
+  mask-image: radial-gradient(72rem 46rem at 50% 0%, #000 30%, transparent 78%);
+  -webkit-mask-image: radial-gradient(72rem 46rem at 50% 0%, #000 30%, transparent 78%);
+}
+html[data-theme="contrast"] body::before { background: var(--eg-bg); }
+html[data-theme="contrast"] body::after { display: none; }
+
+/* Glass sheen on the raised home surfaces (never in contrast:
+   there, solid black + white borders carry the meaning). */
+html[data-theme="dark"] .xp-stat,
+html[data-theme="dark"] .xp-card,
+html[data-theme="dark"] .hero-card,
+html[data-theme="dark"] .xp-float {
+  background: linear-gradient(155deg, color-mix(in srgb, var(--eg-surface) 88%, var(--eg-accent) 12%), var(--eg-surface)) !important;
+  border: 1px solid color-mix(in srgb, var(--eg-line) 65%, transparent) !important;
+  box-shadow: 0 18px 44px rgba(0,0,0,.42), inset 0 1px 0 rgba(255,255,255,.07) !important;
+  backdrop-filter: blur(10px) saturate(140%); -webkit-backdrop-filter: blur(10px) saturate(140%);
+}
+
+/* ---------- 2. Dark + contrast: the white hero pieces ----------
+   css/ultra.css restyles a fixed list of legacy classes; the
+   home hero's own pieces were not in it, so in dark mode they
+   stayed white with near-white text. Tokenise every one. */
+html[data-theme="dark"] .hdr, html[data-theme="contrast"] .hdr {
+  background: color-mix(in srgb, var(--eg-surface) 86%, transparent);
+  backdrop-filter: blur(14px) saturate(150%); -webkit-backdrop-filter: blur(14px) saturate(150%);
+}
+html[data-theme="dark"] :is(.xp-searchbar, .xp-letter, .eg-cc-chip, .eg-cc-panel, .hf-card),
+html[data-theme="contrast"] :is(.xp-searchbar, .xp-letter, .eg-cc-chip, .eg-cc-panel, .hf-card) {
+  background: var(--eg-surface) !important; color: var(--eg-ink) !important; border-color: var(--eg-line) !important;
+}
+html[data-theme="dark"] .hero-card .hc-name, html[data-theme="contrast"] .hero-card .hc-name { color: var(--eg-ink) !important; }
+html[data-theme="dark"] .hero-card .sm, html[data-theme="contrast"] .hero-card .sm { color: var(--eg-muted) !important; }
+html[data-theme="dark"] .xp-float, html[data-theme="contrast"] .xp-float {
+  background: color-mix(in srgb, var(--eg-surface) 92%, transparent) !important; color: var(--eg-ink) !important; border-color: var(--eg-line) !important;
+}
+html[data-theme="dark"] .xp-letter, html[data-theme="contrast"] .xp-letter { color: var(--eg-accent) !important; }
+html[data-theme="dark"] .xp-searchbar input, html[data-theme="contrast"] .xp-searchbar input { color: var(--eg-ink) !important; }
+html[data-theme="dark"] .xp-searchbar input::placeholder, html[data-theme="contrast"] .xp-searchbar input::placeholder { color: var(--eg-muted); }
+html[data-theme="dark"] .xp-kbd, html[data-theme="contrast"] .xp-kbd {
+  background: var(--eg-soft); color: var(--eg-secondary); border-color: var(--eg-line);
+}
+html[data-theme="dark"] .eg-cc-langs li, html[data-theme="contrast"] .eg-cc-langs li {
+  background: var(--eg-soft); color: var(--eg-ink);
+}
+html[data-theme="dark"] .xp-trust li::before, html[data-theme="contrast"] .xp-trust li::before {
+  background: var(--eg-soft); color: var(--eg-accent);
+}
+/* Contrast: the gradient headline becomes the solid accent
+   (yellow on black), never a low-contrast gradient blend. */
+html[data-theme="contrast"] .grad-text,
+html[data-theme="contrast"] .xp-stat b {
+  background: none; -webkit-background-clip: initial; background-clip: initial; color: var(--eg-accent);
+}
+html[data-theme="contrast"] :is(.btn-primary, .xp-badge-tile) {
+  background: var(--eg-accent) !important; color: var(--eg-accent-contrast) !important; border: 2px solid var(--eg-ink) !important;
+}
+html[data-theme="contrast"] :is(.xp-card, .xp-stat, .hero-card, .xp-rail-item, .faq, .hf-card) {
+  border: 2px solid var(--eg-ink) !important; box-shadow: none !important;
+}
+
+/* ---------- 3. Type: sharper rendering, real Devanagari stack ---------- */
+body {
+  font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto,
+    "Noto Sans Devanagari", "Mangal", sans-serif;
+  -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility;
+}
+:lang(hi), .xp-letter, .xp-medallion, [data-xp-hello], .hf-word {
+  font-family: "Noto Sans Devanagari", "Mangal", ui-sans-serif, system-ui, sans-serif;
+}
+h1, h2, .logo { text-wrap: balance; }
+
+/* ---------- 4. Hero motion (progressive, JS adds .hf-on) ----------
+   Orbs drift slowly, floats bob, the medallion gets a slow
+   conic halo. All of it exists ONLY when the visitor has not
+   asked for reduced motion and JS is running (.hf-on). */
+@media (prefers-reduced-motion: no-preference) {
+  .hf-on .xp-orb { animation: hf-drift 16s ease-in-out infinite alternate; will-change: transform; }
+  .hf-on .xp-orb-2 { animation-duration: 20s; animation-delay: -6s; }
+  .hf-on .xp-float { animation: hf-bob 7s ease-in-out infinite; }
+  .hf-on .xp-float-2 { animation-delay: -2.4s; } .hf-on .xp-float-3 { animation-delay: -4.6s; }
+  .hf-on .xp-ring { animation: hf-spin 46s linear infinite; }
+  .hf-on .xp-ring-2 { animation-duration: 64s; animation-direction: reverse; }
+  .hf-on .xp-medallion::after {
+    content: ""; position: absolute; inset: -9px; border-radius: inherit; z-index: -1;
+    background: conic-gradient(from 0deg, transparent 0 40%, color-mix(in srgb, var(--eg-accent) 55%, transparent), transparent 78%);
+    animation: hf-spin 7s linear infinite;
+  }
+  .hf-on .xp-hero .xp-letter { animation: hf-letter-in .7s cubic-bezier(.22,1,.36,1) backwards; }
+  .hf-on .xp-hero .xp-letter:nth-child(2) { animation-delay: .08s; }
+  .hf-on .xp-hero .xp-letter:nth-child(3) { animation-delay: .16s; }
+  .hf-on .xp-hero .xp-letter:nth-child(4) { animation-delay: .24s; }
+  .hf-on [data-hf-reveal] { opacity: 0; transform: translateY(22px); }
+  .hf-on [data-hf-reveal].hf-in {
+    opacity: 1; transform: none; transition: opacity .7s ease, transform .7s cubic-bezier(.22,1,.36,1);
+  }
+  .hf-on .hero-card { transition: transform .35s cubic-bezier(.22,1,.36,1), box-shadow .35s ease; transform-style: preserve-3d; }
+}
+@keyframes hf-drift { from { transform: translate3d(0,0,0) scale(1); } to { transform: translate3d(-26px, 20px, 0) scale(1.07); } }
+@keyframes hf-bob { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-9px); } }
+@keyframes hf-spin { to { transform: rotate(360deg); } }
+@keyframes hf-letter-in { from { opacity: 0; transform: translateY(16px) rotate(-4deg); } to { opacity: 1; transform: none; } }
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+}
+
+/* Header gains a shadow once the page scrolls (JS toggles). */
+.hdr { transition: box-shadow .3s ease; }
+.hdr.hf-scrolled { box-shadow: 0 12px 34px rgba(10, 6, 32, .16); }
+
+/* ---------- 5. Hindi practice widget (injected by home-future.js) ---------- */
+.hf-card {
+  margin-block-start: 22px; max-width: 620px; padding: 16px 18px;
+  border-radius: 18px; border: 1px solid #e6e1fb; background: #fff; box-shadow: var(--sh-1, 0 2px 10px rgba(15,18,34,.07));
+}
+.hf-card h2 { font-size: 1rem; margin: 0 0 2px; letter-spacing: -.01em; }
+.hf-card .hf-sub { margin: 0; font-size: .82rem; color: var(--xp-muted, #5f6577); }
+.hf-stage { display: flex; align-items: center; gap: 14px; margin-block-start: 12px; flex-wrap: wrap; }
+.hf-word { font-size: clamp(1.7rem, 4.6vw, 2.3rem); font-weight: 800; line-height: 1.25; }
+.hf-meta { min-width: 0; }
+.hf-roman { font-weight: 700; }
+.hf-mean { color: var(--xp-muted, #5f6577); font-size: .9rem; }
+.hf-actions { display: flex; gap: 8px; margin-block-start: 12px; flex-wrap: wrap; }
+.hf-btn {
+  min-height: 44px; padding: 9px 16px; border-radius: 999px; cursor: pointer; font: inherit; font-weight: 700; font-size: .88rem;
+  border: 1px solid var(--eg-line, #ddd6ff); background: var(--eg-surface, #fff); color: var(--eg-ink, #10131f);
+}
+.hf-btn.hf-primary { background: var(--eg-accent, #4f32d9); border-color: var(--eg-accent, #4f32d9); color: var(--eg-accent-contrast, #fff); }
+.hf-btn:focus-visible, .hf-card :focus-visible { outline: 3px solid var(--eg-focus, #4f32d9); outline-offset: 3px; }
+.hf-progress { font-size: .78rem; font-weight: 700; color: var(--xp-muted, #5f6577); }
+@media (prefers-reduced-motion: no-preference) {
+  .hf-flip { animation: hf-flip .45s cubic-bezier(.22,1,.36,1); }
+}
+@keyframes hf-flip { from { opacity: 0; transform: rotateX(38deg) translateY(6px); } to { opacity: 1; transform: none; } }
+
+/* ---------- 6. Tablet (641–1024px): the forgotten middle ---------- */
+@media (min-width: 641px) and (max-width: 1024px) {
+  .xp-hero { padding-block: clamp(40px, 6vw, 64px); }
+  .xp-hero-in { gap: clamp(22px, 3.4vw, 40px); }
+  .xp-stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .xp-grid-4 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .xp-visual { min-height: 300px; }
+  .hf-card { max-width: none; }
+  .nav a { padding: 9px 10px; }
+}
+
+/* ---------- 7. Mobile (<640px): thumb-first ---------- */
+@media (max-width: 640px) {
+  body::after { background-size: 32px 32px; }
+  .xp-hero-actions .btn, .xp-searchbox .btn { width: 100%; min-height: 52px; }
+  .xp-stats { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+  .xp-stat { padding: 12px; }
+  .hf-card { padding: 14px; border-radius: 16px; }
+  .hf-stage { gap: 10px; }
+  .hf-actions .hf-btn { flex: 1 1 auto; }
+  .hdr-in { height: 62px; gap: 10px; }
+  .fab { width: 52px; height: 52px; }
+}
+/* Coarse pointers everywhere: nothing tappable under 44px. */
+@media (pointer: coarse) {
+  .nav a, .hf-btn, .eg-cc-chip { min-height: 44px; }
+  .xp-rail-item { min-height: 44px; display: inline-flex; align-items: center; }
+}
+
+/* ---------- 8. Windows forced-colors / print ---------- */
+@media (forced-colors: active) {
+  body::before, body::after, .xp-orb { display: none !important; }
+  .hf-card, .xp-stat, .hero-card { border: 1px solid CanvasText; }
+}
+@media print { body::before, body::after, .hf-card { display: none !important; } }
