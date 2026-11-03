@@ -73,7 +73,7 @@ function loadIntake(tabsSeed, opts) {
   return { ctx, tabs, store };
 }
 /* data rows only: the script writes a header row when it creates a tab */
-const dataRows = (tab) => (tab && tab.rows ? tab.rows.filter((r) => r[0] !== "timestamp") : []);
+const dataRows = (tab) => (tab && tab.rows ? tab.rows.filter((r) => r[0] !== "timestamp" && r[0] !== "booking_ref") : []);
 const post = (ctx, body) => JSON.parse(ctx.doPost({ postData: { contents: typeof body === "string" ? body : JSON.stringify(body) } }).getContent());
 
 const APP = {
@@ -87,6 +87,17 @@ const REV = {
 const SIGN = {
   kind: "signup", consent: true, website: "",
   fields: { email: "learner@example.com", goal: "Travel", level: "Never studied" }
+};
+const BOOK = {
+  kind: "booking", consent: true, website: "",
+  fields: {
+    booking_ref: "EK-BOOK01", tutor_id: "tutor-example", student_name: "Asha Test",
+    student_email: "asha@example.com", student_whatsapp: "+919999000000",
+    preferred_times_ist: "Mon 7:00 PM IST (Asia/Kolkata)", lesson: "Trial lesson, 50 min",
+    price_usd: "8", student_level: "Beginner", student_goal: "Conversation",
+    student_timezone: "Asia/Kolkata", source_page: "https://ekguru.shop/find-tutors.html",
+    tutor_email: "tutor@example.com", sent_via: "EkGuru booking form", email_delivery: "queued"
+  }
 };
 
 {
@@ -112,6 +123,24 @@ const SIGN = {
   r = post(I.ctx, SIGN);
   check("a sign-up goes to signups, private", r.ok && dataRows(I.tabs.signups).length === 1);
   check("a missing tab is created with its header row first", I.tabs.signups.rows[0][0] === "timestamp");
+
+  r = post(I.ctx, BOOK);
+  const bookings = I.tabs.bookings;
+  const bookingHeader = I.ctx.INTAKE_KINDS.booking.header;
+  const bookingRow = dataRows(bookings)[0];
+  check("booking is recorded as one private row with owner-visible headers",
+    r.ok && bookings.rows[0][0] === "booking_ref" && bookingRow.length === bookingHeader.length);
+  check("booking row keeps all required fields including WhatsApp and email delivery",
+    ["booking_ref", "requested_at", "tutor_id", "student_name", "student_email", "student_whatsapp",
+     "preferred_times_ist", "lesson", "price_usd", "student_level", "student_goal", "student_timezone",
+     "source_page", "tutor_email", "sent_via", "email_delivery", "status"].every((h) => bookingHeader.indexOf(h) >= 0));
+  check("booking time is stamped in IST and status starts requested",
+    / IST$/.test(bookingRow[bookingHeader.indexOf("requested_at")]) &&
+    bookingRow[bookingHeader.indexOf("status")] === "requested");
+  check("booking preserves optional WhatsApp and tutor email in the private sheet",
+    bookingRow[bookingHeader.indexOf("student_whatsapp")] === "'" + BOOK.fields.student_whatsapp &&
+    bookingRow[bookingHeader.indexOf("tutor_email")] === BOOK.fields.tutor_email,
+    JSON.stringify({ row: bookingRow, header: bookingHeader }));
 }
 
 {

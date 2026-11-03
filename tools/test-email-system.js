@@ -5,18 +5,15 @@
    Loads js/email-templates.js + js/mailer.js against a minimal
    browser shim and verifies the EMAIL RESET contract:
 
-     1. seven message types render (by template key AND by the
-        contractual relay type name);
+     1. six routable message types are whitelisted; the legacy booking
+        internal template can render for compatibility but cannot be sent;
      2. the registry rejects unknown / missing / undeclared vars
         and raw {placeholders};
      3. user values are HTML-escaped (no raw <script> survives);
      4. role-language QA (§27-H) — a tutor mail must not read
         like a student mail, internal wording never leaks;
-     5. mailer.send() / mailer.contact() / mailer.compose()
-        render the SIMPLE template at send time, stamp
-        type / html / text / idempotencyKey (entityId:type) onto
-        the Apps Script payload, and route internal copies via the
-        internal high-capacity relay;
+     5. booking sends reach only tutor + student (never owner); contact
+        sends retain their separate internal record;
      6. tutorEmailInfo() classifies tutors (ACTIVE+VALID / MISSING
         / INVALID / UNPUBLISHED / DISABLED) and
         TUTOR_EMAIL_UNAVAILABLE routing holds.
@@ -49,7 +46,7 @@ window.EKGURU_SITE = {
   mail: {
     enabled: true,
     copyToStudent: true,
-    copyToSite: true,
+    copyToSite: false,
     contactProvider: "",
     appsScript: {
       url: "https://script.google.com/macros/s/AKfycbTEST/exec",
@@ -92,11 +89,16 @@ function check(name, cond, extra) {
 /* =========================== 1. registry =========================== */
 check("EKGURU_EMAIL exposed", !!E);
 check("EkGuruMail exposed", !!M);
+const routeMap = M.routingMap();
+check("booking owner route is absent and explicitly policy-blocked",
+  routeMap.bookingInternal === null && routeMap.bookingInternalPolicy === "NOT_SENT_BY_POLICY",
+  JSON.stringify({ bookingInternal: routeMap.bookingInternal, policy: routeMap.bookingInternalPolicy }));
 const TYPES = ["contact_submitter_confirmation", "contact_internal_record",
   "booking_student_confirmation", "booking_tutor_notification",
-  "booking_internal_record", "ADMIN_CONTACT_OUTBOUND", "ADMIN_CONTACT_INTERNAL_COPY"];
-check("WHITELIST = seven message types",
-  TYPES.every((t) => (E.WHITELIST || []).indexOf(t) > -1) && E.WHITELIST.length === 7,
+  "ADMIN_CONTACT_OUTBOUND", "ADMIN_CONTACT_INTERNAL_COPY"];
+check("WHITELIST = six routable message types; booking owner email excluded",
+  TYPES.every((t) => (E.WHITELIST || []).indexOf(t) > -1) && E.WHITELIST.length === 6 &&
+    E.WHITELIST.indexOf("booking_internal_record") === -1,
   JSON.stringify(E.WHITELIST));
 
 /* =========================== 2. render =========================== */
@@ -178,8 +180,13 @@ function internalRows() {
     check("tutor job stamped booking_tutor_notification", tutor.length === 1, "got " + tutor.length);
     check("student job stamped booking_student_confirmation", student.length === 1, "got " + student.length);
     const internalTyped = byType("booking_internal_record");
-    check("internal record stamped booking_internal_record (Apps Script primary)",
-      internalTyped.length === 1, "got " + internalTyped.length + " typed, rows=" + internalRows().length);
+    check("booking never sends an internal/owner copy",
+      internalTyped.length === 0 && internalRows().length === 0,
+      "typed=" + internalTyped.length + ", rows=" + internalRows().length);
+    check("booking recipients are only the tutor and student",
+      POSTED.length === 2 && POSTED.every((p) =>
+        ["tara@example.com", "priya@example.com"].indexOf(String(p.parsed.to || "").toLowerCase()) >= 0),
+      JSON.stringify(POSTED.map((p) => p.parsed.to)));
     if (tutor[0]) {
       check("tutor payload has html + text", !!tutor[0].parsed.html && !!tutor[0].parsed.text);
       check("tutor idempotencyKey = entity|template|recipient",
@@ -203,15 +210,6 @@ function internalRows() {
       check("student idempotencyKey = entity|template|recipient",
         student[0].parsed.idempotencyKey === "EK-TEST-01|booking_student_confirmation|priya@example.com");
     }
-    const rec = internalTyped[0] || internalRows()[0];
-    if (rec) {
-      check("internal record via Apps Script (or Web3Forms fallback), never FormSubmit",
-        /script\.google\.com|web3forms\.com/i.test(rec.url) &&
-        !/formsubmit\.co/i.test(rec.url), rec.url.slice(0, 80));
-      check("internal record is the internal template (not a student copy)",
-        /internal booking/i.test(rec.parsed.html || rec.parsed["Email Delivery"] || "") ||
-        /booking_internal_record/.test(rec.parsed.type || rec.parsed.idempotencyKey || ""));
-    }
   }
 
   /* ---- TUTOR WITHOUT an email → TUTOR_EMAIL_UNAVAILABLE ---- */
@@ -226,31 +224,24 @@ function internalRows() {
     M.tutorEmailInfo({ id: "x", name: "X", email: "x@y.com", active: "no" }).state === "DISABLED");
   check("tutorEmailInfo: notification_email (snake) → ACTIVE+VALID",
     M.tutorEmailInfo({ id: "x", name: "X", notification_email: "tutor@x.com" }).state === "ACTIVE+VALID");
+  const badAlias = M.tutorEmailInfo({ id: "x", name: "X", formKey: "not-an-email" });
+  check("tutorEmailInfo: invalid legacy alias is refused, not sent to owner",
+    badAlias.state === "ACTIVE+INVALID" && !badAlias.available && !badAlias.target, JSON.stringify(badAlias));
+  const routeInfo = M.resolveRecipients("booking", {
+    tutor: tara, studentEmail: "priya@example.com"
+  });
+  check("booking recipient resolution exposes tutor + student only (no internal inbox)",
+    routeInfo.tutor === "tara@example.com" && routeInfo.student === "priya@example.com" &&
+    !Object.prototype.hasOwnProperty.call(routeInfo, "internal"), JSON.stringify(routeInfo));
 
   POSTED.length = 0;
   const ghost = { id: "newtutor", name: "New Tutor", lessonLength: "50 min" };
+  let missingAddressRejected = false;
   try {
-    res = await M.send(Object.assign({}, sendPayload, { tutor: ghost, ref: "EK-TEST-02" }));
-  } catch (e) {
-    check("send() resolves (tutor WITHOUT email)", false, e.message);
-    res = null;
-  }
-  if (res) {
-    check("send() resolves (tutor WITHOUT email)", !!res.ok, JSON.stringify(res));
-    check("NO tutor job when tutor email unavailable",
-      byType("booking_tutor_notification").length === 0,
-      "got " + byType("booking_tutor_notification").length);
-    check("student still gets their receipt",
-      byType("booking_student_confirmation").length === 1);
-    const rec = byType("booking_internal_record")[0] || internalRows()[0];
-    check("internal record still written", !!rec);
-    if (rec) {
-      const blob = JSON.stringify(rec.parsed);
-      check("internal record marks tutor email state honestly",
-        rec.parsed["Tutor Email"] === "TUTOR_EMAIL_UNAVAILABLE" ||
-        /TUTOR_EMAIL_UNAVAILABLE/.test(blob));
-    }
-  }
+    await M.send(Object.assign({}, sendPayload, { tutor: ghost, ref: "EK-TEST-02" }));
+  } catch (e) { missingAddressRejected = /tutor.*address/i.test(e.message); }
+  check("missing tutor address fails closed; booking mail is not sent to owner or student",
+    missingAddressRejected && POSTED.length === 0, JSON.stringify(POSTED));
 
   /* =========================== 6. contact() =========================== */
   POSTED.length = 0;
@@ -342,6 +333,15 @@ function internalRows() {
     check("testSend REFUSES a non-controlled address", false, "should have rejected");
   } catch (e) {
     check("testSend REFUSES a non-controlled address", /control/i.test(e.message), e.message);
+  }
+  const beforeOwnerPolicyTest = POSTED.length;
+  try {
+    await M.testSend("booking_internal_record", "EkGuruLearning@gmail.com", E.FIXTURES.bookingInternal);
+    check("testSend refuses booking owner copy before relay", false, "should have rejected");
+  } catch (e) {
+    check("testSend refuses booking owner copy before relay",
+      /disabled by policy|private sheet/i.test(e.message) && POSTED.length === beforeOwnerPolicyTest,
+      e.message);
   }
 
   console.log("\n" + (failures === 0 ? "ALL EMAIL-SYSTEM TESTS PASSED" : failures + " FAILURE(S)"));

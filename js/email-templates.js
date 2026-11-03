@@ -296,7 +296,6 @@
   var PUBLIC_IDS = [
     "booking_student_confirmation",
     "booking_tutor_notification",
-    "booking_internal_record",
     "contact_submitter_confirmation",
     "contact_internal_record"
   ];
@@ -415,7 +414,6 @@
   var ROUTES = [
     { type: "booking_student_confirmation", role: "booking_student", template: "bookingStudent" },
     { type: "booking_tutor_notification", role: "booking_tutor", template: "bookingTutor" },
-    { type: "booking_internal_record", role: "booking_internal", template: "bookingInternal" },
     { type: "contact_submitter_confirmation", role: "contact_submitter", template: "contactVisitor" },
     { type: "contact_internal_record", role: "contact_internal", template: "contactInternal" },
     { type: "ADMIN_CONTACT_OUTBOUND", role: "admin_outbound", template: "adminOutbound" },

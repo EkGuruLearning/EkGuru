@@ -66,22 +66,17 @@ window.EKGURU_SITE = {
   /* =========================================================
      BOOKING EMAILS
      ---------------------------------------------------------
-     When a student presses "Send booking request", one press
-     sends one real email to three inboxes:
+     A booking request email goes only to the booked tutor and
+     the student who submitted it. The owner gets the durable record
+     through the private bookings sheet, not a booking email copy.
 
-        the tutor      (js/tutors/<name>.js  →  email:)
-        EkGuru         (the address above)
-        the student    (whatever they typed in the form)
-
-     enabled        false -> no mail is sent; the button falls
-                    back to opening the student's own email app
-                    with the message already written, exactly as
-                    the site behaved before.
-     copyToSite     EkGuru keeps a copy of every request.
-     copyToStudent  the student gets their own receipt.
-     alwaysCc       any extra inboxes, e.g. ["ops@ekguru.com"]
-     siteKey        optional FormSubmit alias for EkGuru's inbox,
-                    so the raw address is not in the page source.
+     enabled        false -> no mail is sent.
+     copyToSite     retained for backwards config compatibility but
+                    booking code ignores it (owner email is forbidden).
+     copyToStudent  retained for older settings; booking receipt is
+                    sent to the student when a valid route is available.
+     alwaysCc       applies to other mail flows, never bookings.
+     siteKey        optional provider alias; never a tutor fallback.
 
      ⚠️ Each recipient address must be activated ONCE with the
      mail relay before it will receive anything. The first booking
@@ -317,7 +312,7 @@ window.EKGURU_SITE = {
        while delivering only to the key owner — a wrong-inbox "win".
        The live chain is Apps Script → one Web3Forms key → mailto. */
     staticFormsKey: "",
-    copyToSite: true,
+    copyToSite: false,
     copyToStudent: true,
     alwaysCc: [],
     siteKey: "",

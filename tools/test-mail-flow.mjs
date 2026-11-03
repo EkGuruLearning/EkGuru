@@ -25,6 +25,7 @@ function check(name, cond, extra) {
 const gs = fs.readFileSync(path.join(ROOT, "tools", "apps-script-mailer.gs"), "utf8");
 const cfg = fs.readFileSync(path.join(ROOT, "js", "site-config.js"), "utf8");
 const mailerSrc = fs.readFileSync(path.join(ROOT, "js", "mailer.js"), "utf8");
+const featuresSrc = fs.readFileSync(path.join(ROOT, "js", "features.js"), "utf8");
 
 /* ============ 1. Apps Script is not an open relay ============ */
 check("gs: empty type is refused (not `if (type && …)`)",
@@ -103,7 +104,7 @@ window.EKGURU_SITE = {
   mail: {
     enabled: true,
     copyToStudent: true,
-    copyToSite: true,
+    copyToSite: false,
     contactProvider: "",
     appsScript: {
       url: "https://script.google.com/macros/s/AKfycbTEST/exec",
@@ -144,6 +145,17 @@ const M = window.EkGuruMail;
 const E = window.EKGURU_EMAIL;
 
 check("mailer + templates loaded", !!(M && E && M.contact && M.send));
+check("booking mailto fallback targets tutor and copies student only",
+  /var to = info && info.available/.test(featuresSrc) &&
+  /encodeURIComponent\(student\)/.test(featuresSrc) &&
+  !/var to = modalTutor\.email \|\| SITE\.email/.test(featuresSrc) &&
+  !/cc\.push\(SITE\.email\)/.test(featuresSrc));
+check("booking email requires a ready private-sheet intake before sending",
+  /window\.EkGuruIntake\.ready\(\)/.test(featuresSrc) &&
+  /The booking was not saved to the private sheet/.test(featuresSrc));
+const bookingActions = (featuresSrc.match(/function buildActions\(\)[\s\S]*?function sendRequest\(/) || [""])[0];
+check("booking modal has no direct WhatsApp/copy bypass around the sheet-first flow",
+  !!bookingActions && !/wa\.me|bk-copy|data-track-wa/.test(bookingActions));
 
 const map = M.routingMap();
 check("routing: student → appsscript (sendable in this harness)",
@@ -229,10 +241,11 @@ await (async function () {
     const t = p.parsed && p.parsed.type;
     if (t) byType[t] = (byType[t] || 0) + 1;
   });
-  check("one POST per booking role (no multi-provider duplicate)",
+  check("only tutor + student booking emails are sent; no owner copy",
     (byType.booking_tutor_notification || 0) === 1 &&
     (byType.booking_student_confirmation || 0) === 1 &&
-    (byType.booking_internal_record || 0) === 1,
+    !byType.booking_internal_record &&
+    POSTED.every((p) => !/ekgurulearning@gmail\.com/i.test(String(p.parsed.to || ""))),
     JSON.stringify(byType));
   check("booking student copy does not include tutor inbox",
     POSTED.filter((p) => p.parsed.type === "booking_student_confirmation")
@@ -265,6 +278,19 @@ await (async function () {
     urls.filter((u) => /web3forms/.test(u)).length === 1,
     urls.join(" | "));
 
+  /* Missing tutor address must not route a booking to EkGuru. */
+  localStorage.clear();
+  POSTED.length = 0;
+  let missingTutorRejected = false;
+  try {
+    await M.send({
+      tutor: { id: "missing-address", name: "Tutor without address" },
+      name: "Priya", email: "priya@example.com", ref: "EK-NO-OWNER-01"
+    });
+  } catch (e) { missingTutorRejected = /tutor.*address/i.test(e.message); }
+  check("missing tutor email is refused without sending to owner or student",
+    missingTutorRejected && POSTED.length === 0, JSON.stringify(POSTED));
+
   /* CRLF email rejected */
   let threw = false;
   try {
@@ -280,7 +306,7 @@ await (async function () {
     name: "Priya", email: "priya@example.com", topic: "General",
     message: "hello", pageUrl: "https://ekguru.shop/contact/"
   });
-  check("mailto tertiary is a mailto: to the site inbox",
+  check("contact mailto tertiary is addressed to the site inbox",
     /^mailto:EkGuruLearning@gmail\.com\?/i.test(mail));
 
   /* honeypot: no POST */

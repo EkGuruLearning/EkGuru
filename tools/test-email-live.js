@@ -75,17 +75,13 @@ function postRelay(body) {
   console.log("relay URL:", (cfg.url || "").replace(/\/exec.*/, "/exec"));
   console.log("token wired:", !!cfg.token && String(cfg.token).trim().length > 0);
 
-  /* ---- 1. shipped mailer path (testSend → controlled inbox) ---- */
-  const vars = {};
-  for (const k in E.FIXTURES.bookingInternal) vars[k] = E.FIXTURES.bookingInternal[k];
-  vars.bookingId = "BOOK-TEST-001";
+  /* ---- 1. booking owner-email policy (must not contact the relay) ---- */
   try {
-    const t = await M.testSend("booking_internal_record", "EkGuruLearning@gmail.com", vars);
-    check("mailer.testSend → relay ACCEPTED (real send)", t.ok && t.state === "ACCEPTED", JSON.stringify(t));
-    check("testSend subject carries [TEST]", /^\[TEST\]/i.test(t.subject || ""), t.subject);
-    check("testSend went via Apps Script", /Apps Script/i.test(t.via || ""), t.via);
+    await M.testSend("booking_internal_record", "EkGuruLearning@gmail.com", E.FIXTURES.bookingInternal);
+    check("booking owner email is refused before any relay call", false, "send unexpectedly resolved");
   } catch (e) {
-    check("mailer.testSend → relay ACCEPTED (real send)", false, e.message);
+    check("booking owner email is refused before any relay call",
+      /disabled by policy|private sheet/i.test(e.message), e.message);
   }
 
   /* ---- 2. server-side idempotency (replay) ---- */
