@@ -748,13 +748,29 @@ window.EKGURU_SITE = {
   },
 
   /* =========================================================
-     ONLINE FORMS (apply, review, sign-up)
+     ONLINE FORMS + BOOKINGS (apply, review, sign-up, booking)
      ---------------------------------------------------------
-     BLANK = OFF. The forms fall back to email, as before.
-     To turn on: deploy apps-script/Intake.gs as its OWN Apps
-     Script project (Execute as Me, Anyone), then paste its
-     /exec address here. Full steps: apps-script/INTAKE-SETUP.md
-     Nothing submitted is published. Every row is pending.
+     ⚠️ BLANK = OFF, AND "OFF" MEANS NO SHEET ROW AT ALL.
+     While this is blank, EkGuruIntake.ready() is false, the
+     booking button stays disabled ("Online booking is
+     unavailable until the private bookings sheet is
+     connected") and NOTHING a student books can reach the
+     private `bookings` tab — this blank line was the reason
+     bookings were not appearing in the sheet.
+
+     ONE-TIME OWNER STEP (about 10 minutes, full guide in
+     apps-script/INTAKE-SETUP.md):
+       1. Open the EkGuru DB sheet -> Extensions -> Apps Script
+          (the project MUST be bound to that workbook, or set
+          the EKGURU_DB_SPREADSHEET_ID script property).
+       2. Paste apps-script/Intake.gs, Deploy -> Web app,
+          Execute as Me, Who has access: Anyone.
+       3. Paste the /exec URL below, commit, let Pages deploy.
+       4. Open <url>?action=health - it must say "ok":true,
+          "spreadsheetBound":true, "version":"1.1.0".
+       5. Make one test booking and check the `bookings` tab.
+     Nothing submitted is published. Every row starts pending /
+     requested, for the owner to check first.
      ========================================================= */
   intake: {
     url: ""

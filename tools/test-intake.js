@@ -44,7 +44,21 @@ function loadIntake(tabsSeed, opts) {
   const store = {};
   const sheetObj = (name) => ({
     appendRow: (row) => { tabs[name] = tabs[name] || { rows: [] }; tabs[name].rows.push(row); },
-    getLastRow: () => (tabs[name] ? tabs[name].rows.length + 1 : 1),
+    getLastRow: () => (tabs[name] ? tabs[name].rows.length : 0),
+    getRange: (row, col, numRows, numCols) => ({
+      getValues: () => {
+        const out = [];
+        for (let r = 0; r < (numRows || 1); r++) {
+          const vals = [];
+          for (let c = 0; c < (numCols || 1); c++) {
+            const src = (tabs[name] && tabs[name].rows[row - 1 + r]) || [];
+            vals.push(src[col - 1 + c] !== undefined ? src[col - 1 + c] : "");
+          }
+          out.push(vals);
+        }
+        return out;
+      }
+    }),
     setFrozenRows: () => {}
   });
   const ctx = {
@@ -53,7 +67,26 @@ function loadIntake(tabsSeed, opts) {
       getActive: () => ({
         getSheetByName: (n) => (tabs[n] ? sheetObj(n) : null),
         insertSheet: (n) => { tabs[n] = { rows: [] }; return sheetObj(n); }
+      }),
+      getActiveSpreadsheet: () => (opts.unbound ? null : {
+        getSheetByName: (n) => (tabs[n] ? sheetObj(n) : null),
+        insertSheet: (n) => { tabs[n] = { rows: [] }; return sheetObj(n); }
+      }),
+      openById: (id) => {
+        if (!opts.openById || id !== opts.openById) throw new Error("bad workbook id");
+        return {
+          getSheetByName: (n) => (tabs[n] ? sheetObj(n) : null),
+          insertSheet: (n) => { tabs[n] = { rows: [] }; return sheetObj(n); }
+        };
+      }
+    },
+    PropertiesService: {
+      getScriptProperties: () => ({
+        getProperty: (k) => (opts.props && opts.props[k]) || null
       })
+    },
+    LockService: {
+      getScriptLock: () => ({ waitLock: () => {}, releaseLock: () => {} })
     },
     CacheService: {
       getScriptCache: () => ({
@@ -181,6 +214,35 @@ const BOOK = {
 }
 
 {
+  const I = loadIntake(["bookings"]); /* tab exists but is empty: no header yet */
+  let r = post(I.ctx, BOOK);
+  check("an existing-but-empty bookings tab gets its header before the first booking",
+    r.ok === true && I.tabs.bookings.rows[0][0] === "booking_ref" && dataRows(I.tabs.bookings).length === 1,
+    JSON.stringify(I.tabs.bookings));
+  r = post(I.ctx, BOOK);
+  check("the same booking_ref sent twice is one sheet row, answered as a duplicate",
+    r.ok === true && r.duplicate === true && r.reference === BOOK.fields.booking_ref &&
+    dataRows(I.tabs.bookings).length === 1, JSON.stringify(r));
+  r = post(I.ctx, { ...BOOK, fields: { ...BOOK.fields, booking_ref: "EK-BOOK02" } });
+  check("a different booking_ref is a new row", r.ok === true && dataRows(I.tabs.bookings).length === 2);
+}
+{
+  const I = loadIntake([], { unbound: true });
+  let r = post(I.ctx, BOOK);
+  check("an unbound standalone project refuses honestly instead of pretending to save",
+    r.ok === false && !I.tabs.bookings, JSON.stringify(r));
+  const h = JSON.parse(I.ctx.doGet({ parameter: { action: "health" } }).getContent());
+  check("health reports spreadsheetBound:false when nothing is connected",
+    h.ok === false && h.spreadsheetBound === false, JSON.stringify(h));
+}
+{
+  const I = loadIntake([], { unbound: true, openById: "DB-ID-123",
+                            props: { EKGURU_DB_SPREADSHEET_ID: "DB-ID-123" } });
+  let r = post(I.ctx, BOOK);
+  check("the EKGURU_DB_SPREADSHEET_ID script property connects a standalone project",
+    r.ok === true && dataRows(I.tabs.bookings).length === 1, JSON.stringify(r));
+}
+{
   const I = loadIntake(["applications", "reviews_pending"]);
   const h = JSON.parse(I.ctx.doGet({ parameter: { action: "health" } }).getContent());
   check("health says ok and lists pending counts", h.ok === true && h.pendingRows.applications === 0 && h.pendingRows.reviews_pending === 0, JSON.stringify(h));
@@ -191,7 +253,8 @@ const BOOK = {
 
 {
   const src = fs.readFileSync(path.join(ROOT, "apps-script", "Intake.gs"), "utf8");
-  check("Intake.gs never opens another workbook by id", !/openById|openByUrl/.test(src));
+  check("Intake.gs opens a workbook only by a script-property id, never a hard-coded one",
+    /openById\(id\)/.test(src) && !/openById\(\s*["']/.test(src) && !/openByUrl/.test(src));
   check("Intake.gs never reads the public tabs", !/getSheetByName\("(tutors|reviews|settings|support)"\)/.test(src));
   check("Intake.gs holds no key, token or payments id", !/RAZORPAY|1u5Jkbe|secret|password/i.test(src));
   check("Intake.gs defines no doPost clash with the mailer (one doPost, one file)", (src.match(/function doPost\(/g) || []).length === 1);
@@ -267,6 +330,24 @@ const fields = { name: "Asha", email: "asha@example.com", subject: "Hindi", bio:
   c = loadClient({ url: EXEC }, () => ({ body: JSON.stringify({ ok: false, error: "that email does not look right" }) }));
   res = await c.api.submit("application", fields, true, "");
   check("refusal: the server's reason is shown, not a generic one", res.ok === false && res.error === "that email does not look right" && !res.fallback);
+
+{
+  const bad = loadClient({ url: EXEC }, () => ({ body: JSON.stringify({ ok: true }) }));
+  let res = await Promise.resolve(bad.api.submit("booking", {
+    booking_ref: "EK-1", tutor_id: "tutor-example", student_name: "Asha",
+    student_email: "asha@example.com", preferred_times_ist: "Mon 7 PM"
+  }, true, ""));
+  check("client: ok:true without a reference is NOT treated as saved",
+    res.ok === false && res.fallback === true && bad.calls.length === 1, JSON.stringify(res));
+  const badMail = loadClient({ url: EXEC }, () => ({ body: JSON.stringify({ ok: true, reference: "EK-1" }) }));
+  res = await badMail.api.submit("booking", {
+    booking_ref: "EK-1", tutor_id: "tutor-example", student_name: "Asha",
+    student_email: "not-an-email", preferred_times_ist: "Mon 7 PM"
+  }, true, "");
+  check("client: a bad student_email is caught before any booking request",
+    res.ok === false && badMail.calls.length === 0 && /email/.test(res.error), JSON.stringify(res));
+}
+
 
   c = loadClient({ url: EXEC }, () => ({ throw: true }));
   res = await c.api.submit("application", fields, true, "");

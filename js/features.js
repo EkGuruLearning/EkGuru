@@ -857,20 +857,28 @@
        record. The intake endpoint stays owner-deployed and fail-closed. */
     var sheetSaved = false;
     var mailInfo = window.EkGuruMail.tutorEmailInfo(modalTutor);
+    /* Every value is clipped to the Intake.gs limit for its column.
+       The server refuses the WHOLE submission over one long field, so
+       an unclipped 201-character goal — or a source_page carrying a
+       long utm/query string (location.href easily passes 300 chars) —
+       used to cost the entire sheet row. The email below still uses
+       the full, unclipped values. */
+    var clip = function (v, n) { return String(v == null ? "" : v).trim().slice(0, n); };
     var bookingFields = {
       booking_ref: ref,
       tutor_id: modalTutor.id,
-      student_name: studentName,
-      student_email: studentEmail,
-      student_whatsapp: (($('#bk-whatsapp') || {}).value || '').trim(),
-      preferred_times_ist: (chosen ? slotLabel() : "") || "Not chosen",
+      student_name: clip(studentName, 60),
+      student_email: clip(studentEmail, 120),
+      student_whatsapp: clip((($('#bk-whatsapp') || {}).value || ''), 30),
+      preferred_times_ist: clip((chosen ? slotLabel() : "") || "Not chosen", 120),
       lesson: "Trial lesson, 50 min",
-      price_usd: String(modalTutor.priceUSD || ""),
-      student_level: ($("#bk-level") || {}).value || "",
-      student_goal: (($("#bk-goal") || {}).value || "").trim(),
-      student_timezone: ($("#bk-tz") || {}).value || "",
-      source_page: location.href,
-      tutor_email: mailInfo.notificationEmail || "",
+      price_usd: String(modalTutor.priceUSD || "").slice(0, 12),
+      student_level: clip(($("#bk-level") || {}).value || "", 60),
+      student_goal: clip((($("#bk-goal") || {}).value || ""), 200),
+      student_timezone: clip(($("#bk-tz") || {}).value || "", 60),
+      /* origin+path only: which page, not the visitor's tracking params (location.href easily passes the 300-char server limit and used to cost the whole row). */
+      source_page: clip(location.origin + location.pathname, 300),
+      tutor_email: clip(mailInfo.notificationEmail || "", 120),
       sent_via: "EkGuru booking form",
       email_delivery: "queued"
     };

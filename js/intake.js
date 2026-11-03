@@ -43,11 +43,18 @@
   /* Plain-English checks, the same rules as the server, so a typo is caught
      before the request leaves the browser. The server still decides. */
   function checkFields(kind, fields) {
+    /* Length limits mirror apps-script/Intake.gs exactly. A field the
+       client forgets to check here is not a soft warning: the server
+       refuses the WHOLE submission, so (for example) a student goal of
+       201 characters used to lose the entire booking. */
     var rules = {
       application: { name: 80, email: 120, subject: 60, bio: 1500 },
       review:      { tutor_id: 60, reviewer_name: 60, text: 800 },
       signup:      { email: 120 },
-      booking:     { student_name: 60, student_email: 120, preferred_times_ist: 120 }
+      booking:     { student_name: 60, student_email: 120, preferred_times_ist: 120,
+                     student_whatsapp: 30, lesson: 60, price_usd: 12,
+                     student_level: 60, student_goal: 200, student_timezone: 60,
+                     source_page: 300, tutor_email: 120 }
     }[kind];
     var required = {
       application: ["name", "email", "subject", "bio"],
@@ -64,8 +71,23 @@
       var val = String(fields[keys[k]] == null ? "" : fields[keys[k]]).trim();
       if (val.length > rules[keys[k]]) return keys[k].replace(/_/g, " ") + " is too long.";
     }
-    if (fields.email && !/^[^\s@<>"']+@[^\s@<>"']+\.[^\s@<>"']{2,}$/.test(String(fields.email).trim())) {
-      return "That email does not look right.";
+    /* The email field is NOT called "email" on every form: a booking
+       sends student_email (and an optional tutor_email), a review an
+       optional contact_email. Checking only fields.email meant a typo'd
+       student address passed the browser and was refused by the server
+       AFTER the whole booking submit — the sheet row was lost. */
+    var emailFields = {
+      application: [["email", true]],
+      review:      [["contact_email", false]],
+      signup:      [["email", true]],
+      booking:     [["student_email", true], ["tutor_email", false]]
+    }[kind] || [];
+    for (var e = 0; e < emailFields.length; e++) {
+      var ev = String(fields[emailFields[e][0]] == null ? "" : fields[emailFields[e][0]]).trim();
+      if (!ev && !emailFields[e][1]) continue;
+      if (ev && !/^[^\s@<>"']+@[^\s@<>"']+\.[^\s@<>"']{2,}$/.test(ev)) {
+        return "That email does not look right.";
+      }
     }
     return "";
   }
@@ -96,7 +118,17 @@
     }).then(function (t) {
       var j;
       try { j = JSON.parse(t); } catch (e) { throw new Error("not JSON"); }
-      if (j && j.ok) return { ok: true, reference: String(j.reference || "") };
+      /* Success MUST carry the reference the server wrote into the
+         sheet row. A bare {"ok":true} can also come from the health
+         action or a wrong/old deployment answering the redirect;
+         trusting it used to tell the student "saved" (and let the
+         booking email go out) with no row in the sheet at all. */
+      if (j && j.ok && String(j.reference || "").trim()) {
+        return { ok: true, reference: String(j.reference), duplicate: j.duplicate === true };
+      }
+      if (j && j.ok) {
+        return { ok: false, fallback: true, error: "The booking service replied without a confirmation reference, so this was not treated as saved." };
+      }
       return { ok: false, error: String((j && j.error) || "We could not save that. Please email us instead.") };
     }).catch(function () {
       return { ok: false, fallback: true, error: "We could not reach the form just now. Please email us instead." };

@@ -15,16 +15,27 @@ and mixing them causes errors and risk.
 
 ## Steps (about ten minutes)
 
-1. Open https://script.google.com and click **New project**. Name it
-   `EkGuru Intake`.
-2. Delete the sample code. Paste the whole of `apps-script/Intake.gs` into
+1. Open the **EkGuru DB** sheet (the workbook that already has the
+   `bookings`, `tutors` and `reviews` tabs).
+2. In that sheet click **Extensions → Apps Script**. This opens a project
+   *bound* to the workbook — that binding is what lets a submission become
+   a sheet row. Name the project `EkGuru Intake`.
+3. Delete the sample code. Paste the whole of `apps-script/Intake.gs` into
    `Code.gs`. Click **Save**.
-3. Open the sheet you want the rows in (it can be the EkGuru DB sheet, or a new
-   one). Its tabs are created the first time a form is sent: `applications`,
-   `reviews_pending`, `signups`. **To keep the forms and the live feed in one
-   place, bind this project to the EkGuru DB sheet** by opening that sheet, then
-   Extensions, Apps Script, and pasting the file there instead. Only do one of
-   the two, not both.
+
+   ⚠️ **Do NOT create the project from https://script.google.com instead.**
+   A standalone project is not connected to any workbook: v1.0.0 of the
+   script then failed every submission, which is exactly how bookings
+   could be "sent" and still never appear in the sheet. If you must use a
+   standalone project, open **Project Settings → Script Properties** and add
+   `EKGURU_DB_SPREADSHEET_ID` = the id from the EkGuru DB sheet URL
+   (`docs.google.com/spreadsheets/d/<this part>/edit`). The script uses
+   that property only when no workbook is bound; no id is hard-coded.
+
+   Tabs are created the first time a form is sent, if they are missing:
+   `applications`, `reviews_pending`, `signups`, `bookings`. A tab that
+   already exists (like `bookings`) is used as-is; an existing but empty
+   tab gets its header row written before the first booking.
 4. Click **Deploy**, then **New deployment**, then the gear icon, then **Web app**.
    - **Execute as:** Me
    - **Who has access:** Anyone
@@ -44,11 +55,22 @@ and mixing them causes errors and risk.
 ## Check it
 
 Open `https://script.google.com/macros/s/.../exec?action=health` in a browser.
-You should see `"ok": true` and the pending counts. It shows counts only.
+You should see `"ok": true`, `"spreadsheetBound": true`, `"version": "1.1.0"`
+and the pending counts. It shows counts only. If you instead see
+`"spreadsheetBound": false`, the project is not connected to the workbook
+(step 1–2 above, or the script property) and **no form will save** until
+that is fixed — redeploy after fixing it.
 
 Then send one test application from the Join page, using your own details, and
 check that a row with status `pending` appears in `applications`. Delete the test
 row afterwards.
+
+**Then verify a booking (the important one):** open Find Tutors, book any
+tutor with your own name/email, and check that exactly one new row with
+status `requested` and your `booking_ref` appears in the `bookings` tab.
+Sending the same booking again does not create a second row — the script
+answers `duplicate: true` for the same `booking_ref`. Delete the test row
+afterwards.
 
 ## Approving someone
 

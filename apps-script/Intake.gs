@@ -14,10 +14,16 @@
  *   signups        ->  private. Used only to send the learner a reply and to
  *                      count interest. Never published, never sent back out.
  *
- * SEPARATE PROJECT ON PURPOSE. Paste this into its OWN Apps Script project
- * (Extensions → Apps Script from a new sheet is fine). It does not share a
- * doPost with the mailer or the questions API, because two doPost functions in
- * one project will not compile. Deploy:
+ * SEPARATE PROJECT ON PURPOSE. Paste this into its OWN Apps Script project.
+ * It does not share a doPost with the mailer or the questions API, because
+ * two doPost functions in one project will not compile.
+ *
+ * ⚠️ BOUND PROJECT, OR THE SHEET NEVER SEES A ROW. Open it from the
+ * EkGuru DB sheet itself (that sheet → Extensions → Apps Script) so
+ * SpreadsheetApp.getActiveSpreadsheet() finds the workbook. A standalone
+ * project has no active workbook; intakeSpreadsheet_() then falls back to
+ * the EKGURU_DB_SPREADSHEET_ID script property and refuses (health reports
+ * "spreadsheetBound":false) if neither is set. Deploy:
  *
  *     Execute as:      Me
  *     Who has access:  Anyone
@@ -28,7 +34,7 @@
  * ------------------------------
  *   GET   ?action=health      → {"ok":true,"tabs":{…counts…}}  (counts only)
  *   POST  Content-Type text/plain, body = JSON string:
- *         {"kind":"application"|"review"|"signup",
+ *         {"kind":"application"|"review"|"signup"|"booking",
  *          "consent":true,
  *          "website":"",                    (honeypot: must stay empty)
  *          "fields":{…}}
@@ -66,7 +72,7 @@
 
 "use strict";
 
-var INTAKE_VERSION = "1.0.0";
+var INTAKE_VERSION = "1.1.0";
 var INTAKE_MAX_BYTES = 12000;
 var INTAKE_HOURLY_CAP = 30;   /* per kind, whole site */
 var INTAKE_DAILY_CAP = 150;   /* per kind, whole site */
@@ -182,8 +188,10 @@ function doPost(e) {
     if (!quota.ok) return intakeJson_({ ok: false, error: quota.error });
 
     var ref = intakeRef_();
-    intakeAppend_(kind, spec, ref, clean.values);
-    return intakeJson_({ ok: true, reference: "EG-" + ref });
+    var saved = intakeAppend_(kind, spec, ref, clean.values);
+    /* A booking is confirmed by its own booking_ref (the same code the
+       student sees and the email carries), not by a second server code. */
+    return intakeJson_({ ok: true, reference: saved.reference, duplicate: saved.duplicate === true });
   } catch (err) {
     /* never leak a stack trace or a field value to the visitor */
     return intakeJson_({ ok: false, error: "could not save, please email us instead" });
@@ -254,13 +262,63 @@ function intakeQuota_(kind) {
 /* ----------------------------------------------------------------------------
    Storage
    -------------------------------------------------------------------------- */
+/* WHICH WORKBOOK. getActive() only works when this project is BOUND to a
+   sheet (EkGuru DB -> Extensions -> Apps Script). A standalone project
+   created at script.google.com returns null there, and v1.0.0 then failed
+   EVERY submission with "could not save" — a booking could look sent and
+   still never reach the sheet. v1.1.0 therefore also accepts the workbook
+   id from a Script Property (Project Settings -> Script Properties):
+       EKGURU_DB_SPREADSHEET_ID = <the id in the EkGuru DB sheet URL>
+   No workbook id is hard-coded in this file. */
+function intakeSpreadsheet_() {
+  var ss = null;
+  try { ss = SpreadsheetApp.getActiveSpreadsheet(); } catch (err) {}
+  if (ss) return ss;
+  var props = PropertiesService.getScriptProperties();
+  var id = String(props.getProperty("EKGURU_DB_SPREADSHEET_ID") ||
+                  props.getProperty("INTAKE_SPREADSHEET_ID") || "").trim();
+  if (id) return SpreadsheetApp.openById(id);
+  throw new Error("Intake is not connected to a spreadsheet: bind this " +
+    "project to the EkGuru DB sheet, or set the EKGURU_DB_SPREADSHEET_ID script property.");
+}
+
 function intakeAppend_(kind, spec, ref, values) {
-  var ss = SpreadsheetApp.getActive();
+  var ss = intakeSpreadsheet_();
+  /* One writer at a time: two students booking in the same second must
+     not race appendRow / the duplicate scan below. */
+  var lock = LockService.getScriptLock();
+  lock.waitLock(20000);
+  try {
+    return intakeAppendLocked_(kind, spec, ref, values, ss);
+  } finally {
+    lock.releaseLock();
+  }
+}
+
+function intakeAppendLocked_(kind, spec, ref, values, ss) {
   var tab = ss.getSheetByName(spec.tab);
-  if (!tab) {
-    tab = ss.insertSheet(spec.tab);
+  if (!tab) tab = ss.insertSheet(spec.tab);
+  /* A tab that exists but is still empty (created by hand, or by an
+     earlier half-finished setup) gets its header first — otherwise the
+     first booking becomes the "header" row and is invisible to filters,
+     tables and the dashboard counts that assume row 1 is the header. */
+  if (tab.getLastRow() === 0) {
     tab.appendRow(spec.header);
     tab.setFrozenRows(1);
+  }
+  var isBooking = (spec === INTAKE_KINDS.booking);
+  var ownRef = isBooking ? (values.booking_ref || ("EK-" + ref)) : ("EG-" + ref);
+  /* Idempotency for bookings: a double-click, a browser retry after a
+     timeout, or a re-opened modal re-sends the SAME booking_ref. Scan
+     column A and answer success without writing a second row, so one
+     booking is always exactly one sheet row. */
+  if (isBooking && tab.getLastRow() > 1) {
+    var refs = tab.getRange(2, 1, tab.getLastRow() - 1, 1).getValues();
+    for (var i = 0; i < refs.length; i++) {
+      if (String(refs[i][0] || "").trim() === ownRef) {
+        return { reference: ownRef, duplicate: true };
+      }
+    }
   }
   var when = new Date();
   var row = spec.header.map(function (h) {
@@ -276,17 +334,28 @@ function intakeAppend_(kind, spec, ref, values) {
     return values[h] !== undefined ? values[h] : "";
   });
   tab.appendRow(row);
+  return { reference: ownRef, duplicate: false };
 }
 
 function intakeHealth_() {
-  var ss = SpreadsheetApp.getActive();
+  var ss;
+  try {
+    ss = intakeSpreadsheet_();
+  } catch (err) {
+    /* Health must be able to SAY "not connected" — throwing here would
+       only show the owner a generic Apps Script error page. */
+    return { ok: false, version: INTAKE_VERSION, spreadsheetBound: false,
+             error: "not connected to a spreadsheet (bind the project to the " +
+                    "EkGuru DB sheet or set EKGURU_DB_SPREADSHEET_ID)" };
+  }
   var tabs = {};
   Object.keys(INTAKE_KINDS).forEach(function (k) {
     var name = INTAKE_KINDS[k].tab;
     var t = ss.getSheetByName(name);
     tabs[name] = t ? Math.max(0, t.getLastRow() - 1) : 0;
   });
-  return { ok: true, version: INTAKE_VERSION, at: new Date().toISOString(), pendingRows: tabs };
+  return { ok: true, version: INTAKE_VERSION, spreadsheetBound: true,
+           at: new Date().toISOString(), pendingRows: tabs };
 }
 
 function intakeRef_() {
