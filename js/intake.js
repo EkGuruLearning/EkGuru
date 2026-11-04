@@ -202,7 +202,10 @@
     for (var i = 0; i < forms.length; i++) wire(forms[i]);
   }
 
-  window.EkGuruIntake = { ready: ready, submit: submit, checkFields: checkFields, intakeUrl: intakeUrl };
+  /* Re-wire forms injected after load (the profile review form is
+     re-rendered on every sheet repaint — without this its submit
+     falls back to a native mailto POST). Idempotent. */
+  window.EkGuruIntake = { ready: ready, submit: submit, checkFields: checkFields, intakeUrl: intakeUrl, rewire: init };
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", init);
   else init();
 })();

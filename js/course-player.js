@@ -263,7 +263,9 @@ Player.prototype.route = function () {
       return self.renderLevel(d, key);
     });
   }).catch(function (e) {
-    self.mount.innerHTML = '<div class="egc google-anno-skip"><h1>Course failed to load</h1><p>' + esc(e.message) + '</p><p><a href="#/">Back to all courses</a></p></div>';
+    /* Owner rule (Nov 2026): no engine text on screen — details to the console. */
+    try { if (window.console) console.warn("[EkGuru] course failed to load:", e); } catch (e0) {}
+    self.mount.innerHTML = '<div class="egc google-anno-skip"><h1>Course failed to load</h1><p>Please check your connection and try again. If it keeps happening, write to us.</p><p><a href="#/">Back to all courses</a></p></div>';
   });
 };
 Player.prototype.crumbs = function (items) {

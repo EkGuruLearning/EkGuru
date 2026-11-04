@@ -1226,6 +1226,7 @@
             '<input type="hidden" name="tutor_id" value="' + esc(x.id) + '">' +
             '<div><label for="rv-name">Your name</label><br><input id="rv-name" name="reviewer_name" maxlength="60" required></div>' +
             '<div><label for="rv-stars">Rating</label><br><select id="rv-stars" name="stars" required>' +
+              '<option value="" selected>Select rating</option>' +
               [1,2,3,4,5].map(function(n){ return '<option value="' + n + '">' + n + ' star' + (n>1?"s":"") + "</option>"; }).join("") +
             "</select></div>" +
             '<div><label for="rv-booking">Booking reference</label><br><input id="rv-booking" name="booking_id" maxlength="20" required placeholder="EK-…"></div>' +
@@ -1494,6 +1495,11 @@
     try { renderFind(); } catch (e) { warnQuiet("find-tutors", e); }
     try { renderProfile(); clearError("profile"); } catch (e) { warnQuiet("profile", e); }
     try { wireVideos(document); } catch (e) { warnQuiet("video", e); }
+
+    /* The repaint rebuilt the DOM — forms inside it (the profile
+       review form) are new nodes. Re-wire them or their submit
+       silently falls back to a native mailto POST. */
+    try { if (window.EkGuruIntake && window.EkGuruIntake.rewire) window.EkGuruIntake.rewire(); } catch (e) {}
 
     /* Prices must be re-converted: the repaint wrote fresh
        data-usd attributes and the currency layer has to redraw
