@@ -130,4 +130,117 @@
     window.speechSynthesis.onvoiceschanged = function () {};
   }
   render(false);
+
+/* ---- Phase 2 enhancements (all guarded, progressive) ---- */
+  /* particles: fine pointer + motion consent + cap */
+  if (!reduceMotion && finePointer) {
+    var host2 = doc.createElement("div");
+    host2.className = "hf-particles";
+    host2.setAttribute("aria-hidden", "true");
+    var N = Math.min(16, Math.max(6, Math.floor(window.innerWidth / 120)));
+    for (var p = 0; p < N; p++) {
+      var dot = doc.createElement("i");
+      dot.className = "hf-particle";
+      var size = 3 + ((p * 7) % 6);
+      dot.style.width = size + "px";
+      dot.style.height = size + "px";
+      dot.style.left = ((p * 47) % 100) + "%";
+      dot.style.animationDuration = (16 + (p % 7) * 4) + "s";
+      dot.style.animationDelay = (-(p % 5) * 3) + "s";
+      dot.style.opacity = (0.18 + ((p % 4) * 0.08)).toFixed(2);
+      host2.appendChild(dot);
+    }
+    doc.body.appendChild(host2);
+  }
+
+  /* hero stat count-up: animate the "3 public tutors" number */
+  var statEl = doc.querySelector("#stat-tutors");
+  if (statEl && !reduceMotion) {
+    var final = parseInt(statEl.textContent, 10) || 0;
+    var cur = { v: 0 };
+    var step = function () {
+      cur.v = Math.min(final, cur.v + Math.max(1, Math.round(final / 18)));
+      statEl.textContent = cur.v;
+      if (cur.v < final) window.requestAnimationFrame(step);
+    };
+    /* start when the hero stats enter view */
+    if ("IntersectionObserver" in window) {
+      var io2 = new IntersectionObserver(function (entries) {
+        entries.forEach(function (en) {
+          if (en.isIntersecting) { step(); io2.disconnect(); }
+        });
+      }, { threshold: 0.4 });
+      io2.observe(statEl);
+    } else { step(); }
+    /* keep the live value (main.js may overwrite); only animate once */
+  }
+
+  /* scroll progress hairline */
+  if (!reduceMotion) {
+    var bar = doc.createElement("div");
+    bar.className = "hf-progress";
+    bar.setAttribute("aria-hidden", "true");
+    var inner = doc.createElement("i");
+    bar.appendChild(inner);
+    doc.body.appendChild(bar);
+    var tick2 = false;
+    var onScroll2 = function () {
+      if (tick2) return; tick2 = true;
+      window.requestAnimationFrame(function () {
+        var h = doc.documentElement.scrollHeight - window.innerHeight;
+        var pct = h > 0 ? Math.min(100, Math.max(0, (window.scrollY || 0) / h * 100)) : 0;
+        inner.style.width = pct + "%";
+        tick2 = false;
+      });
+    };
+    window.addEventListener("scroll", onScroll2, { passive: true });
+    onScroll2();
+  }
+
+  /* typing practice inside the Hindi widget */
+  if (host && !doc.querySelector("[data-hf-type]")) {
+    var TYPE_WORDS = [
+      { hi: "नमस्ते", roman: "namaste", en: "Hello" },
+      { hi: "धन्यवाद", roman: "dhanyavaad", en: "Thank you" },
+      { hi: "कृपया", roman: "kripya", en: "Please" },
+      { hi: "हाँ", roman: "haan", en: "Yes" },
+      { hi: "नहीं", roman: "nahi", en: "No" }
+    ];
+    var ti = 0;
+    var typeRow = doc.createElement("div");
+    typeRow.className = "hf-type-row";
+    typeRow.setAttribute("data-hf-type", "");
+    typeRow.innerHTML =
+      '<input class="hf-type-input" type="text" autocomplete="off" spellcheck="false" ' +
+      'aria-label="Type this word in Hindi script" placeholder="Type it…">' +
+      '<span class="hf-type-hint" data-hf-type-msg></span>';
+    var typeInput = typeRow.querySelector("input");
+    var typeMsg = typeRow.querySelector("[data-hf-type-msg]");
+
+    function typeState() {
+      var w = TYPE_WORDS[ti];
+      typeInput.setAttribute("placeholder", "Type: " + w.roman + " (" + w.en + ")");
+      typeMsg.textContent = "";
+      typeMsg.style.color = "";
+    }
+    function typeCheck(e) {
+      if (e.key !== "Enter") return;
+      var w = TYPE_WORDS[ti];
+      var norm = typeInput.value.trim().toLowerCase().replace(/[।्]/g, "");
+      var want = w.roman.toLowerCase();
+      var ok = norm === want || norm === w.hi;
+      typeMsg.textContent = ok ? "✓ Perfect!" : "Try again — " + w.roman;
+      typeMsg.style.color = ok ? "var(--green, #1a7f37)" : "var(--red, #b3261e)";
+      if (ok) {
+        ti = (ti + 1) % TYPE_WORDS.length;
+        setTimeout(typeState, 500);
+      }
+    }
+    typeInput.addEventListener("keydown", typeCheck);
+
+    /* insert under the stage */
+    var stage = card.querySelector(".hf-stage");
+    if (stage && stage.parentNode) stage.parentNode.insertBefore(typeRow, stage.nextSibling);
+    typeState();
+  }
 })();
