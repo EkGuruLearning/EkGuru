@@ -1159,6 +1159,29 @@
           '<p class="sched-note">' + esc(t("pf.schedNote")) + " " + esc(x.timezone || "IST") + ". " + esc(t("pf.schedNote2")) + "</p></section>" +
 
         '<section class="panel reveal"><h2><span class="ico">💬</span>' + esc(t("pf.reviews")) + "</h2>" + revs + "</section>" +
+
+        /* v1.2.0 — review form: only a student with a real booking can
+           leave a review, so they must enter the booking reference they
+           received. Verified server-side against the bookings tab. */
+        '<section class="panel reveal" data-eg-review-form data-tutor="' + esc(x.id) + '">' +
+          '<h2><span class="ico">✍️</span>Share your experience with ' + esc(x.name) + "</h2>" +
+          "<p>Only students who booked " + esc(x.name) + " through EkGuru can leave a review here. Enter the booking reference you received (it starts with <code>EK-</code>) so we can verify it.</p>" +
+          '<form class="intake-form" data-intake="review" action="mailto:EkGuruLearning@gmail.com" method="post" enctype="text/plain" style="display:grid;gap:12px">' +
+            '<input type="hidden" name="tutor_id" value="' + esc(x.id) + '">' +
+            '<div><label for="rv-name">Your name</label><br><input id="rv-name" name="reviewer_name" maxlength="60" required></div>' +
+            '<div><label for="rv-stars">Rating</label><br><select id="rv-stars" name="stars" required>' +
+              [1,2,3,4,5].map(function(n){ return '<option value="' + n + '">' + n + ' star' + (n>1?"s":"") + "</option>"; }).join("") +
+            "</select></div>" +
+            '<div><label for="rv-booking">Booking reference</label><br><input id="rv-booking" name="booking_id" maxlength="20" required placeholder="EK-…"></div>' +
+            '<div><label for="rv-text">Your review</label><br><textarea id="rv-text" name="text" maxlength="800" rows="5" required></textarea></div>' +
+            '<div><label for="rv-email">Email (optional — only to reply about this review)</label><br><input id="rv-email" type="email" name="contact_email" maxlength="120"></div>' +
+            '<div><label for="rv-date">Lesson date (optional)</label><br><input id="rv-date" type="date" name="lesson_date"></div>' +
+            '<label style="display:flex;gap:8px;align-items:center"><input type="checkbox" name="consent" required> I agree EkGuru may keep this review to publish on the tutor\'s profile.</label>' +
+            '<input type="text" name="website" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px" aria-hidden="true">' +
+            '<button type="submit" class="btn btn-primary">Submit review</button>' +
+            '<p data-intake-msg role="status"></p>' +
+          "</form>" +
+        "</section>" +
       "</div><aside><div class=\"side\"><div class=\"side-card reveal\">" +
         '<div class="side-price"><b data-usd="' + esc(x.priceUSD) + '" data-usd-mode="full">' + pxFull(x.priceUSD) + "</b><span>" + esc(t("pf.profilePrice")) + " · " + esc(x.lessonLength || "50 min") + " " + esc(t("card.lesson")) + "</span></div>" +
         bookBtn(x, "btn-block") +

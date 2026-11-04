@@ -1175,6 +1175,7 @@
           : "") +
 
         '<p class="bk-note">' + esc(t("book.sentNote")) + "</p>" +
+        (ref ? '<p class="bk-note" style="color:var(--brand-3,#0f7b4d)">' + esc(t("book.keepRef")) + "</p>" : "") +
         '<div class="bk-done-btns">' +
           '<button class="btn btn-ghost bk-rc-copy" type="button">📋 ' + esc(t("book.rcCopy")) + "</button>" +
           '<button class="btn btn-primary bk-done-x" type="button">' + esc(t("book.close")) + "</button>" +

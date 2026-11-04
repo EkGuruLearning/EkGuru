@@ -1,16 +1,21 @@
 /**
  * ============================================================================
- * EkGuru: INTAKE (applications, reviews, sign-ups)  ·  write-only, pending-only
+ * EkGuru: INTAKE (applications, reviews, sign-ups, bookings, contact)  ·  write-only, pending-only
  * ============================================================================
- * Lets a visitor send a tutor application, a student review or a learner
- * sign-up straight from the site, without a server of ours. Every submission
+ * Lets a visitor send a tutor application, a student review, a learner
+ * sign-up, a lesson booking or a contact message straight from the site,
+ * without a server of ours. Every submission
  * lands as a PENDING row in this workbook. Nothing here ever reaches the
  * public site by itself:
  *
  *   applications   ->  you check the person, then set approved = yes in the
  *                      tutors tab (or add the row there) to publish them
  *   reviews_pending->  you check the review, then copy it into the reviews tab
- *                      with status = live
+ *                      with status = live. A review must carry the booking
+ *                      reference of a booking that exists for that tutor, so a
+ *                      review cannot be written by someone who never booked.
+ *   contacts        ->  contact-form messages, private, reply material only
+ *   bookings        ->  lesson booking requests, the owner-side booking record
  *   signups        ->  private. Used only to send the learner a reply and to
  *                      count interest. Never published, never sent back out.
  *
@@ -34,7 +39,7 @@
  * ------------------------------
  *   GET   ?action=health      → {"ok":true,"tabs":{…counts…}}  (counts only)
  *   POST  Content-Type text/plain, body = JSON string:
- *         {"kind":"application"|"review"|"signup"|"booking",
+ *         {"kind":"application"|"review"|"signup"|"booking"|"contact",
  *          "consent":true,
  *          "website":"",                    (honeypot: must stay empty)
  *          "fields":{…}}
@@ -46,7 +51,7 @@
  *
  * WHAT IS CHECKED (server side, always; the browser checks too, for speed)
  * ----------------------------------------------------------------------
- *   · the kind is one of three known kinds
+ *   · the kind is one of five known kinds
  *   · consent is true (the person has agreed that we keep and reply to them)
  *   · the honeypot is empty (bots fill every box)
  *   · every field has a length limit and a type (email, enum, plain text)
@@ -72,7 +77,7 @@
 
 "use strict";
 
-var INTAKE_VERSION = "1.1.0";
+var INTAKE_VERSION = "1.2.0";
 var INTAKE_MAX_BYTES = 12000;
 var INTAKE_HOURLY_CAP = 30;   /* per kind, whole site */
 var INTAKE_DAILY_CAP = 150;   /* per kind, whole site */
@@ -103,14 +108,36 @@ var INTAKE_KINDS = {
   review: {
     tab: "reviews_pending",
     header: ["timestamp", "reference", "status", "tutor_id", "reviewer_name", "stars",
-             "text", "lesson_date", "contact_email", "notes"],
+             "text", "lesson_date", "contact_email", "booking_id", "notes"],
     fields: {
       tutor_id:      { type: "slug",  max: 60,  required: true },
       reviewer_name: { type: "text",  max: 60,  required: true },
       stars:         { type: "int",   min: 1, max: 5, required: true },
       text:          { type: "text",  max: 800, required: true },
       lesson_date:   { type: "date" },
-      contact_email: { type: "email", max: 120 }
+      contact_email: { type: "email", max: 120 },
+      /* GENUINE-REVIEW GATE (v1.2.0). The reviewer must enter the booking
+         reference they were given when they booked the lesson. The server
+         then checks that a booking row exists in the bookings tab with that
+         booking_ref AND that row's tutor_id matches the tutor under review.
+         A review without a matching booking is refused: it keeps the review
+         list a record of real students, not of strangers. */
+      booking_id:    { type: "text",  max: 20,  required: true }
+    }
+  },
+  /* Contact-form messages (v1.2.0). Same contract as the other kinds:
+     pending row for the owner, nothing echoed back except a reference. */
+  contact: {
+    tab: "contacts",
+    header: ["timestamp", "reference", "status", "name", "email", "subject",
+             "topic", "message", "page", "ref"],
+    fields: {
+      name:    { type: "text",  max: 80,  required: true },
+      email:   { type: "email", max: 120, required: true },
+      subject: { type: "text",  max: 120 },
+      topic:   { type: "text",  max: 60 },
+      message: { type: "text",  max: 4000, required: true },
+      page:    { type: "url",   max: 300 }
     }
   },
   signup: {
@@ -184,6 +211,15 @@ function doPost(e) {
     var clean = intakeValidate_(spec, body.fields || {});
     if (clean.error) return intakeJson_({ ok: false, error: clean.error });
 
+    /* GENUINE-REVIEW GATE — verify the booking reference against the
+       bookings tab BEFORE anything is written. If the booking does not
+       exist (or belongs to another tutor), the review is refused and
+       nothing lands in reviews_pending. */
+    if (kind === "review") {
+      var gate = intakeReviewGate_(clean.values.booking_id, clean.values.tutor_id);
+      if (!gate.ok) return intakeJson_({ ok: false, error: gate.error });
+    }
+
     var quota = intakeQuota_(kind);
     if (!quota.ok) return intakeJson_({ ok: false, error: quota.error });
 
@@ -239,6 +275,41 @@ function intakeValidate_(spec, fields) {
     out[name] = s;
   }
   return { values: out };
+}
+
+/* ----------------------------------------------------------------------------
+   Genuine-review gate (v1.2.0)
+   The review's booking_id must match a row in the bookings tab whose
+   tutor_id is the tutor being reviewed. Read-only: never writes.
+   ---------------------------------------------------------------------------- */
+function intakeReviewGate_(bookingId, tutorId) {
+  var id = String(bookingId || "").trim();
+  if (!id) return { ok: false, error: "booking reference is needed to verify this review" };
+  try {
+    var ss = intakeSpreadsheet_();
+    var tab = ss.getSheetByName(INTAKE_KINDS.booking.tab);
+    if (!tab) return { ok: false, error: "that booking reference was not found" };
+    var last = tab.getLastRow();
+    if (last < 2) return { ok: false, error: "that booking reference was not found" };
+    /* Column A is booking_ref, column C is tutor_id. Read the column pair
+       at once — one getRange pair, not a per-row read. */
+    var refs = tab.getRange(2, 1, last - 1, 1).getValues();
+    var tutors = tab.getRange(2, 3, last - 1, 1).getValues();
+    for (var i = 0; i < refs.length; i++) {
+      if (String(refs[i][0] || "").trim() === id) {
+        var tid = String((tutors[i] && tutors[i][0]) || "").trim();
+        if (tid === String(tutorId || "").trim()) return { ok: true };
+        /* The booking exists but for a different tutor: the reviewer may
+           have mistyped the reference, or is reviewing the wrong tutor. */
+        return { ok: false, error: "that booking reference belongs to a different tutor" };
+      }
+    }
+    return { ok: false, error: "that booking reference was not found" };
+  } catch (err) {
+    /* A gate failure must not take the whole intake down; fail closed
+       (refuse the review) rather than write an unverified one. */
+    return { ok: false, error: "we could not verify that booking reference, so the review was not saved" };
+  }
 }
 
 /* ----------------------------------------------------------------------------

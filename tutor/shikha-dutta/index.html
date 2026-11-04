@@ -196,6 +196,30 @@
 
 
 
+  <section class="pr-sec" data-eg-review-form data-tutor="shikha-dutta">
+    <h2>Share your experience with Shikha Dutta</h2>
+    <p>Only students who booked Shikha Dutta through EkGuru can leave a review here. Enter the booking reference you received (it starts with <code>EK-</code>) so we can verify it.</p>
+    <form class="intake-form" data-intake="review" action="mailto:EkGuruLearning@gmail.com" method="post" enctype="text/plain" style="display:grid;gap:12px">
+      <input type="hidden" name="tutor_id" value="shikha-dutta">
+      <div><label for="rv-name">Your name</label><br><input id="rv-name" name="reviewer_name" maxlength="60" required></div>
+      <div><label for="rv-stars">Rating</label><br><select id="rv-stars" name="stars" required>
+        <option value="1">1 star</option>
+        <option value="2">2 stars</option>
+        <option value="3">3 stars</option>
+        <option value="4">4 stars</option>
+        <option value="5">5 stars</option>
+      </select></div>
+      <div><label for="rv-booking">Booking reference</label><br><input id="rv-booking" name="booking_id" maxlength="20" required placeholder="EK-…"></div>
+      <div><label for="rv-text">Your review</label><br><textarea id="rv-text" name="text" maxlength="800" rows="5" required></textarea></div>
+      <div><label for="rv-email">Email (optional — only to reply about this review)</label><br><input id="rv-email" type="email" name="contact_email" maxlength="120"></div>
+      <div><label for="rv-date">Lesson date (optional)</label><br><input id="rv-date" type="date" name="lesson_date"></div>
+      <label style="display:flex;gap:8px;align-items:center"><input type="checkbox" name="consent" required> I agree EkGuru may keep this review to publish on the tutor's profile.</label>
+      <input type="text" name="website" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px" aria-hidden="true">
+      <button type="submit" class="btn btn-primary">Submit review</button>
+      <p data-intake-msg role="status"></p>
+    </form>
+  </section>
+
   <section class="pr-sec">
     <h2>Request current lesson details from Shikha Dutta</h2>
     <p>The tutor-provided profile lists <span data-usd="8" data-t="shikha-dutta" data-f="priceUSD" data-fmt="money">$8</span> for <span data-t="shikha-dutta" data-f="lessonLength">50 min</span>. Price, format and availability can change and are not confirmed by this static page.
@@ -347,5 +371,6 @@ document.addEventListener("DOMContentLoaded",function(){
 <script src="../../js/adaptive-practice.js" defer></script>
 <script src="../../js/global-srs.js" defer></script>
 <script defer src="../../js/photo-fallback.js"></script>
+<script defer src="../../js/intake.js"></script>
 </body>
 </html>

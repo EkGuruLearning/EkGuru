@@ -115,11 +115,15 @@ const APP = {
 };
 const REV = {
   kind: "review", consent: true, website: "",
-  fields: { tutor_id: "sushila-g", reviewer_name: "Priya", stars: "5", text: "Patient and clear." }
+  fields: { tutor_id: "sushila-g", reviewer_name: "Priya", stars: "5", text: "Patient and clear.", booking_id: "EK-BOOK01" }
 };
 const SIGN = {
   kind: "signup", consent: true, website: "",
   fields: { email: "learner@example.com", goal: "Travel", level: "Never studied" }
+};
+const CONTACT = {
+  kind: "contact", consent: true, website: "",
+  fields: { name: "Rohan", email: "rohan@example.com", subject: "Question", topic: "General", message: "Hello, I have a question.", page: "https://ekguru.shop/contact/" }
 };
 const BOOK = {
   kind: "booking", consent: true, website: "",
@@ -135,6 +139,9 @@ const BOOK = {
 
 {
   const I = loadIntake(["tutors", "reviews", "settings"]);
+  /* v1.2.0: the genuine-review gate reads the bookings tab. Seed one
+     booking row for EK-BOOK01 / sushila-g so the review can pass it. */
+  I.ctx.doPost({ postData: { contents: JSON.stringify({ ...BOOK, fields: { ...BOOK.fields, tutor_id: "sushila-g" } }) } });
   let r = post(I.ctx, APP);
   check("a complete application is accepted with a reference", r.ok === true && /^EG-[A-Z0-9]{6}$/.test(r.reference), JSON.stringify(r));
   check("it lands on the applications tab as one data row, under a header row",
@@ -152,10 +159,28 @@ const BOOK = {
   r = post(I.ctx, REV);
   check("a review goes to reviews_pending, never to the live reviews tab",
     r.ok && dataRows(I.tabs.reviews_pending).length === 1 && I.tabs.reviews.rows.length === 0);
+  check("the review row carries the booking reference it was verified against",
+    (dataRows(I.tabs.reviews_pending)[0] || [])[I.ctx.INTAKE_KINDS.review.header.indexOf("booking_id")] === "EK-BOOK01");
+
+  /* GENUINE-REVIEW GATE (v1.2.0) */
+  const gateFail = post(I.ctx, { ...REV, fields: { ...REV.fields, booking_id: "EK-NOPE" } });
+  check("a review with a booking reference that does not exist is refused",
+    gateFail.ok === false && /booking reference was not found/.test(gateFail.error), JSON.stringify(gateFail));
+  check("a refused review writes nothing to reviews_pending",
+    dataRows(I.tabs.reviews_pending).length === 1);
+  const gateOther = post(I.ctx, { ...REV, fields: { ...REV.fields, tutor_id: "shikha-dutta" } });
+  check("a review against a tutor whose booking belongs to another tutor is refused",
+    gateOther.ok === false && /different tutor/.test(gateOther.error), JSON.stringify(gateOther));
 
   r = post(I.ctx, SIGN);
   check("a sign-up goes to signups, private", r.ok && dataRows(I.tabs.signups).length === 1);
   check("a missing tab is created with its header row first", I.tabs.signups.rows[0][0] === "timestamp");
+
+  r = post(I.ctx, CONTACT);
+  check("a contact message goes to contacts, with a reference", r.ok === true && dataRows(I.tabs.contacts).length === 1, JSON.stringify(r));
+  check("the contacts tab has its header row", I.tabs.contacts.rows[0][0] === "timestamp");
+  check("a contact message is pending by default",
+    (dataRows(I.tabs.contacts)[0] || [])[I.ctx.INTAKE_KINDS.contact.header.indexOf("status")] === "pending");
 
   r = post(I.ctx, BOOK);
   const bookings = I.tabs.bookings;
@@ -370,8 +395,10 @@ const fields = { name: "Asha", email: "asha@example.com", subject: "Hindi", bio:
   check("client-side: no consent, no request", res.ok === false && c.calls.length === 0 && /tick the box/.test(res.error));
   res = await c.api.submit("payments", fields, true, "");
   check("an unknown kind never sends", res.ok === false && c.calls.length === 0);
-  res = await c.api.submit("review", { tutor_id: "x", reviewer_name: "R", stars: 5, text: "t".repeat(900) }, true, "");
+  res = await c.api.submit("review", { tutor_id: "x", reviewer_name: "R", stars: 5, text: "t".repeat(900), booking_id: "EK-1" }, true, "");
   check("client-side: a review over 800 characters is caught", res.ok === false && /too long/.test(res.error));
+  res = await c.api.submit("review", { tutor_id: "x", reviewer_name: "R", stars: 5, text: "fine", }, true, "");
+  check("client-side: a review without a booking reference is caught", res.ok === false && /booking/.test(res.error));
 
   /* the join page form and the site config */
   const join = fs.readFileSync(path.join(ROOT, "join.html"), "utf8");
