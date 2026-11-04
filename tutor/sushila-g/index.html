@@ -53,6 +53,15 @@
 .pr-sec li{margin-bottom:7px;color:var(--ink-2)}
 .pr-sec dt{font-weight:800;margin-top:12px}
 .pr-sec dd{margin:2px 0 0;color:var(--ink-2)}
+.reviews-list{display:flex;flex-direction:column;gap:14px}
+.reviews-list .rev{background:var(--card,#fff);border:1px solid var(--line,#e8e9f3);border-radius:12px;padding:14px 16px}
+.reviews-list .rev-h{display:flex;align-items:center;gap:10px;margin-bottom:8px}
+.reviews-list .rev-av{width:36px;height:36px;border-radius:50%;background:var(--grad-soft,#f3f0ff);display:grid;place-items:center;font-weight:800;color:var(--brand,#5b3df5);flex:none}
+.reviews-list .rev-h b{font-size:0.92rem}
+.reviews-list .rev-h .stars{font-size:0.85rem;margin-left:6px}
+.reviews-list .rev-h span{font-size:0.8rem;color:var(--muted,#6b7280)}
+.reviews-list .rev-text{font-size:0.92rem;color:var(--ink-2,#3b4056);line-height:1.6;margin:0}
+
 .pr-table{width:100%;border-collapse:collapse;margin-top:14px;font-size:.94rem}
 .pr-table caption{text-align:left;color:var(--muted);font-size:.84rem;margin-bottom:8px}
 .pr-table th,.pr-table td{border:1px solid var(--line);padding:9px 12px;text-align:left}
@@ -198,6 +207,11 @@
 
 
 
+  <section class="pr-sec" data-eg-reviews data-tutor="sushila-g">
+    <h2>Student reviews</h2>
+    <div class="reviews-list">Loading reviews…</div>
+  </section>
+
   <section class="pr-sec" data-eg-review-form data-tutor="sushila-g">
     <h2>Share your experience with Sushila G.</h2>
     <p>Only students who booked Sushila G. through EkGuru can leave a review here. Enter the booking reference you received (it starts with <code>EK-</code>) so we can verify it.</p>
@@ -285,6 +299,8 @@
      old figure until the next deploy: two numbers for one thing.
      Order matters — see tools/livetags.js. -->
 <script defer="" src="../../js/tutors/_overrides.js"></script>
+<script defer="" src="../../js/reviews.js"></script>
+<script defer="" src="../../js/reviews-display.js"></script>
 <script defer="" src="../../js/rates.js"></script>
 <script defer="" src="../../js/pricing.js"></script>
 <script defer="" src="../../js/sheet.js"></script>
