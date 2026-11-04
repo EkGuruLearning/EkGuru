@@ -101,12 +101,37 @@
     }, POLL_MS);
   }
 
+  var loadingTimer = null;
+
+  function armLoadingFallback() {
+    if (loadingTimer) root.clearTimeout(loadingTimer);
+    loadingTimer = root.setTimeout(clearLoading, 8000);
+  }
+
+  function clearLoading() {
+    var host = root.document.getElementById("support-options");
+    if (!host) return;
+    var loading = host.querySelector(".support-loading");
+    if (loading && !host.querySelector(".support-option, .support-empty")) {
+      // Sheet never loaded — show the empty message instead of
+      // leaving "Loading contribution methods…" forever.
+      host.innerHTML =
+        '<p class="support-empty">Contribution methods are temporarily unavailable. ' +
+        "Please check back later, or share EkGuru with a friend — that helps just as much.</p>";
+    }
+  }
+
   function init() {
     render();
     renderHours();
+    // If the sheet is slow or unreachable, the loading text would
+    // stay forever. Clear it after 8 seconds if nothing rendered.
+    armLoadingFallback();
     root.addEventListener("ekguru:settings", function () {
       render();
       renderHours();
+      // Re-arm the fallback timer on each settings event.
+      armLoadingFallback();
     });
     startPolling();
   }
