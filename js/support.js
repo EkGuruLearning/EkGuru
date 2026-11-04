@@ -1,37 +1,42 @@
 /* =========================================================
-   EkGuru — SUPPORT TAB DYNAMIC RENDERER (v1)
+   EkGuru — SUPPORT TAB DYNAMIC RENDERER (v2)
    ---------------------------------------------------------
-   Every payment option on /support/ comes from the sheet.
-   js/settings.js loads the support/payments tab and puts each
-   value into EKGURU_SITE (supportUpi, supportPaypal,
-   supportBtc, supportEth, supportUsdt, supportRazorpay,
-   supportStripe, supportRevolut, supportHours).
+   PayPal + Razorpay are STATIC HTML in support/index.html
+   (force fix, 4 Nov 2026) — they render with zero JavaScript.
+   This file does only two things:
 
-   This file renders ONLY what the sheet sets — except PayPal and
-   Razorpay, which are the owner's always-on methods (4 Nov 2026):
-   for those two, an empty / "none" / missing value falls back to
-   the baked-in snapshot from js/site-config.js, so both render even
-   when the sheet is unreachable or a stale cache wiped them. Every
-   other method with an empty, "none", or missing value renders
-   nothing — deleting such a row removes the option instantly. When
-   the sheet changes, settings.js fires "ekguru:settings" and this
-   file re-renders.
+   1. UPGRADE the two static links when the sheet holds a
+      different valid URL for them (override path — the sheet
+      can still move either method, it just can never hide them).
+   2. RENDER the extra methods (UPI, Stripe, crypto, Revolut)
+      from the sheet into #support-options. An empty / "none" /
+      missing extra renders nothing.
 
-   No payment link is hardcoded here: the fallback lives once in
-   js/site-config.js (EKGURU_BAKED_SUPPORT), never in this file.
+   js/settings.js loads the support/payments tab into
+   EKGURU_SITE and fires "ekguru:settings"; this file re-renders
+   on that event and re-polls every 60 seconds.
+
+   No payment link is hardcoded here: the always-on hrefs live
+   once in support/index.html, and tools/test-support-static.mjs
+   fails if they ever drift from js/site-config.js.
    ========================================================= */
 (function (root) {
   "use strict";
 
+  /* Extra methods only — PayPal/Razorpay are static markup. */
   var OPTIONS = [
     { key: "supportUpi",      icon: "📲", label: "UPI",      kind: "link",   hint: "Scan or tap to pay via UPI" },
-    { key: "supportPaypal",   icon: "🅿️", label: "PayPal",  kind: "link",   hint: "Opens your PayPal page" },
-    { key: "supportRazorpay", icon: "⚡", label: "Razorpay", kind: "link",   hint: "Opens the hosted payment page" },
     { key: "supportStripe",   icon: "💳", label: "Stripe",  kind: "link",   hint: "Opens the Stripe payment page" },
     { key: "supportBtc",      icon: "₿",  label: "Bitcoin", kind: "address", hint: "Send BTC to this address" },
     { key: "supportEth",      icon: "Ξ",  label: "Ethereum", kind: "address", hint: "Send ETH to this address" },
     { key: "supportUsdt",     icon: "₮",  label: "USDT",   kind: "address", hint: "Send USDT (TRC-20) to this address" },
     { key: "supportRevolut",  icon: "🏦", label: "Revolut", kind: "link",   hint: "Opens your Revolut payment link" }
+  ];
+
+  /* Static always-on links this file may upgrade (never hide). */
+  var STATIC_LINKS = [
+    { key: "supportPaypal",   id: "support-link-paypal" },
+    { key: "supportRazorpay", id: "support-link-razorpay" }
   ];
 
   function value(key) {
@@ -40,8 +45,7 @@
     /* Owner decision (4 Nov 2026): PayPal + Razorpay are always on.
        If the live value is empty — a stale pre-fix cache, a sheet
        "none", a failed fetch — fall back to the baked-in snapshot
-       from js/site-config.js so both methods still render. A valid
-       sheet URL still overrides (it lands in EKGURU_SITE above). */
+       from js/site-config.js. A valid sheet URL still overrides. */
     if (!v) {
       var baked = String(((root.EKGURU_BAKED_SUPPORT || {})[key]) || "").trim();
       if (baked) return baked;
@@ -53,6 +57,20 @@
     return String(s == null ? "" : s)
       .replace(/&/g, "&amp;").replace(/</g, "&lt;")
       .replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+  }
+
+  /* Point the static cards at the sheet's URL when it holds a
+     different valid one. Never empties or hides them: an empty /
+     "none" value is a no-op because the static href is already the
+     baked default the sheet would restore. */
+  function upgradeStaticLinks() {
+    if (!root.document || !root.document.getElementById) return;
+    STATIC_LINKS.forEach(function (s) {
+      var el = root.document.getElementById(s.id);
+      if (!el) return;
+      var v = value(s.key);
+      if (v && el.getAttribute("href") !== v) el.setAttribute("href", v);
+    });
   }
 
   function card(o) {
@@ -72,15 +90,12 @@
   }
 
   function render() {
+    upgradeStaticLinks();
     var host = root.document.getElementById("support-options");
     if (!host) return 0;
     var cards = OPTIONS.map(card).filter(function (h) { return h !== ""; });
-    if (!cards.length) {
-      host.innerHTML =
-        '<p class="support-empty">No contribution methods are available right now. ' +
-        "Please check back later, or share EkGuru with a friend — that helps just as much.</p>";
-      return 0;
-    }
+    /* No extras is not an error state — the two static cards above
+       already show. Leave the container empty, not apologetic. */
     host.innerHTML = cards.join("");
     var btns = host.querySelectorAll(".support-option-copy");
     Array.prototype.forEach.call(btns, function (b) {
@@ -114,42 +129,17 @@
     }, POLL_MS);
   }
 
-  var loadingTimer = null;
-
-  function armLoadingFallback() {
-    if (loadingTimer) root.clearTimeout(loadingTimer);
-    loadingTimer = root.setTimeout(clearLoading, 8000);
-  }
-
-  function clearLoading() {
-    var host = root.document.getElementById("support-options");
-    if (!host) return;
-    var loading = host.querySelector(".support-loading");
-    if (loading && !host.querySelector(".support-option, .support-empty")) {
-      // Sheet never loaded — show the empty message instead of
-      // leaving "Loading contribution methods…" forever.
-      host.innerHTML =
-        '<p class="support-empty">Contribution methods are temporarily unavailable. ' +
-        "Please check back later, or share EkGuru with a friend — that helps just as much.</p>";
-    }
-  }
-
   function init() {
     render();
     renderHours();
-    // If the sheet is slow or unreachable, the loading text would
-    // stay forever. Clear it after 8 seconds if nothing rendered.
-    armLoadingFallback();
     root.addEventListener("ekguru:settings", function () {
       render();
       renderHours();
-      // Re-arm the fallback timer on each settings event.
-      armLoadingFallback();
     });
     startPolling();
   }
 
-  root.EkGuruSupport = { render: render, init: init, value: value };
+  root.EkGuruSupport = { render: render, init: init, value: value, upgradeStaticLinks: upgradeStaticLinks };
   if (root.document.readyState === "loading") {
     root.document.addEventListener("DOMContentLoaded", init);
   } else {
