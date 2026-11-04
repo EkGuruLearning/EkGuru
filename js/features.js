@@ -1577,7 +1577,7 @@
     /* ---- counter, e.g. "1 of 3" ---- */
     var count = document.createElement("p");
     count.className = "rev-count";
-    count.textContent = "1 / " + cards.length;
+    count.textContent = "1 of " + cards.length;
     dots.appendChild(count);
 
     /* ---- keep dots in step with the scroll position ---- */
@@ -1597,7 +1597,7 @@
           d.classList.toggle("on", i === best);
           d.setAttribute("aria-selected", i === best ? "true" : "false");
         });
-        count.textContent = (best + 1) + " / " + cards.length;
+        count.textContent = (best + 1) + " of " + cards.length;
         ticking = false;
       });
     }

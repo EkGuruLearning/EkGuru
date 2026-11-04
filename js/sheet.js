@@ -828,8 +828,10 @@
     var changed = 0, hidden = 0, added = 0, skipped = [];
     var order = [], seen = {};
     var dupes = [], rowSeen = {};   /* every row, including hidden ones */
+    var seenInSheet = {};           /* ids that have a row in the sheet */
 
     recs.forEach(function (r) {
+      seenInSheet[r.id] = 1;        /* mark this id as present in the sheet */
       /* =========================================================
          BUG FOUND v62 — "Sushila-G" DID NOT MATCH "sushila-g".
 
@@ -1027,13 +1029,24 @@
       }
     });
 
+    /* Tutors in the roster/files but with no row in the sheet have
+       never been reviewed or approved. The publication rule requires
+       both registry inclusion AND an active sheet row. Mark them
+       hidden so they don't appear as public tutors. */
+    list.forEach(function (t) {
+      if (!seenInSheet[t.id]) {
+        t._hiddenBySheet = true;
+        hidden++;
+      }
+    });
+
     /* ---------------------------------------------------------
        Order. The spreadsheet's row order is the order tutors
        appear, matching what tools/sheetsync.js does to the
        registry at build time. A tutor who is in a file but not in
-       the sheet keeps their place at the end rather than
-       vanishing — the sheet adds and reorders, it does not
-       silently delete someone whose row was never written.
+       the sheet is hidden — they have not been approved in the
+       sheet. The sheet adds and reorders, it does not silently
+       publish someone whose row was never written.
        --------------------------------------------------------- */
     /* Record-only rows (see the note above) never join the rendered
        list — nothing on those pages iterates tutors. They are

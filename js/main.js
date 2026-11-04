@@ -52,6 +52,13 @@
      else keeps the email request flow. Both look identical to the
      student — the difference is that one confirms instantly. */
   function bookBtn(x, cls) {
+    /* Inactive tutor (active=no in the sheet): keep the profile
+       visible but take booking off the page. The student can still
+       read the bio, see the price and email — just not book. */
+    if (x._hiddenBySheet) {
+      return '<span class="btn btn-primary ' + cls + '" style="opacity:0.6;cursor:not-allowed">🔒 ' +
+        esc(t("book.closed")) + "</span>";
+    }
     var cal = !!x.calLink;
     var attr = cal ? 'data-cal="' + esc(x.id) + '"' : 'data-book="' + esc(x.id) + '"';
     var label = cal ? t("book.ctaLive") : t("book.cta");
@@ -804,7 +811,11 @@
          printing a developer note. */
       host.innerHTML = emptyTutorsHTML();
     } else {
-      host.innerHTML = TUTORS.map(tutorCard).join("");
+      /* Inactive tutors (active=no in the sheet) stay in the roster
+         so their profile URL still works, but they are not shown
+         as bookable cards on the homepage. */
+      var visible = TUTORS.filter(function (t) { return !t._hiddenBySheet; });
+      host.innerHTML = visible.map(tutorCard).join("");
       wireCards(host);
     }
 
@@ -1020,6 +1031,18 @@
         window.EkGuruStore.track("view_tutor", { tutor: x.id });
       }
     } catch (e) {}
+
+    /* Inactive tutor (active=no in the sheet): the profile stays
+       visible — bio, price, experience — but booking is off. A
+       banner at the top says so honestly. bookBtn() above already
+       returns the closed state instead of a button. */
+    if (x._hiddenBySheet) {
+      host.insertAdjacentHTML("afterbegin",
+        '<div class="pf-closed" style="margin-bottom:16px;padding:14px;background:#fff3cd;border:1px:#ffeeba;border-radius:8px">' +
+        '<strong>⚠️ ' + esc(t("book.closed")) + "</strong>" +
+        '<p style="margin:6px 0 0">' + esc(t("pf.closedNote")) + "</p>" +
+        "</div>");
+    }
 
     if (!x) {
       host.innerHTML = '<div class="wrap"><div class="empty"><div>🙁</div><h2>' + esc(t("pf.notFound")) +
