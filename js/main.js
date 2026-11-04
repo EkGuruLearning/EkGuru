@@ -1159,7 +1159,7 @@
           '<div class="pf-stats">' +
             (x.reviewsCount ? '<div><b class="stars">' + stars(x.rating) + "</b><span>" +
               esc(t("pf.sourceShort")) + " " + (x.rating || 0).toFixed(1) + " · " + x.reviewsCount + " " + esc(t("card.reviews")) + "</span></div>" : "") +
-            (x.lessonsCount ? "<div><b>" + x.lessonsCount + "</b><span>" + esc(t("pf.profileLessons")) + "</span></div>" : "") +
+            (x.lessonsCount ? "<div><b>" + x.lessonsCount + "</b><span>" + esc(t("pf.lessonsTaught")) + "</span></div>" : "") +
             (x.experienceYears ? "<div><b>" + x.experienceYears + "+ " + esc(t("pf.yrs")) + "</b><span>" + esc(t("pf.statedExp")) + "</span></div>" : "") +
             '<div><b data-usd="' + esc(x.priceUSD) + '" data-usd-mode="bare">' + px(x.priceUSD) + "</b><span>" + esc(t("pf.profilePrice")) + " · " + esc(x.lessonLength || "50 min") + "</span></div>" +
           "</div>" +
