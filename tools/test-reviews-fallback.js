@@ -54,7 +54,7 @@ function run(fetchFn) {
   const store = {};
   global.window = {
     EKGURU_SITE: { reviews: {
-      csvUrl: "https://docs.google.com/spreadsheets/d/e/KEY/pub?gid=298809212&single=true&output=csv",
+      csvUrl: "https://docs.google.com/spreadsheets/d/e/KEY/pub?gid=293675115&single=true&output=csv",
       cacheMinutes: 60, alwaysRevalidate: true } },
     EKGURU_TUTORS: [{ id: "sushila-g" }, { id: "shikha-dutta" }],
     EKGURU_TUTOR_FILES: {},

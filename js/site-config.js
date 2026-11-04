@@ -882,7 +882,7 @@ window.EKGURU_SITE = {
      key silently kills the first block.)
      ========================================================= */
   reviews: {
-    csvUrl: "https://docs.google.com/spreadsheets/d/e/2PACX-1vQIman_Um2wQrj_3mXqqgq4k69zzmJHkhZ1TRoAnh2jcamhzoo-0VeTd55UieGMi6mEaTl3Zy84G44h/pub?gid=298809212&single=true&output=csv",
+    csvUrl: "https://docs.google.com/spreadsheets/d/e/2PACX-1vQIman_Um2wQrj_3mXqqgq4k69zzmJHkhZ1TRoAnh2jcamhzoo-0VeTd55UieGMi6mEaTl3Zy84G44h/pub?gid=293675115&single=true&output=csv",
     cacheMinutes: 60,
     alwaysRevalidate: true
   },
