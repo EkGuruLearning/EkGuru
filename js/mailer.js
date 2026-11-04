@@ -5,14 +5,17 @@
    EkGuru/owner receives the booking record in the private bookings
    sheet; the owner is never a booking-email recipient or fallback.
 
-   Booking sends are gated by the private intake endpoint and by a
-   valid tutor-owned notification address. The booking client saves
-   the record to the sheet before it calls this mailer. Delivery uses
-   the configured Apps Script relay and its Web3Forms fallback. The
-   browser reports provider acceptance, not proof of inbox delivery.
+   Booking sends are gated by the private intake endpoint. A tutor
+   without a notification address still books in degraded mode (the
+   sheet row plus an honest pending student receipt; the owner relays
+   via the bookings sheet) unless mail.degradedBooking is false. The
+   booking client saves the record to the sheet before it calls this
+   mailer. Delivery uses the configured Apps Script relay and its
+   Web3Forms fallback. The browser reports provider acceptance, not
+   proof of inbox delivery.
 
-   If mail is disabled or not configured, the booking action stays
-   unavailable. A mailto rescue is offered only after the sheet has
+   If mail is disabled, or the sheet is not connected, the booking
+   action stays unavailable. A mailto rescue is offered only after the sheet has
    accepted the booking, and addresses only the tutor plus the student.
    Contact and admin messages have their own recipient policies below.
    ========================================================= */
