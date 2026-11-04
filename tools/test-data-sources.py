@@ -178,15 +178,30 @@ if MODE == "LIVE":
     urls = live_urls
     BASE = "2PACX-1vQIman_Um2wQrj_3mXqqgq4k69zzmJHkhZ1TRoAnh2jcamhzoo-0VeTd55UieGMi6mEaTl3Zy84G44h"
     for u in urls:
-        check(f"consolidated workbook: {u.split('/d/e/')[1].split('/')[0][:20]}…", BASE in u)
+        if "/d/e/" in u:
+            check(f"consolidated workbook: {u.split('/d/e/')[1].split('/')[0][:20]}…", BASE in u)
+        else:
+            # Same-origin snapshot, not a Google tab: reviews moved to
+            # live-sheets/reviews.csv (4 Nov 2026 dedupe removed the dead
+            # duplicate Google URL). Static files ignore ?output=, so the
+            # csv→tsv fallback in fetch_sheet() still resolves on csv.
+            check(f"same-origin snapshot: {u[:64]}…",
+                  u.startswith("https://ekguru.shop/live-sheets/"))
 
-    gid = {re.search(r"gid=(\d+)", u).group(1): u for u in urls}
-    print("  gids configured:", sorted(gid.keys()))
     LABELS = {"298809212": "reviews", "1658518385": "settings",
               "1654125803": "content", "1631273256": "tutors"}
+    labeled = {}
+    for u in urls:
+        m = re.search(r"gid=(\d+)", u)
+        if m and m.group(1) in LABELS:
+            labeled[LABELS[m.group(1)]] = u
+        elif "live-sheets/reviews.csv" in u:
+            labeled["reviews"] = u
+        else:
+            check(f"unrecognized sheet URL: {u[:64]}", False)
+    print("  tabs configured:", sorted(labeled.keys()))
 
-    for g, u in gid.items():
-        label = LABELS.get(g, g)
+    for label, u in labeled.items():
         rows, head = fetch_sheet(u, label)
         if rows is None:
             check(f"{label}: reachable in ANY format (csv AND tsv failed)", False)

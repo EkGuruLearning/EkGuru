@@ -568,17 +568,11 @@ window.EKGURU_SITE = {
      plausible lie — that part is on you.
 
      SETUP:  node tools/makereviews.js
+
+     LIVE VALUE lives in the second `reviews:` block near the end of
+     this file (same-origin live-sheets/reviews.csv). A duplicate key
+     here would be dead — the later block wins — so there is only one.
      ========================================================= */
-  reviews: {
-    /* LIVE — new production workbook (reviews tab, gid=298809212).
-       Wired 13 Sep 2026 — HTTP 200, correct header row, 3 live rows. */
-    csvUrl: "https://docs.google.com/spreadsheets/d/e/2PACX-1vQIman_Um2wQrj_3mXqqgq4k69zzmJHkhZ1TRoAnh2jcamhzoo-0VeTd55UieGMi6mEaTl3Zy84G44h/pub?gid=298809212&single=true&output=csv",
-    /* v62: 60 -> 5, same reason as the tutor sheet above. A review
-       added in the morning could otherwise be invisible all
-       afternoon to anyone who had loaded the page once. */
-    cacheMinutes: 5,
-    alwaysRevalidate: true
-  },
 
   /* =========================================================
      SITE SETTINGS — A FOURTH TAB  (v69)
@@ -868,10 +862,14 @@ window.EKGURU_SITE = {
      REVIEWS CSV — published copy of the sheet's reviews tab.
      Set this so reviews.js can load site-native reviews
      without waiting for the live feed deployment.
+     (The only `reviews:` block — the older Google-Sheets URL
+     form was removed 4 Nov 2026; a duplicate key meant the
+     first block was silently dead.)
      ========================================================= */
   reviews: {
     csvUrl: "https://ekguru.shop/live-sheets/reviews.csv",
-    cacheMinutes: 60
+    cacheMinutes: 60,
+    alwaysRevalidate: true
   },
 
   /* =========================================================
@@ -883,6 +881,32 @@ window.EKGURU_SITE = {
      ========================================================= */
   supportPaypal: "https://paypal.me/itsThePrakas?locale.x=en_GB&country.x=IN",
   supportRazorpay: "https://rzp.io/rzp/EkGuru"
+};
+
+/* =========================================================
+   BAKED-IN SUPPORT SNAPSHOT (4 Nov 2026)
+   ---------------------------------------------------------
+   PayPal + Razorpay are the owner's always-on methods: both
+   must show on /support/ no matter what the sheet or a stale
+   browser cache says. The sheet can still OVERRIDE either one
+   with a different valid URL, but "none"/blank/invalid never
+   hides them — js/settings.js restores this snapshot instead
+   of writing "", and js/support.js falls back to it when the
+   live value is empty.
+
+   Why: only PayPal was showing for the owner while fresh
+   visitors saw both. A stale ekguru_settings cache holding a
+   wiped Razorpay value kept being re-applied, and the settings
+   fetch has no TSV fallback (unlike the tutor sheet), so the
+   fresh sheet value never arrived when Google's CSV endpoint
+   answered HTTP 500 for this workbook.
+
+   To truly retire a method, delete its line above (and here
+   nothing needs changing — the snapshot follows automatically).
+   ========================================================= */
+window.EKGURU_BAKED_SUPPORT = {
+  supportPaypal: window.EKGURU_SITE.supportPaypal || "",
+  supportRazorpay: window.EKGURU_SITE.supportRazorpay || ""
 };
 
 /* PRODUCTION CENTRALIZED PAYMENT CONFIGURATION & MODE */

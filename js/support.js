@@ -7,14 +7,18 @@
    supportBtc, supportEth, supportUsdt, supportRazorpay,
    supportStripe, supportRevolut, supportHours).
 
-   This file renders ONLY what the sheet sets. A value that is
-   empty, "none", or missing renders nothing — so deleting a
-   row in the sheet removes the option instantly. When the
-   sheet changes, settings.js fires "ekguru:settings" and this
+   This file renders ONLY what the sheet sets — except PayPal and
+   Razorpay, which are the owner's always-on methods (4 Nov 2026):
+   for those two, an empty / "none" / missing value falls back to
+   the baked-in snapshot from js/site-config.js, so both render even
+   when the sheet is unreachable or a stale cache wiped them. Every
+   other method with an empty, "none", or missing value renders
+   nothing — deleting such a row removes the option instantly. When
+   the sheet changes, settings.js fires "ekguru:settings" and this
    file re-renders.
 
-   Nothing here is hardcoded: no payment link, no fallback.
-   If the sheet is unreachable, the options simply do not appear.
+   No payment link is hardcoded here: the fallback lives once in
+   js/site-config.js (EKGURU_BAKED_SUPPORT), never in this file.
    ========================================================= */
 (function (root) {
   "use strict";
@@ -32,7 +36,16 @@
 
   function value(key) {
     var v = String((root.EKGURU_SITE || {})[key] || "").trim();
-    if (/^(none|no|off)$/i.test(v)) return "";
+    if (/^(none|no|off)$/i.test(v)) v = "";
+    /* Owner decision (4 Nov 2026): PayPal + Razorpay are always on.
+       If the live value is empty — a stale pre-fix cache, a sheet
+       "none", a failed fetch — fall back to the baked-in snapshot
+       from js/site-config.js so both methods still render. A valid
+       sheet URL still overrides (it lands in EKGURU_SITE above). */
+    if (!v) {
+      var baked = String(((root.EKGURU_BAKED_SUPPORT || {})[key]) || "").trim();
+      if (baked) return baked;
+    }
     return v;
   }
 
