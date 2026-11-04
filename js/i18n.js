@@ -81,6 +81,7 @@ window.EKGURU_I18N = {
     "book.sentBody": "EkGuru has received your enquiry for {tutor}. It will be routed using the contact information on file. A copy has gone to:",
     "book.sentYou": "You (your own copy)",
     "book.sentNote": "Delivery to a tutor is not guaranteed. Keep your copy and contact EkGuru if you need to follow up.",
+    "book.keepRef": "Keep your reference — you'll need it if you want to leave a review for this tutor.",
     "book.ref": "Your reference:",
     "book.rcRef": "Reference",
     "book.rcFrom": "Sent by",

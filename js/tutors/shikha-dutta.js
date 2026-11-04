@@ -61,7 +61,7 @@ ekguruTutor({
      verified      true — she supplied her MBA grade card from West Bengal
                    University of Technology as proof of identity
      ================================================================ */
-  rating: 5.0,
+  rating: 0, /* no on-site reviews yet — 0, never a placeholder 5.0 */
   reviewsCount: 0,
   lessonsCount: 0,                     // ← EDIT ME if she gives an approximate total
   priceUSD: 8,

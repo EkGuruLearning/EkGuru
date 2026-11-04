@@ -72,6 +72,34 @@
   /* Active-course overrides (set by js/<lang>-quiz-bank.js; Hindi is the default). */
   var LANG = window.EKGURU_COURSE_LANG || { name: "Hindi", script: "Devanagari" };
 
+  /* Target-script runs get a lang span, so a screen reader reads a
+     Kannada/Urdu/… word with the right voice instead of English.
+     Mirrors tools/build-print-sheets.py wrap_script_runs. */
+  var SCRIPT_LANG = [
+    [/[\u0900-\u097F]/, "hi"], [/[\u0980-\u09FF]/, "bn"],
+    [/[\u0A00-\u0A7F]/, "pa"], [/[\u0A80-\u0AFF]/, "gu"],
+    [/[\u0B80-\u0BFF]/, "ta"], [/[\u0C00-\u0C7F]/, "te"],
+    [/[\u0C80-\u0CFF]/, "kn"], [/[\u0D00-\u0D7F]/, "ml"],
+    [/[\u0600-\u06FF\u0750-\u077F\u08A0-\u08FF\uFB50-\uFDFF\uFE70-\uFEFF]/, null]
+  ];
+  var PAGE_LANG = { Hindi: "hi", Bengali: "bn", Gujarati: "gu", Kannada: "kn",
+    Malayalam: "ml", Marathi: "mr", Punjabi: "pa", Tamil: "ta", Telugu: "te", Urdu: "ur" }[LANG.name] || "hi";
+  var SCRIPT_RUN = /[\u0600-\u06FF\u0750-\u077F\u08A0-\u08FF\u0900-\u097F\u0980-\u09FF\u0A00-\u0A7F\u0A80-\u0AFF\u0B80-\u0BFF\u0C00-\u0C7F\u0C80-\u0CFF\u0D00-\u0D7F\uFB50-\uFDFF\uFE70-\uFEFF]+(?:[ \u00A0]+[\u0600-\u06FF\u0750-\u077F\u08A0-\u08FF\u0900-\u097F\u0980-\u09FF\u0A00-\u0A7F\u0A80-\u0AFF\u0B80-\u0BFF\u0C00-\u0C7F\u0C80-\u0CFF\u0D00-\u0D7F\uFB50-\uFDFF\uFE70-\uFEFF]+)*/g;
+  function wrapScript(escapedText) {
+    return String(escapedText).replace(SCRIPT_RUN, function (chunk) {
+      var lang = PAGE_LANG;
+      for (var i = 0; i < SCRIPT_LANG.length; i++) {
+        if (SCRIPT_LANG[i][0].test(chunk)) { lang = SCRIPT_LANG[i][1] || PAGE_LANG; break; }
+      }
+      if (lang === "hi" && PAGE_LANG === "mr") lang = "mr";
+      var core = chunk.trim();
+      if (!core) return chunk;
+      var lead = chunk.slice(0, chunk.length - chunk.trimStart().length);
+      var trail = chunk.slice(chunk.trimEnd().length);
+      return lead + '<span lang="' + lang + '">' + core + "</span>" + trail;
+    });
+  }
+
   var bank = function () {
     var Q = window.EKGURU_QUIZ_ACTIVE || window.EKGURU_HINDI_QUIZ;
     return (Q && Q.questions) || [];
@@ -366,11 +394,11 @@
       var withAns = host.querySelector("#w-ans").checked;
       var sheet = host.querySelector("#w-sheet");
       var lines = made.map(function (q, i) {
-        return '<p style="font-weight:700">' + (i + 1) + '. ' + esc(q.q) + '</p>' +
+        return '<p style="font-weight:700">' + (i + 1) + '. ' + wrapScript(esc(q.q)) + '</p>' +
                '<div style="border-bottom:1px solid var(--line);height:44px;margin:0 0 18px"></div>';
       }).join("");
       var ans = withAns ? '<h3>Answers</h3>' + made.map(function (q, i) {
-        return '<p>' + (i + 1) + '. <b>' + esc(q.a) + '</b> — ' + esc(q.explain) + '</p>';
+        return '<p>' + (i + 1) + '. <b>' + wrapScript(esc(q.a)) + '</b> — ' + wrapScript(esc(q.explain)) + '</p>';
       }).join("") : "";
       sheet.innerHTML =
         '<div class="ws-page" style="background:#fff;border:1px solid var(--line);border-radius:12px;padding:20px;max-width:640px">' +

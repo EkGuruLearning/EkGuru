@@ -76,3 +76,21 @@ The requested full row/column redesign and bilingual rewrite is pending. To exec
 - Spreadsheet table coverage: 11/12 requested tabs; `applications` blocked as above.
 - Booking policy tests: passed; actual provider delivery: unverified.
 - No private sheet cell values are reproduced in this document.
+
+## 6. Booking -> sheet path fix (3 November 2026, later session)
+
+**Report:** "jo koi bhi booking karta hai vo sheet mein bhi nahi aa rahi" — bookings were not reaching the sheet.
+
+### Root causes found in the full path (`js/features.js` -> `js/intake.js` -> `apps-script/Intake.gs` -> EkGuru DB `bookings` tab)
+
+1. **Primary:** `js/site-config.js` `intake.url` is blank, and the owner confirmed the Intake web app was never deployed. Blank = `EkGuruIntake.ready()` false = the booking button is disabled and no submission is ever sent, so no sheet row can exist.
+2. **Standalone-project trap (fixed in Intake.gs v1.1.0):** `SpreadsheetApp.getActive()` returns null for a project created at script.google.com instead of bound to the workbook, so every POST failed with a generic "could not save". Now the script also honours the `EKGURU_DB_SPREADSHEET_ID` script property and health reports `spreadsheetBound:false` instead of failing silently.
+3. **False success (fixed in `js/intake.js`):** any `{"ok":true}` reply — e.g. from the health action of a wrong/old deployment — was treated as "saved". Success now requires the reference that was written into the sheet row.
+4. **Whole-booking refusals (fixed in `js/intake.js` + `js/features.js`):** the browser never validated `student_email` (it checked a non-existent `email` field), and unclipped fields (`student_goal` > 200 chars, `source_page` = full `location.href` > 300 chars with tracking parameters) made the server refuse the entire submission. All booking fields are now validated/clipped to the exact server limits; `source_page` is origin+path only.
+5. **Duplicates / lost first row (fixed in Intake.gs):** a retry with the same `booking_ref` now returns `duplicate:true` without a second row (writes are lock-serialised), and an existing-but-empty tab gets its header row before the first booking.
+
+### Verified status
+
+- `node tools/test-intake.js` passes, including new checks for: empty-tab header, duplicate `booking_ref`, unbound-project refusal, script-property binding, reference-less false success, and bad `student_email` caught client-side.
+- **Deployment done by owner (3 Nov 2026, 20:35 IST):** deployment id `AKfycbwWJiuu…TV3LtN`; its `/exec` URL is now wired as `intake.url` in `js/site-config.js`. Health was verified live from this workspace on 3 Nov 2026: `{"ok":true,"version":"1.0.0","pendingRows":{"applications":11,"reviews_pending":0,"signups":0,"bookings":4}}` — the project is bound to the correct workbook (the `bookings` count matches `tbl_bookings` A1:T5) and the endpoint answers.
+- **Two steps remain before "bookings reach the sheet" is fully claimed:** (1) the deployed editor code is still Intake.gs **v1.0.0** (the pasted screenshot shows the old `SpreadsheetApp.getActive()` health function) — paste v1.1.0 into the same project and re-deploy the **same** deployment as a New version (URL unchanged), after which health must show `"version":"1.1.0"` and `"spreadsheetBound":true`; (2) merge the PR so GitHub Pages serves the wired `intake.url`, then make one real test booking and see exactly one new `bookings` row with status `requested`. No live booking was sent as a test from this workspace, per section 2.

@@ -1,5 +1,5 @@
 /* =========================================================
-   EkGuru — THE CONTACT FORM                              (v78)
+   EkGuru — THE CONTACT FORM                              (v79)
    ---------------------------------------------------------
    WHAT PRAKASH ASKED FOR
 
@@ -11,6 +11,14 @@
    Three fields minimum — name, email, message — sent from the
    page itself through the same static relay chain the booking
    form uses. No server. No database. Nothing stored anywhere.
+
+   v79 — ALSO WRITTEN TO THE SHEET. Every message that goes out
+   through the relay ALSO lands as a PENDING row in the "contacts"
+   tab of the EkGuru DB workbook (via js/intake.js → Intake.gs), so
+   the owner has a durable record of every conversation — not just
+   whatever arrived by email. The sheet write is best-effort and
+   never changes the visitor's result: if the sheet is unreachable
+   the message still sends exactly as before.
 
    ---------------------------------------------------------
    WHY THE FORM MARKUP IS NOT BUILT BY THIS FILE
@@ -353,6 +361,33 @@
           }
         } catch (e3) {}
         showSent(host, res, data);
+
+        /* v79 — write the message to the sheet as well. Best-effort:
+           a sheet failure must never change what the visitor sees.
+           The relay already delivered the message; this is the
+           owner's durable copy. */
+        (function sheetCopy() {
+          try {
+            var I = window.EkGuruIntake;
+            if (!I || typeof I.submit !== "function") return;
+            var fields = {
+              name: data.name, email: data.email,
+              subject: data.subject || "", topic: data.topic || "",
+              message: data.message, page: data.pageUrl || ""
+            };
+            I.submit("contact", fields, true, "").then(function (r) {
+              if (r && r.ok) {
+                try {
+                  if (window.EkGuruLedger) {
+                    window.EkGuruLedger.update(data.ref, {
+                      intakeRef: r.reference || "", intakeStatus: "saved"
+                    });
+                  }
+                } catch (e4) {}
+              }
+            });
+          } catch (e5) {}
+        })();
       }).catch(function (e2) {
         sending = false;
         if (btn) { btn.disabled = false; btn.textContent = label; }

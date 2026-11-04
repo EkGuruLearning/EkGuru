@@ -748,16 +748,41 @@ window.EKGURU_SITE = {
   },
 
   /* =========================================================
-     ONLINE FORMS (apply, review, sign-up)
+     ONLINE FORMS + BOOKINGS (apply, review, sign-up, booking)
      ---------------------------------------------------------
-     BLANK = OFF. The forms fall back to email, as before.
-     To turn on: deploy apps-script/Intake.gs as its OWN Apps
-     Script project (Execute as Me, Anyone), then paste its
-     /exec address here. Full steps: apps-script/INTAKE-SETUP.md
-     Nothing submitted is published. Every row is pending.
+     ⚠️ IF THIS IS EVER BLANK AGAIN, "OFF" MEANS NO SHEET ROW.
+     While blank, EkGuruIntake.ready() is false, the
+     booking button stays disabled ("Online booking is
+     unavailable until the private bookings sheet is
+     connected") and NOTHING a student books can reach the
+     private `bookings` tab — this blank line was the reason
+     bookings were not appearing in the sheet.
+
+     ONE-TIME OWNER STEP (about 10 minutes, full guide in
+     apps-script/INTAKE-SETUP.md):
+       1. Open the EkGuru DB sheet -> Extensions -> Apps Script
+          (the project MUST be bound to that workbook, or set
+          the EKGURU_DB_SPREADSHEET_ID script property).
+       2. Paste apps-script/Intake.gs, Deploy -> Web app,
+          Execute as Me, Who has access: Anyone.
+       3. Paste the /exec URL below, commit, let Pages deploy.
+       4. Open <url>?action=health - it must say "ok":true,
+          "spreadsheetBound":true, "version":"1.1.0".
+       5. Make one test booking and check the `bookings` tab.
+     Nothing submitted is published. Every row starts pending /
+     requested, for the owner to check first.
      ========================================================= */
   intake: {
-    url: ""
+    /* LIVE — wired 3 Nov 2026. Deployment "Version 1, 3 Nov 2026 20:35 IST",
+       id AKfycbwWJiuuZ5…TV3LtN, bound to the EkGuru DB sheet.
+       Health verified 3 Nov 2026: {"ok":true,"version":"1.0.0",
+       "pendingRows":{"applications":11,"bookings":4,…}}.
+       ⚠️ The deployed editor code is still Intake.gs v1.0.0. Paste the
+       v1.1.0 file from apps-script/Intake.gs into that same project and
+       Manage deployments -> Edit -> Version: New version -> Deploy.
+       Editing the existing deployment keeps THIS url unchanged; do not
+       create a new deployment (that would mint a new url). */
+    url: "https://script.google.com/macros/s/AKfycbwWJiuuZ5rqyPyEVd71svw-ggqW_kzjyXVl-7hE2lo8hPcgbAdkLjLl7hvmciTV3LtN/exec"
   },
 
   /* =========================================================
@@ -893,6 +918,9 @@ window.RAZORPAY_PAYMENT_LINK = "https://rzp.io/rzp/EkGuru";
     }
   }
 
+  /* Guarded: this file is also loaded by Node tools/tests, where
+     there is no document — an unguarded touch crashed them. */
+  if (typeof document === "undefined") return;
   if (document.readyState === "loading") {
     document.addEventListener("DOMContentLoaded", applyGlobalPaymentMode);
   } else {

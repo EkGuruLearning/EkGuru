@@ -37,7 +37,7 @@
 <link href="images/logo.svg" rel="icon" type="image/svg+xml"/>
 <link href="images/apple-touch-icon.png" rel="apple-touch-icon"/>
 <meta content="strict-origin-when-cross-origin" name="referrer"/>
-<meta content="light" name="color-scheme"/>
+<meta content="light dark" name="color-scheme"/>
 <link href="https://ekguru.shop/" rel="canonical"/>
 <!-- hreflang written statically so a crawler sees the language set
      on its first pass; a one-way mapping is discarded by Google.
@@ -195,6 +195,10 @@ h1{font-size: var(--xp-fs-fluid-3xl)}h2{font-size: var(--xp-fs-fluid-2xl)}p{marg
 <meta name="google-adsense-account" content="ca-pub-8175326569491671">
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8175326569491671" crossorigin="anonymous"></script>
 <!-- ekguru:adsense:end -->
+<!-- ekguru:home-future:start (home-only enhancement layer; see css/home-future.css) -->
+<link rel="stylesheet" href="/css/home-future.css">
+<script src="/js/home-future.js" defer></script>
+<!-- ekguru:home-future:end -->
 <!-- ekguru:ultra-assets:start -->
 <link rel="stylesheet" href="/css/tokens.css">
 <link rel="stylesheet" href="/css/ultra.css">
@@ -285,8 +289,7 @@ h1{font-size: var(--xp-fs-fluid-3xl)}h2{font-size: var(--xp-fs-fluid-2xl)}p{marg
 <p class="xp-search-hint" id="home-search-hint">Begin with the alphabet, then build useful words and sentences through short practice.</p>
 </div>
 <div class="xp-hero-actions">
-<a class="btn btn-primary btn-lg" href="find-tutors.html">Find a Hindi tutor</a>
-<a class="btn btn-ghost btn-lg" href="courses/">Browse all published courses</a>
+<a class="btn btn-ghost btn-lg" href="find-tutors.html">Find a Hindi tutor</a>
 </div>
 <ul class="xp-trust">
 <li>Free lessons and practice</li>
@@ -442,7 +445,7 @@ h1{font-size: var(--xp-fs-fluid-3xl)}h2{font-size: var(--xp-fs-fluid-2xl)}p{marg
         <article class="tcard">
           <a class="tcard-link" href="tutor/pinky-kumari/">Pinky Kumari — View profile</a>
           <div class="tcard-top">
-            <div class="tcard-photo"><img src="images/pinky-kumari.jpg" alt="Pinky Kumari, Hindi tutor" width="88" height="88" loading="lazy" decoding="async"></div>
+            <div class="tcard-photo"><picture><source type="image/webp" srcset="images/pinky-kumari-176.webp 176w, images/pinky-kumari-264.webp 264w" sizes="88px"><img src="images/pinky-kumari-264.jpg" alt="Pinky Kumari, Hindi tutor" width="88" height="88" loading="lazy" decoding="async"></picture></div>
             <div><h3>Pinky Kumari</h3><p class="role">Hindi tutor profile</p>
             <div class="meta"><span>No public reviews listed</span></div></div>
           </div>
