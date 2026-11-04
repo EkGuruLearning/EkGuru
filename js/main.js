@@ -8,19 +8,32 @@
   "use strict";
 
   /* ---------- 0. Safety net ---------- */
+  /* Owner rule (Nov 2026): a visitor must NEVER see code, file
+     names or engineer error text. The technical details stay in
+     the console (first line below); the page gets one calm line. */
   function showError(where, err) {
     try {
       console.error("[EkGuru]", where, err);
       var host = document.getElementById("app-error") || document.body;
-      if (host.querySelector(".errbox")) return;
+      if (host.querySelector('.errbox[data-err="' + where + '"]')) return;
       var box = document.createElement("div");
       box.className = "errbox";
+      box.setAttribute("data-err", where);
       box.innerHTML =
-        "<b>Something went wrong while loading this section</b>" +
-        "<p>Section: <code>" + where + "</code></p>" +
-        "<p>" + String(err && err.message ? err.message : err) + "</p>" +
-        "<p>Check that <code>js/tutors-data.js</code> loaded correctly and contains no syntax errors.</p>";
+        "<b>This part of the page is not loading quite right.</b>" +
+        "<p>Please refresh the page. If it still does not appear, write to us and we will fix it.</p>";
       host.appendChild(box);
+    } catch (e) {}
+  }
+  /* A passing re-render lifts its own notice, so a box left behind
+     by an early failure (e.g. the profile before the sheet lands)
+     does not sit above a page that has since loaded fine. */
+  function clearError(where) {
+    try {
+      var boxes = document.querySelectorAll('.errbox[data-err="' + where + '"]');
+      for (var i = 0; i < boxes.length; i++) {
+        if (boxes[i].parentNode) boxes[i].parentNode.removeChild(boxes[i]);
+      }
     } catch (e) {}
   }
   window.addEventListener("error", function (e) {
@@ -52,6 +65,7 @@
      else keeps the email request flow. Both look identical to the
      student — the difference is that one confirms instantly. */
   function bookBtn(x, cls) {
+    if (!x) return "";
     /* Inactive tutor (active=no in the sheet): keep the profile
        visible but take booking off the page. The student can still
        read the bio, see the price and email — just not book. */
@@ -1032,6 +1046,43 @@
       }
     } catch (e) {}
 
+    /* The unknown-id check MUST come first. Reading x._hiddenBySheet
+       before it threw "Cannot read properties of undefined" for every
+       id outside the file roster (e.g. ?id=hemlata before the sheet
+       lands) — the red error box visitors saw. Never move the hidden
+       check above this one again. */
+    if (!x) {
+      /* The sheet may still be on its way: an id it would provide
+         (e.g. ?id=hemlata, a sheet-born tutor) must not flash "not
+         found" while the fetch is in flight. sheet.js loaded but not
+         answered yet = loading; the repaint replaces this card. Only
+         claim "not found" once the sheet has answered or failed —
+         or when sheet.js itself never loaded. */
+      var sheetInfo = window.EKGURU_SHEET_INFO;
+      if (id && !sheetInfo && window.EkGuruSheet) {
+        host.innerHTML = '<div class="wrap"><div class="empty"><div>\u23f3</div><h2>Loading this tutor\u2019s profile\u2026</h2>' +
+          "<p>One moment while the latest details arrive.</p></div></div>";
+        return;
+      }
+      /* Known-but-hidden (sheet active=no): the tutor exists, so say
+         "unavailable", not "not found". Record-only stubs are published
+         for hidden rows on every page by js/sheet.js. */
+      var recs = window.EKGURU_SHEET_RECORDS || {};
+      var baked = window.EKGURU_SHEET_HIDDEN || [];
+      var knownHidden = (id && recs[id] && recs[id]._hiddenBySheet) ||
+                        (id && baked.indexOf(id) > -1);
+      if (knownHidden) {
+        host.innerHTML = '<div class="wrap"><div class="empty"><div>⏸️</div><h2>' + esc(t("book.closed")) +
+          "</h2><p>" + esc(t("pf.closedNote")) + '</p><a class="btn btn-primary" href="' + langHref("find-tutors.html") + '">' +
+          esc(t("pf.seeAll")) + "</a></div></div>";
+      } else {
+        host.innerHTML = '<div class="wrap"><div class="empty"><div>🙁</div><h2>' + esc(t("pf.notFound")) +
+          "</h2><p>" + esc(t("pf.notFoundSub")) + '</p><a class="btn btn-primary" href="' + langHref("find-tutors.html") + '">' +
+          esc(t("pf.seeAll")) + "</a></div></div>";
+      }
+      return;
+    }
+
     /* Inactive tutor (active=no in the sheet): the profile stays
        visible — bio, price, experience — but booking is off. A
        banner at the top says so honestly. bookBtn() above already
@@ -1042,13 +1093,6 @@
         '<strong>⚠️ ' + esc(t("book.closed")) + "</strong>" +
         '<p style="margin:6px 0 0">' + esc(t("pf.closedNote")) + "</p>" +
         "</div>");
-    }
-
-    if (!x) {
-      host.innerHTML = '<div class="wrap"><div class="empty"><div>🙁</div><h2>' + esc(t("pf.notFound")) +
-        "</h2><p>" + esc(t("pf.notFoundSub")) + '</p><a class="btn btn-primary" href="' + langHref("find-tutors.html") + '">' +
-        esc(t("pf.seeAll")) + "</a></div></div>";
-      return;
     }
 
     var subj = "Hindi lesson enquiry — " + x.name + " (EkGuru)";
@@ -1448,7 +1492,7 @@
     try { renderHome(); } catch (e) { warnQuiet("home", e); }
     try { renderFaq(); } catch (e) { warnQuiet("faq", e); }
     try { renderFind(); } catch (e) { warnQuiet("find-tutors", e); }
-    try { renderProfile(); } catch (e) { warnQuiet("profile", e); }
+    try { renderProfile(); clearError("profile"); } catch (e) { warnQuiet("profile", e); }
     try { wireVideos(document); } catch (e) { warnQuiet("video", e); }
 
     /* Prices must be re-converted: the repaint wrote fresh

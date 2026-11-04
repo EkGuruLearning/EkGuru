@@ -55,7 +55,7 @@ ekguruTutor({
      priceUSD is already set to 12 as you asked. Everything else here
      is placeholder — replace with her real figures.
      ================================================================ */
-  rating: 5.0,                        // ← EDIT ME: HER real average, 0 to 5
+  rating: 0,                          // no on-site reviews yet — 0, never a guess
   reviewsCount: 0,                    // EDIT ME: must match how many entries are in reviews[] below
   lessonsCount: 0,                    // EDIT ME: total lessons she has taught
   priceUSD: 12,                       // ✅ SET AS YOU ASKED — $12 per lesson

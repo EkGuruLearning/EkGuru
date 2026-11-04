@@ -890,16 +890,17 @@
       var t = byId[r.id];
 
       if (!t) {
-        /* Hidden and new: nothing to RENDER — but on a page with no
-           tutor list (a pre-rendered profile, a city page) the stub
-           below is the only way js/livepatch.js learns this tutor
-           is hidden. Dropping the row outright left hidden tutors
-           standing on exactly those pages. (v130) */
+        /* Hidden and new: nothing to RENDER — but the record-only
+           stub below is how js/livepatch.js (pre-rendered profiles,
+           city pages) and the tutor.html profile renderer learn this
+           tutor is hidden rather than unknown. Dropping the row
+           outright left hidden tutors standing on exactly those
+           pages (v130), and direct profile links crashing instead of
+           saying "unavailable" (Nov 2026). The stub never joins the
+           rendered list. */
         if (isHidden) {
-          if (!HAS_LIST) {
-            byId[r.id] = { id: r.id, _recordOnly: true, _hiddenBySheet: true };
-            hidden++;
-          }
+          byId[r.id] = { id: r.id, _recordOnly: true, _hiddenBySheet: true };
+          hidden++;
           return;
         }
 

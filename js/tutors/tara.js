@@ -54,7 +54,7 @@ ekguruTutor({
   /* ===== NUMBERS & PRICE — TARA ONLY =================================
      ⚠️ Every figure here is a placeholder. priceUSD is the important one.
      ================================================================ */
-  rating: 5.0,                        // ← EDIT ME: HER real average
+  rating: 0,                          // no on-site reviews yet — 0, never a guess
   reviewsCount: 0,                    // ← EDIT ME: must match HER reviews[] below
   lessonsCount: 0,                    // ← EDIT ME: HER total lessons taught
   priceUSD: 8,                        // ← EDIT ME: HER price. Number only, no "$".
