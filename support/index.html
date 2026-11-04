@@ -9,23 +9,23 @@
 
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
-<title>Support EkGuru — one-time contribution via Razorpay | EkGuru</title>
-<meta content="Published EkGuru lessons are currently free. Optional one-time support uses Razorpay’s hosted payment page and does not purchase access or a lesson." name="description"/>
+<title>Support EkGuru — one-time contribution | EkGuru</title>
+<meta content="Published EkGuru lessons are currently free. Optional one-time support helps keep the site running and does not purchase access or a lesson." name="description"/>
 <meta content="index, follow, max-snippet:-1, max-image-preview:large" name="robots"/>
 <link href="https://ekguru.shop/support/" rel="canonical"/>
 <meta content="hFaqyp-9LdUXSKPA9RF011TkO2m_-7AUMasXqm_0dGI" name="google-site-verification"/>
 <meta content="website" property="og:type"/>
 <meta content="EkGuru" property="og:site_name"/>
 <meta content="en_US" property="og:locale"/>
-<meta content="Support EkGuru — one-time contribution via Razorpay" property="og:title"/>
-<meta content="Optional one-time support for EkGuru through Razorpay’s hosted payment page; no course access or lesson is purchased." property="og:description"/>
+<meta content="Support EkGuru — one-time contribution" property="og:title"/>
+<meta content="Optional one-time support for EkGuru; no course access or lesson is purchased." property="og:description"/>
 <meta content="https://ekguru.shop/support/" property="og:url"/>
 <meta content="https://ekguru.shop/images/og-cover.jpg" property="og:image"/>
 <meta content="1200" property="og:image:width"/>
 <meta content="630" property="og:image:height"/>
 <meta content="summary_large_image" name="twitter:card"/>
-<meta content="Support EkGuru — one-time contribution via Razorpay" name="twitter:title"/>
-<meta content="Optional one-time support for EkGuru through Razorpay’s hosted payment page; no course access or lesson is purchased." name="twitter:description"/>
+<meta content="Support EkGuru — one-time contribution" name="twitter:title"/>
+<meta content="Optional one-time support for EkGuru; no course access or lesson is purchased." name="twitter:description"/>
 <meta content="https://ekguru.shop/images/og-cover.jpg" name="twitter:image"/>
 <link href="../images/favicon.ico" rel="icon" sizes="any"/>
 <link href="../images/logo.svg" rel="icon" type="image/svg+xml"/>
@@ -33,11 +33,13 @@
 <link href="../manifest.webmanifest" rel="manifest"/>
 <meta content="#4f32d9" name="theme-color"/>
 <link href="../css/style.min.css" rel="stylesheet"/>
-<link href="../css/support-razorpay.css?v=20260919f" rel="stylesheet"/>
+<link href="../css/support-razorpay.css?v=20261104s" rel="stylesheet"/>
 <style>
-/* Support page (v2026-09 focused payment layout).
-   Structure: Support EkGuru → Razorpay-hosted payment link
-   → one Razorpay-hosted payment link → free ways to help → FAQ.
+/* Support page (v2026-11 sheet-driven payment layout).
+   Every method card is rendered by js/support.js from the
+   support/payments sheet tab — nothing hardcoded.
+   Structure: Support EkGuru → sheet-driven payment options
+   → free ways to help → FAQ.
    The shared look (cards, headings, motion) comes from css/experience.css,
    which is bundled into style.min.css. */
 .pw{max-width:960px;margin:0 auto;padding:0 20px 64px}
@@ -50,7 +52,7 @@
 @media print{.support-page h1{color:#000}}
 </style>
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebPage","name":"Support EkGuru","url":"https://ekguru.shop/support/","description":"Optional one-time support through Razorpay’s hosted payment page; no lesson, course access or subscription is purchased.","isPartOf":{"@type":"WebSite","name":"EkGuru","url":"https://ekguru.shop/"}}
+{"@context":"https://schema.org","@type":"WebPage","name":"Support EkGuru","url":"https://ekguru.shop/support/","description":"Optional one-time support for EkGuru; no lesson, course access or subscription is purchased.","isPartOf":{"@type":"WebSite","name":"EkGuru","url":"https://ekguru.shop/"}}
 </script>
 <!-- ekguru:ultra-assets:start -->
 <link rel="stylesheet" href="/css/tokens.css">
@@ -85,48 +87,39 @@
 <div class="pw xp-main">
 <p class="crumb"><a href="../">EkGuru</a> › Support</p>
 <h1>Support EkGuru</h1>
-<p class="sec-s">Published Hindi lessons on EkGuru are currently free. If they helped you, an optional one-time contribution through Razorpay can support the domain, maintenance and new material. No EkGuru account is required.</p>
+<p class="sec-s">Published Hindi lessons on EkGuru are currently free. If they helped you, an optional one-time contribution can support the domain, maintenance and new material. No EkGuru account is required.</p>
 <!-- =========================================================
        WHERE THE MONEY GOES
        ========================================================= -->
 <h2 class="sec-t">Where your money goes</h2>
-<p class="sec-s">Razorpay may deduct fees under the owner’s merchant agreement. Contributions support EkGuru’s operating and content costs; no fixed allocation is promised.</p>
+<p class="sec-s">Payment providers may deduct fees under their merchant agreements. Contributions support EkGuru’s operating and content costs; no fixed allocation is promised.</p>
 <div class="impact xp-stagger">
 <div><b>🖥️ Servers &amp; domain</b><span>Domain, hosting-related services and site maintenance.</span></div>
 <div><b>📚 New lessons &amp; tools</b><span>Reviewing and improving free lessons, tools and worksheets.</span></div>
 <div><b>🔓 Free published lessons</b><span>Published learning pages are available without an EkGuru account.</span></div>
 </div>
 <!-- =========================================================
-       SUPPORT EKGURU — RAZORPAY-HOSTED PAYMENT LINK
-       One ordinary external link; no third-party payment loader runs here.
-       ========================================================= -->
+     SUPPORT EKGURU — SHEET-DRIVEN PAYMENT OPTIONS
+     Every method card is rendered from the sheet by
+     js/support.js. Nothing here is hardcoded: the sheet
+     lists which methods are on (supportUpi, supportPaypal,
+     supportRazorpay, supportStripe, supportBtc, supportEth,
+     supportUsdt, supportRevolut, supportHours). A row deleted
+     or set to "none" removes the option instantly.
+     ========================================================= -->
 <section class="support-component-card support-active-card" id="support-active-section" aria-labelledby="support-title">
   <div class="support-header">
-    <div class="support-badge" aria-hidden="true">⚡ Razorpay Hosted Payment Page</div>
+    <div class="support-badge" id="support-methods-badge" aria-hidden="true">Support EkGuru</div>
     <h2 class="support-title" id="support-title">Make a one-time contribution</h2>
     <p class="support-desc">Support the maintenance and review of EkGuru's free published learning resources.</p>
-    <p class="support-note">The button below opens Razorpay’s hosted payment page. The contribution is optional and does not purchase access, a lesson or a subscription.</p>
+    <p class="support-note">Pick any method below. The contribution is optional and does not purchase access, a lesson or a subscription.</p>
+    <p class="support-hours" id="support-hours" hidden></p>
   </div>
 
-  <div class="rzp-hosted-card" id="rzp-hosted-card">
-    <div class="rzp-card-header">
-      <div class="rzp-card-icon" aria-hidden="true">⚡</div>
-      <div>
-        <h3 class="rzp-card-title">Pay securely with Razorpay</h3>
-        <p class="rzp-card-desc">
-          The payment page is hosted by Razorpay and shows the payment methods currently available to you.
-          Availability may vary by location and payment-page configuration.
-        </p>
-      </div>
-    </div>
-
-    <div class="rzp-embed-wrap">
-      <a class="btn btn-primary" href="https://pages.razorpay.com/pl_TdvVT9QL3k7cSY/view" target="_blank" rel="noopener noreferrer">Open Razorpay Payment Page</a>
-    </div>
-
-    <p class="rzp-card-footnote">
-      🔒 You pay on Razorpay's own secure page. EkGuru does not receive your card number, UPI PIN or online-banking credentials.
-    </p>
+  <div class="support-options-wrap" id="support-options">
+    <!-- Filled by js/support.js from the sheet. Empty until the
+         sheet loads; never a hardcoded link. -->
+    <p class="support-loading">Loading contribution methods…</p>
   </div>
 </section>
 
@@ -152,13 +145,11 @@
 <div class="faq-wrap">
 <details class="faq" open="">
 <summary>Where does my contribution go?</summary>
-<p>The contribution goes to the owner’s Razorpay merchant account. Razorpay may deduct fees. The net amount supports domain, maintenance and content costs; no itemised allocation is promised.</p>
+<p>Directly to the owner through the payment method you choose. Some payment providers may deduct fees. The net amount supports domain, maintenance and content costs; no itemised allocation is promised.</p>
 </details>
 <details class="faq">
 <summary>Which methods can I use?</summary>
-<p>The payment page is hosted by Razorpay, so the exact methods — UPI, cards, netbanking, wallets — are
-        shown to you at checkout. What appears can vary by location and by the payment page's configuration.
-        More methods may be added over time.</p>
+<p>Whatever the owner has enabled — the options above are the live list from EkGuru's support sheet, so if a method is missing it is simply not available right now. The owner can add or remove methods at any time.</p>
 </details>
 <details class="faq">
 <summary>What does the contribution unlock?</summary>
@@ -166,11 +157,11 @@
 </details>
 <details class="faq">
 <summary>Is my payment secure?</summary>
-<p>Card, UPI and bank credentials are entered on Razorpay’s hosted page, not into an EkGuru form. Razorpay and the owner’s merchant account retain transaction records under their policies.</p>
+<p>Payment details never enter an EkGuru form — they stay with the payment provider you choose. The provider and the owner’s account retain transaction records under their policies.</p>
 </details>
 <details class="faq">
 <summary>Do I get a receipt?</summary>
-<p>Check Razorpay’s confirmation and your bank or UPI history. If you need help matching a transaction, contact EkGuru with the transaction reference but never send card, UPI PIN or bank credentials. EkGuru is not a registered charity and does not claim tax-deductible status.</p>
+<p>Check the confirmation from your payment provider and your bank or wallet history. If you need help matching a transaction, contact EkGuru with the transaction reference but never send card, UPI PIN or bank credentials. EkGuru is not a registered charity and does not claim tax-deductible status.</p>
 </details>
 </div>
 <p class="backlinks"><a href="../">← Back to Home</a> · <a href="../learn/hindi/">Learn Hindi</a> ·
@@ -184,6 +175,7 @@
 <script defer="" src="../js/analytics.js"></script>
 <script defer="" src="../js/tutors/_overrides.js"></script>
 <script defer="" src="../js/settings.js"></script>
+<script defer="" src="../js/support.js"></script>
 <script defer="" src="../js/experience.js"></script>
 <script defer="">
 document.addEventListener("DOMContentLoaded",function(){
