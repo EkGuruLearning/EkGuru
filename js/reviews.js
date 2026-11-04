@@ -203,6 +203,11 @@
      ========================================================= */
   var LAST_RECS = null;
 
+  /* Tutor ids whose EKGURU_TUTOR_FILES entry this file wrote. Only
+     these are ever cleared when their rows leave the sheet — baked
+     tutor-file data is left alone (see the FILES section in apply). */
+  var APPLIED_FILES = {};
+
   function apply(recs) {
     if (recs) LAST_RECS = recs;
     recs = recs || LAST_RECS || [];
@@ -217,6 +222,43 @@
        and store under the tutor's real id. */
     var byLower = {};
     T.forEach(function (x) { byLower[String(x.id).toLowerCase()] = x; });
+
+    /* =========================================================
+       KNOWN IDS BEYOND THE ROSTER  (4 Nov 2026)
+       ---------------------------------------------------------
+       BUG FOUND — REVIEWS NEVER SHOWED ON PROFILE PAGES.
+
+       A pre-rendered profile loads this file WITHOUT
+       js/tutors-data.js, so EKGURU_TUTORS does not exist there —
+       and js/sheet.js deliberately publishes only _recordOnly
+       stubs (EKGURU_SHEET_RECORDS) on such pages, never roster
+       entries. Matching reviews against the roster alone therefore
+       dropped EVERY review on exactly the pages that print review
+       lists: "No reviews yet" on Sushila's live profile while the
+       sheet held two live rows for her.
+
+       A review row may also name any id the page and the sheet
+       already agree exists: the sheet's record stubs, the baked
+       overrides, the registry order, or the page's own
+       [data-tutor] attributes (the DOM is parsed before this
+       runs, so that source works even on the first apply, before
+       the sheet arrives). Genuinely unknown ids — typos for
+       tutors nowhere on the page — are still reported below.
+       ========================================================= */
+    var knownByLower = {};
+    function learnId(id) {
+      id = String(id == null ? "" : id).trim();
+      if (id && !knownByLower[id.toLowerCase()]) knownByLower[id.toLowerCase()] = id;
+    }
+    Object.keys(root.EKGURU_SHEET_RECORDS || {}).forEach(learnId);
+    Object.keys(root.EKGURU_SHEET_OVERRIDES || {}).forEach(learnId);
+    (root.EKGURU_TUTOR_ORDER || []).forEach(learnId);
+    try {
+      var tutorNodes = root.document.querySelectorAll("[data-tutor]");
+      Array.prototype.forEach.call(tutorNodes, function (n) {
+        learnId(n.getAttribute("data-tutor"));
+      });
+    } catch (e) {}
 
     /* =========================================================
        EXTERNAL-MARKETPLACE GATE  (27 Sep 2026 master audit)
@@ -260,10 +302,14 @@
       var why = validate(r);
       if (why.length) { skipped.push([r.tutor + "/" + (r.name || "?"), why]); return; }
 
-      var t = byLower[String(r.tutor || "").trim().toLowerCase()];
-      if (!t) { if (unknown.indexOf(r.tutor) === -1) unknown.push(r.tutor); return; }
+      var rowKey = String(r.tutor || "").trim().toLowerCase();
+      var t = byLower[rowKey];
+      /* Roster first; on roster-less pages any id the page/sheet
+         already names (see KNOWN IDS above). */
+      var realId = t ? t.id : (knownByLower[rowKey] || null);
+      if (!realId) { if (unknown.indexOf(r.tutor) === -1) unknown.push(r.tutor); return; }
 
-      (byTutor[t.id] = byTutor[t.id] || []).push({
+      (byTutor[realId] = byTutor[realId] || []).push({
         name: String(r.name).trim(),
         date: r.date || "",
         stars: Number(r.stars),
@@ -330,6 +376,17 @@
       f.reviewsCount = list.length;
       var sum = list.reduce(function (n, r) { return n + r.stars; }, 0);
       f.rating = Math.round((sum / list.length) * 10) / 10;
+      APPLIED_FILES[id] = 1;
+    });
+    /* A review removed from the sheet must disappear here too — but
+       only entries THIS function wrote are ever cleared, so baked
+       tutor-file data is never wiped by an empty sheet. */
+    Object.keys(APPLIED_FILES).forEach(function (id) {
+      if (!byTutor[id] && FILES[id]) {
+        FILES[id].reviews = [];
+        FILES[id].reviewsCount = 0;
+        FILES[id].rating = 0;
+      }
     });
     root.EKGURU_TUTOR_FILES = FILES;
 
@@ -463,12 +520,22 @@
      animations. Only announce when something actually moved. */
   root.addEventListener("ekguru:sheet", function () {
     if (!LAST_RECS) return;
-    var before = JSON.stringify((root.EKGURU_TUTORS || [])
-      .map(function (t) { return t.id + ":" + (t.reviewsCount || 0) + ":" + (t.rating || 0); }));
+    /* Profile pages have no EKGURU_TUTORS, so a roster-only snapshot
+       would read "[]" before and after and swallow the announce that
+       repaints their review lists. Include the FILES entries too. */
+    function snap() {
+      var roster = (root.EKGURU_TUTORS || [])
+        .map(function (t) { return t.id + ":" + (t.reviewsCount || 0) + ":" + (t.rating || 0); });
+      var files = Object.keys(root.EKGURU_TUTOR_FILES || {}).sort()
+        .map(function (id) {
+          var f = root.EKGURU_TUTOR_FILES[id] || {};
+          return id + ":" + (f.reviewsCount || 0) + ":" + (f.rating || 0);
+        });
+      return JSON.stringify(roster) + "|" + JSON.stringify(files);
+    }
+    var before = snap();
     apply(null);
-    var after = JSON.stringify((root.EKGURU_TUTORS || [])
-      .map(function (t) { return t.id + ":" + (t.reviewsCount || 0) + ":" + (t.rating || 0); }));
-    if (before !== after) announce();
+    if (before !== snap()) announce();
   });
 
 })(typeof window !== "undefined" ? window : globalThis);
