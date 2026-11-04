@@ -768,8 +768,13 @@
 
   /* Can we deliver the mail ourselves, in the background? */
   function canSendDirect() {
+    /* Degraded booking (owner decision, 4 Nov 2026): a tutor with no
+       address still books — sheet row + honest student receipt, owner
+       relays via the sheet. The button stays enabled for them. */
+    var degradedOk = !!(window.EkGuruMail && window.EkGuruMail.degradedBookingAllowed &&
+      window.EkGuruMail.degradedBookingAllowed());
     return !!(window.EkGuruIntake && window.EkGuruIntake.ready && window.EkGuruIntake.ready() &&
-      window.EkGuruMail && window.EkGuruMail.available(modalTutor));
+      window.EkGuruMail && (window.EkGuruMail.available(modalTutor) || degradedOk));
   }
 
   function buildActions() {
@@ -781,17 +786,25 @@
     var mail = sheetReady ? mailtoHref() : "";
     var tutorMailReady = !!(window.EkGuruMail && window.EkGuruMail.tutorEmailInfo &&
       window.EkGuruMail.tutorEmailInfo(modalTutor).available);
-    var unavailable = !sheetReady || !direct;
+    /* Degraded booking: sheet connected but tutor has no address —
+       still bookable (owner relays via the sheet), with an honest
+       note instead of a block. Only a missing sheet still blocks. */
+    var degradedTutor = sheetReady && !tutorMailReady && direct;
+    var unavailable = !sheetReady || (!direct && !degradedTutor);
     var unavailableMessage = !sheetReady
       ? "Online booking is unavailable until the private bookings sheet is connected."
-      : (!tutorMailReady
+      : (!tutorMailReady && !degradedTutor
         ? "This tutor's booking email is not configured yet. Please choose another tutor."
         : "Booking email is temporarily unavailable. Please try again later.");
+    var degradedNote = degradedTutor
+      ? t("book.degradedNote").replace("{tutor}", modalTutor.name)
+      : "";
     host.innerHTML =
       '<button class="btn btn-primary btn-lg bk-send" type="button" data-href="' + esc(mail) + '"' +
         (unavailable ? ' disabled aria-disabled="true"' : '') + '>✉️ ' +
         esc(t(direct ? "book.sendRequest" : "book.sendEmail")) + "</button>" +
       (unavailable ? '<p class="bk-note" role="status">' + esc(unavailableMessage) + "</p>" : "") +
+      (degradedNote ? '<p class="bk-note" role="status" style="color:var(--brand-3,#b45309)">⚠️ ' + esc(degradedNote) + "</p>" : "") +
       "";
 
     $(".bk-send", host).addEventListener("click", function () {
@@ -1148,6 +1161,10 @@
         '<div class="bk-done-ic" aria-hidden="true">✓</div>' +
         "<h4>" + esc(t("book.sentTitle")) + "</h4>" +
         "<p>" + esc(t("book.sentBody").replace("{tutor}", modalTutor.name)) + "</p>" +
+        ((res && res.tutorEmailUnavailable)
+          ? '<p class="bk-note" role="status" style="color:var(--brand-3,#b45309)">⚠️ ' +
+            esc(t("book.sentDegraded").replace("{tutor}", modalTutor.name)) + "</p>"
+          : "") +
 
         '<div class="bk-receipt">' +
           (ref ? row(t("book.rcRef"), ref) : "") +

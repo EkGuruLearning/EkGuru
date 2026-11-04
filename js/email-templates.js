@@ -138,6 +138,44 @@
         );
       }
     },
+    /* =========================================================
+       DEGRADED BOOKING — tutor has no address yet    (Nov 2026)
+       ---------------------------------------------------------
+       Used ONLY by Mail.send() when the booked tutor has no
+       notification_email (mail.degradedBooking). The student still
+       gets a receipt, but it must NEVER say "confirmed": the tutor
+       has not even been emailed. Honest wording only — "received",
+       "will confirm manually". Deliberately NOT in PUBLIC_IDS:
+       it is send()-internal, like booking_internal_record.
+       ========================================================= */
+    booking_student_pending: {
+      key: "bookingStudentPending",
+      role: "student",
+      subject: "Your EkGuru booking request was received — {{tutorName}}",
+      allowedVars: ["studentName", "tutorName", "sessionTitle", "bookingDate", "bookingTime", "duration", "amount", "bookingId", "bookingUrl", "date", "time", "lessonType", "studentRequirement", "timezone", "bookingStatus", "nextStep", "supportEmail", "siteUrl"],
+      html: function (v) {
+        var who = present(v.studentName) ? "Hello " + v.studentName + "." : "Hello.";
+        return shell(
+          h1("Request received") +
+          p(who) +
+          p("We received your lesson request" + (present(v.tutorName) ? " with " + v.tutorName : "") + " on EkGuru.") +
+          table([
+            ["Tutor", v.tutorName],
+            ["Session", v.sessionTitle || v.lessonType],
+            ["Date", v.bookingDate || v.date],
+            ["Time", v.bookingTime || v.time],
+            ["Duration", v.duration],
+            ["Amount", v.amount],
+            ["Your message", v.studentRequirement || v.notes],
+            ["Booking ID", v.bookingId]
+          ]) +
+          cta(v.bookingUrl, "Open booking details") +
+          p(v.nextStep) +
+          p("If the time no longer works, reply to this email."),
+          "Your EkGuru lesson request was received."
+        );
+      }
+    },
     booking_tutor_notification: {
       key: "bookingTutor",
       role: "tutor",
@@ -277,6 +315,7 @@
 
   var ALIAS = {
     bookingStudent: "booking_student_confirmation",
+    bookingStudentPending: "booking_student_pending",
     bookingTutor: "booking_tutor_notification",
     bookingInternal: "booking_internal_record",
     contactVisitor: "contact_submitter_confirmation",
@@ -284,6 +323,7 @@
     adminOutbound: "ADMIN_CONTACT_OUTBOUND",
     adminInternalCopy: "ADMIN_CONTACT_INTERNAL_COPY",
     BOOKING_STUDENT_CONFIRMATION: "booking_student_confirmation",
+    BOOKING_STUDENT_PENDING: "booking_student_pending",
     BOOKING_TUTOR_NOTIFICATION: "booking_tutor_notification",
     BOOKING_EKGURU_NOTIFICATION: "booking_internal_record",
     BOOKING_INTERNAL_RECORD: "booking_internal_record",
@@ -308,6 +348,16 @@
       bookingId: "EK-TEST-01", date: "20 September 2026", time: "19:00",
       lessonType: "Trial lesson", timezone: "Asia/Kolkata", bookingStatus: "Request received",
       nextStep: "Tara will reply to confirm the time.", studentRequirement: "Conversation practice",
+      supportEmail: SUPPORT, siteUrl: SITE_URL
+    },
+    bookingStudentPending: {
+      studentName: "Priya", tutorName: "Tara", sessionTitle: "Trial lesson",
+      bookingDate: "20 September 2026", bookingTime: "19:00", duration: "50 min",
+      bookingId: "EK-TEST-02", date: "20 September 2026", time: "19:00",
+      lessonType: "Trial lesson", timezone: "Asia/Kolkata",
+      bookingStatus: "Request received — manual confirmation pending",
+      nextStep: "EkGuru will confirm Tara's availability with you shortly.",
+      studentRequirement: "Conversation practice",
       supportEmail: SUPPORT, siteUrl: SITE_URL
     },
     bookingTutor: {
@@ -366,6 +416,10 @@
       mustSay: ["booking is confirmed", "EkGuru"],
       mustNotSay: ["you have a new booking", "internal booking record", "TUTOR_EMAIL_UNAVAILABLE"]
     },
+    bookingStudentPending: {
+      mustSay: ["request was received", "EkGuru"],
+      mustNotSay: ["booking is confirmed", "your booking is confirmed", "you have a new booking", "internal booking record"]
+    },
     bookingTutor: {
       mustSay: ["new booking", "student"],
       mustNotSay: ["your booking is confirmed", "internal booking record"]
@@ -413,6 +467,7 @@
 
   var ROUTES = [
     { type: "booking_student_confirmation", role: "booking_student", template: "bookingStudent" },
+    { type: "booking_student_pending", role: "booking_student", template: "bookingStudentPending" },
     { type: "booking_tutor_notification", role: "booking_tutor", template: "bookingTutor" },
     { type: "contact_submitter_confirmation", role: "contact_submitter", template: "contactVisitor" },
     { type: "contact_internal_record", role: "contact_internal", template: "contactInternal" },
@@ -424,6 +479,7 @@
     BRAND: BRAND,
     TEMPLATES: {
       bookingStudent: TEMPLATES.booking_student_confirmation,
+      bookingStudentPending: TEMPLATES.booking_student_pending,
       bookingTutor: TEMPLATES.booking_tutor_notification,
       bookingInternal: TEMPLATES.booking_internal_record,
       contactVisitor: TEMPLATES.contact_submitter_confirmation,

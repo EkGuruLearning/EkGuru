@@ -1544,6 +1544,16 @@
              !!tutorTarget(tutor);
     },
 
+    /* Degraded booking (owner decision, 4 Nov 2026): when the tutor
+       has no address, the booking still goes through — the sheet row
+       plus an honest "received, EkGuru will confirm manually" student
+       receipt — and the owner relays via the bookings sheet.
+       available() above keeps meaning "the tutor is directly
+       addressable"; the booking UI OR-s this flag with it. */
+    degradedBookingAllowed: function () {
+      return CFG.enabled !== false && CFG.degradedBooking !== false;
+    },
+
     /* Booking recipients are tutor + student only. */
     recipients: function (tutor, studentEmail) {
       return {
@@ -1576,7 +1586,15 @@
       if (tooMany("booking")) {
         return Promise.reject(new Error("Too many booking requests from this browser. Please wait a few minutes, or send from your own email app."));
       }
-      if (!target) {
+      /* Degraded booking (owner decision, 4 Nov 2026): no tutor
+         address is no longer a rejection while degraded mode is on.
+         The tutor copy is skipped (there is nowhere to send it),
+         the student still gets an HONEST pending receipt, and the
+         sheet row (saved by the caller) is the owner's channel.
+         The owner inbox is never a recipient — see the jobs below,
+         which address only the tutor and the student. */
+      var degraded = !target;
+      if (degraded && CFG.degradedBooking === false) {
         return Promise.reject(new Error("No valid tutor booking address configured"));
       }
       if (!isEmail(data.email)) {
@@ -1656,10 +1674,13 @@
          Deliberately omits: the tutor's inbox address, the page URL,
          the distribution list, and every internal note. A student
          has no need for any of it, and publishing a tutor's private
-         address to every person who books is not acceptable. */
+         address to every person who books is not acceptable.
+         Degraded mode uses the PENDING template, which must never say
+         "confirmed" — the tutor has not even been emailed. */
       function studentBody() {
         return withTemplate({
-          _subject: "Congratulations — your booking request was received | EkGuru",
+          _subject: degraded ? "Request received — your EkGuru booking | EkGuru"
+            : "Congratulations — your booking request was received | EkGuru",
           _template: "table",
           _captcha: "false",
 
@@ -1668,14 +1689,18 @@
           "Your message": data.message || data.goal || "",
           "Requested date & time": when,
           "Timezone": data.timezone || "",
-          "Current status": "Request received",
-          "What happens next": tutorName + " will reply to confirm the time. " +
-            "Keep your reference number — quote it in any reply.",
+          "Current status": degraded ? "Request received — manual confirmation pending"
+            : "Request received",
+          "What happens next": degraded
+            ? "EkGuru will confirm " + tutorName + "'s availability with you shortly. " +
+              "Keep your reference number — quote it in any reply."
+            : tutorName + " will reply to confirm the time. " +
+              "Keep your reference number — quote it in any reply.",
 
           /* Replies from the student come to EkGuru, not to the tutor's
              private inbox, so the address is never disclosed. */
           email: SITE.email || ""
-        }, "booking_student_confirmation", {
+        }, degraded ? "booking_student_pending" : "booking_student_confirmation", {
           studentName: studentName,
           bookingId: ref,
           tutorName: tutorName,
@@ -1683,9 +1708,13 @@
           date: when,
           time: "",
           timezone: data.timezone || "",
-          bookingStatus: "Request received",
-          nextStep: tutorName + " will reply to confirm the time. Keep your " +
-            "reference number — quote it in any reply.",
+          bookingStatus: degraded ? "Request received — manual confirmation pending"
+            : "Request received",
+          nextStep: degraded
+            ? "EkGuru will confirm " + tutorName + "'s availability with you shortly. Keep your " +
+              "reference number — quote it in any reply."
+            : tutorName + " will reply to confirm the time. Keep your " +
+              "reference number — quote it in any reply.",
           supportEmail: SITE.email || "",
           siteUrl: (SITE.baseUrl || "https://ekguru.shop/")
         }, kStudent, refKey ? refKey + ":student" : "");
@@ -1695,10 +1724,12 @@
 
       /* The student receives a separate, student-safe message. It is
          never a CC on the tutor message, and the owner is not copied. */
-      var tutorEmailStatus = tutor && tutor.formKey ? "ALIAS" : "PERSONAL";
+      var tutorEmailStatus = degraded ? "TUTOR_EMAIL_UNAVAILABLE"
+        : (tutor && tutor.formKey ? "ALIAS" : "PERSONAL");
       var refKey = ref ? String(ref).toUpperCase() : "";
-      var kTutor = refKey ? idemKey(refKey, "booking_tutor_notification", target) : "";
-      var kStudent = refKey ? idemKey(refKey, "booking_student_confirmation", data.email) : "";
+      var kTutor = (!degraded && refKey) ? idemKey(refKey, "booking_tutor_notification", target) : "";
+      var kStudent = refKey ? idemKey(refKey, degraded ? "booking_student_pending"
+        : "booking_student_confirmation", data.email) : "";
 
       /* v97 — an ADMIN RETRY must be able to actually re-send a role
          that already succeeded (e.g. the student lost their receipt).
@@ -1714,9 +1745,12 @@
 
       /* Only the booked tutor and student receive booking email.
          If either route is unavailable, never substitute the owner. */
-      var jobs = [guarded(kTutor, target, function () {
-        return post(target, tutorBody());
-      })];
+      var jobs = [];
+      if (!degraded) {
+        jobs.push(guarded(kTutor, target, function () {
+          return post(target, tutorBody());
+        }));
+      }
       var studentTo = String(data.email).trim();
       jobs.push(guarded(kStudent, studentTo, function () {
         var direct = chain().filter(function (p) { return p.canAddressStrangers; })[0];
@@ -1768,7 +1802,7 @@
           toLabel: tutorLine,
           copies: copies,
           sentAt: now.toISOString(),
-          subject: tutorBody()._subject,
+          subject: degraded ? studentBody()._subject : tutorBody()._subject,
           separate: true,
           /* v97 — the honest state vocabulary. `delivered` above is
              retained for the existing dashboard, but it means
@@ -1776,12 +1810,15 @@
           state: "ACCEPTED",
           accepted: true,
           tutorEmailStatus: tutorEmailStatus,
-          tutorEmailUnavailable: false,
-          tutorEmailNote: "",
+          tutorEmailUnavailable: degraded,
+          tutorEmailNote: degraded
+            ? "No tutor booking address — tutor copy skipped; student receipt sent; owner relays via the bookings sheet."
+            : "",
           emailStates: (function () {
             var accepted = delivered.map(function (a) { return String(a).toLowerCase(); });
             return {
-              tutor: accepted.indexOf(String(target).toLowerCase()) >= 0 ? "ACCEPTED" : "FAILED",
+              tutor: degraded ? "TUTOR_EMAIL_UNAVAILABLE"
+                : (accepted.indexOf(String(target).toLowerCase()) >= 0 ? "ACCEPTED" : "FAILED"),
               internal: "NOT_SENT_BY_POLICY",
               student: accepted.indexOf(String(studentTo).toLowerCase()) >= 0 ? "ACCEPTED" : "FAILED"
             };
@@ -1811,7 +1848,13 @@
               };
             }
             return {
-              tutor: role(target),
+              tutor: degraded
+                ? { status: "TUTOR_EMAIL_UNAVAILABLE", provider: "",
+                    lastAttempt: now.toISOString(),
+                    lastError: "No tutor booking address configured — tutor copy skipped; " +
+                      "owner relays via the bookings sheet.",
+                    retryCount: 0, messageId: "", recipient: "" }
+                : role(target),
               student: role(studentTo),
               internal: { status: "NOT_SENT_BY_POLICY", provider: "", lastAttempt: "",
                 lastError: "", retryCount: 0, messageId: "", recipient: "" }

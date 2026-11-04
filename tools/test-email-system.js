@@ -106,6 +106,7 @@ const KEY2TYPE = {
   contactVisitor: "contact_submitter_confirmation",
   contactInternal: "contact_internal_record",
   bookingStudent: "booking_student_confirmation",
+  bookingStudentPending: "booking_student_pending",
   bookingTutor: "booking_tutor_notification",
   bookingInternal: "booking_internal_record",
   adminOutbound: "ADMIN_CONTACT_OUTBOUND",
@@ -234,14 +235,51 @@ function internalRows() {
     routeInfo.tutor === "tara@example.com" && routeInfo.student === "priya@example.com" &&
     !Object.prototype.hasOwnProperty.call(routeInfo, "internal"), JSON.stringify(routeInfo));
 
+  /* ---- TUTOR WITHOUT an email → DEGRADED (owner decision, 4 Nov 2026) ----
+     The booking still goes through: exactly one post, to the STUDENT
+     only, with the honest pending receipt. The owner inbox is never a
+     recipient; the owner relays via the bookings sheet. */
   POSTED.length = 0;
   const ghost = { id: "newtutor", name: "New Tutor", lessonLength: "50 min" };
+  let dres = null, dErr = "";
+  try {
+    dres = await M.send(Object.assign({}, sendPayload, { tutor: ghost, ref: "EK-TEST-02" }));
+  } catch (e) { dErr = e.message; }
+  check("degraded: missing tutor address RESOLVES (sheet row + student receipt)",
+    !!dres && dres.ok === true, dErr);
+  check("degraded: exactly one post, addressed to the STUDENT only",
+    POSTED.length === 1 && String(POSTED[0].parsed.to || "").toLowerCase() === "priya@example.com",
+    JSON.stringify(POSTED.map((p) => p.parsed.to)));
+  check("degraded: owner inbox never a recipient",
+    POSTED.every((p) => String(p.parsed.to || "").toLowerCase() !== "ekgurulearning@gmail.com"),
+    JSON.stringify(POSTED.map((p) => p.parsed.to)));
+  check("degraded: tutorEmailStatus TUTOR_EMAIL_UNAVAILABLE + flag set",
+    !!dres && dres.tutorEmailStatus === "TUTOR_EMAIL_UNAVAILABLE" && dres.tutorEmailUnavailable === true,
+    JSON.stringify(dres && { s: dres.tutorEmailStatus, f: dres.tutorEmailUnavailable }));
+  check("degraded: emailStates tutor=TUTOR_EMAIL_UNAVAILABLE, student=ACCEPTED",
+    !!dres && dres.emailStates.tutor === "TUTOR_EMAIL_UNAVAILABLE" && dres.emailStates.student === "ACCEPTED",
+    JSON.stringify(dres && dres.emailStates));
+  check("degraded: student post stamped booking_student_pending",
+    byType("booking_student_pending").length === 1, "got " + byType("booking_student_pending").length);
+  check("degraded: student receipt never says confirmed",
+    POSTED.length === 1 && !/booking is confirmed/i.test(POSTED[0].parsed.html || "") &&
+    !/booking is confirmed/i.test(POSTED[0].parsed.subject || ""),
+    POSTED.length ? POSTED[0].parsed.subject : "no post");
+  check("degraded: student idempotencyKey = entity|pending-template|recipient",
+    POSTED.length === 1 &&
+    POSTED[0].parsed.idempotencyKey === "EK-TEST-02|booking_student_pending|priya@example.com",
+    JSON.stringify(POSTED.length ? POSTED[0].parsed.idempotencyKey : null));
+
+  /* ---- degradedBooking:false restores the old fail-closed block ---- */
+  window.EKGURU_SITE.mail.degradedBooking = false;
+  POSTED.length = 0;
   let missingAddressRejected = false;
   try {
-    await M.send(Object.assign({}, sendPayload, { tutor: ghost, ref: "EK-TEST-02" }));
+    await M.send(Object.assign({}, sendPayload, { tutor: ghost, ref: "EK-TEST-03" }));
   } catch (e) { missingAddressRejected = /tutor.*address/i.test(e.message); }
-  check("missing tutor address fails closed; booking mail is not sent to owner or student",
+  check("flag-off: missing tutor address fails closed; nothing posted",
     missingAddressRejected && POSTED.length === 0, JSON.stringify(POSTED));
+  window.EKGURU_SITE.mail.degradedBooking = true;
 
   /* =========================== 6. contact() =========================== */
   POSTED.length = 0;
