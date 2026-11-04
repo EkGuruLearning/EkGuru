@@ -3,7 +3,7 @@
    ========================================================= */
 
 .support-component-card {
-  background: var(--surface, #ffffff);
+  background: var(--card, var(--eg-surface, #ffffff));
   border: 1px solid var(--border, #e2e8f0);
   border-radius: 16px;
   padding: clamp(18px, 4vw, 36px);
@@ -485,7 +485,7 @@
    ========================================================= */
 
 .recent-supporters-card {
-  background: var(--surface, #ffffff);
+  background: var(--card, var(--eg-surface, #ffffff));
   border: 1px solid var(--border, #e2e8f0);
   border-radius: 16px;
   padding: clamp(18px, 4vw, 32px);
@@ -750,4 +750,131 @@
   box-shadow: none !important;
   opacity: 0.75 !important;
   pointer-events: none;
+}
+
+/* =========================================================
+   Sheet-driven payment options (js/support.js)
+   Every card rendered from the sheet — no hardcoded links.
+   Dark-mode safe: uses --card / --bg-soft / --ink / --muted
+   (aliased by tokens.css), never --surface.
+   ========================================================= */
+.support-options-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 4px;
+}
+
+.support-loading {
+  color: var(--muted, #64748b);
+  font-size: 0.88rem;
+  margin: 8px 0;
+}
+
+.support-empty {
+  color: var(--muted, #64748b);
+  font-size: 0.9rem;
+  margin: 8px 0;
+}
+
+.support-option {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 16px;
+  border: 1.5px solid var(--line, #e5e7eb);
+  border-radius: 14px;
+  background: var(--card, var(--eg-surface, #ffffff));
+  color: inherit;
+  text-decoration: none;
+  transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
+  font-size: 0.95rem;
+}
+
+.support-option:hover {
+  border-color: #6366f1;
+  box-shadow: 0 2px 12px rgba(99, 102, 241, 0.12);
+  transform: translateY(-1px);
+}
+
+.support-option-icon {
+  font-size: 1.5rem;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.support-option b {
+  display: block;
+  font-size: 0.95rem;
+  color: var(--ink, #1e293b);
+}
+
+.support-option small {
+  display: block;
+  color: var(--muted, #64748b);
+  font-size: 0.78rem;
+  margin-top: 2px;
+}
+
+.support-option-arrow {
+  margin-left: auto;
+  color: var(--muted, #64748b);
+  font-size: 1.1rem;
+}
+
+/* Crypto address variant: no href — shown as copyable text. */
+.support-option-addr {
+  display: flex;
+  align-items: flex-start;
+}
+
+.support-option-addr small {
+  margin-bottom: 4px;
+}
+
+.support-option-addr-val {
+  display: block;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.78rem;
+  word-break: break-all;
+  background: var(--bg-soft, var(--eg-soft, #f8fafc));
+  border: 1px solid var(--line, #e5e7eb);
+  border-radius: 8px;
+  padding: 6px 8px;
+  margin-top: 4px;
+}
+
+.support-option-copy {
+  flex-shrink: 0;
+  align-self: center;
+  border: 1px solid var(--line, #e5e7eb);
+  background: var(--bg-soft, var(--eg-soft, #f8fafc));
+  color: var(--ink, #1e293b);
+  border-radius: 8px;
+  padding: 6px 12px;
+  font-size: 0.78rem;
+  cursor: pointer;
+  transition: border-color 0.2s, background 0.2s;
+}
+
+.support-option-copy:hover {
+  border-color: #6366f1;
+  background: #eef2ff;
+}
+
+.support-hours {
+  font-size: 0.82rem;
+  color: var(--muted, #64748b);
+  margin: 4px 0 0;
+}
+
+/* Responsive: stack on narrow screens. */
+@media (max-width: 560px) {
+  .support-option {
+    gap: 10px;
+    padding: 12px;
+  }
+  .support-option-addr {
+    flex-wrap: wrap;
+  }
 }

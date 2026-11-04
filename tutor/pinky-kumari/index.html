@@ -20,12 +20,17 @@
 <meta property="og:title" content="Pinky Kumari — Online Hindi Tutor Profile | EkGuru">
 <meta property="og:description" content="Tutor-provided profile for Pinky Kumari: stated subjects, languages and lesson details. Confirm current pricing and availability before booking.">
 <meta property="og:url" content="https://ekguru.shop/tutor/pinky-kumari/">
-<meta property="og:image" content="https://ekguru.shop/images/pinky-kumari.jpg">
+
+           <meta property="og:image" content="https://ekguru.shop/images/pinky-kumari.jpg">
+           <meta property="og:image:width" content="1200">
+           <meta property="og:image:height" content="630">
+           <meta property="og:image:alt" content="EkGuru — free, self-paced Hindi learning">
 <meta content="EkGuru" property="og:site_name"/>
 <meta content="summary_large_image" name="twitter:card"/>
 <meta name="twitter:title" content="Pinky Kumari — Online Hindi Tutor Profile | EkGuru">
 <meta name="twitter:description" content="Tutor-provided profile for Pinky Kumari: stated subjects, languages and lesson details. Confirm current pricing and availability before booking.">
 <meta name="twitter:image" content="https://ekguru.shop/images/pinky-kumari.jpg">
+    <meta name="twitter:image:alt" content="EkGuru — free, self-paced Hindi learning">
 <meta content="strict-origin-when-cross-origin" name="referrer"/>
 <meta content="light" name="color-scheme"/>
 <link href="../../images/favicon.ico" rel="icon" sizes="any"/>
@@ -52,6 +57,15 @@
 .pr-sec li{margin-bottom:7px;color:var(--ink-2)}
 .pr-sec dt{font-weight:800;margin-top:12px}
 .pr-sec dd{margin:2px 0 0;color:var(--ink-2)}
+.reviews-list{display:flex;flex-direction:column;gap:14px}
+.reviews-list .rev{background:var(--card,#fff);border:1px solid var(--line,#e8e9f3);border-radius:12px;padding:14px 16px}
+.reviews-list .rev-h{display:flex;align-items:center;gap:10px;margin-bottom:8px}
+.reviews-list .rev-av{width:36px;height:36px;border-radius:50%;background:var(--grad-soft,#f3f0ff);display:grid;place-items:center;font-weight:800;color:var(--brand,#5b3df5);flex:none}
+.reviews-list .rev-h b{font-size:0.92rem}
+.reviews-list .rev-h .stars{font-size:0.85rem;margin-left:6px}
+.reviews-list .rev-h span{font-size:0.8rem;color:var(--muted,#6b7280)}
+.reviews-list .rev-text{font-size:0.92rem;color:var(--ink-2,#3b4056);line-height:1.6;margin:0}
+
 .pr-table{width:100%;border-collapse:collapse;margin-top:14px;font-size:.94rem}
 .pr-table caption{text-align:left;color:var(--muted);font-size:.84rem;margin-bottom:8px}
 .pr-table th,.pr-table td{border:1px solid var(--line);padding:9px 12px;text-align:left}
@@ -98,7 +112,7 @@
 <a class="skip" href="#main">Skip to content</a>
 <main id="main" class="pr-wrap">
   <aside class="pr-note" role="note">
-    This page contains tutor-provided information last refreshed on 14 September 2026. EkGuru has not independently verified every statement, price or time. Confirm current details before booking.
+    This page contains tutor-provided information last refreshed on 4 November 2026. EkGuru has not independently verified every statement, price or time. Confirm current details before booking.
     <a href="../../tutor.html?id=pinky-kumari"><strong>Open the interactive profile and send an availability request</strong></a>
   </aside>
   <article class="pr-article" itemscope itemtype="https://schema.org/Person">
@@ -158,6 +172,11 @@
 
 
 
+
+  <section class="pr-sec" data-eg-reviews data-tutor="pinky-kumari">
+    <h2>Student reviews</h2>
+    <div class="reviews-list">Loading reviews…</div>
+  </section>
 
   <section class="pr-sec" data-eg-review-form data-tutor="pinky-kumari">
     <h2>Share your experience with Pinky Kumari</h2>
@@ -246,6 +265,8 @@
      old figure until the next deploy: two numbers for one thing.
      Order matters — see tools/livetags.js. -->
 <script defer="" src="../../js/tutors/_overrides.js"></script>
+<script defer="" src="../../js/reviews.js"></script>
+<script defer="" src="../../js/reviews-display.js"></script>
 <script defer="" src="../../js/rates.js"></script>
 <script defer="" src="../../js/pricing.js"></script>
 <script defer="" src="../../js/sheet.js"></script>

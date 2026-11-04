@@ -311,6 +311,28 @@
       applied++;
     });
 
+    /* Also expose reviews on EKGURU_TUTOR_FILES so pre-rendered
+       tutor pages (which deliberately do not load tutors-data.js
+       or individual tutor files) can still show reviews.
+       reviews-display.js reads from EKGURU_TUTOR_FILES, so without
+       this step a tutor page with live reviews in the sheet would
+       always print "No reviews yet". */
+    var FILES = root.EKGURU_TUTOR_FILES || {};
+    Object.keys(byTutor).forEach(function (id) {
+      var f = FILES[id];
+      if (!f) {
+        f = { id: id, reviews: [], reviewsCount: 0, rating: 0 };
+        FILES[id] = f;
+      }
+      var list = byTutor[id].slice();
+      list.sort(function (a, b) { return (b.date || "").localeCompare(a.date || ""); });
+      f.reviews = list;
+      f.reviewsCount = list.length;
+      var sum = list.reduce(function (n, r) { return n + r.stars; }, 0);
+      f.rating = Math.round((sum / list.length) * 10) / 10;
+    });
+    root.EKGURU_TUTOR_FILES = FILES;
+
     if (skipped.length && root.console && console.warn) {
       skipped.forEach(function (s) {
         console.warn("[EkGuru] review skipped — " + s[0] + ": " + s[1].join("; "));

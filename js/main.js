@@ -52,6 +52,13 @@
      else keeps the email request flow. Both look identical to the
      student — the difference is that one confirms instantly. */
   function bookBtn(x, cls) {
+    /* Inactive tutor (active=no in the sheet): keep the profile
+       visible but take booking off the page. The student can still
+       read the bio, see the price and email — just not book. */
+    if (x._hiddenBySheet) {
+      return '<span class="btn btn-primary ' + cls + '" style="opacity:0.6;cursor:not-allowed">🔒 ' +
+        esc(t("book.closed")) + "</span>";
+    }
     var cal = !!x.calLink;
     var attr = cal ? 'data-cal="' + esc(x.id) + '"' : 'data-book="' + esc(x.id) + '"';
     var label = cal ? t("book.ctaLive") : t("book.cta");
@@ -783,18 +790,7 @@
       ' · <a href="tutor/">' + esc(t("pf.allText")) + "</a>";
   }
 
-  /* ---------- 9. Markets strip ---------- */
-  function renderMarkets() {
-    var host = $("#markets");
-    if (!host) return;
-    /* Homepage country rails own this node — do not overwrite. */
-    if (host.getAttribute("data-eg-cc-rails") === "1" || host.getAttribute("data-eg-cc-host") === "1") return;
-    host.innerHTML = MARKETS.map(function (m) {
-      return '<a class="mkt" href="' + esc(m.slug || "learn-hindi-by-country/") + '"><span class="mkt-flag">' + m.flag + "</span><b>" + esc(m.country) + "</b><span>" + esc(m.label) + "</span></a>";
-    }).join("");
-  }
-
-  /* ---------- 10. FAQ (home) ---------- */
+  /* ---------- 9. FAQ (home) ---------- */
   function renderFaq() {
     var host = $("#faq-list");
     if (!host) return;
@@ -815,7 +811,11 @@
          printing a developer note. */
       host.innerHTML = emptyTutorsHTML();
     } else {
-      host.innerHTML = TUTORS.map(tutorCard).join("");
+      /* Inactive tutors (active=no in the sheet) stay in the roster
+         so their profile URL still works, but they are not shown
+         as bookable cards on the homepage. */
+      var visible = TUTORS.filter(function (t) { return !t._hiddenBySheet; });
+      host.innerHTML = visible.map(tutorCard).join("");
       wireCards(host);
     }
 
@@ -1031,6 +1031,18 @@
         window.EkGuruStore.track("view_tutor", { tutor: x.id });
       }
     } catch (e) {}
+
+    /* Inactive tutor (active=no in the sheet): the profile stays
+       visible — bio, price, experience — but booking is off. A
+       banner at the top says so honestly. bookBtn() above already
+       returns the closed state instead of a button. */
+    if (x._hiddenBySheet) {
+      host.insertAdjacentHTML("afterbegin",
+        '<div class="pf-closed" style="margin-bottom:16px;padding:14px;background:#fff3cd;border:1px:#ffeeba;border-radius:8px">' +
+        '<strong>⚠️ ' + esc(t("book.closed")) + "</strong>" +
+        '<p style="margin:6px 0 0">' + esc(t("pf.closedNote")) + "</p>" +
+        "</div>");
+    }
 
     if (!x) {
       host.innerHTML = '<div class="wrap"><div class="empty"><div>🙁</div><h2>' + esc(t("pf.notFound")) +
@@ -1357,7 +1369,6 @@
     try { initHeader(); } catch (e) { showError("header", e); }
     try { initBadges(); } catch (e) { showError("badges", e); }
     try { initContact(); } catch (e) { showError("contact", e); }
-    try { renderMarkets(); } catch (e) { showError("markets", e); }
     try { renderTextVersions(); } catch (e) { showError("text versions", e); }
     try { renderHome(); } catch (e) { showError("home", e); }
     try { renderFaq(); } catch (e) { showError("faq", e); }

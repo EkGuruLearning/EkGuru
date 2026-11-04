@@ -862,15 +862,27 @@ window.EKGURU_SITE = {
              "soon"    -> "Coming soon" pill in the header
              "beta"    -> "Beta" pill in the header
      ========================================================= */
-  status: "live"
+  status: "live",
+
+  /* =========================================================
+     REVIEWS CSV — published copy of the sheet's reviews tab.
+     Set this so reviews.js can load site-native reviews
+     without waiting for the live feed deployment.
+     ========================================================= */
+  reviews: {
+    csvUrl: "https://ekguru.shop/live-sheets/reviews.csv",
+    cacheMinutes: 60
+  }
 };
 
 /* PRODUCTION CENTRALIZED PAYMENT CONFIGURATION & MODE */
-window.PAYMENT_MODE = window.PAYMENT_MODE || "COMING_SOON"; // "COMING_SOON" (production default) | "LIVE_API"
+window.PAYMENT_MODE = window.PAYMENT_MODE || "LIVE_API"; // "COMING_SOON" (production default) | "LIVE_API"
 window.PAYMENT_BACKEND_URL = "https://script.google.com/macros/s/AKfycbz8u_rBr2o4VPgmQgaweswLWKdYb-MMGrsa7WfckTCruLP-ZEasWnpkqJrZHux5Y8_4zA/exec";
 window.RAZORPAY_PAYMENT_LINK = "https://rzp.io/rzp/EkGuru";
-/* The live Payment Page id (pl_TdvVT9QL3k7cSY) lives ONLY in
-   support/index.html's embed + docs/RAZORPAY_PAYMENT_SETUP.md.
+/* The live Payment Page id (pl_TdvVT9QL3k7cSY) used to live ONLY in
+   support/index.html's embed — that embed was removed in v11 (task 6):
+   every payment option is now rendered from the support/payments sheet
+   tab by js/support.js. No payment link lives in code at all.
    (A stale second id was defined here, read nowhere — removed so no
    future code can wire itself to the wrong page.) */
 

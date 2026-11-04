@@ -613,6 +613,9 @@ function build(t, roster, publics, hidden) {
   once(/<meta(?=[^>]*\bproperty="og:description")[^>]*>/, '<meta property="og:description" content="' + attr(h.desc) + '">', "og:description");
   once(/<meta(?=[^>]*\bproperty="og:url")[^>]*>/, '<meta property="og:url" content="' + h.url + '">', "og:url");
   once(/<meta(?=[^>]*\bproperty="og:image")[^>]*>/, '<meta property="og:image" content="' + attr(h.image) + '">', "og:image");
+  once(/<meta(?=[^>]*\bproperty="og:image:width")[^>]*>/, '<meta property="og:image:width" content="1200">', "og:image:width");
+  once(/<meta(?=[^>]*\bproperty="og:image:height")[^>]*>/, '<meta property="og:image:height" content="630">', "og:image:height");
+  once(/<meta(?=[^>]*\bproperty="og:image:alt")[^>]*>/, '<meta property="og:image:alt" content="EkGuru — free, self-paced Hindi learning">', "og:image:alt");
   once(/<meta(?=[^>]*\bname="twitter:title")[^>]*>/, '<meta name="twitter:title" content="' + attr(h.title) + '">', "twitter:title");
   once(/<meta(?=[^>]*\bname="twitter:description")[^>]*>/, '<meta name="twitter:description" content="' + attr(h.desc) + '">', "twitter:description");
   once(/<meta(?=[^>]*\bname="twitter:image")[^>]*>/, '<meta name="twitter:image" content="' + attr(h.image) + '">', "twitter:image");
