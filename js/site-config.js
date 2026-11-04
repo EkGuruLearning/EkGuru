@@ -872,7 +872,17 @@ window.EKGURU_SITE = {
   reviews: {
     csvUrl: "https://ekguru.shop/live-sheets/reviews.csv",
     cacheMinutes: 60
-  }
+  },
+
+  /* =========================================================
+     PAYMENT OPTIONS — baked-in defaults so both PayPal and
+     Razorpay show on /support/ even when the Google Sheet's
+     support tab doesn't have them yet. The sheet can still
+     override these (valid values only); an invalid or blank
+     sheet cell keeps the baked-in value.
+     ========================================================= */
+  supportPaypal: "https://paypal.me/itsThePrakas?locale.x=en_GB&country.x=IN",
+  supportRazorpay: "https://rzp.io/rzp/EkGuru"
 };
 
 /* PRODUCTION CENTRALIZED PAYMENT CONFIGURATION & MODE */
