@@ -545,7 +545,7 @@
     if (!sched) return;
     var note = $(".sched-note");
     var id = new URLSearchParams(location.search).get("id");
-    var x = tutorById(id) || T[0];
+    var x = id ? tutorById(id) : T[0];
     if (!x) return;
 
     var from = tzOffsetMin(x.timezone);
@@ -607,6 +607,8 @@
      4. BOOKING REQUEST MODAL
      ========================================================= */
   var modal = null, modalTutor = null, chosen = null, lastFocus = null;
+  var modalNotice = false;   /* the modal currently shows a notice, not the form */
+  var modalAvKey = "";       /* availability fingerprint the open modal rendered */
 
   function buildModal() {
     if (modal) return modal;
@@ -636,7 +638,7 @@
           "</div>" +
           '<label class="bk-f bk-full"><span>' + esc(t("book.goal")) + '</span><textarea id="bk-goal" rows="3" placeholder="' + esc(t("book.goalPh")) + '"></textarea></label>' +
           '<div class="bk-step"><span class="bk-n">3</span><b>' + esc(t("book.step3")) + "</b></div>" +
-          '<div class="bk-preview"><div class="bk-prev-h">' + esc(t("book.summary")) + '</div><pre class="bk-prev-t"></pre></div>' +
+          '<details class="bk-preview"><summary class="bk-prev-h">' + esc(t("book.summary")) + '</summary><pre class="bk-prev-t"></pre></details>' +
           '<p class="bk-err" hidden></p>' +
           '<div class="bk-actions"></div>' +
           '<p class="bk-note">' + esc(t("book.note")) + "</p>" +
@@ -799,12 +801,15 @@
     var degradedNote = degradedTutor
       ? t("book.degradedNote").replace("{tutor}", modalTutor.name)
       : "";
+    /* Nov 2026 — the reason sits ABOVE the button, never below it. A
+       note under the button is cut off inside the modal on a phone,
+       which is how a disabled button looked like it had no reason. */
     host.innerHTML =
+      (unavailable ? '<p class="bk-note" role="status" style="color:var(--brand-3,#b45309)">⚠️ ' + esc(unavailableMessage) + "</p>" : "") +
+      (degradedNote ? '<p class="bk-note" role="status" style="color:var(--brand-3,#b45309)">⚠️ ' + esc(degradedNote) + "</p>" : "") +
       '<button class="btn btn-primary btn-lg bk-send" type="button" data-href="' + esc(mail) + '"' +
         (unavailable ? ' disabled aria-disabled="true"' : '') + '>✉️ ' +
         esc(t(direct ? "book.sendRequest" : "book.sendEmail")) + "</button>" +
-      (unavailable ? '<p class="bk-note" role="status">' + esc(unavailableMessage) + "</p>" : "") +
-      (degradedNote ? '<p class="bk-note" role="status" style="color:var(--brand-3,#b45309)">⚠️ ' + esc(degradedNote) + "</p>" : "") +
       "";
 
     $(".bk-send", host).addEventListener("click", function () {
@@ -961,9 +966,20 @@
         });
       } catch (e2) {}
       if (err) {
+        /* Owner rule (Nov 2026): no engine text on screen. Designed
+           validation messages are plain words and may show; transport
+           and relay errors become one calm line. The full text stays
+           in the console and the ledger (failMsg above). */
+        var rawMsg = e && e.message ? String(e.message) : "";
+        var stripped = rawMsg.replace(/^The booking was not saved to the private sheet\. No email was sent\. /, "").trim();
+        var codeish = /HTTP \d|failed to fetch|network|timeout|timed out|abort|unexpected token|<!doctype|<html|API|key|token|relay|provider|formsubmit|web3forms|apps.?script|JSON| 5\d\d| 4\d\d/i.test(stripped);
         var message = !sheetSaved
-          ? failMsg
-          : ("The booking is saved in the private sheet, but automatic email was not confirmed. " + failMsg);
+          ? (stripped && !codeish ? stripped + " Nothing was booked."
+             : "That did not send, and nothing was booked. Please check your details and try again.")
+          : ("Your booking is saved" + (ref ? " \u2014 reference " + ref : "") +
+             ", but the confirmation email could not be confirmed just now. " +
+             (fallbackHref ? "You can also reach the tutor from your own email app below."
+                           : "Please try again later, or write to us."));
         if (sheetSaved && fallbackHref) {
           err.innerHTML = "⚠️ " + esc(message) +
             ' <a href="' + esc(fallbackHref) + '">Open your email app to contact the tutor and copy yourself</a>.';
@@ -1353,9 +1369,96 @@
     try { sel.value = mine; } catch (e) { sel.selectedIndex = 0; }
   }
 
+  /* Nov 2026 — the modal re-checks itself while it is open. The mailer
+     arrives lazily and the sheet (with notification_email) lands after
+     first paint, so a modal built in the first second can show a
+     disabled button for a tutor who is actually bookable. The sheet
+     event and two timed retries rebuild the actions; sending and sent
+     states are never touched. */
+  function refreshBookingLive() {
+    try {
+      if (!modal || modal.hidden || modalNotice) return;
+      if ($(".bk-done", modal)) return;
+      var host = $(".bk-actions", modal);
+      if (host && host.dataset.sending === "1") return;
+      if (modalTutor) {
+        var fresh = tutorById(modalTutor.id);
+        if (fresh && fresh !== modalTutor) modalTutor = fresh;
+        var avKey = "";
+        try { avKey = JSON.stringify((modalTutor && modalTutor.availability) || {}); } catch (e0) {}
+        if (avKey && avKey !== modalAvKey) { modalAvKey = avKey; renderSlots(); }
+      }
+      updatePreview();
+    } catch (e1) {}
+  }
+
+  /* A booking click for an id with no tutor behind it (stale card,
+     retired id). NEVER fall back to another tutor — that books the
+     wrong person. Sheet still loading → wait for it, then open the
+     real form or say unavailable. */
+  function openBookingNotice(id, pending) {
+    try { track("booking_open_unknown", { tutor: String(id || "") }); } catch (e2) {}
+    if (modal && !modalNotice && !modal.hidden) return;   /* a real form is open — leave it alone */
+    if (modal) { modal.parentNode && modal.parentNode.removeChild(modal); modal = null; }
+    buildModal();
+    modalNotice = true;
+    lastFocus = document.activeElement;
+    modalTutor = null; chosen = null;
+    var av = $(".bk-av", modal);
+    if (av) av.style.display = "none";
+    $("#bk-title", modal).textContent = t("book.title");
+    $(".bk-sub", modal).textContent = "";
+    $(".bk-body", modal).innerHTML =
+      '<p class="bk-note" role="status">' +
+        (pending ? "Loading this tutor\u2019s booking form\u2026" :
+          "This tutor is not taking bookings right now. Please choose another tutor.") + "</p>" +
+      '<div class="bk-actions"><button class="btn btn-ghost bk-done-x" type="button">' +
+        esc(t("book.close")) + "</button></div>";
+    $(".bk-done-x", modal).addEventListener("click", closeBooking);
+    modal.hidden = false;
+    lockScroll();
+    modal.classList.add("show");
+    if (!pending) return;
+    var settled = false;
+    var settle = function (found) {
+      if (settled) return;
+      settled = true;
+      try { document.removeEventListener("ekguru:sheet", onSheet); } catch (e3) {}
+      if (!modal || modal.hidden || !modalNotice) return;
+      if (found && tutorById(id)) {
+        try { unlockScroll(); } catch (e6) {}
+        modal.parentNode && modal.parentNode.removeChild(modal);
+        modal = null; modalNotice = false;
+        openBooking(id);
+      } else {
+        openBookingNotice(id, false);
+      }
+    };
+    var onSheet = function () { settle(true); };
+    document.addEventListener("ekguru:sheet", onSheet);
+    /* The sheet may have answered between the check and the listener,
+       or may never answer — re-check once, then stop waiting. */
+    setTimeout(function () { if (!settled && window.EKGURU_SHEET_INFO) settle(!!tutorById(id)); }, 500);
+    setTimeout(function () { settle(!!tutorById(id)); }, 12000);
+  }
+
   function openBooking(id) {
-    modalTutor = tutorById(id) || T[0];
-    if (!modalTutor) return;
+    if (modal && modalNotice) {
+      /* A visible notice holds a scroll lock — release it before the
+         real form takes its own, or the counter sticks and the page
+         stays frozen after close. */
+      try { unlockScroll(); } catch (e5) {}
+      modal.parentNode && modal.parentNode.removeChild(modal);
+      modal = null; modalNotice = false;
+    }
+    /* Named-but-absent id: never T[0] — booking the wrong tutor is
+       worse than booking nobody. Bare calls (no id) keep T[0]. */
+    modalTutor = id ? tutorById(id) : T[0];
+    if (!modalTutor) {
+      openBookingNotice(id, !window.EKGURU_SHEET_INFO && !!window.EkGuruSheet);
+      return;
+    }
+    modalNotice = false;
     track("booking_open", { tutor: modalTutor.id });
     /* If the last visit ended on the "request sent" screen, throw
        that modal away so a fresh, empty form is built. */
@@ -1379,7 +1482,12 @@
     $(".bk-err", modal).hidden = true;
 
     renderSlots();
+    try { modalAvKey = JSON.stringify((modalTutor && modalTutor.availability) || {}); } catch (e4) { modalAvKey = ""; }
     updatePreview();
+    /* Late arrivals (lazy mailer, sheet notification_email) re-enable
+       the button without the student doing anything. */
+    setTimeout(refreshBookingLive, 1200);
+    setTimeout(refreshBookingLive, 3500);
 
     modal.hidden = false;
     /* =========================================================
@@ -1477,6 +1585,9 @@
       e.preventDefault();
       openBooking(b.getAttribute("data-book"));
     });
+    /* The sheet landing mid-modal flips degraded to direct and refreshes
+       prices and slots without reopening. */
+    document.addEventListener("ekguru:sheet", refreshBookingLive);
     window.EkGuruBook = openBooking;
   }
 
@@ -1490,7 +1601,7 @@
     var host = $("#share-box");
     if (!host) return;
     var id = new URLSearchParams(location.search).get("id");
-    var x = tutorById(id) || T[0];
+    var x = id ? tutorById(id) : null;
     var url = location.href;
     var title = x ? (x.name + " — Hindi tutor on EkGuru") : "EkGuru — learn Hindi online";
 
@@ -1680,7 +1791,7 @@
   function initStickyBook() {
     if (!$("#profile")) return;
     var id = new URLSearchParams(location.search).get("id");
-    var x = tutorById(id) || T[0];
+    var x = id ? tutorById(id) : T[0];
     if (!x) return;
 
     var bar = document.createElement("div");

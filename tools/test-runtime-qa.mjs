@@ -376,7 +376,7 @@ console.log("D. Support page — hosted-payment release mode");
   const html = fs.readFileSync(path.join(ROOT, "support/index.html"), "utf8");
   const dom = new JSDOM(html, { url: "https://ekguru.shop/support/", runScripts: "outside-only", pretendToBeVisual: true });
   const { document } = dom.window;
-  const pay = document.querySelectorAll('a[href*="pages.razorpay.com"]');
+  const pay = document.querySelectorAll('a[href*="pages.razorpay.com"], a[href*="rzp.io/rzp/"]');
   ok(pay.length === 1, "one canonical Razorpay-hosted payment link");
   ok(pay[0] && pay[0].target === "_blank" && /noopener/.test(pay[0].rel), "external payment link isolates opener");
   ok(!document.getElementById("support-payment-form"), "unfinished custom checkout is not public");

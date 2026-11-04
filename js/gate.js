@@ -181,7 +181,7 @@
         out.hidden = false;
         out.textContent = 'admin: { passcodeHash: "' + h + '" }';
         err.textContent = "Copy that line into js/site-config.js, then reload.";
-      }).catch(function (e) { err.textContent = e.message; });
+      }).catch(function (e) { try { console.warn("[EkGuru] gate:", e); } catch (e2) {} err.textContent = "Something went wrong in this browser. Please try a modern browser."; });
     }
   }
 
@@ -270,7 +270,7 @@
             ? "Too many attempts. Locked for ten minutes."
             : "Wrong passcode. " + (MAX_TRIES - r.n) + " attempt(s) left.";
         }
-      }).catch(function (e) { btn.disabled = false; err.textContent = e.message; });
+      }).catch(function (e) { btn.disabled = false; try { console.warn("[EkGuru] gate:", e); } catch (e2) {} err.textContent = "Something went wrong. Please try again."; });
     }
   }
 

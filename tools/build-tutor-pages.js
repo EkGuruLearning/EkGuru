@@ -416,6 +416,19 @@ ${reviews.map(quote).join("\n")}
 }
 
 
+/* v1.3.0 — the live review list on every PUBLIC tutor profile. Unlike
+   reviewsBlock() (static quotes embedded from tutor data), this section is
+   hydrated at runtime from the live reviews feed, so newly approved reviews
+   appear without a rebuild. Hidden profiles keep no review surfaces (U0). */
+function liveReviewsBlock(t, hidden) {
+  if (hidden) return "";
+  return `  <section class="pr-sec" data-eg-reviews data-tutor="${t.id}">
+    <h2>Student reviews</h2>
+    <div class="reviews-list">Loading reviews…</div>
+  </section>`;
+}
+
+
 /* v1.2.0 — the review form on every tutor profile.
    The reviewer must enter the booking reference (booking_id) they were
    given when they booked, so a review can only come from someone who
@@ -529,7 +542,7 @@ function main(t, roster, hidden, publics) {
     <a href="../../find-tutors.html"><strong>See the current tutor listing</strong></a>
   </aside>`
     : `  <aside class="pr-note" role="note">
-    This page contains tutor-provided information last refreshed on 14 September 2026. EkGuru has not independently verified every statement, price or time. Confirm current details before booking.
+    This page contains tutor-provided information last refreshed on 1 November 2026. EkGuru has not independently verified every statement, price or time. Confirm current details before booking.
     <a href="../../tutor.html?id=${t.id}"><strong>Open the interactive profile and send an availability request</strong></a>
   </aside>`;
 
@@ -558,6 +571,8 @@ ${availabilityBlock(t)}
 ${videoBlock(t)}
 
 ${reviewsBlock(t)}
+
+${liveReviewsBlock(t, hidden)}
 
 ${reviewFormBlock(t, hidden)}
 

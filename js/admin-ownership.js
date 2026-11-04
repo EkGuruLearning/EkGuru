@@ -123,8 +123,8 @@
         return j;
       })
       .catch(function (e) {
-        setStatus("Could not load " + INDEX_URL + " — " + e.message +
-          ". Run: node tools/build-copy-index.js", true);
+        try { console.warn("[EkGuru] ownership index:", e); } catch (e2) {}
+        setStatus("Could not load the fingerprint file. Run: node tools/build-copy-index.js", true);
         loading = null;
         throw e;
       });
@@ -279,7 +279,7 @@
       return;
     }
     load().then(function () { render(text); })
-          .catch(function (e) { $("#owResult").innerHTML = '<p class="muted">' + e.message + "</p>"; });
+          .catch(function (e) { try { console.warn("[EkGuru] ownership check:", e); } catch (e2) {} $("#owResult").innerHTML = '<p class="muted">The check could not run. Details are in the console.</p>'; });
   }
 
   function boot() {

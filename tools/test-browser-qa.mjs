@@ -23,7 +23,7 @@ function ok(label, condition, detail = "") {
 }
 
 console.log("Support release-mode QA");
-const links = [...document.querySelectorAll('a[href*="pages.razorpay.com"]')];
+const links = [...document.querySelectorAll('a[href*="pages.razorpay.com"], a[href*="rzp.io/rzp/"]')];
 ok("exactly one hosted payment link", links.length === 1, String(links.length));
 const payment = links[0];
 ok("hosted link uses HTTPS", payment && new URL(payment.href).protocol === "https:");

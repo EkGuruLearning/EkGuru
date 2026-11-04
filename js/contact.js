@@ -196,8 +196,15 @@
     var href = (window.EkGuruMail && window.EkGuruMail.contactMailto)
       ? window.EkGuruMail.contactMailto(data)
       : "mailto:" + (SITE.email || "");
+    /* Owner rule (Nov 2026): no engine text on screen. A short plain
+       reason may show; relay/transport text becomes the calm line.
+       The full error stays in the console. */
+    var rawWhy = err && err.message ? String(err.message) : String(err || "");
+    try { console.warn("[EkGuru] contact send failed:", rawWhy); } catch (e0) {}
+    var codeWhy = /HTTP \d|failed to fetch|network|timeout|timed out|abort|unexpected token|<!doctype|<html|API|key|token|relay|provider|formsubmit|web3forms|apps.?script|JSON| 5\d\d| 4\d\d/i.test(rawWhy);
+    var why = rawWhy && !codeWhy && rawWhy.length < 160 ? rawWhy + " " : "";
     box.innerHTML =
-      "<b>That did not send.</b> " + esc(err && err.message ? err.message : String(err)) +
+      "<b>That did not send.</b> " + esc(why) +
       "<br>Nothing you typed has been lost. " +
       '<a href="' + esc(href) + '">Send it from your own email app instead</a>' +
       " — everything is already filled in.";
