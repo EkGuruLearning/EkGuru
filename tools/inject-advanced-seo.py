@@ -137,6 +137,8 @@ def ensure_og_tags(soup, path):
         head.append(tag2)
         tag3 = soup.new_tag("meta", property="og:image:height", content="630")
         head.append(tag3)
+        tag4 = soup.new_tag("meta", property="og:image:alt", content="EkGuru — free, self-paced Hindi learning")
+        head.append(tag4)
     # Ensure og:type, site_name, locale, url
     if not soup.find("meta", property="og:type"):
         head.append(soup.new_tag("meta", property="og:type", content="website"))
