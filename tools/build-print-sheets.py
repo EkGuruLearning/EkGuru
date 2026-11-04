@@ -260,6 +260,74 @@ def _bank_questions(path, html):
     return None, slug
 
 
+
+# ---------------------------------------------------------------------------
+# Target-script language tagging (a11y). Baked worksheet questions used to
+# be pasted in as bare text: a Kannada/Urdu/Punjabi word inside an English
+# paragraph had no lang attribute, so a screen reader read it with an
+# English voice. Every run of target-script characters is wrapped in
+# <span lang="..">, in both freshly baked sheets and ones already in files.
+LANG_BY_SLUG = {
+    "bengali": "bn", "gujarati": "gu", "kannada": "kn", "malayalam": "ml",
+    "marathi": "mr", "punjabi": "pa", "tamil": "ta", "telugu": "te",
+    "urdu": "ur", "hindi": "hi",
+}
+SCRIPT_BLOCKS = [
+    ("\u0900-\u097F", "hi"), ("\u0980-\u09FF", "bn"),
+    ("\u0A00-\u0A7F", "pa"), ("\u0A80-\u0AFF", "gu"),
+    ("\u0B80-\u0BFF", "ta"), ("\u0C00-\u0C7F", "te"),
+    ("\u0C80-\u0CFF", "kn"), ("\u0D00-\u0D7F", "ml"),
+    ("\u0600-\u06FF\u0750-\u077F\u08A0-\u08FF\uFB50-\uFDFF\uFE70-\uFEFF", None),
+]
+_SCRIPT_CLASS = "".join(b for b, _ in SCRIPT_BLOCKS)
+_RUN = re.compile("[" + _SCRIPT_CLASS + "]+(?:[ \u00a0]+[" + _SCRIPT_CLASS + "]+)*")
+
+
+def _script_lang(chunk, page_code):
+    for block, lang in SCRIPT_BLOCKS:
+        if re.search("[" + block + "]", chunk):
+            if lang:
+                # Devanagari on a Marathi page is Marathi, not Hindi.
+                return page_code if (lang == "hi" and page_code == "mr") else lang
+            return page_code  # Arabic block: the page's own language (ur/ar)
+    return page_code
+
+
+def wrap_script_runs(escaped, page_code):
+    """Wrap target-script runs of an already-escaped text in lang spans."""
+    def sub(m):
+        chunk = m.group(0)
+        lang = _script_lang(chunk, page_code)
+        core = chunk.strip()
+        lead = chunk[: len(chunk) - len(chunk.lstrip())]
+        trail = chunk[len(chunk.rstrip()):]
+        return '%s<span lang="%s">%s</span>%s' % (lead, lang, core, trail)
+    return _RUN.sub(sub, escaped)
+
+
+def page_lang_code(path, html):
+    m = re.search(r"/learn/([a-z]+)/", path.replace(os.sep, "/"))
+    if m and m.group(1) in LANG_BY_SLUG:
+        return LANG_BY_SLUG[m.group(1)]
+    qs, slug = _bank_questions(path, html)
+    return LANG_BY_SLUG.get(slug or "", "hi")
+
+
+def repair_sheet_langs(path, html):
+    """Tag script runs inside already-baked #w-sheet blocks in place."""
+    code = page_lang_code(path, html)
+    def fix(m):
+        block = m.group(0)
+        # drop previous wrappers first so re-running stays stable
+        block = re.sub(r'<span lang="[a-zA-Z-]+">([^<]*)</span>', r"\1", block)
+        parts = re.split(r"(<[^>]+>)", block)
+        for i, part in enumerate(parts):
+            if part and not part.startswith("<"):
+                parts[i] = wrap_script_runs(part, code)
+        return "".join(parts)
+    return re.sub(r'<div id="w-sheet">[\s\S]*?</div>\s*</div>', fix, html)
+
+
 def _esc(t):
     return (str(t).replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;"))
 
@@ -286,12 +354,12 @@ def static_sheet(path, html):
     lines = "".join(
         '<p style="font-weight:700;margin:16px 0 0">%d. %s</p>\n'
         '<div style="border-bottom:1px solid var(--line);height:46px;margin:0 0 10px"></div>\n'
-        % (i + 1, _esc(q.get("q", "")))
+        % (i + 1, wrap_script_runs(_esc(q.get("q", "")), page_lang_code(path, html)))
         for i, q in enumerate(picked))
     answers = "".join(
         '<p style="margin:4px 0">%d. <b>%s</b>%s</p>'
-        % (i + 1, _esc(q.get("a", "")),
-           " — " + _esc(q.get("explain", "")) if q.get("explain") else "")
+        % (i + 1, wrap_script_runs(_esc(q.get("a", "")), page_lang_code(path, html)),
+           " — " + wrap_script_runs(_esc(q.get("explain", "")), page_lang_code(path, html)) if q.get("explain") else "")
         for i, q in enumerate(picked))
     sheet = (
         '\n' + STATIC_MARK + '\n'
@@ -334,11 +402,11 @@ def sample_sheet(path, html):
     lines = "".join(
         '<p style="font-weight:700;margin:14px 0 0">%d. %s</p>'
         '<div style="border-bottom:1px solid var(--line);height:44px;margin:0 0 12px"></div>'
-        % (i + 1, esc(q["q"])) for i, q in enumerate(picked))
+        % (i + 1, wrap_script_runs(esc(q["q"]), page_lang_code(path, html))) for i, q in enumerate(picked))
     answers = "".join(
         '<p style="margin:4px 0">%d. <b>%s</b>%s</p>'
-        % (i + 1, esc(q.get("a", "")),
-           " — " + esc(q.get("explain", "")) if q.get("explain") else "")
+        % (i + 1, wrap_script_runs(esc(q.get("a", "")), page_lang_code(path, html)),
+           " — " + wrap_script_runs(esc(q.get("explain", "")), page_lang_code(path, html)) if q.get("explain") else "")
         for i, q in enumerate(picked))
     sheet = (
         '\n' + SAMPLE_MARK + '\n'
@@ -420,6 +488,7 @@ def mark(path, html):
     out = sample_sheet(path, out)
     if SAMPLE_MARK in out and STATIC_MARK not in out:
         out = out.replace(SAMPLE_MARK, STATIC_MARK + "\n" + SAMPLE_MARK, 1)
+    out = repair_sheet_langs(path, out)
     out = insert_script(out, path)
     out = mark_chain(out, target)
     return out, kind

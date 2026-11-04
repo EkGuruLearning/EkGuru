@@ -918,6 +918,9 @@ window.RAZORPAY_PAYMENT_LINK = "https://rzp.io/rzp/EkGuru";
     }
   }
 
+  /* Guarded: this file is also loaded by Node tools/tests, where
+     there is no document — an unguarded touch crashed them. */
+  if (typeof document === "undefined") return;
   if (document.readyState === "loading") {
     document.addEventListener("DOMContentLoaded", applyGlobalPaymentMode);
   } else {
