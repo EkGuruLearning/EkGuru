@@ -1,3 +1,5 @@
+> **RECOMMENDED NOW: the unified file.** `apps-script/Unified.gs` serves this feed AND the intake from one project with one URL — same behaviour, half the maintaining. Follow `apps-script/UNIFIED-SETUP.md` instead. This page stays for the standalone feed file.
+
 # EkGuru online forms: set-up
 
 The Join page now has an **Apply online** form. A visitor can also send a
