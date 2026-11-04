@@ -733,12 +733,11 @@ window.EKGURU_SITE = {
      did before and reads only the published CSV, so this file is
      safe to merge before the script is deployed.
 
-     TO TURN ON (about five minutes, once):
-       1. Open the EkGuru DB sheet, Extensions, Apps Script.
-       2. Paste apps-script/LiveFeed.gs, then Deploy, New deployment,
-          Web app, Execute as: Me, Who has access: Anyone.
-       3. Paste the /exec address below.
-     Full steps: apps-script/LIVE-FEED-SETUP.md
+     TO TURN ON (about ten minutes, once): deploy ONE project that serves
+     BOTH this feed and the intake, then paste the SAME /exec address here
+     and under intake.url below. Full steps: apps-script/UNIFIED-SETUP.md
+     (standalone alternative: apps-script/LiveFeed.gs +
+     apps-script/LIVE-FEED-SETUP.md).
 
      js/sheet.js, js/reviews.js and js/settings.js ask the feed first
      and fall back to the published CSV if the feed is slow or down.
@@ -766,13 +765,10 @@ window.EKGURU_SITE = {
      bookings were not appearing in the sheet.
 
      ONE-TIME OWNER STEP (about 10 minutes, full guide in
-     apps-script/INTAKE-SETUP.md):
-       1. Open the EkGuru DB sheet -> Extensions -> Apps Script
-          (the project MUST be bound to that workbook, or set
-          the EKGURU_DB_SPREADSHEET_ID script property).
-       2. Paste apps-script/Intake.gs, Deploy -> Web app,
-          Execute as Me, Who has access: Anyone.
-       3. Paste the /exec URL below, commit, let Pages deploy.
+     apps-script/UNIFIED-SETUP.md): deploy ONE project that serves
+     BOTH this intake and the feed, then paste the SAME /exec URL
+     here and under feed.url above. (Standalone alternative:
+     apps-script/Intake.gs + apps-script/INTAKE-SETUP.md.)
        4. Open <url>?action=health - it must say "ok":true,
           "spreadsheetBound":true, "version":"1.1.0".
        5. Make one test booking and check the `bookings` tab.

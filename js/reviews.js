@@ -115,8 +115,13 @@
       else field += c;
     }
     if (field !== "" || row.length) { row.push(field); rows.push(row); }
-    if (!rows.length) return [];
+    return rowsToRecs(rows);
+  }
 
+  /* Header row becomes object keys; blank rows are dropped. Shared by
+     the CSV and TSV parsers so both formats yield identical records. */
+  function rowsToRecs(rows) {
+    if (!rows.length) return [];
     var head = rows[0].map(function (h) { return h.trim().toLowerCase(); });
     return rows.slice(1).map(function (r) {
       var o = {};
@@ -125,6 +130,26 @@
     }).filter(function (o) {
       return Object.keys(o).some(function (k) { return o[k]; });
     });
+  }
+
+  /* Google's TSV export of a published tab: no quoting, one row per
+     line, cells split on tabs. Only used as a fallback (below). */
+  function parseTSV(text) {
+    text = String(text).replace(/^\uFEFF/, "");
+    var rows = [];
+    var lines = text.split("\n");
+    for (var i = 0; i < lines.length; i++) {
+      var line = lines[i].replace(/\r$/, "");
+      if (!line && i === lines.length - 1) continue;
+      rows.push(line.split("\t"));
+    }
+    return rowsToRecs(rows);
+  }
+
+  function tsvVariant(u) {
+    u = String(u || "");
+    if (/[?&]output=/.test(u)) return u.replace(/([?&])output=[^&]*/, "$1output=tsv");
+    return u + (u.indexOf("?") === -1 ? "?" : "&") + "output=tsv";
   }
 
   /* ---------------------------------------------------------
@@ -423,7 +448,7 @@
     }
   }
 
-  function fetchRecords(u) {
+  function fetchRecords(u, fmt) {
     var ctrl = null, timer = null;
     try { ctrl = new AbortController(); } catch (e) {}
     if (ctrl) timer = setTimeout(function () { try { ctrl.abort(); } catch (e) {} }, 8000);
@@ -433,23 +458,36 @@
         if (!r.ok) throw new Error("HTTP " + r.status);
         return r.text();
       })
-      .then(function (csv) {
+      .then(function (body) {
         if (timer) clearTimeout(timer);
-        if (/^\s*<!DOCTYPE|^\s*<html/i.test(csv)) {
-          throw new Error("that URL returned a web page, not CSV — use Publish to web → CSV");
+        if (/^\s*<!DOCTYPE|^\s*<html/i.test(body)) {
+          throw new Error("that URL returned a web page, not " + (fmt === "tsv" ? "TSV" : "CSV") + " — use Publish to web");
         }
-        var recs = parseCSV(csv);
+        var recs = fmt === "tsv" ? parseTSV(body) : parseCSV(body);
         if (!recs.length) throw new Error("no rows");
         return recs;
       })
       .catch(function (e) { if (timer) clearTimeout(timer); throw e; });
   }
 
+  /* Published CSV first, then the SAME tab as TSV. Google's published-
+     CSV endpoint answers HTTP 500 for this workbook while output=tsv
+     answers 200 (seen 30 Sep 2026 — js/sheet.js and js/settings.js
+     already carried this fallback; reviews was missing it, so a dead
+     CSV endpoint meant NO live review ever reached the browser). */
+  function fetchPublished(csv) {
+    return fetchRecords(csv, "csv").catch(function (eCsv) {
+      return fetchRecords(tsvVariant(csv), "tsv").catch(function (eTsv) {
+        throw new Error(eCsv.message + " / " + eTsv.message);
+      });
+    });
+  }
+
   function fetchSheet() {
-    /* The live feed first (if configured), then the published CSV. */
+    /* The live feed first (if configured), then the published tab (CSV→TSV). */
     var f = feedUrl("reviews");
-    var first = f ? fetchRecords(f).catch(function () { return url ? fetchRecords(url) : Promise.reject(new Error("feed failed")); })
-                  : fetchRecords(url);
+    var first = f ? fetchRecords(f, "csv").catch(function () { return url ? fetchPublished(url) : Promise.reject(new Error("feed failed")); })
+                  : fetchPublished(url);
     return first
       .then(function (recs) {
         writeCache(recs);

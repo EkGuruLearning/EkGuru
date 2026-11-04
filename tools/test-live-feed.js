@@ -36,7 +36,7 @@ function check(name, cond, extra) {
 }
 
 /* ---------- A. LiveFeed.gs in a sandbox ---------- */
-function loadFeed(sheets) {
+function loadFeed(sheets, file) {
   const counters = { reads: 0 };
   const store = {};
   const ctx = {
@@ -68,7 +68,7 @@ function loadFeed(sheets) {
     ScriptApp: { getProjectTriggers: () => [], newTrigger: () => ({ forSpreadsheet: () => ({ onChange: () => ({ create: () => {} }) }) }) }
   };
   vm.createContext(ctx);
-  vm.runInContext(fs.readFileSync(path.join(ROOT, "apps-script", "LiveFeed.gs"), "utf8"), ctx);
+  vm.runInContext(fs.readFileSync(path.join(ROOT, "apps-script", file || "LiveFeed.gs"), "utf8"), ctx);
   return { ctx, counters, store };
 }
 
@@ -163,6 +163,114 @@ check("LiveFeed.gs never opens a workbook by id (it reads only the workbook it l
   !/openById|openByUrl/.test(gsText));
 check("LiveFeed.gs holds no payments key or ledger id",
   !/RAZORPAY|1u5Jkbe/.test(gsText.replace(/NEVER paste the payments workbook id or any Razorpay key[\s\S]*?separate project on purpose\./, "")));
+
+/* ---------- A2. Unified.gs: the same halves, one file, one deployment ---------- */
+function loadUnified(sheets, pending) {
+  const tabs = {};
+  Object.keys(pending).forEach((k) => { tabs[k] = pending[k].slice(); });
+  const wrap = (name) => ({
+    getLastRow: () => tabs[name].length,
+    appendRow: (r) => { tabs[name].push(r); },
+    setFrozenRows: () => {},
+    getRange: (r, c, n) => ({ getValues: () => tabs[name].slice(r - 1, r - 1 + n).map((row) => row.slice(c - 1, c)) })
+  });
+  const u = loadFeed(sheets, "Unified.gs");
+  u.ctx.LockService = { getScriptLock: () => ({ waitLock() {}, releaseLock() {} }) };
+  u.ctx.Utilities = { formatDate: () => "2026-11-04 12:00" };
+  u.ctx.PropertiesService = { getScriptProperties: () => ({ getProperty: () => null }) };
+  u.ctx.Logger = { log() {} };
+  u.ctx.SpreadsheetApp.getActiveSpreadsheet = () => ({
+    getSheetByName: (n) => (tabs[n] ? wrap(n) : null),
+    insertSheet: (n) => { tabs[n] = []; return wrap(n); }
+  });
+  return { ctx: u.ctx, tabs };
+}
+
+const uni = loadUnified([
+  { name: "Tutors", gid: 1631273256, values: TUTOR_VALUES },
+  { name: "reviews", gid: 298809212, values: [["tutor", "name", "date", "stars", "text", "source", "status"], ["asha-verma", "A", "2026-10-01", "5", "x".repeat(50), "site", "live"]] },
+  { name: "settings", gid: 1658518385, values: [["key", "value"], ["email", "hello@example.com"]] },
+  { name: "support", gid: 1041390059, values: [["key", "value"], ["a", "b"]] }
+], {
+  applications: [["timestamp", "reference", "status"]],
+  reviews_pending: [["timestamp", "reference", "status"]],
+  contacts: [["timestamp", "reference", "status"]],
+  signups: [["timestamp", "reference", "status"]],
+  bookings: [["booking_ref", "requested_at", "tutor_id"]]
+});
+
+/* the feed half routes byte-identically to standalone LiveFeed.gs */
+const uniCsv = uni.ctx.doGet({ parameter: { tab: "tutors" } }).getContent();
+check("unified ?tab=tutors serves the exact LiveFeed CSV", uniCsv === csv, uniCsv.slice(0, 80));
+const uniHealth = JSON.parse(uni.ctx.doGet({ parameter: { tab: "health" } }).getContent());
+check("unified ?tab=health is the feed health (counts only)",
+  uniHealth.ok && uniHealth.tabs.tutors.rows === 2 && !/Asha/.test(JSON.stringify(uniHealth)));
+
+/* the intake half */
+const intakeHealth = JSON.parse(uni.ctx.doGet({ parameter: { action: "health" } }).getContent());
+check("unified ?action=health is the intake health (v1.2.0, bound)",
+  intakeHealth.ok && intakeHealth.version === "1.2.0" && intakeHealth.spreadsheetBound === true &&
+  intakeHealth.pendingRows.bookings === 0, JSON.stringify(intakeHealth));
+const bare = JSON.parse(uni.ctx.doGet({ parameter: {} }).getContent());
+check("unified bare /exec answers combined feed+intake health",
+  bare.ok && bare.unified === "2.0.0" && bare.feed.tabs.tutors.rows === 2 &&
+  bare.intake.version === "1.2.0", JSON.stringify(bare).slice(0, 120));
+const ping = JSON.parse(uni.ctx.doGet({ parameter: { action: "ping", token: "nope" } }).getContent());
+check("unified ?action=ping without the token is refused as unknown action",
+  ping.ok === false && ping.error === "unknown action", JSON.stringify(ping));
+const noTab = JSON.parse(uni.ctx.doGet({ parameter: { tab: "payments-ledger" } }).getContent());
+check("unified refuses an unknown tab as JSON", noTab.ok === false);
+
+/* JSON feed format: same cells, same stripping */
+const jf = JSON.parse(uni.ctx.doGet({ parameter: { tab: "tutors", format: "json" } }).getContent());
+check("unified ?tab=tutors&format=json returns header+rows without private columns",
+  jf.ok && jf.header[0] === "id" && jf.header.indexOf("notification_email") === -1 &&
+  jf.rows.length === 2 && !/example\.com/.test(JSON.stringify(jf)), JSON.stringify(jf.header));
+
+/* end to end: a booking lands, then a review verifies against it */
+function postUni(body) {
+  return JSON.parse(uni.ctx.doPost({ postData: { contents: JSON.stringify(body) } }).getContent());
+}
+const bk = postUni({ kind: "booking", consent: true, website: "",
+  fields: { booking_ref: "EK-TESTREF", tutor_id: "asha-verma", student_name: "Priya",
+    student_email: "priya@example.com", preferred_times_ist: "Mon 10am" } });
+check("unified accepts a booking and stores it as its own booking_ref",
+  bk.ok && bk.reference === "EK-TESTREF" && uni.tabs.bookings.length === 2 &&
+  uni.tabs.bookings[1][0] === "EK-TESTREF" && uni.tabs.bookings[1][2] === "asha-verma", JSON.stringify(bk));
+const bkDup = postUni({ kind: "booking", consent: true, website: "",
+  fields: { booking_ref: "EK-TESTREF", tutor_id: "asha-verma", student_name: "Priya",
+    student_email: "priya@example.com", preferred_times_ist: "Mon 10am" } });
+check("unified booking resend is idempotent (no second row)",
+  bkDup.ok && bkDup.duplicate === true && uni.tabs.bookings.length === 2, JSON.stringify(bkDup));
+const rvBad = postUni({ kind: "review", consent: true, website: "",
+  fields: { tutor_id: "asha-verma", reviewer_name: "Priya", stars: 5,
+    text: "x".repeat(50), booking_id: "EK-NOPE" } });
+check("unified refuses a review whose booking reference does not exist",
+  rvBad.ok === false && uni.tabs.reviews_pending.length === 1, JSON.stringify(rvBad));
+const rvWrong = postUni({ kind: "review", consent: true, website: "",
+  fields: { tutor_id: "ravi-k", reviewer_name: "Priya", stars: 5,
+    text: "x".repeat(50), booking_id: "EK-TESTREF" } });
+check("unified refuses a review for a different tutor than the booking",
+  rvWrong.ok === false && uni.tabs.reviews_pending.length === 1, JSON.stringify(rvWrong));
+const rvOk = postUni({ kind: "review", consent: true, website: "",
+  fields: { tutor_id: "asha-verma", reviewer_name: "Priya", stars: 5,
+    text: "x".repeat(50), booking_id: "EK-TESTREF" } });
+check("unified accepts a review whose booking matches tutor+reference",
+  rvOk.ok && /^EG-/.test(rvOk.reference) && uni.tabs.reviews_pending.length === 2, JSON.stringify(rvOk));
+const hp = postUni({ kind: "booking", consent: true, website: "bot",
+  fields: { booking_ref: "EK-BOT", tutor_id: "asha-verma", student_name: "B", student_email: "b@x.com", preferred_times_ist: "x" } });
+check("unified honeypot pretends success and stores nothing",
+  hp.ok && uni.tabs.bookings.length === 2, JSON.stringify(hp));
+
+/* the unified file keeps the same never-leak guarantees as LiveFeed.gs */
+const uniText = fs.readFileSync(path.join(ROOT, "apps-script", "Unified.gs"), "utf8");
+check("Unified.gs has exactly one doGet and one doPost",
+  (uniText.match(/function doGet\(e\) \{/g) || []).length === 1 &&
+  (uniText.match(/function doPost\(e\) \{/g) || []).length === 1);
+check("Unified.gs opens no workbook by a hard-coded id",
+  !/openById\(\s*["']1/.test(uniText));
+check("Unified.gs holds no payments key or ledger id",
+  !/RAZORPAY|1u5Jkbe/.test(uniText));
 
 /* ---------- B. the three loaders ---------- */
 const FEED = "https://script.google.com/macros/s/AKfycbzTESTFEED_123-abc/exec";
@@ -263,6 +371,41 @@ const wait = (ms) => new Promise((r) => setTimeout(r, ms));
   const idsNoList = (w.EKGURU_TUTORS || []).map((t) => t.id);
   check("a page with no tutor list at all creates nothing (profile pages stay record-only)",
     idsNoList.indexOf("new-guru") === -1, idsNoList.join(","));
+
+  /* reviews.js: CSV→TSV fallback (4 Nov 2026). The workbook's published
+     CSV answers HTTP 500; without a TSV fallback no live review ever
+     reaches the browser. */
+  const REV_CSV = "https://docs.google.com/spreadsheets/d/e/2PACX-TEST/pub?gid=2&single=true&output=csv";
+  const REV_TSV = REV_CSV.replace("output=csv", "output=tsv");
+  const GOOD_TSV = "tutor\tname\tdate\tstars\ttext\tsource\tstatus\r\nshikha-dutta\tPriya\t2026-10-01\t5\t" + "x".repeat(50) + "\tsite\tlive\r\n";
+  const runReviewsJs = function (site, plan) {
+    const fx = stubFetch(plan);
+    global.window = { EKGURU_TUTORS: [], EKGURU_TUTOR_FILES: {},
+      EKGURU_SHEET_RECORDS: { "shikha-dutta": { _recordOnly: true } },
+      EKGURU_SITE: site, fetch: fx,
+      addEventListener() {}, dispatchEvent() { return true; },
+      document: { querySelectorAll: () => [] } };
+    global.fetch = fx;
+    global.localStorage = { getItem: () => null, setItem: () => {}, removeItem: () => {} };
+    global.document = global.window.document;
+    if (typeof global.CustomEvent !== "function") global.CustomEvent = function (t) { this.type = t; };
+    delete require.cache[require.resolve(path.join(ROOT, "js", "reviews.js"))];
+    require(path.join(ROOT, "js", "reviews.js"));
+    return { seen: fx.seen, win: global.window };
+  };
+  let r = runReviewsJs({ reviews: { csvUrl: REV_CSV } },
+    (u) => (u.indexOf("output=csv") > -1 ? { status: 500 } : { status: 200, body: GOOD_TSV }));
+  await wait(200);
+  check("reviews.js falls back to TSV when the published CSV answers 500",
+    r.seen.length === 2 && r.seen[0] === REV_CSV && r.seen[1] === REV_TSV, r.seen.join(" , "));
+  check("reviews.js loads and attaches the TSV review",
+    r.win.EKGURU_REVIEWS_INFO && r.win.EKGURU_REVIEWS_INFO.loaded === true &&
+    ((r.win.EKGURU_TUTOR_FILES["shikha-dutta"] || {}).reviewsCount === 1),
+    JSON.stringify(r.win.EKGURU_REVIEWS_INFO));
+  r = runReviewsJs({ reviews: { csvUrl: REV_CSV } }, () => ({ status: 200, body: GOOD_TSV.replace(/\t/g, ",") }));
+  await wait(200);
+  check("reviews.js does not touch TSV while the published CSV works",
+    r.seen.length === 1 && r.seen[0] === REV_CSV, r.seen.join(" , "));
 
   /* the three copies of feedUrl() are identical */
   const grab = (file) => {
