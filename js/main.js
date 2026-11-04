@@ -783,18 +783,7 @@
       ' · <a href="tutor/">' + esc(t("pf.allText")) + "</a>";
   }
 
-  /* ---------- 9. Markets strip ---------- */
-  function renderMarkets() {
-    var host = $("#markets");
-    if (!host) return;
-    /* Homepage country rails own this node — do not overwrite. */
-    if (host.getAttribute("data-eg-cc-rails") === "1" || host.getAttribute("data-eg-cc-host") === "1") return;
-    host.innerHTML = MARKETS.map(function (m) {
-      return '<a class="mkt" href="' + esc(m.slug || "learn-hindi-by-country/") + '"><span class="mkt-flag">' + m.flag + "</span><b>" + esc(m.country) + "</b><span>" + esc(m.label) + "</span></a>";
-    }).join("");
-  }
-
-  /* ---------- 10. FAQ (home) ---------- */
+  /* ---------- 9. FAQ (home) ---------- */
   function renderFaq() {
     var host = $("#faq-list");
     if (!host) return;
@@ -1357,7 +1346,6 @@
     try { initHeader(); } catch (e) { showError("header", e); }
     try { initBadges(); } catch (e) { showError("badges", e); }
     try { initContact(); } catch (e) { showError("contact", e); }
-    try { renderMarkets(); } catch (e) { showError("markets", e); }
     try { renderTextVersions(); } catch (e) { showError("text versions", e); }
     try { renderHome(); } catch (e) { showError("home", e); }
     try { renderFaq(); } catch (e) { showError("faq", e); }
