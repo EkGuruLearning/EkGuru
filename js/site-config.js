@@ -868,15 +868,20 @@ window.EKGURU_SITE = {
   status: "live",
 
   /* =========================================================
-     REVIEWS CSV — published copy of the sheet's reviews tab.
-     Set this so reviews.js can load site-native reviews
-     without waiting for the live feed deployment.
-     (The only `reviews:` block — the older Google-Sheets URL
-     form was removed 4 Nov 2026; a duplicate key meant the
-     first block was silently dead.)
+     REVIEWS — read from the sheet's reviews tab (owner decision,
+     Nov 2026: the site must read review data from the sheet, not
+     from a baked file). CSV first, the same URL as TSV behind it
+     (this workbook's CSV endpoint 500s; TSV answers 200).
+     fallbackCsvUrl is the baked snapshot of the same tab: last
+     resort only, so reviews never go blank while Google is
+     unreachable. Refresh it after approving reviews in the sheet
+     (copy the tab into live-sheets/reviews.csv).
+     (The only `reviews:` block — keep it that way; a duplicate
+     key silently kills the first block.)
      ========================================================= */
   reviews: {
-    csvUrl: "https://ekguru.shop/live-sheets/reviews.csv",
+    csvUrl: "https://docs.google.com/spreadsheets/d/e/2PACX-1vQIman_Um2wQrj_3mXqqgq4k69zzmJHkhZ1TRoAnh2jcamhzoo-0VeTd55UieGMi6mEaTl3Zy84G44h/pub?gid=298809212&single=true&output=csv",
+    fallbackCsvUrl: "https://ekguru.shop/live-sheets/reviews.csv",
     cacheMinutes: 60,
     alwaysRevalidate: true
   },

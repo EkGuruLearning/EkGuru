@@ -74,6 +74,7 @@
   var S = root.EKGURU_SITE || {};
   var CFG = S.reviews || {};
   var url = String(CFG.csvUrl || "").trim();
+  var fallbackUrl = String(CFG.fallbackCsvUrl || "").trim();
 
   /* Live feed (28 Oct 2026). Same function as js/sheet.js and
      js/settings.js; tools/test-live-feed.js asserts all three agree.
@@ -484,10 +485,19 @@
   }
 
   function fetchSheet() {
-    /* The live feed first (if configured), then the published tab (CSV→TSV). */
+    /* The live feed first (if configured), then the published tab
+       (CSV→TSV), then the baked snapshot (same chain) so reviews
+       never go blank while Google is unreachable. */
     var f = feedUrl("reviews");
-    var first = f ? fetchRecords(f, "csv").catch(function () { return url ? fetchPublished(url) : Promise.reject(new Error("feed failed")); })
-                  : fetchPublished(url);
+    var live = function () {
+      return url ? fetchPublished(url) : Promise.reject(new Error("no reviews url"));
+    };
+    var snap = function () {
+      return (fallbackUrl && fallbackUrl !== url) ? fetchPublished(fallbackUrl)
+        : Promise.reject(new Error("no snapshot"));
+    };
+    var first = f ? fetchRecords(f, "csv").catch(live).catch(function () { return snap(); })
+                  : live().catch(function () { return snap(); });
     return first
       .then(function (recs) {
         writeCache(recs);
@@ -516,7 +526,7 @@
     MIN_TEXT: MIN_TEXT
   };
 
-  if (!url && !feedUrl("reviews")) return;
+  if (!url && !fallbackUrl && !feedUrl("reviews")) return;
   if (typeof root.fetch !== "function") return;
 
   /* v62: same stale-while-revalidate change as js/sheet.js. A cache
