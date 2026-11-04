@@ -278,18 +278,26 @@ await (async function () {
     urls.filter((u) => /web3forms/.test(u)).length === 1,
     urls.join(" | "));
 
-  /* Missing tutor address must not route a booking to EkGuru. */
+  /* Degraded booking (owner decision, 4 Nov 2026, shipped PR #41):
+     a missing tutor address no longer rejects the booking. The student
+     gets the honest PENDING receipt, the tutor copy is skipped (there is
+     nowhere to send it), and the owner inbox is never a recipient. */
   localStorage.clear();
   POSTED.length = 0;
-  let missingTutorRejected = false;
+  let degradedRes = null;
   try {
-    await M.send({
+    degradedRes = await M.send({
       tutor: { id: "missing-address", name: "Tutor without address" },
       name: "Priya", email: "priya@example.com", ref: "EK-NO-OWNER-01"
     });
-  } catch (e) { missingTutorRejected = /tutor.*address/i.test(e.message); }
-  check("missing tutor email is refused without sending to owner or student",
-    missingTutorRejected && POSTED.length === 0, JSON.stringify(POSTED));
+  } catch (e) { degradedRes = { ok: false, error: e.message }; }
+  const toOwner = POSTED.some((p) =>
+    String(p.parsed.to || "").toLowerCase() === "ekgurulearning@gmail.com");
+  const pendingType = POSTED.filter((p) => p.parsed.type === "booking_student_pending");
+  check("degraded: missing tutor email sends student PENDING receipt, no tutor copy, no owner copy",
+    degradedRes && degradedRes.ok === true && degradedRes.tutorEmailUnavailable === true &&
+    POSTED.length === 1 && pendingType.length === 1 && !toOwner,
+    "ok=" + (degradedRes && degradedRes.ok) + " posted=" + POSTED.length);
 
   /* CRLF email rejected */
   let threw = false;
