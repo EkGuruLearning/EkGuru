@@ -85,6 +85,19 @@ window.EKGURU_SITE = {
   mail: {
     enabled: true,
 
+    /* ---------- BOOKING WITHOUT A TUTOR ADDRESS (degraded mode) ----------
+       Owner decision, 4 Nov 2026: a booking for a tutor who has no
+       notification_email yet must still WORK — the request is saved to
+       the private bookings sheet, the student gets an honest "received,
+       EkGuru will confirm manually" receipt, and NO tutor copy goes out
+       (there is nowhere to send it). The owner relays via the sheet.
+
+       Set this to false to re-block those bookings with a "not
+       configured yet" message instead. Whatever this is, a booking
+       email is NEVER routed to the owner inbox — that policy is
+       unconditional. */
+    degradedBooking: true,
+
     /* ---------- REMOVING THE "FormSubmit Team" FOOTER ----------
        Every email FormSubmit sends carries their sign-off and a
        sponsor advert. There is no setting to remove it; it is how

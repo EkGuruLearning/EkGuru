@@ -95,6 +95,8 @@ window.EKGURU_I18N = {
     "book.rcCopy": "Copy this receipt",
     "book.sendFail": "We could not send that just now.",
     "book.emailDegraded": "Your request is saved, but the confirmation emails could not be sent just now. We will still see it.",
+    "book.degradedNote": "Online request + email receipt. {tutor} has no booking email yet, so EkGuru will confirm the time with you manually.",
+    "book.sentDegraded": "Request saved and receipt sent to you. {tutor} has no booking email yet, so EkGuru will confirm the time manually — keep your reference number.",
     "book.sendFailLink": "Send it from your own email instead →",
     "book.cta": "Request current details",
     "book.ctaLive": "Open live booking",
