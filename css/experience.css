@@ -601,6 +601,9 @@ html[dir="rtl"] .xp-kicker {
 
 .btn-primary {
   position: relative;
+  /* The brand gradient is dark in dark mode, so the label must stay white
+     (it used to inherit the theme's dark ink and vanish). */
+  color: var(--xp-ink-on-brand, #fff);
   background: linear-gradient(135deg, var(--xp-a), var(--xp-b));
   box-shadow: 0 10px 26px color-mix(in srgb, var(--xp-a) 30%, transparent);
 }

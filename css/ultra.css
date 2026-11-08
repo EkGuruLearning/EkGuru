@@ -50,7 +50,7 @@ html.eg-js .eg-voice[hidden]{display:inline-block!important;visibility:hidden}
 html[data-theme="dark"] main,html[data-theme="contrast"] main{color:var(--eg-ink);background-color:var(--eg-bg)}
 html[data-theme="dark"] main :is(h1,h2,h3,h4,h5,h6),html[data-theme="contrast"] main :is(h1,h2,h3,h4,h5,h6){color:var(--eg-ink)!important}
 html[data-theme="dark"] main :is(p,li,dt,dd,th,td,small,.sub,.roman,.muted,.xp-lead,figcaption span,figcaption b),html[data-theme="contrast"] main :is(p,li,dt,dd,th,td,small,.sub,.roman,.muted,.xp-lead,figcaption span,figcaption b){color:var(--eg-secondary)}
-html[data-theme="dark"] main a,html[data-theme="contrast"] main a{color:var(--eg-accent)}
+html[data-theme="dark"] main a:not(.btn):not(.btn-primary),html[data-theme="contrast"] main a:not(.btn):not(.btn-primary){color:var(--eg-accent)}/* Buttons keep their own label colour: a brand button must stay readable in dark mode. */
 html[data-theme="dark"] main :is(.card,.box,.note,.lp-box,.v-item,.g-concept,.lv-card,.lv-gram,.lv-level-list a,.sc-box,.ob-card,.lang-cell,.tcard,.xp-card,.xp-step,.xp-stat,.xp-rail-item,.faq,.pg-note,.course-tools,.q,.egc .card,.egc .score,.egc .ex,.egc .dlg,.egc .mist,figure,.pat,.chip-btn,.tag,.pill,.btn-ghost,.lang-pill,.field,.filters),html[data-theme="contrast"] main :is(.card,.box,.note,.lp-box,.v-item,.g-concept,.lv-card,.lv-gram,.lv-level-list a,.sc-box,.ob-card,.lang-cell,.tcard,.xp-card,.xp-step,.xp-stat,.xp-rail-item,.faq,.pg-note,.course-tools,.q,.egc .card,.egc .score,.egc .ex,.egc .dlg,.egc .mist,figure,.pat,.chip-btn,.tag,.pill,.btn-ghost,.lang-pill,.field,.filters){background:var(--eg-surface)!important;color:var(--eg-ink)!important;border-color:var(--eg-line)!important}
 html[data-theme="dark"] main :is(th,td),html[data-theme="contrast"] main :is(th,td){background:var(--eg-surface)!important;border-color:var(--eg-line)}
 html[data-theme="dark"] :is(input,select,textarea),html[data-theme="contrast"] :is(input,select,textarea){color:var(--eg-ink)!important;background:var(--eg-surface)!important;border-color:var(--eg-line)!important}
@@ -167,3 +167,6 @@ html[data-learning-language] .eg-appearance {
    visitor opens it, and the stylesheet cannot override [hidden] */
 .cur-menu[hidden] { display: none !important; }
 .cur-menu-scroll:empty { display: none; }
+/* Brand buttons: the label is always white on the brand gradient, in dark mode too.
+   (A dark link colour from the theme used to win here and the label vanished.) */
+html[data-theme="dark"] a.btn-primary,html[data-theme="dark"] .btn-primary,html[data-theme="contrast"] a.btn-primary{color:#fff !important;text-decoration:none}

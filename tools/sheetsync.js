@@ -26,6 +26,9 @@ const BASE = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQIman_Um2wQrj_3mX
 const SRC = {
   tutors:   `${BASE}?gid=1631273256&single=true&output=csv`,
   reviews:  `${BASE}?gid=298809212&single=true&output=csv`,
+  /* Form submissions waiting for the owner. Rows the owner sets to
+     status=approved go live automatically (see pendingToReviews). */
+  reviewsPending: `${BASE}?gid=176535552&single=true&output=csv`,
   settings: `${BASE}?gid=1658518385&single=true&output=csv`,
   support:  `${BASE}?gid=1041390059&single=true&output=csv`,
 };
@@ -192,6 +195,32 @@ function buildTutor(r) {
    never feeds a rating. Site-native sources publish as before. */
 const MARKETPLACE_SOURCES = ["preply", "italki"];
 
+/* A review the owner approved on the reviews_pending tab (status=approved)
+   becomes a live review row. Only the fields the site shows are copied;
+   the reviewer's contact email and the booking id are never published.
+   The date is the lesson date, or the day of the form submission. */
+function pendingToReviews(rows) {
+  const out = [];
+  for (const r of rows) {
+    if (String(r.status || "").trim().toLowerCase() !== "approved") continue;
+    let date = String(r.lesson_date || "").trim();
+    if (!date) {
+      const m = String(r.timestamp || "").match(/^(\d{2})\/(\d{2})\/(\d{4})/);
+      if (m) date = `${m[3]}-${m[2]}-${m[1]}`;
+    }
+    out.push({
+      tutor: String(r.tutor_id || "").trim(),
+      name: String(r.reviewer_name || "").trim(),
+      date,
+      stars: String(r.stars || "").trim(),
+      text: String(r.text || "").trim(),
+      source: "site form",
+      status: "live",
+    });
+  }
+  return out;
+}
+
 function buildReviews(reviewRows) {
   const byTutor = {};
   for (const r of reviewRows) {
@@ -298,6 +327,13 @@ if (require.main === module) (async function main() {
       fetchCSV(SRC.tutors), fetchCSV(SRC.reviews), fetchSettings(SRC.settings),
       fetchSettings(SRC.support),
     ]);
+    /* Optional: a missing or unpublished pending tab must not stop the build. */
+    try {
+      const pending = await fetchCSV(SRC.reviewsPending);
+      reviews = reviews.concat(pendingToReviews(pending));
+    } catch (e) {
+      console.warn(`  !! reviews_pending not read (${e.message}) — only the reviews tab is used.`);
+    }
   }
   /* Support tab merges UNDER the main settings tab: on a conflict
      the main tab wins, so payments can only ADD keys. */
@@ -408,4 +444,4 @@ window.EKGURU_SHEET_HIDDEN = ${JSON.stringify(hidden)};
   console.log(`  emails written: ${Object.values(overrides).filter(t => t.email).length}`);
 })();
 
-module.exports = { buildTutor, buildReviews, MARKETPLACE_SOURCES };
+module.exports = { buildTutor, buildReviews, pendingToReviews, MARKETPLACE_SOURCES };
