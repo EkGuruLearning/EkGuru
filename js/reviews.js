@@ -34,7 +34,7 @@
    To make that harder to get wrong, this file:
      · refuses a row with no student name
      · refuses a rating outside 1–5
-     · refuses a review under 40 characters
+     · any length is shown (the owner's approval is the gate)
      · refuses a date in the future
      · marks every review with its source, so you always know
        where it came from
@@ -91,7 +91,7 @@
 
   /* Below this a "review" is a rating with a word attached, which is
      not social proof and does not read as genuine. */
-  var MIN_TEXT = 40;
+  var MIN_TEXT = 1;   /* any length; the owner's approval is the gate */
 
   /* ---------------------------------------------------------
      CSV parsing. Same hand-written parser as the other sheets:

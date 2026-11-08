@@ -234,7 +234,7 @@ function buildReviews(reviewRows) {
     const stars = Number(r.stars);
     if (!isFinite(stars) || stars < 1 || stars > 5) continue;
     const text = String(r.text || "").trim();
-    if (!text || text.length < 40) continue;
+    if (!text) continue;   /* any length: the owner's approval is the gate */
     if (r.date && (!/^\d{4}-\d{2}-\d{2}$/.test(r.date) || new Date(r.date).getTime() > Date.now() + 86400000)) continue;
     const tid = String(r.tutor).trim().toLowerCase();
     (byTutor[tid] = byTutor[tid] || []).push({
