@@ -873,7 +873,11 @@
           student_goal: (($("#bk-goal") || {}).value || "").trim(),
           student_timezone: ($("#bk-tz") || {}).value || "",
           source_page: location.href,
-          tutor_email: "",
+          /* The tutor's own notification address, when the sheet has one.
+             Never guessed: blank means the owner must add it (see audit). */
+          tutor_email: (modalTutor.notification_email &&
+            /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(String(modalTutor.notification_email).trim()))
+            ? String(modalTutor.notification_email).trim() : "",
           sent_via: "EkGuru booking form",
           email_delivery: "sending"
         }, true, "");

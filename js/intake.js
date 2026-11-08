@@ -67,6 +67,12 @@
     if (fields.email && !/^[^\s@<>"']+@[^\s@<>"']+\.[^\s@<>"']{2,}$/.test(String(fields.email).trim())) {
       return "That email does not look right.";
     }
+    /* WhatsApp is optional, but if typed it must be a real number:
+       a stray "+9" or "abc" would otherwise reach the owner's sheet. */
+    var wa = String(fields.student_whatsapp == null ? "" : fields.student_whatsapp).trim();
+    if (kind === "booking" && wa && !/^\+?[0-9][0-9 ()-]{6,18}[0-9]$/.test(wa)) {
+      return "That WhatsApp number does not look right. Include the country code, for example +91 98xxxxxxx.";
+    }
     return "";
   }
 
