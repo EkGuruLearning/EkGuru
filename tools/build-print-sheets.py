@@ -136,6 +136,9 @@ def sample_questions(path):
     m = BANK_NAME.search(open(path, encoding="utf-8").read())
     slug = m.group(1) if m else ("hindi" if "/hindi/" in path else None)
     if not slug:
+        pm = re.search(r"/learn/([a-z]+)/practice/worksheets/", path)
+        slug = pm.group(1) if pm else None
+    if not slug:
         return None
     bank = "js/%s-quiz-bank.js" % slug
     if not os.path.exists(bank):
@@ -200,6 +203,21 @@ def mark_chain(html, target):
         out = out[:end - 1] + " " + CHAIN + out[end - 1:]
     return out
 
+
+
+LANG_CODE = {"kannada": "kn", "punjabi": "pa", "urdu": "ur", "bengali": "bn", "hindi": "hi",
+             "gujarati": "gu", "tamil": "ta", "malayalam": "ml", "marathi": "mr", "telugu": "te"}
+
+
+def _lang_wrap(code, inner):
+    """Bank text is in the target script: say so, or it reads as English.
+    The code is the page's own data-learning-language (bn, gu, ur, ...)."""
+    return '<div lang="%s">%s</div>' % (code, inner) if code else inner
+
+
+def _learning_code(html, slug):
+    m = re.search(r'data-learning-language="([a-z]+)"', html)
+    return m.group(1) if m else LANG_CODE.get(slug)
 
 
 STATIC_MARK = "<!-- ekguru:static-sheet -->"
@@ -306,7 +324,7 @@ def static_sheet(path, html):
         '<span style="display:inline-block;width:110px;border-bottom:1px solid var(--line)"></span></p>'
         '%s<h3 style="margin:20px 0 6px">Answers</h3>%s'
         '<p class="muted" style="margin-top:12px;font-size:.78rem">From the EkGuru %s quiz bank — '
-        'free to print and share.</p></div></div>' % (name, name, lines, answers, name))
+        'free to print and share.</p></div></div>' % (name, name, _lang_wrap(_learning_code(html, slug), lines), _lang_wrap(_learning_code(html, slug), answers), name))
     return html[:target.end()] + sheet + html[target.end():]
 
 
@@ -322,6 +340,8 @@ def sample_sheet(path, html):
     m = WS_APP.search(html)
     if not qs or not m:
         return html
+    bm = BANK_NAME.search(html) or re.search(r"/learn/([a-z]+)/practice/worksheets/", path)
+    slug = bm.group(1) if bm else ("hindi" if "/hindi/" in path else "")
     topic = qs[0].get("topic") or "basics"
     picked = [q for q in qs if (q.get("topic") or topic) == topic][:5]
     if len(picked) < 3:
@@ -350,7 +370,7 @@ def sample_sheet(path, html):
         '%s<h3 style="margin:18px 0 6px">Answers</h3>%s'
         '<p class="muted" style="margin-top:12px;font-size:.78rem">From the EkGuru %s quiz bank — '
         'free to print and share.</p></div></div>' % (esc(name or "EkGuru"), esc(name or "EkGuru"),
-                                                      lines, answers, esc(name or "EkGuru")))
+                                                      _lang_wrap(_learning_code(html, slug), lines), _lang_wrap(_learning_code(html, slug), answers), esc(name or "EkGuru")))
     return html[:m.end()] + sheet + html[m.end():]
 
 
@@ -417,6 +437,7 @@ def mark(path, html):
     # Keep one baked sample. A rollback briefly enabled both injectors.
     out = re.sub(re.escape(STATIC_MARK) + r".*?(?=" + re.escape(SAMPLE_MARK) + r")",
                  "", out, count=1, flags=re.S)
+    out = static_sheet(path, out)
     out = sample_sheet(path, out)
     if SAMPLE_MARK in out and STATIC_MARK not in out:
         out = out.replace(SAMPLE_MARK, STATIC_MARK + "\n" + SAMPLE_MARK, 1)

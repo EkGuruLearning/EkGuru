@@ -472,6 +472,19 @@ function rebuild(html, file, shell, dict) {
     }
   }
 
+  /* Online forms (data-intake) need js/intake.js. The shell rewrite used to
+     drop that tag from join.html, so the form silently fell back to mail.
+     Re-add it next to copywatch, using the same relative prefix. */
+  if (/data-intake=/.test(out) && !/js\/intake\.js/.test(out)) {
+    const cw = out.match(/<script src="([^"]*)js\/copywatch\.js"[^>]*><\/script>/);
+    if (cw) {
+      out = out.slice(0, cw.index + cw[0].length) +
+        '\n<script src="' + cw[1] + 'js/intake.js" defer></script>' +
+        out.slice(cw.index + cw[0].length);
+      touched = true;
+    }
+  }
+
   /* The tagline, one last time and unconditionally: this catches a page
      whose header was left alone because it was already right, and any
      hand-written <small data-tagline> outside the shell markers. */

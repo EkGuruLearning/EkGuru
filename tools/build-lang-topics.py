@@ -225,7 +225,7 @@ def head(title, desc, url, pre, ld_json):
     t, d = H.escape(title), H.escape(desc)
     robots, canonical = publication_for(url)
     return """<!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="en" dir="ltr" data-publication-state="research-required" data-ad-class="RESEARCH_REQUIRED">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">

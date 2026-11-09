@@ -569,9 +569,11 @@ function build(t, roster, publics, hidden) {
      (sheet active=no): noindex, follow — the page stays reachable for
      anyone holding a link, but it is out of search and out of every
      discovery surface. */
-  const robotsWanted = hidden
-    ? '<meta name="robots" content="noindex, follow">'
-    : '<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">';
+  /* Owner indexing freeze (data/quality/indexing-baseline.json): existing
+     tutor profiles keep their recorded noindex, and new pages are noindex.
+     Until the owner lifts the freeze, every profile stays noindex, follow,
+     including approved ones. Approved tutors are still listed on the site. */
+  const robotsWanted = '<meta name="robots" content="noindex, follow">';
   if (/<meta(?=[^>]*\bname="robots")[^>]*>/.test(out)) {
     out = out.replace(/<meta(?=[^>]*\bname="robots")[^>]*>/, () => robotsWanted);
   } else {
@@ -757,22 +759,26 @@ function updateIndexFiles(roster, stamp, check) {
     results.push("wrote " + file + " (" + what + ")");
   };
 
-  /* sitemap-tutors.xml — the tutor set only */
+  /* Sitemaps list only indexable pages. Under the owner indexing freeze every
+     tutor profile is noindex, so the tutor sitemaps list none of them. */
+  const indexedTutors = [];
+
+  /* sitemap-tutors.xml — the indexable tutor set only */
   let st = pruneTutorEntries(fs.readFileSync("sitemap-tutors.xml", "utf8"), tutors, "sitemap");
-  for (const t of tutors) {
+  for (const t of indexedTutors) {
     st = upsertUrlBlock(
       st,
       t.id,
       `  <url>\n    <loc>${SITE}/tutor/${t.id}/</loc>\n    <lastmod>${stamp}</lastmod>\n    <changefreq>weekly</changefreq>\n    <priority>0.9</priority>\n  </url>`
     );
   }
-  write("sitemap-tutors.xml", st, tutors.length + " tutor URLs");
+  write("sitemap-tutors.xml", st, indexedTutors.length + " tutor URLs");
 
   /* sitemap.xml — the same entries, with the image markup Google uses */
   let sm = pruneTutorImageEntries(fs.readFileSync("sitemap.xml", "utf8"), tutors);
   sm = pruneTutorEntries(sm, tutors, "sitemap");
-  for (const t of tutors) sm = upsertUrlBlock(sm, t.id, sitemapEntry(t, stamp));
-  write("sitemap.xml", sm, tutors.length + " tutor URLs");
+  for (const t of indexedTutors) sm = upsertUrlBlock(sm, t.id, sitemapEntry(t, stamp));
+  write("sitemap.xml", sm, indexedTutors.length + " tutor URLs");
 
   /* feed.xml — items, with the channel's build date */
   let feed = pruneTutorEntries(fs.readFileSync("feed.xml", "utf8"), tutors, "feed");
