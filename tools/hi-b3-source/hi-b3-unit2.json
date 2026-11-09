@@ -1,0 +1,213 @@
+{
+  "id": "hi-b3-u2",
+  "title": "Linking Ideas",
+  "lessons": [
+    {
+      "id": "hi-b3-l4",
+      "title": "Clauses with कि, जो and जब",
+      "learn": "At this level sentences stop being chains of short statements. Hindi builds complexity with subordinate clauses: कि introduces reported or asserted content, जो introduces a relative clause that describes a noun, and जब introduces a time clause. Formal writing often places the subordinate clause first and the main clause after it, marked by वह, वे or तब.",
+      "vocab": [
+        {"t": "कि", "r": "ki", "en": "that (complementiser)", "pos": "conjunction"},
+        {"t": "जो", "r": "jo", "en": "who; which (relative)", "pos": "relative pronoun"},
+        {"t": "जब", "r": "jab", "en": "when", "pos": "conjunction"},
+        {"t": "तब", "r": "tab", "en": "then; at that time", "pos": "adverb"},
+        {"t": "मानना", "r": "mānnā", "en": "to accept; to believe", "pos": "verb"},
+        {"t": "स्पष्ट होना", "r": "spaṣṭ honā", "en": "to become clear", "pos": "verb"},
+        {"t": "परिणाम", "r": "pariṇām", "en": "result; outcome", "pos": "noun"},
+        {"t": "प्रक्रिया", "r": "prakriyā", "en": "process", "pos": "noun"}
+      ],
+      "grammar": {
+        "title": "Subordinate clauses",
+        "explain": "Use कि after verbs of saying, thinking and knowing: मुझे लगता है कि … and यह स्पष्ट है कि … . Use जो to describe a noun: वह व्यक्ति जो कल आया था … . The head noun is picked up again in the main clause by वह, वे or यह. Use जब for time: जब बारिश रुकी, तब हम निकले। A long जो clause or जब clause needs its correlative (वह / तब) to close it; without it the sentence hangs.",
+        "pattern": "जो + clause (describes the noun), वह/वे + main clause · जब + clause, तब + main clause · … कि + reported or asserted clause",
+        "examples": [
+          {"t": "जो लोग देर से आए, उन्हें दोबारा अवसर नहीं मिला।", "r": "jo log der se āe, unheṃ dobārā avasar nahī̃ milā.", "en": "The people who arrived late did not get a second chance."},
+          {"t": "यह स्पष्ट है कि प्रक्रिया धीमी रही है।", "r": "yah spaṣṭ hai ki prakriyā dhīmī rahī hai.", "en": "It is clear that the process has been slow."},
+          {"t": "जब परिणाम आए, तब उसने फ़ैसला बदला।", "r": "jab pariṇām āe, tab usne faisalā badlā.", "en": "When the results came, he changed the decision."}
+        ],
+        "mistakes": [
+          "Using कि where a relative clause is needed: 'वह आदमी कि कल आया' should be 'वह आदमी जो कल आया'.",
+          "Dropping the correlative (वह, वे or तब) after a long जो or जब clause, which leaves the sentence hanging.",
+          "Repeating the same noun in both clauses when वह or यह would do: it reads as clumsy in formal prose."
+        ]
+      },
+      "dialogue": [
+        {"sp": "संपादक", "t": "जो लेख कल आया था, उसकी भाषा सुधारनी होगी।", "r": "Jo lekh kal āyā thā, uskī bhāṣā sudhārnī hogī.", "en": "The article that came in yesterday will need its language improved."},
+        {"sp": "लेखक", "t": "क्या यह स्पष्ट है कि कौन-सा हिस्सा कमज़ोर है?", "r": "Kyā yah spaṣṭ hai ki kaun-sā hissā kamzor hai?", "en": "Is it clear which part is weak?"},
+        {"sp": "संपादक", "t": "जी हाँ। जब तर्क आता है, तब वाक्य लंबे हो जाते हैं।", "r": "Jī hā̃. Jab tark ātā hai, tab vākya lambe ho jāte haiṃ.", "en": "Yes. When the argument arrives, the sentences grow long."},
+        {"sp": "लेखक", "t": "मैं मानता हूँ कि मैंने एक ही वाक्य में बहुत कुछ कह दिया।", "r": "Maĩ mānatā hū̃ ki maĩne ek hī vākya mẽ bahut kuchh kah diyā.", "en": "I accept that I packed too much into a single sentence."}
+      ],
+      "practice": [
+        {"type": "multiple_choice", "q": "Choose the correct connector: मुझे विश्वास है ____ परिणाम अच्छा होगा।", "answer": "कि", "skill_target": "complement clause", "options": ["कि", "जो", "जब", "तब"]},
+        {"type": "fill_in_the_blank", "q": "वह किताब ____ मैंने कल खरीदी, बहुत उपयोगी है।", "answer": "जो", "skill_target": "relative clause"},
+        {"type": "translation", "q": "Translate into Hindi: When the rain stopped, we left the hall.", "answer": "जब बारिश रुकी, तब हम सभागार से निकले।", "skill_target": "time clause"},
+        {"type": "reverse_translation", "q": "Translate into English: यह स्पष्ट है कि नीति का लाभ सबको नहीं मिला।", "answer": "It is clear that the policy's benefit did not reach everyone.", "skill_target": "complement clause"},
+        {"type": "reorder", "q": "Put the words in order: जो / छात्र / परीक्षा में / बैठे / वे / सफल / हुए", "answer": "जो छात्र परीक्षा में बैठे, वे सफल हुए।", "skill_target": "relative clause"},
+        {"type": "error_correction", "q": "Correct the sentence: वह आदमी कि कल आया था, मेरा दोस्त है।", "answer": "वह आदमी जो कल आया था, मेरा दोस्त है।", "skill_target": "error correction"},
+        {"type": "dialogue_completion", "q": "A: तुम्हें कब पता चला कि परिणाम आ गए हैं? B: (say when you found out, using जब … तब)", "answer": "जब मैंने वेबसाइट देखी, तब पता चला।", "skill_target": "dialogue completion"},
+        {"type": "matching", "q": "Match each connector to its function.", "answer": "कि — reported content; जो — describes a noun; जब — time", "skill_target": "matching", "options": ["कि — reported content; जो — describes a noun; जब — time", "कि — time; जो — reported content; जब — describes a noun", "कि — describes a noun; जो — time; जब — reported content"]},
+        {"type": "sentence_building", "q": "Build a sentence from: मुझे / लगता / है / कि / वह / सही / है", "answer": "मुझे लगता है कि वह सही है।", "skill_target": "sentence building"},
+        {"type": "word_selection", "q": "Choose the connector that marks time.", "answer": "जब", "skill_target": "word selection", "options": ["जब", "जो", "कि", "यदि"]},
+        {"type": "register_transformation", "q": "Make this more formal with a जो clause: बच्चे जल्दी सोते हैं, वे स्वस्थ रहते हैं।", "answer": "जो बच्चे जल्दी सोते हैं, वे स्वस्थ रहते हैं।", "skill_target": "register transformation"},
+        {"type": "guided_composition", "q": "Write one sentence using जब … तब about the start of a class.", "answer": "जब कक्षा शुरू हुई, तब सभी छात्र अपनी जगह पर बैठ गए।", "skill_target": "guided composition"}
+      ],
+      "quiz": [
+        {"q": "Which word introduces a reported statement?", "options": ["कि", "जो", "जब", "तब"], "answer": 0, "why": "कि introduces the content of what someone said, believed or knew."},
+        {"q": "Which word describes a noun in a relative clause?", "options": ["जो", "कि", "तब", "अतः"], "answer": 0, "why": "जो introduces a relative clause that describes a noun."},
+        {"q": "Which sentence is correct?", "options": ["वह आदमी कि आया", "वह आदमी जो आया", "वह आदमी जब आया", "वह आदमी तब आया"], "answer": 1, "why": "A noun is described by जो, not कि, जब or तब."},
+        {"q": "The pair जब … तब shows:", "options": ["contrast", "time sequence", "purpose", "condition"], "answer": 1, "why": "जब … तब ties two events in time."},
+        {"q": "Which correlative is missing? जब धूप निकली, ___ हम बाहर गए।", "options": ["तब", "जो", "कि", "यदि"], "answer": 0, "why": "The time pair is closed by तब in the main clause."}
+      ],
+      "flashcards": "auto:vocab",
+      "worksheet": {
+        "title": "Clauses with कि, जो and जब Workshop",
+        "tasks": [
+          {"instruction": "Join the two sentences with कि.", "items": ["मैं जानता हूँ। वह कल आएगा।"], "key": ["मैं जानता हूँ कि वह कल आएगा।"]},
+          {"instruction": "Turn the second sentence into a relative clause describing the first noun.", "items": ["वह लड़का खड़ा है। वह मेरा भाई है।"], "key": ["जो लड़का खड़ा है, वह मेरा भाई है।"]},
+          {"instruction": "Join the two sentences with जब … तब.", "items": ["बारिश हुई। सड़कें गीली हो गईं।"], "key": ["जब बारिश हुई, तब सड़कें गीली हो गईं।"]},
+          {"instruction": "Write a three-sentence paragraph about a meeting, using कि, जो and जब once each.", "items": ["Topic: a team meeting"], "key": ["Sample answer: मेरी टीम की बैठक में एक बात स्पष्ट हुई कि समय कम है। जो सुझाव सबसे व्यावहारिक था, उसे मान लिया गया। जब निर्णय हुआ, तब सभी ने सहमति जताई।"]}
+        ]
+      },
+      "srs_candidates": ["कि", "जो", "जब", "तब"],
+      "srs_policy": "Only these four high-value terms are preselected; lesson mistakes and productive patterns may enter personalised review after an actual error."
+    },
+    {
+      "id": "hi-b3-l5",
+      "title": "Conditions and Concession",
+      "learn": "Conditional and concessive clauses let you state what would follow if something happened, or admit a point while holding your position. Hindi uses यदि or अगर with तो for conditions, and चाहे … फिर भी or भले ही … तो भी for concession. The verb in the if-clause is usually in the subjunctive, which is the most common reason learners sound uncertain.",
+      "vocab": [
+        {"t": "यदि", "r": "yadi", "en": "if (formal)", "pos": "conjunction"},
+        {"t": "अगर", "r": "agar", "en": "if (everyday)", "pos": "conjunction"},
+        {"t": "चाहे", "r": "cāhe", "en": "even if; whether", "pos": "conjunction"},
+        {"t": "भले ही", "r": "bhale hī", "en": "although; even though", "pos": "conjunction"},
+        {"t": "फिर भी", "r": "phir bhī", "en": "nevertheless", "pos": "connector"},
+        {"t": "शर्त", "r": "śarta", "en": "condition", "pos": "noun"},
+        {"t": "बावजूद", "r": "bāvajūd", "en": "despite", "pos": "postposition"},
+        {"t": "स्वीकार करना", "r": "svīkār karnā", "en": "to accept", "pos": "verb"}
+      ],
+      "grammar": {
+        "title": "Conditions and concession",
+        "explain": "The यदि / अगर clause takes the subjunctive (आएँ, हो, करें) and the main clause with तो states the consequence. चाहे and भले ही introduce a concession, and फिर भी or तो भी mark the contrast in the main clause. बावजूद with a noun means 'despite': इसके बावजूद. Use the subjunctive in these clauses even when the situation is real, because the grammar expresses the hypothetical frame.",
+        "pattern": "यदि / अगर + subjunctive, तो + consequence · चाहे / भले ही + subjunctive, फिर भी / तो भी + main clause",
+        "examples": [
+          {"t": "यदि आप आएँ, तो हम प्रतीक्षा करेंगे।", "r": "yadi āp āẽ, to ham pratīkṣā kareṅge.", "en": "If you come, we will wait."},
+          {"t": "चाहे बारिश हो, फिर भी परीक्षा होगी।", "r": "cāhe bārish ho, phir bhī parīkṣā hogī.", "en": "Even if it rains, the exam will be held."},
+          {"t": "भले ही प्रस्ताव महँगा हो, तो भी इसका लाभ अधिक है।", "r": "bhale hī prastāv mahā̃gā ho, to bhī isakā lābh adhik hai.", "en": "Although the proposal is expensive, its benefit is greater."}
+        ],
+        "mistakes": [
+          "Using the indicative after यदि in a hypothetical: 'यदि आप आते हो' should be 'यदि आप आएँ'.",
+          "Pairing भले ही with बावजूद in the same clause, which repeats the concession.",
+          "Omitting the subjunctive in चाहे or भले ही clauses, which makes them sound like plain 'though' statements."
+        ]
+      },
+      "dialogue": [
+        {"sp": "मीरा", "t": "अगर कल बारिश हुई, तो पिकनिक कैसे होगी?", "r": "Agar kal bārish huī, to pikanik kaise hogī?", "en": "If it rains tomorrow, how will the picnic happen?"},
+        {"sp": "अमित", "t": "चाहे धूप हो या बारिश, हम तो जाएँगे।", "r": "Cāhe dhūp ho yā bārish, ham to jāẽge.", "en": "Whether it is sunny or rainy, we are going anyway."},
+        {"sp": "मीरा", "t": "भले ही तुम्हारा उत्साह अच्छा है, फिर भी सावधानी ज़रूरी है।", "r": "Bhale hī tumhārā utsāh acchā hai, phir bhī sāvdhānī zarūrī hai.", "en": "Although your enthusiasm is good, caution is still necessary."},
+        {"sp": "अमित", "t": "ठीक है, यदि मौसम खराब हुआ, तो हम योजना बदल देंगे।", "r": "Ṭhīk hai, yadi mausam kharāb huā, to ham yojanā badal deṅge.", "en": "Fine. If the weather turns bad, we will change the plan."}
+      ],
+      "practice": [
+        {"type": "multiple_choice", "q": "Choose the correct conditional: ____ आप समय पर आएँ, तो अच्छा होगा।", "answer": "यदि", "skill_target": "conditional", "options": ["यदि", "चाहे", "बावजूद", "फिर भी"]},
+        {"type": "fill_in_the_blank", "q": "चाहे मौसम खराब ____, हम वहाँ जाएँगे। (use the subjunctive of होना)", "answer": "हो", "skill_target": "concession subjunctive"},
+        {"type": "translation", "q": "Translate into Hindi: If you agree, we will sign the contract.", "answer": "यदि आप सहमत हों, तो हम अनुबंध पर हस्ताक्षर करेंगे।", "skill_target": "conditional"},
+        {"type": "reverse_translation", "q": "Translate into English: इसके बावजूद वह अपने फ़ैसले पर अडिग रहा।", "answer": "Despite this, he stood firm on his decision.", "skill_target": "despite"},
+        {"type": "reorder", "q": "Put the words in order: तो / आएगा / यदि / वह / हम / खुश / होंगे", "answer": "यदि वह आएगा, तो हम खुश होंगे।", "skill_target": "reorder"},
+        {"type": "error_correction", "q": "Correct the sentence: यदि आप आते हो, तो हम इंतज़ार करेंगे।", "answer": "यदि आप आएँ, तो हम इंतज़ार करेंगे।", "skill_target": "error correction"},
+        {"type": "dialogue_completion", "q": "A: क्या तुम कल आओगे, अगर बारिश हुई? B: (say you will come even if it rains)", "answer": "हाँ, चाहे बारिश हो, मैं आऊँगा।", "skill_target": "dialogue completion"},
+        {"type": "matching", "q": "Match each word to its function.", "answer": "यदि — condition; चाहे — concession; फिर भी — contrast in the main clause", "skill_target": "matching", "options": ["यदि — condition; चाहे — concession; फिर भी — contrast in the main clause", "यदि — concession; चाहे — condition; फिर भी — purpose", "यदि — contrast; चाहे — purpose; फिर भी — condition"]},
+        {"type": "sentence_building", "q": "Build a concession from: भले ही / वे / थके हुए / हैं / फिर भी / काम / जारी / रखते हैं", "answer": "भले ही वे थके हुए हैं, फिर भी काम जारी रखते हैं।", "skill_target": "sentence building"},
+        {"type": "word_selection", "q": "Which word means 'despite'?", "answer": "बावजूद", "skill_target": "word selection", "options": ["बावजूद", "चाहे", "यदि", "तो"]},
+        {"type": "register_transformation", "q": "Make this formal: अगर आप चाहें तो बैठक बदल देंगे।", "answer": "यदि आप चाहें, तो बैठक बदली जा सकती है।", "skill_target": "register transformation"},
+        {"type": "guided_composition", "q": "Write one sentence with चाहे … फिर भी about a deadline.", "answer": "चाहे समय कम हो, फिर भी हम काम समय पर पूरा करेंगे।", "skill_target": "guided composition"}
+      ],
+      "quiz": [
+        {"q": "Which conjunction is the most formal for 'if'?", "options": ["यदि", "तो", "पर", "बल्कि"], "answer": 0, "why": "यदि is the formal counterpart of अगर."},
+        {"q": "What mood do the यदि clauses typically use?", "options": ["subjunctive", "imperative only", "past perfect only", "none of these"], "answer": 0, "why": "The hypothetical if-clause uses the subjunctive: आएँ, हो, करें."},
+        {"q": "Which phrase means 'nevertheless'?", "options": ["फिर भी", "जब तक", "इसलिए", "ताकि"], "answer": 0, "why": "फिर भी marks contrast in the main clause."},
+        {"q": "Choose the correct word: ___ बारिश हो, फिर भी हम जाएँगे।", "options": ["चाहे", "यदि", "जो", "जब"], "answer": 0, "why": "चाहे introduces a concession with the subjunctive."},
+        {"q": "What does बावजूद mean?", "options": ["because of", "despite", "until", "since"], "answer": 1, "why": "बावजूद means 'despite'."}
+      ],
+      "flashcards": "auto:vocab",
+      "worksheet": {
+        "title": "Conditions and Concession Workshop",
+        "tasks": [
+          {"instruction": "Rewrite as a यदि … तो sentence with the subjunctive.", "items": ["आप आएँगे। हम खुश होंगे।"], "key": ["यदि आप आएँ, तो हम खुश होंगे।"]},
+          {"instruction": "Add a concession with चाहे … फिर भी.", "items": ["काम कठिन है। हम करेंगे।"], "key": ["चाहे काम कठिन हो, फिर भी हम करेंगे।"]},
+          {"instruction": "Replace फिर भी with बावजूद and a noun.", "items": ["बारिश हुई। फिर भी मेला हुआ।"], "key": ["बारिश के बावजूद मेला हुआ।"]},
+          {"instruction": "Write a two-sentence argument using भले ही.", "items": ["Topic: an expensive but useful plan"], "key": ["भले ही यह योजना महँगी हो, तो भी इसके दीर्घकालिक लाभ हैं।"]}
+        ]
+      },
+      "srs_candidates": ["यदि", "चाहे", "भले ही", "फिर भी"],
+      "srs_policy": "Only these four high-value terms are preselected; lesson mistakes and productive patterns may enter personalised review after an actual error."
+    },
+    {
+      "id": "hi-b3-l6",
+      "title": "Cause, Result and Purpose",
+      "learn": "This lesson separates three relations that learners often blur: cause (क्योंकि, चूँकि), result (इसलिए, अतः, परिणामस्वरूप) and purpose (ताकि, जिससे). Cause and result are about what has happened, so they take the indicative. Purpose is about an intended aim, so it takes the subjunctive. That difference is why ताकि and इसलिए are not interchangeable.",
+      "vocab": [
+        {"t": "क्योंकि", "r": "kyoṅki", "en": "because", "pos": "conjunction"},
+        {"t": "इसलिए", "r": "isliye", "en": "therefore; so", "pos": "conjunction"},
+        {"t": "चूँकि", "r": "cū̃ki", "en": "since; inasmuch as", "pos": "conjunction"},
+        {"t": "परिणामस्वरूप", "r": "pariṇāmasvarūp", "en": "as a result", "pos": "adverb"},
+        {"t": "ताकि", "r": "tāki", "en": "so that (purpose)", "pos": "conjunction"},
+        {"t": "जिससे", "r": "jisse", "en": "so that; by which", "pos": "conjunction"},
+        {"t": "अतः", "r": "ataḥ", "en": "hence", "pos": "connector"},
+        {"t": "कारण", "r": "kāraṇ", "en": "cause; reason", "pos": "noun"}
+      ],
+      "grammar": {
+        "title": "Cause, result, purpose",
+        "explain": "क्योंकि and चूँकि give a reason for something already true, with the indicative: वह देर से आया, क्योंकि ट्रेन लेट थी। इसलिए, अतः and परिणामस्वरूप state the consequence, also indicative. ताकि and जिससे state an intended aim, with the subjunctive: उसने जल्दी काम पूरा किया ताकि शाम को छुट्टी मिले। Confusing purpose with result is the most frequent error at this level.",
+        "pattern": "कारण: क्योंकि / चूँकि + indicative · परिणाम: इसलिए / अतः + indicative · उद्देश्य: ताकि / जिससे + subjunctive",
+        "examples": [
+          {"t": "वह देर से आया, क्योंकि ट्रेन लेट थी।", "r": "vah der se āyā, kyoṅki ṭren leṭ thī.", "en": "He arrived late because the train was delayed."},
+          {"t": "ट्रेन लेट थी, इसलिए बैठक शुरू नहीं हुई।", "r": "ṭren leṭ thī, isliye baiṭhak śurū nahī̃ huī.", "en": "The train was late, so the meeting did not start."},
+          {"t": "उसने जल्दी काम पूरा किया ताकि शाम को छुट्टी मिले।", "r": "usne jaldī kām pūrā kiyā tāki śām ko chuṭṭī mile.", "en": "He finished the work quickly so that he would get leave in the evening."}
+        ],
+        "mistakes": [
+          "Using ताकि with a past indicative result: 'ताकि वह आया' should be a result (इसलिए), not a purpose.",
+          "Using इसलिए to express an intended aim: 'वह पढ़ता है इसलिए पास हो' should be 'ताकि पास हो'.",
+          "Repeating क्योंकि after a reason has already been stated, which makes the sentence redundant."
+        ]
+      },
+      "dialogue": [
+        {"sp": "प्रबंधक", "t": "हमने कार्यक्रम इसलिए बदला, क्योंकि बजट कम हो गया था।", "r": "Hamne kāryakram isliye badlā, kyoṅki bajaṭ kam ho gayā thā.", "en": "We changed the programme, because the budget had fallen."},
+        {"sp": "सहायक", "t": "तो अब हम बैठकें कम करेंगे ताकि खर्च घटे।", "r": "To ab ham baiṭhakeṅ kam kareṅge tāki kharc ghaṭe.", "en": "So now we will hold fewer meetings so that costs come down."},
+        {"sp": "प्रबंधक", "t": "परिणामस्वरूप कर्मचारियों का समय भी बचेगा।", "r": "Pariṇāmasvarūp karmcāriyoṅ kā samay bhī bacegā.", "en": "As a result, employees' time will also be saved."},
+        {"sp": "सहायक", "t": "चूँकि यह सुझाव सबके हित में है, इसलिए मैं सहमत हूँ।", "r": "Cū̃ki yah sujhāv sabke hit mẽ hai, isliye maĩ sahmat hū̃.", "en": "Since this suggestion is in everyone's interest, I agree."}
+      ],
+      "practice": [
+        {"type": "multiple_choice", "q": "Which word expresses purpose?", "answer": "ताकि", "skill_target": "purpose connector", "options": ["क्योंकि", "इसलिए", "ताकि", "परिणामस्वरूप"]},
+        {"type": "fill_in_the_blank", "q": "वह समय पर पहुँचा ____ उसने बस पकड़ी। (a reason)", "answer": "क्योंकि", "skill_target": "cause connector"},
+        {"type": "translation", "q": "Translate into Hindi: He saved money so that he could buy a house.", "answer": "उसने पैसे बचाए ताकि वह घर खरीद सके।", "skill_target": "purpose clause"},
+        {"type": "reverse_translation", "q": "Translate into English: चूँकि नियम स्पष्ट थे, इसलिए विवाद कम हुआ।", "answer": "Since the rules were clear, there was less dispute.", "skill_target": "cause and result"},
+        {"type": "reorder", "q": "Put the words in order: उसने / दवा / खरीदी / ताकि / उसे / आराम / मिले", "answer": "उसने दवा खरीदी ताकि उसे आराम मिले।", "skill_target": "reorder"},
+        {"type": "error_correction", "q": "Correct the sentence: वह जल्दी उठा ताकि वह देर से पहुँचा।", "answer": "वह जल्दी उठा ताकि वह समय पर पहुँचे।", "skill_target": "error correction"},
+        {"type": "dialogue_completion", "q": "A: तुम इतनी मेहनत क्यों कर रहे हो? B: (state your aim with ताकि)", "answer": "ताकि मेरी परीक्षा का परिणाम अच्छा आए।", "skill_target": "dialogue completion"},
+        {"type": "matching", "q": "Match each connector to its function.", "answer": "क्योंकि — reason; इसलिए — result; ताकि — purpose", "skill_target": "matching", "options": ["क्योंकि — reason; इसलिए — result; ताकि — purpose", "क्योंकि — purpose; इसलिए — reason; ताकि — result", "क्योंकि — result; इसलिए — purpose; ताकि — reason"]},
+        {"type": "sentence_building", "q": "Build a result sentence from: बारिश / हुई / इसलिए / मेला / रद्द / हुआ", "answer": "बारिश हुई, इसलिए मेला रद्द हुआ।", "skill_target": "sentence building"},
+        {"type": "word_selection", "q": "Choose the connector that shows a result, not a reason.", "answer": "इसलिए", "skill_target": "word selection", "options": ["इसलिए", "क्योंकि", "चूँकि", "ताकि"]},
+        {"type": "register_transformation", "q": "Make this formal: हमने ऐसा किया क्योंकि सबने कहा था।", "answer": "हमने यह निर्णय लिया, क्योंकि सभी सदस्यों ने इसका समर्थन किया।", "skill_target": "register transformation"},
+        {"type": "guided_composition", "q": "Write one sentence with परिणामस्वरूप about a new road.", "answer": "नई सड़क बनने से यातायात सुगम हुआ, परिणामस्वरूप दुर्घटनाएँ घटीं।", "skill_target": "guided composition"}
+      ],
+      "quiz": [
+        {"q": "Which connector shows purpose?", "options": ["ताकि", "क्योंकि", "इसलिए", "परिणामस्वरूप"], "answer": 0, "why": "ताकि introduces an intended aim."},
+        {"q": "Which verb form follows ताकि?", "options": ["subjunctive", "past indicative", "imperative", "future indicative"], "answer": 0, "why": "Purpose clauses take the subjunctive: मिले, आए, घटे."},
+        {"q": "ट्रेन लेट थी, ____ बैठक शुरू नहीं हुई।", "options": ["इसलिए", "ताकि", "जो", "जब"], "answer": 0, "why": "A result after a cause uses इसलिए."},
+        {"q": "Which connector gives a cause?", "options": ["क्योंकि", "इसलिए", "ताकि", "अतः"], "answer": 0, "why": "क्योंकि gives the reason."},
+        {"q": "What does चूँकि express?", "options": ["since (reason)", "so that (purpose)", "although", "if"], "answer": 0, "why": "चूँकि gives a reason, like क्योंकि."}
+      ],
+      "flashcards": "auto:vocab",
+      "worksheet": {
+        "title": "Cause, Result and Purpose Workshop",
+        "tasks": [
+          {"instruction": "Mark each as cause, result or purpose.", "items": ["वह पढ़ता है ताकि पास हो।", "वह बीमार था, इसलिए नहीं आया।", "वह बीमार था क्योंकि उसे बुख़ार था।"], "key": ["purpose", "result", "cause"]},
+          {"instruction": "Complete with ताकि or इसलिए.", "items": ["बारिश हो रही थी, ____ हम घर में रुके।"], "key": ["इसलिए"]},
+          {"instruction": "Rewrite with ताकि.", "items": ["हमने जल्दी खाना खाया। हम फ़िल्म देख सकें।"], "key": ["हमने जल्दी खाना खाया ताकि हम फ़िल्म देख सकें।"]},
+          {"instruction": "Explain a decision you made, using all three relations once each.", "items": ["Topic: a decision at work or home"], "key": ["Sample answer: मैंने यह फ़ैसला किया क्योंकि खर्च बढ़ रहा था। इसलिए मैंने एक नया बजट बनाया, ताकि आगे की योजना साफ़ रहे।"]}
+        ]
+      },
+      "srs_candidates": ["क्योंकि", "इसलिए", "ताकि", "परिणामस्वरूप"],
+      "srs_policy": "Only these four high-value terms are preselected; lesson mistakes and productive patterns may enter personalised review after an actual error."
+    }
+  ]
+}
