@@ -105,7 +105,7 @@ for d in sorted(os.listdir("tutor")):
         html = open(p, encoding="utf-8").read()
         baked_reviews[d] = len(re.findall(r'itemReviewed|"reviewBody"|class="rev', html))
 live_reviews = {}
-for r in read_csv("live-sheets/reviews.csv")[1][1:]:
+for r in (read_csv("live-sheets/reviews.csv")[1][1:] if os.path.exists("live-sheets/reviews.csv") else []):  # snapshot deleted Nov 2026: reviews are sheet-live-only
     if r and not r[0].startswith("#help") and len(r) > 1:
         live_reviews[r[0]] = live_reviews.get(r[0], 0) + 1
 diff["reviews"] = {"bakedCount": baked_reviews, "liveCount": live_reviews}

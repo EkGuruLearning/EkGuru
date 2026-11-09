@@ -100,7 +100,7 @@ const TUTOR_VALUES = [
 const feed = loadFeed([
   { name: "Notes", gid: 1, values: [["x"]] },
   { name: "Tutors", gid: 1631273256, values: TUTOR_VALUES },
-  { name: "reviews", gid: 298809212, values: [["tutor", "name", "date", "stars", "text", "source", "status"], ["asha-verma", "A", "2026-10-01", "5", "x".repeat(50), "site", "live"]] },
+  { name: "reviews", gid: 293675115, values: [["tutor", "name", "date", "stars", "text", "source", "status"], ["asha-verma", "A", "2026-10-01", "5", "x".repeat(50), "site", "live"]] },
   { name: "settings", gid: 1658518385, values: [["key", "value", "what it does"], ["email", "hello@example.com", "inbox"], ["#note", "", ""]] }
 ]);
 
