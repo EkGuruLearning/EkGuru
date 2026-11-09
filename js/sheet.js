@@ -219,9 +219,17 @@
     v = String(v == null ? "" : v).trim();
     if (!v) return null;
 
-    /* Drive: /file/d/<id>/…  ·  ?id=<id>  ·  /d/<id> */
-    var m = /drive\.google\.com\/(?:file\/d\/|open\?id=|uc\?[^#]*id=|d\/)([A-Za-z0-9_-]{10,})/.exec(v);
-    if (m) return "https://lh3.googleusercontent.com/d/" + m[1] + "=w800";
+    /* Google Drive share links appear in several valid shapes: file/d/id,
+       open?id=id, uc?export=download&id=id, thumbnail?id=id, and Drive's
+       download host. Extract the stable file id, not the viewer URL. */
+    var isDriveHost = /^https:\/\/(?:drive\.google\.com|drive\.usercontent\.google\.com|docs\.google\.com)\//i.test(v);
+    var m = isDriveHost && /\/(?:file\/d|d)\/([A-Za-z0-9_-]{10,})/.exec(v);
+    var driveId = m && m[1];
+    if (!driveId && isDriveHost) {
+      m = /[?&]id=([A-Za-z0-9_-]{10,})(?:[&#]|$)/i.exec(v);
+      if (m) driveId = m[1];
+    }
+    if (driveId) return "https://lh3.googleusercontent.com/d/" + driveId + "=w800";
 
     /* already the direct Google form — leave it, but strip any
        existing size suffix so ours is the only one */
@@ -820,8 +828,10 @@
     var changed = 0, hidden = 0, added = 0, skipped = [];
     var order = [], seen = {};
     var dupes = [], rowSeen = {};   /* every row, including hidden ones */
+    var seenInSheet = {};           /* ids that have a row in the sheet */
 
     recs.forEach(function (r) {
+      seenInSheet[r.id] = 1;        /* mark this id as present in the sheet */
       /* =========================================================
          BUG FOUND v62 — "Sushila-G" DID NOT MATCH "sushila-g".
 
@@ -880,16 +890,17 @@
       var t = byId[r.id];
 
       if (!t) {
-        /* Hidden and new: nothing to RENDER — but on a page with no
-           tutor list (a pre-rendered profile, a city page) the stub
-           below is the only way js/livepatch.js learns this tutor
-           is hidden. Dropping the row outright left hidden tutors
-           standing on exactly those pages. (v130) */
+        /* Hidden and new: nothing to RENDER — but the record-only
+           stub below is how js/livepatch.js (pre-rendered profiles,
+           city pages) and the tutor.html profile renderer learn this
+           tutor is hidden rather than unknown. Dropping the row
+           outright left hidden tutors standing on exactly those
+           pages (v130), and direct profile links crashing instead of
+           saying "unavailable" (Nov 2026). The stub never joins the
+           rendered list. */
         if (isHidden) {
-          if (!HAS_LIST) {
-            byId[r.id] = { id: r.id, _recordOnly: true, _hiddenBySheet: true };
-            hidden++;
-          }
+          byId[r.id] = { id: r.id, _recordOnly: true, _hiddenBySheet: true };
+          hidden++;
           return;
         }
 
@@ -1019,13 +1030,24 @@
       }
     });
 
+    /* Tutors in the roster/files but with no row in the sheet have
+       never been reviewed or approved. The publication rule requires
+       both registry inclusion AND an active sheet row. Mark them
+       hidden so they don't appear as public tutors. */
+    list.forEach(function (t) {
+      if (!seenInSheet[t.id]) {
+        t._hiddenBySheet = true;
+        hidden++;
+      }
+    });
+
     /* ---------------------------------------------------------
        Order. The spreadsheet's row order is the order tutors
        appear, matching what tools/sheetsync.js does to the
        registry at build time. A tutor who is in a file but not in
-       the sheet keeps their place at the end rather than
-       vanishing — the sheet adds and reorders, it does not
-       silently delete someone whose row was never written.
+       the sheet is hidden — they have not been approved in the
+       sheet. The sheet adds and reorders, it does not silently
+       publish someone whose row was never written.
        --------------------------------------------------------- */
     /* Record-only rows (see the note above) never join the rendered
        list — nothing on those pages iterates tutors. They are

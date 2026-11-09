@@ -283,7 +283,7 @@ def shell(d, path, title, desc, body, depth, extra_scripts="", robots="index, fo
 <script type="application/ld+json">{json.dumps(ld, ensure_ascii=False)}</script>
 
 </head>
-<body>
+<body data-topic="lang-{d['slug']}">
 <div class="art">
 {body}</div>
 {TRUST_FTR.format(r=r, name=E(d['name']))}
@@ -1446,7 +1446,7 @@ def refresh_beginner_content(slug):
         raise ValueError("beginner content boundaries are missing or ambiguous: " + page_path)
     left = page.index(start)
     right = page.index(end, left)
-    section = deep_beginner(d)
+    section = language_markup(deep_beginner(d), d["name"])
     # The page already has its own indentation immediately before the heading.
     # Remove the generator's leading indentation so it is not doubled on insert.
     if section.startswith("  "):

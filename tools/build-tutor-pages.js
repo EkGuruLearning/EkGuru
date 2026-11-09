@@ -272,7 +272,7 @@ function headBlock(t, price, hidden) {
 
   return `  <header class="pr-head">
     <picture>
-      ${webp ? '<source srcset="' + relImage(webp) + '" type="image/webp">\n      ' : ""}<img class="pr-photo" src="${esc(photo)}" alt="${attr(t.name + ", online Hindi tutor from " + (t.city || t.country || "India"))}" width="200" height="200" itemprop="image" decoding="async">
+      ${webp ? '<source srcset="' + relImage(webp) + '" type="image/webp">\n      ' : ""}<img class="pr-photo" data-eg-photo-fallback src="${esc(photo)}" alt="${attr(t.name + ", online Hindi tutor from " + (t.city || t.country || "India"))}" width="200" height="200" itemprop="image" decoding="async">
     </picture>
     <div>
       <h1 itemprop="name" data-t="${t.id}" data-f="name">${esc(t.name)}</h1>
@@ -415,6 +415,49 @@ ${reviews.map(quote).join("\n")}
   </section>`;
 }
 
+
+/* v1.3.0 — the live review list on every PUBLIC tutor profile. Unlike
+   reviewsBlock() (static quotes embedded from tutor data), this section is
+   hydrated at runtime from the live reviews feed, so newly approved reviews
+   appear without a rebuild. Hidden profiles keep no review surfaces (U0). */
+function liveReviewsBlock(t, hidden) {
+  if (hidden) return "";
+  return `  <section class="pr-sec" data-eg-reviews data-tutor="${t.id}">
+    <h2>Student reviews</h2>
+    <div class="reviews-list">Loading reviews…</div>
+  </section>`;
+}
+
+
+/* v1.2.0 — the review form on every tutor profile.
+   The reviewer must enter the booking reference (booking_id) they were
+   given when they booked, so a review can only come from someone who
+   actually booked that tutor. The server verifies the booking against
+   the bookings tab before the review is saved (Intake.gs gate). */
+function reviewFormBlock(t, hidden) {
+  if (hidden) return "";
+  const opts = [1,2,3,4,5].map(n => `        <option value="${n}">${n} star${n>1?"s":""}</option>`).join("\n");
+  return `  <section class="pr-sec" data-eg-review-form data-tutor="${t.id}">
+    <h2>Share your experience with ${esc(t.name)}</h2>
+    <p>Only students who booked ${esc(t.name)} through EkGuru can leave a review here. Enter the booking reference you received (it starts with <code>EK-</code>) so we can verify it.</p>
+    <form class="intake-form" data-intake="review" action="mailto:EkGuruLearning@gmail.com" method="post" enctype="text/plain" style="display:grid;gap:12px">
+      <input type="hidden" name="tutor_id" value="${esc(t.id)}">
+      <div><label for="rv-name">Your name</label><br><input id="rv-name" name="reviewer_name" maxlength="60" required></div>
+      <div><label for="rv-stars">Rating</label><br><select id="rv-stars" name="stars" required>
+${opts}
+      </select></div>
+      <div><label for="rv-booking">Booking reference</label><br><input id="rv-booking" name="booking_id" maxlength="20" required placeholder="EK-…"></div>
+      <div><label for="rv-text">Your review</label><br><textarea id="rv-text" name="text" maxlength="800" rows="5" required></textarea></div>
+      <div><label for="rv-email">Email (optional — only to reply about this review)</label><br><input id="rv-email" type="email" name="contact_email" maxlength="120"></div>
+      <div><label for="rv-date">Lesson date (optional)</label><br><input id="rv-date" type="date" name="lesson_date"></div>
+      <label style="display:flex;gap:8px;align-items:center"><input type="checkbox" name="consent" required> I agree EkGuru may keep this review to publish on the tutor's profile.</label>
+      <input type="text" name="website" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px" aria-hidden="true">
+      <button type="submit" class="btn btn-primary">Submit review</button>
+      <p data-intake-msg role="status"></p>
+    </form>
+  </section>`;
+}
+
 function bookingBlock(t, price, hidden) {
   if (hidden) {
     /* U0 — no booking for a hidden tutor: no form, no mailto, no
@@ -499,7 +542,7 @@ function main(t, roster, hidden, publics) {
     <a href="../../find-tutors.html"><strong>See the current tutor listing</strong></a>
   </aside>`
     : `  <aside class="pr-note" role="note">
-    This page contains tutor-provided information last refreshed on 14 September 2026. EkGuru has not independently verified every statement, price or time. Confirm current details before booking.
+    This page contains tutor-provided information last refreshed on 1 November 2026. EkGuru has not independently verified every statement, price or time. Confirm current details before booking.
     <a href="../../tutor.html?id=${t.id}"><strong>Open the interactive profile and send an availability request</strong></a>
   </aside>`;
 
@@ -528,6 +571,10 @@ ${availabilityBlock(t)}
 ${videoBlock(t)}
 
 ${reviewsBlock(t)}
+
+${liveReviewsBlock(t, hidden)}
+
+${reviewFormBlock(t, hidden)}
 
 ${bookingBlock(t, price, hidden)}
 
@@ -564,15 +611,9 @@ function build(t, roster, publics, hidden) {
     out = out.replace(re, () => value);
   };
 
-  /* U0 — the robots meta is THE index switch for a hidden profile. Public:
-     index, follow (the long-form directives Google already has). Hidden
-     (sheet active=no): noindex, follow — the page stays reachable for
-     anyone holding a link, but it is out of search and out of every
-     discovery surface. */
-  /* Owner indexing freeze (data/quality/indexing-baseline.json): existing
-     tutor profiles keep their recorded noindex, and new pages are noindex.
-     Until the owner lifts the freeze, every profile stays noindex, follow,
-     including approved ones. Approved tutors are still listed on the site. */
+  /* Owner indexing freeze: tutor profile pages remain noindex until the
+     owner explicitly changes the canonical/indexing contract. The active
+     switch controls cards, booking and discovery surfaces, not search indexing. */
   const robotsWanted = '<meta name="robots" content="noindex, follow">';
   if (/<meta(?=[^>]*\bname="robots")[^>]*>/.test(out)) {
     out = out.replace(/<meta(?=[^>]*\bname="robots")[^>]*>/, () => robotsWanted);
@@ -587,6 +628,9 @@ function build(t, roster, publics, hidden) {
   once(/<meta(?=[^>]*\bproperty="og:description")[^>]*>/, '<meta property="og:description" content="' + attr(h.desc) + '">', "og:description");
   once(/<meta(?=[^>]*\bproperty="og:url")[^>]*>/, '<meta property="og:url" content="' + h.url + '">', "og:url");
   once(/<meta(?=[^>]*\bproperty="og:image")[^>]*>/, '<meta property="og:image" content="' + attr(h.image) + '">', "og:image");
+  once(/<meta(?=[^>]*\bproperty="og:image:width")[^>]*>/, '<meta property="og:image:width" content="1200">', "og:image:width");
+  once(/<meta(?=[^>]*\bproperty="og:image:height")[^>]*>/, '<meta property="og:image:height" content="630">', "og:image:height");
+  once(/<meta(?=[^>]*\bproperty="og:image:alt")[^>]*>/, '<meta property="og:image:alt" content="EkGuru — free, self-paced Hindi learning">', "og:image:alt");
   once(/<meta(?=[^>]*\bname="twitter:title")[^>]*>/, '<meta name="twitter:title" content="' + attr(h.title) + '">', "twitter:title");
   once(/<meta(?=[^>]*\bname="twitter:description")[^>]*>/, '<meta name="twitter:description" content="' + attr(h.desc) + '">', "twitter:description");
   once(/<meta(?=[^>]*\bname="twitter:image")[^>]*>/, '<meta name="twitter:image" content="' + attr(h.image) + '">', "twitter:image");
@@ -620,6 +664,19 @@ function build(t, roster, publics, hidden) {
   /* the footer lists every PUBLIC tutor — registry order, hidden ones out
      (U0: a hidden profile is linked from nowhere) */
   out = out.replace(/<h3>Tutors<\/h3>[\s\S]*?<\/div>/, () => footerTutors(publics));
+
+  /* Static profiles do not load main.js, so install the tiny image recovery
+     handler directly on these pages. */
+  if (!out.includes("js/photo-fallback.js")) {
+    out = out.replace("</body>", '<script defer src="../../js/photo-fallback.js"></script>\n</body>');
+  }
+
+  /* v1.2.0 — the review form on this page submits through intake.js
+     (the same contract as join.html). Load it here because static
+     tutor profiles do not run main.js. */
+  if (!out.includes("js/intake.js")) {
+    out = out.replace("</body>", '<script defer src="../../js/intake.js"></script>\n</body>');
+  }
 
   return out;
 }
@@ -759,26 +816,16 @@ function updateIndexFiles(roster, stamp, check) {
     results.push("wrote " + file + " (" + what + ")");
   };
 
-  /* Sitemaps list only indexable pages. Under the owner indexing freeze every
-     tutor profile is noindex, so the tutor sitemaps list none of them. */
-  const indexedTutors = [];
+  /* Tutor profiles are deliberately `noindex, follow` under the owner
+     indexing freeze. Keep them out of both sitemaps (including image entries)
+     until the profile indexing policy changes; public roster visibility and
+     the tutor feed are independent of search indexing. */
+  let st = pruneTutorEntries(fs.readFileSync("sitemap-tutors.xml", "utf8"), [], "sitemap");
+  write("sitemap-tutors.xml", st, "0 indexable tutor URLs (profiles noindex)");
 
-  /* sitemap-tutors.xml — the indexable tutor set only */
-  let st = pruneTutorEntries(fs.readFileSync("sitemap-tutors.xml", "utf8"), tutors, "sitemap");
-  for (const t of indexedTutors) {
-    st = upsertUrlBlock(
-      st,
-      t.id,
-      `  <url>\n    <loc>${SITE}/tutor/${t.id}/</loc>\n    <lastmod>${stamp}</lastmod>\n    <changefreq>weekly</changefreq>\n    <priority>0.9</priority>\n  </url>`
-    );
-  }
-  write("sitemap-tutors.xml", st, indexedTutors.length + " tutor URLs");
-
-  /* sitemap.xml — the same entries, with the image markup Google uses */
-  let sm = pruneTutorImageEntries(fs.readFileSync("sitemap.xml", "utf8"), tutors);
-  sm = pruneTutorEntries(sm, tutors, "sitemap");
-  for (const t of indexedTutors) sm = upsertUrlBlock(sm, t.id, sitemapEntry(t, stamp));
-  write("sitemap.xml", sm, indexedTutors.length + " tutor URLs");
+  let sm = pruneTutorImageEntries(fs.readFileSync("sitemap.xml", "utf8"), []);
+  sm = pruneTutorEntries(sm, [], "sitemap");
+  write("sitemap.xml", sm, "0 indexable tutor URLs (profiles noindex)");
 
   /* feed.xml — items, with the channel's build date */
   let feed = pruneTutorEntries(fs.readFileSync("feed.xml", "utf8"), tutors, "feed");

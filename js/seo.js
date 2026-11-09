@@ -482,7 +482,7 @@
     var live = window.EKGURU_TUTORS;
     var hasPublicTutors = Array.isArray(live) && live.length > 0;
     var list = [];
-    for (var i = 1; i <= 6; i++) {
+    for (var i = 1; i <= 8; i++) {
       var suffix = i === 5 ? (hasPublicTutors ? "available" : "empty") : "a";
       list.push([translated("home.faq." + i + ".q"), translated("home.faq." + i + "." + suffix)]);
     }

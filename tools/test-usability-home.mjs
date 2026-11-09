@@ -146,15 +146,35 @@ check("14: the old orphan button is gone",
 
 /* ── 7 · 9 · 22 · the empty state tells one story ───────────────────────── */
 const heroCard = doc.querySelector("#hero-tutor");
-check("7 + 22: the hero card leads with what is open, not with the absence",
-  !!heroCard && /always open/i.test(heroCard.querySelector(".hc-name").textContent),
-  heroCard ? heroCard.querySelector(".hc-name").textContent.trim() : "missing");
+/* Roster-aware since the 3-tutor relisting: findings 7/9/22 govern the
+   EMPTY state. With a public roster the same rule inverts — the hero
+   must show the first public tutor, not the empty-state copy. The
+   generated #stat-tutors is the same public count build-home-tutors
+   wrote (registry ∩ sheet active=yes), so it is the roster oracle. */
+const publicCount = parseInt((doc.querySelector("#stat-tutors") || {}).textContent || "0", 10) || 0;
+if (publicCount === 0) {
+  check("7 + 22: the hero card leads with what is open, not with the absence",
+    !!heroCard && /always open/i.test(heroCard.querySelector(".hc-name").textContent),
+    heroCard ? heroCard.querySelector(".hc-name").textContent.trim() : "missing");
+} else {
+  check("7 + 22 (roster live): the hero card shows the first public tutor, not the empty state",
+    !!heroCard && !heroCard.hasAttribute("data-eg-empty") &&
+      !!heroCard.querySelector('a[href^="tutor/"]') &&
+      heroCard.querySelector(".hc-name").textContent.trim().length > 1,
+    heroCard ? heroCard.querySelector(".hc-name").textContent.trim() : "missing");
+}
 const midCta = doc.querySelector("#tutors [data-eg-tutors-cta]");
 check("9: the section CTA is generated (marker + hook present)",
   !!midCta && home.includes("ekguru:home-tutors-cta:start"));
-check("9: with no public tutor listed, the CTA opens the free courses",
-  !!midCta && /courses\//.test(midCta.innerHTML) && !/find-tutors/.test(midCta.innerHTML),
-  midCta ? midCta.textContent.trim() : "missing");
+if (publicCount === 0) {
+  check("9: with no public tutor listed, the CTA opens the free courses",
+    !!midCta && /courses\//.test(midCta.innerHTML) && !/find-tutors/.test(midCta.innerHTML),
+    midCta ? midCta.textContent.trim() : "missing");
+} else {
+  check("9 (roster live): the CTA opens the tutor directory",
+    !!midCta && /find-tutors/.test(midCta.innerHTML),
+    midCta ? midCta.textContent.trim() : "missing");
+}
 
 /* ── 8 · badge + greeting are one pre-header row ────────────────────────── */
 check("8: the pre-header is laid out explicitly (no free-floating greeting)",

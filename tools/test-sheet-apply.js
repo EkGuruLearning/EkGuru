@@ -146,6 +146,20 @@ function check(name, cond, extra) {
 /* sheet.js fetches synchronously-ish via promise; wait a tick. */
 setTimeout(function () {
   const T = window.EKGURU_TUTORS;
+  const driveId = "1x6sYnW58CYKZeC9abLsEbM5Gd1nGivH4";
+  const expectedDrivePhoto = "https://lh3.googleusercontent.com/d/" + driveId + "=w800";
+  [
+    "https://drive.google.com/file/d/" + driveId + "/view?usp=sharing",
+    "https://drive.google.com/open?id=" + driveId,
+    "https://drive.google.com/uc?export=download&id=" + driveId,
+    "https://drive.google.com/thumbnail?id=" + driveId + "&sz=w800",
+    "https://drive.usercontent.google.com/download?id=" + driveId + "&export=view",
+    "https://docs.google.com/uc?id=" + driveId
+  ].forEach(function (url, i) {
+    check("Drive photo column URL form " + (i + 1) + " becomes a direct image",
+      window.EkGuruSheet.photoUrl(url) === expectedDrivePhoto,
+      window.EkGuruSheet.photoUrl(url));
+  });
   const present = T.map(function (t) { return t.id; });
   /* The CSV decides who is visible (active=no hides a tutor), so the test
      asks the fixture rather than a frozen count. A tutor file with no row

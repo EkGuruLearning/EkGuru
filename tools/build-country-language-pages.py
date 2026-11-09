@@ -361,6 +361,7 @@ def page_shell(title, desc, canon_path, crumb_html, body_html, extra_ld=None):
 <meta property="og:image" content="%s/images/og-cover.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="EkGuru — free, self-paced Hindi learning">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="%s">
 <meta name="twitter:description" content="%s">

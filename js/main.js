@@ -8,19 +8,32 @@
   "use strict";
 
   /* ---------- 0. Safety net ---------- */
+  /* Owner rule (Nov 2026): a visitor must NEVER see code, file
+     names or engineer error text. The technical details stay in
+     the console (first line below); the page gets one calm line. */
   function showError(where, err) {
     try {
       console.error("[EkGuru]", where, err);
       var host = document.getElementById("app-error") || document.body;
-      if (host.querySelector(".errbox")) return;
+      if (host.querySelector('.errbox[data-err="' + where + '"]')) return;
       var box = document.createElement("div");
       box.className = "errbox";
+      box.setAttribute("data-err", where);
       box.innerHTML =
-        "<b>Something went wrong while loading this section</b>" +
-        "<p>Section: <code>" + where + "</code></p>" +
-        "<p>" + String(err && err.message ? err.message : err) + "</p>" +
-        "<p>Check that <code>js/tutors-data.js</code> loaded correctly and contains no syntax errors.</p>";
+        "<b>This part of the page is not loading quite right.</b>" +
+        "<p>Please refresh the page. If it still does not appear, write to us and we will fix it.</p>";
       host.appendChild(box);
+    } catch (e) {}
+  }
+  /* A passing re-render lifts its own notice, so a box left behind
+     by an early failure (e.g. the profile before the sheet lands)
+     does not sit above a page that has since loaded fine. */
+  function clearError(where) {
+    try {
+      var boxes = document.querySelectorAll('.errbox[data-err="' + where + '"]');
+      for (var i = 0; i < boxes.length; i++) {
+        if (boxes[i].parentNode) boxes[i].parentNode.removeChild(boxes[i]);
+      }
     } catch (e) {}
   }
   window.addEventListener("error", function (e) {
@@ -52,6 +65,14 @@
      else keeps the email request flow. Both look identical to the
      student — the difference is that one confirms instantly. */
   function bookBtn(x, cls) {
+    if (!x) return "";
+    /* Inactive tutor (active=no in the sheet): keep the profile
+       visible but take booking off the page. The student can still
+       read the bio, see the price and email — just not book. */
+    if (x._hiddenBySheet) {
+      return '<span class="btn btn-primary ' + cls + '" style="opacity:0.6;cursor:not-allowed">🔒 ' +
+        esc(t("book.closed")) + "</span>";
+    }
     var cal = !!x.calLink;
     var attr = cal ? 'data-cal="' + esc(x.id) + '"' : 'data-book="' + esc(x.id) + '"';
     var label = cal ? t("book.ctaLive") : t("book.cta");
@@ -138,12 +159,38 @@
       "?subject=" + encodeURIComponent(subject) +
       "&body=" + encodeURIComponent(body);
   }
+  function drivePhotoId(url) {
+    url = String(url || "");
+    var m = /lh\d?\.googleusercontent\.com\/d\/([A-Za-z0-9_-]{10,})/i.exec(url);
+    if (m) return m[1];
+    if (!/^https:\/\/(?:drive\.google\.com|drive\.usercontent\.google\.com|docs\.google\.com)\//i.test(url)) return "";
+    m = /\/(?:file\/d|d)\/([A-Za-z0-9_-]{10,})/i.exec(url);
+    if (m) return m[1];
+    m = /[?&]id=([A-Za-z0-9_-]{10,})(?:[&#]|$)/i.exec(url);
+    return m ? m[1] : "";
+  }
   function safeImg(el) {
     el.onerror = function () {
+      /* Public Drive files can fail through one Google image endpoint while
+         another works. Try the thumbnail, view, and user-content routes before
+         using the local avatar; private Drive files still correctly fall back. */
+      var failedSrc = String(el.currentSrc || el.src || "");
+      var driveId = drivePhotoId(failedSrc);
+      var attempt = Number(el.dataset.driveRetry || 0);
+      var driveSources = driveId ? [
+        "https://drive.google.com/thumbnail?id=" + driveId + "&sz=w800",
+        "https://drive.google.com/uc?export=view&id=" + driveId,
+        "https://drive.usercontent.google.com/download?id=" + driveId + "&export=view"
+      ] : [];
+      if (attempt < driveSources.length) {
+        el.dataset.driveRetry = String(attempt + 1);
+        el.src = driveSources[attempt];
+        return;
+      }
       if (el.dataset.fbk === "1") {
         el.onerror = null;
         el.src = "data:image/svg+xml;utf8," + encodeURIComponent(
-          '<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200"><rect width="200" height="200" fill="#5b3df5"/><circle cx="100" cy="78" r="34" fill="#fff"/><path d="M32 200a68 68 0 01136 0z" fill="#fff"/></svg>');
+          '<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200"><defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#6741d9"/><stop offset="1" stop-color="#a855f7"/></linearGradient></defs><rect width="200" height="200" rx="32" fill="url(#g)"/><circle cx="100" cy="78" r="34" fill="#fff" fill-opacity=".92"/><path d="M32 200a68 68 0 01136 0z" fill="#fff" fill-opacity=".92"/></svg>');
         return;
       }
       el.dataset.fbk = "1";
@@ -757,18 +804,7 @@
       ' · <a href="tutor/">' + esc(t("pf.allText")) + "</a>";
   }
 
-  /* ---------- 9. Markets strip ---------- */
-  function renderMarkets() {
-    var host = $("#markets");
-    if (!host) return;
-    /* Homepage country rails own this node — do not overwrite. */
-    if (host.getAttribute("data-eg-cc-rails") === "1" || host.getAttribute("data-eg-cc-host") === "1") return;
-    host.innerHTML = MARKETS.map(function (m) {
-      return '<a class="mkt" href="' + esc(m.slug || "learn-hindi-by-country/") + '"><span class="mkt-flag">' + m.flag + "</span><b>" + esc(m.country) + "</b><span>" + esc(m.label) + "</span></a>";
-    }).join("");
-  }
-
-  /* ---------- 10. FAQ (home) ---------- */
+  /* ---------- 9. FAQ (home) ---------- */
   function renderFaq() {
     var host = $("#faq-list");
     if (!host) return;
@@ -789,7 +825,11 @@
          printing a developer note. */
       host.innerHTML = emptyTutorsHTML();
     } else {
-      host.innerHTML = TUTORS.map(tutorCard).join("");
+      /* Inactive tutors (active=no in the sheet) stay in the roster
+         so their profile URL still works, but they are not shown
+         as bookable cards on the homepage. */
+      var visible = TUTORS.filter(function (t) { return !t._hiddenBySheet; });
+      host.innerHTML = visible.map(tutorCard).join("");
       wireCards(host);
     }
 
@@ -1006,11 +1046,53 @@
       }
     } catch (e) {}
 
+    /* The unknown-id check MUST come first. Reading x._hiddenBySheet
+       before it threw "Cannot read properties of undefined" for every
+       id outside the file roster (e.g. ?id=hemlata before the sheet
+       lands) — the red error box visitors saw. Never move the hidden
+       check above this one again. */
     if (!x) {
-      host.innerHTML = '<div class="wrap"><div class="empty"><div>🙁</div><h2>' + esc(t("pf.notFound")) +
-        "</h2><p>" + esc(t("pf.notFoundSub")) + '</p><a class="btn btn-primary" href="' + langHref("find-tutors.html") + '">' +
-        esc(t("pf.seeAll")) + "</a></div></div>";
+      /* The sheet may still be on its way: an id it would provide
+         (e.g. ?id=hemlata, a sheet-born tutor) must not flash "not
+         found" while the fetch is in flight. sheet.js loaded but not
+         answered yet = loading; the repaint replaces this card. Only
+         claim "not found" once the sheet has answered or failed —
+         or when sheet.js itself never loaded. */
+      var sheetInfo = window.EKGURU_SHEET_INFO;
+      if (id && !sheetInfo && window.EkGuruSheet) {
+        host.innerHTML = '<div class="wrap"><div class="empty"><div>\u23f3</div><h2>Loading this tutor\u2019s profile\u2026</h2>' +
+          "<p>One moment while the latest details arrive.</p></div></div>";
+        return;
+      }
+      /* Known-but-hidden (sheet active=no): the tutor exists, so say
+         "unavailable", not "not found". Record-only stubs are published
+         for hidden rows on every page by js/sheet.js. */
+      var recs = window.EKGURU_SHEET_RECORDS || {};
+      var baked = window.EKGURU_SHEET_HIDDEN || [];
+      var knownHidden = (id && recs[id] && recs[id]._hiddenBySheet) ||
+                        (id && baked.indexOf(id) > -1);
+      if (knownHidden) {
+        host.innerHTML = '<div class="wrap"><div class="empty"><div>⏸️</div><h2>' + esc(t("book.closed")) +
+          "</h2><p>" + esc(t("pf.closedNote")) + '</p><a class="btn btn-primary" href="' + langHref("find-tutors.html") + '">' +
+          esc(t("pf.seeAll")) + "</a></div></div>";
+      } else {
+        host.innerHTML = '<div class="wrap"><div class="empty"><div>🙁</div><h2>' + esc(t("pf.notFound")) +
+          "</h2><p>" + esc(t("pf.notFoundSub")) + '</p><a class="btn btn-primary" href="' + langHref("find-tutors.html") + '">' +
+          esc(t("pf.seeAll")) + "</a></div></div>";
+      }
       return;
+    }
+
+    /* Inactive tutor (active=no in the sheet): the profile stays
+       visible — bio, price, experience — but booking is off. A
+       banner at the top says so honestly. bookBtn() above already
+       returns the closed state instead of a button. */
+    if (x._hiddenBySheet) {
+      host.insertAdjacentHTML("afterbegin",
+        '<div class="pf-closed" style="margin-bottom:16px;padding:14px;background:#fff3cd;border:1px:#ffeeba;border-radius:8px">' +
+        '<strong>⚠️ ' + esc(t("book.closed")) + "</strong>" +
+        '<p style="margin:6px 0 0">' + esc(t("pf.closedNote")) + "</p>" +
+        "</div>");
     }
 
     var subj = "Hindi lesson enquiry — " + x.name + " (EkGuru)";
@@ -1031,12 +1113,15 @@
 
     var days = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
     var av = x.availability || {};
-    var sched = days.map(function (d) {
-      var sl = av[d] || [];
-      return '<div><div class="d">' + esc(t("days." + d)) + "</div>" +
-        (sl.length ? sl.map(function (s) { return '<div class="slot">' + esc(s) + "</div>"; }).join("")
-                   : '<div class="slot off">—</div>') + "</div>";
-    }).join("");
+    var hasSlots = days.some(function (d) { return (av[d] || []).length > 0; });
+    var sched = hasSlots
+      ? days.map(function (d) {
+          var sl = av[d] || [];
+          return '<div><div class="d">' + esc(t("days." + d)) + "</div>" +
+            (sl.length ? sl.map(function (s) { return '<div class="slot">' + esc(s) + "</div>"; }).join("")
+                       : '<div class="slot off">—</div>') + "</div>";
+        }).join("")
+      : '<p class="muted" style="grid-column:1/-1">No fixed weekly times are published for this tutor yet — send a booking request or an email with the times that suit you.</p>';
 
     /* Reviews. On a phone these become a swipeable carousel (see
        features.js); on a desktop they stay as a normal stack. The
@@ -1074,7 +1159,7 @@
           '<div class="pf-stats">' +
             (x.reviewsCount ? '<div><b class="stars">' + stars(x.rating) + "</b><span>" +
               esc(t("pf.sourceShort")) + " " + (x.rating || 0).toFixed(1) + " · " + x.reviewsCount + " " + esc(t("card.reviews")) + "</span></div>" : "") +
-            (x.lessonsCount ? "<div><b>" + x.lessonsCount + "</b><span>" + esc(t("pf.profileLessons")) + "</span></div>" : "") +
+            (x.lessonsCount ? "<div><b>" + x.lessonsCount + "</b><span>" + esc(t("pf.lessonsTaught")) + "</span></div>" : "") +
             (x.experienceYears ? "<div><b>" + x.experienceYears + "+ " + esc(t("pf.yrs")) + "</b><span>" + esc(t("pf.statedExp")) + "</span></div>" : "") +
             '<div><b data-usd="' + esc(x.priceUSD) + '" data-usd-mode="bare">' + px(x.priceUSD) + "</b><span>" + esc(t("pf.profilePrice")) + " · " + esc(x.lessonLength || "50 min") + "</span></div>" +
           "</div>" +
@@ -1088,7 +1173,7 @@
             esc(t("pf.textVersion")) + "</a></p>" +
           "</div></div></div></section>" +
 
-      '<div class="wrap"><div class="pf-layout"><main>' +
+      '<div class="wrap"><div class="pf-layout"><div class="pf-main">' +
         '<section class="panel reveal"><h2><span class="ico">👋</span>' + esc(t("pf.about")) + "</h2>" +
           (x.about || []).map(function (p) { return "<p>" + esc(p) + "</p>"; }).join("") + "</section>" +
 
@@ -1098,19 +1183,29 @@
             '" target="_blank" rel="noopener">' + esc(t("pf.watchOn")) + " ↗</a></p>" : "") +
         "</section>" +
 
-        '<section class="panel reveal"><h2><span class="ico">🎓</span>' + esc(t("pf.experience")) + '</h2><ul class="list">' +
-          (x.experience || []).map(function (v) { return "<li>" + esc(v) + "</li>"; }).join("") + "</ul></section>" +
+        /* Empty sections are omitted, never shown as blank panels — a
+           heading over nothing reads as a broken page. A tutor with no
+           stated experience/method skips those panels, exactly like the
+           pre-rendered profile generator (build-tutor-pages.js) does. */
+        ((x.experience || []).length
+          ? '<section class="panel reveal"><h2><span class="ico">🎓</span>' + esc(t("pf.experience")) + '</h2><ul class="list">' +
+            x.experience.map(function (v) { return "<li>" + esc(v) + "</li>"; }).join("") + "</ul></section>"
+          : "") +
 
-        '<section class="panel reveal"><h2><span class="ico">🧭</span>' + esc(t("pf.method")) + '</h2><div class="method">' +
-          (x.methodology || []).map(function (m) {
-            return '<div class="m"><b>' + esc(m.title) + "</b><span>" + esc(m.desc) + "</span></div>";
-          }).join("") + "</div></section>" +
+        ((x.methodology || []).length
+          ? '<section class="panel reveal"><h2><span class="ico">🧭</span>' + esc(t("pf.method")) + '</h2><div class="method">' +
+            x.methodology.map(function (m) {
+              return '<div class="m"><b>' + esc(m.title) + "</b><span>" + esc(m.desc) + "</span></div>";
+            }).join("") + "</div></section>"
+          : "") +
 
         '<section class="panel reveal"><h2><span class="ico">📚</span>' + esc(t("pf.teaches")) + "</h2>" +
           '<div class="tags">' + (x.teaches || []).map(function (v) { return '<span class="tag hi">' + esc(v) + "</span>"; }).join("") + "</div>" +
           '<dl class="kv" style="margin-top:18px">' +
             "<dt>" + esc(t("pf.levels")) + "</dt><dd>" + esc((x.levels || []).join(", ")) + "</dd>" +
-            "<dt>" + esc(t("pf.speaks")) + "</dt><dd>" + (x.speaks || []).map(function (s) { return esc(s.lang) + " (" + esc(s.level) + ")"; }).join(", ") + "</dd>" +
+            ((x.speaks || []).length
+              ? "<dt>" + esc(t("pf.speaks")) + "</dt><dd>" + x.speaks.map(function (s) { return esc(s.lang) + " (" + esc(s.level) + ")"; }).join(", ") + "</dd>"
+              : "") +
             "<dt>" + esc(t("pf.location")) + "</dt><dd>" + esc(x.city || x.country) + "</dd>" +
             "<dt>" + esc(t("pf.timezone")) + "</dt><dd>" + esc(x.timezone || "IST") + "</dd>" +
           "</dl></section>" +
@@ -1120,7 +1215,31 @@
           '<p class="sched-note">' + esc(t("pf.schedNote")) + " " + esc(x.timezone || "IST") + ". " + esc(t("pf.schedNote2")) + "</p></section>" +
 
         '<section class="panel reveal"><h2><span class="ico">💬</span>' + esc(t("pf.reviews")) + "</h2>" + revs + "</section>" +
-      "</main><aside><div class=\"side\"><div class=\"side-card reveal\">" +
+
+        /* v1.2.0 — review form: only a student with a real booking can
+           leave a review, so they must enter the booking reference they
+           received. Verified server-side against the bookings tab. */
+        '<section class="panel reveal" data-eg-review-form data-tutor="' + esc(x.id) + '">' +
+          '<h2><span class="ico">✍️</span>Share your experience with ' + esc(x.name) + "</h2>" +
+          "<p>Only students who booked " + esc(x.name) + " through EkGuru can leave a review here. Enter the booking reference you received (it starts with <code>EK-</code>) so we can verify it.</p>" +
+          '<form class="intake-form" data-intake="review" action="mailto:EkGuruLearning@gmail.com" method="post" enctype="text/plain" style="display:grid;gap:12px">' +
+            '<input type="hidden" name="tutor_id" value="' + esc(x.id) + '">' +
+            '<div><label for="rv-name">Your name</label><br><input id="rv-name" name="reviewer_name" maxlength="60" required></div>' +
+            '<div><label for="rv-stars">Rating</label><br><select id="rv-stars" name="stars" required>' +
+              '<option value="" selected>Select rating</option>' +
+              [1,2,3,4,5].map(function(n){ return '<option value="' + n + '">' + n + ' star' + (n>1?"s":"") + "</option>"; }).join("") +
+            "</select></div>" +
+            '<div><label for="rv-booking">Booking reference</label><br><input id="rv-booking" name="booking_id" maxlength="20" required placeholder="EK-…"></div>' +
+            '<div><label for="rv-text">Your review</label><br><textarea id="rv-text" name="text" maxlength="800" rows="5" required></textarea></div>' +
+            '<div><label for="rv-email">Email (optional — only to reply about this review)</label><br><input id="rv-email" type="email" name="contact_email" maxlength="120"></div>' +
+            '<div><label for="rv-date">Lesson date (optional)</label><br><input id="rv-date" type="date" name="lesson_date"></div>' +
+            '<label style="display:flex;gap:8px;align-items:center"><input type="checkbox" name="consent" required> I agree EkGuru may keep this review to publish on the tutor\'s profile.</label>' +
+            '<input type="text" name="website" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px" aria-hidden="true">' +
+            '<button type="submit" class="btn btn-primary">Submit review</button>' +
+            '<p data-intake-msg role="status"></p>' +
+          "</form>" +
+        "</section>" +
+      "</div><aside><div class=\"side\"><div class=\"side-card reveal\">" +
         '<div class="side-price"><b data-usd="' + esc(x.priceUSD) + '" data-usd-mode="full">' + pxFull(x.priceUSD) + "</b><span>" + esc(t("pf.profilePrice")) + " · " + esc(x.lessonLength || "50 min") + " " + esc(t("card.lesson")) + "</span></div>" +
         bookBtn(x, "btn-block") +
         '<a class="btn btn-ghost btn-block" href="' + mail + '">' + esc(t("pf.email")) + "</a>" +
@@ -1128,7 +1247,9 @@
         '<div class="trust">' +
           (x.trialAvailable ? "<div><span>✅</span>" + esc(t("pf.trial")) + "</div>" : "") +
           "<div><span>🕒</span>" + esc(x.timezone || "IST") + "</div>" +
-          "<div><span>🗣️</span>" + esc((x.speaks || []).map(function (s) { return s.lang; }).join(" · ")) + "</div>" +
+          ((x.speaks || []).length
+            ? "<div><span>🗣️</span>" + esc(x.speaks.map(function (s) { return s.lang; }).join(" · ")) + "</div>"
+            : "") +
           "<div><span>🔒</span>" + esc(t("pf.oneOnOne")) + "</div>" +
         "</div></div></div></aside></div></div>";
 
@@ -1293,7 +1414,6 @@
     try { initHeader(); } catch (e) { showError("header", e); }
     try { initBadges(); } catch (e) { showError("badges", e); }
     try { initContact(); } catch (e) { showError("contact", e); }
-    try { renderMarkets(); } catch (e) { showError("markets", e); }
     try { renderTextVersions(); } catch (e) { showError("text versions", e); }
     try { renderHome(); } catch (e) { showError("home", e); }
     try { renderFaq(); } catch (e) { showError("faq", e); }
@@ -1373,8 +1493,13 @@
     try { renderHome(); } catch (e) { warnQuiet("home", e); }
     try { renderFaq(); } catch (e) { warnQuiet("faq", e); }
     try { renderFind(); } catch (e) { warnQuiet("find-tutors", e); }
-    try { renderProfile(); } catch (e) { warnQuiet("profile", e); }
+    try { renderProfile(); clearError("profile"); } catch (e) { warnQuiet("profile", e); }
     try { wireVideos(document); } catch (e) { warnQuiet("video", e); }
+
+    /* The repaint rebuilt the DOM — forms inside it (the profile
+       review form) are new nodes. Re-wire them or their submit
+       silently falls back to a native mailto POST. */
+    try { if (window.EkGuruIntake && window.EkGuruIntake.rewire) window.EkGuruIntake.rewire(); } catch (e) {}
 
     /* Prices must be re-converted: the repaint wrote fresh
        data-usd attributes and the currency layer has to redraw

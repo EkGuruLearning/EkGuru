@@ -23,6 +23,16 @@
   function langOK(l) { return typeof l === 'string' && /^[a-z]{2,3}$/.test(l); }
   function num(n, max) { return typeof n === 'number' && isFinite(n) && n >= 0 && n <= max; }
   function str(t, max) { return typeof t === 'string' && t.length <= max; }
+  /* Owner rule (Nov 2026): no engine text on screen. Designed reasons
+     (short, plain words) may show; transport errors become the calm
+     fallback. Details always go to the console. */
+  function calmErr(e, fallback) {
+    var m = e && e.message ? String(e.message) : '';
+    try { if (window.console) console.warn('[EkGuru] learning widget:', m); } catch (e0) {}
+    if (!m || m.length > 160) return fallback;
+    if (/failed to fetch|network|timeout|timed out|abort|unexpected token|<!doctype|<html|HTTP \d| 5\d\d| 4\d\d|JSON|promise|undefined|null/i.test(m)) return fallback;
+    return m;
+  }
   function dayKey(date) { var d = date || new Date(); return d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0') + '-' + String(d.getDate()).padStart(2, '0'); }
   function dayDate(key) {
     if (!/^\d{4}-\d{2}-\d{2}$/.test(key || '')) return null;
@@ -297,7 +307,7 @@
           var blob = new Blob([exportData()], { type: 'application/json' }), u = URL.createObjectURL(blob), a = link('Download', u);
           a.download = 'ekguru-learning-' + dayKey() + '.json'; a.click(); setTimeout(function () { URL.revokeObjectURL(u); }, 1000);
           status.textContent = 'Exported this journal and language decks only.';
-        } catch (e) { status.textContent = e.message; }
+        } catch (e) { status.textContent = calmErr(e, 'Export did not work in this browser.'); }
       }));
       var file = node('input', null, { type: 'file', accept: 'application/json,.json', 'aria-label': 'Choose learning backup JSON' }), confirmBox = node('input', null, { type: 'checkbox' }), confirmLabel = node('label', ' Replace this device journal/decks (export first)');
       confirmLabel.prepend(confirmBox);
@@ -305,11 +315,11 @@
         var f = file.files[0];
         if (!f || !confirmBox.checked) { status.textContent = 'Choose a backup and explicitly confirm replacement.'; return; }
         if (f.size > MAX_FILE) { status.textContent = 'Import exceeds 2 MB.'; return; }
-        f.text().then(function (raw) { importData(raw); status.textContent = 'Validated import complete. No booking or payment storage was touched.'; picker.value = read().selected; paint(); }).catch(function (e) { status.textContent = e.message; });
+        f.text().then(function (raw) { importData(raw); status.textContent = 'Validated import complete. No booking or payment storage was touched.'; picker.value = read().selected; paint(); }).catch(function (e) { status.textContent = calmErr(e, 'That file is not a valid EkGuru backup.'); });
       }));
       controls.appendChild(button('Clear offline learning snapshots', function () {
         if (!w.confirm('Remove saved offline learning snapshots on this device? Your learning journal and review decks will be kept.')) return;
-        offline(null, 'clear-offline').then(function () { status.textContent = 'Saved offline snapshots cleared; learning progress kept.'; }).catch(function (e) { status.textContent = e.message; });
+        offline(null, 'clear-offline').then(function () { status.textContent = 'Saved offline snapshots cleared; learning progress kept.'; }).catch(function (e) { status.textContent = calmErr(e, 'Snapshots could not be cleared.'); });
       }));
       var time = node('input', null, { type: 'time', value: j.reminder ? j.reminder.time : '18:00', 'aria-label': 'Optional local reminder time' });
       controls.append(time, button('Enable local reminder', function () {
@@ -328,7 +338,7 @@
           var course = data.languages.find(function (l) { return l.code === picker.value; });
           session = { language: picker.value, questions: d.questions, used: {}, taken: 0, right: 0, difficulty: 0, levels: course.levels.map(function (l) { return l.id; }) };
           picker.disabled = true; ask();
-        }).catch(function (e) { status.textContent = e.message; });
+        }).catch(function (e) { status.textContent = calmErr(e, 'The starting-point check is unavailable right now.'); });
       }
       function ask() {
         var left = session.questions.filter(function (q) { return !session.used[q.id]; });
@@ -403,7 +413,7 @@
         b.disabled = true;
         var out = b.parentNode.querySelector('[role="status"]'); if (out) out.textContent = 'Downloading a bounded level snapshot…';
         offline(b.getAttribute('data-eg-download-level')).then(function (r) { if (out) out.textContent = 'Saved ' + r.files + ' files (' + Math.ceil(r.bytes / 1024) + ' KB) for offline reading. Voice availability is still device-dependent.'; })
-          .catch(function (e) { if (out) out.textContent = e.message; }).then(function () { b.disabled = false; });
+          .catch(function (e) { if (out) out.textContent = calmErr(e, 'Download did not finish. Please try again online.'); }).then(function () { b.disabled = false; });
       });
     });
     document.querySelectorAll('[data-eg-complete]').forEach(function (b) {

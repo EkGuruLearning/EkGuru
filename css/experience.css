@@ -5905,3 +5905,55 @@ html[dir="rtl"] .xp-hero-copy > .ekg-greeting-line {
 @media (max-width: 640px) {
   .cur-tip { top: auto; bottom: 16px; }
 }
+/* Tutor-photo polish and resilient card imagery. Kept separate from the
+   generated minified bundle; tools/bundle-experience-css.py owns that file. */
+.tcard-photo {
+  isolation: isolate;
+  border-radius: 24px;
+}
+
+.tcard-photo::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: -5px;
+  border-radius: 25px;
+  background: linear-gradient(140deg, color-mix(in srgb, var(--brand, #5b3df5) 22%, #fff), #fff 72%);
+  box-shadow: 0 5px 16px rgba(34, 28, 80, .10);
+}
+
+.tcard-photo img {
+  object-fit: cover;
+  object-position: 50% 32%;
+  border: 1px solid rgba(255, 255, 255, .9);
+  transition: transform .28s ease, filter .28s ease;
+}
+
+.tcard:hover .tcard-photo img,
+.tcard:focus-within .tcard-photo img {
+  transform: scale(1.035);
+  filter: saturate(1.04);
+}
+
+.pf-photo img,
+.pr-photo {
+  object-fit: cover;
+  object-position: 50% 30%;
+  background: linear-gradient(145deg, #f2edff, #fceefa);
+  border: 4px solid #fff;
+  outline: 1px solid rgba(91, 61, 245, .12);
+  box-shadow: 0 14px 36px rgba(34, 28, 80, .16);
+}
+
+.tcard-photo img[data-fbk="1"],
+.pf-photo img[data-fbk="1"] {
+  object-fit: contain;
+  padding: 12px;
+  background: linear-gradient(145deg, #f2edff, #fceefa);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tcard-photo img { transition: none; }
+  .tcard:hover .tcard-photo img,
+  .tcard:focus-within .tcard-photo img { transform: none; }
+}

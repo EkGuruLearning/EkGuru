@@ -144,17 +144,16 @@ try {
     !site1.publicTutors.some((t) => t.id === "shikha-dutta"));
 
   const prof1 = readFileSync(join(ROOT, "tutor", FLIP_ID, "index.html"), "utf8");
-  check("profile is indexable again", /content="index, follow/.test(head(prof1)));
-  check("profile has no noindex", !/noindex/.test(head(prof1)));
+  check("active profile remains noindex under the owner indexing freeze", /content="noindex, follow"/.test(head(prof1)));
   check("profile carries Person JSON-LD again", /"@type":\s*"Person"/.test(prof1));
   check("profile booking CTAs return (tutor.html?id=" + FLIP_ID + ")",
     new RegExp("tutor\\.html\\?id=" + FLIP_ID).test(prof1));
   check("profile has no hidden-notice markers", !/data-eg-hidden/.test(prof1));
 
   const sitemapT = readFileSync(join(ROOT, "sitemap-tutors.xml"), "utf8");
-  check("sitemap-tutors.xml lists the profile", sitemapT.includes("/tutor/" + FLIP_ID + "/"));
+  check("sitemap-tutors.xml excludes the noindex profile", !sitemapT.includes("/tutor/" + FLIP_ID + "/"));
   const sitemap = readFileSync(join(ROOT, "sitemap.xml"), "utf8");
-  check("sitemap.xml lists the profile", sitemap.includes("/tutor/" + FLIP_ID + "/"));
+  check("sitemap.xml excludes the noindex profile", !sitemap.includes("/tutor/" + FLIP_ID + "/"));
   const feed = readFileSync(join(ROOT, "feed.xml"), "utf8");
   check("feed.xml carries the profile item", feed.includes("/tutor/" + FLIP_ID + "/"));
 

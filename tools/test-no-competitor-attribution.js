@@ -62,7 +62,7 @@ const ALLOWED_HOSTS = new Set([
   "razorpay.com", "pages.razorpay.com", "checkout.razorpay.com", "rzp.io",
   "open.er-api.com", "cdn.jsdelivr.net",                       /* FX rate sources (js/rates.js) */
   "staticforms.dev",
-  "drive.google.com",                                          /* sheet photo URLs normalised at runtime */
+  "drive.google.com", "drive.usercontent.google.com",          /* public Drive photo URLs and resilient image fallbacks */
   "wa.me",                                                     /* tutor-provided WhatsApp contact links */
   "www.facebook.com", "twitter.com",                              /* social share buttons (js/features.js) */
   "cal.com", "app.cal.com",                                      /* tutor-provided Cal.com booking links */

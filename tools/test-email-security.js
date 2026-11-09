@@ -70,7 +70,11 @@ check("every whitelisted type renders", E.WHITELIST.every((t) => {
   };
   return E.render(t, E.FIXTURES[map[t]]).ok;
 }));
-check("seven message types, no more", E.WHITELIST.length === 7, E.WHITELIST.join(","));
+check("six routable message types; booking owner emails excluded",
+  E.WHITELIST.length === 6 &&
+  E.WHITELIST.indexOf("booking_internal_record") === -1 &&
+  E.WHITELIST.indexOf("BOOKING_EKGURU_NOTIFICATION") === -1,
+  E.WHITELIST.join(","));
 
 /* ============ 4. student copy never leaks the tutor's address ============ */
 const stu = E.render("bookingStudent", E.FIXTURES.bookingStudent);
@@ -87,6 +91,8 @@ check("student html has no 'provider' / internal wording",
 /* ============ 5. relay static defences ============ */
 const gs = fs.readFileSync(path.join(ROOT, "tools", "apps-script-mailer.gs"), "utf8");
 check("relay: message-type whitelist", /var MESSAGE_TYPES\s*=\s*\[/.test(gs));
+check("relay: booking owner email types are not accepted",
+  !/BOOKING_INTERNAL_RECORD|BOOKING_EKGURU_NOTIFICATION/.test(gs));
 check("relay: fail-closed token", /MAILER_SHARED_TOKEN/.test(gs) && /Not authorised/.test(gs));
 check("relay: forced From = owner (never client)", /GmailApp\.sendEmail\(to, subject, textBody, opts\)/.test(gs) && /name:\s*SENDER_NAME/.test(gs));
 check("relay: size caps", /MAX_HTML_BYTES\s*=\s*60000/.test(gs) && /MAX_TEXT_BYTES\s*=\s*20000/.test(gs));

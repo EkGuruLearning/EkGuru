@@ -77,6 +77,11 @@
      add keys, never override them (see fetchSheet). */
   var supportUrl = String(CFG.supportCsvUrl || "").trim();
 
+  /* Baked-in payment defaults (js/site-config.js snapshot). The sheet
+     may override these with a different valid URL, but "none"/blank/
+     invalid never hides them — see the two validators below. */
+  var BAKED = root.EKGURU_BAKED_SUPPORT || {};
+
   /* Live feed (28 Oct 2026). Same function as js/sheet.js and
      js/reviews.js; tools/test-live-feed.js asserts all three agree.
      Blank or malformed S.feed.url means the feed is off. */
@@ -88,7 +93,10 @@
     return base + "?tab=" + encodeURIComponent(tab) + "&t=" + Math.floor(Date.now() / (sec * 1000));
   }
 
-  var CACHE_KEY = "ekguru_settings_v2";
+  /* v3 (4 Nov 2026): v2 caches may hold a wiped Razorpay value ("none"
+     used to write "") that kept hiding the method after the sheet was
+     fixed. Bumping drops every stale wipe on the next page view. */
+  var CACHE_KEY = "ekguru_settings_v3";
   var MAX_AGE = (Number(CFG.cacheMinutes) || 5) * 60 * 1000;
 
   /* ---------------------------------------------------------
@@ -148,7 +156,10 @@
       return /^[\w.\-]{2,256}@[a-zA-Z]{2,64}$/.test(v) ? v : null;
     },
     supportPaypal: function (v) {
-      if (/^(none|no|off)$/i.test(v)) return "";
+      /* Owner decision (4 Nov 2026): PayPal is always on. "none"
+         restores the baked-in default instead of hiding the method;
+         an invalid URL is refused and the previous value is kept. */
+      if (/^(none|no|off)$/i.test(v)) return BAKED.supportPaypal || S.supportPaypal || "";
       return /^https:\/\/(www\.)?paypal\.me\//.test(v) ? v : null;
     },
     supportBtc: function (v) {
@@ -168,7 +179,10 @@
        backend — the only thing a static site can safely do).
        Razorpay/Stripe links carry their own fixed amount. */
     supportRazorpay: function (v) {
-      if (/^(none|no|off)$/i.test(v)) return "";
+      /* Owner decision (4 Nov 2026): Razorpay is always on. "none"
+         restores the baked-in default instead of hiding the method;
+         an invalid URL is refused and the previous value is kept. */
+      if (/^(none|no|off)$/i.test(v)) return BAKED.supportRazorpay || S.supportRazorpay || "";
       return /^https:\/\/(www\.)?(razorpay\.com|rzp\.io|pages\.razorpay\.com)\//.test(v) ? v : null;
     },
     supportStripe: function (v) {
@@ -326,7 +340,27 @@
     } catch (e) {}
   }
 
-  function fetchOne(u) {
+  /* Google's TSV export of a published tab: no quoting, one row per
+     line, cells split on tabs. Only used as a fallback (below). */
+  function parseTSV(text) {
+    text = String(text).replace(/^\uFEFF/, "");
+    var rows = [];
+    var lines = text.split("\n");
+    for (var i = 0; i < lines.length; i++) {
+      var line = lines[i].replace(/\r$/, "");
+      if (!line && i === lines.length - 1) continue;
+      rows.push(line.split("\t"));
+    }
+    return rows;
+  }
+
+  function tsvVariant(u) {
+    u = String(u || "");
+    if (/[?&]output=/.test(u)) return u.replace(/([?&])output=[^&]*/, "$1output=tsv");
+    return u + (u.indexOf("?") === -1 ? "?" : "&") + "output=tsv";
+  }
+
+  function tryOne(u, fmt) {
     var ctrl = null, timer = null;
     try { ctrl = new AbortController(); } catch (e) {}
     if (ctrl) timer = setTimeout(function () { try { ctrl.abort(); } catch (e) {} }, 8000);
@@ -335,17 +369,30 @@
       .then(function (r) { return r.ok ? r.text() : Promise.reject(new Error("HTTP " + r.status)); })
       .then(function (text) {
         if (timer) clearTimeout(timer);
-        if (/^\s*</.test(text)) throw new Error("that URL returns a page, not CSV");
-        return toPairs(parseCSV(text));
+        if (/^\s*</.test(text)) throw new Error("that URL returns a page, not " + fmt.toUpperCase());
+        return toPairs(fmt === "tsv" ? parseTSV(text) : parseCSV(text));
       })
       .catch(function (e) { if (timer) clearTimeout(timer); throw e; });
   }
 
-  /* Feed first (when configured), then the published CSV. */
+  /* Published CSV first, then the SAME tab as TSV. Google's published-
+     CSV endpoint answers HTTP 500 for this workbook while output=tsv
+     answers 200 (seen 30 Sep 2026 — js/sheet.js and tools/sheet-fetch.js
+     already carry this fallback; settings was missing it, so a dead CSV
+     endpoint meant fresh sheet values never arrived in the browser). */
+  function fetchPublished(csv) {
+    return tryOne(csv, "csv").catch(function (eCsv) {
+      return tryOne(tsvVariant(csv), "tsv").catch(function (eTsv) {
+        throw new Error(eCsv.message + " / " + eTsv.message);
+      });
+    });
+  }
+
+  /* Feed first (when configured), then the published tab (CSV→TSV). */
   function fetchFirst(feed, csv) {
-    if (!feed) return fetchOne(csv);
-    return fetchOne(feed).catch(function () {
-      return csv ? fetchOne(csv) : Promise.reject(new Error("feed failed"));
+    if (!feed) return fetchPublished(csv);
+    return tryOne(feed, "csv").catch(function () {
+      return csv ? fetchPublished(csv) : Promise.reject(new Error("feed failed"));
     });
   }
 

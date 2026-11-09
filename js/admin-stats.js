@@ -5,7 +5,7 @@
    publicly like every other file here.
    Regenerate: node tools/adminstats.js */
 window.EKGURU_ADMIN_STATS = {
- "generated": "2026-09-14T07:27:49.770Z",
+ "generated": "2026-11-09T13:04:08.556Z",
  "sections": {
   "countryPages": 158,
   "languagePages": 30,
@@ -17,8 +17,8 @@ window.EKGURU_ADMIN_STATS = {
   "questions": 43,
   "answers": 28,
   "locations": 32,
-  "tutorProfiles": 4,
-  "totalHtml": 1562,
+  "tutorProfiles": 8,
+  "totalHtml": 2727,
   "materials": 0
  },
  "countries": {
@@ -3923,24 +3923,24 @@ window.EKGURU_ADMIN_STATS = {
   "pass": true,
   "critical": 0,
   "warnings": 0,
-  "pages": 1562,
-  "sitemapUrls": 1209,
-  "sitemapFiles": 16,
+  "pages": 2727,
+  "sitemapUrls": 1006,
+  "sitemapFiles": 15,
   "brokenLinks": 0,
   "orphans": 0
  },
  "privacy": {
-  "state": "PASS",
-  "fails": 4,
-  "blocked": 0,
-  "note": "1904 files scanned, 0 secrets"
+  "state": "FAIL",
+  "fails": 217292,
+  "blocked": 5,
+  "note": "4759 files scanned, 18 secrets"
  },
  "gate": {
-  "doctorProblems": 0,
+  "doctorProblems": 5,
   "doctorWarnings": 0,
-  "doctorChecks": 11,
+  "doctorChecks": 12,
   "seoPass": true,
-  "privacyState": "PASS"
+  "privacyState": "FAIL"
  },
  "tutors": [
   {
@@ -4558,9 +4558,9 @@ window.EKGURU_ADMIN_STATS = {
   "ar/join.html"
  ],
  "release": {
-  "commit": "e9719b5d6b1b56e4fd36f0594403a1b2bb4adb7d",
-  "subject": "P0 per-entry sourcing closed: 23→0 agent-only (12 source keys, 121 total); guides +49; limitations §11; VALID + doctor PASS",
-  "buildTime": "2026-09-14T07:27:49.782Z",
+  "commit": "caead6c100ffc903ddf6e19a073f387ced21f644",
+  "subject": "Hindi Advanced (B3): author the level from zero, plus regenerated outputs",
+  "buildTime": "2026-11-09T13:04:08.579Z",
   "dataSourceStatus": "LIVE",
   "toolQa": {
    "tools": 12,
@@ -4572,8 +4572,8 @@ window.EKGURU_ADMIN_STATS = {
    "refreshRequiredAnywhere": false
   },
   "sections": {
-   "totalHtml": 1562,
-   "tutorProfiles": 4,
+   "totalHtml": 2727,
+   "tutorProfiles": 8,
    "materials": 0
   }
  },

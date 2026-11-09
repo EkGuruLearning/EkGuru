@@ -66,22 +66,17 @@ window.EKGURU_SITE = {
   /* =========================================================
      BOOKING EMAILS
      ---------------------------------------------------------
-     When a student presses "Send booking request", one press
-     sends one real email to three inboxes:
+     A booking request email goes only to the booked tutor and
+     the student who submitted it. The owner gets the durable record
+     through the private bookings sheet, not a booking email copy.
 
-        the tutor      (js/tutors/<name>.js  →  email:)
-        EkGuru         (the address above)
-        the student    (whatever they typed in the form)
-
-     enabled        false -> no mail is sent; the button falls
-                    back to opening the student's own email app
-                    with the message already written, exactly as
-                    the site behaved before.
-     copyToSite     EkGuru keeps a copy of every request.
-     copyToStudent  the student gets their own receipt.
-     alwaysCc       any extra inboxes, e.g. ["ops@ekguru.com"]
-     siteKey        optional FormSubmit alias for EkGuru's inbox,
-                    so the raw address is not in the page source.
+     enabled        false -> no mail is sent.
+     copyToSite     retained for backwards config compatibility but
+                    booking code ignores it (owner email is forbidden).
+     copyToStudent  retained for older settings; booking receipt is
+                    sent to the student when a valid route is available.
+     alwaysCc       applies to other mail flows, never bookings.
+     siteKey        optional provider alias; never a tutor fallback.
 
      ⚠️ Each recipient address must be activated ONCE with the
      mail relay before it will receive anything. The first booking
@@ -89,6 +84,19 @@ window.EKGURU_SITE = {
      ========================================================= */
   mail: {
     enabled: true,
+
+    /* ---------- BOOKING WITHOUT A TUTOR ADDRESS (degraded mode) ----------
+       Owner decision, 4 Nov 2026: a booking for a tutor who has no
+       notification_email yet must still WORK — the request is saved to
+       the private bookings sheet, the student gets an honest "received,
+       EkGuru will confirm manually" receipt, and NO tutor copy goes out
+       (there is nowhere to send it). The owner relays via the sheet.
+
+       Set this to false to re-block those bookings with a "not
+       configured yet" message instead. Whatever this is, a booking
+       email is NEVER routed to the owner inbox — that policy is
+       unconditional. */
+    degradedBooking: true,
 
     /* ---------- REMOVING THE "FormSubmit Team" FOOTER ----------
        Every email FormSubmit sends carries their sign-off and a
@@ -317,7 +325,7 @@ window.EKGURU_SITE = {
        while delivering only to the key owner — a wrong-inbox "win".
        The live chain is Apps Script → one Web3Forms key → mailto. */
     staticFormsKey: "",
-    copyToSite: true,
+    copyToSite: false,
     copyToStudent: true,
     alwaysCc: [],
     siteKey: "",
@@ -573,17 +581,11 @@ window.EKGURU_SITE = {
      plausible lie — that part is on you.
 
      SETUP:  node tools/makereviews.js
+
+     LIVE VALUE lives in the second `reviews:` block near the end of
+     this file (same-origin live-sheets/reviews.csv). A duplicate key
+     here would be dead — the later block wins — so there is only one.
      ========================================================= */
-  reviews: {
-    /* LIVE — new production workbook (reviews tab, gid=298809212).
-       Wired 13 Sep 2026 — HTTP 200, correct header row, 3 live rows. */
-    csvUrl: "https://docs.google.com/spreadsheets/d/e/2PACX-1vQIman_Um2wQrj_3mXqqgq4k69zzmJHkhZ1TRoAnh2jcamhzoo-0VeTd55UieGMi6mEaTl3Zy84G44h/pub?gid=298809212&single=true&output=csv",
-    /* v62: 60 -> 5, same reason as the tutor sheet above. A review
-       added in the morning could otherwise be invisible all
-       afternoon to anyone who had loaded the page once. */
-    cacheMinutes: 5,
-    alwaysRevalidate: true
-  },
 
   /* =========================================================
      SITE SETTINGS — A FOURTH TAB  (v69)
@@ -731,12 +733,11 @@ window.EKGURU_SITE = {
      did before and reads only the published CSV, so this file is
      safe to merge before the script is deployed.
 
-     TO TURN ON (about five minutes, once):
-       1. Open the EkGuru DB sheet, Extensions, Apps Script.
-       2. Paste apps-script/LiveFeed.gs, then Deploy, New deployment,
-          Web app, Execute as: Me, Who has access: Anyone.
-       3. Paste the /exec address below.
-     Full steps: apps-script/LIVE-FEED-SETUP.md
+     TO TURN ON (about ten minutes, once): deploy ONE project that serves
+     BOTH this feed and the intake, then paste the SAME /exec address here
+     and under intake.url below. Full steps: apps-script/UNIFIED-SETUP.md
+     (standalone alternative: apps-script/LiveFeed.gs +
+     apps-script/LIVE-FEED-SETUP.md).
 
      js/sheet.js, js/reviews.js and js/settings.js ask the feed first
      and fall back to the published CSV if the feed is slow or down.
@@ -753,16 +754,38 @@ window.EKGURU_SITE = {
   },
 
   /* =========================================================
-     ONLINE FORMS (apply, review, sign-up)
+     ONLINE FORMS + BOOKINGS (apply, review, sign-up, booking)
      ---------------------------------------------------------
-     BLANK = OFF. The forms fall back to email, as before.
-     To turn on: deploy apps-script/Intake.gs as its OWN Apps
-     Script project (Execute as Me, Anyone), then paste its
-     /exec address here. Full steps: apps-script/INTAKE-SETUP.md
-     Nothing submitted is published. Every row is pending.
+     ⚠️ IF THIS IS EVER BLANK AGAIN, "OFF" MEANS NO SHEET ROW.
+     While blank, EkGuruIntake.ready() is false, the
+     booking button stays disabled ("Online booking is
+     unavailable until the private bookings sheet is
+     connected") and NOTHING a student books can reach the
+     private `bookings` tab — this blank line was the reason
+     bookings were not appearing in the sheet.
+
+     ONE-TIME OWNER STEP (about 10 minutes, full guide in
+     apps-script/UNIFIED-SETUP.md): deploy ONE project that serves
+     BOTH this intake and the feed, then paste the SAME /exec URL
+     here and under feed.url above. (Standalone alternative:
+     apps-script/Intake.gs + apps-script/INTAKE-SETUP.md.)
+       4. Open <url>?action=health - it must say "ok":true,
+          "spreadsheetBound":true, "version":"1.1.0".
+       5. Make one test booking and check the `bookings` tab.
+     Nothing submitted is published. Every row starts pending /
+     requested, for the owner to check first.
      ========================================================= */
   intake: {
-    url: ""
+    /* LIVE — wired 3 Nov 2026. Deployment "Version 1, 3 Nov 2026 20:35 IST",
+       id AKfycbwWJiuuZ5…TV3LtN, bound to the EkGuru DB sheet.
+       Health verified 3 Nov 2026: {"ok":true,"version":"1.0.0",
+       "pendingRows":{"applications":11,"bookings":4,…}}.
+       ⚠️ The deployed editor code is still Intake.gs v1.0.0. Paste the
+       v1.1.0 file from apps-script/Intake.gs into that same project and
+       Manage deployments -> Edit -> Version: New version -> Deploy.
+       Editing the existing deployment keeps THIS url unchanged; do not
+       create a new deployment (that would mint a new url). */
+    url: "https://script.google.com/macros/s/AKfycbwWJiuuZ5rqyPyEVd71svw-ggqW_kzjyXVl-7hE2lo8hPcgbAdkLjLl7hvmciTV3LtN/exec"
   },
 
   /* =========================================================
@@ -842,15 +865,72 @@ window.EKGURU_SITE = {
              "soon"    -> "Coming soon" pill in the header
              "beta"    -> "Beta" pill in the header
      ========================================================= */
-  status: "live"
+  status: "live",
+
+  /* =========================================================
+     REVIEWS — read from the sheet's reviews tab (owner decision,
+     Nov 2026: the site must read review data from the sheet, not
+     from a baked file). CSV first, the same URL as TSV behind it
+     (this workbook's CSV endpoint 500s; TSV answers 200).
+     fallbackCsvUrl is the baked snapshot of the same tab: last
+     resort only, so reviews never go blank while Google is
+     unreachable. Refresh it after approving reviews in the sheet
+     (copy the tab into live-sheets/reviews.csv).
+     (The only `reviews:` block — keep it that way; a duplicate
+     key silently kills the first block.)
+     ========================================================= */
+  reviews: {
+    csvUrl: "https://docs.google.com/spreadsheets/d/e/2PACX-1vQIman_Um2wQrj_3mXqqgq4k69zzmJHkhZ1TRoAnh2jcamhzoo-0VeTd55UieGMi6mEaTl3Zy84G44h/pub?gid=298809212&single=true&output=csv",
+    fallbackCsvUrl: "https://ekguru.shop/live-sheets/reviews.csv",
+    cacheMinutes: 60,
+    alwaysRevalidate: true
+  },
+
+  /* =========================================================
+     PAYMENT OPTIONS — baked-in defaults so both PayPal and
+     Razorpay show on /support/ even when the Google Sheet's
+     support tab doesn't have them yet. The sheet can still
+     override these (valid values only); an invalid or blank
+     sheet cell keeps the baked-in value.
+     ========================================================= */
+  supportPaypal: "https://paypal.me/itsThePrakas?locale.x=en_GB&country.x=IN",
+  supportRazorpay: "https://rzp.io/rzp/EkGuru"
+};
+
+/* =========================================================
+   BAKED-IN SUPPORT SNAPSHOT (4 Nov 2026)
+   ---------------------------------------------------------
+   PayPal + Razorpay are the owner's always-on methods: both
+   must show on /support/ no matter what the sheet or a stale
+   browser cache says. The sheet can still OVERRIDE either one
+   with a different valid URL, but "none"/blank/invalid never
+   hides them — js/settings.js restores this snapshot instead
+   of writing "", and js/support.js falls back to it when the
+   live value is empty.
+
+   Why: only PayPal was showing for the owner while fresh
+   visitors saw both. A stale ekguru_settings cache holding a
+   wiped Razorpay value kept being re-applied, and the settings
+   fetch has no TSV fallback (unlike the tutor sheet), so the
+   fresh sheet value never arrived when Google's CSV endpoint
+   answered HTTP 500 for this workbook.
+
+   To truly retire a method, delete its line above (and here
+   nothing needs changing — the snapshot follows automatically).
+   ========================================================= */
+window.EKGURU_BAKED_SUPPORT = {
+  supportPaypal: window.EKGURU_SITE.supportPaypal || "",
+  supportRazorpay: window.EKGURU_SITE.supportRazorpay || ""
 };
 
 /* PRODUCTION CENTRALIZED PAYMENT CONFIGURATION & MODE */
-window.PAYMENT_MODE = window.PAYMENT_MODE || "COMING_SOON"; // "COMING_SOON" (production default) | "LIVE_API"
+window.PAYMENT_MODE = window.PAYMENT_MODE || "LIVE_API"; // "COMING_SOON" (production default) | "LIVE_API"
 window.PAYMENT_BACKEND_URL = "https://script.google.com/macros/s/AKfycbz8u_rBr2o4VPgmQgaweswLWKdYb-MMGrsa7WfckTCruLP-ZEasWnpkqJrZHux5Y8_4zA/exec";
 window.RAZORPAY_PAYMENT_LINK = "https://rzp.io/rzp/EkGuru";
-/* The live Payment Page id (pl_TdvVT9QL3k7cSY) lives ONLY in
-   support/index.html's embed + docs/RAZORPAY_PAYMENT_SETUP.md.
+/* The live Payment Page id (pl_TdvVT9QL3k7cSY) used to live ONLY in
+   support/index.html's embed — that embed was removed in v11 (task 6):
+   every payment option is now rendered from the support/payments sheet
+   tab by js/support.js. No payment link lives in code at all.
    (A stale second id was defined here, read nowhere — removed so no
    future code can wire itself to the wrong page.) */
 
@@ -898,6 +978,9 @@ window.RAZORPAY_PAYMENT_LINK = "https://rzp.io/rzp/EkGuru";
     }
   }
 
+  /* Guarded: this file is also loaded by Node tools/tests, where
+     there is no document — an unguarded touch crashed them. */
+  if (typeof document === "undefined") return;
   if (document.readyState === "loading") {
     document.addEventListener("DOMContentLoaded", applyGlobalPaymentMode);
   } else {

@@ -74,6 +74,7 @@
   var S = root.EKGURU_SITE || {};
   var CFG = S.reviews || {};
   var url = String(CFG.csvUrl || "").trim();
+  var fallbackUrl = String(CFG.fallbackCsvUrl || "").trim();
 
   /* Live feed (28 Oct 2026). Same function as js/sheet.js and
      js/settings.js; tools/test-live-feed.js asserts all three agree.
@@ -115,8 +116,13 @@
       else field += c;
     }
     if (field !== "" || row.length) { row.push(field); rows.push(row); }
-    if (!rows.length) return [];
+    return rowsToRecs(rows);
+  }
 
+  /* Header row becomes object keys; blank rows are dropped. Shared by
+     the CSV and TSV parsers so both formats yield identical records. */
+  function rowsToRecs(rows) {
+    if (!rows.length) return [];
     var head = rows[0].map(function (h) { return h.trim().toLowerCase(); });
     return rows.slice(1).map(function (r) {
       var o = {};
@@ -125,6 +131,26 @@
     }).filter(function (o) {
       return Object.keys(o).some(function (k) { return o[k]; });
     });
+  }
+
+  /* Google's TSV export of a published tab: no quoting, one row per
+     line, cells split on tabs. Only used as a fallback (below). */
+  function parseTSV(text) {
+    text = String(text).replace(/^\uFEFF/, "");
+    var rows = [];
+    var lines = text.split("\n");
+    for (var i = 0; i < lines.length; i++) {
+      var line = lines[i].replace(/\r$/, "");
+      if (!line && i === lines.length - 1) continue;
+      rows.push(line.split("\t"));
+    }
+    return rowsToRecs(rows);
+  }
+
+  function tsvVariant(u) {
+    u = String(u || "");
+    if (/[?&]output=/.test(u)) return u.replace(/([?&])output=[^&]*/, "$1output=tsv");
+    return u + (u.indexOf("?") === -1 ? "?" : "&") + "output=tsv";
   }
 
   /* ---------------------------------------------------------
@@ -203,6 +229,11 @@
      ========================================================= */
   var LAST_RECS = null;
 
+  /* Tutor ids whose EKGURU_TUTOR_FILES entry this file wrote. Only
+     these are ever cleared when their rows leave the sheet — baked
+     tutor-file data is left alone (see the FILES section in apply). */
+  var APPLIED_FILES = {};
+
   function apply(recs) {
     if (recs) LAST_RECS = recs;
     recs = recs || LAST_RECS || [];
@@ -217,6 +248,43 @@
        and store under the tutor's real id. */
     var byLower = {};
     T.forEach(function (x) { byLower[String(x.id).toLowerCase()] = x; });
+
+    /* =========================================================
+       KNOWN IDS BEYOND THE ROSTER  (4 Nov 2026)
+       ---------------------------------------------------------
+       BUG FOUND — REVIEWS NEVER SHOWED ON PROFILE PAGES.
+
+       A pre-rendered profile loads this file WITHOUT
+       js/tutors-data.js, so EKGURU_TUTORS does not exist there —
+       and js/sheet.js deliberately publishes only _recordOnly
+       stubs (EKGURU_SHEET_RECORDS) on such pages, never roster
+       entries. Matching reviews against the roster alone therefore
+       dropped EVERY review on exactly the pages that print review
+       lists: "No reviews yet" on Sushila's live profile while the
+       sheet held two live rows for her.
+
+       A review row may also name any id the page and the sheet
+       already agree exists: the sheet's record stubs, the baked
+       overrides, the registry order, or the page's own
+       [data-tutor] attributes (the DOM is parsed before this
+       runs, so that source works even on the first apply, before
+       the sheet arrives). Genuinely unknown ids — typos for
+       tutors nowhere on the page — are still reported below.
+       ========================================================= */
+    var knownByLower = {};
+    function learnId(id) {
+      id = String(id == null ? "" : id).trim();
+      if (id && !knownByLower[id.toLowerCase()]) knownByLower[id.toLowerCase()] = id;
+    }
+    Object.keys(root.EKGURU_SHEET_RECORDS || {}).forEach(learnId);
+    Object.keys(root.EKGURU_SHEET_OVERRIDES || {}).forEach(learnId);
+    (root.EKGURU_TUTOR_ORDER || []).forEach(learnId);
+    try {
+      var tutorNodes = root.document.querySelectorAll("[data-tutor]");
+      Array.prototype.forEach.call(tutorNodes, function (n) {
+        learnId(n.getAttribute("data-tutor"));
+      });
+    } catch (e) {}
 
     /* =========================================================
        EXTERNAL-MARKETPLACE GATE  (27 Sep 2026 master audit)
@@ -260,10 +328,14 @@
       var why = validate(r);
       if (why.length) { skipped.push([r.tutor + "/" + (r.name || "?"), why]); return; }
 
-      var t = byLower[String(r.tutor || "").trim().toLowerCase()];
-      if (!t) { if (unknown.indexOf(r.tutor) === -1) unknown.push(r.tutor); return; }
+      var rowKey = String(r.tutor || "").trim().toLowerCase();
+      var t = byLower[rowKey];
+      /* Roster first; on roster-less pages any id the page/sheet
+         already names (see KNOWN IDS above). */
+      var realId = t ? t.id : (knownByLower[rowKey] || null);
+      if (!realId) { if (unknown.indexOf(r.tutor) === -1) unknown.push(r.tutor); return; }
 
-      (byTutor[t.id] = byTutor[t.id] || []).push({
+      (byTutor[realId] = byTutor[realId] || []).push({
         name: String(r.name).trim(),
         date: r.date || "",
         stars: Number(r.stars),
@@ -311,6 +383,39 @@
       applied++;
     });
 
+    /* Also expose reviews on EKGURU_TUTOR_FILES so pre-rendered
+       tutor pages (which deliberately do not load tutors-data.js
+       or individual tutor files) can still show reviews.
+       reviews-display.js reads from EKGURU_TUTOR_FILES, so without
+       this step a tutor page with live reviews in the sheet would
+       always print "No reviews yet". */
+    var FILES = root.EKGURU_TUTOR_FILES || {};
+    Object.keys(byTutor).forEach(function (id) {
+      var f = FILES[id];
+      if (!f) {
+        f = { id: id, reviews: [], reviewsCount: 0, rating: 0 };
+        FILES[id] = f;
+      }
+      var list = byTutor[id].slice();
+      list.sort(function (a, b) { return (b.date || "").localeCompare(a.date || ""); });
+      f.reviews = list;
+      f.reviewsCount = list.length;
+      var sum = list.reduce(function (n, r) { return n + r.stars; }, 0);
+      f.rating = Math.round((sum / list.length) * 10) / 10;
+      APPLIED_FILES[id] = 1;
+    });
+    /* A review removed from the sheet must disappear here too — but
+       only entries THIS function wrote are ever cleared, so baked
+       tutor-file data is never wiped by an empty sheet. */
+    Object.keys(APPLIED_FILES).forEach(function (id) {
+      if (!byTutor[id] && FILES[id]) {
+        FILES[id].reviews = [];
+        FILES[id].reviewsCount = 0;
+        FILES[id].rating = 0;
+      }
+    });
+    root.EKGURU_TUTOR_FILES = FILES;
+
     if (skipped.length && root.console && console.warn) {
       skipped.forEach(function (s) {
         console.warn("[EkGuru] review skipped — " + s[0] + ": " + s[1].join("; "));
@@ -344,7 +449,7 @@
     }
   }
 
-  function fetchRecords(u) {
+  function fetchRecords(u, fmt) {
     var ctrl = null, timer = null;
     try { ctrl = new AbortController(); } catch (e) {}
     if (ctrl) timer = setTimeout(function () { try { ctrl.abort(); } catch (e) {} }, 8000);
@@ -354,23 +459,45 @@
         if (!r.ok) throw new Error("HTTP " + r.status);
         return r.text();
       })
-      .then(function (csv) {
+      .then(function (body) {
         if (timer) clearTimeout(timer);
-        if (/^\s*<!DOCTYPE|^\s*<html/i.test(csv)) {
-          throw new Error("that URL returned a web page, not CSV — use Publish to web → CSV");
+        if (/^\s*<!DOCTYPE|^\s*<html/i.test(body)) {
+          throw new Error("that URL returned a web page, not " + (fmt === "tsv" ? "TSV" : "CSV") + " — use Publish to web");
         }
-        var recs = parseCSV(csv);
+        var recs = fmt === "tsv" ? parseTSV(body) : parseCSV(body);
         if (!recs.length) throw new Error("no rows");
         return recs;
       })
       .catch(function (e) { if (timer) clearTimeout(timer); throw e; });
   }
 
+  /* Published CSV first, then the SAME tab as TSV. Google's published-
+     CSV endpoint answers HTTP 500 for this workbook while output=tsv
+     answers 200 (seen 30 Sep 2026 — js/sheet.js and js/settings.js
+     already carried this fallback; reviews was missing it, so a dead
+     CSV endpoint meant NO live review ever reached the browser). */
+  function fetchPublished(csv) {
+    return fetchRecords(csv, "csv").catch(function (eCsv) {
+      return fetchRecords(tsvVariant(csv), "tsv").catch(function (eTsv) {
+        throw new Error(eCsv.message + " / " + eTsv.message);
+      });
+    });
+  }
+
   function fetchSheet() {
-    /* The live feed first (if configured), then the published CSV. */
+    /* The live feed first (if configured), then the published tab
+       (CSV→TSV), then the baked snapshot (same chain) so reviews
+       never go blank while Google is unreachable. */
     var f = feedUrl("reviews");
-    var first = f ? fetchRecords(f).catch(function () { return url ? fetchRecords(url) : Promise.reject(new Error("feed failed")); })
-                  : fetchRecords(url);
+    var live = function () {
+      return url ? fetchPublished(url) : Promise.reject(new Error("no reviews url"));
+    };
+    var snap = function () {
+      return (fallbackUrl && fallbackUrl !== url) ? fetchPublished(fallbackUrl)
+        : Promise.reject(new Error("no snapshot"));
+    };
+    var first = f ? fetchRecords(f, "csv").catch(live).catch(function () { return snap(); })
+                  : live().catch(function () { return snap(); });
     return first
       .then(function (recs) {
         writeCache(recs);
@@ -399,7 +526,7 @@
     MIN_TEXT: MIN_TEXT
   };
 
-  if (!url && !feedUrl("reviews")) return;
+  if (!url && !fallbackUrl && !feedUrl("reviews")) return;
   if (typeof root.fetch !== "function") return;
 
   /* v62: same stale-while-revalidate change as js/sheet.js. A cache
@@ -441,12 +568,22 @@
      animations. Only announce when something actually moved. */
   root.addEventListener("ekguru:sheet", function () {
     if (!LAST_RECS) return;
-    var before = JSON.stringify((root.EKGURU_TUTORS || [])
-      .map(function (t) { return t.id + ":" + (t.reviewsCount || 0) + ":" + (t.rating || 0); }));
+    /* Profile pages have no EKGURU_TUTORS, so a roster-only snapshot
+       would read "[]" before and after and swallow the announce that
+       repaints their review lists. Include the FILES entries too. */
+    function snap() {
+      var roster = (root.EKGURU_TUTORS || [])
+        .map(function (t) { return t.id + ":" + (t.reviewsCount || 0) + ":" + (t.rating || 0); });
+      var files = Object.keys(root.EKGURU_TUTOR_FILES || {}).sort()
+        .map(function (id) {
+          var f = root.EKGURU_TUTOR_FILES[id] || {};
+          return id + ":" + (f.reviewsCount || 0) + ":" + (f.rating || 0);
+        });
+      return JSON.stringify(roster) + "|" + JSON.stringify(files);
+    }
+    var before = snap();
     apply(null);
-    var after = JSON.stringify((root.EKGURU_TUTORS || [])
-      .map(function (t) { return t.id + ":" + (t.reviewsCount || 0) + ":" + (t.rating || 0); }));
-    if (before !== after) announce();
+    if (before !== snap()) announce();
   });
 
 })(typeof window !== "undefined" ? window : globalThis);

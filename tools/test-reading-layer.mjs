@@ -13,7 +13,7 @@
    fixture, and it fails loudly if the invariants drift:
 
      1. the class is on 970 pages and on no page that already has the v200
-        system (the five exceptions stay untouched)
+        system (the six exceptions stay untouched)
      2. the duplicated body CSS stays gone — a byte budget for the whole site,
         not for one page, because the failure mode is 970 pages drifting back
         one rule at a time
@@ -82,13 +82,11 @@ check("the reading layer is on every hand-written page", legacy.length === 970,
    independently enforces the content and bands for the pages it owns. */
 check("the page layer's pages carry the same class, tested separately", pageLayer.length === 1705,
   pageLayer.length + " page(s)");
-/* 6 = the 5 original v200 pages + live-class/index.html, which is on the v200
-   system too (its own stylesheet and bands). Owner to confirm this count. */
 check("the pages already on the v200 system were left alone", modern.length === 6,
   modern.join(", "));
 const untouched = ["terms/index.html", "privacy/index.html", "disclaimer/index.html",
-  "copyright/index.html", "support/index.html"];
-check("the five exceptions carry no reading-layer class",
+  "copyright/index.html", "support/index.html", "live-class/index.html"];
+check("the six exceptions carry no reading-layer class",
   untouched.every((p) => !/pw-legacy/.test(read(p))), untouched.join(", "));
 
 /* ---------- 2. the duplicated CSS stays gone ---------- */

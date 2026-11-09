@@ -48,6 +48,7 @@ window.EKGURU_TUTOR_ORDER = [
   "shikha-dutta",
   "deepika",
   "utkarsh-upadhyay",
+  "pinky-kumari",
 ];
 
 /* ---------------------------------------------------------

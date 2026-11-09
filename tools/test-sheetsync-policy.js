@@ -18,13 +18,24 @@
    ========================================================= */
 "use strict";
 
-const { buildTutor, buildReviews, MARKETPLACE_SOURCES } = require("./sheetsync");
+const { buildTutor, buildReviews, MARKETPLACE_SOURCES, normalizePhoto } = require("./sheetsync");
 
 let failures = 0;
 function check(name, cond, extra) {
   if (!cond) failures++;
   console.log((cond ? "PASS" : "FAIL") + "  " + name + (cond ? "" : "  →  " + (extra || "")));
 }
+
+const driveId = "1x6sYnW58CYKZeC9abLsEbM5Gd1nGivH4";
+const expectedDrivePhoto = "https://lh3.googleusercontent.com/d/" + driveId + "=w800";
+[
+  "https://drive.google.com/file/d/" + driveId + "/view?usp=sharing",
+  "https://drive.google.com/open?id=" + driveId,
+  "https://drive.google.com/uc?export=download&id=" + driveId,
+  "https://drive.google.com/thumbnail?id=" + driveId + "&sz=w800",
+  "https://drive.usercontent.google.com/download?id=" + driveId + "&export=view",
+  "https://docs.google.com/uc?id=" + driveId
+].forEach((url, i) => check("Drive photo URL form " + (i + 1) + " normalises to a direct image", normalizePhoto(url) === expectedDrivePhoto, normalizePhoto(url)));
 
 /* --- the stale row, exactly as the live sheet carried it ------- */
 const STALE_ROW = {

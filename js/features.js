@@ -545,7 +545,7 @@
     if (!sched) return;
     var note = $(".sched-note");
     var id = new URLSearchParams(location.search).get("id");
-    var x = tutorById(id) || T[0];
+    var x = id ? tutorById(id) : T[0];
     if (!x) return;
 
     var from = tzOffsetMin(x.timezone);
@@ -607,6 +607,8 @@
      4. BOOKING REQUEST MODAL
      ========================================================= */
   var modal = null, modalTutor = null, chosen = null, lastFocus = null;
+  var modalNotice = false;   /* the modal currently shows a notice, not the form */
+  var modalAvKey = "";       /* availability fingerprint the open modal rendered */
 
   function buildModal() {
     if (modal) return modal;
@@ -625,6 +627,7 @@
           '<div class="bk-grid">' +
             '<label class="bk-f"><span>' + esc(t("book.name")) + ' *</span><input type="text" id="bk-name" autocomplete="name"></label>' +
             '<label class="bk-f"><span>' + esc(t("book.email")) + ' *</span><input type="email" id="bk-email" autocomplete="email"></label>' +
+            '<label class="bk-f"><span>WhatsApp number (optional)</span><input type="tel" id="bk-whatsapp" autocomplete="tel" inputmode="tel" maxlength="30"></label>' +
             '<label class="bk-f"><span>' + esc(t("book.level")) + '</span><select id="bk-level">' +
               '<option value="Complete beginner">' + esc(t("book.lvl1")) + "</option>" +
               '<option value="Beginner">' + esc(t("book.lvl2")) + "</option>" +
@@ -635,7 +638,7 @@
           "</div>" +
           '<label class="bk-f bk-full"><span>' + esc(t("book.goal")) + '</span><textarea id="bk-goal" rows="3" placeholder="' + esc(t("book.goalPh")) + '"></textarea></label>' +
           '<div class="bk-step"><span class="bk-n">3</span><b>' + esc(t("book.step3")) + "</b></div>" +
-          '<div class="bk-preview"><div class="bk-prev-h">' + esc(t("book.summary")) + '</div><pre class="bk-prev-t"></pre></div>' +
+          '<details class="bk-preview"><summary class="bk-prev-h">' + esc(t("book.summary")) + '</summary><pre class="bk-prev-t"></pre></details>' +
           '<p class="bk-err" hidden></p>' +
           '<div class="bk-actions"></div>' +
           '<p class="bk-note">' + esc(t("book.note")) + "</p>" +
@@ -648,7 +651,7 @@
     document.addEventListener("keydown", function (e) {
       if (!modal.hidden && e.key === "Escape") closeBooking();
     });
-    ["bk-name", "bk-email", "bk-goal", "bk-level"].forEach(function (id) {
+    ["bk-name", "bk-email", "bk-whatsapp", "bk-goal", "bk-level"].forEach(function (id) {
       modal.addEventListener("input", function (e) { if (e.target.id === id) updatePreview(); });
       modal.addEventListener("change", function (e) { if (e.target.id === id) updatePreview(); });
     });
@@ -723,6 +726,7 @@
   function buildMessage() {
     var name = ($("#bk-name") || {}).value || "";
     var email = ($("#bk-email") || {}).value || "";
+    var whatsapp = ($("#bk-whatsapp") || {}).value || "";
     var level = ($("#bk-level") || {}).value || "";
     var goal = ($("#bk-goal") || {}).value || "";
     var tz = ($("#bk-tz") || {}).value || "";
@@ -731,6 +735,7 @@
       "Preferred time: " + (chosen ? slotLabel() : "(not selected)") + "\n" +
       "My name: " + (name || "-") + "\n" +
       "My email: " + (email || "-") + "\n" +
+      "My WhatsApp: " + (whatsapp || "-") + "\n" +
       "My level: " + level + "\n" +
       "My timezone: " + tz + "\n" +
       "My goal: " + (goal || "-") + "\n\n" +
@@ -745,23 +750,33 @@
     buildActions();
   }
 
-  /* Opens the student's own email app with everything pre-written.
-     Used when background sending is off, or as the rescue route if
-     the mail relay refuses — a request must never just vanish. */
+  /* The manual fallback is addressed only to the verified tutor and
+     copies the student who booked. Never route a booking email to the
+     EkGuru owner inbox. If no tutor address exists, no mailto is made. */
   function mailtoHref() {
-    var to = modalTutor.email || SITE.email;
+    var info = window.EkGuruMail && window.EkGuruMail.tutorEmailInfo
+      ? window.EkGuruMail.tutorEmailInfo(modalTutor) : null;
+    var to = info && info.available && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(info.target)
+      ? info.target : "";
+    if (!to || (SITE.email && to.toLowerCase() === String(SITE.email).toLowerCase())) return "";
+    var student = (($('#bk-email') || {}).value || '').trim();
     var subj = "Lesson booking request — " + modalTutor.name + " (EkGuru)";
-    var cc = [];
-    if (SITE.email && String(SITE.email).toLowerCase() !== String(to).toLowerCase()) cc.push(SITE.email);
     return "mailto:" + to +
       "?subject=" + encodeURIComponent(subj) +
-      (cc.length ? "&cc=" + encodeURIComponent(cc.join(",")) : "") +
+      (student && student.toLowerCase() !== to.toLowerCase()
+        ? "&cc=" + encodeURIComponent(student) : "") +
       "&body=" + encodeURIComponent(buildMessage());
   }
 
   /* Can we deliver the mail ourselves, in the background? */
   function canSendDirect() {
-    return !!(window.EkGuruMail && window.EkGuruMail.available());
+    /* Degraded booking (owner decision, 4 Nov 2026): a tutor with no
+       address still books — sheet row + honest student receipt, owner
+       relays via the sheet. The button stays enabled for them. */
+    var degradedOk = !!(window.EkGuruMail && window.EkGuruMail.degradedBookingAllowed &&
+      window.EkGuruMail.degradedBookingAllowed());
+    return !!(window.EkGuruIntake && window.EkGuruIntake.ready && window.EkGuruIntake.ready() &&
+      window.EkGuruMail && (window.EkGuruMail.available(modalTutor) || degradedOk));
   }
 
   function buildActions() {
@@ -769,52 +784,53 @@
     if (!host) return;
     if (host.dataset.sending === "1") return;   // never redraw mid-send
     var direct = canSendDirect();
-    var mail = mailtoHref();
-    var wa = hasWa(modalTutor.whatsapp) ? modalTutor.whatsapp : (hasWa(SITE.whatsapp) ? SITE.whatsapp : "");
+    var sheetReady = !!(window.EkGuruIntake && window.EkGuruIntake.ready && window.EkGuruIntake.ready());
+    var mail = sheetReady ? mailtoHref() : "";
+    var tutorMailReady = !!(window.EkGuruMail && window.EkGuruMail.tutorEmailInfo &&
+      window.EkGuruMail.tutorEmailInfo(modalTutor).available);
+    /* Degraded booking: sheet connected but tutor has no address —
+       still bookable (owner relays via the sheet), with an honest
+       note instead of a block. Only a missing sheet still blocks. */
+    var degradedTutor = sheetReady && !tutorMailReady && direct;
+    var unavailable = !sheetReady || (!direct && !degradedTutor);
+    var unavailableMessage = !sheetReady
+      ? "Online booking is unavailable until the private bookings sheet is connected."
+      : (!tutorMailReady && !degradedTutor
+        ? "This tutor's booking email is not configured yet. Please choose another tutor."
+        : "Booking email is temporarily unavailable. Please try again later.");
+    var degradedNote = degradedTutor
+      ? t("book.degradedNote").replace("{tutor}", modalTutor.name)
+      : "";
+    /* Nov 2026 — the reason sits ABOVE the button, never below it. A
+       note under the button is cut off inside the modal on a phone,
+       which is how a disabled button looked like it had no reason. */
     host.innerHTML =
-      '<button class="btn btn-primary btn-lg bk-send" type="button" data-href="' + esc(mail) + '">✉️ ' +
+      (unavailable ? '<p class="bk-note" role="status" style="color:var(--brand-3,#b45309)">⚠️ ' + esc(unavailableMessage) + "</p>" : "") +
+      (degradedNote ? '<p class="bk-note" role="status" style="color:var(--brand-3,#b45309)">⚠️ ' + esc(degradedNote) + "</p>" : "") +
+      '<button class="btn btn-primary btn-lg bk-send" type="button" data-href="' + esc(mail) + '"' +
+        (unavailable ? ' disabled aria-disabled="true"' : '') + '>✉️ ' +
         esc(t(direct ? "book.sendRequest" : "book.sendEmail")) + "</button>" +
-      (wa ? '<a class="btn btn-wa btn-lg" data-track-wa="' + esc(modalTutor.id) + '" target="_blank" rel="noopener" href="https://wa.me/' + String(wa).replace(/\D/g, "") +
-        "?text=" + encodeURIComponent(buildMessage()) + '">💬 ' + esc(t("book.sendWa")) + "</a>" : "") +
-      '<button class="btn btn-ghost bk-copy" type="button">📋 ' + esc(t("book.copy")) + "</button>";
+      "";
 
     $(".bk-send", host).addEventListener("click", function () {
       if (!validate()) return;
-      if (!canSendDirect()) { location.href = this.dataset.href; return; }
+      if (!canSendDirect()) return;
       sendRequest(this);
-    });
-    $(".bk-copy", host).addEventListener("click", function () {
-      var btn = this, txt = buildMessage();
-      function done() {
-        btn.textContent = "✓ " + t("book.copied");
-        setTimeout(function () { btn.textContent = "📋 " + t("book.copy"); }, 1800);
-      }
-      if (navigator.clipboard && navigator.clipboard.writeText) {
-        navigator.clipboard.writeText(txt).then(done, fallback);
-      } else fallback();
-      function fallback() {
-        var ta = document.createElement("textarea");
-        ta.value = txt; ta.style.position = "fixed"; ta.style.opacity = "0";
-        document.body.appendChild(ta); ta.select();
-        try { document.execCommand("copy"); done(); } catch (e) {}
-        document.body.removeChild(ta);
-      }
     });
   }
 
   /* =========================================================
      4b. SENDING THE REQUEST FOR REAL
      ---------------------------------------------------------
-     One press delivers the same message to the tutor's own
-     inbox, to EkGuru, and back to the student as their receipt.
-     The delivery itself lives in js/mailer.js. If anything at
-     all goes wrong the student is told why and handed their own
-     email app instead, with the message still written out.
+     The private sheet record must be accepted before any email is
+     attempted. Then only the tutor and student receive booking mail.
+     The owner record is in the sheet; mail failures never fall back
+     to an owner inbox.
      ========================================================= */
   function sendRequest(btn) {
     var host = $(".bk-actions", modal);
     var err = $(".bk-err", modal);
-    var fallbackHref = btn.dataset.href;
+    var fallbackHref = mailtoHref();
 
     host.dataset.sending = "1";
     btn.disabled = true;
@@ -854,48 +870,60 @@
 
     var rec = logBooking("sending", null, "", ref, studentEmailNorm);
 
-    /* Also save the full booking to the EkGuru sheet's bookings tab, when
-       the online intake is switched on (js/site-config.js intake.url). It
-       is fire-and-forget: the email still goes out whatever happens here,
-       and nothing is shown to the student if the save fails. */
-    try {
-      if (window.EkGuruIntake && window.EkGuruIntake.ready()) {
-        window.EkGuruIntake.submit("booking", {
-          booking_ref: ref,
-          tutor_id: modalTutor.id,
-          student_name: studentName,
-          student_email: studentEmail,
-          student_whatsapp: "",
-          preferred_times_ist: (chosen ? slotLabel() : "") || "Not chosen",
-          lesson: "Trial lesson, 50 min",
-          price_usd: String(modalTutor.priceUSD || ""),
-          student_level: ($("#bk-level") || {}).value || "",
-          student_goal: (($("#bk-goal") || {}).value || "").trim(),
-          student_timezone: ($("#bk-tz") || {}).value || "",
-          source_page: location.href,
-          /* The tutor's own notification address, when the sheet has one.
-             Never guessed: blank means the owner must add it (see audit). */
-          tutor_email: (modalTutor.notification_email &&
-            /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(String(modalTutor.notification_email).trim()))
-            ? String(modalTutor.notification_email).trim() : "",
-          sent_via: "EkGuru booking form",
-          email_delivery: "sending"
-        }, true, "");
-      }
-    } catch (e) {}
+    /* The booking must exist in the private sheet before mail is sent.
+       This prevents a successful email from escaping without an owner
+       record. The intake endpoint stays owner-deployed and fail-closed. */
+    var sheetSaved = false;
+    var mailInfo = window.EkGuruMail.tutorEmailInfo(modalTutor);
+    /* Every value is clipped to the Intake.gs limit for its column.
+       The server refuses the WHOLE submission over one long field, so
+       an unclipped 201-character goal — or a source_page carrying a
+       long utm/query string (location.href easily passes 300 chars) —
+       used to cost the entire sheet row. The email below still uses
+       the full, unclipped values. */
+    var clip = function (v, n) { return String(v == null ? "" : v).trim().slice(0, n); };
+    var bookingFields = {
+      booking_ref: ref,
+      tutor_id: modalTutor.id,
+      student_name: clip(studentName, 60),
+      student_email: clip(studentEmail, 120),
+      student_whatsapp: clip((($('#bk-whatsapp') || {}).value || ''), 30),
+      preferred_times_ist: clip((chosen ? slotLabel() : "") || "Not chosen", 120),
+      lesson: "Trial lesson, 50 min",
+      price_usd: String(modalTutor.priceUSD || "").slice(0, 12),
+      student_level: clip(($("#bk-level") || {}).value || "", 60),
+      student_goal: clip((($("#bk-goal") || {}).value || ""), 200),
+      student_timezone: clip(($("#bk-tz") || {}).value || "", 60),
+      /* origin+path only: which page, not the visitor's tracking params (location.href easily passes the 300-char server limit and used to cost the whole row). */
+      source_page: clip(location.origin + location.pathname, 300),
+      tutor_email: clip(mailInfo.notificationEmail || "", 120),
+      sent_via: "EkGuru booking form",
+      email_delivery: "queued"
+    };
+    var intake = window.EkGuruIntake;
+    var savePromise = (intake && intake.ready())
+      ? intake.submit("booking", bookingFields, true, "")
+      : Promise.resolve({ ok: false, error: "Online booking is not available until the private bookings sheet is connected." });
 
-    window.EkGuruMail.send({
-      ref: ref,
-      tutor: modalTutor,
-      name: studentName,
-      email: studentEmail,
-      level: ($("#bk-level") || {}).value || "",
-      timezone: ($("#bk-tz") || {}).value || "",
-      goal: (($("#bk-goal") || {}).value || "").trim(),
-      slot: chosen ? slotLabel() : "",
-      price: priceLine(modalTutor.priceUSD),
-      message: buildMessage(),
-      pageUrl: location.href
+    savePromise.then(function (saved) {
+      if (!saved || !saved.ok) {
+        throw new Error("The booking was not saved to the private sheet. No email was sent. " +
+          ((saved && saved.error) || "Please try again later."));
+      }
+      sheetSaved = true;
+      return window.EkGuruMail.send({
+        ref: ref,
+        tutor: modalTutor,
+        name: studentName,
+        email: studentEmail,
+        level: ($("#bk-level") || {}).value || "",
+        timezone: ($("#bk-tz") || {}).value || "",
+        goal: (($("#bk-goal") || {}).value || "").trim(),
+        slot: chosen ? slotLabel() : "",
+        price: priceLine(modalTutor.priceUSD),
+        message: buildMessage(),
+        pageUrl: location.href
+      });
     }).then(function (res) {
       host.dataset.sending = "";
       /* Written to the browser's own booking ledger too, so the
@@ -919,27 +947,45 @@
       btn.disabled = false;
       btn.classList.remove("is-sending");
       btn.textContent = label;
-      /* EMAIL_DEGRADED, never "booking failed": the booking exists
-         and is still visible to EkGuru. Only the emails did not
-         go out. */
+      /* A failed mail is not the same as a failed booking. The
+         browser-local ledger keeps the attempt; when sheetSaved is
+         true, the shared private booking record also exists. */
       var failMsg = (e && e.message || "").slice(0, 160);
       try {
         window.EkGuruStore.update(ref, {
-          status: "email_degraded",
+          status: sheetSaved ? "email_degraded" : "sheet_save_failed",
           error: failMsg,
           emailDelivery: {
-            student: { status: "EXHAUSTED", lastAttempt: new Date().toISOString(),
+            student: { status: sheetSaved ? "UNKNOWN" : "NOT_SENT", lastAttempt: new Date().toISOString(),
                        lastError: failMsg, retryCount: 0, provider: "" },
-            tutor: { status: "FAILED", lastAttempt: new Date().toISOString(),
+            tutor: { status: sheetSaved ? "UNKNOWN" : "NOT_SENT", lastAttempt: new Date().toISOString(),
                      lastError: failMsg, retryCount: 0, provider: "" },
-            internal: { status: "FAILED", lastAttempt: new Date().toISOString(),
-                        lastError: failMsg, retryCount: 0, provider: "" }
+            internal: { status: "NOT_SENT_BY_POLICY", lastAttempt: "",
+                        lastError: "", retryCount: 0, provider: "" }
           }
         });
       } catch (e2) {}
       if (err) {
-        err.innerHTML = "⚠️ " + esc(t("book.emailDegraded")) +
-          ' <a href="' + esc(fallbackHref) + '">' + esc(t("book.sendFailLink")) + "</a>";
+        /* Owner rule (Nov 2026): no engine text on screen. Designed
+           validation messages are plain words and may show; transport
+           and relay errors become one calm line. The full text stays
+           in the console and the ledger (failMsg above). */
+        var rawMsg = e && e.message ? String(e.message) : "";
+        var stripped = rawMsg.replace(/^The booking was not saved to the private sheet\. No email was sent\. /, "").trim();
+        var codeish = /HTTP \d|failed to fetch|network|timeout|timed out|abort|unexpected token|<!doctype|<html|API|key|token|relay|provider|formsubmit|web3forms|apps.?script|JSON| 5\d\d| 4\d\d/i.test(stripped);
+        var message = !sheetSaved
+          ? (stripped && !codeish ? stripped + " Nothing was booked."
+             : "That did not send, and nothing was booked. Please check your details and try again.")
+          : ("Your booking is saved" + (ref ? " \u2014 reference " + ref : "") +
+             ", but the confirmation email could not be confirmed just now. " +
+             (fallbackHref ? "You can also reach the tutor from your own email app below."
+                           : "Please try again later, or write to us."));
+        if (sheetSaved && fallbackHref) {
+          err.innerHTML = "⚠️ " + esc(message) +
+            ' <a href="' + esc(fallbackHref) + '">Open your email app to contact the tutor and copy yourself</a>.';
+        } else {
+          err.textContent = "⚠️ " + message;
+        }
         err.hidden = false;
         scrollTo(err, { behavior: "smooth", block: "center" });
       }
@@ -1016,29 +1062,23 @@
      readers, and store.js has six months of assumptions built on
      it that are not worth disturbing for tidiness.
 
-     Records WHO GOT WHAT, which is the question Prakash keeps
-     asking and which neither store nor the inbox answers on its
-     own: three recipients, named, with the relay that carried
-     each one. */
+     Records the tutor and student outcomes in the browser-local
+     ledger, with the relay and acceptance state. The shared owner
+     record is the private Google Sheet. */
   function logLedger(ok, res, err, ref) {
     try {
       if (!window.EkGuruLedger) return null;
       var who = [];
       if (res) {
         /* mailer.send() resolves with the tutor address in `to`
-           and everyone else in `cc`. Label them by role so the
-           dashboard can say "student's copy failed" rather than
-           printing three addresses and leaving you to work it
-           out. v97: each recipient now carries its relay (via)
-           and honest state, so the record room can show which
-           provider carried each message and which one failed. */
+           and the student in `cc` only after that separate send
+           succeeds. Label the two roles and their honest states. */
         var student = (($("#bk-email") || {}).value || "").trim().toLowerCase();
-        var site = ((window.EKGURU_SITE || {}).email || "").toLowerCase();
         var es = res.emailStates || {};
         [].concat(res.to || [], res.cc || []).forEach(function (addr) {
           if (!addr) return;
           var a = String(addr).toLowerCase();
-          var role = a === student ? "student" : a === site ? "ekguru" : "tutor";
+          var role = a === student ? "student" : "tutor";
           who.push({
             role: role,
             to: addr,
@@ -1050,7 +1090,7 @@
         /* Failed copies are equally part of "who got what". */
         (res.failed || []).forEach(function (f) {
           var a = String(f.to || "").toLowerCase();
-          var role = a === student ? "student" : a === site ? "ekguru" : "tutor";
+          var role = a === student ? "student" : "tutor";
           who.push({
             role: role,
             to: f.to || "",
@@ -1060,17 +1100,6 @@
             error: f.error || ""
           });
         });
-        /* A tutor with no personal address is not a failed send —
-           it is a routed-through-EkGuru send, marked honestly. */
-        if (res.tutorEmailUnavailable) {
-          who.push({
-            role: "tutor",
-            to: ((window.EKGURU_SITE || {}).email || "EkGuru inbox"),
-            ok: true,
-            via: "routed-via-EkGuru",
-            state: "TUTOR_EMAIL_UNAVAILABLE"
-          });
-        }
       }
       return window.EkGuruLedger.add({
         kind: "booking",
@@ -1103,13 +1132,8 @@
     return "$" + usd;
   }
 
-  /* Replaces the form with a plain confirmation that names every
-     inbox the request reached, so the student can see their own
-     copy is on the way and knows who has it. */
-  /* Replaces the form with a receipt that answers the three
-     questions plainly: who sent it, who received it, and what was
-     asked for. The same three lines head the email, so a student
-     and a tutor comparing notes see identical wording. */
+  /* Replaces the form with the student's booking receipt. It names
+     the tutor but never exposes any operational inbox address. */
   function showSent(res, rec) {
     var body = $(".bk-body", modal);
     if (!body) return;
@@ -1122,11 +1146,7 @@
     /* The tutor's name only. Their inbox address is deliberately NOT
        shown: this receipt is on the student's screen, and a tutor's
        private address should not be handed to everyone who books. */
-    /* v97 — when the tutor has no personal address on file, the
-       receipt says so instead of pretending a private inbox was
-       reached. */
-    var to = modalTutor.name +
-      ((res && res.tutorEmailUnavailable) ? " — via EkGuru" : "");
+    var to = modalTutor.name;
     var what = (modalTutor.lessonLength || "50 min") + " " + t("book.rcLesson") +
       " " + (chosen ? slotLabel() : t("book.rcNoSlot")) +
       " — " + priceLine(modalTutor.priceUSD);
@@ -1134,18 +1154,10 @@
     /* Every inbox that received a copy, named rather than listed
        as a bare address, so it is obvious who has seen it. */
     var mineLc = mail.toLowerCase();
-    var siteLc = String(SITE.email || "").toLowerCase();
-    /* Named, not listed as raw addresses. The student sees their own
-       address (they typed it) and the platform name, never another
-       person's inbox. */
     var copies = ((res && res.cc) || []).map(function (a) {
-      var k = String(a).toLowerCase();
-      if (k === mineLc) return t("book.sentYou") + " — " + a;
-      if (k === siteLc) return SITE.brand || "EkGuru";
-      return SITE.brand || "EkGuru";
-    });
-    /* de-duplicate the platform entry */
-    copies = copies.filter(function (v, i) { return copies.indexOf(v) === i; });
+      if (String(a).toLowerCase() === mineLc) return t("book.sentYou") + " — " + a;
+      return t("book.sentYou");
+    }).filter(function (v, i, all) { return all.indexOf(v) === i; });
 
     /* v99 — was the student's OWN copy actually accepted? Derived
        from the mailer's per-role delivery record, never guessed from
@@ -1156,33 +1168,6 @@
     var studentCopyDegraded = !!(mail && stuState &&
       stuState !== "ACCEPTED" && stuState !== "TUTOR_EMAIL_UNAVAILABLE");
 
-    /* ═══════════════════════════════════════════════════════
-       BUG FOUND v72 — THE CONFIRMATION STOPPED MENTIONING
-       EKGURU WHEN THE TUTOR ROUTES THROUGH THE SHARED INBOX.
-
-       This list is built from res.cc. When a tutor's booking
-       goes to EkGuru's own address — which is now the default,
-       because publishing a personal inbox on a public page is
-       not acceptable — mailer.js correctly de-duplicates the
-       platform copy out of cc, since it is already the main
-       recipient. The student was then told their request went
-       to the tutor and to themselves, and nothing about a
-       record being kept.
-
-       That is a real gap, not a cosmetic one: a student who
-       cannot see that the platform has a copy has no reason to
-       believe anyone will follow up if the tutor does not.
-
-       So if the platform is the primary recipient, say so
-       explicitly rather than inferring it from a list that
-       correctly does not contain it.
-       ═══════════════════════════════════════════════════════ */
-    var brandName = SITE.brand || "EkGuru";
-    var primaryLc = String((res && res.to) || "").toLowerCase();
-    if (primaryLc && primaryLc === siteLc && copies.indexOf(brandName) === -1) {
-      copies.unshift(brandName);
-    }
-
     function row(label, value) {
       return '<div class="bk-rc-row"><span>' + esc(label) + "</span><b>" + esc(value) + "</b></div>";
     }
@@ -1192,6 +1177,10 @@
         '<div class="bk-done-ic" aria-hidden="true">✓</div>' +
         "<h4>" + esc(t("book.sentTitle")) + "</h4>" +
         "<p>" + esc(t("book.sentBody").replace("{tutor}", modalTutor.name)) + "</p>" +
+        ((res && res.tutorEmailUnavailable)
+          ? '<p class="bk-note" role="status" style="color:var(--brand-3,#b45309)">⚠️ ' +
+            esc(t("book.sentDegraded").replace("{tutor}", modalTutor.name)) + "</p>"
+          : "") +
 
         '<div class="bk-receipt">' +
           (ref ? row(t("book.rcRef"), ref) : "") +
@@ -1219,6 +1208,7 @@
           : "") +
 
         '<p class="bk-note">' + esc(t("book.sentNote")) + "</p>" +
+        (ref ? '<p class="bk-note" style="color:var(--brand-3,#0f7b4d)">' + esc(t("book.keepRef")) + "</p>" : "") +
         '<div class="bk-done-btns">' +
           '<button class="btn btn-ghost bk-rc-copy" type="button">📋 ' + esc(t("book.rcCopy")) + "</button>" +
           '<button class="btn btn-primary bk-done-x" type="button">' + esc(t("book.close")) + "</button>" +
@@ -1253,7 +1243,16 @@
     var name = ($("#bk-name") || {}).value.trim();
     var email = ($("#bk-email") || {}).value.trim();
     var msg = "";
-    if (!chosen) msg = t("book.noSlot");
+    /* A tutor with no published weekly slots (e.g. availability not
+       filled in yet) has nothing to pick — requiring a slot made their
+       booking form a dead end that could never be sent. With no slots
+       to choose from, the request goes through and the student states
+       their preferred times in the goal/message (sent as
+       preferred_times_ist = "Not chosen" for the tutor to arrange). */
+    var anySlot = false;
+    var avAll = (modalTutor && modalTutor.availability) || {};
+    for (var dk in avAll) { if ((avAll[dk] || []).length) { anySlot = true; break; } }
+    if (!chosen && anySlot) msg = t("book.noSlot");
     else if (!name || !email) msg = t("book.required");
     else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) msg = t("book.badEmail");
     if (msg) {
@@ -1370,9 +1369,96 @@
     try { sel.value = mine; } catch (e) { sel.selectedIndex = 0; }
   }
 
+  /* Nov 2026 — the modal re-checks itself while it is open. The mailer
+     arrives lazily and the sheet (with notification_email) lands after
+     first paint, so a modal built in the first second can show a
+     disabled button for a tutor who is actually bookable. The sheet
+     event and two timed retries rebuild the actions; sending and sent
+     states are never touched. */
+  function refreshBookingLive() {
+    try {
+      if (!modal || modal.hidden || modalNotice) return;
+      if ($(".bk-done", modal)) return;
+      var host = $(".bk-actions", modal);
+      if (host && host.dataset.sending === "1") return;
+      if (modalTutor) {
+        var fresh = tutorById(modalTutor.id);
+        if (fresh && fresh !== modalTutor) modalTutor = fresh;
+        var avKey = "";
+        try { avKey = JSON.stringify((modalTutor && modalTutor.availability) || {}); } catch (e0) {}
+        if (avKey && avKey !== modalAvKey) { modalAvKey = avKey; renderSlots(); }
+      }
+      updatePreview();
+    } catch (e1) {}
+  }
+
+  /* A booking click for an id with no tutor behind it (stale card,
+     retired id). NEVER fall back to another tutor — that books the
+     wrong person. Sheet still loading → wait for it, then open the
+     real form or say unavailable. */
+  function openBookingNotice(id, pending) {
+    try { track("booking_open_unknown", { tutor: String(id || "") }); } catch (e2) {}
+    if (modal && !modalNotice && !modal.hidden) return;   /* a real form is open — leave it alone */
+    if (modal) { modal.parentNode && modal.parentNode.removeChild(modal); modal = null; }
+    buildModal();
+    modalNotice = true;
+    lastFocus = document.activeElement;
+    modalTutor = null; chosen = null;
+    var av = $(".bk-av", modal);
+    if (av) av.style.display = "none";
+    $("#bk-title", modal).textContent = t("book.title");
+    $(".bk-sub", modal).textContent = "";
+    $(".bk-body", modal).innerHTML =
+      '<p class="bk-note" role="status">' +
+        (pending ? "Loading this tutor\u2019s booking form\u2026" :
+          "This tutor is not taking bookings right now. Please choose another tutor.") + "</p>" +
+      '<div class="bk-actions"><button class="btn btn-ghost bk-done-x" type="button">' +
+        esc(t("book.close")) + "</button></div>";
+    $(".bk-done-x", modal).addEventListener("click", closeBooking);
+    modal.hidden = false;
+    lockScroll();
+    modal.classList.add("show");
+    if (!pending) return;
+    var settled = false;
+    var settle = function (found) {
+      if (settled) return;
+      settled = true;
+      try { document.removeEventListener("ekguru:sheet", onSheet); } catch (e3) {}
+      if (!modal || modal.hidden || !modalNotice) return;
+      if (found && tutorById(id)) {
+        try { unlockScroll(); } catch (e6) {}
+        modal.parentNode && modal.parentNode.removeChild(modal);
+        modal = null; modalNotice = false;
+        openBooking(id);
+      } else {
+        openBookingNotice(id, false);
+      }
+    };
+    var onSheet = function () { settle(true); };
+    document.addEventListener("ekguru:sheet", onSheet);
+    /* The sheet may have answered between the check and the listener,
+       or may never answer — re-check once, then stop waiting. */
+    setTimeout(function () { if (!settled && window.EKGURU_SHEET_INFO) settle(!!tutorById(id)); }, 500);
+    setTimeout(function () { settle(!!tutorById(id)); }, 12000);
+  }
+
   function openBooking(id) {
-    modalTutor = tutorById(id) || T[0];
-    if (!modalTutor) return;
+    if (modal && modalNotice) {
+      /* A visible notice holds a scroll lock — release it before the
+         real form takes its own, or the counter sticks and the page
+         stays frozen after close. */
+      try { unlockScroll(); } catch (e5) {}
+      modal.parentNode && modal.parentNode.removeChild(modal);
+      modal = null; modalNotice = false;
+    }
+    /* Named-but-absent id: never T[0] — booking the wrong tutor is
+       worse than booking nobody. Bare calls (no id) keep T[0]. */
+    modalTutor = id ? tutorById(id) : T[0];
+    if (!modalTutor) {
+      openBookingNotice(id, !window.EKGURU_SHEET_INFO && !!window.EkGuruSheet);
+      return;
+    }
+    modalNotice = false;
     track("booking_open", { tutor: modalTutor.id });
     /* If the last visit ended on the "request sent" screen, throw
        that modal away so a fresh, empty form is built. */
@@ -1396,7 +1482,12 @@
     $(".bk-err", modal).hidden = true;
 
     renderSlots();
+    try { modalAvKey = JSON.stringify((modalTutor && modalTutor.availability) || {}); } catch (e4) { modalAvKey = ""; }
     updatePreview();
+    /* Late arrivals (lazy mailer, sheet notification_email) re-enable
+       the button without the student doing anything. */
+    setTimeout(refreshBookingLive, 1200);
+    setTimeout(refreshBookingLive, 3500);
 
     modal.hidden = false;
     /* =========================================================
@@ -1494,6 +1585,9 @@
       e.preventDefault();
       openBooking(b.getAttribute("data-book"));
     });
+    /* The sheet landing mid-modal flips degraded to direct and refreshes
+       prices and slots without reopening. */
+    document.addEventListener("ekguru:sheet", refreshBookingLive);
     window.EkGuruBook = openBooking;
   }
 
@@ -1507,7 +1601,7 @@
     var host = $("#share-box");
     if (!host) return;
     var id = new URLSearchParams(location.search).get("id");
-    var x = tutorById(id) || T[0];
+    var x = id ? tutorById(id) : null;
     var url = location.href;
     var title = x ? (x.name + " — Hindi tutor on EkGuru") : "EkGuru — learn Hindi online";
 
@@ -1611,7 +1705,7 @@
     /* ---- counter, e.g. "1 of 3" ---- */
     var count = document.createElement("p");
     count.className = "rev-count";
-    count.textContent = "1 / " + cards.length;
+    count.textContent = "1 of " + cards.length;
     dots.appendChild(count);
 
     /* ---- keep dots in step with the scroll position ---- */
@@ -1631,7 +1725,7 @@
           d.classList.toggle("on", i === best);
           d.setAttribute("aria-selected", i === best ? "true" : "false");
         });
-        count.textContent = (best + 1) + " / " + cards.length;
+        count.textContent = (best + 1) + " of " + cards.length;
         ticking = false;
       });
     }
@@ -1697,7 +1791,7 @@
   function initStickyBook() {
     if (!$("#profile")) return;
     var id = new URLSearchParams(location.search).get("id");
-    var x = tutorById(id) || T[0];
+    var x = id ? tutorById(id) : T[0];
     if (!x) return;
 
     var bar = document.createElement("div");

@@ -44,7 +44,21 @@ function loadIntake(tabsSeed, opts) {
   const store = {};
   const sheetObj = (name) => ({
     appendRow: (row) => { tabs[name] = tabs[name] || { rows: [] }; tabs[name].rows.push(row); },
-    getLastRow: () => (tabs[name] ? tabs[name].rows.length + 1 : 1),
+    getLastRow: () => (tabs[name] ? tabs[name].rows.length : 0),
+    getRange: (row, col, numRows, numCols) => ({
+      getValues: () => {
+        const out = [];
+        for (let r = 0; r < (numRows || 1); r++) {
+          const vals = [];
+          for (let c = 0; c < (numCols || 1); c++) {
+            const src = (tabs[name] && tabs[name].rows[row - 1 + r]) || [];
+            vals.push(src[col - 1 + c] !== undefined ? src[col - 1 + c] : "");
+          }
+          out.push(vals);
+        }
+        return out;
+      }
+    }),
     setFrozenRows: () => {}
   });
   const ctx = {
@@ -53,7 +67,26 @@ function loadIntake(tabsSeed, opts) {
       getActive: () => ({
         getSheetByName: (n) => (tabs[n] ? sheetObj(n) : null),
         insertSheet: (n) => { tabs[n] = { rows: [] }; return sheetObj(n); }
+      }),
+      getActiveSpreadsheet: () => (opts.unbound ? null : {
+        getSheetByName: (n) => (tabs[n] ? sheetObj(n) : null),
+        insertSheet: (n) => { tabs[n] = { rows: [] }; return sheetObj(n); }
+      }),
+      openById: (id) => {
+        if (!opts.openById || id !== opts.openById) throw new Error("bad workbook id");
+        return {
+          getSheetByName: (n) => (tabs[n] ? sheetObj(n) : null),
+          insertSheet: (n) => { tabs[n] = { rows: [] }; return sheetObj(n); }
+        };
+      }
+    },
+    PropertiesService: {
+      getScriptProperties: () => ({
+        getProperty: (k) => (opts.props && opts.props[k]) || null
       })
+    },
+    LockService: {
+      getScriptLock: () => ({ waitLock: () => {}, releaseLock: () => {} })
     },
     CacheService: {
       getScriptCache: () => ({
@@ -73,7 +106,7 @@ function loadIntake(tabsSeed, opts) {
   return { ctx, tabs, store };
 }
 /* data rows only: the script writes a header row when it creates a tab */
-const dataRows = (tab) => (tab && tab.rows ? tab.rows.filter((r) => r[0] !== "timestamp") : []);
+const dataRows = (tab) => (tab && tab.rows ? tab.rows.filter((r) => r[0] !== "timestamp" && r[0] !== "booking_ref") : []);
 const post = (ctx, body) => JSON.parse(ctx.doPost({ postData: { contents: typeof body === "string" ? body : JSON.stringify(body) } }).getContent());
 
 const APP = {
@@ -82,15 +115,33 @@ const APP = {
 };
 const REV = {
   kind: "review", consent: true, website: "",
-  fields: { tutor_id: "sushila-g", reviewer_name: "Priya", stars: "5", text: "Patient and clear." }
+  fields: { tutor_id: "sushila-g", reviewer_name: "Priya", stars: "5", text: "Patient and clear.", booking_id: "EK-BOOK01" }
 };
 const SIGN = {
   kind: "signup", consent: true, website: "",
   fields: { email: "learner@example.com", goal: "Travel", level: "Never studied" }
 };
+const CONTACT = {
+  kind: "contact", consent: true, website: "",
+  fields: { name: "Rohan", email: "rohan@example.com", subject: "Question", topic: "General", message: "Hello, I have a question.", page: "https://ekguru.shop/contact/" }
+};
+const BOOK = {
+  kind: "booking", consent: true, website: "",
+  fields: {
+    booking_ref: "EK-BOOK01", tutor_id: "tutor-example", student_name: "Asha Test",
+    student_email: "asha@example.com", student_whatsapp: "+919999000000",
+    preferred_times_ist: "Mon 7:00 PM IST (Asia/Kolkata)", lesson: "Trial lesson, 50 min",
+    price_usd: "8", student_level: "Beginner", student_goal: "Conversation",
+    student_timezone: "Asia/Kolkata", source_page: "https://ekguru.shop/find-tutors.html",
+    tutor_email: "tutor@example.com", sent_via: "EkGuru booking form", email_delivery: "queued"
+  }
+};
 
 {
   const I = loadIntake(["tutors", "reviews", "settings"]);
+  /* v1.2.0: the genuine-review gate reads the bookings tab. Seed one
+     booking row for EK-BOOK01 / sushila-g so the review can pass it. */
+  I.ctx.doPost({ postData: { contents: JSON.stringify({ ...BOOK, fields: { ...BOOK.fields, tutor_id: "sushila-g" } }) } });
   let r = post(I.ctx, APP);
   check("a complete application is accepted with a reference", r.ok === true && /^EG-[A-Z0-9]{6}$/.test(r.reference), JSON.stringify(r));
   check("it lands on the applications tab as one data row, under a header row",
@@ -108,10 +159,46 @@ const SIGN = {
   r = post(I.ctx, REV);
   check("a review goes to reviews_pending, never to the live reviews tab",
     r.ok && dataRows(I.tabs.reviews_pending).length === 1 && I.tabs.reviews.rows.length === 0);
+  check("the review row carries the booking reference it was verified against",
+    (dataRows(I.tabs.reviews_pending)[0] || [])[I.ctx.INTAKE_KINDS.review.header.indexOf("booking_id")] === "EK-BOOK01");
+
+  /* GENUINE-REVIEW GATE (v1.2.0) */
+  const gateFail = post(I.ctx, { ...REV, fields: { ...REV.fields, booking_id: "EK-NOPE" } });
+  check("a review with a booking reference that does not exist is refused",
+    gateFail.ok === false && /booking reference was not found/.test(gateFail.error), JSON.stringify(gateFail));
+  check("a refused review writes nothing to reviews_pending",
+    dataRows(I.tabs.reviews_pending).length === 1);
+  const gateOther = post(I.ctx, { ...REV, fields: { ...REV.fields, tutor_id: "shikha-dutta" } });
+  check("a review against a tutor whose booking belongs to another tutor is refused",
+    gateOther.ok === false && /different tutor/.test(gateOther.error), JSON.stringify(gateOther));
 
   r = post(I.ctx, SIGN);
   check("a sign-up goes to signups, private", r.ok && dataRows(I.tabs.signups).length === 1);
   check("a missing tab is created with its header row first", I.tabs.signups.rows[0][0] === "timestamp");
+
+  r = post(I.ctx, CONTACT);
+  check("a contact message goes to contacts, with a reference", r.ok === true && dataRows(I.tabs.contacts).length === 1, JSON.stringify(r));
+  check("the contacts tab has its header row", I.tabs.contacts.rows[0][0] === "timestamp");
+  check("a contact message is pending by default",
+    (dataRows(I.tabs.contacts)[0] || [])[I.ctx.INTAKE_KINDS.contact.header.indexOf("status")] === "pending");
+
+  r = post(I.ctx, BOOK);
+  const bookings = I.tabs.bookings;
+  const bookingHeader = I.ctx.INTAKE_KINDS.booking.header;
+  const bookingRow = dataRows(bookings)[0];
+  check("booking is recorded as one private row with owner-visible headers",
+    r.ok && bookings.rows[0][0] === "booking_ref" && bookingRow.length === bookingHeader.length);
+  check("booking row keeps all required fields including WhatsApp and email delivery",
+    ["booking_ref", "requested_at", "tutor_id", "student_name", "student_email", "student_whatsapp",
+     "preferred_times_ist", "lesson", "price_usd", "student_level", "student_goal", "student_timezone",
+     "source_page", "tutor_email", "sent_via", "email_delivery", "status"].every((h) => bookingHeader.indexOf(h) >= 0));
+  check("booking time is stamped in IST and status starts requested",
+    / IST$/.test(bookingRow[bookingHeader.indexOf("requested_at")]) &&
+    bookingRow[bookingHeader.indexOf("status")] === "requested");
+  check("booking preserves optional WhatsApp and tutor email in the private sheet",
+    bookingRow[bookingHeader.indexOf("student_whatsapp")] === "'" + BOOK.fields.student_whatsapp &&
+    bookingRow[bookingHeader.indexOf("tutor_email")] === BOOK.fields.tutor_email,
+    JSON.stringify({ row: bookingRow, header: bookingHeader }));
 }
 
 {
@@ -152,6 +239,35 @@ const SIGN = {
 }
 
 {
+  const I = loadIntake(["bookings"]); /* tab exists but is empty: no header yet */
+  let r = post(I.ctx, BOOK);
+  check("an existing-but-empty bookings tab gets its header before the first booking",
+    r.ok === true && I.tabs.bookings.rows[0][0] === "booking_ref" && dataRows(I.tabs.bookings).length === 1,
+    JSON.stringify(I.tabs.bookings));
+  r = post(I.ctx, BOOK);
+  check("the same booking_ref sent twice is one sheet row, answered as a duplicate",
+    r.ok === true && r.duplicate === true && r.reference === BOOK.fields.booking_ref &&
+    dataRows(I.tabs.bookings).length === 1, JSON.stringify(r));
+  r = post(I.ctx, { ...BOOK, fields: { ...BOOK.fields, booking_ref: "EK-BOOK02" } });
+  check("a different booking_ref is a new row", r.ok === true && dataRows(I.tabs.bookings).length === 2);
+}
+{
+  const I = loadIntake([], { unbound: true });
+  let r = post(I.ctx, BOOK);
+  check("an unbound standalone project refuses honestly instead of pretending to save",
+    r.ok === false && !I.tabs.bookings, JSON.stringify(r));
+  const h = JSON.parse(I.ctx.doGet({ parameter: { action: "health" } }).getContent());
+  check("health reports spreadsheetBound:false when nothing is connected",
+    h.ok === false && h.spreadsheetBound === false, JSON.stringify(h));
+}
+{
+  const I = loadIntake([], { unbound: true, openById: "DB-ID-123",
+                            props: { EKGURU_DB_SPREADSHEET_ID: "DB-ID-123" } });
+  let r = post(I.ctx, BOOK);
+  check("the EKGURU_DB_SPREADSHEET_ID script property connects a standalone project",
+    r.ok === true && dataRows(I.tabs.bookings).length === 1, JSON.stringify(r));
+}
+{
   const I = loadIntake(["applications", "reviews_pending"]);
   const h = JSON.parse(I.ctx.doGet({ parameter: { action: "health" } }).getContent());
   check("health says ok and lists pending counts", h.ok === true && h.pendingRows.applications === 0 && h.pendingRows.reviews_pending === 0, JSON.stringify(h));
@@ -162,7 +278,8 @@ const SIGN = {
 
 {
   const src = fs.readFileSync(path.join(ROOT, "apps-script", "Intake.gs"), "utf8");
-  check("Intake.gs never opens another workbook by id", !/openById|openByUrl/.test(src));
+  check("Intake.gs opens a workbook only by a script-property id, never a hard-coded one",
+    /openById\(id\)/.test(src) && !/openById\(\s*["']/.test(src) && !/openByUrl/.test(src));
   check("Intake.gs never reads the public tabs", !/getSheetByName\("(tutors|reviews|settings|support)"\)/.test(src));
   check("Intake.gs holds no key, token or payments id", !/RAZORPAY|1u5Jkbe|secret|password/i.test(src));
   check("Intake.gs defines no doPost clash with the mailer (one doPost, one file)", (src.match(/function doPost\(/g) || []).length === 1);
@@ -239,6 +356,24 @@ const fields = { name: "Asha", email: "asha@example.com", subject: "Hindi", bio:
   res = await c.api.submit("application", fields, true, "");
   check("refusal: the server's reason is shown, not a generic one", res.ok === false && res.error === "that email does not look right" && !res.fallback);
 
+{
+  const bad = loadClient({ url: EXEC }, () => ({ body: JSON.stringify({ ok: true }) }));
+  let res = await Promise.resolve(bad.api.submit("booking", {
+    booking_ref: "EK-1", tutor_id: "tutor-example", student_name: "Asha",
+    student_email: "asha@example.com", preferred_times_ist: "Mon 7 PM"
+  }, true, ""));
+  check("client: ok:true without a reference is NOT treated as saved",
+    res.ok === false && res.fallback === true && bad.calls.length === 1, JSON.stringify(res));
+  const badMail = loadClient({ url: EXEC }, () => ({ body: JSON.stringify({ ok: true, reference: "EK-1" }) }));
+  res = await badMail.api.submit("booking", {
+    booking_ref: "EK-1", tutor_id: "tutor-example", student_name: "Asha",
+    student_email: "not-an-email", preferred_times_ist: "Mon 7 PM"
+  }, true, "");
+  check("client: a bad student_email is caught before any booking request",
+    res.ok === false && badMail.calls.length === 0 && /email/.test(res.error), JSON.stringify(res));
+}
+
+
   c = loadClient({ url: EXEC }, () => ({ throw: true }));
   res = await c.api.submit("application", fields, true, "");
   check("network failure: falls back to email, never rejects", res.ok === false && res.fallback === true);
@@ -260,8 +395,10 @@ const fields = { name: "Asha", email: "asha@example.com", subject: "Hindi", bio:
   check("client-side: no consent, no request", res.ok === false && c.calls.length === 0 && /tick the box/.test(res.error));
   res = await c.api.submit("payments", fields, true, "");
   check("an unknown kind never sends", res.ok === false && c.calls.length === 0);
-  res = await c.api.submit("review", { tutor_id: "x", reviewer_name: "R", stars: 5, text: "t".repeat(900) }, true, "");
+  res = await c.api.submit("review", { tutor_id: "x", reviewer_name: "R", stars: 5, text: "t".repeat(900), booking_id: "EK-1" }, true, "");
   check("client-side: a review over 800 characters is caught", res.ok === false && /too long/.test(res.error));
+  res = await c.api.submit("review", { tutor_id: "x", reviewer_name: "R", stars: 5, text: "fine", }, true, "");
+  check("client-side: a review without a booking reference is caught", res.ok === false && /booking/.test(res.error));
 
   /* the join page form and the site config */
   const join = fs.readFileSync(path.join(ROOT, "join.html"), "utf8");
@@ -272,7 +409,7 @@ const fields = { name: "Asha", email: "asha@example.com", subject: "Hindi", bio:
   check("the form falls back to a mailto action", !!form && /action="mailto:EkGuruLearning@gmail\.com"/.test(form[0]));
   check("join.html loads js/intake.js", /src="js\/intake\.js"/.test(join));
   const cfg = fs.readFileSync(path.join(ROOT, "js", "site-config.js"), "utf8");
-  const m = /intake:\s*\{\s*url:\s*"([^"]*)"/.exec(cfg);
+  const m = /intake:\s*\{[\s\S]*?url:\s*"([^"]*)"/.exec(cfg);
   check("js/site-config.js has an intake block, blank or a valid /exec", !!m && (m[1] === "" || /^https:\/\/script\.google\.com\/macros\/s\/[A-Za-z0-9_-]+\/exec$/.test(m[1])), m && m[1]);
 
   console.log("\n" + (failures === 0 ? "ALL INTAKE TESTS PASSED" : failures + " FAILURE(S)"));
