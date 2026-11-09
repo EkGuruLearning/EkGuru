@@ -188,7 +188,7 @@ if MODE == "LIVE":
             check(f"same-origin snapshot: {u[:64]}…",
                   u.startswith("https://ekguru.shop/live-sheets/"))
 
-    LABELS = {"298809212": "reviews", "1658518385": "settings",
+    LABELS = {"293675115": "reviews", "1658518385": "settings",
               "1654125803": "content", "1631273256": "tutors"}
     labeled = {}
     for u in urls:

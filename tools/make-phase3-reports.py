@@ -63,7 +63,7 @@ w("search-readiness-phase3.json", {
     "sitemap": {"local": "14 files / 602 URLs (incl. sitemap-materials.xml)", "live": "13 files (pre-Phase-2)"},
     "robots": "live robots.txt 200",
     "faqSchemaMatchesVisible": "verified locally (16 FAQPage entries = 16 visible .faq blocks); live FAQ 404 (pre-Phase-2)",
-    "noFabricatedReviews": "reviews only from live-sheets/reviews.csv (3 real preply reviews); no rating/aggregate markup invented",
+    "noFabricatedReviews": "reviews are sheet-live-only (baked snapshot permanently deleted Nov 2026); no rating/aggregate markup invented",
     "internalLinking": "Learn → Materials → Tools → Practice → Lessons → Paths → Tutor discovery verified (15/15 materials carry journey CTA)",
     "blockers": ["Live deployment pending (owner push)", "Search Console ownership checks are owner-side (see checklist)"],
 })
