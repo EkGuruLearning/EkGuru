@@ -5,7 +5,7 @@
    publicly like every other file here.
    Regenerate: node tools/adminstats.js */
 window.EKGURU_ADMIN_STATS = {
- "generated": "2026-11-09T13:04:08.556Z",
+ "generated": "2026-11-10T04:54:25.926Z",
  "sections": {
   "countryPages": 158,
   "languagePages": 30,
@@ -3931,9 +3931,9 @@ window.EKGURU_ADMIN_STATS = {
  },
  "privacy": {
   "state": "FAIL",
-  "fails": 217292,
+  "fails": 216797,
   "blocked": 5,
-  "note": "4759 files scanned, 18 secrets"
+  "note": "4758 files scanned, 18 secrets"
  },
  "gate": {
   "doctorProblems": 5,
@@ -4558,9 +4558,9 @@ window.EKGURU_ADMIN_STATS = {
   "ar/join.html"
  ],
  "release": {
-  "commit": "caead6c100ffc903ddf6e19a073f387ced21f644",
-  "subject": "Hindi Advanced (B3): author the level from zero, plus regenerated outputs",
-  "buildTime": "2026-11-09T13:04:08.579Z",
+  "commit": "f36f4e13a465ca57a0e057e4ac5c6cb74a867e44",
+  "subject": "Fix course-level rail vs page-layer cycle; order stripped-state regeneration",
+  "buildTime": "2026-11-10T04:54:25.949Z",
   "dataSourceStatus": "LIVE",
   "toolQa": {
    "tools": 12,
