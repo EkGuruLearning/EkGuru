@@ -6038,3 +6038,13 @@ html[dir="rtl"] .xp-hero-copy > .ekg-greeting-line {
 .lang-cell p{display:flex;margin:auto 0 0;padding-top:14px}.lang-cell .btn{flex:1;white-space:normal;text-align:center;padding:12px;font-size:.9rem;font-weight:800;background:var(--grad);color:#fff;border:none;border-radius:999px;box-shadow:var(--sh-1)}
 .lang-cell .btn:hover{transform:translateY(-1px);box-shadow:var(--sh-2);color:#fff}
 #lang-count{font-size:.85rem;margin:6px 0 0}
+
+/* Mobile: the sticky booking bar owns the bottom edge. While it is shown, lift the
+   floating mail/WhatsApp buttons, back-to-top and the currency tip above it so none
+   of them covers the Book button or the price. */
+@media (max-width: 767px) {
+  body.has-sticky-book .fab,
+  body.has-sticky-book .wa-float { bottom: 96px; }
+  body.has-sticky-book .to-top { bottom: 150px; }
+  body.has-sticky-book .cur-tip { bottom: 100px; }
+}
