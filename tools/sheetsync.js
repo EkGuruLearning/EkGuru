@@ -25,7 +25,7 @@ const path = require("path");
 const BASE = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQIman_Um2wQrj_3mXqqgq4k69zzmJHkhZ1TRoAnh2jcamhzoo-0VeTd55UieGMi6mEaTl3Zy84G44h/pub";
 const SRC = {
   tutors:   `${BASE}?gid=1631273256&single=true&output=csv`,
-  reviews:  `${BASE}?gid=298809212&single=true&output=csv`,
+  reviews:  `${BASE}?gid=293675115&single=true&output=csv`,
   /* Form submissions waiting for the owner. Rows the owner sets to
      status=approved go live automatically (see pendingToReviews). */
   reviewsPending: `${BASE}?gid=176535552&single=true&output=csv`,

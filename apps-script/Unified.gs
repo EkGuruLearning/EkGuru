@@ -324,7 +324,7 @@ var FEED_CACHE_PREFIX = "ekguru-feed-v1:";
    published links. A gid never changes, a name can be edited by accident. */
 var FEED_TABS = {
   tutors:   { names: ["tutors"],                          gid: 1631273256 },
-  reviews:  { names: ["reviews"],                         gid: 298809212 },
+  reviews:  { names: ["reviews"],                         gid: 293675115 },
   settings: { names: ["settings"],                        gid: 1658518385 },
   support:  { names: ["support", "payments", "support-payments"], gid: 1041390059 }
 };
