@@ -701,7 +701,7 @@
                browser picks the right one. The original stays as the fallback
                for anything that cannot read WebP or srcset. */
             '<picture>' +
-              (isExt(x.thumb || x.photo) ? "" :
+              (isExt(x.thumb || x.photo) || /\.svg$/i.test(x.thumb || x.photo || "") ? "" :
                 '<source type="image/webp" srcset="' + srcBase(x) + '-176.webp 176w, ' + srcBase(x) + '-264.webp 264w" sizes="88px">' +
                 '<source type="image/jpeg" srcset="' + srcBase(x) + '-176.jpg 176w, ' + srcBase(x) + '-264.jpg 264w" sizes="88px">') +
               '<img data-safe src="' + esc(x.thumb || x.photo) + '" alt="' + esc(x.name) + ', ' + esc(t("card.tutor")) + '" loading="lazy" decoding="async" width="88" height="88">' +

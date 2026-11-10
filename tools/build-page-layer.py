@@ -54,6 +54,8 @@ CONTAINER = re.compile(r'<div class="(art|qw|aw)(["\s])')
 BANDS = re.compile(r"<!-- ekguru:pw-bands:start -->[\s\S]*?<!-- ekguru:pw-bands:end -->")
 V200 = re.compile(r'class="xp-')
 STYLE = re.compile(r"<style[^>]*>([\s\S]*?)</style>")
+# Rules of the course-level rail (tools/build-course-levels.py RAIL_STYLE).
+RAIL_RULES = re.compile(r"\.lv-(?:level-list|levels)[^{]*\{[^}]*\}")
 
 
 # The page's own rules are written against .art / .qw / .aw; after step 1 that
@@ -165,12 +167,15 @@ def transform(html, path, countries, by_country, report=None):
 
     # 2. the page's own CSS, rule by rule
     def style(m):
-        kept, notes = blp.strip_block(m.group(1), "plain", report, path)
+        # Course-rail rules are shared in css/experience.css; drop any copy left
+        # in a page so it does not count as page-only CSS.
+        body = RAIL_RULES.sub("", m.group(1))
+        kept, notes = blp.strip_block(body, "plain", report, path)
         if report is not None and kept.strip():
             report.append("%s  (%d bytes of CSS the layer does not own)" % (path, len(kept)))
         if not kept.strip():
             return ""
-        return "<style>%s\n</style>" % kept.strip()
+        return "<style>%s\n</style>" % kept
     out = STYLE.sub(style, out)
     out = re.sub(r"\n{3,}", "\n\n", out)
 

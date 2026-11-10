@@ -63,12 +63,7 @@
    in support/index.html and js/support.js is extras-only. Rotate the shell
    cache so no returning visitor keeps the October JS that rendered (and
    could hide) the payment cards. */
-/* v56 — reviews go sheet-live-only (4 Nov 2026): the baked
-   live-sheets/reviews.csv snapshot is permanently deleted and
-   js/reviews.js no longer has a snapshot step. Rotate the shell cache
-   so no returning visitor keeps the October JS that could paint baked
-   reviews. */
-const BUILD_ID = "2026-11-04T00:00:00Z-v56-reviews-sheet-live";
+const BUILD_ID = "2026-11-04T00:00:00Z-v55-support-force-static";
 const CACHE = "ekguru-" + BUILD_ID;
 
 /* Phase 6 §14 — "Save for offline" pins learner-chosen pages in a dedicated

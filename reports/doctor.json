@@ -1,9 +1,9 @@
 {
-  "doctorProblems": 4,
+  "doctorProblems": 5,
   "doctorWarnings": 0,
   "doctorChecks": 12,
   "seoPass": true,
-  "privacyState": "PASS",
+  "privacyState": "FAIL",
   "results": [
     {
       "id": "status-live",
@@ -20,8 +20,8 @@
     {
       "id": "privacy",
       "label": "Privacy/secret scan passes",
-      "status": "PASS",
-      "detail": "PASS — 0 secrets, 4 sensitive, 0 blocked"
+      "status": "FAIL",
+      "detail": "FAIL — 18 secrets, 216779 sensitive, 5 blocked"
     },
     {
       "id": "no-personal-emails",
@@ -45,7 +45,7 @@
       "id": "seo",
       "label": "No broken internal links",
       "status": "PASS",
-      "detail": "1563 pages, 0 broken, 0 orphans"
+      "detail": "2727 pages, 0 broken, 0 orphans"
     },
     {
       "id": "ads-txt",
@@ -78,5 +78,5 @@
       "detail": "5 generators clean (scripts, profiles, home, markets, long-tail lists)"
     }
   ],
-  "generated": "2026-09-18T04:07:51.732Z"
+  "generated": "2026-11-10T04:54:25.661Z"
 }

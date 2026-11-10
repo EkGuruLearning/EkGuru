@@ -126,7 +126,7 @@ def head(title, desc, url, up=""):
 </head>
 <body>
 <div class="art">
-""" % (title, desc, BASE, url, up, up, up, title, desc, BASE, url, NOW, up, CORE_STYLE)
+""" % (title, desc, BASE, url, up, up, up, title, desc, BASE, url, NOW, up, "")  # CORE_STYLE now ships in css/experience.css
 
 
 def foot(up="", scripts=()):

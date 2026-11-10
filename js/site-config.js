@@ -580,15 +580,11 @@ window.EKGURU_SITE = {
      refuses obviously bad rows, but it cannot detect a
      plausible lie — that part is on you.
 
-     SETUP: add rows to the sheet's reviews tab (tutor, name, date,
-     stars, text, source, status=live). There is no baked review file —
-     the old live-sheets/reviews.csv snapshot was permanently deleted
-     (owner decision, Nov 2026): the site reads reviews from the live
-     sheet only, in real time, on every page load.
+     SETUP:  node tools/makereviews.js
 
      LIVE VALUE lives in the second `reviews:` block near the end of
-     this file. A duplicate key here would be dead — the later block
-     wins — so there is only one.
+     this file (same-origin live-sheets/reviews.csv). A duplicate key
+     here would be dead — the later block wins — so there is only one.
      ========================================================= */
 
   /* =========================================================
@@ -872,17 +868,20 @@ window.EKGURU_SITE = {
   status: "live",
 
   /* =========================================================
-     REVIEWS — read from the sheet's reviews tab, live, on every
-     page load (owner decision, Nov 2026: no baked review file — the
-     old live-sheets/reviews.csv snapshot was permanently deleted).
-     CSV first, the same URL as TSV behind it (this workbook's CSV
-     endpoint 500s; TSV answers 200). If Google is unreachable the
-     page honestly shows no reviews.
+     REVIEWS — read from the sheet's reviews tab (owner decision,
+     Nov 2026: the site must read review data from the sheet, not
+     from a baked file). CSV first, the same URL as TSV behind it
+     (this workbook's CSV endpoint 500s; TSV answers 200).
+     fallbackCsvUrl is the baked snapshot of the same tab: last
+     resort only, so reviews never go blank while Google is
+     unreachable. Refresh it after approving reviews in the sheet
+     (copy the tab into live-sheets/reviews.csv).
      (The only `reviews:` block — keep it that way; a duplicate
      key silently kills the first block.)
      ========================================================= */
   reviews: {
     csvUrl: "https://docs.google.com/spreadsheets/d/e/2PACX-1vQIman_Um2wQrj_3mXqqgq4k69zzmJHkhZ1TRoAnh2jcamhzoo-0VeTd55UieGMi6mEaTl3Zy84G44h/pub?gid=293675115&single=true&output=csv",
+    fallbackCsvUrl: "https://ekguru.shop/live-sheets/reviews.csv",
     cacheMinutes: 60,
     alwaysRevalidate: true
   },

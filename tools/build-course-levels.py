@@ -1170,8 +1170,8 @@ def splice_rail(path, block, check):
                 break
         else:
             return "no anchor"
-    if ".lv-level-list" not in out and "</style>" in out:
-        out = out.replace("</style>", RAIL_STYLE + "</style>", 1)
+    # The rail's CSS lives in css/experience.css (shared); it is not copied into
+    # each hub. A per-page copy is page-only CSS to the one-design test.
     if out == html:
         return "ok"
     if check:

@@ -34,7 +34,7 @@
    To make that harder to get wrong, this file:
      · refuses a row with no student name
      · refuses a rating outside 1–5
-     · refuses a review under 40 characters
+     · any length is shown (the owner's approval is the gate)
      · refuses a date in the future
      · marks every review with its source, so you always know
        where it came from
@@ -74,6 +74,7 @@
   var S = root.EKGURU_SITE || {};
   var CFG = S.reviews || {};
   var url = String(CFG.csvUrl || "").trim();
+  var fallbackUrl = String(CFG.fallbackCsvUrl || "").trim();
 
   /* Live feed (28 Oct 2026). Same function as js/sheet.js and
      js/settings.js; tools/test-live-feed.js asserts all three agree.
@@ -91,7 +92,7 @@
 
   /* Below this a "review" is a rating with a word attached, which is
      not social proof and does not read as genuine. */
-  var MIN_TEXT = 40;
+  var MIN_TEXT = 1;   /* any length; the owner's approval is the gate */
 
   /* ---------------------------------------------------------
      CSV parsing. Same hand-written parser as the other sheets:
@@ -484,18 +485,19 @@
   }
 
   function fetchSheet() {
-    /* SHEET-LIVE ONLY (owner decision, Nov 2026): the live feed first
-       (if configured), then the published reviews tab (CSV→TSV). There
-       is deliberately no baked snapshot step — the old
-       live-sheets/reviews.csv snapshot was permanently deleted, so
-       every review on every page comes from the live sheet, in real
-       time, on every page load. If Google is unreachable the page
-       honestly shows no reviews rather than stale baked ones. */
+    /* The live feed first (if configured), then the published tab
+       (CSV→TSV), then the baked snapshot (same chain) so reviews
+       never go blank while Google is unreachable. */
     var f = feedUrl("reviews");
     var live = function () {
       return url ? fetchPublished(url) : Promise.reject(new Error("no reviews url"));
     };
-    var first = f ? fetchRecords(f, "csv").catch(live) : live();
+    var snap = function () {
+      return (fallbackUrl && fallbackUrl !== url) ? fetchPublished(fallbackUrl)
+        : Promise.reject(new Error("no snapshot"));
+    };
+    var first = f ? fetchRecords(f, "csv").catch(live).catch(function () { return snap(); })
+                  : live().catch(function () { return snap(); });
     return first
       .then(function (recs) {
         writeCache(recs);
@@ -524,7 +526,7 @@
     MIN_TEXT: MIN_TEXT
   };
 
-  if (!url && !feedUrl("reviews")) return;
+  if (!url && !fallbackUrl && !feedUrl("reviews")) return;
   if (typeof root.fetch !== "function") return;
 
   /* v62: same stale-while-revalidate change as js/sheet.js. A cache

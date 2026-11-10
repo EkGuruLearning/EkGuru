@@ -158,7 +158,7 @@ try {
   check("feed.xml carries the profile item", feed.includes("/tutor/" + FLIP_ID + "/"));
 
   const llms1 = readFileSync(join(ROOT, "llms.txt"), "utf8");
-  check("llms.txt: Tutors listed: 1", /- Tutors listed: 1\n/.test(llms1));
+  check("llms.txt: Tutors listed: 3 (sushila + approved)", /- Tutors listed: 3\n/.test(llms1));
   check("llms.txt: the tutor line is back", llms1.includes("ekguru.shop/tutor/" + FLIP_ID + "/"));
   const man1 = JSON.parse(readFileSync(join(ROOT, "manifest.webmanifest"), "utf8"));
   check("manifest: Book with shortcut returns",
@@ -178,8 +178,8 @@ try {
     !/Ahora no hay perfiles/.test(metaValue(esFt1, "description")));
   const list1 = JSON.parse(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/.exec(ft1)[1]);
   const itemList1 = (list1["@graph"] || []).find((n) => n["@type"] === "ItemList") || list1;
-  check("find-tutors ItemList has 1 item again",
-    itemList1.numberOfItems === 1 && JSON.stringify(itemList1.itemListElement).includes(FLIP_ID),
+  check("find-tutors ItemList has 3 items again (sushila + approved)",
+    itemList1.numberOfItems === 3 && JSON.stringify(itemList1.itemListElement).includes(FLIP_ID),
     "numberOfItems=" + itemList1.numberOfItems);
 
   const home1 = readFileSync(join(ROOT, "index.html"), "utf8");
@@ -190,14 +190,18 @@ try {
   check("market card returns (ar)", ar1.includes("tutor/" + FLIP_ID + "/"));
 
   /* =====================================================
-     PHASE 2 — back to active=no (the zero state)
+     PHASE 2 — back to active=no. The live roster is the approved
+     applicants (Deepika, Utkarsh), so FLIP_ID must be gone while
+     those two stay listed.
      ===================================================== */
   console.log("\n[phase 2] fixture row " + FLIP_ID + " back to active=no");
   const site2 = phase(false);
+  const APPROVED = ["deepika", "utkarsh-upadhyay"];
+  const ids2 = site2.publicTutors.map((t) => t.id).sort();
 
-  check("publicTutors is empty again",
-    site2.publicTutors.length === 0,
-    "got " + site2.publicTutors.map((t) => t.id).join(","));
+  check("publicTutors: only the approved applicants, no " + FLIP_ID,
+    JSON.stringify(ids2) === JSON.stringify([...APPROVED].sort()),
+    "got " + ids2.join(","));
 
   const prof2 = readFileSync(join(ROOT, "tutor", FLIP_ID, "index.html"), "utf8");
   check("profile is noindex again", /<meta name="robots" content="noindex, follow">/.test(head(prof2)));
@@ -207,52 +211,40 @@ try {
   check("free-course CTA instead", /learn\/hindi\//.test(prof2));
 
   const sitemapT2 = readFileSync(join(ROOT, "sitemap-tutors.xml"), "utf8");
-  check("sitemap-tutors.xml has no profile URL", !/tutor\/[a-z0-9-]+\//.test(sitemapT2));
+  check("sitemap-tutors.xml has no " + FLIP_ID + " URL", !sitemapT2.includes("/tutor/" + FLIP_ID + "/"));
   const sitemap2 = readFileSync(join(ROOT, "sitemap.xml"), "utf8");
-  check("sitemap.xml has no tutor profile URL", !sitemap2.includes("/tutor/" + FLIP_ID + "/"));
+  check("sitemap.xml has no " + FLIP_ID + " URL", !sitemap2.includes("/tutor/" + FLIP_ID + "/"));
   const feed2 = readFileSync(join(ROOT, "feed.xml"), "utf8");
-  check("feed.xml has no tutor item", !feed2.includes("/tutor/" + FLIP_ID + "/"));
+  check("feed.xml has no " + FLIP_ID + " item", !feed2.includes("/tutor/" + FLIP_ID + "/"));
 
   const llms2 = readFileSync(join(ROOT, "llms.txt"), "utf8");
-  check("llms.txt: Tutors listed: 0", /- Tutors listed: 0\n/.test(llms2));
-  check("llms.txt: no per-lesson price claim", !/from \$[\d.]+ per lesson/.test(llms2));
-  check("llms.txt: no trial line", !/- Trial lessons:/.test(llms2));
-  check("llms.txt: no price-range line", !/- Price range:/.test(llms2));
-  check("llms.txt: no per-tutor link (the /tutor/ directory page may stay)",
-    !/ekguru\.shop\/tutor\/[a-z0-9-]+\//.test(llms2));
+  check("llms.txt: Tutors listed: " + APPROVED.length, new RegExp("- Tutors listed: " + APPROVED.length + "\\n").test(llms2));
+  check("llms.txt: no " + FLIP_ID + " line", !llms2.includes("ekguru.shop/tutor/" + FLIP_ID + "/"));
   const man2 = JSON.parse(readFileSync(join(ROOT, "manifest.webmanifest"), "utf8"));
-  check("manifest: no tutor shortcuts", !man2.shortcuts.some((s) => s.url.includes("tutor.html?id=")));
-  check("manifest: free-course shortcut instead", man2.shortcuts.some((s) => s.url.includes("learn/hindi")));
+  check("manifest: no " + FLIP_ID + " shortcut", !man2.shortcuts.some((s) => s.url.includes("id=" + FLIP_ID)));
   const f4042 = readFileSync(join(ROOT, "404.html"), "utf8");
-  check("404.html has no tutor link", !f4042.includes("tutor/" + FLIP_ID + "/"));
-  check("404.html: free course door", f4042.includes('href="learn/hindi/"'));
+  check("404.html has no " + FLIP_ID + " link", !f4042.includes("tutor/" + FLIP_ID + "/"));
 
   const ft2 = readFileSync(join(ROOT, "find-tutors.html"), "utf8");
-  check("find-tutors empty metadata says no public profiles, not false availability",
-    /Hindi tutor directory/.test(titleValue(ft2)) &&
-    /None are currently listed for booking/.test(metaValue(ft2, "description")) &&
-    !/price filter|rating filter|verified tutor/i.test(metaValue(ft2, "description")));
+  check("find-tutors metadata describes the public roster",
+    /Find a Hindi tutor/.test(titleValue(ft2)) &&
+    /Browse public Hindi tutor profiles/.test(metaValue(ft2, "description")));
   const esFt2 = readFileSync(join(ROOT, "es/find-tutors.html"), "utf8");
-  check("Spanish directory empty metadata is localized and explicit",
-    /Directorio de tutores/.test(titleValue(esFt2)) &&
-    /Ahora no hay perfiles para reservar/.test(metaValue(esFt2, "description")));
+  check("Spanish directory metadata is localized and roster-aware",
+    /Encuentra un tutor/.test(titleValue(esFt2)) &&
+    /Explora perfiles públicos/.test(metaValue(esFt2, "description")));
   const list2 = JSON.parse(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/.exec(ft2)[1]);
   const itemList2 = (list2["@graph"] || []).find((n) => n["@type"] === "ItemList") || list2;
-  check("find-tutors ItemList is empty (numberOfItems 0)",
-    itemList2.numberOfItems === 0 && itemList2.itemListElement.length === 0,
+  check("find-tutors ItemList has " + APPROVED.length + " items, no " + FLIP_ID,
+    itemList2.numberOfItems === APPROVED.length && !JSON.stringify(itemList2.itemListElement).includes(FLIP_ID),
     "numberOfItems=" + itemList2.numberOfItems);
   const ti2 = readFileSync(join(ROOT, "tutor", "index.html"), "utf8");
-  check("tutor/index ItemList is empty", !ti2.includes("tutor/" + FLIP_ID + "/"));
+  check("tutor/index has no " + FLIP_ID, !ti2.includes("tutor/" + FLIP_ID + "/"));
 
   const home2 = readFileSync(join(ROOT, "index.html"), "utf8");
-  check("home: no tutor card", !home2.includes("tutor/" + FLIP_ID + "/"));
-  check("home: hero card is the empty state",
-    /id="hero-tutor" data-eg-empty="1"/.test(home2) && !/id="hero-tutor"[\s\S]*?tutor\/[a-z0-9-]+\//.test(home2));
-  check("home: empty state present", /eg-empty|data-t-empty|emptyTutors|t-empty/.test(home2));
-  check("home: free-course CTA", home2.includes("learn/hindi/"));
+  check("home: no " + FLIP_ID + " card", !home2.includes("tutor/" + FLIP_ID + "/"));
   const ar2 = readFileSync(join(ROOT, "ar", "index.html"), "utf8");
-  check("market (ar): no tutor card", !ar2.includes("tutor/" + FLIP_ID + "/"));
-  check("market (ar): free course link", ar2.includes("learn/hindi/"));
+  check("market (ar): no " + FLIP_ID + " card", !ar2.includes("tutor/" + FLIP_ID + "/"));
 
 } finally {
   /* byte-for-byte restore of everything the phases touched */

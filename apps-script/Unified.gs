@@ -321,7 +321,7 @@ var FEED_CACHE_SECONDS = 30;
 var FEED_CACHE_PREFIX = "ekguru-feed-v1:";
 
 /* Tab name (case-insensitive) first, then the permanent gid from the old
-   published links as a backstop. (A gid survives renames but not delete-and-recreate: the reviews tab was recreated on 4 Nov 2026, gid 298809212 -> 293675115.) */
+   published links. A gid never changes, a name can be edited by accident. */
 var FEED_TABS = {
   tutors:   { names: ["tutors"],                          gid: 1631273256 },
   reviews:  { names: ["reviews"],                         gid: 293675115 },
