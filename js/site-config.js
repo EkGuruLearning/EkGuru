@@ -841,17 +841,6 @@ window.EKGURU_SITE = {
     batch: "2022–2026",
     city: "Jaipur, Rajasthan, India",
 
-    /* Birthplace — used only for local SEO signals and the founder schema.
-       Nothing here is shown on the site beyond the footer credit line.     */
-    birthplace: {
-      hamlet: "Gothwal Ki Dhani",
-      village: "Kolwa",
-      district: "Dausa",
-      state: "Rajasthan",
-      country: "India",
-      pincode: "303325",
-      landmark: "Kolwa Railway Station"
-    },
     /* The ONLY sentence written about the founder anywhere on the site. */
     bio: "Prakash — MNIT Jaipur, CSE 2022–2026 batch pass out.",
     email: "EkGuruLearning@gmail.com",
