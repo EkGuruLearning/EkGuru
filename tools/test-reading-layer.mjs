@@ -73,7 +73,7 @@ for (const p of pages) {
 }
 
 /* ---------- 1. the class is where it should be, and nowhere else ---------- */
-check("the reading layer is on every hand-written page", legacy.length === 970,
+check("the reading layer is on every hand-written page", legacy.length === 976,  /* 970 original + 6 owner-approved country pages (2026-11-13) */
   legacy.length + " page(s)");
 /* 1705 = 1672 existing page-layer pages (including the 45 Indian course posts
    and 2 Hindi Phase 3 posts) + the Spanish, Arabic and German Phase 3 hubs and
@@ -97,7 +97,7 @@ for (const [p, h] of legacy) {
   if (css > worst[1]) worst = [p, css];
 }
 const withStyle = legacy.filter(([, h]) => /<style/.test(h)).length;
-check("the 970 copies of the body CSS are gone",
+check("the 976 copies of the body CSS are gone",
   cssBytes < 4000 && withStyle <= 3,
   cssBytes + " bytes left in " + withStyle + " page(s), worst: " + worst[0] + " (" + worst[1] + " B)");
 
