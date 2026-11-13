@@ -562,26 +562,9 @@
       },
       address: { "@type": "PostalAddress", addressLocality: "Jaipur",
                  addressRegion: "Rajasthan", addressCountry: "IN" },
-      birthPlace: (function () {
-        var b = F.birthplace || {};
-        if (!b.village) return undefined;
-        return {
-          "@type": "Place",
-          name: [b.hamlet, b.village, b.district].filter(Boolean).join(", "),
-          address: {
-            "@type": "PostalAddress",
-            streetAddress: b.hamlet || undefined,
-            addressLocality: b.village,
-            addressRegion: b.state || "Rajasthan",
-            postalCode: b.pincode,
-            addressCountry: "IN"
-          },
-          containedInPlace: {
-            "@type": "AdministrativeArea",
-            name: (b.district || "Dausa") + " district, " + (b.state || "Rajasthan") + ", India"
-          }
-        };
-      })(),
+      /* No birthplace, home village or postal code is published here:
+         a private person's home location does not belong in public
+         structured data. City-level address only. */
       nationality: { "@type": "Country", name: "India" },
       sameAs: [F.linkedin, F.twitter, S.youtubeChannel].filter(Boolean)
     });
