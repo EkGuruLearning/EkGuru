@@ -41,6 +41,9 @@ def check():
   if old:
    if old['indexable']!=(not h.noindex):errors.append(rel+': unauthorized index change')
    if old['canonical']!=h.canonical:errors.append(rel+': unauthorized canonical change')
+  elif rel in data.get('owner_approved_new_indexable',{}):
+   ap=data['owner_approved_new_indexable'][rel]
+   if h.noindex!=(not ap['indexable']) or h.canonical!=ap['canonical']:errors.append(rel+': approved new page does not match owner approval')
   elif not h.noindex:errors.append(rel+': new page must be noindex')
  for rel in data['pages'].keys()-seen:errors.append(rel+': original file removed')
  print('Indexing freeze:', 'FAIL' if errors else 'PASS',f'({len(errors)} violations)')
