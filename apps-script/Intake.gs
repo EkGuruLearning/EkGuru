@@ -391,6 +391,21 @@ function intakeAppendLocked_(kind, spec, ref, values, ss) {
       }
     }
   }
+  /* One applicant, one row. If this email already applied, the newest
+     application replaces the old details in place (the applicant keeps the
+     first reference; the owner's status and approved cells are kept). */
+  if (spec === INTAKE_KINDS.application && tab.getLastRow() > 1) {
+    var wanted = String(values.email || "").trim().toLowerCase();
+    var emailAt = spec.header.indexOf("email");
+    if (wanted) {
+      var rows = tab.getRange(2, 1, tab.getLastRow() - 1, spec.header.length).getValues();
+      for (var r = rows.length - 1; r >= 0; r--) {
+        if (String(rows[r][emailAt] || "").trim().toLowerCase() === wanted) {
+          return intakeUpdateApplicationRow_(tab, spec, r + 2, rows[r], new Date(), values);
+        }
+      }
+    }
+  }
   var when = new Date();
   var row = spec.header.map(function (h) {
     if (h === "timestamp") return when;
@@ -406,6 +421,24 @@ function intakeAppendLocked_(kind, spec, ref, values, ss) {
   });
   tab.appendRow(row);
   return { reference: ownRef, duplicate: false };
+}
+
+/* Rewrites an existing application row with the newest submitted details.
+   Kept from the old row: the reference (so the applicant's first reference
+   still works), status and approved (the owner's decisions). */
+function intakeUpdateApplicationRow_(tab, spec, rowNumber, oldRow, when, values) {
+  var keep = { reference: true, status: true, approved: true };
+  var row = spec.header.map(function (h, idx) {
+    if (keep[h]) return oldRow[idx];
+    if (h === "timestamp") return when;
+    if (h === "requested_at") {
+      return Utilities.formatDate(when, "Asia/Kolkata", "yyyy-MM-dd HH:mm") + " IST";
+    }
+    if (h === "notes") return values.notes || oldRow[idx] || "";
+    return values[h] !== undefined ? values[h] : "";
+  });
+  tab.getRange(rowNumber, 1, 1, row.length).setValues([row]);
+  return { reference: String(oldRow[spec.header.indexOf("reference")] || ""), duplicate: true };
 }
 
 function intakeHealth_() {
@@ -438,4 +471,35 @@ function intakeRef_() {
 
 function intakeJson_(obj) {
   return ContentService.createTextOutput(JSON.stringify(obj)).setMimeType(ContentService.MimeType.JSON);
+}
+
+/* One-time cleanup for applications that were written before the email
+   merge above existed. Run it by hand from the Apps Script editor.
+   For every email with more than one row, the NEWEST row stays as it is;
+   every older row gets status = "superseded" and a note. Nothing is deleted,
+   so the owner can review before removing anything. */
+function intakeMarkDuplicateApplications() {
+  var spec = INTAKE_KINDS.application;
+  var tab = intakeSpreadsheet_().getSheetByName(spec.tab);
+  if (!tab || tab.getLastRow() < 3) return { marked: 0 };
+  var emailAt = spec.header.indexOf("email");
+  var statusAt = spec.header.indexOf("status");
+  var notesAt = spec.header.indexOf("notes");
+  var rows = tab.getRange(2, 1, tab.getLastRow() - 1, spec.header.length).getValues();
+  var newest = {};
+  for (var r = 0; r < rows.length; r++) {
+    var key = String(rows[r][emailAt] || "").trim().toLowerCase();
+    if (!key) continue;
+    var ts = new Date(rows[r][spec.header.indexOf("timestamp")]).getTime() || 0;
+    if (!newest[key] || ts >= newest[key].ts) newest[key] = { row: r, ts: ts };
+  }
+  var marked = 0;
+  for (var s = 0; s < rows.length; s++) {
+    var k = String(rows[s][emailAt] || "").trim().toLowerCase();
+    if (!k || newest[k].row === s) continue;
+    tab.getRange(s + 2, statusAt + 1).setValue("superseded");
+    tab.getRange(s + 2, notesAt + 1).setValue("older duplicate of a newer application (same email)");
+    marked++;
+  }
+  return { marked: marked };
 }

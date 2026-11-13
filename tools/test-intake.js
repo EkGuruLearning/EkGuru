@@ -57,6 +57,13 @@ function loadIntake(tabsSeed, opts) {
           out.push(vals);
         }
         return out;
+      },
+      setValues: (vals) => {
+        vals.forEach((line, r) => {
+          const idx = row - 1 + r;
+          tabs[name].rows[idx] = tabs[name].rows[idx] || [];
+          line.forEach((v, c) => { tabs[name].rows[idx][col - 1 + c] = v; });
+        });
       }
     }),
     setFrozenRows: () => {}
@@ -225,9 +232,14 @@ const BOOK = {
   check("an enum outside the menu is refused", r.ok === false && /options/.test(r.error));
   r = post(I.ctx, { ...APP, fields: { ...APP.fields, subject: "<script>x</script>" } });
   check("HTML is stripped from text", r.ok === true && !/[<>]/.test(dataRows(I.tabs.applications).slice(-1)[0].join("|")));
-  r = post(I.ctx, { ...APP, fields: { ...APP.fields, name: "=HYPERLINK(\"http://x\")" } });
+  r = post(I.ctx, { ...APP, fields: { ...APP.fields, name: "=HYPERLINK(\"http://x\")", email: "formula@example.com" } });
   check("a leading formula character is neutralised", r.ok === true && dataRows(I.tabs.applications).slice(-1)[0].some((c) => c === "'=HYPERLINK(\"http://x\")"));
   check("no refused submission left a row behind", dataRows(I.tabs.applications).length === 2, String(dataRows(I.tabs.applications).length));
+  /* Same applicant twice: one row, newest details, first reference kept. */
+  r = post(I.ctx, { ...APP, fields: { ...APP.fields, subject: "Hindi grammar", email: "Asha@Example.com" } });
+  const asha = dataRows(I.tabs.applications).filter((row) => String(row).toLowerCase().includes("asha@example.com"));
+  check("same email again updates the existing row, no second row", r.ok === true && r.duplicate === true && asha.length === 1 && dataRows(I.tabs.applications).length === 2, JSON.stringify(r));
+  check("the updated row holds the newest subject", asha.length === 1 && asha[0].includes("Hindi grammar"));
 }
 
 {
