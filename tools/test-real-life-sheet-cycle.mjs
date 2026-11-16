@@ -49,10 +49,26 @@ const THREE = [
 const NEW_ONE = [["sushila-g", "Tomás", "2026-11-10", "5", "Booked through EkGuru, three lessons in and I can already introduce myself in Hindi.", "email", "live"]];
 
 const TUTORS_TSV = fs.readFileSync(path.join(ROOT, "tests/fixtures/tutors.tsv"), "utf8");
-function tutorsSheet(mut) {
+/* Registry ids (approved tutors). The fixture sheet has NO row for some
+   of them (deepika, utkarsh-upadhyay) — exactly the production shape. */
+const REGISTRY = (fs.readFileSync(path.join(ROOT, "js/tutors/_registry.js"), "utf8").match(/"([a-z0-9-]+)"/g) || [])
+  .map((x) => x.replace(/"/g, "")).filter((id) => fs.existsSync(path.join(ROOT, "js/tutors", id + ".js")));
+function tutorsSheet(mut, opts) {
+  opts = opts || {};
   const lines = TUTORS_TSV.split("\n");
   const head = lines[0].split("\t");
-  const rows = lines.slice(1).filter(Boolean).map((l) => l.split("\t"));
+  let rows = lines.slice(1).filter(Boolean).map((l) => l.split("\t"));
+  if (opts.drop) rows = rows.filter((r) => !opts.drop.includes(r[0]));
+  /* allNo: give EVERY registry tutor a row that says active=no — the
+     only way to hide an approved tutor (owner rule, 16 Nov 2026). */
+  if (opts.allNo) {
+    REGISTRY.forEach((id) => {
+      if (rows.some((r) => r[0] === id)) return;
+      const r = head.map(() => ""); r[0] = id; r[head.indexOf("active")] = "no"; r[head.indexOf("name")] = id;
+      rows.push(r);
+    });
+    rows.forEach((r) => { if (r[0] !== "#help") r[head.indexOf("active")] = "no"; });
+  }
   if (mut) rows.forEach((r) => mut(Object.fromEntries(head.map((h, i) => [h, r[i]])), r, head));
   return [head.join("\t")].concat(rows.map((r) => r.join("\t"))).join("\n");
 }
@@ -82,7 +98,7 @@ function makeGoogle(state) {
          TSV verbatim also keeps the fixture's multi-line quoted bio
          cells intact — a naive CSV re-encode split them into junk rows. */
       if (/output=csv/.test(u)) return fail(500);
-      return resp(tutorsSheet(state.tutorMut));
+      return resp(tutorsSheet(state.tutorMut, { allNo: state.allNo, drop: state.drop }));
     }
     if (/live-sheets\/reviews\.csv/.test(u)) { log.push("SNAPSHOT"); return fail(404); }
     return Promise.reject(new Error("offline"));
@@ -289,7 +305,7 @@ STORAGE.clear();
 }
 
 /* ====== 9. owner empties the TUTORS tab (header only) ====== */
-console.log("\n== 9. Owner empties the tutors tab (header only) ==");
+console.log("\n== 9. Owner empties the tutors tab (header only) -> approved tutors show, no overrides ==");
 STORAGE.clear();
 {
   /* day 1: sushila-g public */
@@ -304,7 +320,7 @@ STORAGE.clear();
     : orig(u)))(g2.fetch);
   const p2 = await loadPage(ROSTER, ROSTER_URL, g2, { settle: 900 });
   ok("day 2: header-only tutors tab -> no script errors", p2.errors.length === 0, p2.errors.join(" | "));
-  ok("day 2: nobody is public (registry AND active row rule)", rosterIds(p2.win).length === 0, rosterIds(p2.win).join(","));
+  ok("day 2: every approved (registry) tutor shows with file values — nobody is hidden without an active=no row", REGISTRY.every((id) => rosterIds(p2.win).includes(id)), rosterIds(p2.win).join(","));
   ok("day 2: loader reports loaded:true with 0 rows", p2.win.EKGURU_SHEET_INFO && p2.win.EKGURU_SHEET_INFO.loaded === true && p2.win.EKGURU_SHEET_INFO.rows === 0, JSON.stringify(p2.win.EKGURU_SHEET_INFO));
   p2.close();
 }
@@ -341,8 +357,8 @@ for (const lang of Object.keys(EXPECT_EMPTY)) {
   const rel = lang + "/find-tutors.html", url = "https://ekguru.shop/" + lang + "/find-tutors.html";
   if (!fs.existsSync(path.join(ROOT, rel))) { ok(lang + " roster page exists", false); continue; }
   STORAGE.clear();
-  /* the fixture sheet has every tutor active=no — exactly production today */
-  const gAll = makeGoogle({ reviews: [] });
+  /* every approved tutor has a row saying active=no */
+  const gAll = makeGoogle({ reviews: [], allNo: true });
   const pA = await loadPage(rel, url, gAll, { settle: 1200 });
   const cardsA = pA.win.document.querySelectorAll("[data-t-row]");
   const grid = pA.win.document.querySelector(".lp-cards");
@@ -352,7 +368,7 @@ for (const lang of Object.keys(EXPECT_EMPTY)) {
   ok(lang + ": no script errors", pA.errors.length === 0, pA.errors.join(" | "));
   pA.close();
   STORAGE.clear();
-  const gOne = makeGoogle({ reviews: [], tutorMut: (o, cells, head) => { if (o.id === "sushila-g") setCell(o, cells, head, "active", "yes"); } });
+  const gOne = makeGoogle({ reviews: [], allNo: true, tutorMut: (o, cells, head) => { if (o.id === "sushila-g") setCell(o, cells, head, "active", "yes"); } });
   const pB = await loadPage(rel, url, gOne, { settle: 1200 });
   const idsB = Array.from(pB.win.document.querySelectorAll("[data-t-row]")).map((c) => c.getAttribute("data-t-row"));
   ok(lang + ": sushila-g active=yes -> exactly her card remains, no zero state", idsB.join(",") === "sushila-g" && !pB.win.document.querySelector("[data-eg-empty]"), idsB.join(","));
@@ -360,17 +376,17 @@ for (const lang of Object.keys(EXPECT_EMPTY)) {
 }
 
 /* ====== 12. List-less pages (city page, text directory, profile "other tutors") follow the same rule ====== */
-console.log("\n== 12. City page / text directory / profile 'other tutors': PUBLIC <=> sheet active=yes; offline never empties ==");
+console.log("\n== 12. City page / text directory / profile 'other tutors': only active=no removes; offline never empties ==");
 for (const [rel, url] of [["hindi-tutor/worldwide/index.html", "https://ekguru.shop/hindi-tutor/worldwide/"], ["tutor/index.html", "https://ekguru.shop/tutor/"], ["tutor/sushila-g/index.html", PROFILE_URL]]) {
   const rowsOf = (d) => Array.from(d.querySelectorAll("[data-t-row]")).filter((e) => e.style.display !== "none").map((e) => e.getAttribute("data-t-row"));
   STORAGE.clear();
-  let p = await loadPage(rel, url, makeGoogle({ reviews: [] }), { settle: 1200 });
-  ok(rel + ": every tutor active=no (or no row) -> no tutor rows remain", rowsOf(p.win.document).length === 0, rowsOf(p.win.document).join(","));
+  let p = await loadPage(rel, url, makeGoogle({ reviews: [], allNo: true }), { settle: 1200 });
+  ok(rel + ": every tutor active=no -> no tutor rows remain", rowsOf(p.win.document).length === 0, rowsOf(p.win.document).join(","));
   ok(rel + ": the emptied list says so", !!p.win.document.querySelector("[data-eg-empty]"));
   ok(rel + ": no script errors", p.errors.length === 0, p.errors.join(" | "));
   p.close();
   STORAGE.clear();
-  p = await loadPage(rel, url, makeGoogle({ reviews: [], tutorMut: (o, c, h) => { if (o.id === "sushila-g" || o.id === "shikha-dutta") setCell(o, c, h, "active", "yes"); } }), { settle: 1200 });
+  p = await loadPage(rel, url, makeGoogle({ reviews: [], allNo: true, tutorMut: (o, c, h) => { if (o.id === "sushila-g" || o.id === "shikha-dutta") setCell(o, c, h, "active", "yes"); } }), { settle: 1200 });
   const want = rel.includes("sushila-g") ? "shikha-dutta" : "sushila-g,shikha-dutta";
   ok(rel + ": two active -> exactly those rows, in sheet order", rowsOf(p.win.document).join(",") === want, rowsOf(p.win.document).join(","));
   p.close();
@@ -378,6 +394,48 @@ for (const [rel, url] of [["hindi-tutor/worldwide/index.html", "https://ekguru.s
   p = await loadPage(rel, url, makeGoogle({ reviews: [], tutorsDown: true }), { settle: 1200 });
   ok(rel + ": Google unreachable -> the page is NOT emptied", rowsOf(p.win.document).length >= 1 && !p.win.document.querySelector("[data-eg-empty]"), rowsOf(p.win.document).join(","));
   p.close();
+}
+
+/* ====== 13. OWNER RULE: approved tutor with NO sheet row is visible ====== */
+console.log("\n== 13. Approved (registry) tutor with no sheet row at all -> visible everywhere; active=no row -> hidden ==");
+{
+  const noRow = REGISTRY.filter((id) => !TUTORS_TSV.split("\n").some((l) => l.startsWith(id + "\t")));
+  ok("the fixture really lacks rows for some approved tutors (production shape)", noRow.length >= 1, noRow.join(","));
+  STORAGE.clear();
+  /* sheet: only sushila-g active=yes; shikha-dutta + pinky-kumari rows REMOVED */
+  const g = makeGoogle({ reviews: [], drop: ["shikha-dutta", "pinky-kumari"], tutorMut: (o, c, h) => { if (o.id === "sushila-g") setCell(o, c, h, "active", "yes"); } });
+  const pR = await loadPage(ROSTER, ROSTER_URL, g, { settle: 1200 });
+  const ids = rosterIds(pR.win);
+  ok("English roster: sushila-g (active=yes) is public", ids.includes("sushila-g"), ids.join(","));
+  ok("English roster: approved tutors WITHOUT a row (shikha-dutta, pinky-kumari, " + noRow.join(", ") + ") are public too", ["shikha-dutta", "pinky-kumari"].concat(noRow).every((id) => ids.includes(id)), ids.join(","));
+  ok("English roster: sheet-only drafts (hemlata, tara, sarshtee-baliyan) stay off it", !["hemlata", "tara", "sarshtee-baliyan"].some((id) => ids.includes(id)), ids.join(","));
+  ok("English roster: no script errors", pR.errors.length === 0, pR.errors.join(" | "));
+  pR.close();
+  for (const [rel, url] of [["es/find-tutors.html", "https://ekguru.shop/es/find-tutors.html"], ["hindi-tutor/worldwide/index.html", "https://ekguru.shop/hindi-tutor/worldwide/"], ["tutor/index.html", "https://ekguru.shop/tutor/"]]) {
+    STORAGE.clear();
+    const p = await loadPage(rel, url, g, { settle: 1200 });
+    const rows = Array.from(p.win.document.querySelectorAll("[data-t-row]")).filter((e) => e.style.display !== "none").map((e) => e.getAttribute("data-t-row"));
+    ok(rel + ": row-less approved tutors keep their card/line", ["shikha-dutta"].concat(noRow).every((id) => rows.includes(id)), rows.join(","));
+    ok(rel + ": no zero state while tutors are visible", !p.win.document.querySelector("[data-eg-empty]"));
+    p.close();
+  }
+  /* and the opposite: give deepika a row that says active=no -> gone */
+  STORAGE.clear();
+  const gNo = makeGoogle({ reviews: [], allNo: true, tutorMut: (o, c, h) => { if (o.id !== "deepika") setCell(o, c, h, "active", "yes"); } });
+  const p2 = await loadPage(ROSTER, ROSTER_URL, gNo, { settle: 1200 });
+  const ids2 = rosterIds(p2.win);
+  ok("a row with active=no hides exactly that tutor (deepika)", !ids2.includes("deepika") && ids2.includes("utkarsh-upadhyay") && ids2.includes("sushila-g"), ids2.join(","));
+  p2.close();
+  /* tutor.html?id=<approved, no row> is a full bookable profile; ?id=<active=no> says closed, never "does not exist" */
+  STORAGE.clear();
+  const p3 = await loadPage("tutor.html", "https://ekguru.shop/tutor.html?id=deepika", g, { settle: 1200 });
+  ok("tutor.html?id=deepika (approved, no row): full profile with Book buttons", p3.win.document.querySelectorAll("[data-book]").length >= 1 && /Deepika/.test(p3.win.document.querySelector("main").textContent));
+  p3.close();
+  STORAGE.clear();
+  const p4 = await loadPage("tutor.html", "https://ekguru.shop/tutor.html?id=deepika", gNo, { settle: 1200 });
+  const main4 = p4.win.document.querySelector("main").textContent;
+  ok("tutor.html?id=deepika (active=no row): says bookings closed, NOT 'does not exist'", !/does not exist|not found/i.test(main4) && p4.win.document.querySelectorAll("[data-book]").length === 0, main4.replace(/\s+/g, " ").slice(0, 120));
+  p4.close();
 }
 
 console.log("\n" + pass + " passed, " + fail + " failed");

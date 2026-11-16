@@ -1030,15 +1030,17 @@
       }
     });
 
-    /* Tutors in the roster/files but with no row in the sheet have
-       never been reviewed or approved. The publication rule requires
-       both registry inclusion AND an active sheet row. Mark them
-       hidden so they don't appear as public tutors. */
+    /* 16 Nov 2026 — OWNER RULE: an approved tutor is visible.
+       Approved = reviewed into js/tutors/_registry.js (the file
+       loaded on this page). The sheet HIDES with an explicit
+       active=no; a tutor who simply has no row yet is NOT hidden.
+       This used to mark every row-less registry tutor hidden, which
+       contradicted the build (tools/sheetsync.js bakes them visible,
+       bookable and in the sitemap) — so the English roster dropped
+       tutors the rest of the site was showing. Owner's words:
+       "jo tutor approved hai unko approved maan kar visible karna." */
     list.forEach(function (t) {
-      if (!seenInSheet[t.id]) {
-        t._hiddenBySheet = true;
-        hidden++;
-      }
+      if (!seenInSheet[t.id]) t._hiddenBySheet = false;
     });
 
     /* ---------------------------------------------------------
@@ -1208,13 +1210,15 @@
           /* An empty tab is an answer (16 Nov 2026, same lesson as
              js/reviews.js). tryOne() already proved this is the
              tutors tab — the header has an id column — so zero data
-             rows means the owner emptied it. The publication rule is
-             registry AND active sheet row; with no rows nobody is
-             public, and applyRecords([]) says exactly that instead of
-             the old "not loaded" path, which left a returning visitor
-             looking at a cached roster the sheet no longer had. */
+             rows means the owner emptied it. Owner rule: approved
+             (registry) tutors are visible unless a row says
+             active=no, so an empty tab means "nobody is hidden, no
+             overrides" — applyRecords([]) resets every registry
+             tutor to their file values instead of the old "not
+             loaded" path, which left a returning visitor looking at
+             a cached roster the sheet no longer had. */
           if (!recs.length) {
-            console.warn("[EkGuru] Sheet tab is empty (header only) — no tutor is published until a row is added.");
+            console.warn("[EkGuru] Sheet tab is empty (header only) — every approved tutor shows with file values; add a row with active=no to hide one.");
           }
           writeCache(recs);
           var n = applyRecords(recs);

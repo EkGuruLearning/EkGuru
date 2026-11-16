@@ -35,6 +35,13 @@
 
       a tutor is PUBLIC  ⇔  in this registry  AND  sheet active=yes
 
+   16 Nov 2026 — owner clarification ("jo tutor approved hai unko
+   approved maan kar visible karna"): being in this registry IS the
+   approval. A registry tutor with NO row in the sheet is visible with
+   their file values; only an explicit active=no row hides them. The
+   build (tools/sheetsync.js) always worked that way; js/sheet.js and
+   js/livepatch.js now match it.
+
    The sheet owns the second gate (js/tutors/_overrides.js, written by
    tools/sheetsync.js). A hidden tutor (active=no) keeps their profile
    page — reachable by direct link, noindex, booking off — but is absent

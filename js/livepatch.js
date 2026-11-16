@@ -217,22 +217,10 @@
           RH.forEach(function (id) {
             if (!(RR[id] && !RR[id]._hiddenBySheet)) hideSet[id] = 1;
           });
-          /* 16 Nov 2026 — the publication rule (js/tutors/_registry.js,
-             enforced by js/sheet.js on every page that renders the
-             roster): PUBLIC ⇔ in the registry AND sheet active=yes.
-             A tutor with NO row in the live sheet is therefore hidden
-             on find-tutors.html — but these list-less pages (city
-             pages, the text directory, the "other tutors" list on a
-             profile) kept linking them. Apply the same rule here: once
-             the sheet has genuinely loaded (RR non-empty), a row id
-             the sheet does not show as visible goes. */
-          if (Object.keys(RR).length) {
-            var rowsNow = document.querySelectorAll("[data-t-row]");
-            for (var n = 0; n < rowsNow.length; n++) {
-              var nid = rowsNow[n].getAttribute("data-t-row");
-              if (!knownVisible[nid]) hideSet[nid] = 1;
-            }
-          }
+          /* Owner rule (16 Nov 2026): approved tutors are visible —
+             only an explicit active=no (RL / hidden RR / baked RH)
+             removes a row. A tutor with no sheet row keeps their place,
+             matching js/sheet.js and tools/sheetsync.js. */
         }
       }
 

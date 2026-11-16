@@ -1069,8 +1069,15 @@
          for hidden rows on every page by js/sheet.js. */
       var recs = window.EKGURU_SHEET_RECORDS || {};
       var baked = window.EKGURU_SHEET_HIDDEN || [];
+      /* 16 Nov 2026 — a FILE-backed tutor hidden by active=no is in
+         neither list (RECORDS holds record-only stubs, HIDDEN is the
+         build snapshot), so ?id=sushila-g with a live active=no row
+         said "This profile does not exist". js/sheet.js now publishes
+         every live-hidden id; read it too. */
+      var liveHidden = window.EKGURU_SHEET_HIDDEN_LIVE || [];
       var knownHidden = (id && recs[id] && recs[id]._hiddenBySheet) ||
-                        (id && baked.indexOf(id) > -1);
+                        (id && baked.indexOf(id) > -1) ||
+                        (id && liveHidden.indexOf(id) > -1);
       if (knownHidden) {
         host.innerHTML = '<div class="wrap"><div class="empty"><div>⏸️</div><h2>' + esc(t("book.closed")) +
           "</h2><p>" + esc(t("pf.closedNote")) + '</p><a class="btn btn-primary" href="' + langHref("find-tutors.html") + '">' +

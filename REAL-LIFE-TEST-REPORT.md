@@ -26,7 +26,7 @@ Sheet feed ke saath. Jo bhi toota, fix kiya aur test CI mein lock kiya.
 | 5 | `tools/build-tutor-pages.js`, `tutor/deepika/`, `tutor/utkarsh-upadhyay/` | **Deepika aur Utkarsh ke profile par "Student reviews" section hamesha "Loading reviews…" par atka rehta tha** — `js/reviews.js` + `js/reviews-display.js` script tags sirf 3 profiles par haath se add hue the, in 2 par bhool gaye. Naya approved review yahan kabhi nahi dikhta. | Builder ab har profile par jahan `data-eg-reviews` section hai, dono scripts inject karta hai (store.js ke baad). Dono pages rebuild. `build-tutor-pages.js --check` clean. |
 
 | 6 | `js/livepatch.js`, `js/sheet.js` | **PRODUCTION mein aaj live:** jab sheet mein *saare* tutors `active=no` hain (abhi ka state), English `find-tutors.html` 0 cards dikhata hai lekin `es/ fr/ de/ pt/ ja/ ar/find-tutors.html` par **paanchon tutor cards "Ver perfil" ke saath dikhte rehte the**. livepatch "EKGURU_TUTORS khali = page par tutor data nahi" maan leta tha, jabki data tha par sab hidden. | `sheet.js` ab `EKGURU_SHEET_HIDDEN_LIVE` (har hidden id) publish karta hai; livepatch use karta hai. Khali grid par page ki bhasha mein wahi zero-state ("Ahora no hay tutores disponibles…" + free-course CTA) jo generators/main.js dete hain. |
-| 7 | `js/livepatch.js` | List-less pages (city pages `hindi-tutor/*`, text directory `tutor/`, profile ka "other tutors" list) par **bina sheet row wale tutors (deepika, utkarsh, pinky — live-sheets snapshot mein row nahi) link hote rehte the**, jabki English roster unhe hide karta hai. Publication rule (`_registry.js`): PUBLIC ⇔ registry AND sheet active=yes. | Sheet genuinely load hone par (records non-empty) jo id visible nahi, woh row jati hai. Offline / fetch fail par page kabhi khali nahi hota (test #12). |
+| 7 | `js/livepatch.js`, `js/sheet.js` | English roster aur baaki pages (city pages, directory, profile "other tutors") **bina sheet row wale approved tutors ko alag-alag treat karte the** (roster hide, baaki show). | Owner rule ke mutabik ab sab jagah ek hi rule: approved = visible, sirf `active=no` row hide karti hai; `active=no` par khali hui list mein honest zero-state. Offline / fetch fail par page kabhi khali nahi hota (test #12). |
 | 8 | `js/reviews.js` | Offline visitor cache se reviews paint karta tha, lekin tutors tab land hote hi `EKGURU_REVIEWS_INFO.loaded` wapas `true` ho jata tha — admin ko "live" dikhta jabki cache tha. | `LAST_ERROR` yaad rakha jata hai; re-apply par `loaded:false, fromCache:true` barkarar. |
 
 Chhoti cleanups: `tools/adminstats.js` stale `reviews.csv` entry, `site-config.js`
@@ -50,7 +50,9 @@ comment, `apps-script/UNIFIED-SETUP.md` mein ref-normalisation note.
 10. **es/fr/de/pt/ja/ar rosters**: sab `active=no` → 0 cards + apni bhasha mein zero-state + `../learn/hindi/` CTA; sirf sushila `yes` → sirf uska card, koi zero-state nahi.
 11. **City page / text directory / profile "other tutors"**: sab no → rows gaye + honest line; 2 active → exactly wahi 2 sheet order mein; **Google unreachable → page khali nahi hota**.
 
-(Total ab **92/92**.)
+12. **Approved tutor bina sheet row ke** → har jagah visible; `active=no` row → sirf wahi hidden; `tutor.html?id=` closed vs not-found sahi.
+
+(Total ab **106/106**.)
 
 ### `tools/test-real-life-booking-review.mjs` — 38/38 PASS
 Ek student "Asha Verma" ka poora safar:
@@ -80,7 +82,7 @@ Feed → cache → offline chain; dead CSV fallback hat gaya.
 | test-tutor-activation.mjs | 39/39 |
 | test-reviews-fallback.js | PASS |
 | test-intake-real-life.mjs | PASS, exit 0 |
-| test-real-life-sheet-cycle.mjs | 92/92 |
+| test-real-life-sheet-cycle.mjs | 106/106 |
 | test-real-life-booking-review.mjs | 38/38 |
 | test-mail-flow.mjs | PASS |
 | test-no-competitor-attribution.js / test-tutor-claims.js | PASS |
@@ -111,8 +113,14 @@ naye/rewritten suites ab har PR par chalenge.
    receipt ka EK- ref lowercase mein review form mein daalo → `reviews_pending`
    mein canonical uppercase ref dikhna chahiye.
 
-## Owner decision chahiye (code se nahi, policy se)
-- **Registry tutor jiska sheet mein koi row nahi** (deepika, utkarsh, pinky as per `live-sheets/tutors.csv` snapshot): runtime (`sheet.js`, ab livepatch bhi) unhe hidden maanta hai — lekin **build side (`tools/sheetsync.js`) unhe visible bake karta hai**: profile bookable, sitemap mein, `EKGURU_SHEET_HIDDEN` mein nahi. Do raaste: (a) sheet mein har registry tutor ki row banao (`active=yes/no`) — sabse saaf; ya (b) bolo to sheetsync ko "no row = hidden" kar doon. Maine build policy nahi chhedi.
+## Owner rule (16 Nov 2026): approved tutor = visible
+Owner: *"jo tutor approved hai unko approved maan kar visible karna."* Implemented:
+- **Approved = `js/tutors/_registry.js` mein hona.** Sheet mein row na ho to bhi tutor file values ke saath visible aur bookable hai (English roster, translated rosters, city pages, directory, `tutor.html?id=`).
+- **Hide sirf explicit `active=no` row se.** (`js/sheet.js` pehle "no row = hidden" karta tha — build ke ulta; ab dono same.)
+- Khali tutors tab (sirf header) = koi override nahi, sab approved tutors file values ke saath.
+- Sheet-only drafts (registry ke bahar, e.g. hemlata/tara/sarshtee) pehle ki tarah roster par nahi aate jab tak `approved=yes` + real photo na ho.
+- BUG #9 saath mein fixed: `tutor.html?id=<active=no tutor>` "This profile does not exist" bolta tha — ab "bookings closed" (file-backed hidden ids ab `EKGURU_SHEET_HIDDEN_LIVE` se pata chalte hain).
+- Test #13 (14 checks) is rule ko lock karta hai; suite ab **106/106**.
 
 ## Jo nahi badla (jaan-boojh kar)
 - `INTAKE_VERSION` 1.2.0 hi hai (tests isse assert karte hain).
