@@ -590,6 +590,24 @@
      roster without inventing price, rating, or current availability claims. */
   function refreshLocalizedCopy() {
     try {
+      /* A tutor who exists only in the sheet (approved there, no
+         js/tutors file yet — Tanishka, 16 Nov 2026) is not in T when
+         this file first runs, so `tutor` fell back to T[0] and the
+         page kept Sushila's title, og:image and alternate link after
+         the sheet had painted the right profile. Re-resolve against
+         the live roster before rewriting the copy. */
+      if (pg === "tutor.html" && qid && Array.isArray(window.EKGURU_TUTORS)) {
+        T = window.EKGURU_TUTORS;
+        var fresh = tutorById(qid);
+        if (fresh && fresh !== tutor) {
+          tutor = fresh;
+          link("alternate", BASE + "tutor/" + encodeURIComponent(tutor.id) + "/");
+          meta("property", "og:image", absUrl(tutor.photo || "images/og-cover.jpg"));
+          meta("property", "og:image:alt", tutor.name + " — Hindi tutor on EkGuru");
+          var tw = document.head.querySelector('meta[name="twitter:image"]');
+          if (tw) tw.setAttribute("content", absUrl(tutor.photo || "images/og-cover.jpg"));
+        }
+      }
       var raw = copyFor();
       var title = raw.t, description = raw.d;
       if (document.title !== title) document.title = title;
