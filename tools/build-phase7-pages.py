@@ -120,6 +120,13 @@ def head(title, desc, url, up=""):
 <meta property="og:description" content="%s">
 <meta property="og:url" content="%s/%s">
 <meta property="og:site_name" content="EkGuru">
+<meta property="og:image" content="https://ekguru.shop/images/og-cover.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="EkGuru — free, self-paced Hindi learning">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://ekguru.shop/images/og-cover.jpg">
+<meta name="twitter:image:alt" content="EkGuru — free, self-paced Hindi learning">
 <meta property="article:published_time" content="%s">
 <link rel="stylesheet" href="%scss/style.min.css">
 <style>%s</style>
