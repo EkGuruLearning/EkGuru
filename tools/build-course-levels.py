@@ -116,7 +116,10 @@ with open(os.path.join(ROOT, "data/og-image-coverage.json"), encoding="utf-8") a
 
 CEFR_LEVELS = ["A1", "A2", "B1", "B2", "C1", "C2"]
 EXTRA_LEVELS = ["A3", "B3", "C3", "C4", "C5"]
-ALL_BUILD_LEVELS = CEFR_LEVELS + EXTRA_LEVELS
+# Ladder order: the extension rungs sit where a learner meets them
+# (A3 after A2, B3 after B2, C3–C5 after C2), matching the player's
+# EXTENDED_LEVELS. Unpublished extras simply do not appear.
+ALL_BUILD_LEVELS = ["A1", "A2", "A3", "B1", "B2", "B3", "C1", "C2", "C3", "C4", "C5"]
 
 LEVEL_NAMES = {"A1": "Beginner", "A2": "Elementary", "B1": "Intermediate",
                "B2": "Upper intermediate", "C1": "Advanced", "C2": "Mastery",
@@ -767,7 +770,8 @@ def level_page(code, course, level, data, rungmap, figs, levels):
     if level in EXTRA_LEVELS:
         body.append('<div class="note"><b>Not a CEFR level.</b> %s is an optional EkGuru extension '
                     "track, published only because these lessons were authored. Examiners use A1–C2 "
-                    "(and the half-steps A1+ to C1+). See "
+                    "(and the half-steps A1+ to C1+). This page is open to read and linked from the "
+                    "ladder, but it is not submitted to search engines. See "
                     '<a href="/how-levels-work/">how levels work</a>.</div>' % level)
     if rung:
         body.append('<div class="note"><b>Who this level is for.</b> %s is one of the six CEFR '
@@ -1116,16 +1120,17 @@ def annotated_course_copy(text, code, language_name):
 def rail_block(code, course, levels, loaded):
     rows = []
     for lv, data in zip(levels, loaded):
-        if lv not in CEFR_LEVELS or not is_publishable(data, code, lv):
+        if not is_publishable(data, code, lv):
             continue
         n = counts_of(data, code, course["name"])
         level_title = ((data or {}).get("level") or {}).get("title", "")
         marked_title, controls = annotated_course_copy(
             level_title, code, course.get("name", code))
+        tag = " · EkGuru extension, not CEFR" if lv in EXTRA_LEVELS else ""
         rows.append('<li><a href="/languages/%s/level/%s/"><b>%s</b> %s'
-                    "<span>%d lessons · %d questions</span></a>%s</li>"
+                    "<span>%d lessons · %d questions%s</span></a>%s</li>"
                     % (code, lv.lower(), lv, marked_title,
-                       n["lessons"], n["practice"] + n["quiz"] + n["test"], controls))
+                       n["lessons"], n["practice"] + n["quiz"] + n["test"], tag, controls))
     return (RAIL_START + "\n"
             '<section class="lv-levels" aria-labelledby="lv-levels-h">\n'
             '<h2 id="lv-levels-h">This course, level by level, in plain HTML</h2>\n'
@@ -1269,17 +1274,27 @@ def main():
                                   check, stale)
                     continue
                 title, desc, url, crumb, body = made
+                # Extension rungs (A3/B3/C3–C5) are published — linked from the
+                # ladder, the hub rail and the player — but stay noindex and out
+                # of the sitemap: tools/ultra/contract.py freezes every page's
+                # original index/noindex state until the owner lifts it. Flipping
+                # `index=` here is an owner decision, not a build decision.
+                search_ok = lv in CEFR_LEVELS
                 pages += emit("languages/%s/level/%s/index.html" % (code, lv.lower()),
-                              compose("../../../../", title, desc, url, crumb, body, index=True),
+                              compose("../../../../", title, desc, url, crumb, body, index=search_ok),
                               check, stale)
-                site_urls.append("%s/%s" % (BASE, url))
+                if search_ok:
+                    site_urls.append("%s/%s" % (BASE, url))
             else:
                 title, desc, url, crumb, body = unpublished_page(code, course, lv)
                 pages += emit("languages/%s/level/%s/index.html" % (code, lv.lower()),
                               compose("../../../../", title, desc, url, crumb, body, index=False),
                               check, stale)
 
-        hub_levels = [lv for lv in pub_levels if lv in CEFR_LEVELS]
+        # The hub rail mirrors the release manifest: CEFR levels plus any
+        # published extension rung (A3/B3/C3–C5), so the hub and
+        # data/courses/index.json never disagree about what is public.
+        hub_levels = list(pub_levels)
         hub_loaded = [level_data(code, phase, lv) for lv in hub_levels]
         hub = hub_for(code)
         if hub:

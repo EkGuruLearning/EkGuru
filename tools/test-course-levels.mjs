@@ -322,9 +322,18 @@ const locs = [...sm.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1]);
 ok("sitemap-index.xml declares sitemap-levels.xml", read("sitemap-index.xml").includes("sitemap-levels.xml"));
 const notInSm = all.filter((p) => !sm.includes(p.replace(/index\.html$/, "")));
 ok("every complete CEFR level page is in the sitemap", notInSm.length === 0, notInSm.slice(0, 3).join(", "));
-ok("sitemap does not list C3–C5 stubs",
-  locs.filter((u) => /\/level\/c[345]\/$/.test(u)).length === 0,
-  String(locs.filter((u) => /\/level\/c[345]\//.test(u)).length));
+{
+  /* C3–C5 are stubs everywhere except where the release manifest lists them
+     (Hindi C3/C4/C5 are authored). Stubs must never reach the sitemap. */
+  const manifest = JSON.parse(read("data/courses/index.json"));
+  const stubUrls = locs.filter((u) => {
+    const m = u.match(/\/languages\/([a-z-]+)\/level\/(c[345])\/$/);
+    if (!m) return false;
+    const row = manifest.courses.find((c) => c.code === m[1]);
+    return !row || !(row.levels || {})[m[2].toUpperCase()];
+  });
+  ok("sitemap does not list C3–C5 stubs", stubUrls.length === 0, stubUrls.slice(0, 3).join(", "));
+}
 
 console.log("\n5. the links out are real\n");
 

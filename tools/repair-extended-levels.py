@@ -36,9 +36,9 @@ STATUS_OUT = "data/quality/course-repair-status.json"
 EXTENSION_NOTE = {
     "A3": "EkGuru A2→B1 bridge. Not a CEFR level.",
     "B3": "EkGuru B2→C1 bridge. Not a CEFR level.",
-    "C3": "EkGuru post-C2 extension. Not a CEFR level. Unpublished until authored.",
-    "C4": "EkGuru post-C2 extension. Not a CEFR level. Unpublished until authored.",
-    "C5": "EkGuru post-C2 extension. Not a CEFR level. Unpublished until authored.",
+    "C3": "EkGuru post-C2 extension (Expert). Not a CEFR level. Unpublished until authored.",
+    "C4": "EkGuru post-C2 extension (Scholar). Not a CEFR level. Unpublished until authored.",
+    "C5": "EkGuru post-C2 extension (Master). Not a CEFR level. Unpublished until authored.",
 }
 
 
@@ -348,6 +348,14 @@ def main(argv=None):
             if pack:
                 dump(path, real_course(meta, lv, pack, name))
                 wrote_real += 1
+                continue
+
+            # Hand-authored extension levels (hi_B3 from tools/author-hindi-advanced.py,
+            # hi_C3–C5 from tools/author-hindi-extension.py) have no pack. They are
+            # REAL, carry lessons and pass the placeholder scan: never stub them.
+            if lv in EXTRA_LEVELS and st == "REAL" and existing and not is_placeholder(existing) \
+                    and any((u.get("lessons") or []) for u in ((existing.get("level") or {}).get("units") or [])):
+                skipped += 1
                 continue
 
             if lv in EXTRA_LEVELS or st in ("PLACEHOLDER", "MISSING", "INCOMPLETE"):

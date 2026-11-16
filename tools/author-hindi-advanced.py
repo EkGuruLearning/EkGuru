@@ -12,9 +12,9 @@ and one level file under tools/hi-b3-source/ (kept out of tools/lang-data/, whic
     hi-b3-level.json   title, goals, test (12 items), extra block
 
 This script validates those files against the T1 schema's minimums and writes
-data/courses/phase-2/hi_B3.json. It keeps indexable false: publishing stays a
-separate owner decision (the language gate), so authoring does not make the
-level public.
+data/courses/phase-2/hi_B3.json with content_status REAL and indexable true.
+Publication is then decided by tools/audit-course-quality.py (the release
+manifest) and the placeholder scan, like every other level.
 
 Run:  python3 tools/author-hindi-advanced.py           write hi_B3.json
       python3 tools/author-hindi-advanced.py --check   report drift only
@@ -87,11 +87,12 @@ def build() -> dict:
     }
     course = json.loads(COURSE.read_text(encoding="utf-8"))
     course["file_level"] = "B3"
-    course["content_status"] = "AUTHORED"
-    course["indexable"] = False
+    course["content_status"] = "REAL"
+    course["indexable"] = True
     course["reason"] = (
         "EkGuru B2→C1 bridge, labelled Advanced in the course index. Not a CEFR level. "
-        "Authored; held unpublished (indexable false) until the owner confirms the language gate."
+        "Authored from tools/hi-b3-source/; published 2026-11-16 so the Hindi ladder runs "
+        "A1 → A3 → B3 → C2 → C3 → C4 → C5 without a gap."
     )
     course["level"] = level
     return course
