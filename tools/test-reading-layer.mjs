@@ -77,10 +77,11 @@ check("the reading layer is on every hand-written page", legacy.length === 976, 
   legacy.length + " page(s)");
 /* 1705 = 1672 existing page-layer pages (including the 45 Indian course posts
    and 2 Hindi Phase 3 posts) + the Spanish, Arabic and German Phase 3 hubs and
-   ten articles each. Update this count deliberately whenever the inventory changes;
+   ten articles each, + 19 Hindi Foundation primer pages (learn/hindi/foundation/,
+   16 Nov 2026). Update this count deliberately whenever the inventory changes;
    every page-layer page must still carry the class, and tools/test-page-layer.mjs
    independently enforces the content and bands for the pages it owns. */
-check("the page layer's pages carry the same class, tested separately", pageLayer.length === 1705,
+check("the page layer's pages carry the same class, tested separately", pageLayer.length === 1724,
   pageLayer.length + " page(s)");
 check("the pages already on the v200 system were left alone", modern.length === 6,
   modern.join(", "));
