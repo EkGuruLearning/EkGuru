@@ -1,6 +1,6 @@
 # Real-life test report — 16 Nov 2026
 
-Branch `arena/0804a520-ekguru`, commit `91ccff8` (on top of `main` @ `e9c3a0d`).
+Branch `arena/0804a520-ekguru` (on top of `main` @ `e9c3a0d`). Round 1: `91ccff8`; round 2 (translated rosters / list-less pages / cache honesty): see latest commit.
 
 Scope: poori site ko real users / tutors ki tarah chalaya — booking, review
 likhna, review delete karna, saare delete karna, naya likhna, tutor
@@ -25,6 +25,10 @@ Sheet feed ke saath. Jo bhi toota, fix kiya aur test CI mein lock kiya.
 | 4 | `apps-script/Intake.gs`, `Unified.gs`, `js/intake.js` | **Review gate bahut strict tha.** Student ne booking ref `ek-ab2cd3` ya `EK AB2CD3` type kiya (lowercase / space / en-dash / bina dash) → review refuse. Aur agar galti se form receipt `EG-…` daala to confusing error. | `intakeNormRef_()` dono taraf: uppercase, unicode dash → `-`, spaces/underscore hatao, `EK` prefix normalise. Gate dono sides normalise karke compare karta hai; sheet mein canonical `EK-XXXXXX` store hota hai. `EG-` par saaf message: "That is a form reference (EG-…). The booking reference starts with EK- and is on your booking confirmation." |
 | 5 | `tools/build-tutor-pages.js`, `tutor/deepika/`, `tutor/utkarsh-upadhyay/` | **Deepika aur Utkarsh ke profile par "Student reviews" section hamesha "Loading reviews…" par atka rehta tha** — `js/reviews.js` + `js/reviews-display.js` script tags sirf 3 profiles par haath se add hue the, in 2 par bhool gaye. Naya approved review yahan kabhi nahi dikhta. | Builder ab har profile par jahan `data-eg-reviews` section hai, dono scripts inject karta hai (store.js ke baad). Dono pages rebuild. `build-tutor-pages.js --check` clean. |
 
+| 6 | `js/livepatch.js`, `js/sheet.js` | **PRODUCTION mein aaj live:** jab sheet mein *saare* tutors `active=no` hain (abhi ka state), English `find-tutors.html` 0 cards dikhata hai lekin `es/ fr/ de/ pt/ ja/ ar/find-tutors.html` par **paanchon tutor cards "Ver perfil" ke saath dikhte rehte the**. livepatch "EKGURU_TUTORS khali = page par tutor data nahi" maan leta tha, jabki data tha par sab hidden. | `sheet.js` ab `EKGURU_SHEET_HIDDEN_LIVE` (har hidden id) publish karta hai; livepatch use karta hai. Khali grid par page ki bhasha mein wahi zero-state ("Ahora no hay tutores disponibles…" + free-course CTA) jo generators/main.js dete hain. |
+| 7 | `js/livepatch.js` | List-less pages (city pages `hindi-tutor/*`, text directory `tutor/`, profile ka "other tutors" list) par **bina sheet row wale tutors (deepika, utkarsh, pinky — live-sheets snapshot mein row nahi) link hote rehte the**, jabki English roster unhe hide karta hai. Publication rule (`_registry.js`): PUBLIC ⇔ registry AND sheet active=yes. | Sheet genuinely load hone par (records non-empty) jo id visible nahi, woh row jati hai. Offline / fetch fail par page kabhi khali nahi hota (test #12). |
+| 8 | `js/reviews.js` | Offline visitor cache se reviews paint karta tha, lekin tutors tab land hote hi `EKGURU_REVIEWS_INFO.loaded` wapas `true` ho jata tha — admin ko "live" dikhta jabki cache tha. | `LAST_ERROR` yaad rakha jata hai; re-apply par `loaded:false, fromCache:true` barkarar. |
+
 Chhoti cleanups: `tools/adminstats.js` stale `reviews.csv` entry, `site-config.js`
 comment, `apps-script/UNIFIED-SETUP.md` mein ref-normalisation note.
 
@@ -42,6 +46,11 @@ comment, `apps-script/UNIFIED-SETUP.md` mein ref-normalisation note.
 7. Sheet mein price badlo → card aur profile dono follow karte hain.
 8. Header-only tab (tutors/reviews/settings) → koi crash nahi.
 9. **Har tutor profile (deepika, pinky-kumari, shikha-dutta, sushila-g, utkarsh-upadhyay): naya review likho → dikhe; saare delete → gaye.** (Yahi bug #5 pakda.)
+
+10. **es/fr/de/pt/ja/ar rosters**: sab `active=no` → 0 cards + apni bhasha mein zero-state + `../learn/hindi/` CTA; sirf sushila `yes` → sirf uska card, koi zero-state nahi.
+11. **City page / text directory / profile "other tutors"**: sab no → rows gaye + honest line; 2 active → exactly wahi 2 sheet order mein; **Google unreachable → page khali nahi hota**.
+
+(Total ab **92/92**.)
 
 ### `tools/test-real-life-booking-review.mjs` — 38/38 PASS
 Ek student "Asha Verma" ka poora safar:
@@ -71,7 +80,7 @@ Feed → cache → offline chain; dead CSV fallback hat gaya.
 | test-tutor-activation.mjs | 39/39 |
 | test-reviews-fallback.js | PASS |
 | test-intake-real-life.mjs | PASS, exit 0 |
-| test-real-life-sheet-cycle.mjs | 47/47 |
+| test-real-life-sheet-cycle.mjs | 92/92 |
 | test-real-life-booking-review.mjs | 38/38 |
 | test-mail-flow.mjs | PASS |
 | test-no-competitor-attribution.js / test-tutor-claims.js | PASS |
@@ -101,6 +110,9 @@ naye/rewritten suites ab har PR par chalenge.
 3. Ek baar real check: kisi tutor ko `active=yes` karo, apni booking karo,
    receipt ka EK- ref lowercase mein review form mein daalo → `reviews_pending`
    mein canonical uppercase ref dikhna chahiye.
+
+## Owner decision chahiye (code se nahi, policy se)
+- **Registry tutor jiska sheet mein koi row nahi** (deepika, utkarsh, pinky as per `live-sheets/tutors.csv` snapshot): runtime (`sheet.js`, ab livepatch bhi) unhe hidden maanta hai — lekin **build side (`tools/sheetsync.js`) unhe visible bake karta hai**: profile bookable, sitemap mein, `EKGURU_SHEET_HIDDEN` mein nahi. Do raaste: (a) sheet mein har registry tutor ki row banao (`active=yes/no`) — sabse saaf; ya (b) bolo to sheetsync ko "no row = hidden" kar doon. Maine build policy nahi chhedi.
 
 ## Jo nahi badla (jaan-boojh kar)
 - `INTAKE_VERSION` 1.2.0 hi hai (tests isse assert karte hain).

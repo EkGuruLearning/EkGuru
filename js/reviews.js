@@ -238,6 +238,12 @@
      free and cannot double-count.
      ========================================================= */
   var LAST_RECS = null;
+  /* 16 Nov 2026 — the last fetch error, or null after a good fetch.
+     The ekguru:sheet listener re-runs apply(null) from LAST_RECS,
+     and that used to rewrite EKGURU_REVIEWS_INFO as loaded:true —
+     so an offline visitor painting from the cache was reported as
+     "live" the moment the tutors tab landed. Keep the honest flag. */
+  var LAST_ERROR = null;
 
   /* Tutor ids whose EKGURU_TUTOR_FILES entry this file wrote. Only
      these are ever cleared when their rows leave the sheet — baked
@@ -445,6 +451,11 @@
       unknown: unknown,
       at: new Date().toISOString()
     };
+    if (LAST_ERROR) {
+      root.EKGURU_REVIEWS_INFO.loaded = false;
+      root.EKGURU_REVIEWS_INFO.error = LAST_ERROR;
+      root.EKGURU_REVIEWS_INFO.fromCache = true;
+    }
     return applied;
   }
 
@@ -535,6 +546,7 @@
                   : live().catch(function () { return snap(); });
     return first
       .then(function (recs) {
+        LAST_ERROR = null;
         writeCache(recs);
         apply(recs);
         announce();
@@ -544,7 +556,8 @@
           console.warn("[EkGuru] reviews sheet not loaded: " + e.message +
             " — the tutor files are being used instead.");
         }
-        root.EKGURU_REVIEWS_INFO = { loaded: false, error: e.message };
+        LAST_ERROR = e.message || "fetch failed";
+        root.EKGURU_REVIEWS_INFO = { loaded: false, error: LAST_ERROR, fromCache: !!LAST_RECS };
       });
   }
 

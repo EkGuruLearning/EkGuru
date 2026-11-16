@@ -77,7 +77,12 @@ function makeGoogle(state) {
     }
     if (/gid=1631273256/.test(u)) {              /* tutors tab */
       if (state.tutorsDown) return Promise.reject(new Error("offline"));
-      return resp(/output=tsv/.test(u) ? tutorsSheet(state.tutorMut) : csv(tutorsSheet(state.tutorMut).split("\n").map((l) => l.split("\t"))));
+      /* The real workbook answers HTTP 500 on output=csv and 200 on
+         output=tsv (js/sheet.js carries that fallback). Serving the
+         TSV verbatim also keeps the fixture's multi-line quoted bio
+         cells intact — a naive CSV re-encode split them into junk rows. */
+      if (/output=csv/.test(u)) return fail(500);
+      return resp(tutorsSheet(state.tutorMut));
     }
     if (/live-sheets\/reviews\.csv/.test(u)) { log.push("SNAPSHOT"); return fail(404); }
     return Promise.reject(new Error("offline"));
@@ -327,6 +332,52 @@ for (const id of allTutors) {
   const h2 = host(p2.win);
   ok(id + ": after delete-all the same visitor sees 'No reviews yet'", h2 && h2.querySelectorAll("article.rev").length === 0 && /No reviews yet/.test(h2.textContent), h2 && h2.textContent.slice(0, 80));
   p2.close();
+}
+
+/* ====== 11. Translated rosters follow the sheet too ====== */
+console.log("\n== 11. es/fr/de/pt/ja/ar find-tutors: all tutors active=no -> no cards, honest zero state; one active -> only that card ==");
+const EXPECT_EMPTY = { es: /no hay tutores/i, fr: /Aucun tuteur/i, de: /keine Tutoren/i, pt: /Nenhum tutor/i, ja: /講師はいません/, ar: /لا يوجد معلّمون/ };
+for (const lang of Object.keys(EXPECT_EMPTY)) {
+  const rel = lang + "/find-tutors.html", url = "https://ekguru.shop/" + lang + "/find-tutors.html";
+  if (!fs.existsSync(path.join(ROOT, rel))) { ok(lang + " roster page exists", false); continue; }
+  STORAGE.clear();
+  /* the fixture sheet has every tutor active=no — exactly production today */
+  const gAll = makeGoogle({ reviews: [] });
+  const pA = await loadPage(rel, url, gAll, { settle: 1200 });
+  const cardsA = pA.win.document.querySelectorAll("[data-t-row]");
+  const grid = pA.win.document.querySelector(".lp-cards");
+  ok(lang + ": every tutor active=no -> zero tutor cards on the translated roster", cardsA.length === 0, Array.from(cardsA).map((c) => c.getAttribute("data-t-row")).join(","));
+  ok(lang + ": the empty grid says so in " + lang, grid && EXPECT_EMPTY[lang].test(grid.textContent), grid && grid.textContent.replace(/\s+/g, " ").slice(0, 100));
+  ok(lang + ": zero state links to the free course (../learn/hindi/)", grid && !!grid.querySelector('a[href="../learn/hindi/"]'));
+  ok(lang + ": no script errors", pA.errors.length === 0, pA.errors.join(" | "));
+  pA.close();
+  STORAGE.clear();
+  const gOne = makeGoogle({ reviews: [], tutorMut: (o, cells, head) => { if (o.id === "sushila-g") setCell(o, cells, head, "active", "yes"); } });
+  const pB = await loadPage(rel, url, gOne, { settle: 1200 });
+  const idsB = Array.from(pB.win.document.querySelectorAll("[data-t-row]")).map((c) => c.getAttribute("data-t-row"));
+  ok(lang + ": sushila-g active=yes -> exactly her card remains, no zero state", idsB.join(",") === "sushila-g" && !pB.win.document.querySelector("[data-eg-empty]"), idsB.join(","));
+  pB.close();
+}
+
+/* ====== 12. List-less pages (city page, text directory, profile "other tutors") follow the same rule ====== */
+console.log("\n== 12. City page / text directory / profile 'other tutors': PUBLIC <=> sheet active=yes; offline never empties ==");
+for (const [rel, url] of [["hindi-tutor/worldwide/index.html", "https://ekguru.shop/hindi-tutor/worldwide/"], ["tutor/index.html", "https://ekguru.shop/tutor/"], ["tutor/sushila-g/index.html", PROFILE_URL]]) {
+  const rowsOf = (d) => Array.from(d.querySelectorAll("[data-t-row]")).filter((e) => e.style.display !== "none").map((e) => e.getAttribute("data-t-row"));
+  STORAGE.clear();
+  let p = await loadPage(rel, url, makeGoogle({ reviews: [] }), { settle: 1200 });
+  ok(rel + ": every tutor active=no (or no row) -> no tutor rows remain", rowsOf(p.win.document).length === 0, rowsOf(p.win.document).join(","));
+  ok(rel + ": the emptied list says so", !!p.win.document.querySelector("[data-eg-empty]"));
+  ok(rel + ": no script errors", p.errors.length === 0, p.errors.join(" | "));
+  p.close();
+  STORAGE.clear();
+  p = await loadPage(rel, url, makeGoogle({ reviews: [], tutorMut: (o, c, h) => { if (o.id === "sushila-g" || o.id === "shikha-dutta") setCell(o, c, h, "active", "yes"); } }), { settle: 1200 });
+  const want = rel.includes("sushila-g") ? "shikha-dutta" : "sushila-g,shikha-dutta";
+  ok(rel + ": two active -> exactly those rows, in sheet order", rowsOf(p.win.document).join(",") === want, rowsOf(p.win.document).join(","));
+  p.close();
+  STORAGE.clear();
+  p = await loadPage(rel, url, makeGoogle({ reviews: [], tutorsDown: true }), { settle: 1200 });
+  ok(rel + ": Google unreachable -> the page is NOT emptied", rowsOf(p.win.document).length >= 1 && !p.win.document.querySelector("[data-eg-empty]"), rowsOf(p.win.document).join(","));
+  p.close();
 }
 
 console.log("\n" + pass + " passed, " + fail + " failed");

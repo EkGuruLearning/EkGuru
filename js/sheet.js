@@ -1058,6 +1058,20 @@
     });
     window.EKGURU_SHEET_RECORDS = records;
 
+    /* 16 Nov 2026 — EVERY id the live sheet hides, file-backed or
+       record-only. js/livepatch.js used to infer this from
+       EKGURU_SHEET_RECORDS, which only holds record-only rows, so on
+       a page that loads tutors-data.js with ALL registry tutors
+       active=no (the production state today) it removed nobody: the
+       Spanish/French/German rosters kept five "Ver perfil" cards
+       while the English roster was empty. Publish the real list. */
+    var hiddenIds = [];
+    list.forEach(function (t) { if (t._hiddenBySheet) hiddenIds.push(t.id); });
+    Object.keys(records).forEach(function (k) {
+      if (records[k] && records[k]._hiddenBySheet && hiddenIds.indexOf(k) === -1) hiddenIds.push(k);
+    });
+    window.EKGURU_SHEET_HIDDEN_LIVE = hiddenIds;
+
     var visible = list.filter(function (t) { return !t._hiddenBySheet; });
     visible.sort(function (a, b) {
       var ia = order.indexOf(a.id), ib = order.indexOf(b.id);
