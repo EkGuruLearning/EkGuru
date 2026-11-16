@@ -1191,7 +1191,17 @@
               " — those fields keep their file values.");
           }
           var recs = toRecords(rows);
-          if (!recs.length) throw new Error("no rows with an id column");
+          /* An empty tab is an answer (16 Nov 2026, same lesson as
+             js/reviews.js). tryOne() already proved this is the
+             tutors tab — the header has an id column — so zero data
+             rows means the owner emptied it. The publication rule is
+             registry AND active sheet row; with no rows nobody is
+             public, and applyRecords([]) says exactly that instead of
+             the old "not loaded" path, which left a returning visitor
+             looking at a cached roster the sheet no longer had. */
+          if (!recs.length) {
+            console.warn("[EkGuru] Sheet tab is empty (header only) — no tutor is published until a row is added.");
+          }
           writeCache(recs);
           var n = applyRecords(recs);
           announce();

@@ -175,6 +175,19 @@ const BOOK = {
     gateFail.ok === false && /booking reference was not found/.test(gateFail.error), JSON.stringify(gateFail));
   check("a refused review writes nothing to reviews_pending",
     dataRows(I.tabs.reviews_pending).length === 1);
+  /* REAL-LIFE TYPING (16 Nov 2026): the same booking, typed the way
+     students type it. Every variant must pass the gate and be stored
+     in the canonical spelling. */
+  const typed = ["ek-book01", " EK-BOOK01 ", "EK BOOK01", "EKBOOK01", "EK\u2013BOOK01", "ek book01"];
+  typed.forEach((t) => {
+    const before = dataRows(I.tabs.reviews_pending).length;
+    const rr = post(I.ctx, { ...REV, fields: { ...REV.fields, booking_id: t } });
+    const rows = dataRows(I.tabs.reviews_pending);
+    check("typed booking ref " + JSON.stringify(t) + " passes the gate",
+      rr.ok === true && rows.length === before + 1, JSON.stringify(rr));
+    check("  …and is stored canonically as EK-BOOK01",
+      (rows[rows.length - 1] || [])[I.ctx.INTAKE_KINDS.review.header.indexOf("booking_id")] === "EK-BOOK01");
+  });
   const gateOther = post(I.ctx, { ...REV, fields: { ...REV.fields, tutor_id: "shikha-dutta" } });
   check("a review against a tutor whose booking belongs to another tutor is refused",
     gateOther.ok === false && /different tutor/.test(gateOther.error), JSON.stringify(gateOther));

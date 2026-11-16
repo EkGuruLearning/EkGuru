@@ -618,6 +618,9 @@ function intakePost_(e) {
     if (kind === "review") {
       var gate = intakeReviewGate_(clean.values.booking_id, clean.values.tutor_id);
       if (!gate.ok) return intakeJson_({ ok: false, error: gate.error });
+      /* Store the reference the way the bookings tab spells it, so the
+         owner can match the two rows by eye. */
+      clean.values.booking_id = intakeNormRef_(clean.values.booking_id);
     }
 
     var quota = intakeQuota_(kind);
@@ -682,8 +685,21 @@ function intakeValidate_(spec, fields) {
    The review's booking_id must match a row in the bookings tab whose
    tutor_id is the tutor being reviewed. Read-only: never writes.
    ---------------------------------------------------------------------------- */
+/* How a human types a booking reference (16 Nov 2026, real-life test):
+   "ek-ab2cd3", " EK-AB2CD3 ", "EK AB2CD3", "EKAB2CD3", "EK–AB2CD3" (a
+   phone's long dash). All of them mean EK-AB2CD3, and all of them used
+   to be refused as "not found" because the gate compared raw strings.
+   Both sides of the comparison now pass through this. */
+function intakeNormRef_(v) {
+  var s = String(v == null ? "" : v).toUpperCase();
+  s = s.replace(/[\u2010-\u2015\u2212]/g, "-");   /* unicode dashes -> "-" */
+  s = s.replace(/[\s_]+/g, "");                    /* no spaces anywhere */
+  s = s.replace(/^EK-*/, "EK-");                   /* EKAB2CD3 / EK--AB2CD3 -> EK-AB2CD3 */
+  return s;
+}
+
 function intakeReviewGate_(bookingId, tutorId) {
-  var id = String(bookingId || "").trim();
+  var id = intakeNormRef_(bookingId);
   if (!id) return { ok: false, error: "booking reference is needed to verify this review" };
   try {
     var ss = intakeSpreadsheet_();
@@ -696,7 +712,7 @@ function intakeReviewGate_(bookingId, tutorId) {
     var refs = tab.getRange(2, 1, last - 1, 1).getValues();
     var tutors = tab.getRange(2, 3, last - 1, 1).getValues();
     for (var i = 0; i < refs.length; i++) {
-      if (String(refs[i][0] || "").trim() === id) {
+      if (intakeNormRef_(refs[i][0]) === id) {
         var tid = String((tutors[i] && tutors[i][0]) || "").trim();
         if (tid === String(tutorId || "").trim()) return { ok: true };
         /* The booking exists but for a different tutor: the reviewer may

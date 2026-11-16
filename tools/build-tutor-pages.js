@@ -678,6 +678,23 @@ function build(t, roster, publics, hidden) {
     out = out.replace("</body>", '<script defer src="../../js/intake.js"></script>\n</body>');
   }
 
+  /* v1.3.1 — the live "Student reviews" section is hydrated by
+     js/reviews.js (feed + cache) and js/reviews-display.js (cards).
+     Those two tags had been added BY HAND to three profiles and
+     forgotten on the rest, so deepika and utkarsh-upadhyay showed
+     "Loading reviews…" forever and a freshly approved review never
+     appeared there. Inject them wherever the section exists, right
+     after store.js (reviews-display reads the same localStorage). */
+  if (out.includes("data-eg-reviews")) {
+    const anchor = /(<script[^>]*src="\.\.\/\.\.\/js\/(?:tutors\/_overrides|store)\.js"[^>]*><\/script>)/;
+    const want = ["reviews.js", "reviews-display.js"].filter((f) => !out.includes("js/" + f));
+    if (want.length) {
+      const tags = want.map((f) => '<script defer src="../../js/' + f + '"></script>').join("\n");
+      if (anchor.test(out)) out = out.replace(anchor, (m) => m + "\n" + tags);
+      else out = out.replace("</body>", tags + "\n</body>");
+    }
+  }
+
   return out;
 }
 

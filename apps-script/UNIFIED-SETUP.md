@@ -88,6 +88,10 @@ check that exactly one row (`requested`, your `booking_ref`) appears in
 `bookings`. Send it again: no second row (`duplicate: true`). Delete the
 test row afterwards. Then send one test review quoting that booking
 reference: without it the review is refused (the genuine-review gate).
+The reference is matched loosely — `ek-ab2cd3`, `EK AB2CD3`, `EKAB2CD3`
+or an en-dash all count as `EK-AB2CD3` — and is stored in the canonical
+`EK-XXXXXX` form in `reviews_pending.booking_id`. An `EG-…` value is a
+form receipt, not a booking, and is refused with a clear message.
 
 ## Updating later (URL must not change)
 

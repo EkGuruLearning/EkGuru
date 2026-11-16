@@ -76,6 +76,13 @@ jobs:
         run: |
           node tools/test-tutor-activation.mjs
 
+      - name: Real-life sheet cycle (reviews add/delete/replace, roster, price, offline cache)
+        run: |
+          node tools/test-reviews-fallback.js
+          node tools/test-real-life-sheet-cycle.mjs
+          node tools/test-real-life-booking-review.mjs
+          node tools/test-intake-real-life.mjs
+
       - name: Public-output gate (competitor attribution, stale wording, origin)
         run: |
           node tools/test-no-competitor-attribution.js

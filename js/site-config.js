@@ -583,8 +583,10 @@ window.EKGURU_SITE = {
      SETUP:  node tools/makereviews.js
 
      LIVE VALUE lives in the second `reviews:` block near the end of
-     this file (same-origin live-sheets/reviews.csv). A duplicate key
-     here would be dead — the later block wins — so there is only one.
+     this file. There is NO same-origin live-sheets/reviews.csv (it never
+     existed — fallbackCsvUrl is deliberately blank; offline readers get
+     the localStorage cache). A duplicate key here would be dead — the
+     later block wins — so there is only one.
      ========================================================= */
 
   /* =========================================================
@@ -861,16 +863,24 @@ window.EKGURU_SITE = {
      Nov 2026: the site must read review data from the sheet, not
      from a baked file). CSV first, the same URL as TSV behind it
      (this workbook's CSV endpoint 500s; TSV answers 200).
-     fallbackCsvUrl is the baked snapshot of the same tab: last
-     resort only, so reviews never go blank while Google is
-     unreachable. Refresh it after approving reviews in the sheet
-     (copy the tab into live-sheets/reviews.csv).
+     fallbackCsvUrl is an OPTIONAL baked snapshot of the same tab,
+     last resort only. It is BLANK on purpose (16 Nov 2026): the
+     snapshot file live-sheets/reviews.csv was retired when reviews
+     went sheet-live-only, but this line kept pointing at it, so
+     every time Google was unreachable the browser made one more
+     request that answered 404 — and a stale snapshot would have
+     re-published reviews the owner had already deleted. If a
+     snapshot is ever wanted again, commit the file AND fill this
+     in; tools/test-reviews-fallback.js refuses a dead URL here.
+     While blank, an unreachable Google means the last good copy
+     in the visitor's localStorage paints, and a first-time visitor
+     honestly sees "No reviews yet".
      (The only `reviews:` block — keep it that way; a duplicate
      key silently kills the first block.)
      ========================================================= */
   reviews: {
     csvUrl: "https://docs.google.com/spreadsheets/d/e/2PACX-1vQIman_Um2wQrj_3mXqqgq4k69zzmJHkhZ1TRoAnh2jcamhzoo-0VeTd55UieGMi6mEaTl3Zy84G44h/pub?gid=293675115&single=true&output=csv",
-    fallbackCsvUrl: "https://ekguru.shop/live-sheets/reviews.csv",
+    fallbackCsvUrl: "",
     cacheMinutes: 60,
     alwaysRevalidate: true
   },
