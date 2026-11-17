@@ -87,7 +87,13 @@
     return base + "?tab=" + encodeURIComponent(tab) + "&t=" + Math.floor(Date.now() / (sec * 1000));
   }
 
-  var CACHE_KEY = "ekguru_reviews_v1";
+  /* v2 (17 Nov 2026): the v1 cache could hold rows from the deleted
+     `reviews` tab (sample reviews that were never in reviews_pending) and
+     kept painting them on profiles after the tab was gone. A new key
+     ignores every old copy; the old key is removed below so it cannot
+     come back. */
+  var CACHE_KEY = "ekguru_reviews_v2";
+  try { localStorage.removeItem("ekguru_reviews_v1"); } catch (e) {}
   var MAX_AGE = (Number(CFG.cacheMinutes) || 60) * 60 * 1000;
 
   /* Below this a "review" is a rating with a word attached, which is
@@ -185,11 +191,42 @@
         " is needed for it to read as a real review");
 
     if (r.date) {
-      if (!/^\d{4}-\d{2}-\d{2}$/.test(r.date)) why.push('date must be YYYY-MM-DD, got "' + r.date + '"');
-      else if (new Date(r.date).getTime() > Date.now() + 86400000)
+      var iso = isoDate(r.date);
+      if (!iso) why.push('date must be YYYY-MM-DD, got "' + r.date + '"');
+      else if (new Date(iso).getTime() > Date.now() + 86400000)
         why.push("the date is in the future");
+      else r.date = iso;   /* normalised in place so sorting and display agree */
     }
     return why;
+  }
+
+  /* 17 Nov 2026 — accept the dates a Google Sheet actually emits.
+     The workbook is en_GB / Asia/Kolkata, so a typed or form-filled date
+     displays as 16/11/2026 (day first) and the feed's timestamp fallback
+     used to turn that into "2026-16-11", which this validator rejected —
+     every approved review was silently dropped. Rules:
+       · YYYY-MM-DD (optionally followed by a time)  → as is
+       · D/M/YYYY or D-M-YYYY or D.M.YYYY            → day first (sheet locale)
+         unless the first number cannot be a day of month and the second
+         can (e.g. 11/16/2026 written the American way) */
+  function isoDate(v) {
+    v = String(v == null ? "" : v).trim();
+    var m = /^(\d{4})-(\d{1,2})-(\d{1,2})(?:[T\s].*)?$/.exec(v);
+    if (m) {
+      var mo = Number(m[2]), d = Number(m[3]);
+      if (mo > 12 && d <= 12) { var t = mo; mo = d; d = t; }   /* "2026-16-11" from a D/M swap */
+      if (mo < 1 || mo > 12 || d < 1 || d > 31) return "";
+      return m[1] + "-" + ("0" + mo).slice(-2) + "-" + ("0" + d).slice(-2);
+    }
+    m = /^(\d{1,2})[\/.\-](\d{1,2})[\/.\-](\d{4})(?:[T\s].*)?$/.exec(v);
+    if (m) {
+      var a = Number(m[1]), b = Number(m[2]);
+      var day = a, mon = b;
+      if (a <= 12 && b > 12) { day = b; mon = a; }
+      if (mon < 1 || mon > 12 || day < 1 || day > 31) return "";
+      return m[3] + "-" + ("0" + mon).slice(-2) + "-" + ("0" + day).slice(-2);
+    }
+    return "";
   }
 
   function readCache() {
@@ -244,6 +281,9 @@
      so an offline visitor painting from the cache was reported as
      "live" the moment the tutors tab landed. Keep the honest flag. */
   var LAST_ERROR = null;
+  /* True once rows arrived from the network in THIS page view (not from
+     localStorage). Only then is an absence in the feed a fact. */
+  var LIVE_OK = false;
 
   /* Tutor ids whose EKGURU_TUTOR_FILES entry this file wrote. Only
      these are ever cleared when their rows leave the sheet — baked
@@ -420,16 +460,32 @@
       f.rating = Math.round((sum / list.length) * 10) / 10;
       APPLIED_FILES[id] = 1;
     });
-    /* A review removed from the sheet must disappear here too — but
-       only entries THIS function wrote are ever cleared, so baked
-       tutor-file data is never wiped by an empty sheet. */
-    Object.keys(APPLIED_FILES).forEach(function (id) {
+    /* A review removed from the sheet must disappear here too.
+       17 Nov 2026 — owner rule: "reviews sheet se aaye, kuch bhi
+       hard-coded nahi". When the LIVE feed answered (LAST_ERROR is
+       null and the rows came from the network this page view), the
+       sheet is the whole truth: every tutor the feed does not list has
+       no reviews, including the copy baked into js/tutors/_overrides.js
+       and the static profile page — that copy is only the first paint
+       for the seconds before the feed lands, and for offline visitors.
+       A review the owner rejects in the sheet therefore vanishes on the
+       next page load, not at the next build. While the feed is down
+       (LAST_ERROR set / cache paint) baked data is left alone, so a
+       Google outage never blanks a profile. */
+    var feedIsTruth = LIVE_OK && !LAST_ERROR;
+    var clearIds = feedIsTruth ? Object.keys(FILES) : Object.keys(APPLIED_FILES);
+    clearIds.forEach(function (id) {
       if (!byTutor[id] && FILES[id]) {
         FILES[id].reviews = [];
         FILES[id].reviewsCount = 0;
         FILES[id].rating = 0;
       }
     });
+    if (feedIsTruth) {
+      T.forEach(function (t) {
+        if (!byTutor[t.id]) { t.reviews = []; t.reviewsCount = 0; t.rating = 0; }
+      });
+    }
     root.EKGURU_TUTOR_FILES = FILES;
 
     if (skipped.length && root.console && console.warn) {
@@ -547,6 +603,7 @@
     return first
       .then(function (recs) {
         LAST_ERROR = null;
+        LIVE_OK = true;
         writeCache(recs);
         apply(recs);
         announce();

@@ -320,22 +320,9 @@ window.EKGURU_SHEET_OVERRIDES = {
       "I help beginners learn Hindi through simple explanations, everyday conversations, pronunciation practice, useful vocabulary and basic grammar.",
       "My lessons suit learners who want to speak Hindi while travelling in India, communicate with Hindi-speaking friends or family, or explore Indian culture. I aim to make learning comfortable, interactive and practical, adapted to each student's pace and goals."
     ],
-    "reviews": [
-      {
-        "name": "prakaash",
-        "date": "2026-11-04",
-        "stars": 5,
-        "text": "MST HAI BHAI KYA PDHATI hi yrr yr"
-      },
-      {
-        "name": "prakaash",
-        "date": "2026-11-04",
-        "stars": 5,
-        "text": "good"
-      }
-    ],
-    "reviewsCount": 2,
-    "rating": 5
+    "reviews": [],
+    "reviewsCount": 0,
+    "rating": 0
   },
   "deepika": {
     "name": "Deepika",

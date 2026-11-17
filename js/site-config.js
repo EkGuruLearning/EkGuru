@@ -751,7 +751,15 @@ window.EKGURU_SITE = {
      own 30 second cache that is cleared on every edit.
      ========================================================= */
   feed: {
-    url: "",
+    /* 17 Nov 2026 — ON. The same Unified.gs deployment that takes the
+       forms (intake.url below, "Version 5") answers GET ?tab=tutors |
+       reviews | settings | support. With this blank, js/reviews.js had NO
+       source at all (the old published reviews tab was deleted), so an
+       approved review never reached a profile and only the build-time
+       copy was ever shown. The feed is also the only reader of the
+       tutors tab that strips email / notification_email before the
+       browser sees a byte. Keep this and intake.url identical. */
+    url: "https://script.google.com/macros/s/AKfycbwWJiuuZ5rqyPyEVd71svw-ggqW_kzjyXVl-7hE2lo8hPcgbAdkLjLl7hvmciTV3LtN/exec",
     cacheSeconds: 30
   },
 

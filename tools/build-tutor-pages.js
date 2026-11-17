@@ -422,22 +422,31 @@ function reviewsBlock(t) {
       <footer>— <cite>${esc(who)}</cite>${stars ? " · " + stars : ""}${source}</footer>
     </blockquote>`;
   };
-  return `  <section class="pr-sec">
-    <h2>Student reviews for ${esc(t.name)}</h2>
-${reviews.map(quote).join("\n")}
-  </section>`;
+  return reviews.map(quote).join("\n");
 }
 
 
-/* v1.3.0 — the live review list on every PUBLIC tutor profile. Unlike
-   reviewsBlock() (static quotes embedded from tutor data), this section is
-   hydrated at runtime from the live reviews feed, so newly approved reviews
-   appear without a rebuild. Hidden profiles keep no review surfaces (U0). */
+/* v1.3.0 — the live review list on every PUBLIC tutor profile, hydrated at
+   runtime from the live reviews feed so newly approved reviews appear
+   without a rebuild. Hidden profiles keep no review surfaces (U0).
+
+   17 Nov 2026 (v1.4.0) — ONE section, not two. The page used to print the
+   baked quotes under "Student reviews for X" AND a second "Student reviews"
+   box that said "Loading reviews…" — so a visitor saw every review twice,
+   and when the owner rejected a review in the sheet the baked copy stayed
+   on the page until the next build. Now the baked quotes are only the
+   FIRST PAINT inside the live host: js/reviews-display.js replaces the
+   whole list with what the feed says (including "No reviews yet" when the
+   sheet has none), so the sheet is the single source of truth and the
+   static copy can never outlive an owner decision. */
 function liveReviewsBlock(t, hidden) {
   if (hidden) return "";
+  const baked = reviewsBlock(t);
   return `  <section class="pr-sec" data-eg-reviews data-tutor="${t.id}">
-    <h2>Student reviews</h2>
-    <div class="reviews-list">Loading reviews…</div>
+    <h2>Student reviews for ${esc(t.name)}</h2>
+    <div class="reviews-list" data-baked="${baked ? "1" : "0"}">
+${baked || '      <p class="muted">No reviews yet — be the first to share your experience after a lesson.</p>'}
+    </div>
   </section>`;
 }
 
@@ -582,8 +591,6 @@ ${methodologyBlock(t)}
 ${availabilityBlock(t)}
 
 ${videoBlock(t)}
-
-${reviewsBlock(t)}
 
 ${liveReviewsBlock(t, hidden)}
 
