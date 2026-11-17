@@ -369,8 +369,11 @@
 
     recs.forEach(function (r) {
       if (String(r.tutor || "").charAt(0) === "#") return;      /* help row */
-      var status = String(r.status || "live").toLowerCase();
-      if (status !== "live") return;
+      /* The feed publishes approved rows as status=live; the sheet
+         itself says "approved". Accept both spellings so a row can
+         never be dropped for the word the owner typed (17 Nov 2026). */
+      var status = String(r.status || "live").trim().toLowerCase();
+      if (status !== "live" && status !== "approved") return;
 
       var src = String(r.source || "").trim().toLowerCase();
       if (MARKETPLACE_SOURCES.indexOf(src) !== -1) {
@@ -504,7 +507,10 @@
       tutors: applied,
       published: Object.keys(byTutor).reduce(function (n, k) { return n + byTutor[k].length; }, 0),
       skipped: skipped.length,
+      skippedWhy: skipped.map(function (s) { return s[0] + ": " + s[1].join("; "); }),
+      tutorIds: Object.keys(byTutor),
       unknown: unknown,
+      live: LIVE_OK,
       at: new Date().toISOString()
     };
     if (LAST_ERROR) {
@@ -512,7 +518,56 @@
       root.EKGURU_REVIEWS_INFO.error = LAST_ERROR;
       root.EKGURU_REVIEWS_INFO.fromCache = true;
     }
+    debugPanel();
     return applied;
+  }
+
+  /* =========================================================
+     OWNER SELF-CHECK  (17 Nov 2026)  — add ?reviews=debug to any
+     page that prints reviews, e.g.
+         https://ekguru.shop/tutor/sushila-g/?reviews=debug
+     and a plain-text box appears under the review list saying
+     which feed URL was asked, whether it answered, how many rows
+     came back, how many were published and WHY any were skipped.
+     Nothing private is shown (the feed is public and already
+     strips e-mails); without the flag this function is a no-op.
+     It exists because "the review is not showing" has had four
+     different causes so far (no feed url, a rejected date format,
+     a stale cache, a CSV endpoint that 500s) and the owner should
+     be able to tell them apart from a phone without DevTools.
+     ========================================================= */
+  function debugPanel() {
+    var q;
+    try { q = String(root.location && root.location.search || ""); } catch (e) { return; }
+    if (!/[?&]reviews=debug(&|$)/.test(q)) return;
+    var doc = root.document;
+    if (!doc || !doc.body) return;
+    var box = doc.getElementById("ekguru-reviews-debug");
+    if (!box) {
+      box = doc.createElement("pre");
+      box.id = "ekguru-reviews-debug";
+      box.style.cssText = "margin:16px 0;padding:12px;border:2px dashed #e0682a;border-radius:8px;" +
+        "font:12px/1.5 ui-monospace,Menlo,Consolas,monospace;white-space:pre-wrap;word-break:break-word;" +
+        "background:#fff8f3;color:#222;max-width:100%;overflow:auto";
+      var host = doc.querySelector("[data-eg-reviews]");
+      if (host && host.parentNode) host.parentNode.insertBefore(box, host.nextSibling);
+      else doc.body.appendChild(box);
+    }
+    var info = root.EKGURU_REVIEWS_INFO || {};
+    var f = feedUrl("reviews");
+    var lines = [
+      "EkGuru reviews self-check  (" + new Date().toISOString() + ")",
+      "feed url      : " + (f ? f.replace(/&t=\d+$/, "") : "(none — js/site-config.js feed.url is blank or malformed)"),
+      "published csv : " + (url || "(blank — feed only)"),
+      "answered      : " + (info.loaded ? "yes, live rows from the network" : (info.error ? "NO — " + info.error : "waiting…")),
+      "from cache    : " + (info.fromCache ? "yes (localStorage " + CACHE_KEY + ")" : "no"),
+      "rows received : " + (info.rows == null ? "-" : info.rows),
+      "published     : " + (info.published == null ? "-" : info.published) + " review(s) on " + (info.tutorIds && info.tutorIds.length ? info.tutorIds.join(", ") : "no tutor"),
+      "skipped       : " + (info.skipped || 0) + ((info.skippedWhy || []).length ? "\n   · " + info.skippedWhy.join("\n   · ") : ""),
+      "unknown ids   : " + ((info.unknown || []).join(", ") || "none"),
+      "this page     : " + Array.prototype.map.call(doc.querySelectorAll("[data-eg-reviews]"), function (h) { return h.getAttribute("data-tutor"); }).join(", ")
+    ];
+    box.textContent = lines.join("\n");
   }
 
   function announce() {
@@ -615,6 +670,7 @@
         }
         LAST_ERROR = e.message || "fetch failed";
         root.EKGURU_REVIEWS_INFO = { loaded: false, error: LAST_ERROR, fromCache: !!LAST_RECS };
+        debugPanel();
       });
   }
 

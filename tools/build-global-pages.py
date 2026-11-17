@@ -443,7 +443,7 @@ def contexts_hub():
   <a href="../hindi/">Hindi course hub</a> or pick a <a href="../paths/">goal-based learning path</a>.</p>
 """
     return write_page("learn/contexts/index.html", up,
-                      "Learn Hindi for your context — India visitor & heritage paths",
+                      "Learn Hindi for your context — visitor & heritage paths",
                       "Two curated Hindi paths on top of the shared course: survive a trip to India, or reconnect with family as a heritage learner. Real phrases from real pages.",
                       "learn/contexts/",
                       '<a href="../../">EkGuru</a> › <a href="../">Learn</a> › Contexts',

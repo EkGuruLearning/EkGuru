@@ -105,12 +105,26 @@ def lesson_html(C, l):
                secs, tbl, C["code"], C["name"], C["code"], C["code"], C["code"]))
 
 
+def _lesson_title(lesson, name, budget=56):
+    """Tab title within the ~65 characters a search result shows (" | EkGuru"
+    is appended by the head). 17 Nov 2026: six lesson titles overflowed and
+    were cut mid-word in the SERP. The <h1> keeps the full lesson title."""
+    full = "%s — %s Course" % (lesson, name)
+    if len(full) <= budget:
+        return full
+    if not lesson.lower().startswith(name.lower()):
+        alt = "%s — %s" % (lesson, name)
+        if len(alt) <= budget:
+            return alt
+    return lesson
+
+
 def build_lessons(C):
     made = []
     for l in C["LESSONS"]:
         path = "languages/%s/lessons/%s/index.html" % (C["code"], l["slug"])
         up = "../../../../"
-        title = "%s — %s Course" % (l["title"], C["name"])
+        title = _lesson_title(l["title"], C["name"])
         crumb = ('<a href="/">EkGuru</a> › <a href="/languages/">Languages</a> › '
                  '<a href="/languages/%s/">%s</a> › <a href="/languages/%s/course/">Course</a> › %s'
                  % (C["code"], esc_html(C["name"]), C["code"], esc_html(l["title"])))

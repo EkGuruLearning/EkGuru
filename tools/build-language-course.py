@@ -838,7 +838,15 @@ def p_advanced_module(d, m):
         dg = m["dialogue"]
         body += f'\n  <h2>Dialogue: {E(dg["title"])}</h2>\n  {dialogue_html(dg["lines"])}'
     body += '\n  <div class="note"><b>Quiz yourself.</b> This module adds questions to the <a href="../../practice/quiz/">topic quiz</a> — pick its topic and test yourself.</div>'
-    return (f"{n}: {m['title']} — advanced words and phrases",
+    # 17 Nov 2026: keep the tab title inside the ~65 characters a search
+    # result shows (" | EkGuru" is added by the page head); the <h1> is
+    # unchanged. Only titles that overflow are shortened.
+    title = f"{n}: {m['title']} — advanced words and phrases"
+    if len(title) > 56:
+        title = f"{n}: {m['title']} — advanced vocabulary"
+    if len(title) > 56:
+        title = f"{n}: {m['title']}"
+    return (title,
             f"Advanced {n} {m['title'].lower()}: {len(m['words'])} words, phrases and a dialogue.",
             body)
 

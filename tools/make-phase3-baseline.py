@@ -46,7 +46,7 @@ baseline = {
     "remote": {
         "mainHead": "ba859a9bb9b5ebd9826b94599179e5a0712f29db",
         "mainSubject": "Initial commit",
-        "mainAuthor": "PRAKASH <prakash@PRAKASHs-MacBook-Air.local>",
+        "mainAuthor": "PRAKASH (local git identity — e-mail redacted 17 Nov 2026)",
         "mainDate": "2026-09-11T22:24:50+05:30",
         "note": ("Remote main is a squashed snapshot of the PRE-Phase-2 site plus the owner's "
                  "live-sheets/ CSV exports (content/reviews/settings/tutors). It was force-pushed "
