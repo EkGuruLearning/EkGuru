@@ -28,10 +28,11 @@
 
    A row for someone with no js/tutors/<id>.js is published
    only when ALL of these hold: approved is yes (or true, 1, y,
-   approved), active is not no, the row has a name, the photo is
-   a real image (not a placeholder) and the id is lowercase
-   letters, numbers and hyphens. A blank approved cell means
-   not approved. A tutor already in js/tutors/_registry.js
+   approved), active is not no, the row has a name and the id is
+   lowercase letters, numbers and hyphens. A blank approved cell
+   means not approved. A photo or intro video is NOT required
+   (17 Nov 2026): a profile without one shows the neutral
+   placeholder and is flagged noPhoto for the renderers. A tutor already in js/tutors/_registry.js
    does not need approved. Rows that fail are named, with the
    reason, in the console and in EkGuruSheet.info().unknown.
 
@@ -979,10 +980,20 @@
         }
         t = buildFromRow(r, lower);
         if (!t) { skipped.push(r.id + " (no name)"); return; }
+        /* 17 Nov 2026 — owner decision: an approved guru is published
+           WITH OR WITHOUT a photo or intro video. A missing photo used to
+           keep the whole profile private ("placeholder photo — not
+           published"), which hid approved tutors from the homepage, the
+           find page and search. Now the row publishes and the card shows
+           the neutral placeholder (or the initials avatar the renderers
+           draw) until a real photo is added to the sheet. The flag below
+           lets the renderers and the admin page say "no photo yet"
+           truthfully instead of pretending. */
         var photo = String(t.photo || "").toLowerCase();
         if (!photo || photo.indexOf("placeholder") !== -1) {
-          skipped.push(r.id + " (placeholder photo — not published)");
-          return;
+          t.photo = t.photo || "images/placeholder-tutor.jpg";
+          t.thumb = t.thumb && t.thumb.indexOf("placeholder") === -1 ? t.thumb : t.photo;
+          t.noPhoto = true;
         }
         byId[r.id] = t;
         list.push(t);

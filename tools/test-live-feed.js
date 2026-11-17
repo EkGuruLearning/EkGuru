@@ -179,16 +179,28 @@ function loadUnified(sheets, pending) {
   u.ctx.Utilities = { formatDate: () => "2026-11-04 12:00" };
   u.ctx.PropertiesService = { getScriptProperties: () => ({ getProperty: () => null }) };
   u.ctx.Logger = { log() {} };
+  const sent = [];
+  u.ctx.GmailApp = { sendEmail: (to, subject, body, opts) => { sent.push({ to, subject, body, opts: opts || {} }); } };
+  u.ctx.MailApp = { getRemainingDailyQuota: () => 95, sendEmail: (o) => { sent.push({ to: o.to, subject: o.subject, body: o.body, opts: o, via: "mailapp" }); } };
+  u.sent = sent;
   u.ctx.SpreadsheetApp.getActiveSpreadsheet = () => ({
     getSheetByName: (n) => (tabs[n] ? wrap(n) : null),
     insertSheet: (n) => { tabs[n] = []; return wrap(n); }
   });
-  return { ctx: u.ctx, tabs };
+  return { ctx: u.ctx, tabs, sent: u.sent };
 }
 
+const REVIEWS_PENDING_VALUES = [
+  ["timestamp", "reference", "status", "tutor_id", "reviewer_name", "stars", "text", "lesson_date", "contact_email", "booking_id", "notes"],
+  ["2026-11-01 10:00", "EG-1", "approved", "Asha-Verma", "Meera", "5", "y".repeat(60), "2026-10-30", "meera@example.com", "EK-AAA", ""],
+  ["2026-11-02 10:00", "EG-2", "pending",  "asha-verma", "Hidden", "1", "z".repeat(60), "2026-10-31", "hidden@example.com", "EK-BBB", ""],
+  ["2026-11-03 10:00", "EG-3", "live",     "ravi-k",     "Tom",   "4", "w".repeat(60), "", "tom@example.com", "EK-CCC", "approved by owner"]
+];
 const uni = loadUnified([
   { name: "Tutors", gid: 1631273256, values: TUTOR_VALUES },
-  { name: "reviews", gid: 293675115, values: [["tutor", "name", "date", "stars", "text", "source", "status"], ["asha-verma", "A", "2026-10-01", "5", "x".repeat(50), "site", "live"]] },
+  /* the retired tab: still in the workbook, must be IGNORED by v2.1.0 */
+  { name: "reviews", gid: 293675115, values: [["tutor", "name", "date", "stars", "text", "source", "status"], ["asha-verma", "OLD-TAB", "2026-10-01", "5", "x".repeat(50), "site", "live"]] },
+  { name: "reviews_pending", gid: 777, values: REVIEWS_PENDING_VALUES },
   { name: "settings", gid: 1658518385, values: [["key", "value"], ["email", "hello@example.com"]] },
   { name: "support", gid: 1041390059, values: [["key", "value"], ["a", "b"]] }
 ], {
@@ -213,7 +225,7 @@ check("unified ?action=health is the intake health (v1.2.0, bound)",
   intakeHealth.pendingRows.bookings === 0, JSON.stringify(intakeHealth));
 const bare = JSON.parse(uni.ctx.doGet({ parameter: {} }).getContent());
 check("unified bare /exec answers combined feed+intake health",
-  bare.ok && bare.unified === "2.0.0" && bare.feed.tabs.tutors.rows === 2 &&
+  bare.ok && bare.unified === "2.1.0" && bare.feed.tabs.tutors.rows === 2 &&
   bare.intake.version === "1.2.0", JSON.stringify(bare).slice(0, 120));
 const ping = JSON.parse(uni.ctx.doGet({ parameter: { action: "ping", token: "nope" } }).getContent());
 check("unified ?action=ping without the token is refused as unknown action",
@@ -242,6 +254,43 @@ const bkDup = postUni({ kind: "booking", consent: true, website: "",
     student_email: "priya@example.com", preferred_times_ist: "Mon 10am" } });
 check("unified booking resend is idempotent (no second row)",
   bkDup.ok && bkDup.duplicate === true && uni.tabs.bookings.length === 2, JSON.stringify(bkDup));
+
+/* v2.1.0 — booking mail goes to the BOOKED TUTOR's private address, from the server */
+const tutorMail = uni.sent.filter((m) => m.to === "asha.private@example.com");
+check("booking mail reaches the tutor's notification_email (private column, server-side)",
+  tutorMail.length === 1 && /EK-TESTREF/.test(tutorMail[0].subject) && /Priya/.test(tutorMail[0].body) &&
+  tutorMail[0].opts.replyTo === "priya@example.com", JSON.stringify(uni.sent.map((m) => m.to)));
+check("the page is told the server delivered (so it skips its own duplicate send)",
+  bk.mail && bk.mail.tutor === "sent" && bk.mail.student === "sent" && bk.mail.tutorEmailSource === "notification_email", JSON.stringify(bk.mail));
+const studentMail = uni.sent.filter((m) => m.to === "priya@example.com");
+check("the student gets a receipt whose replies go to EkGuru, never to the tutor's address",
+  studentMail.length === 1 && studentMail[0].opts.replyTo === "EkGuruLearning@gmail.com" &&
+  !/asha\.private/.test(studentMail[0].body + studentMail[0].opts.htmlBody), JSON.stringify(studentMail.map((m) => m.opts.replyTo)));
+check("the owner inbox is NOT a recipient when the tutor was reached",
+  uni.sent.filter((m) => m.to === "EkGuruLearning@gmail.com").length === 0);
+check("a duplicate submit never re-sends", uni.sent.length === 2, String(uni.sent.length));
+/* fallback: a tutor with no address → owner gets a [FORWARD TO] copy, booking still ok */
+const before = uni.sent.length;
+const bkNoMail = postUni({ kind: "booking", consent: true, website: "",
+  fields: { booking_ref: "EK-NOADDR", tutor_id: "unknown-guru", student_name: "Sam",
+    student_email: "sam@example.com", preferred_times_ist: "Tue 9am" } });
+const fwd = uni.sent.slice(before).filter((m) => m.to === "EkGuruLearning@gmail.com");
+check("tutor without an address: owner receives a [FORWARD TO …] copy and the booking is still saved",
+  bkNoMail.ok && bkNoMail.mail.tutor === "owner_fallback" && fwd.length === 1 && /^\[FORWARD TO /.test(fwd[0].subject) &&
+  uni.sent.slice(before).some((m) => m.to === "sam@example.com"), JSON.stringify(bkNoMail.mail) + " " + JSON.stringify(uni.sent.slice(before).map((m) => m.subject)));
+
+/* v2.1.0 — reviews are published from reviews_pending, approved rows only, in the public shape */
+const rvRows = parseCSV(uni.ctx.doGet({ parameter: { tab: "reviews" } }).getContent());
+check("?tab=reviews has the public header the site reads",
+  rvRows[0].join(",") === "tutor,name,date,stars,text,source,status", rvRows[0].join(","));
+check("only approved/live rows of reviews_pending are published (pending stays private)",
+  rvRows.length === 3 && rvRows.some((r) => r[1] === "Meera") && rvRows.some((r) => r[1] === "Tom") && !rvRows.some((r) => r[1] === "Hidden"),
+  JSON.stringify(rvRows));
+check("the retired reviews tab is ignored", !rvRows.some((r) => r[1] === "OLD-TAB"));
+check("tutor ids are lower-cased and a missing lesson_date falls back to the submission day",
+  rvRows.find((r) => r[1] === "Meera")[0] === "asha-verma" && rvRows.find((r) => r[1] === "Tom")[2] === "2026-11-03", JSON.stringify(rvRows));
+check("no private review column leaks (email, booking id, reference)",
+  !/example\.com|EK-AAA|EG-1/.test(JSON.stringify(rvRows)));
 const rvBad = postUni({ kind: "review", consent: true, website: "",
   fields: { tutor_id: "asha-verma", reviewer_name: "Priya", stars: 5,
     text: "x".repeat(50), booking_id: "EK-NOPE" } });
@@ -259,8 +308,8 @@ check("unified accepts a review whose booking matches tutor+reference",
   rvOk.ok && /^EG-/.test(rvOk.reference) && uni.tabs.reviews_pending.length === 2, JSON.stringify(rvOk));
 const hp = postUni({ kind: "booking", consent: true, website: "bot",
   fields: { booking_ref: "EK-BOT", tutor_id: "asha-verma", student_name: "B", student_email: "b@x.com", preferred_times_ist: "x" } });
-check("unified honeypot pretends success and stores nothing",
-  hp.ok && uni.tabs.bookings.length === 2, JSON.stringify(hp));
+check("unified honeypot pretends success and stores nothing (and sends no mail)",
+  hp.ok && uni.tabs.bookings.length === 3 && !uni.sent.some((m) => /EK-BOT/.test(m.subject)), JSON.stringify(hp));
 
 /* the unified file keeps the same never-leak guarantees as LiveFeed.gs */
 const uniText = fs.readFileSync(path.join(ROOT, "apps-script", "Unified.gs"), "utf8");

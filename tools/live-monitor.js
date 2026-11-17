@@ -61,7 +61,7 @@ async function main() {
   for (const [id, gid, label] of [
     ["csv-settings", "1658518385", "Settings CSV"],
     ["csv-content", "1654125803", "Content CSV"],
-    ["csv-reviews", "293675115", "Reviews CSV"],
+    /* reviews: no published CSV since 17 Nov 2026 — served by the Apps Script feed (reviews_pending, approved rows only) */
     ["csv-tutors", "1631273256", "Tutors CSV"],
   ]) {
     await probe(id, label, `${SS}?gid=${gid}&single=true&output=csv`, (r, b) => !/^<html/i.test(b.trim()));

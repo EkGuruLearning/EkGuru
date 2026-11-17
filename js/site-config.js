@@ -879,7 +879,15 @@ window.EKGURU_SITE = {
      key silently kills the first block.)
      ========================================================= */
   reviews: {
-    csvUrl: "https://docs.google.com/spreadsheets/d/e/2PACX-1vQIman_Um2wQrj_3mXqqgq4k69zzmJHkhZ1TRoAnh2jcamhzoo-0VeTd55UieGMi6mEaTl3Zy84G44h/pub?gid=293675115&single=true&output=csv",
+    /* 17 Nov 2026 — ONE review tab. Reviews are served ONLY by the
+       Apps Script feed (?tab=reviews), which reads `reviews_pending`
+       and publishes the approved rows in the public shape. The old
+       separate `reviews` tab (gid 293675115) was deleted on the
+       owner's instruction, so its published-CSV link is dead and is
+       blank here. Do NOT point this at reviews_pending's gid: that
+       tab holds contact_email / booking_id and must never be
+       published as a sheet — the feed strips those columns. */
+    csvUrl: "",
     fallbackCsvUrl: "",
     cacheMinutes: 60,
     alwaysRevalidate: true

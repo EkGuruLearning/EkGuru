@@ -911,6 +911,45 @@
           ((saved && saved.error) || "Please try again later."));
       }
       sheetSaved = true;
+      /* =====================================================
+         v102 — THE SERVER ALREADY MAILED THE TUTOR
+         -----------------------------------------------------
+         Unified.gs v2.1.0 answers {mail:{tutor,student}} after it
+         has sent the tutor notification from the owner's Gmail to
+         the tutor's PRIVATE address (a column the browser never
+         sees) and the student's receipt. When both went, nothing
+         is sent from here: a second browser-side send could only
+         reach a relay key owner's inbox — which is exactly the
+         "mail EkGuruLearning ke paas aata hai, tutor ke paas nahi"
+         bug. If the server reports a failure (quota, scope not
+         granted, mail switched off) the browser chain below runs
+         exactly as before, as the fallback.
+         ===================================================== */
+      var sm = saved.mail || null;
+      var tutorOk = !!sm && (sm.tutor === "sent" || sm.tutor === "owner_fallback");
+      var studentOk = !!sm && sm.student === "sent";
+      if (tutorOk && studentOk) {
+        var tutorRole = sm.tutor === "sent" ? "ACCEPTED" : "OWNER_FALLBACK";
+        var stamp = new Date().toISOString();
+        return Promise.resolve({
+          ok: true, accepted: true, state: "ACCEPTED", separate: true,
+          serverMail: true, via: "apps-script-server",
+          to: sm.tutor === "sent" ? "(tutor's private address — sent by the EkGuru server)" : "",
+          cc: [studentEmail],
+          failed: [],
+          ref: ref, sentAt: stamp,
+          subject: "New lesson request " + ref,
+          tutorEmailStatus: sm.tutor === "sent" ? "PERSONAL" : "OWNER_FALLBACK",
+          tutorEmailUnavailable: sm.tutor !== "sent",
+          tutorEmailNote: sm.tutor === "sent" ? ""
+            : "No tutor address in the tutors tab — EkGuru received a [FORWARD TO] copy and will relay it.",
+          emailStates: { tutor: tutorRole, student: "ACCEPTED", internal: "NOT_SENT_BY_POLICY" },
+          emailDelivery: {
+            tutor: { status: tutorRole, lastAttempt: stamp, lastError: "", retryCount: 0, provider: "apps-script-server" },
+            student: { status: "ACCEPTED", lastAttempt: stamp, lastError: "", retryCount: 0, provider: "apps-script-server" }
+          }
+        });
+      }
       return window.EkGuruMail.send({
         ref: ref,
         tutor: modalTutor,

@@ -6048,3 +6048,61 @@ html[dir="rtl"] .xp-hero-copy > .ekg-greeting-line {
   body.has-sticky-book .to-top { bottom: 150px; }
   body.has-sticky-book .cur-tip { bottom: 100px; }
 }
+
+/* ======================================================================
+   17 Nov 2026 — INITIALS AVATAR (guru published without a photo)
+   js/main.js initialsAvatar(): a brand-gradient tile with the tutor's
+   initials; --eg-av-h is a per-name hue so each guru keeps one colour.
+   ====================================================================== */
+.eg-avatar {
+  display: inline-grid; place-items: center; flex: none;
+  border-radius: 20px; font-weight: 900; letter-spacing: .02em; color: #fff;
+  background: linear-gradient(140deg,
+    hsl(var(--eg-av-h, 255) 70% 52%) 0%,
+    hsl(calc(var(--eg-av-h, 255) + 40) 75% 58%) 100%);
+  box-shadow: 0 6px 18px rgba(34, 28, 80, .16); user-select: none;
+}
+.pf-photo .eg-avatar { border-radius: 50%; border: 4px solid #fff; }
+.tcard-photo .eg-avatar { width: 88px; height: 88px; }
+
+/* ======================================================================
+   17 Nov 2026 — PHONE: CONTENT MUST PAINT WHILE SCROLLING
+   ----------------------------------------------------------------------
+   Reported: "phone me scroll karte time load hi nahi hota". Two causes
+   in this stylesheet, both desktop optimisations that hurt phones:
+
+   1. content-visibility:auto on .sec/.panel/.pr-sec/.t-item/.tut. On
+      iOS Safari and low-end Android Chrome, sections skipped by
+      content-visibility paint only after the scroll settles, so a fast
+      thumb-scroll shows blank blocks ("nothing loads"). The saving on a
+      phone is negligible because the sections are narrow and short.
+      Below 1024px every section is rendered normally.
+   2. The hero's two blurred orbs (filter: blur(70px)) animate forever.
+      A 70px blur over a ~400px circle re-rasterises on every frame on a
+      phone GPU, which starves the main thread that lazy images, the
+      sheet fetch and the voice buttons all need. On phones the orbs
+      are static and lightly blurred; on desktop nothing changes.
+   ====================================================================== */
+@media (max-width: 1023px) {
+  .sec, .pr-sec, .panel, .t-item, .tut {
+    content-visibility: visible !important;
+    contain-intrinsic-size: auto !important;
+  }
+  .hero::before, .hero::after {
+    animation: none !important;
+    filter: blur(28px) !important;
+    opacity: .3 !important;
+  }
+  /* backdrop-filter on the sticky header forces a full-page repaint on
+     every scrolled frame on older phones; a solid tint is identical to
+     the eye at 92% and costs nothing. */
+  .hdr { background: rgba(255, 255, 255, .94); backdrop-filter: none; -webkit-backdrop-filter: none; }
+  [data-theme="dark"] .hdr { background: rgba(16, 19, 31, .94); }
+  /* long learn pages: let the browser skip layout for off-screen word
+     ladders without hiding them (contain, not content-visibility) */
+  .fd-words, .fd-lines { contain: layout paint; }
+}
+/* Lazy images reserve their box so nothing jumps while the thumb is
+   still moving. Sizes come from width/height attributes; this only stops
+   a missing attribute from collapsing the box to 0 and "appearing" late. */
+.tcard-photo img, .pf-photo img { min-width: 1px; min-height: 1px; }

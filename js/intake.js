@@ -158,7 +158,14 @@
          trusting it used to tell the student "saved" (and let the
          booking email go out) with no row in the sheet at all. */
       if (j && j.ok && String(j.reference || "").trim()) {
-        return { ok: true, reference: String(j.reference), duplicate: j.duplicate === true };
+        var out = { ok: true, reference: String(j.reference), duplicate: j.duplicate === true };
+        /* v2.1.0 server mail outcome ({tutor, student, note}) — the
+           booking modal uses it to skip its own duplicate send. */
+        if (j.mail && typeof j.mail === "object") {
+          out.mail = { tutor: String(j.mail.tutor || ""), student: String(j.mail.student || ""),
+                       tutorEmailSource: String(j.mail.tutorEmailSource || ""), note: String(j.mail.note || "") };
+        }
+        return out;
       }
       if (j && j.ok) {
         return { ok: false, fallback: true, error: "The booking service replied without a confirmation reference, so this was not treated as saved." };

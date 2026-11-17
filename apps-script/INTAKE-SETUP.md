@@ -100,17 +100,19 @@ first deployed with Intake.gs v1.0.0; the v1.1.0 update above is pending.
 3. Set the `status` cell in `applications` to `approved` (or `declined`). This
    keeps your record. Do not delete it unless they ask you to.
 
-**A review** (tab `reviews_pending`):
-1. Check it is from a real lesson. If it is genuine, copy the row into the
-   **reviews** tab. Set `status` to `live`.
-2. Set `status` in `reviews_pending` to `published`.
+**A review** (tab `reviews_pending`) — since 17 Nov 2026 this is the ONLY
+review tab (the old `reviews` tab was deleted):
+1. Read the row. If it is genuine, set `status` to `approved` (or `live`).
+   Nothing to copy anywhere: the feed (`?tab=reviews`) publishes approved rows
+   of this tab directly, in the public shape, without contact_email / booking_id.
+2. To take a review down again, set `status` back to `pending` or `rejected`.
 
 **A learner sign-up** (tab `signups`): private. Use it only to reply to the
 person. Do not publish it.
 
 ## What the script will never do
 
-- It never writes to the public tabs (tutors, reviews, settings, support).
+- It never writes to the public tabs (tutors, settings, support); reviews_pending is written by the form and read (approved rows only) by the feed.
 - It never returns what a visitor typed, only a short reference such as `EG-K3Q9AP`.
 - It never stores an IP address, a browser id or a cookie.
 - It refuses a submission without consent, with the honeypot filled, or with a

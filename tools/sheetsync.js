@@ -25,9 +25,13 @@ const path = require("path");
 const BASE = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQIman_Um2wQrj_3mXqqgq4k69zzmJHkhZ1TRoAnh2jcamhzoo-0VeTd55UieGMi6mEaTl3Zy84G44h/pub";
 const SRC = {
   tutors:   `${BASE}?gid=1631273256&single=true&output=csv`,
-  reviews:  `${BASE}?gid=293675115&single=true&output=csv`,
-  /* Form submissions waiting for the owner. Rows the owner sets to
-     status=approved go live automatically (see pendingToReviews). */
+  /* 17 Nov 2026 — the separate `reviews` tab (gid 293675115) was deleted
+     on the owner's instruction. `reviews_pending` is now the ONE review
+     tab: every form submission lands there as pending and the owner
+     flips status to approved to publish it (see pendingToReviews).
+     `reviews` is kept as an optional legacy source so an old workbook
+     still builds; a dead link is tolerated below. */
+  reviews:  "",
   reviewsPending: `${BASE}?gid=176535552&single=true&output=csv`,
   settings: `${BASE}?gid=1658518385&single=true&output=csv`,
   support:  `${BASE}?gid=1041390059&single=true&output=csv`,
@@ -208,14 +212,16 @@ const MARKETPLACE_SOURCES = ["preply", "italki"];
 function pendingToReviews(rows) {
   const out = [];
   for (const r of rows) {
-    if (String(r.status || "").trim().toLowerCase() !== "approved") continue;
+    /* same approved set as apps-script/Unified.gs REVIEW_APPROVED_VALUES */
+    const st = String(r.status || r.approved || "").trim().toLowerCase();
+    if (["approved", "approve", "live", "published", "publish", "yes", "true", "1", "ok"].indexOf(st) === -1) continue;
     let date = String(r.lesson_date || "").trim();
     if (!date) {
       const m = String(r.timestamp || "").match(/^(\d{2})\/(\d{2})\/(\d{4})/);
       if (m) date = `${m[3]}-${m[2]}-${m[1]}`;
     }
     out.push({
-      tutor: String(r.tutor_id || "").trim(),
+      tutor: String(r.tutor_id || r.tutor || "").trim().toLowerCase(),
       name: String(r.reviewer_name || "").trim(),
       date,
       stars: String(r.stars || "").trim(),
@@ -329,16 +335,21 @@ if (require.main === module) (async function main() {
     const src = offlineAll(argv[offIdx + 1]);
     tutors = src.tutors; reviews = src.reviews; settings = src.settings; support = src.support;
   } else {
-    [tutors, reviews, settings, support] = await Promise.all([
-      fetchCSV(SRC.tutors), fetchCSV(SRC.reviews), fetchSettings(SRC.settings),
-      fetchSettings(SRC.support),
+    [tutors, settings, support] = await Promise.all([
+      fetchCSV(SRC.tutors), fetchSettings(SRC.settings), fetchSettings(SRC.support),
     ]);
-    /* Optional: a missing or unpublished pending tab must not stop the build. */
+    /* reviews_pending is the review source (approved rows only). */
     try {
       const pending = await fetchCSV(SRC.reviewsPending);
-      reviews = reviews.concat(pendingToReviews(pending));
+      reviews = pendingToReviews(pending);
     } catch (e) {
-      console.warn(`  !! reviews_pending not read (${e.message}) — only the reviews tab is used.`);
+      reviews = [];
+      console.warn(`  !! reviews_pending not read (${e.message}) — no reviews will be baked this run.`);
+    }
+    /* Legacy: an old separate `reviews` tab, only if a URL is configured and alive. */
+    if (SRC.reviews) {
+      try { reviews = reviews.concat(await fetchCSV(SRC.reviews)); }
+      catch (e) { console.warn(`  !! legacy reviews tab not read (${e.message}) — ignored.`); }
     }
   }
   /* Support tab merges UNDER the main settings tab: on a conflict

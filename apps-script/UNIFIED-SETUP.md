@@ -93,6 +93,38 @@ or an en-dash all count as `EK-AB2CD3` — and is stored in the canonical
 `EK-XXXXXX` form in `reviews_pending.booking_id`. An `EG-…` value is a
 form receipt, not a booking, and is refused with a clear message.
 
+## v2.1.0 — booking mail goes to the TUTOR, reviews come from one tab
+
+**Booking mail (the "mail EkGuruLearning ke paas hi aata hai" fix).** The browser
+never sees a tutor's private address (the feed strips `email` /
+`notification_email` on purpose), so a mail sent from the page could only ever
+land in the relay owner's inbox. From v2.1.0 the script itself mails the booked
+tutor the moment the booking row is saved, as the deploying Gmail account:
+
+| Recipient | Address used | When |
+|---|---|---|
+| Tutor | `tutors.notification_email` → `tutors.email` → `tutors.formkey` (first real address) | every new booking |
+| Student | the address they typed | every new booking (reply-to = owner inbox) |
+| Owner (fallback) | `BOOKING_OWNER_INBOX` property, default `EkGuruLearning@gmail.com` | ONLY when the tutor has no address, or Gmail refused — subject starts `[FORWARD TO <tutor>]` |
+
+Each outcome is written into the booking row (`tutor_email`, `email_delivery`)
+and returned to the page as `mail:{tutor,student}`, so the site skips its own
+duplicate send. To arm it after pasting the new file:
+
+1. Run `bookingMailSelfTest_` once from the editor and accept the Gmail
+   permission (one test mail reaches the owner inbox).
+2. Make sure every tutor row has `notification_email` filled — that is the
+   only column the notification reads first.
+3. Optional Script Properties: `BOOKING_MAIL_ENABLED=false` switches it off,
+   `BOOKING_OWNER_INBOX=…` changes the fallback inbox.
+
+**One review tab.** `?tab=reviews` now reads **`reviews_pending`** and publishes
+only rows whose `status` (or an optional `approved` column) is `approved` /
+`live` / `yes`. Everything a student submits lands there as `pending`; to
+publish a review change its `status` to `approved` — nothing else to copy.
+The old separate `reviews` tab is no longer read at all: delete it from the
+workbook whenever convenient (nothing breaks while it still exists).
+
 ## Updating later (URL must not change)
 
 1. Paste the new `Unified.gs` over the old file, **Save**.
@@ -122,7 +154,7 @@ Every option is a flag, not new code. Flip it, save, redeploy the
 | Red error in the editor | Half-pasted file, or two backends in one project | Delete all, paste the whole file again; keep payments/questions separate |
 | `?action=health` says `spreadsheetBound: false` | Project not bound, no script property | Redo steps 1–2 or step 6, then redeploy (New version) |
 | `?tab=health` asks you to sign in | **Who has access** is not **Anyone** | Redeploy a new version with access **Anyone** |
-| A tab shows `found: false` | The tab was renamed | Rename it back: `tutors`, `reviews`, `settings`, `support` |
+| A tab shows `found: false` | The tab was renamed | Rename it back: `tutors`, `reviews_pending`, `settings`, `support` |
 | The site shows old data after an edit | Feed off / wrong URL — the site fell back to published output | Check `feed.url`, then open `?tab=health` |
 | A booking “sends” but no row appears | Intake URL stale or unbound | Check `intake.url` equals the deployed URL, then `?action=health` |
 

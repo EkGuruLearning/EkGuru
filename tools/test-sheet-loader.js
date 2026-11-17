@@ -9,7 +9,7 @@
    2. js/sheet.js applies the fetched data through the exact browser code path
       (parse -> records -> applyRecords) and publishes exactly the current
       rule: active registry tutors, plus approved=yes sheet-only tutors that
-      have a safe id, name and real non-placeholder photo. Approved, active
+      have a safe id and a name (a photo is optional since 17 Nov 2026). Approved, active
       Sheet rows are intentional public listings; their dynamic profiles stay
       noindex until the static publication workflow runs.
 
@@ -63,7 +63,8 @@ const REGISTRY = (() => {
     .filter((r) => {
       if (!r.id || r.id.charAt(0) === "#" || isHidden(r)) return false;
       if (REGISTRY.indexOf(r.id) > -1) return true;
-      return approved(r) && safeId(r) && !!String(r.name || "").trim() && hasRealPhoto(r);
+      /* 17 Nov 2026 — a photo is no longer required; hasRealPhoto() is kept only for the log line */
+      return approved(r) && safeId(r) && !!String(r.name || "").trim();
     })
     .map((r) => r.id);
 
