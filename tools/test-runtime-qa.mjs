@@ -525,9 +525,14 @@ console.log("F. Search overlap contract — static + real-index runtime");
   const shipped = fs.readFileSync(path.join(ROOT, "css/style.min.css"), "utf8");
   const shipRule = (shipped.match(/\.xp-sugg\{[^}]*\}/) || [""])[0];
   for (const prop of ["position:absolute", "background:#fff", "z-index:30",
-      "max-height:340px", "overflow:auto", "inset-block-start:calc(100%+10px)"]) {
+      "max-height:340px", "overflow:auto"]) {
     ok(shipRule.includes(prop), "shipped .xp-sugg: " + prop);
   }
+  /* 16 Nov 2026 — the bundler used to squeeze this to calc(100%+10px), which
+     browsers reject (the whole declaration was dropped). The spaces inside
+     calc() are part of the contract now. */
+  ok(shipRule.includes("inset-block-start:calc(100% + 10px)"), "shipped .xp-sugg: inset-block-start:calc(100% + 10px) (operators keep their spaces)");
+  ok(!/calc\([^)]*[^ ][+\-][^ ][^)]*\)/.test(shipRule.replace(/calc\(100% \+ 10px\)/, "")), "shipped .xp-sugg: no squeezed calc() operator");
   ok(/\.xp-sugg\[hidden\]\{display:none\}/.test(shipped), "shipped: hidden dropdown removes from layout");
   const srcRule = (src.match(/\.xp-sugg \{[^}]*\}/) || [""])[0].replace(/\s+/g, "");
   for (const prop of ["position:absolute", "background:#fff", "z-index:30",
