@@ -246,13 +246,15 @@ html[data-theme="contrast"] .hf-particles { display: none; }
 
 /* ---------- hero stat count-up ---------- */
 
-/* ---------- scroll progress hairline ---------- */
-.hf-progress { position: fixed; top: 0; left: 0; right: 0; height: 3px; z-index: 60; pointer-events: none;
+/* ---------- scroll progress hairline ----------
+   (own class: it used to share .hf-progress with the quiz card's "7 / 10"
+   counter, which turned that counter into a 3 px fixed strip) */
+.hf-scrollbar { position: fixed; top: 0; left: 0; right: 0; height: 3px; z-index: 60; pointer-events: none;
   background: linear-gradient(90deg, var(--eg-accent), color-mix(in srgb, var(--eg-accent) 40%, var(--eg-accent-contrast))); }
-.hf-progress > i { display: block; height: 100%; width: 0; transition: width .12s linear; }
-html[data-theme="contrast"] .hf-progress { background: var(--eg-ink); }
-html[data-theme="contrast"] .hf-progress > i { background: var(--eg-accent); }
-@media print { .hf-progress { display: none; } }
+.hf-scrollbar > i { display: block; height: 100%; width: 0; transition: width .12s linear; }
+html[data-theme="contrast"] .hf-scrollbar { background: var(--eg-ink); }
+html[data-theme="contrast"] .hf-scrollbar > i { background: var(--eg-accent); }
+@media print { .hf-scrollbar { display: none; } }
 
 /* ---------- hero headline shimmer ---------- */
 @media (prefers-reduced-motion: no-preference) {
