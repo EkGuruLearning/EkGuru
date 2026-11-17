@@ -40,7 +40,12 @@ seoWindow.EKGURU_SITE = {
   tagline: "One Student. One Goal. One Guru."
 };
 seoWindow.EKGURU_MARKETS = [{ code: "en", locale: "en-US", country: "United States", dir: "ltr" }];
-seoWindow.EKGURU_TUTORS = [];
+/* The roster the page ships with: index.html is baked with the public
+   tutors (18 on 17 Nov 2026), and its FAQ answer 5 says "available". The
+   schema must mirror the SAME state, so hand js/seo.js the same roster size
+   the page was built for instead of an empty one. */
+const bakedTutorCards = (home.match(/data-tutor-id="/g) || []).length || (home.match(/class="tcard"/g) || []).length;
+seoWindow.EKGURU_TUTORS = Array.from({ length: bakedTutorCards }, (_, i) => ({ id: "t" + i, name: "T" + i, active: true }));
 seoWindow.eval(i18n);
 seoWindow.eval(read("js/seo.js"));
 const seoGraph = JSON.parse(doc.getElementById("ekguru-jsonld").textContent);
@@ -62,8 +67,10 @@ check("SEO: visible self-study steps and HowTo structured data match exactly",
 check("SEO: localized homepage title and description come from i18n",
   doc.title === seoWindow.EKGURU_I18N.en["seo.homeTitle"] &&
   doc.querySelector('meta[name="description"]').content === seoWindow.EKGURU_I18N.en["seo.homeDescription"]);
-check("SEO: empty public tutor roster produces an empty ItemList with no Offer claims",
-  seoNodes.some((node) => node["@type"] === "ItemList" && node.numberOfItems === 0 && node.itemListElement.length === 0) &&
+/* Roster-aware: with public tutors the ItemList counts them; empty roster ->
+   empty list. Either way the home page never claims Offer / AggregateRating. */
+check("SEO: the tutor ItemList mirrors the public roster (" + bakedTutorCards + ") and makes no Offer/rating claims",
+  seoNodes.some((node) => node["@type"] === "ItemList" && node.numberOfItems === bakedTutorCards && node.itemListElement.length === bakedTutorCards) &&
   !seoNodes.some((node) => ["Offer", "Service", "AggregateRating", "Review"].includes(node["@type"])));
 
 /* ── 1–3 · one design scale ────────────────────────────────────────────────
@@ -126,11 +133,15 @@ check("5: it refuses to inject when the page has no <h2> to hang from",
 
 /* ── 6 · 12 · 14 · the country wall ─────────────────────────────────────── */
 const markets = doc.querySelector("#markets");
+/* The country wall left the home page (it lives on /learn-hindi-by-country/
+   and /world-languages/); these checks only apply while a #markets section
+   is present. */
+if (!markets) console.log("skip  6/12/14: no #markets section on the home page (country wall is its own page)");
 const grid = markets && markets.querySelector(".mkt-grid");
 const countryLinks = markets ? markets.querySelectorAll(".mkt-grid a").length : 0;
-check("6: the country grid is server-rendered inside #markets",
+if (markets) check("6: the country grid is server-rendered inside #markets",
   countryLinks >= 40, `${countryLinks} country links`);
-check("6: the grid is grouped by region with real headings",
+if (markets) check("6: the grid is grouped by region with real headings",
   !!grid && grid.closest(".mkt-region-block") !== null &&
   doc.querySelectorAll("#markets .mkt-region").length >= 5,
   doc.querySelectorAll("#markets .mkt-region").length + " region headings");
@@ -139,7 +150,7 @@ check("6 + 12: the interactive rails are behind a disclosure, not a wall",
 check("12: the static grid is preserved when the rails render",
   /if \(old \|\| !host\.querySelector\("\.mkt-grid"\)\)/.test(marquee));
 const more = doc.querySelector("#markets-sec .xp-more");
-check("14: the country link has a heading and a sentence",
+if (markets) check("14: the country link has a heading and a sentence",
   !!more && !!more.querySelector("h3") && (more.querySelector("p") || {}).textContent.length > 40);
 check("14: the old orphan button is gone",
   !/<p class="center" style="margin-top:22px">[\s\S]{0,80}learn-hindi-by-country/.test(home));

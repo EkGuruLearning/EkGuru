@@ -153,7 +153,7 @@ window.EKGURU_I18N = {
     "home.faq.4.a": "Use the exercises in lessons and the free Hindi learning tools. You can mark lessons complete and keep progress in the journal stored in this browser.",
     "home.faq.5.q": "Are live Hindi tutor lessons available right now?",
     "home.faq.5.empty": "No public tutor profiles are currently listed for booking. Free lessons and self-study tools remain available.",
-    "home.faq.5.available": "Tutor profiles are listed when available. Review each profile and confirm current terms and availability before sending an enquiry.",
+    "home.faq.5.available": "Yes. EkGuru lists independent Hindi tutors who take bookings directly. Open the tutor directory to see current profiles, prices and availability, then send a request from the tutor's page. Free lessons and self-study tools remain available with no account required.",
     "home.faq.6.q": "Do I need an account to use the course?",
     "home.faq.6.a": "No. Published lessons and tools can be used without an account. The learning journal stores progress in this browser.",
     "home.faq.7.q": "I live outside India. Can I still take lessons?",

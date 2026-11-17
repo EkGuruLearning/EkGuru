@@ -303,6 +303,17 @@ ${paras}
   </section>`;
 }
 
+/* One honest sentence from whatever the sheet row actually fills in: levels,
+   languages, both, or nothing — never "these languages: ." */
+function levelsLine(t, speaks) {
+  const levels = (t.levels || []).filter(Boolean);
+  const parts = [];
+  if (levels.length) parts.push("<strong>" + esc(levels.join(", ")) + "</strong> learner level" + (levels.length > 1 ? "s" : ""));
+  if (speaks.length) parts.push("these languages: " + esc(speaks.join(" and ")));
+  if (!parts.length) return "";
+  return "    <p>The tutor-provided profile lists " + parts.join(" and ") + ".</p>\n";
+}
+
 function teachesBlock(t) {
   const teaches = toArray(t.teaches);
   const items = teaches.map((x) => '      <li itemprop="knowsAbout">' + esc(x) + "</li>").join("\n");
@@ -318,9 +329,7 @@ function teachesBlock(t) {
     <ul>
 ${items}
     </ul>
-    <p>The tutor-provided profile lists <strong>${esc((t.levels || []).join(", "))}</strong> learner levels
-       and these languages: ${esc(speaks.join(" and "))}.</p>
-${exams.length ? "    <p>Profile-listed exam preparation: <strong>" + esc(exams.join(", ")) + "</strong>.</p>\n" : ""}${specialities.length ? "    <p>Profile-listed specialities: " + esc(specialities.join(" · ")) + ".</p>\n" : ""}  </section>`;
+${levelsLine(t, speaks)}${exams.length ? "    <p>Profile-listed exam preparation: <strong>" + esc(exams.join(", ")) + "</strong>.</p>\n" : ""}${specialities.length ? "    <p>Profile-listed specialities: " + esc(specialities.join(" · ")) + ".</p>\n" : ""}  </section>`;
 }
 
 function experienceBlock(t) {
