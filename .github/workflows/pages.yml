@@ -1,0 +1,62 @@
+# Publish ONLY the website to GitHub Pages (17 Nov 2026).
+#
+# Before this workflow, Pages served the repository root as-is ("legacy"
+# branch deploy), so every committed file was reachable on ekguru.shop:
+# tools/, reports/, docs/, apps-script/, server/, csv/, old sheet exports.
+# Now tools/build-public-dist.py copies the website alone into _site/ and
+# that folder is what Pages receives. The denylist and the self-check
+# (every sitemap URL + every sw.js precache entry must be present) live in
+# that script; CI runs the same check on every pull request.
+#
+# ONE-TIME OWNER STEP — GitHub → repo → Settings → Pages →
+#   "Build and deployment" → Source: **GitHub Actions**.
+# (The first successful run of actions/deploy-pages normally flips this
+# setting by itself; if the deploy step fails with "Not Found" or a message
+# about the publishing source, flip it by hand and re-run.)
+# The custom domain (CNAME) and the HTTPS setting are unchanged.
+name: pages
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+concurrency:
+  group: pages
+  cancel-in-progress: true
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Public deploy set (website only) + self-check
+        run: |
+          python3 tools/build-public-dist.py --check
+          python3 tools/build-public-dist.py --out _site
+          echo "files: $(find _site -type f | wc -l)"
+          test -f _site/index.html
+          test -f _site/CNAME
+          test -f _site/.nojekyll
+          test ! -e _site/tools
+          test ! -e _site/reports
+          test ! -e _site/apps-script
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

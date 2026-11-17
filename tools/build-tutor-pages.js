@@ -863,6 +863,15 @@ function updateIndexFiles(roster, stamp, check) {
      — the tutor map is listed in sitemap-index.xml, no duplicates. */
   let st = pruneTutorEntries(fs.readFileSync("sitemap-tutors.xml", "utf8"), tutors, "sitemap");
   for (const t of tutors) st = upsertUrlBlock(st, t.id, sitemapEntry(t, stamp));
+  /* 17 Nov 2026 — the entries use <image:image>, so the root MUST declare
+     the image namespace; without it the file is not well-formed XML and
+     Search Console rejects the whole tutor sitemap ("unbound prefix"). */
+  if (/<image:/.test(st) && !/xmlns:image=/.test(st)) {
+    st = st.replace(
+      /<urlset\s+xmlns="http:\/\/www\.sitemaps\.org\/schemas\/sitemap\/0\.9"\s*>/,
+      '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">'
+    );
+  }
   write("sitemap-tutors.xml", st, tutors.length + " indexable tutor URLs");
 
   let sm = pruneTutorImageEntries(fs.readFileSync("sitemap.xml", "utf8"), []);

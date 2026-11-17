@@ -113,7 +113,7 @@ function phase3Block() {
     sheets: {
       runtime: "LIVE",
       publishedUrlsSupplied: true,
-      liveSheetsInRepo: ["content.csv", "settings.csv", "tutors.csv"],  /* reviews has no same-origin snapshot — Google feed + localStorage cache only (16 Nov 2026) */
+      liveSheetsInRepo: [],  /* 17 Nov 2026 — the stale live-sheets/ exports were removed from the repo: a public Pages repo serves every file, so a raw tutors.csv (with email / notification_email / formKey columns) was one URL away. The sheet is read only through the Apps Script feed, which strips those columns. */  /* reviews has no same-origin snapshot — Google feed + localStorage cache only (16 Nov 2026) */
       note: "Wired 13 Sep 2026 to the new production workbook (published CSVs, gids 1631273256/298809212/1658518385/1654125803). Tutors tab still lacks the canonical notification_email column — mail routing stays on the EkGuru inbox until the owner adds it.",
     },
     email: {
