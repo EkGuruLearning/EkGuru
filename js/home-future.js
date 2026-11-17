@@ -178,7 +178,7 @@
   /* scroll progress hairline */
   if (!reduceMotion) {
     var bar = doc.createElement("div");
-    bar.className = "hf-progress";
+    bar.className = "hf-scrollbar";
     bar.setAttribute("aria-hidden", "true");
     var inner = doc.createElement("i");
     bar.appendChild(inner);

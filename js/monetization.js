@@ -200,9 +200,9 @@
 
       var extra = document.createElement('div');
       extra.className = 'support-extra';
-      extra.style.cssText = 'margin-top:16px;padding-top:16px;border-top:1px solid #e4e4ef;display:flex;flex-wrap:wrap;gap:10px;align-items:center';
+      extra.style.cssText = 'margin-top:16px;padding-top:16px;border-top:1px solid var(--line,#e4e4ef);display:flex;flex-wrap:wrap;gap:10px;align-items:center';
       extra.innerHTML =
-        '<span style="font-size:.85rem;color:#5f6577"></span>' +
+        '<span style="font-size:.85rem;color:var(--muted,#5f6577)"></span>' +
         '<a href="/support/" class="btn btn-ghost btn-sm" style="text-decoration:none"></a>' +
         '<a href="/find-tutors.html" class="btn btn-ghost btn-sm" style="text-decoration:none"></a>';
       var parts = extra.querySelectorAll('span, a');
@@ -296,8 +296,8 @@
     toast.id = "ekguru-support-toast";
     toast.className = "google-anno-skip";
     toast.style.cssText = "pointer-events:auto;display:flex;align-items:center;gap:12px;" +
-      "max-width:min(360px,calc(100vw - 32px));background:#fff;color:#10131f;" +
-      "border:1px solid #e4e4ef;border-radius:16px;box-shadow:0 8px 32px rgba(15,18,34,.14);" +
+      "max-width:min(360px,calc(100vw - 32px));background:var(--card,#fff);color:var(--ink,#10131f);" +
+      "border:1px solid var(--line,#e4e4ef);border-radius:16px;box-shadow:0 8px 32px rgba(15,18,34,.14);" +
       "padding:12px 12px 12px 16px;font-size:.88rem;line-height:1.45;" +
       "opacity:0;transform:translateY(12px);" +
       (reduced ? "" : "transition:opacity .35s cubic-bezier(.22,1,.36,1),transform .35s cubic-bezier(.22,1,.36,1);") +
@@ -317,7 +317,7 @@
     title.style.cssText = "font-weight:800;";
     title.textContent = copy.title;
     var body = document.createElement("div");
-    body.style.cssText = "color:#5f6577;font-size:.82rem;";
+    body.style.cssText = "color:var(--muted,#5f6577);font-size:.82rem;";
     body.textContent = copy.body;
     text.appendChild(title);
     text.appendChild(body);
@@ -325,8 +325,8 @@
     var cta = document.createElement("a");
     cta.href = "/support/";
     cta.style.cssText = "flex:none;display:inline-flex;align-items:center;min-height:44px;" +
-      "padding:8px 14px;border-radius:999px;background:linear-gradient(135deg,#4f32d9,#8b5cf6);" +
-      "color:#fff;font-weight:700;font-size:.84rem;text-decoration:none;white-space:nowrap;";
+      "padding:8px 14px;border-radius:999px;background:var(--grad,linear-gradient(135deg,#4f32d9,#8b5cf6));" +
+      "color:var(--xp-ink-on-brand,#fff);font-weight:700;font-size:.84rem;text-decoration:none;white-space:nowrap;";
     cta.textContent = copy.cta + " →";
 
     var close = document.createElement("button");
@@ -334,7 +334,7 @@
     close.setAttribute("aria-label", copy.close);
     close.style.cssText = "flex:none;display:grid;place-items:center;width:44px;height:44px;" +
       "margin:-8px -8px -8px 0;background:none;border:0;cursor:pointer;" +
-      "font-size:1.25rem;color:#5f6577;border-radius:12px;";
+      "font-size:1.25rem;color:var(--muted,#5f6577);border-radius:12px;";
     close.textContent = "×";
 
     toast.appendChild(icon);

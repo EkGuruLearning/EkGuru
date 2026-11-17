@@ -125,6 +125,17 @@ def luminance_of_hex(h: str) -> float:
 def colour_lum(value: str):
     """Perceived luminance of the FIRST solid colour in a value, or None."""
     v = value.strip().lower()
+    if "gradient(" in v:
+        # a gradient is "light" when every solid stop in it is pale
+        # (linear-gradient(180deg,#fff,color-mix(… var(--x) 65%,#fff))):
+        # the var() stops are tints of white, so the box reads white.
+        lums = [luminance_of_hex(m.group(0)) for m in HEX.finditer(v)]
+        for m in re.finditer(r"rgba?\(\s*(\d+)\s*,\s*(\d+)\s*,\s*(\d+)\s*(?:,\s*([0-9.]+))?\s*\)", v):
+            if not m.group(4) or float(m.group(4)) >= 0.55:
+                lums.append(sum(c * int(m.group(k)) / 255 for c, k in ((0.2126, 1), (0.7152, 2), (0.0722, 3))))
+        if lums and min(lums) >= 0.82:
+            return max(lums)
+        return None
     if re.search(r"\bvar\(", v):
         return None
     if re.match(r"^(white|#fff\b|#ffffff\b)", v):
@@ -167,7 +178,7 @@ def colour_sat(value: str):
     return (mx - mn) / (1 - abs(2 * l - 1)) if l not in (0, 1) else 0.0
 
 
-SKIP_SEL = re.compile(r"::?(before|after|selection|placeholder|-webkit-|-moz-)|print|-dot\b|\.dot\b|-knob|-thumb|toggle|-loading|\bi:nth-child", re.I)
+SKIP_SEL = re.compile(r"::?(before|after|selection|placeholder|-webkit-|-moz-)|print|-dot\b|\.dot\b|-knob|-thumb|toggle|-loading|\bi:nth-child|\.sb-scene\b", re.I)  # .sb-scene = illustrated sky, keep the artwork
 PAGE_SEL = re.compile(r"^(html|body|main|\.wrap|\.pw|\.pw-legacy|\.pw-tool|\.art|\.xp-page|\.xp-main|\.courses-page|\.country-theme)(\[[^\]]*\]|\.[a-z0-9_-]+)*$")
 LINK_SEL = re.compile(r"(^|[\s>+~])a(:[a-z-]+)?$")
 
@@ -186,14 +197,22 @@ def declarations(decls: str):
     return out
 
 
-def scope(selector: str) -> str:
-    """Prefix one selector with the dark-theme attribute."""
+def scope_one(selector: str, theme: str) -> str:
     s = selector.strip()
     if s.startswith(":root"):
-        return ':root[data-theme="dark"]' + s[5:]
+        return ':root[data-theme="%s"]' % theme + s[5:]
     if re.match(r"^html\b", s):
-        return 'html[data-theme="dark"]' + s[4:]
-    return '[data-theme="dark"] ' + s
+        return 'html[data-theme="%s"]' % theme + s[4:]
+    return '[data-theme="%s"] ' % theme + s
+
+
+def scope(selector: str) -> str:
+    """Prefix one selector with the dark AND the contrast theme attribute:
+    the contrast theme is black-on-black-surface and needs every light-box
+    override the dark theme needs (the 17 Nov 2026 real-browser audit found
+    white cards under white ink on /contact/, /support/ and the worksheet
+    sample in contrast mode)."""
+    return scope_one(selector, "dark") + "," + scope_one(selector, "contrast")
 
 
 def build_block(sources) -> str:

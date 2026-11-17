@@ -418,7 +418,7 @@ def sample_sheet(path, html):
     h1 = re.search(r"<h1[^>]*>(.*?)</h1>", html, re.S)
     if h1:
         name = re.sub(r"\s+", " ", re.sub("<[^>]+>", "", h1.group(1))).split(" — ")[0]
-        name = name.replace(" worksheets", "").replace(" Worksheet", "").strip()
+        name = re.sub(r"\s+worksheets?\b", "", name, flags=re.I).strip()
     lines = "".join(
         '<p style="font-weight:700;margin:14px 0 0">%d. %s</p>'
         '<div style="border-bottom:1px solid var(--line);height:44px;margin:0 0 12px"></div>'

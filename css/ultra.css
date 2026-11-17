@@ -417,3 +417,74 @@ html[data-theme="dark"] .xp-float,html[data-theme="contrast"] .xp-float{backgrou
    the darker end is ~1.9:1. In dark mode they become the solid theme accent
    (contrast mode already does this in home-future.css). */
 html[data-theme="dark"] :is(.xp-stat b,.grad-text,.egc h1,.e-num,.bk-ink span,.hero-stats b,.side-price b){background:none !important;-webkit-background-clip:initial !important;background-clip:initial !important;-webkit-text-fill-color:var(--eg-accent) !important;color:var(--eg-accent) !important}
+/* ---------------------------------------------------------------------
+   26 — DARK / CONTRAST: real-browser sweep, 17 Nov 2026 (headless Chromium
+   at 390 px and 1280 px over ~340 sampled pages).
+   --------------------------------------------------------------------- */
+/* (a) the world-redesign `footer{background:linear-gradient(180deg,#fff,…)}`
+   rule painted every <footer> — including the .pw-support "Published
+   lessons are currently free" strip above the site footer — white under
+   light ink. The generator skipped it because the gradient also contains a
+   var(). Flat theme surface instead. */
+html[data-theme="dark"] footer,html[data-theme="contrast"] footer{background:var(--eg-surface) !important;border-color:var(--eg-line) !important;color:var(--eg-ink) !important}
+html[data-theme="dark"] footer :is(p,span,small,li),html[data-theme="contrast"] footer :is(p,span,small,li){color:var(--eg-secondary) !important}
+html[data-theme="dark"] .pw-support,html[data-theme="contrast"] .pw-support{background:var(--eg-surface) !important;border:1px solid var(--eg-line) !important}
+html[data-theme="dark"] .pw-support .support-extra,html[data-theme="contrast"] .pw-support .support-extra{border-top-color:var(--eg-line) !important}
+html[data-theme="dark"] .pw-support .support-extra span,html[data-theme="contrast"] .pw-support .support-extra span{color:var(--eg-secondary) !important}
+html[data-theme="dark"] .pw-support .pw-support-cta,html[data-theme="contrast"] .pw-support .pw-support-cta{background:var(--eg-accent) !important;color:var(--eg-accent-contrast) !important}
+/* (b) --xp-a / --brand / --green / --world-primary become the LIGHT theme
+   accent in dark mode (tokens.css), so every element that paints white text
+   on one of them needs the accent's own ink. Hover/toggle states included:
+   .chip.is-on, .hi-listen.playing and .share-b:hover were white on lavender.
+   (.tag.beta / .lp-tag keep their own amber/green: ultra already restyles
+   .tag, and the lp-tag amber is dark enough for white.) */
+html[data-theme="dark"] :is(.chip.is-on,.hi-listen.playing,.hi-listen.playing:hover,.hero-stats div,.lang-cell .btn,.lang-cell .btn:hover,.share-b:hover,.to-top:hover,.fab,.cta,.cta h2,.cta p,.bk-head,.bk-head h3,.course-footer,.course-footer a,.support-hero,.support-hero h1,.support-hero p,.m-hero,.cur-tip,.cur-tip-x,.skip:focus,.skip:focus-visible,.xp-chip[aria-pressed="true"],.xp-chip.on,.pw-legacy .chip.is-on),
+html[data-theme="contrast"] :is(.chip.is-on,.hi-listen.playing,.hi-listen.playing:hover,.hero-stats div,.lang-cell .btn,.lang-cell .btn:hover,.share-b:hover,.to-top:hover,.fab,.cta,.cta h2,.cta p,.bk-head,.bk-head h3,.course-footer,.course-footer a,.support-hero,.support-hero h1,.support-hero p,.m-hero,.cur-tip,.cur-tip-x,.skip:focus,.skip:focus-visible,.xp-chip[aria-pressed="true"],.xp-chip.on,.pw-legacy .chip.is-on){color:var(--eg-accent-contrast) !important}
+html[data-theme="dark"] .cur-tip-x,html[data-theme="contrast"] .cur-tip-x{background:rgba(0,0,0,.18) !important;border-color:rgba(0,0,0,.3) !important}
+/* course hubs: the hero is a flat theme surface in dark mode (the light
+   world-palette gradient is gone), so its ink is the normal page ink */
+html[data-theme="dark"] .course-hero,html[data-theme="contrast"] .course-hero{background:var(--eg-surface) !important;color:var(--eg-ink) !important;border:1px solid var(--eg-line)}
+html[data-theme="dark"] .course-hero :is(h1,h2,p,b,span,.pill,.course-hero-stats span),html[data-theme="contrast"] .course-hero :is(h1,h2,p,b,span,.pill,.course-hero-stats span){color:var(--eg-ink) !important}
+html[data-theme="dark"] .course-hero :is(.pill,.course-hero-stats span),html[data-theme="contrast"] .course-hero :is(.pill,.course-hero-stats span){background:var(--eg-soft) !important;border-color:var(--eg-line) !important}
+html[data-theme="dark"] .fc-chip[aria-pressed="true"] .fc-chip-n,html[data-theme="contrast"] .fc-chip[aria-pressed="true"] .fc-chip-n{color:inherit !important}
+html[data-theme="dark"] .cur-tip,html[data-theme="contrast"] .cur-tip{background:var(--eg-accent) !important}
+/* (c) pressed flashcard/topic chips and the "Open the Hindi course →" arrow
+   used the light brand purple (#4f32d9, 1.9:1 on the dark card) as text */
+html[data-theme="dark"] :is(.fc-chip[aria-pressed="true"],.fc-msg,.li-hindi .li-go,.fc-face:hover,.course-arrow,.xp-searchbar .xp-search-ico),html[data-theme="contrast"] :is(.fc-chip[aria-pressed="true"],.fc-msg,.li-hindi .li-go,.fc-face:hover,.course-arrow,.xp-searchbar .xp-search-ico){color:var(--eg-accent) !important}
+html[data-theme="dark"] .fc-chip,html[data-theme="contrast"] .fc-chip{background:var(--eg-soft) !important;color:var(--eg-ink) !important;border-color:var(--eg-line) !important}
+html[data-theme="dark"] .fc-chip[aria-pressed="true"],html[data-theme="contrast"] .fc-chip[aria-pressed="true"]{background:var(--eg-accent) !important;color:var(--eg-accent-contrast) !important;border-color:var(--eg-accent) !important}
+/* (d) pale gradient bands on the home/courses/search pages (xp-band,
+   xp-sec.soft, xp-freeband, xp-search-hero, courses-page, xp-card-ico,
+   xp-letter, photo placeholders) */
+html[data-theme="dark"] :is(.xp-band,.xp-sec.soft,.xp-freeband,.xp-search-hero,.courses-page,.country-story,.xp-card-ico,.xp-lp-band .xp-letter,.pf-photo img,.pr-photo,.tcard-photo::before,.course-loading span,.skel),html[data-theme="contrast"] :is(.xp-band,.xp-sec.soft,.xp-freeband,.xp-search-hero,.courses-page,.country-story,.xp-card-ico,.xp-lp-band .xp-letter,.pf-photo img,.pr-photo,.tcard-photo::before,.course-loading span,.skel){background:var(--eg-soft) !important;background-image:none !important}
+html[data-theme="dark"] :is(.courses-page,.xp-band,.xp-sec.soft),html[data-theme="contrast"] :is(.courses-page,.xp-band,.xp-sec.soft){background:var(--eg-bg) !important}
+/* (e) the /design/ playground's disabled "Stop microphone" button: 30 %
+   white on dark is 2.7:1 — a disabled control still has to be readable */
+html[data-theme="dark"] main button:disabled,html[data-theme="contrast"] main button:disabled{color:var(--eg-muted) !important;opacity:.85}
+/* ---------------------------------------------------------------------
+   27 — the "Published lessons are currently free" support strip OUTSIDE
+   .pw-legacy (668 pages: /contact/, /about/, tutor pages …). Its only
+   styling lived under `.pw-legacy .pw-support`, so after </main> it rendered
+   as a bare edge-to-edge <footer> with "Support EkGuru Tutor profiles" run
+   together. Same card as the in-article version, every theme.
+   --------------------------------------------------------------------- */
+main ~ .pw-support,body > .pw-support{display:flex;flex-wrap:wrap;align-items:center;gap:14px 20px;box-sizing:border-box;width:min(900px,calc(100% - 32px));margin:28px auto 0;padding:18px 20px;border:1px solid var(--line,#e4e4ef);border-radius:18px;background:var(--card,#fff);color:var(--ink,#10131f)}
+main ~ .pw-support>p,body > .pw-support>p{flex:1 1 320px;margin:0;font-size:.95rem;color:var(--ink-2,var(--ink,#3d4257))}
+main ~ .pw-support>a,body > .pw-support>a{font-weight:700;text-decoration:underline;text-underline-offset:3px;min-height:44px;display:inline-flex;align-items:center;padding:4px 2px}
+main ~ .pw-support>a.pw-support-cta,body > .pw-support>a.pw-support-cta{text-decoration:none;padding:10px 20px;border-radius:999px;background:var(--brand,#4f32d9);color:var(--xp-ink-on-brand,#fff)}
+main ~ .pw-support .support-extra,body > .pw-support .support-extra{flex:1 1 100%}
+html[data-theme="dark"] :is(main ~ .pw-support,body > .pw-support)>a.pw-support-cta,html[data-theme="contrast"] :is(main ~ .pw-support,body > .pw-support)>a.pw-support-cta{background:var(--eg-accent) !important;color:var(--eg-accent-contrast) !important}
+/* ---------------------------------------------------------------------
+   28 — light-theme findings from the same sweep
+   --------------------------------------------------------------------- */
+/* footer logo tagline: --muted grey (#5f6577) on the dark footer = 3.2:1 */
+.ftr .logo small{color:#c7cadb !important}
+/* storybook chapter badge + speaker buttons paint the section accent as
+   small text on white; the orange (daily-hindi #ea580c, 3.6:1), lime
+   (beginner #65a30d, 3.1:1) and green (#16a34a, 3.3:1) miss AA. storybook.js
+   copies the chapter accent onto body.style, so darken at the point of use
+   (same hue, 78 %); light theme only — dark/contrast use --eg-accent. */
+html:not([data-theme="dark"]):not([data-theme="contrast"]) :is(.sb-ch-kind,.soonbadge,.say,.ssay,.sb-keys .say){color:color-mix(in srgb,var(--pw-a,var(--sb-accent,#4f32d9)) 78%,#000) !important}
+/* a disabled button is still read (the /design/ microphone demo): the
+   UA default is 30 % ink (≈2:1) */
+main button:disabled{color:var(--eg-muted,#61586f) !important;opacity:1;cursor:not-allowed}
