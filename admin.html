@@ -2082,12 +2082,11 @@ someone@example.com" rows="6" style="width:100%;font:inherit;padding:11px 13px;b
             : (sh.csvUrl ? (window.EkGuruSheet
               ? "Last load: " + esc(JSON.stringify(window.EkGuruSheet.info().rows || 0)) + " row(s)"
               : "Configured")
-            : "Edit prices, videos and bios in a spreadsheet instead of code." +
-              "<br><b>Ready to go:</b> " +
-              '<a href="tutors-sheet.csv" download>download tutors-sheet.csv</a>' +
-              " — it already has every tutor in it. Import to Google Sheets, " +
-              "File → Share → Publish to web → CSV, then paste the link into " +
-              "<code>sheet.csvUrl</code>. Full steps in SHEET-SETUP.md.")],
+            : "Edit prices, videos and bios in the <b>EkGuru DB</b> Google Sheet " +
+              "(tutors tab). The site reads it through the Apps Script feed " +
+              "(<code>feed.url</code> in js/site-config.js), which strips " +
+              "notification_email before the browser sees a row. No CSV export " +
+              "lives in the repository any more (17 Nov 2026).")],
         /* v53: this row said "off" and told you to go and create four
            cal.com accounts. It had said that since v44 and nobody
            ever would. The site now has its OWN dated calendar built
