@@ -61,6 +61,11 @@
   }
   function clean(s) { return String(s || "").replace(/\s+/g, " ").replace(/[।॥.!?,]/g, "").trim(); }
   var LANG = (doc.documentElement.getAttribute("data-learning-language") || "hi").toLowerCase();
+  var LNAME = (function () {
+    var h1 = $("h1"); var m = h1 && /^([A-Z][a-z]+)\s+[ABC]\d\b/.exec(h1.textContent || "");
+    return LANG === "hi" ? "Hindi" : (m ? m[1] : "");
+  })();
+  var WORD = LNAME ? LNAME + " word" : "word", THE = LNAME ? "the " + LNAME : "the word";
   function speak(text, onend) {
     if (root.EkGuruVoice && root.EkGuruVoice.speak) return root.EkGuruVoice.speak(String(text), LANG, undefined, onend);
     return false;
@@ -84,14 +89,20 @@
         return Array.prototype.map.call(Array.from(seg.segment(word)), function (s) { return s.segment; }).filter(function (s) { return s.trim(); });
       }
     } catch (e) {}
-    var out = [], cur = "", glue = false;
-    for (var i = 0; i < word.length; i++) {
-      var ch = word[i], code = ch.charCodeAt(0);
-      var combining = (code >= 0x093A && code <= 0x094F) || (code >= 0x0951 && code <= 0x0957) || code === 0x093C || (code >= 0x0962 && code <= 0x0963) || (code >= 0x0900 && code <= 0x0903) || code === 0x200D || code === 0x200C;
+    /* fallback: any Unicode mark (vowel signs, nukta, harakat, tone marks)
+       stays with its base; an Indic virama glues the next consonant on */
+    var MARK = null; try { MARK = new RegExp("\\p{M}", "u"); } catch (e) {}
+    var chars = Array.from(word), out = [], cur = "", glue = false;
+    for (var i = 0; i < chars.length; i++) {
+      var ch = chars[i], code = ch.codePointAt(0);
+      var combining = MARK ? MARK.test(ch) : ((code >= 0x0900 && code <= 0x0903) || (code >= 0x093A && code <= 0x094F) || (code >= 0x0951 && code <= 0x0957) || (code >= 0x0962 && code <= 0x0963));
+      combining = combining || code === 0x200D || code === 0x200C || (code >= 0xFE00 && code <= 0xFE0F);
       if (ch === " ") { if (cur) out.push(cur); cur = ""; glue = false; continue; }
       if (!cur || combining || glue) { cur += ch; }
       else { out.push(cur); cur = ch; }
-      glue = (code === 0x094D);
+      /* virama sits at +0x4D in every Indic block (U+094D, 09CD, 0A4D … 0D4D);
+         Tamil's pulli (0BCD) does not form conjuncts, so it does not glue */
+      glue = code >= 0x0900 && code <= 0x0DFF && (code & 0x7F) === 0x4D && code !== 0x0BCD;
     }
     if (cur) out.push(cur);
     return out;
@@ -220,7 +231,7 @@
 
   /* MATCH — tap a Hindi word, then its meaning. */
   function exMatch(words) {
-    var sec = practiceShell("Practice · Match the pairs", "Tap a Hindi word, then tap its meaning. Pictures help; sound helps more.");
+    var sec = practiceShell("Practice · Match the pairs", "Tap a " + WORD + ", then tap its meaning. Pictures help; sound helps more.");
     sec.setAttribute("data-kind", "match");
     function round() {
       var set = sample(words, Math.min(5, words.length));
@@ -330,7 +341,7 @@
     var pool = words.filter(function (w) { return w.pic; });
     if (pool.length < 3) return null;
     all = all && all.length > words.length ? all : words;
-    var sec = practiceShell("Practice · Picture to word", "Which Hindi word is the picture? Tap it, then hear it.");
+    var sec = practiceShell("Practice · Picture to word", "Which " + WORD + " is the picture? Tap it, then hear it.");
     sec.setAttribute("data-kind", "picture");
     function round() {
       var qs = sample(pool, Math.min(5, pool.length)), i = 0, right = 0;
@@ -362,7 +373,7 @@
     var pool = words.filter(function (w) { return w.rm; });
     if (pool.length < 4) return null;
     var dis = (all || []).filter(function (w) { return w.rm; }); if (dis.length < pool.length) dis = pool;
-    var sec = practiceShell("Practice · Read it", "Read the Hindi, then pick how it sounds.");
+    var sec = practiceShell("Practice · Read it", "Read " + THE + ", then pick how it sounds.");
     sec.setAttribute("data-kind", "roman");
     function round() {
       var qs = sample(pool, Math.min(6, pool.length)), i = 0, right = 0;

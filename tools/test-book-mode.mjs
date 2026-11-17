@@ -21,8 +21,10 @@ const BOOKS = [
   ...fs.readdirSync(path.join(ROOT, "learn/hindi/foundation"), { withFileTypes: true })
     .filter((d) => d.isDirectory()).map((d) => `learn/hindi/foundation/${d.name}/index.html`),
   ...["a1", "a2", "a3", "b1", "b2", "b3", "c1", "c2", "c3", "c4", "c5"].map((l) => `languages/hi/level/${l}/index.html`),
+  // other scripts: Latin, Arabic, Tamil, Bengali, CJK, Cyrillic — the same reader, the page's own language
+  ...["es", "ar", "ta", "bn", "ja", "zh", "ru", "ko"].map((c) => `languages/${c}/level/a1/index.html`),
 ];
-const NOT_BOOKS = ["learn/hindi/foundation/index.html", "languages/hi/level/index.html"];
+const NOT_BOOKS = ["learn/hindi/foundation/index.html", "languages/hi/level/index.html", "languages/es/level/index.html"];
 
 function load(rel) {
   const html = fs.readFileSync(path.join(ROOT, rel), "utf8");

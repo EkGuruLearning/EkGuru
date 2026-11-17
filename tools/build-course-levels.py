@@ -224,12 +224,12 @@ def compose(up, title, desc, url, crumb, body, index=True):
     --check has to compare content, not just existence: a level page that
     exists but still shows last week's data is a stale page, and a build that
     only looked for the file would call it current."""
-    # Book mode (17 Nov 2026): the Hindi level pages open one step at a time
-    # with a generated worksheet after every lesson (js/book-mode.js reads the
-    # Word | Say it | Meaning tables). Hindi only for now — widening it to the
-    # other languages re-fingerprints every level page, so that is a separate,
-    # deliberate rebuild.
-    book = url.startswith("languages/hi/level/")
+    # Book mode (17 Nov 2026): every level page opens one step at a time with
+    # a generated worksheet after each lesson (js/book-mode.js reads the
+    # Word | Say it | Meaning tables and speaks in data-learning-language).
+    # The levels hub shares the markup but has no word table, so the script
+    # leaves it a plain page.
+    book = "/level/" in url
     html = (head(title, desc, url, up, index=index)
             + '    <p class="crumb">%s</p>\n' % crumb
             + body
