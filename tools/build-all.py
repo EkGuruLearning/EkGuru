@@ -150,6 +150,7 @@ def main():
             run("Indian course/topic speaker controls --check",
                 ["python3", "tools/patch-language-voice-controls.py", "--check"])
             run("experience bundle --check", ["python3", "tools/bundle-experience-css.py", "--check"])
+            run("dark-mode safety net --check", ["python3", "tools/build-dark-fix.py", "--check"])
             run("world artwork --check", ["python3", "tools/build-world-art.py", "--check"])
             run("course hub --check", ["python3", "tools/build-course-hub.py", "--check"])
             run("course levels --check (the A1-C2 pages of every course)",
@@ -257,6 +258,7 @@ def main():
     run("country language pages", ["python3", "tools/build-country-language-pages.py"])
     ultra_builds(False)
     run("experience bundle (css/experience.css -> style.min.css)", ["python3", "tools/bundle-experience-css.py"])
+    run("dark-mode safety net (hard-coded light boxes -> theme tokens)", ["python3", "tools/build-dark-fix.py"])
     run("world artwork (9 emblems)", ["python3", "tools/build-world-art.py"])
     run("course hub + home teaser", ["python3", "tools/build-course-hub.py"])
     run("course levels (A1-C2 pages, and the rail on every hub)",
