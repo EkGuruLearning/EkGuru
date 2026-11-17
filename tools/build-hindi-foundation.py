@@ -243,6 +243,50 @@ def write_css():
                 "   tools/build-hindi-foundation.py; edit STYLE there, not this file. */\n" + STYLE.strip() + "\n")
 
 
+
+# ------------------------------------------------------------------ structured data
+# (17 Nov 2026) Schema.org for the primer: the hub is a free Course whose
+# hasPart lists the eighteen lessons; each lesson is a LearningResource with a
+# BreadcrumbList. Emitted in the body like the level pages do. The pages are
+# noindex until the owner approves indexing, so this is groundwork, not a
+# ranking claim — it is still read by social cards and by the Course test.
+def ld_json(obj):
+    return '<script type="application/ld+json">%s</script>' % json.dumps(obj, ensure_ascii=False, separators=(",", ":"))
+
+def lesson_ld(L, title, desc, total):
+    url = "%s/%s/%s/" % (BASE, SECTION, L["slug"])
+    teaches = [L["en"], L["hi"]]
+    if L.get("kind") == "letters":
+        teaches += ["%s (%s)" % (x[0], x[1]) for x in L.get("letters", []) if isinstance(x, (tuple, list)) and len(x) > 1][:12]
+    return ld_json({"@context": "https://schema.org", "@graph": [
+        {"@type": "LearningResource", "@id": url + "#lesson", "name": title, "description": desc, "url": url,
+         "inLanguage": "en", "about": {"@type": "Language", "name": "Hindi", "alternateName": "hi"},
+         "learningResourceType": "lesson", "educationalLevel": "beginner", "isAccessibleForFree": True,
+         "teaches": [t for t in teaches if t], "position": L["n"],
+         "isPartOf": {"@type": "Course", "@id": "%s/%s/#course" % (BASE, SECTION), "name": "Hindi Foundation"},
+         "audience": {"@type": "EducationalAudience", "educationalRole": "student"},
+         "provider": {"@type": "Organization", "name": "EkGuru", "url": BASE + "/"}},
+        {"@type": "BreadcrumbList", "itemListElement": [
+            {"@type": "ListItem", "position": 1, "name": "EkGuru", "item": BASE + "/"},
+            {"@type": "ListItem", "position": 2, "name": "Learn Hindi", "item": BASE + "/learn/"},
+            {"@type": "ListItem", "position": 3, "name": "Hindi Foundation", "item": "%s/%s/" % (BASE, SECTION)},
+            {"@type": "ListItem", "position": 4, "name": "Lesson %d of %d: %s" % (L["n"], total, L["en"]), "item": url}]}]})
+
+def hub_ld(title, desc):
+    url = "%s/%s/" % (BASE, SECTION)
+    return ld_json({"@context": "https://schema.org", "@graph": [
+        {"@type": "Course", "@id": url + "#course", "name": "Hindi Foundation — हिंदी की नींव", "description": desc, "url": url,
+         "inLanguage": "en", "about": {"@type": "Language", "name": "Hindi", "alternateName": "hi"},
+         "educationalLevel": "beginner", "isAccessibleForFree": True, "numberOfLessons": len(C.LESSONS),
+         "teaches": ["Devanagari vowels and consonants", "the twelve matras", "anusvar, visarg, chandrabindu", "conjunct letters", "reading a first Hindi story"],
+         "provider": {"@type": "Organization", "name": "EkGuru", "url": BASE + "/"},
+         "hasCourseInstance": {"@type": "CourseInstance", "courseMode": "online", "courseWorkload": "PT20M"},
+         "hasPart": [{"@type": "LearningResource", "@id": "%s%s/#lesson" % (url, L["slug"]), "name": "%d. %s — %s" % (L["n"], L["en"], L["hi"]), "url": "%s%s/" % (url, L["slug"]), "position": L["n"]} for L in C.LESSONS]},
+        {"@type": "BreadcrumbList", "itemListElement": [
+            {"@type": "ListItem", "position": 1, "name": "EkGuru", "item": BASE + "/"},
+            {"@type": "ListItem", "position": 2, "name": "Learn Hindi", "item": BASE + "/learn/"},
+            {"@type": "ListItem", "position": 3, "name": "Hindi Foundation", "item": url}]}]})
+
 # ------------------------------------------------------------------ lesson page
 def lesson_page(L, prev, nxt, total):
     up = UP_LESSON
@@ -365,6 +409,7 @@ def lesson_page(L, prev, nxt, total):
              '<a href="%slearn/hindi-how-to-write-consonants/">How to write the consonants</a>'
              '<a href="%stoolbox/hindi-flashcards/">Flashcards</a>'
              '<a href="%sdaily-hindi/">Daily Hindi — 30 days</a></div>' % ((up,) * 6))
+    b.append(lesson_ld(L, title, desc, total))
     body = "\n".join(b) + progress_script(L["n"], total)
     html = head(title, desc, url, up)
     html += '    <p class="crumb">%s</p>\n' % crumb
@@ -462,6 +507,7 @@ def hub_page(total):
 })();
 </script>
 """ % (total, json.dumps(STORE_KEY), json.dumps([L["slug"] for L in C.LESSONS])))
+    b.append(hub_ld(title, desc))
     html = head(title, desc, url, up)
     html += '    <p class="crumb">%s</p>\n' % crumb
     html += "\n".join(b)
