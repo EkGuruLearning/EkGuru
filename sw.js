@@ -67,7 +67,7 @@
    receipt is no longer pushed through Web3Forms (it delivered to the owner,
    not the visitor). Rotate the shell cache so no returning visitor keeps the
    precached mailer.js that still sent two. */
-const BUILD_ID = "2026-11-17T00:00:00Z-v56-contact-one-email";
+const BUILD_ID = "2026-11-17T12:00:00Z-v57-hindi-merge-booking-one-email";
 const CACHE = "ekguru-" + BUILD_ID;
 
 /* Phase 6 §14 — "Save for offline" pins learner-chosen pages in a dedicated

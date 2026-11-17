@@ -163,7 +163,10 @@ const TARGETS = {
   home: "index.html", findTutors: "find-tutors.html", join: "join.html",
   courses: "courses/index.html", byCountry: "courses/by-country/index.html", learn: "learn/", support: "support/index.html",
   search: "search/", tutorDir: "tutor/", locations: "hindi-tutor/",
-  guides: "learn/", topics: "hindi/", tools: "toolbox/", daily: "daily-hindi/",
+  guides: "learn/",
+  /* 17 Nov 2026 — /hindi/ is merged into the hub (canonical + refresh);
+     the footer link lands on the hub's topics section directly. */
+  topics: "learn/hindi/#hh-topics", tools: "toolbox/", daily: "daily-hindi/",
   ask: "ask/", answers: "answers/", countries: "learn/countries/",
   contact: "contact/", about: "about/", privacy: "privacy/",
   terms: "terms/", monetization: "monetization-disclosure/", disclaimer: "disclaimer/", copyright: "copyright/",

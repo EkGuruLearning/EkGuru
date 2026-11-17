@@ -1784,10 +1784,29 @@
       }
       var studentTo = String(data.email).trim();
       jobs.push(guarded(kStudent, studentTo, function () {
-        var direct = chain().filter(function (p) { return p.canAddressStrangers; })[0];
-        if (!direct) return Promise.resolve({ to: studentTo, ok: false,
-          state: "EXHAUSTED", errorClass: "NO_ROUTE",
-          error: "No configured route to the student" });
+        /* =====================================================
+           v103 (17 Nov 2026) — THE STUDENT RECEIPT GOES ONLY WHERE
+           IT REALLY ARRIVES.
+           -----------------------------------------------------
+           Same evidence as contact() v102: Web3Forms accepts a
+           `to` but delivers every submission to the key owner. So
+           when Apps Script is not sendable (token not wired, or
+           its quota is spent) this receipt — addressed to the
+           student — landed in EkGuruLearning@gmail.com as a SECOND
+           copy of the same booking, and the student got nothing.
+           Prakash: "booking ki bhi 2 mail aati hai, ek hi aani
+           chahiye." The receipt is now SKIPPED when no relay is
+           PROVEN to deliver to a stranger; the on-screen receipt
+           carries the reference, and the Apps Script intake
+           (Unified.gs bookingMail_) is the normal path that mails
+           the student from the owner's Gmail anyway. A SKIPPED
+           receipt is a decision, not a failure. */
+        var direct = chain().filter(function (p) {
+          return p.canAddressStrangers && p.deliversToStranger !== false;
+        })[0];
+        if (!direct) return Promise.resolve({ to: studentTo, ok: false, skipped: true,
+          state: "SKIPPED", errorClass: "NO_STRANGER_ROUTE", via: "",
+          error: "No relay can deliver to the student directly; receipt skipped (one email per booking)." });
         return postVia(direct, studentTo, studentBody());
       }));
 
@@ -1812,10 +1831,17 @@
 
       return runSequential(jobs).then(function (results) {
         var primary = results[0];
-        if (!primary.ok) throw new Error(primary.error);
+        /* v103 — in degraded mode the student receipt IS the primary
+           job; a SKIPPED receipt (no proven stranger relay) is not an
+           error: the booking row is already saved, the screen shows
+           the reference, and nothing was sent anywhere wrong. */
+        if (!primary.ok && !primary.skipped) throw new Error(primary.error);
 
         var delivered = results.filter(function (r) { return r.ok; }).map(function (r) { return r.to; });
-        var failed = results.filter(function (r) { return !r.ok; });
+        var failed = results.filter(function (r) { return !r.ok && !r.skipped; });
+        var skippedStudent = results.some(function (r) {
+          return r.skipped && String(r.to || "").toLowerCase() === String(studentTo).toLowerCase();
+        });
 
         return {
           ok: true,
@@ -1851,7 +1877,8 @@
               tutor: degraded ? "TUTOR_EMAIL_UNAVAILABLE"
                 : (accepted.indexOf(String(target).toLowerCase()) >= 0 ? "ACCEPTED" : "FAILED"),
               internal: "NOT_SENT_BY_POLICY",
-              student: accepted.indexOf(String(studentTo).toLowerCase()) >= 0 ? "ACCEPTED" : "FAILED"
+              student: accepted.indexOf(String(studentTo).toLowerCase()) >= 0 ? "ACCEPTED"
+                : (skippedStudent ? "SKIPPED" : "FAILED")
             };
           })(),
           /* v99 — PER-ROLE DELIVERY DETAIL (the P0's section 15).
@@ -1872,8 +1899,8 @@
               if (!r) return { status: "FAILED", provider: "", lastAttempt: now.toISOString(),
                 lastError: "No provider result", retryCount: 0, messageId: "", recipient: addr };
               return {
-                status: r.ok ? "ACCEPTED" : ((r.errorClass === "NO_ROUTE" || r.errorClass === "AUTH" ||
-                  r.errorClass === "NETWORK" || r.errorClass === "TIMEOUT") ? "EXHAUSTED" : "FAILED"),
+                status: r.ok ? "ACCEPTED" : (r.skipped ? "SKIPPED" : ((r.errorClass === "NO_ROUTE" || r.errorClass === "AUTH" ||
+                  r.errorClass === "NETWORK" || r.errorClass === "TIMEOUT") ? "EXHAUSTED" : "FAILED")),
                 provider: r.via || "", lastAttempt: now.toISOString(), lastError: r.error || "",
                 retryCount: r.attempts || 0, messageId: r.msgId || "", recipient: addr
               };
@@ -2922,7 +2949,9 @@
             ignoresRecipient: !!p.ignoresRecipient
           };
         }),
-        bookingStudent: id(stranger[0]),
+        /* v103 — the student receipt, like the contact receipt, only
+           goes through a PROVEN stranger relay; null = skipped. */
+        bookingStudent: id(proven[0]),
         bookingTutor: id(stranger[0]),
         bookingInternal: null,
         bookingInternalPolicy: "NOT_SENT_BY_POLICY",

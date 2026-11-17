@@ -27,8 +27,17 @@ What it writes (idempotent; `--check` compares and never writes):
                              other generators wrote them.
   hindi/index.html         — THE TOPIC INDEX: the same markers, holding the
                              34 chapters in their groups and a banner to the
-                             hub. Canonicals of both pages are unchanged
-                             (owner indexing contract); nothing is deleted.
+                             hub. 17 Nov 2026 (owner: "merge duplicate Hindi
+                             pages onto their best URL"): this page is 86 %
+                             contained in /learn/hindi/ (8-word shingles), so
+                             it is MERGED into the hub — canonical + og:url
+                             point at https://ekguru.shop/learn/hindi/ and a
+                             0-second meta refresh sends visitors to the hub's
+                             topics section. The file, its robots tag and its
+                             content stay (owner indexing contract: nothing
+                             is deleted, no noindex); the canonical change is
+                             recorded in data/quality/indexing-baseline.json
+                             under owner_approved_canonical_changes.
 
 Run after the content generators and BEFORE tools/apply-ultra.py:
     python3 tools/apply-ultra.py --strip
@@ -315,8 +324,10 @@ def build_region() -> str:
 
     # 3. topics
     a(f'<h2 id="hh-topics">Topics — all {len(chapters)} chapters</h2>')
+    # 17 Nov 2026 — no link back to /hindi/: that page is merged into this
+    # one (canonical + refresh), so the link would only bounce back here.
     a('<p>Each chapter explains one thing properly and links to every guide, question, answer and tool about it. '
-      f'They are also listed on their own page: <a href="{href("hindi")}">{escape(T_H1)}</a>.</p>')
+      'This is the complete list — every Hindi topic page on the site is here.</p>')
     topic_groups(a)
 
     # 4. guides
@@ -425,9 +436,10 @@ def build_topics_region() -> str:
     a("<style>\n" + "\n".join(HUB_CSS) + "\n</style>")
     a(f'<p class="lede">The {len(chapters)} chapters below cover Hindi topic by topic, from the alphabet to slang. '
       'Each one explains its subject properly and links to every guide, question, answer and tool about it.</p>')
-    a(f'<p class="callout"><strong>This is one part of the Hindi course.</strong> The levels, the 18 deep guides, '
-      f'the thirty-day course, the practice labs, tools and printables all open from one page: '
-      f'<a href="{href("learn/hindi")}">{escape(H1)}</a>.</p>')
+    a(f'<p class="callout"><strong>This page has moved into the Hindi course page.</strong> The same {len(chapters)} chapters, '
+      f'with the levels, the 18 deep guides, the thirty-day course, the practice labs, tools and printables, '
+      f'now open from one page: <a href="{href("learn/hindi")}#hh-topics">{escape(H1)}</a>. '
+      f'You will be taken there automatically.</p>')
     topic_groups(a)
     a(f'<p><a href="{href("learn/hindi")}">← Back to the one Hindi course page</a> · '
       f'<a href="{href("learn")}">All languages</a></p>')
@@ -490,7 +502,27 @@ def apply_hub(h: str, region: str) -> str:
         crumb='<p class="crumb"><a href="../../">EkGuru</a> › <a href="../">Learn</a> › Hindi</p>')
 
 
+MERGED_INTO = BASE + "/learn/hindi/"                 # where /hindi/ now lives
+MERGE_REFRESH = ('<meta content="0; url=' + MERGED_INTO + '#hh-topics" http-equiv="refresh"/>'
+                 '<!-- ekguru:merged-into-hub -->')
+
+
+def merge_into_hub(h: str) -> str:
+    """hindi/index.html is a duplicate of the hub: canonical + og:url name the
+    hub, and a 0-second refresh takes visitors to its topics section. The
+    refresh line sits right after the canonical and is replaced in place on
+    every run (never duplicated)."""
+    h = re.sub(r'<link\b[^>]*\brel="canonical"[^>]*>',
+               f'<link href="{MERGED_INTO}" rel="canonical"/>', h, count=1)
+    h = set_meta(h, "property", "og:url", MERGED_INTO)
+    h = re.sub(r'<meta\b[^>]*http-equiv="refresh"[^>]*/?>\s*<!-- ekguru:merged-into-hub -->\n?', "", h, count=1)
+    h = h.replace(f'<link href="{MERGED_INTO}" rel="canonical"/>',
+                  f'<link href="{MERGED_INTO}" rel="canonical"/>\n{MERGE_REFRESH}', 1)
+    return h
+
+
 def apply_topics(h: str, region: str) -> str:
+    h = merge_into_hub(h)
     return apply_region(
         h, region, title=T_TITLE, h1=T_H1, desc=T_DESC, label="hindi/index.html",
         crumb='<p class="crumb"><a href="../">EkGuru</a> › <a href="../learn/">Learn</a> › '
