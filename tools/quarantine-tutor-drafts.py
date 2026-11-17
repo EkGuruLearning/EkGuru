@@ -69,10 +69,33 @@ def desired(slug: str, name: str, reason: str, text: str) -> str:
     return text
 
 
+def public_ids() -> set:
+    """The public roster as the build sees it (registry + approved sheet
+    rows, minus active=no). 17 Nov 2026: the sheet is the source of truth,
+    so a draft listed above is only quarantined while the sheet does NOT
+    publish it; once the owner writes approved=yes / active=yes the real
+    profile from tools/build-tutor-pages.js is left alone."""
+    import subprocess
+    try:
+        out = subprocess.run(
+            ["node", "-e", "const {loadSite}=require('./tools/lib/site-data');"
+             "process.stdout.write(JSON.stringify(loadSite().publicTutors.map(t=>t.id)))"],
+            capture_output=True, text=True, cwd=ROOT, timeout=60)
+        return set(json.loads(out.stdout or "[]"))
+    except Exception as exc:  # a broken roster must not silently quarantine anyone
+        print(f"warn: could not read the public roster ({exc}); quarantining nothing")
+        return set(DRAFTS)
+
+
 def main() -> int:
     check = "--check" in sys.argv
     stale = []
-    for slug, (name, reason) in DRAFTS.items():
+    live = public_ids()
+    drafts = {k: v for k, v in DRAFTS.items() if k not in live}
+    skipped = [k for k in DRAFTS if k in live]
+    if skipped:
+        print("published by the sheet, not quarantined: " + ", ".join(skipped))
+    for slug, (name, reason) in drafts.items():
         path = ROOT / "tutor" / slug / "index.html"
         old = path.read_text(encoding="utf-8")
         new = desired(slug, name, reason, old)
@@ -81,8 +104,8 @@ def main() -> int:
             if not check: path.write_text(new, encoding="utf-8")
     if check and stale:
         print("STALE draft tutor pages: " + ", ".join(stale)); return 1
-    if check: print(f"PASS: {len(DRAFTS)} draft tutor page(s)")
-    else: print(f"quarantined: {len(DRAFTS)} draft tutor page(s)")
+    if check: print(f"PASS: {len(drafts)} draft tutor page(s)")
+    else: print(f"quarantined: {len(drafts)} draft tutor page(s)")
     return 0
 
 

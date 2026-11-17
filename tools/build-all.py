@@ -231,6 +231,8 @@ def main():
             run("intake test (online forms: pending-only, honeypot, caps)", ["node", "tools/test-intake.js"])
             run("sheetsync policy test (build side refuses marketplace values)",
                 ["node", "tools/test-sheetsync-policy.js"])
+            run("sheet-only guru bake test (approved=yes rows bake, private cells never)",
+                ["node", "tools/test-sheet-only-bake.mjs"])
             run("no-competitor-attribution gate (public output + rendered strings)",
                 ["node", "tools/test-no-competitor-attribution.js"])
             run("experience DOM test", ["node", "tools/test-experience-dom.mjs"])

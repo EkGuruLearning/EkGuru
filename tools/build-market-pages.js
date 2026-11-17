@@ -121,6 +121,13 @@ const esc = (s) =>
 
 const escAttr = (s) => esc(s).replace(/"/g, "&quot;");
 
+/* A photo the sheet hosts elsewhere (Drive → lh3.googleusercontent.com,
+   17 Nov 2026) is absolute; only repo-relative paths get the ../ prefix. */
+const relImg = (p) => {
+  p = String(p || "images/placeholder-tutor.jpg");
+  return /^https?:\/\//i.test(p) || p.startsWith("//") ? p : "../" + p.replace(/^\//, "");
+};
+
 function replaceMetaContent(head, attr, key, value, file) {
   const tags = head.match(/<meta\b[^>]*>/gi) || [];
   const keyRe = new RegExp("\\b" + attr + "\\s*=\\s*([\"'])" + key + "\\1", "i");
@@ -241,7 +248,7 @@ function hero(lang, t, tutors, price) {
   const card = first
     ? `      <div class="hero-card xp-sheen">
         <a class="hc-link" href="../tutor/${esc(first.id)}/" aria-label="${esc(first.name)}"></a>
-        <img src="../${esc(first.thumb || first.photo)}" alt="${esc(first.name)}, ${esc(
+        <img src="${esc(relImg(first.thumb || first.photo))}" alt="${esc(first.name)}, ${esc(
         first.subject
       )} tutor" width="96" height="96" loading="eager" decoding="async">
         <p class="hc-name">${esc(first.name)}</p>
@@ -375,7 +382,7 @@ function tutorCards(t, lang, tutors) {
           )} ${Number(x.rating || 0).toFixed(1)} (${x.reviewsCount})</span>`
         : "";
       return `      <article class="xp-card xp-tutor">
-        <img class="xp-tutor-photo" src="../${esc(x.thumb || x.photo)}" alt="${esc(x.name)}, ${esc(
+        <img class="xp-tutor-photo" src="${esc(relImg(x.thumb || x.photo))}" alt="${esc(x.name)}, ${esc(
         x.subject
       )} tutor" width="76" height="76" loading="lazy" decoding="async">
         <h3><a href="../tutor/${esc(x.id)}/">${esc(x.name)}</a></h3>

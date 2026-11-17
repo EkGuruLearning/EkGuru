@@ -42,6 +42,16 @@
    build (tools/sheetsync.js) always worked that way; js/sheet.js and
    js/livepatch.js now match it.
 
+   17 Nov 2026 — the sheet can publish a guru WITHOUT a file here. A
+   sheet row with approved=yes (and not active=no) is baked by
+   tools/sheetsync.js into window.EKGURU_SHEET_TUTORS (js/tutors/
+   _overrides.js) and joins the roster after this list — cards, profile
+   page (noindex), find-tutors, feed, llms.txt, 404 links — so the first
+   paint matches the sheet even when Google's CSV endpoint is down.
+   notification_email / phone are never baked. This list still decides
+   ORDER and which gurus have hand-written files; it is no longer the
+   only way to publish. Proven by tools/test-sheet-only-bake.mjs.
+
    The sheet owns the second gate (js/tutors/_overrides.js, written by
    tools/sheetsync.js). A hidden tutor (active=no) keeps their profile
    page — reachable by direct link, noindex, booking off — but is absent

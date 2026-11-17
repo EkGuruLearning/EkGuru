@@ -75,7 +75,13 @@
   var market = M.filter(function (m) { return m.code === L; })[0] || M[0] || { locale: "en-US", dir: "ltr" };
   var pg = page();
   var qid = new URLSearchParams(location.search).get("id");
-  var tutor = pg === "tutor.html" ? (tutorById(qid) || T[0]) : null;
+  /* 17 Nov 2026: no more falling back to T[0]. A tutor who lives only in
+     the sheet (Anupama, Neelam) is unknown to the static roster when this
+     file runs, and the fallback painted "Sushila G." into the tab title,
+     the og:image and the JSON-LD of every such profile until the sheet
+     answered — and for good if it did not. Unknown id → neutral profile
+     copy; refreshLocalizedCopy() re-resolves once the live roster is in. */
+  var tutor = pg === "tutor.html" ? tutorById(qid) : null;
 
   /* =========================================================
      1. Per-page copy (title / description / keywords)
@@ -195,6 +201,11 @@
         d: descs[L] || descs.en,
         k: [tutor.name + " hindi tutor", "online hindi tutor", "private hindi lessons"].concat(tutor.teaches || []).join(", ").toLowerCase()
       };
+    }
+    if (pg === "tutor.html") {
+      return { t: "Hindi Tutor Profile | EkGuru",
+               d: "Hindi tutor profile on EkGuru: about, teaching method, availability and how to book a trial lesson.",
+               k: "online hindi tutor, private hindi lessons" };
     }
     var block = COPY[pg];
     return block ? (block[L] || block.en) : homeCopy("en");
@@ -341,7 +352,7 @@
      which every social card and Google's rich result would show as
      no image at all. A photo from Google Drive is absolute. */
   function absUrl(p) { return /^https?:\/\//i.test(String(p || "")) ? String(p) : BASE + String(p || ""); }
-  var ogImg = tutor ? absUrl(tutor.photo || "images/sushila.jpg") : BASE + "images/og-cover.jpg";
+  var ogImg = tutor ? absUrl(tutor.photo || "images/og-cover.jpg") : BASE + "images/og-cover.jpg";
   meta("property", "og:site_name", S.brand);
   meta("property", "og:type", tutor ? "profile" : "website");
   meta("property", "og:title", c.t);

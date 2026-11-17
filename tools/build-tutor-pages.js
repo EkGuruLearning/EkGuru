@@ -212,8 +212,12 @@ function hiddenCta(t) {
 function head(t, price, hidden) {
   const url = SITE + "/tutor/" + t.id + "/";
   const desc = metaDescription(t, price);
+  /* og:image must be a production URL (tools/test-no-competitor-attribution.js
+     "og:url/og:image not production"). A photo the sheet hosts elsewhere
+     (Google Drive via lh3.googleusercontent.com, 17 Nov 2026) still renders
+     on the page itself; the share card falls back to the site cover. */
   const image = /^https?:/i.test(t.photo || "")
-    ? t.photo
+    ? (t.photo.indexOf(SITE + "/") === 0 ? t.photo : SITE + "/images/og-cover.jpg")
     : SITE + "/" + String(t.photo || "images/placeholder-tutor.jpg").replace(/^\//, "");
 
   return {
