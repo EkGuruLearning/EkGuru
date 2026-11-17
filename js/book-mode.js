@@ -66,6 +66,11 @@
     return LANG === "hi" ? "Hindi" : (m ? m[1] : "");
   })();
   var WORD = LNAME ? LNAME + " word" : "word", THE = LNAME ? "the " + LNAME : "the word";
+  function isShown(el) {
+    if (!el || !el.isConnected) return false;
+    var step = el.closest(".bk-leaf");
+    return !step || !step.hidden;
+  }
   function speak(text, onend) {
     if (root.EkGuruVoice && root.EkGuruVoice.speak) return root.EkGuruVoice.speak(String(text), LANG, undefined, onend);
     return false;
@@ -276,7 +281,7 @@
         var target = qs[i], opts = shuffle([target].concat(sample(pool, 3, [target])));
         var play = h("button", { class: "bk-play", type: "button", "aria-label": "Play the word", text: "🔊 Play", onclick: function () { speak(target.hi); } });
         sec.body.appendChild(h("div", { class: "bk-q" }, [h("span", { class: "bk-count", text: (i + 1) + " / " + qs.length }), play]));
-        var grid = h("div", { class: "bk-grid" });
+        var grid = h("div", { class: "bk-opts" });
         var answered = false;
         opts.forEach(function (o) {
           grid.appendChild(h("button", { class: "bk-opt", type: "button", lang: "hi", text: o.hi, onclick: function () {
@@ -289,7 +294,10 @@
           } }));
         });
         sec.body.appendChild(grid);
-        if (!REDUCED) setTimeout(function () { speak(target.hi); }, 250);
+        /* Auto-play only when this exercise is actually on screen. Every
+           practice step is built at mount, so playing here unconditionally
+           made hidden steps speak (or toast "no Hindi voice") at page load. */
+        if (!REDUCED) setTimeout(function () { if (isShown(sec)) speak(target.hi); }, 250);
       }
       ask();
     }
@@ -311,7 +319,7 @@
         var w = qs[i], parts = akshar(w.hi), mixed = shuffle(parts), built = [], wrongHere = false;
         if (mixed.join("") === parts.join("") && parts.length > 1) mixed = parts.slice(1).concat(parts[0]);
         var prompt = h("div", { class: "bk-q" }, [h("span", { class: "bk-count", text: (i + 1) + " / " + qs.length }), h("b", { class: "bk-meaning", html: (w.pic ? '<span class="bk-pic" aria-hidden="true">' + w.pic + "</span> " : "") + w.en }), h("small", { text: w.rm })]);
-        var slot = h("div", { class: "bk-slot", lang: "hi", "aria-live": "polite" });
+        var slot = h("div", { class: "bk-drop", lang: "hi", "aria-live": "polite" });
         var tray = h("div", { class: "bk-tray" });
         mixed.forEach(function (p) {
           tray.appendChild(h("button", { class: "bk-akshar", type: "button", lang: "hi", text: p, onclick: function () {
@@ -350,7 +358,7 @@
         if (i >= qs.length) return finishRound(sec, right, qs.length, round);
         var t = qs[i], opts = shuffle([t].concat(sample(all, 3, [t])));
         sec.body.appendChild(h("div", { class: "bk-q" }, [h("span", { class: "bk-count", text: (i + 1) + " / " + qs.length }), h("span", { class: "bk-bigpic", role: "img", "aria-label": t.en, text: t.pic })]));
-        var grid = h("div", { class: "bk-grid" }), answered = false;
+        var grid = h("div", { class: "bk-opts" }), answered = false;
         opts.forEach(function (o) {
           grid.appendChild(h("button", { class: "bk-opt", type: "button", lang: "hi", text: o.hi, onclick: function () {
             if (answered) return; answered = true;
@@ -382,7 +390,7 @@
         if (i >= qs.length) return finishRound(sec, right, qs.length, round);
         var t = qs[i], opts = shuffle([t].concat(sample(dis, 3, [t])));
         sec.body.appendChild(h("div", { class: "bk-q" }, [h("span", { class: "bk-count", text: (i + 1) + " / " + qs.length }), h("b", { class: "bk-bigword", lang: "hi", text: t.hi })]));
-        var grid = h("div", { class: "bk-grid" }), answered = false;
+        var grid = h("div", { class: "bk-opts" }), answered = false;
         opts.forEach(function (o) {
           grid.appendChild(h("button", { class: "bk-opt rm", type: "button", text: o.rm, onclick: function () {
             if (answered) return; answered = true;
@@ -413,7 +421,7 @@
         var L = qs[i], mixed = shuffle(L.words), built = [], wrongHere = false;
         if (mixed.join(" ") === L.words.join(" ")) mixed = L.words.slice(1).concat(L.words[0]);
         sec.body.appendChild(h("div", { class: "bk-q" }, [h("span", { class: "bk-count", text: (i + 1) + " / " + qs.length }), h("b", { class: "bk-meaning", text: L.en || L.rm })]));
-        var slot = h("div", { class: "bk-slot sentence", lang: "hi", "aria-live": "polite" }), tray = h("div", { class: "bk-tray" });
+        var slot = h("div", { class: "bk-drop sentence", lang: "hi", "aria-live": "polite" }), tray = h("div", { class: "bk-tray" });
         mixed.forEach(function (wd, idx) {
           tray.appendChild(h("button", { class: "bk-akshar word", type: "button", lang: "hi", text: wd, "data-i": idx, onclick: function () {
             if (this.disabled) return;
@@ -523,7 +531,7 @@
 
     /* wrap the step nodes in place (DOM order unchanged) */
     steps.forEach(function (s, i) {
-      var wrap = h("section", { class: "bk-step", "data-step": i, "aria-label": s.title });
+      var wrap = h("section", { class: "bk-leaf", "data-step": i, "aria-label": s.title });
       art.insertBefore(wrap, s.nodes[0]);
       s.nodes.forEach(function (n) { wrap.appendChild(n); });
       s.el = wrap;
@@ -532,7 +540,7 @@
     /* generated practice steps go after the step that holds the data */
     function addAfter(afterIdx, title, el) {
       if (!el) return;
-      var wrap = h("section", { class: "bk-step bk-step-practice", "aria-label": title });
+      var wrap = h("section", { class: "bk-leaf bk-leaf-practice", "aria-label": title });
       wrap.appendChild(el);
       var ref = steps[afterIdx].el;
       ref.parentNode.insertBefore(wrap, ref.nextSibling);
@@ -603,6 +611,21 @@
     art.appendChild(nav);
     art.classList.add("bk-on");
 
+    /* The rail sticks under the site header. The header is 70px by design
+       but wraps taller on narrow phones, so measure it and tell the CSS. */
+    function placeRail() {
+      var hdr = $(".hdr"), hh = hdr ? hdr.getBoundingClientRect().height : 0;
+      if (hh > 0) rail.style.setProperty("--bk-top", Math.round(hh + 8) + "px");
+    }
+    placeRail();
+    root.addEventListener("resize", placeRail);
+    if (root.ResizeObserver && $(".hdr")) { try { new ResizeObserver(placeRail).observe($(".hdr")); } catch (e) {} }
+    /* keep the current dot in view when the dots are one scrollable row */
+    function revealDot() {
+      var d = dots.children[idx] && dots.children[idx].firstChild;
+      if (d && d.scrollIntoView && dots.scrollWidth > dots.clientWidth + 4) { try { d.scrollIntoView({ block: "nearest", inline: "center", behavior: "auto" }); } catch (e) {} }
+    }
+
     function paint() {
       steps.forEach(function (s, i) {
         var show = mode === "all" || i === idx;
@@ -621,6 +644,8 @@
       next.textContent = last ? "Finish ✓" : "Next →";
       nav.hidden = mode === "all";
       art.classList.toggle("bk-all", mode === "all");
+      if (doc.body) doc.body.classList.toggle("bk-stepping", mode !== "all");
+      revealDot();
     }
     function go(n) {
       if (n < 0) return;
@@ -628,7 +653,7 @@
         /* Finish: mark the lesson complete if the page offers it */
         var mark = $("#fd-mark"); if (mark && !/done|complete ✓/i.test(mark.textContent)) { try { mark.click(); } catch (e) {} }
         celebrate("Lesson finished. Well done!");
-        var nextLink = $(".bk-step-finish a.btn-primary, .row a.btn-primary[href*='../']", art);
+        var nextLink = $(".bk-leaf-finish a.btn-primary, .row a.btn-primary[href*='../']", art);
         if (nextLink) nextLink.focus();
         return;
       }
@@ -637,7 +662,8 @@
       store(key, { step: idx, mode: mode, seen: seen });
       paint();
       if (mode !== "all") {
-        var top = rail.getBoundingClientRect().top + root.pageYOffset - 70;
+        var hdrH = ($(".hdr") ? $(".hdr").getBoundingClientRect().height : 70) || 70;
+        var top = rail.getBoundingClientRect().top + root.pageYOffset - hdrH - 8;
         try { root.scrollTo({ top: Math.max(0, top), behavior: REDUCED ? "auto" : "smooth" }); } catch (e) { root.scrollTo(0, Math.max(0, top)); }
         var hd = $("h2, h3, .bk-ex-title", steps[idx].el); if (hd) { hd.setAttribute("tabindex", "-1"); try { hd.focus({ preventScroll: true }); } catch (e) {} }
         /* replay the sign animation each time its page opens */
@@ -660,7 +686,7 @@
       var d = e.detail || {}; var k = key + ".scores"; var sc = store(k) || {};
       var prev = sc[d.kind] || 0; var now = d.total ? d.right / d.total : 0;
       if (now >= prev) sc[d.kind] = now; store(k, sc);
-      var dot = e.target.closest(".bk-step"); if (dot) { var i = steps.map(function (s) { return s.el; }).indexOf(dot); if (i > -1) dots.children[i].firstChild.classList.add(now === 1 ? "perfect" : "tried"); }
+      var dot = e.target.closest(".bk-leaf"); if (dot) { var i = steps.map(function (s) { return s.el; }).indexOf(dot); if (i > -1) dots.children[i].firstChild.classList.add(now === 1 ? "perfect" : "tried"); }
     });
 
     if (seen.indexOf(idx) === -1) seen.push(idx);

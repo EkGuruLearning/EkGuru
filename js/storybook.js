@@ -128,6 +128,8 @@
         if (!V) return;
         if (V.available(pageLang)) { if (old && old.parentNode) old.parentNode.removeChild(old); return; }
         if (old) return;
+        /* the site-wide voice note (apply-ultra) already says it once */
+        if (document.querySelector("[data-eg-voice-note]")) return;
         var bar = document.createElement("p");
         bar.className = "sb-voicenudge"; bar.setAttribute("role", "note"); bar.setAttribute("lang", "en");
         bar.textContent = V.missing(pageLang);
