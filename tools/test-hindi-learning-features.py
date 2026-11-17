@@ -19,7 +19,10 @@ global.localStorage = (function(){
   let m = {};
   return { getItem:k=>m[k]||null, setItem:(k,v)=>{m[k]=String(v);}, removeItem:k=>{delete m[k];} };
 })();
-global.document = { readyState:"complete", querySelectorAll:()=>[] };
+global.document = { readyState:"complete", querySelectorAll:()=>[], addEventListener:()=>{}, documentElement:{ getAttribute:()=>"hi" } };
+global.navigator = { language: "en" };
+/* ULTRA v3 U7: EkGuruSRS is a facade over the shared per-language engine */
+require(process.cwd() + "/js/global-srs.js");
 require(process.cwd() + "/js/hindi-srs.js");
 require(process.cwd() + "/js/hindi-fuzzy.js");
 const S = global.window.EkGuruSRS, F = global.window.EkGuruFuzzy;
