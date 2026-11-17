@@ -233,7 +233,8 @@ def head(title, desc, url, up):
     h = h.replace('<html lang="en" dir="ltr" data-ad-class="HIGH">',
                   '<html lang="en" dir="ltr" data-learning-language="hi" data-ad-class="HIGH_CONTENT">')
     h = h.replace('<link rel="stylesheet" href="%scss/storybook.css">' % up,
-                  '<link rel="stylesheet" href="%scss/storybook.css">\n<link rel="stylesheet" href="%s%s">' % (up, up, CSS_PATH))
+                  '<link rel="stylesheet" href="%scss/storybook.css">\n<link rel="stylesheet" href="%s%s">'
+                  '\n<link rel="stylesheet" href="%scss/book-mode.css">' % (up, up, CSS_PATH, up))
     return h
 
 def write_css():
@@ -253,7 +254,8 @@ def lesson_page(L, prev, nxt, total):
     b = [chapter_band(up)]
     b.append('<h1>%d. %s <span lang="hi">%s</span></h1>' % (L["n"], e(L["en"]), e(L["hi"])))
     b.append('<p class="fd-sub">%s</p>' % e(L["sub"]))
-    b.append('<p class="sb-hint">🔊 <b>Tap any Hindi word to hear it.</b> Too fast or slow? Use the <b>speed</b> button at the bottom-right of the page.</p>')
+    b.append('<p class="sb-hint">🔊 <b>Tap any Hindi word to hear it.</b> Too fast or slow? Use the <b>speed</b> button at the bottom-right of the page. '
+             'This lesson opens <b>one step at a time</b> — press <b>Next</b> to turn the page, or choose <b>Whole lesson</b> to read it straight through.</p>')
     b.append('<div class="row" style="margin:12px 0"><button class="pill" id="fd-mark" type="button">Mark lesson %d complete</button> <span class="score" id="fd-prog"></span></div>' % L["n"])
     b.append('<p class="lede">%s</p>' % L["lede"])
 
@@ -364,11 +366,12 @@ def lesson_page(L, prev, nxt, total):
              '<a href="%stoolbox/hindi-flashcards/">Flashcards</a>'
              '<a href="%sdaily-hindi/">Daily Hindi — 30 days</a></div>' % ((up,) * 6))
     body = "\n".join(b) + progress_script(L["n"], total)
-    scripts = ("storybook.js",)
     html = head(title, desc, url, up)
     html += '    <p class="crumb">%s</p>\n' % crumb
     html += body
-    html += P.foot(up, ())
+    # book-mode.js (17 Nov 2026) turns the article into a stepped reader with
+    # generated practice; it reads the markup above, so nothing else changes.
+    html += P.foot(up, ("book-mode.js",))
     path = os.path.join(SECTION, L["slug"], "index.html")
     os.makedirs(os.path.dirname(path), exist_ok=True)
     with open(path, "w", encoding="utf-8") as f:
@@ -421,6 +424,9 @@ def hub_page(total):
              "<li><b>Say everything aloud.</b> Tap the speaker, copy it, tap again. Silent reading builds recognition; speech builds reading.</li>"
              "<li><b>Write what you read.</b> Each lesson ends with a copying or dictation task. That is the step textbooks have and apps skip.</li>"
              "<li><b>Do not jump ahead.</b> Every word in lesson 9 uses only the signs from lessons 1 to 9. The ladder only works if you climb it in order.</li>"
+             "<li><b>Turn the pages.</b> Each lesson opens one step at a time — the sign, the words, then six short practice pages "
+             "(match, listen, build the word, picture, read it, order the sentence) made from that lesson's own words — and ends with the quick check. "
+             "Press <b>Next</b>, or choose <b>Whole lesson</b> to read it straight through.</li>"
              "</ol>")
     b.append("<h2>Where this fits</h2>"
              "<p>This section teaches <i>reading</i>. It deliberately avoids grammar, gender and tenses — those are in "

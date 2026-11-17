@@ -224,10 +224,18 @@ def compose(up, title, desc, url, crumb, body, index=True):
     --check has to compare content, not just existence: a level page that
     exists but still shows last week's data is a stale page, and a build that
     only looked for the file would call it current."""
+    # Book mode (17 Nov 2026): the Hindi level pages open one step at a time
+    # with a generated worksheet after every lesson (js/book-mode.js reads the
+    # Word | Say it | Meaning tables). Hindi only for now — widening it to the
+    # other languages re-fingerprints every level page, so that is a separate,
+    # deliberate rebuild.
+    book = url.startswith("languages/hi/level/")
     html = (head(title, desc, url, up, index=index)
             + '    <p class="crumb">%s</p>\n' % crumb
             + body
-            + foot(up))
+            + foot(up, ("book-mode.js",) if book else ()))
+    if book and "</head>" in html:
+        html = html.replace("</head>", '<link rel="stylesheet" href="%scss/book-mode.css">\n</head>' % up, 1)
     image_url = level_og_image(url) if index else ""
     if image_url:
         image_alt = _attr(title + " course image")

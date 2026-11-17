@@ -208,6 +208,7 @@ def main():
             run("course country search test", ["node", "tools/test-course-country.mjs"])
             run("reading layer test (one stylesheet, two bands)", ["node", "tools/test-reading-layer.mjs"])
             run("page layer test (one design on all 828 pages)", ["node", "tools/test-page-layer.mjs"])
+            run("book mode test (stepped Hindi lessons + generated practice)", ["node", "tools/test-book-mode.mjs"])
             run("print sheet test (what lands on paper)", ["node", "tools/test-print-sheets.mjs"])
             run("print sheet dom test (the copy the script builds)",
                 ["node", "tools/test-print-sheet-dom.mjs"])
