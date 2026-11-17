@@ -218,6 +218,15 @@ def level_og_image(url):
     return "%s/images/og/levels/%s-%s.png" % (BASE, code, level)
 
 
+def _level_title(lv, name, level):
+    """The level's own headline, without a repeated "Hindi C2 — " prefix.
+    Three course files (hi_C1, hi_C2, gu_C2) carry the language + level inside
+    level.title, which doubled up as "Hindi C2 — Hindi C2 — …" in <title>/<h1>."""
+    t = str(lv.get("title") or LEVEL_NAMES.get(level, level)).strip()
+    prefix = re.compile(r"^%s\s+%s\s*[—–:-]\s*" % (re.escape(str(name)), re.escape(str(level))), re.I)
+    return prefix.sub("", t) or LEVEL_NAMES.get(level, level)
+
+
 def compose(up, title, desc, url, crumb, body, index=True):
     """The exact page write_page() would write, without writing it.
 
@@ -760,7 +769,8 @@ def level_page(code, course, level, data, rungmap, figs, levels):
     targets = lang_targets(code)
     test_bit = (", including a %d-item level test" % n["test"]) if n["test"] else ""
 
-    title = "%s %s — %s" % (name, level, lv.get("title", LEVEL_NAMES.get(level, level)))
+    lv_title = _level_title(lv, name, level)
+    title = "%s %s — %s" % (name, level, lv_title)
     desc = ("%s at level %s (%s): %d lessons in %d units, %d words with romanisation, "
             "%d questions with answers%s — free, in your browser."
             % (name, level, LEVEL_NAMES.get(level, level), n["lessons"], n["units"],
@@ -768,7 +778,7 @@ def level_page(code, course, level, data, rungmap, figs, levels):
 
     body = ['<div class="lv-main">']
     body.append('<h1 id="lv-h1">%s %s — %s</h1>'
-                % (_clean(name), level, _clean(lv.get("title", LEVEL_NAMES.get(level, level)))))
+                % (_clean(name), level, _clean(lv_title)))
     body.append(
         '<p class="lv-lede">The whole %s %s level as one readable page: %d units, %d lessons, '
         "%d words, %d questions with every answer shown%s. "
@@ -1021,7 +1031,7 @@ def ladder_page(code, course, levels, loaded, rungmap, figs):
         cards.append(
             '<div class="lv-card"><b><a href="%s/">%s · %s</a></b>'
             "<span>%s</span><span>%d lessons · %d words · %d questions</span></div>"
-            % (lv.lower(), lv, _clean(((data.get("level") or {}).get("title") or LEVEL_NAMES.get(lv, lv))),
+            % (lv.lower(), lv, _clean(_level_title(data.get("level") or {}, name, lv)),
                _clean((rungmap.get(LEVEL_RUNG.get(lv, "")) or {}).get("can", "")),
                n["lessons"], n["vocab"], n["practice"] + n["quiz"] + n["test"]))
     body.append('<p class="note"><b>The whole %s course, counted.</b> %d lessons, %d words with '
@@ -1131,7 +1141,7 @@ def rail_block(code, course, levels, loaded):
         if not is_publishable(data, code, lv):
             continue
         n = counts_of(data, code, course["name"])
-        level_title = ((data or {}).get("level") or {}).get("title", "")
+        level_title = _level_title((data or {}).get("level") or {}, course.get("name", code), lv)
         marked_title, controls = annotated_course_copy(
             level_title, code, course.get("name", code))
         tag = " · EkGuru extension, not CEFR" if lv in EXTRA_LEVELS else ""

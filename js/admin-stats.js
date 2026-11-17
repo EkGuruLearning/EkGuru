@@ -5,7 +5,7 @@
    publicly like every other file here.
    Regenerate: node tools/adminstats.js */
 window.EKGURU_ADMIN_STATS = {
- "generated": "2026-11-10T04:54:25.926Z",
+ "generated": "2026-11-17T06:34:04.752Z",
  "sections": {
   "countryPages": 158,
   "languagePages": 30,
@@ -17,8 +17,8 @@ window.EKGURU_ADMIN_STATS = {
   "questions": 43,
   "answers": 28,
   "locations": 32,
-  "tutorProfiles": 8,
-  "totalHtml": 2727,
+  "tutorProfiles": 19,
+  "totalHtml": 2763,
   "materials": 0
  },
  "countries": {
@@ -4558,9 +4558,9 @@ window.EKGURU_ADMIN_STATS = {
   "ar/join.html"
  ],
  "release": {
-  "commit": "f36f4e13a465ca57a0e057e4ac5c6cb74a867e44",
-  "subject": "Fix course-level rail vs page-layer cycle; order stripped-state regeneration",
-  "buildTime": "2026-11-10T04:54:25.949Z",
+  "commit": "b97285a1da9231016d95b7c15262f3b840fa541b",
+  "subject": "test-runtime-qa: the .xp-sugg calc() contract keeps its operator spaces (the squeezed form was the minifier bug fixed in ec3e142)",
+  "buildTime": "2026-11-17T06:34:04.765Z",
   "dataSourceStatus": "LIVE",
   "toolQa": {
    "tools": 12,
@@ -4572,8 +4572,8 @@ window.EKGURU_ADMIN_STATS = {
    "refreshRequiredAnywhere": false
   },
   "sections": {
-   "totalHtml": 2727,
-   "tutorProfiles": 8,
+   "totalHtml": 2763,
+   "tutorProfiles": 19,
    "materials": 0
   }
  },
@@ -4598,12 +4598,7 @@ window.EKGURU_ADMIN_STATS = {
   "sheets": {
    "runtime": "LIVE",
    "publishedUrlsSupplied": true,
-   "liveSheetsInRepo": [
-    "content.csv",
-    "reviews.csv",
-    "settings.csv",
-    "tutors.csv"
-   ],
+   "liveSheetsInRepo": [],
    "note": "Wired 13 Sep 2026 to the new production workbook (published CSVs, gids 1631273256/298809212/1658518385/1654125803). Tutors tab still lacks the canonical notification_email column — mail routing stays on the EkGuru inbox until the owner adds it."
   },
   "email": {
@@ -4634,7 +4629,7 @@ window.EKGURU_ADMIN_STATS = {
    "travel",
    "vocabulary"
   ],
-  "lessons": 283,
+  "lessons": 365,
   "materials": 15,
   "practice": 13,
   "paths": 7,

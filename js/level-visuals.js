@@ -174,7 +174,9 @@
       
       var indicator = document.createElement('div');
       indicator.className = 'age-indicator';
-      indicator.style.cssText = 'position:absolute;top:8px;right:8px;font-size:1.2rem;background:rgba(255,255,255,.9);width:32px;height:32px;border-radius:50%;display:grid;place-items:center;box-shadow:0 2px 8px rgba(0,0,0,.1);z-index:2';
+      // theme tokens, not a literal white: in dark mode a white disc on a dark
+      // card made the emoji badge the one unreadable thing on the course grid
+      indicator.style.cssText = 'position:absolute;top:8px;right:8px;font-size:1.2rem;background:var(--eg-surface,var(--card,#fff));color:var(--eg-ink,var(--ink,#211b38));border:1px solid var(--eg-line,var(--line,#e8e9f3));width:32px;height:32px;border-radius:50%;display:grid;place-items:center;box-shadow:0 2px 8px rgba(0,0,0,.1);z-index:2';
       indicator.textContent = info.emoji;
       indicator.title = level + ' • ' + info.label;
       

@@ -225,11 +225,10 @@ function pendingToReviews(rows) {
     /* same approved set as apps-script/Unified.gs REVIEW_APPROVED_VALUES */
     const st = String(r.status || r.approved || "").trim().toLowerCase();
     if (["approved", "approve", "live", "published", "publish", "yes", "true", "1", "ok"].indexOf(st) === -1) continue;
-    let date = String(r.lesson_date || "").trim();
-    if (!date) {
-      const m = String(r.timestamp || "").match(/^(\d{2})\/(\d{2})\/(\d{4})/);
-      if (m) date = `${m[3]}-${m[2]}-${m[1]}`;
-    }
+    /* 17 Nov 2026 — same day-first rules as apps-script/Unified.gs isoDate_
+       and js/reviews.js isoDate: the workbook is en_GB, so both lesson_date
+       and the form timestamp may display as 16/11/2026. */
+    let date = isoDate(r.lesson_date) || isoDate(r.timestamp);
     out.push({
       tutor: String(r.tutor_id || r.tutor || "").trim().toLowerCase(),
       name: String(r.reviewer_name || "").trim(),
@@ -241,6 +240,28 @@ function pendingToReviews(rows) {
     });
   }
   return out;
+}
+
+/* YYYY-MM-DD from an ISO string or a day-first d/m/yyyy display string
+   (month-first only when the first number cannot be a day). "" when unknown. */
+function isoDate(v) {
+  v = String(v == null ? "" : v).trim();
+  let m = /^(\d{4})-(\d{1,2})-(\d{1,2})/.exec(v);
+  if (m) {
+    let mo = Number(m[2]), d = Number(m[3]);
+    if (mo > 12 && d <= 12) { const t = mo; mo = d; d = t; }
+    if (mo < 1 || mo > 12 || d < 1 || d > 31) return "";
+    return `${m[1]}-${String(mo).padStart(2, "0")}-${String(d).padStart(2, "0")}`;
+  }
+  m = /^(\d{1,2})[\/.\-](\d{1,2})[\/.\-](\d{4})/.exec(v);
+  if (m) {
+    const a = Number(m[1]), b = Number(m[2]);
+    let day = a, mon = b;
+    if (a <= 12 && b > 12) { day = b; mon = a; }
+    if (mon < 1 || mon > 12 || day < 1 || day > 31) return "";
+    return `${m[3]}-${String(mon).padStart(2, "0")}-${String(day).padStart(2, "0")}`;
+  }
+  return "";
 }
 
 function buildReviews(reviewRows) {

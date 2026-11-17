@@ -46,7 +46,7 @@ function loadFeed(sheets, file) {
         getSheets: () => sheets.map((s) => ({
           getName: () => s.name,
           getSheetId: () => s.gid,
-          getDataRange: () => ({ getDisplayValues: () => { counters.reads++; return s.values; } })
+          getDataRange: () => ({ getDisplayValues: () => { counters.reads++; return s.values; }, getValues: () => s.values.map((r) => r.slice()) })
         }))
       })
     },
@@ -194,7 +194,11 @@ const REVIEWS_PENDING_VALUES = [
   ["timestamp", "reference", "status", "tutor_id", "reviewer_name", "stars", "text", "lesson_date", "contact_email", "booking_id", "notes"],
   ["2026-11-01 10:00", "EG-1", "approved", "Asha-Verma", "Meera", "5", "y".repeat(60), "2026-10-30", "meera@example.com", "EK-AAA", ""],
   ["2026-11-02 10:00", "EG-2", "pending",  "asha-verma", "Hidden", "1", "z".repeat(60), "2026-10-31", "hidden@example.com", "EK-BBB", ""],
-  ["2026-11-03 10:00", "EG-3", "live",     "ravi-k",     "Tom",   "4", "w".repeat(60), "", "tom@example.com", "EK-CCC", "approved by owner"]
+  ["2026-11-03 10:00", "EG-3", "live",     "ravi-k",     "Tom",   "4", "w".repeat(60), "", "tom@example.com", "EK-CCC", "approved by owner"],
+  /* the real 16 Nov 2026 row: en_GB display timestamp, no lesson date — used to publish as "2026-16-11" */
+  ["16/11/2026 11:24:13", "EG-CXHT9D", "approved", "sushila-g", "prakaash", "5", "good", "", "", "EK-VRX96M", ""],
+  /* a lesson date typed day-first by the owner */
+  ["17/11/2026 09:00:00", "EG-4", "approved", "sushila-g", "Dev", "4", "clear and patient", "05/11/2026", "", "EK-DDD", ""]
 ];
 const uni = loadUnified([
   { name: "Tutors", gid: 1631273256, values: TUTOR_VALUES },
@@ -225,7 +229,7 @@ check("unified ?action=health is the intake health (v1.2.0, bound)",
   intakeHealth.pendingRows.bookings === 0, JSON.stringify(intakeHealth));
 const bare = JSON.parse(uni.ctx.doGet({ parameter: {} }).getContent());
 check("unified bare /exec answers combined feed+intake health",
-  bare.ok && bare.unified === "2.1.0" && bare.feed.tabs.tutors.rows === 2 &&
+  bare.ok && bare.unified === "2.1.1" && bare.feed.tabs.tutors.rows === 2 &&
   bare.intake.version === "1.2.0", JSON.stringify(bare).slice(0, 120));
 const ping = JSON.parse(uni.ctx.doGet({ parameter: { action: "ping", token: "nope" } }).getContent());
 check("unified ?action=ping without the token is refused as unknown action",
@@ -284,9 +288,13 @@ const rvRows = parseCSV(uni.ctx.doGet({ parameter: { tab: "reviews" } }).getCont
 check("?tab=reviews has the public header the site reads",
   rvRows[0].join(",") === "tutor,name,date,stars,text,source,status", rvRows[0].join(","));
 check("only approved/live rows of reviews_pending are published (pending stays private)",
-  rvRows.length === 3 && rvRows.some((r) => r[1] === "Meera") && rvRows.some((r) => r[1] === "Tom") && !rvRows.some((r) => r[1] === "Hidden"),
+  rvRows.length === 5 && rvRows.some((r) => r[1] === "Meera") && rvRows.some((r) => r[1] === "Tom") && !rvRows.some((r) => r[1] === "Hidden"),
   JSON.stringify(rvRows));
 check("the retired reviews tab is ignored", !rvRows.some((r) => r[1] === "OLD-TAB"));
+check("v2.1.1 — a day-first display timestamp (16/11/2026 11:24:13) publishes as 2026-11-16, not 2026-16-11",
+  rvRows.find((r) => r[1] === "prakaash") && rvRows.find((r) => r[1] === "prakaash")[2] === "2026-11-16", JSON.stringify(rvRows.find((r) => r[1] === "prakaash")));
+check("v2.1.1 — a day-first lesson_date (05/11/2026) publishes as 2026-11-05",
+  rvRows.find((r) => r[1] === "Dev") && rvRows.find((r) => r[1] === "Dev")[2] === "2026-11-05", JSON.stringify(rvRows.find((r) => r[1] === "Dev")));
 check("tutor ids are lower-cased and a missing lesson_date falls back to the submission day",
   rvRows.find((r) => r[1] === "Meera")[0] === "asha-verma" && rvRows.find((r) => r[1] === "Tom")[2] === "2026-11-03", JSON.stringify(rvRows));
 check("no private review column leaks (email, booking id, reference)",

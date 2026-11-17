@@ -133,7 +133,7 @@ async function main() {
   const warmJson = () => JSON.stringify({ t: Date.now(), recs: [
     { tutor: "sushila-g", name: "Riya", date: "2026-09-15", stars: "5", text: "Sushila explains Hindi grammar very clearly, patient and structured.", source: "whatsapp", status: "live" }
   ] });
-  const warm = { ekguru_reviews_v1: warmJson() };
+  const warm = { ekguru_reviews_v2: warmJson() };
   const HEADER_ONLY = ["tutor", "name", "date", "stars", "text", "source", "status"].join(T) + "\n";
   r = await run(function (u) {
     if (u.indexOf("output=tsv") > -1 && u.indexOf("google") > -1) return J200(HEADER_ONLY);
@@ -143,14 +143,14 @@ async function main() {
   info = r.win.EKGURU_REVIEWS_INFO || {};
   ok("D: header-only tab -> loaded:true, published 0", info.loaded === true && info.published === 0 && info.rows === 0, JSON.stringify(info));
   ok("D: the warm cache (1 review) was replaced by the empty sheet", r.win.EKGURU_TUTORS[0].reviewsCount === 0 && r.win.EKGURU_TUTORS[0].rating === 0, JSON.stringify(r.win.EKGURU_TUTORS[0]));
-  ok("D: localStorage now holds [] (no zombie tomorrow)", JSON.parse(r.store.ekguru_reviews_v1).recs.length === 0, r.store.ekguru_reviews_v1);
+  ok("D: localStorage now holds [] (no zombie tomorrow)", JSON.parse(r.store.ekguru_reviews_v2).recs.length === 0, r.store.ekguru_reviews_v2);
   ok("D: snapshot NOT fetched — the empty tab is an answer", !r.fetched.some(isSnap), r.fetched.join(" | "));
 
   /* D2. junk body with no header is still refused */
   r = await run(function (u) {
     if (u.indexOf("output=tsv") > -1 && u.indexOf("google") > -1) return J200("\n");
     return J500();
-  }, { store: { ekguru_reviews_v1: warmJson() } });
+  }, { store: { ekguru_reviews_v2: warmJson() } });
   info = r.win.EKGURU_REVIEWS_INFO || {};
   ok("D2: a blank body (no header) is still an error, cache kept", info.loaded === false && r.win.EKGURU_TUTORS[0].reviewsCount === 1, JSON.stringify(info));
 

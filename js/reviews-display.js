@@ -28,8 +28,12 @@
   }
 
   function renderReviews(tutorId) {
-    var host = root.document.querySelector('[data-eg-reviews][data-tutor="' + tutorId + '"]');
-    if (!host) return;
+    var section = root.document.querySelector('[data-eg-reviews][data-tutor="' + tutorId + '"]');
+    if (!section) return;
+    /* 17 Nov 2026 — the section keeps its heading; only the list is
+       replaced. (build-tutor-pages.js bakes the first paint into
+       .reviews-list; older pages have the host alone.) */
+    var host = section.querySelector(".reviews-list") || section;
 
     var tutor = (root.EKGURU_TUTOR_FILES || {})[tutorId];
     if (!tutor || !tutor.reviews || !tutor.reviews.length) {
@@ -55,7 +59,9 @@
       });
     });
 
-    /* Also render immediately if reviews.js already loaded */
+    /* Also render immediately if reviews.js already loaded — otherwise
+       leave the baked first paint alone until the sheet answers. */
+    if (!root.EKGURU_REVIEWS_INFO) return;
     var hosts = root.document.querySelectorAll("[data-eg-reviews]");
     Array.prototype.forEach.call(hosts, function (h) {
       renderReviews(h.getAttribute("data-tutor"));

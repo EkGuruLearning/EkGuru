@@ -217,7 +217,7 @@ STORAGE.clear();
   ok("newest first (Mei, Aarav, Riya)", r.names.join(",") === "Mei,Aarav,Riya", r.names.join(","));
   ok("rating is the real average 4.7", r.rating === 4.7, String(r.rating));
   ok("the dead snapshot URL is NOT requested while the sheet answers", !g.log.includes("SNAPSHOT"));
-  ok("cache written for the next visit", STORAGE.has("ekguru_reviews_v1"));
+  ok("cache written for the next visit", STORAGE.has("ekguru_reviews_v2"));
   close();
 }
 
@@ -231,7 +231,7 @@ console.log("\n== 2. Owner deletes every review row (header only) ==");
   ok("rating back to 0 (no fabricated stars)", r.rating === 0 && r.reviewsCount === 0, JSON.stringify(r));
   ok("reviews loader reports the empty tab as loaded, not as an error", win.EKGURU_REVIEWS_INFO && win.EKGURU_REVIEWS_INFO.loaded === true, JSON.stringify(win.EKGURU_REVIEWS_INFO));
   ok("empty tab did NOT fall through to the dead snapshot", !g.log.includes("SNAPSHOT"));
-  const cached = STORAGE.get("ekguru_reviews_v1");
+  const cached = STORAGE.get("ekguru_reviews_v2");
   ok("localStorage cache now holds the empty sheet (no zombie reviews for tomorrow)", cached && JSON.parse(cached).recs.length === 0, String(cached).slice(0, 120));
   close();
 }

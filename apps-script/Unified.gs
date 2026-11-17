@@ -110,7 +110,7 @@
    Edit → New version → Deploy). No other edit is ever needed: each flag
    below is read live on every request.
    ========================================================================== */
-var EK_UNIFIED_VERSION = "2.1.0";
+var EK_UNIFIED_VERSION = "2.1.1";
 
 var EK_ = {
   /* Whole-backend maintenance switch. While true, EVERY GET and POST
@@ -346,7 +346,7 @@ function selfTest_() {
    feedGet_ (the router in Section 2 calls it), and the cache-clearing
    triggers moved to Section 6. Everything else is verbatim.
    ========================================================================== */
-var FEED_VERSION = "1.0.0";
+var FEED_VERSION = "1.0.1";
 var FEED_CACHE_SECONDS = 30;
 var FEED_CACHE_PREFIX = "ekguru-feed-v1:";
 
@@ -493,7 +493,12 @@ function reviewsFeed_(tab) {
   var out = { header: ["tutor", "name", "date", "stars", "text", "source", "status"],
               rows: [], dropped: ["contact_email", "booking_id", "reference", "timestamp", "notes"] };
   if (!sheet) { out.missing = true; return out; }
-  var values = sheet.getDataRange().getDisplayValues();
+  var range = sheet.getDataRange();
+  var values = range.getDisplayValues();
+  /* raw cells too: a date the owner typed, or the form's timestamp, is a real
+     Date object here, and formatting THAT is the only locale-proof way to get
+     YYYY-MM-DD (the display text is 16/11/2026 in this en_GB workbook). */
+  var raw = range.getValues();
   if (values.length < 2) return out;
   var header = values[0].map(function (h) { return String(h).trim().toLowerCase(); });
   function col(name) { return header.indexOf(name); }
@@ -512,14 +517,14 @@ function reviewsFeed_(tab) {
     if (cApproved !== -1) flag = String(row[cApproved] || "").trim().toLowerCase();
     if (!flag && cStatus !== -1) flag = String(row[cStatus] || "").trim().toLowerCase();
     if (REVIEW_APPROVED_VALUES.indexOf(flag) === -1) continue;   /* pending / rejected: private */
-    var date = cDate !== -1 ? String(row[cDate] || "").trim() : "";
-    if (!date && cTs !== -1) {
-      /* lesson_date is optional on the form; fall back to the day the review arrived */
-      var ts = String(row[cTs] || "").trim();
-      var m = /^(\d{4})-(\d{2})-(\d{2})/.exec(ts) || /^(\d{1,2})\/(\d{1,2})\/(\d{4})/.exec(ts);
-      if (m) date = m[1].length === 4 ? m[1] + "-" + m[2] + "-" + m[3]
-                                        : m[3] + "-" + ("0" + m[1]).slice(-2) + "-" + ("0" + m[2]).slice(-2);
-    }
+    /* lesson_date is optional on the form; fall back to the day the review
+       arrived. v2.1.1 (17 Nov 2026): BUG — the fallback read the DISPLAY text
+       "16/11/2026 11:24:13" as month/day and emitted "2026-16-11", which the
+       site's validator rejected, so every approved review without a lesson
+       date was silently dropped. Dates now come from the raw Date cell when
+       there is one, else are parsed day-first (the workbook locale). */
+    var date = isoDate_(cDate !== -1 ? raw[r][cDate] : null, cDate !== -1 ? row[cDate] : "");
+    if (!date && cTs !== -1) date = isoDate_(raw[r][cTs], row[cTs]);
     out.rows.push([
       cTutor !== -1 ? String(row[cTutor] || "").trim().toLowerCase() : "",
       cName !== -1 ? String(row[cName] || "").trim() : "",
@@ -531,6 +536,31 @@ function reviewsFeed_(tab) {
     ]);
   }
   return out;
+}
+
+/* YYYY-MM-DD from a sheet cell: a Date object (formatted in the script's
+   timezone), an ISO string, or a day-first d/m/yyyy display string. Month-first
+   is only assumed when the first number cannot be a day (e.g. 11/16/2026). */
+function isoDate_(rawCell, display) {
+  if (rawCell instanceof Date && !isNaN(rawCell.getTime())) {
+    return Utilities.formatDate(rawCell, Session.getScriptTimeZone() || "Asia/Kolkata", "yyyy-MM-dd");
+  }
+  var v = String(display == null ? (rawCell == null ? "" : rawCell) : display).trim();
+  var m = /^(\d{4})-(\d{1,2})-(\d{1,2})/.exec(v);
+  if (m) {
+    var mo = Number(m[2]), d = Number(m[3]);
+    if (mo > 12 && d <= 12) { var t = mo; mo = d; d = t; }
+    if (mo < 1 || mo > 12 || d < 1 || d > 31) return "";
+    return m[1] + "-" + ("0" + mo).slice(-2) + "-" + ("0" + d).slice(-2);
+  }
+  m = /^(\d{1,2})[\/.\-](\d{1,2})[\/.\-](\d{4})/.exec(v);
+  if (m) {
+    var a = Number(m[1]), b = Number(m[2]), day = a, mon = b;
+    if (a <= 12 && b > 12) { day = b; mon = a; }
+    if (mon < 1 || mon > 12 || day < 1 || day > 31) return "";
+    return m[3] + "-" + ("0" + mon).slice(-2) + "-" + ("0" + day).slice(-2);
+  }
+  return "";
 }
 
 function csvCell_(v) {
@@ -964,7 +994,12 @@ function tutorContact_(tutorId) {
   if (!id) return out;
   var sheet = findSheet_("tutors");
   if (!sheet) return out;
-  var values = sheet.getDataRange().getDisplayValues();
+  var range = sheet.getDataRange();
+  var values = range.getDisplayValues();
+  /* raw cells too: a date the owner typed, or the form's timestamp, is a real
+     Date object here, and formatting THAT is the only locale-proof way to get
+     YYYY-MM-DD (the display text is 16/11/2026 in this en_GB workbook). */
+  var raw = range.getValues();
   if (values.length < 2) return out;
   var header = values[0].map(function (h) { return String(h).trim().toLowerCase(); });
   var cId = header.indexOf("id"), cName = header.indexOf("name");

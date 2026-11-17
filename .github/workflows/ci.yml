@@ -37,6 +37,9 @@ jobs:
       - name: "PHASE 3 content gate (Learn-tab posts: 1000+ words, linked, correctly indexed)"
         run: python3 tools/test-phase3-content.py
 
+      - name: "Public surface gate (deploy set = website only; no contact data, no secrets)"
+        run: node tools/test-public-surface.mjs
+
       - name: Readiness preflights
         run: |
           python3 tools/audit-adsense-readiness.py --selftest

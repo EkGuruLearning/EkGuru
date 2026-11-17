@@ -79,6 +79,7 @@
   --xp-fs-3xl: 2.3rem;
   --xp-fs-4xl: 3.4rem;
   /* the four fluid steps folded in from eight one-off clamp() sizes */
+  --xp-fs-fluid-md: clamp(0.95rem, 1.25vw, 1.1rem);
   --xp-fs-fluid-lg: clamp(1rem, 2.2vw, 1.35rem);
   --xp-fs-fluid-xl: clamp(1.1rem, 2.6vw, 1.6rem);
   --xp-fs-fluid-2xl: clamp(1.45rem, 3.2vw, 2.3rem);
@@ -756,7 +757,7 @@ html[dir="rtl"] .xp-kicker {
 
 .xp-stat b {
   display: block;
-  font-size: clamp(0.95rem, 1.25vw, 1.1rem);
+  font-size: var(--xp-fs-fluid-md);
   font-weight: 900;
   line-height: 1.2;
   white-space: nowrap;
@@ -1567,6 +1568,12 @@ html[dir="rtl"] .xp-sugg .xp-sugg-head { letter-spacing: 0; }
 }
 
 .course-card:hover .course-monogram { transform: rotate(-3deg) scale(1.08); }
+/* dark: the pastel tile stays a tint of the course hue, but deep enough for
+   the near-white ink on it (white on mint was unreadable, 17 Nov 2026) */
+[data-theme="dark"] .course-monogram {
+  background: linear-gradient(140deg, hsl(var(--course-hue, 265) 45% 30%), hsl(var(--course-hue, 265) 50% 20%));
+  color: #fff;
+}
 
 .course-copy { min-width: 0; }
 .course-copy > b { display: block; font-size: var(--xp-fs-md); }
@@ -5983,7 +5990,10 @@ html[dir="rtl"] .xp-hero-copy > .ekg-greeting-line {
 .lang-name-say{border:1px solid var(--line);background:var(--card,#fff);color:inherit;border-radius:999px;font:inherit;font-size:.82em;line-height:1;padding:3px 6px;margin:0 4px;vertical-align:middle;cursor:pointer}
 .lang-name-say:hover{border-color:var(--brand);color:var(--ink)}
 .lang-name-say:focus-visible{outline:2px solid currentColor;outline-offset:2px}
-.tag{display:inline-block;border-radius:999px;padding:3px 11px;font-size:.7rem;font-weight:800;letter-spacing:.04em;text-transform:uppercase;color:#fff;vertical-align:2px}
+/* status pills on the language directory ("Live", "Soon", "Beta"). Scoped to
+   those three states — the bare `.tag` selector used to leak `color:#fff`
+   onto the tutor-card skill tags (white on a #f9f7ff pill, 17 Nov 2026). */
+.tag:is(.on,.soon,.beta){display:inline-block;border-radius:999px;padding:3px 11px;font-size:.7rem;font-weight:800;letter-spacing:.04em;text-transform:uppercase;color:#fff;vertical-align:2px}
 .tag.on{background:#1a7f37}
 .tag.soon{background:#7f8c8d}
 .tag.beta{background:#9a6700}

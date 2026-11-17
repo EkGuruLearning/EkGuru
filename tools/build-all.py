@@ -229,6 +229,8 @@ def main():
             run("page skeleton test (one main, skip link lands)", ["node", "tools/test-page-skeleton.mjs"])
             run("sheet-apply test (sheet row -> site)", ["node", "tools/test-sheet-apply.js"])
             run("live-feed test (apps script feed, loaders, privacy)", ["node", "tools/test-live-feed.js"])
+            run("public surface gate (deploy set = website only; no contact data, no secrets)",
+                ["node", "tools/test-public-surface.mjs"])
             run("intake test (online forms: pending-only, honeypot, caps)", ["node", "tools/test-intake.js"])
             run("sheetsync policy test (build side refuses marketplace values)",
                 ["node", "tools/test-sheetsync-policy.js"])

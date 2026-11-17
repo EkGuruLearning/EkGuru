@@ -303,6 +303,17 @@ ${paras}
   </section>`;
 }
 
+/* One honest sentence from whatever the sheet row actually fills in: levels,
+   languages, both, or nothing — never "these languages: ." */
+function levelsLine(t, speaks) {
+  const levels = (t.levels || []).filter(Boolean);
+  const parts = [];
+  if (levels.length) parts.push("<strong>" + esc(levels.join(", ")) + "</strong> learner level" + (levels.length > 1 ? "s" : ""));
+  if (speaks.length) parts.push("these languages: " + esc(speaks.join(" and ")));
+  if (!parts.length) return "";
+  return "    <p>The tutor-provided profile lists " + parts.join(" and ") + ".</p>\n";
+}
+
 function teachesBlock(t) {
   const teaches = toArray(t.teaches);
   const items = teaches.map((x) => '      <li itemprop="knowsAbout">' + esc(x) + "</li>").join("\n");
@@ -318,9 +329,7 @@ function teachesBlock(t) {
     <ul>
 ${items}
     </ul>
-    <p>The tutor-provided profile lists <strong>${esc((t.levels || []).join(", "))}</strong> learner levels
-       and these languages: ${esc(speaks.join(" and "))}.</p>
-${exams.length ? "    <p>Profile-listed exam preparation: <strong>" + esc(exams.join(", ")) + "</strong>.</p>\n" : ""}${specialities.length ? "    <p>Profile-listed specialities: " + esc(specialities.join(" · ")) + ".</p>\n" : ""}  </section>`;
+${levelsLine(t, speaks)}${exams.length ? "    <p>Profile-listed exam preparation: <strong>" + esc(exams.join(", ")) + "</strong>.</p>\n" : ""}${specialities.length ? "    <p>Profile-listed specialities: " + esc(specialities.join(" · ")) + ".</p>\n" : ""}  </section>`;
 }
 
 function experienceBlock(t) {
@@ -413,22 +422,31 @@ function reviewsBlock(t) {
       <footer>— <cite>${esc(who)}</cite>${stars ? " · " + stars : ""}${source}</footer>
     </blockquote>`;
   };
-  return `  <section class="pr-sec">
-    <h2>Student reviews for ${esc(t.name)}</h2>
-${reviews.map(quote).join("\n")}
-  </section>`;
+  return reviews.map(quote).join("\n");
 }
 
 
-/* v1.3.0 — the live review list on every PUBLIC tutor profile. Unlike
-   reviewsBlock() (static quotes embedded from tutor data), this section is
-   hydrated at runtime from the live reviews feed, so newly approved reviews
-   appear without a rebuild. Hidden profiles keep no review surfaces (U0). */
+/* v1.3.0 — the live review list on every PUBLIC tutor profile, hydrated at
+   runtime from the live reviews feed so newly approved reviews appear
+   without a rebuild. Hidden profiles keep no review surfaces (U0).
+
+   17 Nov 2026 (v1.4.0) — ONE section, not two. The page used to print the
+   baked quotes under "Student reviews for X" AND a second "Student reviews"
+   box that said "Loading reviews…" — so a visitor saw every review twice,
+   and when the owner rejected a review in the sheet the baked copy stayed
+   on the page until the next build. Now the baked quotes are only the
+   FIRST PAINT inside the live host: js/reviews-display.js replaces the
+   whole list with what the feed says (including "No reviews yet" when the
+   sheet has none), so the sheet is the single source of truth and the
+   static copy can never outlive an owner decision. */
 function liveReviewsBlock(t, hidden) {
   if (hidden) return "";
+  const baked = reviewsBlock(t);
   return `  <section class="pr-sec" data-eg-reviews data-tutor="${t.id}">
-    <h2>Student reviews</h2>
-    <div class="reviews-list">Loading reviews…</div>
+    <h2>Student reviews for ${esc(t.name)}</h2>
+    <div class="reviews-list" data-baked="${baked ? "1" : "0"}">
+${baked || '      <p class="muted">No reviews yet — be the first to share your experience after a lesson.</p>'}
+    </div>
   </section>`;
 }
 
@@ -573,8 +591,6 @@ ${methodologyBlock(t)}
 ${availabilityBlock(t)}
 
 ${videoBlock(t)}
-
-${reviewsBlock(t)}
 
 ${liveReviewsBlock(t, hidden)}
 
@@ -847,6 +863,15 @@ function updateIndexFiles(roster, stamp, check) {
      — the tutor map is listed in sitemap-index.xml, no duplicates. */
   let st = pruneTutorEntries(fs.readFileSync("sitemap-tutors.xml", "utf8"), tutors, "sitemap");
   for (const t of tutors) st = upsertUrlBlock(st, t.id, sitemapEntry(t, stamp));
+  /* 17 Nov 2026 — the entries use <image:image>, so the root MUST declare
+     the image namespace; without it the file is not well-formed XML and
+     Search Console rejects the whole tutor sitemap ("unbound prefix"). */
+  if (/<image:/.test(st) && !/xmlns:image=/.test(st)) {
+    st = st.replace(
+      /<urlset\s+xmlns="http:\/\/www\.sitemaps\.org\/schemas\/sitemap\/0\.9"\s*>/,
+      '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">'
+    );
+  }
   write("sitemap-tutors.xml", st, tutors.length + " indexable tutor URLs");
 
   let sm = pruneTutorImageEntries(fs.readFileSync("sitemap.xml", "utf8"), []);

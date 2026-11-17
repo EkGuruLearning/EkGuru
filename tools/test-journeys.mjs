@@ -84,3 +84,44 @@ test("J5 mobile menu to learn", async ({ page }) => {
   await page.locator("header nav").getByRole("link", { name: "Learn", exact: true }).click();
   await expect(page).toHaveURL(/\/learn\/$/);
 });
+
+/* J6 — the lesson reader lays out as a page, on a phone and on a laptop.
+   17 Nov 2026: the booking modal's `.bk-step{display:flex}` collided with
+   the reader's step class, so every level/lesson step rendered as a flex
+   ROW and the text was pinched into letter-wide columns. jsdom cannot see
+   layout; only a real browser can — hence this journey. */
+for (const vp of [{ name: "phone", width: 390, height: 844 }, { name: "laptop", width: 1366, height: 900 }]) {
+  test("J6 level reader is readable on a " + vp.name, async ({ page }) => {
+    await page.setViewportSize({ width: vp.width, height: vp.height });
+    await page.goto(base + "/languages/hi/level/a1/");
+    const art = page.locator(".lv-main.bk-on");
+    await expect(art).toBeVisible();
+    const m = await page.evaluate(() => {
+      const art = document.querySelector(".lv-main.bk-on");
+      const step = art.querySelector(".bk-leaf:not([hidden])");
+      const cs = getComputedStyle(step);
+      const aw = art.getBoundingClientRect().width;
+      const kids = [...step.children].filter((k) => k.getBoundingClientRect().height > 0);
+      const narrow = kids.filter((k) => k.getBoundingClientRect().width < aw * 0.6).map((k) => k.tagName + "." + k.className);
+      const rail = document.querySelector(".bk-rail"), hdr = document.querySelector(".hdr");
+      window.scrollTo(0, 1200);
+      return new Promise((r) => setTimeout(() => r({
+        display: cs.display, aw, narrow,
+        railTop: rail.getBoundingClientRect().top, hdrBottom: hdr.getBoundingClientRect().bottom,
+        railH: rail.getBoundingClientRect().height,
+        docWider: document.documentElement.scrollWidth > window.innerWidth + 1
+      }), 300));
+    });
+    expect(m.display).toBe("block");
+    expect(m.narrow, "pinched children: " + m.narrow.join(", ")).toEqual([]);
+    expect(m.railTop, "rail slid behind the sticky header").toBeGreaterThanOrEqual(m.hdrBottom - 1);
+    expect(m.railH, "sticky rail too tall").toBeLessThan(vp.height * 0.3);
+    expect(m.docWider, "page scrolls sideways").toBe(false);
+    /* Next turns the page; Whole lesson shows everything and drops the nav */
+    await page.getByRole("button", { name: "Next →" }).click();
+    await expect(page.locator(".bk-label")).toContainText("Step 2 of");
+    await page.getByRole("button", { name: "Whole lesson" }).click();
+    await expect(page.locator(".bk-nav")).toBeHidden();
+    await expect(page.locator(".bk-leaf[hidden]")).toHaveCount(0);
+  });
+}

@@ -64,7 +64,7 @@ for (const rel of BOOKS) {
   if (!fs.existsSync(path.join(ROOT, rel))) { check(rel, false, "missing page"); continue; }
   const { d, errs, w } = load(rel);
   const B = w.EkGuruBook;
-  const steps = [...d.querySelectorAll(".bk-step")];
+  const steps = [...d.querySelectorAll(".bk-leaf")];
   // every text node of the original article is still on the page (book mode only wraps and adds)
   const plain = new JSDOM(fs.readFileSync(path.join(ROOT, rel), "utf8")).window;
   const walker = plain.document.createTreeWalker(plain.document.querySelector(".art"), plain.NodeFilter.SHOW_TEXT);
@@ -87,7 +87,7 @@ for (const rel of BOOKS) {
       } else if (k === "listen" || k === "picture" || k === "roman") {
         const o = ex.querySelector(".bk-opt"); o && o.click();
       } else if (k === "build" || k === "order") {
-        const slot = ex.querySelector(".bk-slot");
+        const slot = ex.querySelector(".bk-drop");
         for (let g = 0; g < 30 && !slot.classList.contains("ok"); g++) {
           for (const b of ex.querySelectorAll(".bk-tray .bk-akshar")) { if (!b.disabled) { b.click(); if (slot.classList.contains("ok")) break; } }
         }
@@ -102,7 +102,7 @@ for (const rel of BOOKS) {
 
 for (const rel of NOT_BOOKS) {
   const { d, errs } = load(rel);
-  check(rel + " stays a plain page", !d.querySelector(".bk-step") && errs.length === 0, errs.join(" | "));
+  check(rel + " stays a plain page", !d.querySelector(".bk-leaf") && errs.length === 0, errs.join(" | "));
 }
 
 // the akshar splitter: the unit a child writes
