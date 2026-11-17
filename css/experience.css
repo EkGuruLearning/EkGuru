@@ -5990,7 +5990,10 @@ html[dir="rtl"] .xp-hero-copy > .ekg-greeting-line {
 .lang-name-say{border:1px solid var(--line);background:var(--card,#fff);color:inherit;border-radius:999px;font:inherit;font-size:.82em;line-height:1;padding:3px 6px;margin:0 4px;vertical-align:middle;cursor:pointer}
 .lang-name-say:hover{border-color:var(--brand);color:var(--ink)}
 .lang-name-say:focus-visible{outline:2px solid currentColor;outline-offset:2px}
-.tag{display:inline-block;border-radius:999px;padding:3px 11px;font-size:.7rem;font-weight:800;letter-spacing:.04em;text-transform:uppercase;color:#fff;vertical-align:2px}
+/* status pills on the language directory ("Live", "Soon", "Beta"). Scoped to
+   those three states — the bare `.tag` selector used to leak `color:#fff`
+   onto the tutor-card skill tags (white on a #f9f7ff pill, 17 Nov 2026). */
+.tag:is(.on,.soon,.beta){display:inline-block;border-radius:999px;padding:3px 11px;font-size:.7rem;font-weight:800;letter-spacing:.04em;text-transform:uppercase;color:#fff;vertical-align:2px}
 .tag.on{background:#1a7f37}
 .tag.soon{background:#7f8c8d}
 .tag.beta{background:#9a6700}

@@ -368,6 +368,52 @@ html[data-learning-language] .eg-appearance {
    visitor opens it, and the stylesheet cannot override [hidden] */
 .cur-menu[hidden] { display: none !important; }
 .cur-menu-scroll:empty { display: none; }
-/* Brand buttons: the label is always white on the brand gradient, in dark mode too.
-   (A dark link colour from the theme used to win here and the label vanished.) */
-html[data-theme="dark"] a.btn-primary,html[data-theme="dark"] .btn-primary,html[data-theme="contrast"] a.btn-primary{color:#fff !important;text-decoration:none}
+/* =====================================================================
+   25 — DARK / CONTRAST: ink on the accent (17 Nov 2026 contrast audit)
+   ---------------------------------------------------------------------
+   In dark and contrast themes every brand surface is the flat
+   --eg-accent (lavender #c4b5fd, pink #f9a8d4 on Hindi pages, yellow in
+   contrast) — see rule 98 above. The old rule here then forced the
+   label back to WHITE "because the brand gradient is dark", which is no
+   longer true: white on #f9a8d4 measures 1.8:1 and the label vanished
+   on every primary button (Start the course, View profile, Next →,
+   Submit review, Send my application …). The theme already ships the
+   right pair: --eg-accent-contrast is the ink that is legible on
+   --eg-accent. Use it for everything that sits on an accent surface.
+
+   Verified with tools/audit-dark-contrast.mjs (puppeteer, WCAG ratio of
+   every text node against its painted background) on 13 templates:
+   home, directory, profile, courses, learn/hindi, hindi hub, alphabet,
+   level reader, foundation, join, about, contact, support.
+   ===================================================================== */
+html[data-theme="dark"] a.btn-primary,html[data-theme="dark"] .btn-primary,html[data-theme="dark"] .btn-primary:hover,html[data-theme="dark"] .btn-primary:focus-visible,
+html[data-theme="contrast"] a.btn-primary,html[data-theme="contrast"] .btn-primary,html[data-theme="contrast"] .btn-primary:hover{color:var(--eg-accent-contrast) !important;text-decoration:none}
+/* skip link: rule 99 set the right pair, but the global dark link colour
+   (rule 92, !important) won and the focused link was accent-on-accent */
+html[data-theme="dark"] .skip,html[data-theme="dark"] .skip:focus,html[data-theme="contrast"] .skip,html[data-theme="contrast"] .skip:focus{background:var(--eg-accent) !important;color:var(--eg-accent-contrast) !important;outline-color:var(--eg-ink)}
+/* the big "Want a real person to practise with?" box (.cta) paints on the
+   accent too: its heading, paragraph and inline links take the same ink */
+html[data-theme="dark"] .cta,html[data-theme="dark"] .cta :is(b,h2,h3,p,span,small,a:not(.btn):not(.cta-btn)),
+html[data-theme="contrast"] .cta,html[data-theme="contrast"] .cta :is(b,h2,h3,p,span,small,a:not(.btn):not(.cta-btn)){color:var(--eg-accent-contrast) !important}
+html[data-theme="dark"] .pw-legacy .cta .btn-primary,html[data-theme="dark"] .cta .btn-primary,html[data-theme="dark"] .cta a.cta-btn,
+html[data-theme="contrast"] .cta .btn-primary,html[data-theme="contrast"] .cta a.cta-btn{background:var(--eg-bg) !important;color:var(--eg-accent) !important;border-color:transparent}
+/* section kickers / badges / stat labels still used the LIGHT accent
+   (#4f32d9 on a #211b32 card = 1.9:1). On a dark surface the readable
+   accent is the theme accent. */
+html[data-theme="dark"] :is(.xp-kicker,.xp-kicker span,.impact b,.xp-eyebrow,.kicker,.eyebrow,.pw-kicker),
+html[data-theme="contrast"] :is(.xp-kicker,.xp-kicker span,.impact b,.xp-eyebrow,.kicker,.eyebrow,.pw-kicker){color:var(--eg-accent) !important;background:var(--eg-surface) !important;border-color:var(--eg-line) !important}
+/* "🔊 word" speak buttons: accent-coloured label on a dark card */
+html[data-theme="dark"] :is(.say,.ssay,.sb-keys .say,.say-auto),html[data-theme="contrast"] :is(.say,.ssay,.sb-keys .say,.say-auto){color:var(--eg-ink) !important;background:var(--eg-surface) !important;border-color:var(--eg-accent) !important}
+html[data-theme="dark"] :is(.say,.ssay,.sb-keys .say):hover,html[data-theme="contrast"] :is(.say,.ssay,.sb-keys .say):hover{background:var(--eg-soft) !important}
+/* star ratings: the light-theme amber (#b45309) is 3.3:1 on a dark card */
+html[data-theme="dark"] :is(.stars,.rev-h .stars,.pf-stats .stars,.xp-tutor-meta .stars){color:#fbbf24 !important}
+html[data-theme="contrast"] :is(.stars,.rev-h .stars,.pf-stats .stars,.xp-tutor-meta .stars){color:var(--eg-accent) !important}
+/* hero float chips on the translated home pages (/es/, /ar/ …) — those
+   pages do not load home-future.css, so the light chip kept a white
+   background under light ink */
+html[data-theme="dark"] .xp-float,html[data-theme="contrast"] .xp-float{background:var(--eg-surface) !important;color:var(--eg-ink) !important;border-color:var(--eg-line) !important}
+/* gradient-clipped numbers/headlines (.xp-stat b, .egc h1, .e-num …) paint
+   the LIGHT palette (#4f32d9 → #8b5cf6) through the glyphs; on a dark card
+   the darker end is ~1.9:1. In dark mode they become the solid theme accent
+   (contrast mode already does this in home-future.css). */
+html[data-theme="dark"] :is(.xp-stat b,.grad-text,.egc h1,.e-num,.bk-ink span,.hero-stats b,.side-price b){background:none !important;-webkit-background-clip:initial !important;background-clip:initial !important;-webkit-text-fill-color:var(--eg-accent) !important;color:var(--eg-accent) !important}

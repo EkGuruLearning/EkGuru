@@ -63,8 +63,42 @@ def compact(css):
     css = re.sub(r";}", "}", css)
     css = re.sub(r"\s*,\s*", ",", css)
     css = re.sub(r"\s*:\s*", ":", css)
-    css = re.sub(r"\s*([>+~])\s*", r"\1", css)
+    css = _strip_combinator_space(css)
     return css.strip()
+
+
+def _strip_combinator_space(css):
+    """Remove the optional space around the selector combinators `>`, `+`
+    and `~` — but ONLY outside parentheses. Inside `calc()` the space around
+    `+` is part of the grammar: `calc(100% + 10px)` is valid,
+    `calc(100%+10px)` is not, and Chrome drops the whole declaration. 17 Nov
+    2026: that is exactly what happened to the initials avatar —
+    `hsl(calc(var(--eg-av-h) + 40) …)` was compacted to `+40`, the gradient
+    was discarded and every photo-less tutor card showed white initials on
+    a white card."""
+    out, depth, i, n = [], 0, 0, len(css)
+    seg = []
+    def flush():
+        if seg:
+            out.append(re.sub(r"\s*([>+~])\s*", r"\1", "".join(seg)))
+            seg.clear()
+    while i < n:
+        ch = css[i]
+        if ch == "(":
+            if depth == 0:
+                flush()
+            depth += 1
+            out.append(ch)
+        elif ch == ")":
+            depth = max(0, depth - 1)
+            out.append(ch)
+        elif depth == 0:
+            seg.append(ch)
+        else:
+            out.append(ch)
+        i += 1
+    flush()
+    return "".join(out)
 
 
 def build_block():
