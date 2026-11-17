@@ -1,5 +1,5 @@
 /* =========================================================
-   EkGuru — THE CONTACT FORM                              (v79)
+   EkGuru — THE CONTACT FORM                             (v102)
    ---------------------------------------------------------
    WHAT PRAKASH ASKED FOR
 
@@ -166,9 +166,13 @@
      sends the same message twice wondering whether it worked.
      --------------------------------------------------------- */
   function showSent(host, res, data) {
+    /* v102 — a receipt is only sent when a relay can really put it
+       in the visitor's mailbox (see directToStranger() in mailer.js).
+       When none can, nothing is sent and nothing is claimed: the
+       reference above and the reply promise below are the record. */
     var ackLine = res.acknowledged
       ? "A copy has been sent to <b>" + esc(data.email) + "</b> so you have a record of it."
-      : "We could not send you a copy, but your message did arrive with us.";
+      : "Your message has arrived with us. Keep the reference in case you need to follow up.";
 
     host.innerHTML =
       '<div class="cf-done" role="status">' +

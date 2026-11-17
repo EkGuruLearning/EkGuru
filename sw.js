@@ -63,7 +63,11 @@
    in support/index.html and js/support.js is extras-only. Rotate the shell
    cache so no returning visitor keeps the October JS that rendered (and
    could hide) the payment cards. */
-const BUILD_ID = "2026-11-04T00:00:00Z-v55-support-force-static";
+/* v56 — contact form (17 Nov 2026): one email per contact. The visitor
+   receipt is no longer pushed through Web3Forms (it delivered to the owner,
+   not the visitor). Rotate the shell cache so no returning visitor keeps the
+   precached mailer.js that still sent two. */
+const BUILD_ID = "2026-11-17T00:00:00Z-v56-contact-one-email";
 const CACHE = "ekguru-" + BUILD_ID;
 
 /* Phase 6 §14 — "Save for offline" pins learner-chosen pages in a dedicated
