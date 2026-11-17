@@ -622,6 +622,26 @@
      ========================================================= */
   function isExt(p) { return /^https?:\/\//i.test(String(p || "")); }
 
+  /* 17 Nov 2026 — a guru may be published without a photo (owner
+     decision: approval alone publishes). Instead of a grey stock
+     silhouette the card and the profile draw an initials tile in the
+     brand gradient, which reads as "a real person, photo pending"
+     rather than "broken image". Deterministic hue per name so the same
+     tutor always gets the same tile. */
+  function hasNoPhoto(x) {
+    var p = String((x && (x.thumb || x.photo)) || "").toLowerCase();
+    return !!(x && x.noPhoto) || !p || p.indexOf("placeholder") !== -1;
+  }
+  function initialsAvatar(x, size) {
+    var parts = String((x && x.name) || "?").trim().split(/\s+/);
+    var ini = (parts[0].charAt(0) + (parts.length > 1 ? parts[parts.length - 1].charAt(0) : "")).toUpperCase();
+    var h = 0, nm = String((x && x.name) || "");
+    for (var i = 0; i < nm.length; i++) h = (h * 31 + nm.charCodeAt(i)) % 360;
+    return '<span class="eg-avatar" role="img" aria-label="' + esc((x && x.name) || "") + '" ' +
+      'style="--eg-av-h:' + h + ';width:' + size + 'px;height:' + size + 'px;font-size:' + Math.round(size * 0.38) + 'px">' +
+      esc(ini) + "</span>";
+  }
+
   /* =========================================================
      DOES THIS TUTOR HAVE A PRE-RENDERED PAGE?  (v64)
      ---------------------------------------------------------
@@ -700,12 +720,13 @@
                about 125 KB per card, so responsive variants are used and the
                browser picks the right one. The original stays as the fallback
                for anything that cannot read WebP or srcset. */
+            (hasNoPhoto(x) ? initialsAvatar(x, 88) :
             '<picture>' +
               (isExt(x.thumb || x.photo) || /\.svg$/i.test(x.thumb || x.photo || "") ? "" :
                 '<source type="image/webp" srcset="' + srcBase(x) + '-176.webp 176w, ' + srcBase(x) + '-264.webp 264w" sizes="88px">' +
                 '<source type="image/jpeg" srcset="' + srcBase(x) + '-176.jpg 176w, ' + srcBase(x) + '-264.jpg 264w" sizes="88px">') +
               '<img data-safe src="' + esc(x.thumb || x.photo) + '" alt="' + esc(x.name) + ', ' + esc(t("card.tutor")) + '" loading="lazy" decoding="async" width="88" height="88">' +
-            '</picture>' +
+            '</picture>') +
             "" +
           "</div><div>" +
             "<h3>" + esc(x.name) + " <span>" + esc(x.countryFlag || "") + "</span></h3>" +
@@ -1069,8 +1090,15 @@
          for hidden rows on every page by js/sheet.js. */
       var recs = window.EKGURU_SHEET_RECORDS || {};
       var baked = window.EKGURU_SHEET_HIDDEN || [];
+      /* 16 Nov 2026 — a FILE-backed tutor hidden by active=no is in
+         neither list (RECORDS holds record-only stubs, HIDDEN is the
+         build snapshot), so ?id=sushila-g with a live active=no row
+         said "This profile does not exist". js/sheet.js now publishes
+         every live-hidden id; read it too. */
+      var liveHidden = window.EKGURU_SHEET_HIDDEN_LIVE || [];
       var knownHidden = (id && recs[id] && recs[id]._hiddenBySheet) ||
-                        (id && baked.indexOf(id) > -1);
+                        (id && baked.indexOf(id) > -1) ||
+                        (id && liveHidden.indexOf(id) > -1);
       if (knownHidden) {
         host.innerHTML = '<div class="wrap"><div class="empty"><div>⏸️</div><h2>' + esc(t("book.closed")) +
           "</h2><p>" + esc(t("pf.closedNote")) + '</p><a class="btn btn-primary" href="' + langHref("find-tutors.html") + '">' +
@@ -1147,7 +1175,8 @@
         '<a href="' + langHref("index.html") + '">' + esc(t("nav.home")) + "</a> › " +
         '<a href="' + langHref("find-tutors.html") + '">' + esc(t("nav.tutors")) + "</a> › <span>" + esc(x.name) + "</span></nav>" +
         '<div class="pf-top reveal"><div class="pf-photo">' +
-          '<img data-safe src="' + esc(x.photo) + '" alt="' + esc(x.name) + ', ' + esc(t("card.tutor")) + '" width="200" height="200">' +
+          (hasNoPhoto(x) ? initialsAvatar(x, 200) :
+          '<img data-safe src="' + esc(x.photo) + '" alt="' + esc(x.name) + ', ' + esc(t("card.tutor")) + '" width="200" height="200">') +
           "" +
         "</div><div>" +
           '<div class="pf-name"><h1>' + esc(x.name) + "</h1>" +

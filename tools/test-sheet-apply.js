@@ -356,8 +356,9 @@ setTimeout(function () {
       ["no-tutor",    base("no-tutor", { approved: "no" }),                 false, "approved=no stays private"],
       ["maybe-tutor", base("maybe-tutor", { approved: "pending" }),         false, "approved=pending stays private"],
       ["hidden-tutor",base("hidden-tutor", { active: "no" }),               false, "approved=yes but active=no stays hidden"],
-      ["nophoto-tutor",base("nophoto-tutor", { photo: "" }),                false, "approved=yes with no photo stays private"],
-      ["holder-tutor",base("holder-tutor", { photo: "images/placeholder.svg" }), false, "approved=yes with a placeholder photo stays private"],
+      /* 17 Nov 2026 — owner decision: a photo is no longer required */
+      ["nophoto-tutor",base("nophoto-tutor", { photo: "" }),                true,  "approved=yes with no photo PUBLISHES (placeholder, noPhoto flag)"],
+      ["holder-tutor",base("holder-tutor", { photo: "images/placeholder.svg" }), true,  "approved=yes with a placeholder photo PUBLISHES"],
       ["noname-tutor",base("noname-tutor", { name: "" }),                   false, "approved=yes with no name stays private"],
       ["Bad Id!",     base("Bad Id!"),                                      false, "approved=yes with an unsafe id is refused"]
     ];
@@ -386,8 +387,9 @@ setTimeout(function () {
       const skipped = (info2 && info2.unknown) || [];
       check("the skipped list explains why an unapproved row stays private",
         skipped.some(function (s) { return /blank-tutor.*not approved/.test(s); }), JSON.stringify(skipped).slice(0, 300));
-      check("the skipped list explains why a photo-less approved row stays private",
-        skipped.some(function (s) { return /nophoto-tutor.*placeholder photo/.test(s); }), JSON.stringify(skipped).slice(0, 300));
+      const np = window.EKGURU_TUTORS.filter(function (t) { return t.id === "nophoto-tutor"; })[0];
+      check("a photo-less approved row is published with the neutral placeholder and noPhoto=true",
+        !!np && np.noPhoto === true && /placeholder-tutor\.jpg$/.test(np.photo), np && JSON.stringify({ ph: np.photo, f: np.noPhoto }));
 
       /* take the matrix tutors back out so the stale-sheet pass below sees
          exactly the roster it was written for */

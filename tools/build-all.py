@@ -150,6 +150,7 @@ def main():
             run("Indian course/topic speaker controls --check",
                 ["python3", "tools/patch-language-voice-controls.py", "--check"])
             run("experience bundle --check", ["python3", "tools/bundle-experience-css.py", "--check"])
+            run("dark-mode safety net --check", ["python3", "tools/build-dark-fix.py", "--check"])
             run("world artwork --check", ["python3", "tools/build-world-art.py", "--check"])
             run("course hub --check", ["python3", "tools/build-course-hub.py", "--check"])
             run("course levels --check (the A1-C2 pages of every course)",
@@ -208,6 +209,7 @@ def main():
             run("course country search test", ["node", "tools/test-course-country.mjs"])
             run("reading layer test (one stylesheet, two bands)", ["node", "tools/test-reading-layer.mjs"])
             run("page layer test (one design on all 828 pages)", ["node", "tools/test-page-layer.mjs"])
+            run("book mode test (stepped Hindi lessons + generated practice)", ["node", "tools/test-book-mode.mjs"])
             run("print sheet test (what lands on paper)", ["node", "tools/test-print-sheets.mjs"])
             run("print sheet dom test (the copy the script builds)",
                 ["node", "tools/test-print-sheet-dom.mjs"])
@@ -230,6 +232,8 @@ def main():
             run("intake test (online forms: pending-only, honeypot, caps)", ["node", "tools/test-intake.js"])
             run("sheetsync policy test (build side refuses marketplace values)",
                 ["node", "tools/test-sheetsync-policy.js"])
+            run("sheet-only guru bake test (approved=yes rows bake, private cells never)",
+                ["node", "tools/test-sheet-only-bake.mjs"])
             run("no-competitor-attribution gate (public output + rendered strings)",
                 ["node", "tools/test-no-competitor-attribution.js"])
             run("experience DOM test", ["node", "tools/test-experience-dom.mjs"])
@@ -254,6 +258,7 @@ def main():
     run("country language pages", ["python3", "tools/build-country-language-pages.py"])
     ultra_builds(False)
     run("experience bundle (css/experience.css -> style.min.css)", ["python3", "tools/bundle-experience-css.py"])
+    run("dark-mode safety net (hard-coded light boxes -> theme tokens)", ["python3", "tools/build-dark-fix.py"])
     run("world artwork (9 emblems)", ["python3", "tools/build-world-art.py"])
     run("course hub + home teaser", ["python3", "tools/build-course-hub.py"])
     run("course levels (A1-C2 pages, and the rail on every hub)",

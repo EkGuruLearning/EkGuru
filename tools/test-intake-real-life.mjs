@@ -124,6 +124,21 @@ console.log("== 5. intake.js client checks ==");
   // invalid email rejected
   const badMail = I.checkFields("contact", { name: "A", email: "not-an-email", message: "Hello" });
   check("contact bad email rejected", !!badMail, badMail || "");
+
+  /* 16 Nov 2026 — how students really type the booking reference */
+  check("normalizeRef is published", typeof I.normalizeRef === "function");
+  for (const [typed, want] of [["ek-ab2cd3", "EK-AB2CD3"], [" EK-AB2CD3 ", "EK-AB2CD3"], ["EK AB2CD3", "EK-AB2CD3"], ["EKAB2CD3", "EK-AB2CD3"], ["EK\u2013AB2CD3", "EK-AB2CD3"]]) {
+    check("normalizeRef(" + JSON.stringify(typed) + ") = " + want, I.normalizeRef(typed) === want, I.normalizeRef(typed));
+  }
+  /* submit() sends the canonical spelling and names the EG-/EK- mix-up */
+  const sent = [];
+  win.fetch = (u, o) => { sent.push(JSON.parse(o.body)); return Promise.resolve({ ok: true, text: () => Promise.resolve(JSON.stringify({ ok: true, reference: "EG-TEST01" })) }); };
+  const S = win.EKGURU_SITE; const savedIntake = S.intake; S.intake = { url: "https://script.google.com/macros/s/AKfyTEST/exec" };
+  const r1 = await I.submit("review", { tutor_id: "sushila-g", reviewer_name: "Test", stars: "5", text: "Great lesson", booking_id: "ek ab2cd3" }, true, "");
+  check("submit() posts the canonical booking id", r1.ok === true && sent.length === 1 && sent[0].fields.booking_id === "EK-AB2CD3", JSON.stringify(sent[0] && sent[0].fields));
+  const r2 = await I.submit("review", { tutor_id: "sushila-g", reviewer_name: "Test", stars: "5", text: "Great lesson", booking_id: "EG-ZZZ999" }, true, "");
+  check("an EG- form reference is refused with a clear message, nothing posted", r2.ok === false && /EK-/.test(r2.error) && sent.length === 1, r2.error);
+  S.intake = savedIntake;
 }
 
 console.log("== 6. Server contract match (Intake.gs) ==");
@@ -153,3 +168,4 @@ if (failures.length) {
   process.exit(1);
 }
 console.log("PASS: real-life usage tests for every tutor and every sheet form");
+process.exit(0);   /* jsdom timers would otherwise keep the process alive */

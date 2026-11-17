@@ -58,7 +58,9 @@ def title_of(path):
 
 def desc_of(path):
     h = read(path)
-    m = re.search(r'<meta name="description" content="([^"]*)"', h)
+    # attribute order is not stable: some pages were re-serialised as content="…" name="description"
+    m = (re.search(r'<meta name="description" content="([^"]*)"', h)
+         or re.search(r'<meta content="([^"]*)" name="description"', h))
     return unescape(m.group(1)).strip() if m else ""
 
 def short_desc(path, n=110):
@@ -98,6 +100,7 @@ LESSONS = {
     "hindi-barakhadi": "basics",
     "write-your-name-in-hindi": "basics",
     "learn-hindi-online-guide": "basics",
+    "hindi/foundation": "basics",  # children's-textbook primer (tools/build-hindi-foundation.py)
     "how-to-say-hello-in-hindi": "conversation",
     "aap-tum-tu-hindi": "conversation",
     "hindi-numbers-1-to-100": "numbers",

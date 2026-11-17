@@ -102,10 +102,34 @@
     return "";
   }
 
+  /* A booking reference the way people actually type it (16 Nov 2026,
+     real-life review test): "ek-ab2cd3", "EK AB2CD3", "EKAB2CD3", a
+     phone's long dash, a trailing space. All mean EK-AB2CD3. The server
+     (Intake.gs intakeNormRef_) applies the same rule, so this is a
+     courtesy that also makes the sheet row read cleanly. */
+  function normalizeRef(v) {
+    var s = String(v == null ? "" : v).toUpperCase();
+    s = s.replace(/[\u2010-\u2015\u2212]/g, "-");
+    s = s.replace(/[\s_]+/g, "");
+    s = s.replace(/^EK-*/, "EK-");
+    return s;
+  }
+
   /* Send. Resolves { ok, reference } or { ok:false, error, fallback }. Never rejects. */
   function submit(kind, fields, consent, honeypot) {
     if (!KINDS[kind]) return Promise.resolve({ ok: false, error: "This form is not set up." });
     if (!ready()) return Promise.resolve({ ok: false, fallback: true, error: "Online sending is off right now." });
+    fields = fields || {};
+    if (kind === "review" && fields.booking_id != null) {
+      var bref = normalizeRef(fields.booking_id);
+      /* The most common real-life mix-up: the student pastes the EG-
+         reference an earlier FORM gave them, not the EK- booking code
+         from the booking receipt. Say so, instead of "not found". */
+      if (/^EG-/.test(bref)) {
+        return Promise.resolve({ ok: false, error: "That is a form reference (EG-…). The booking reference starts with EK- and is on your booking confirmation." });
+      }
+      fields.booking_id = bref;
+    }
     var problem = checkFields(kind, fields || {});
     if (problem) return Promise.resolve({ ok: false, error: problem });
     if (consent !== true) return Promise.resolve({ ok: false, error: "Please tick the box so we can reply to you." });
@@ -134,7 +158,14 @@
          trusting it used to tell the student "saved" (and let the
          booking email go out) with no row in the sheet at all. */
       if (j && j.ok && String(j.reference || "").trim()) {
-        return { ok: true, reference: String(j.reference), duplicate: j.duplicate === true };
+        var out = { ok: true, reference: String(j.reference), duplicate: j.duplicate === true };
+        /* v2.1.0 server mail outcome ({tutor, student, note}) — the
+           booking modal uses it to skip its own duplicate send. */
+        if (j.mail && typeof j.mail === "object") {
+          out.mail = { tutor: String(j.mail.tutor || ""), student: String(j.mail.student || ""),
+                       tutorEmailSource: String(j.mail.tutorEmailSource || ""), note: String(j.mail.note || "") };
+        }
+        return out;
       }
       if (j && j.ok) {
         return { ok: false, fallback: true, error: "The booking service replied without a confirmation reference, so this was not treated as saved." };
@@ -211,7 +242,7 @@
   /* Re-wire forms injected after load (the profile review form is
      re-rendered on every sheet repaint — without this its submit
      falls back to a native mailto POST). Idempotent. */
-  window.EkGuruIntake = { ready: ready, submit: submit, checkFields: checkFields, intakeUrl: intakeUrl, rewire: init };
+  window.EkGuruIntake = { ready: ready, submit: submit, checkFields: checkFields, normalizeRef: normalizeRef, intakeUrl: intakeUrl, rewire: init };
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", init);
   else init();
 })();

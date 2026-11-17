@@ -28,10 +28,11 @@
 
    A row for someone with no js/tutors/<id>.js is published
    only when ALL of these hold: approved is yes (or true, 1, y,
-   approved), active is not no, the row has a name, the photo is
-   a real image (not a placeholder) and the id is lowercase
-   letters, numbers and hyphens. A blank approved cell means
-   not approved. A tutor already in js/tutors/_registry.js
+   approved), active is not no, the row has a name and the id is
+   lowercase letters, numbers and hyphens. A blank approved cell
+   means not approved. A photo or intro video is NOT required
+   (17 Nov 2026): a profile without one shows the neutral
+   placeholder and is flagged noPhoto for the renderers. A tutor already in js/tutors/_registry.js
    does not need approved. Rows that fail are named, with the
    reason, in the console and in EkGuruSheet.info().unknown.
 
@@ -979,10 +980,20 @@
         }
         t = buildFromRow(r, lower);
         if (!t) { skipped.push(r.id + " (no name)"); return; }
+        /* 17 Nov 2026 — owner decision: an approved guru is published
+           WITH OR WITHOUT a photo or intro video. A missing photo used to
+           keep the whole profile private ("placeholder photo — not
+           published"), which hid approved tutors from the homepage, the
+           find page and search. Now the row publishes and the card shows
+           the neutral placeholder (or the initials avatar the renderers
+           draw) until a real photo is added to the sheet. The flag below
+           lets the renderers and the admin page say "no photo yet"
+           truthfully instead of pretending. */
         var photo = String(t.photo || "").toLowerCase();
         if (!photo || photo.indexOf("placeholder") !== -1) {
-          skipped.push(r.id + " (placeholder photo — not published)");
-          return;
+          t.photo = t.photo || "images/placeholder-tutor.jpg";
+          t.thumb = t.thumb && t.thumb.indexOf("placeholder") === -1 ? t.thumb : t.photo;
+          t.noPhoto = true;
         }
         byId[r.id] = t;
         list.push(t);
@@ -1030,15 +1041,17 @@
       }
     });
 
-    /* Tutors in the roster/files but with no row in the sheet have
-       never been reviewed or approved. The publication rule requires
-       both registry inclusion AND an active sheet row. Mark them
-       hidden so they don't appear as public tutors. */
+    /* 16 Nov 2026 — OWNER RULE: an approved tutor is visible.
+       Approved = reviewed into js/tutors/_registry.js (the file
+       loaded on this page). The sheet HIDES with an explicit
+       active=no; a tutor who simply has no row yet is NOT hidden.
+       This used to mark every row-less registry tutor hidden, which
+       contradicted the build (tools/sheetsync.js bakes them visible,
+       bookable and in the sitemap) — so the English roster dropped
+       tutors the rest of the site was showing. Owner's words:
+       "jo tutor approved hai unko approved maan kar visible karna." */
     list.forEach(function (t) {
-      if (!seenInSheet[t.id]) {
-        t._hiddenBySheet = true;
-        hidden++;
-      }
+      if (!seenInSheet[t.id]) t._hiddenBySheet = false;
     });
 
     /* ---------------------------------------------------------
@@ -1057,6 +1070,20 @@
       if (byId[k] && byId[k]._recordOnly) records[k] = byId[k];
     });
     window.EKGURU_SHEET_RECORDS = records;
+
+    /* 16 Nov 2026 — EVERY id the live sheet hides, file-backed or
+       record-only. js/livepatch.js used to infer this from
+       EKGURU_SHEET_RECORDS, which only holds record-only rows, so on
+       a page that loads tutors-data.js with ALL registry tutors
+       active=no (the production state today) it removed nobody: the
+       Spanish/French/German rosters kept five "Ver perfil" cards
+       while the English roster was empty. Publish the real list. */
+    var hiddenIds = [];
+    list.forEach(function (t) { if (t._hiddenBySheet) hiddenIds.push(t.id); });
+    Object.keys(records).forEach(function (k) {
+      if (records[k] && records[k]._hiddenBySheet && hiddenIds.indexOf(k) === -1) hiddenIds.push(k);
+    });
+    window.EKGURU_SHEET_HIDDEN_LIVE = hiddenIds;
 
     var visible = list.filter(function (t) { return !t._hiddenBySheet; });
     visible.sort(function (a, b) {
@@ -1191,7 +1218,19 @@
               " — those fields keep their file values.");
           }
           var recs = toRecords(rows);
-          if (!recs.length) throw new Error("no rows with an id column");
+          /* An empty tab is an answer (16 Nov 2026, same lesson as
+             js/reviews.js). tryOne() already proved this is the
+             tutors tab — the header has an id column — so zero data
+             rows means the owner emptied it. Owner rule: approved
+             (registry) tutors are visible unless a row says
+             active=no, so an empty tab means "nobody is hidden, no
+             overrides" — applyRecords([]) resets every registry
+             tutor to their file values instead of the old "not
+             loaded" path, which left a returning visitor looking at
+             a cached roster the sheet no longer had. */
+          if (!recs.length) {
+            console.warn("[EkGuru] Sheet tab is empty (header only) — every approved tutor shows with file values; add a row with active=no to hide one.");
+          }
           writeCache(recs);
           var n = applyRecords(recs);
           announce();

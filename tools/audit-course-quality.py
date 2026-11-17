@@ -23,6 +23,18 @@ ROOT = Path(__file__).resolve().parents[1]
 INDEX = ROOT / "data/courses/index.json"
 OUT = ROOT / "data/quality/course-publication-audit.json"
 CEFR = ("A1", "A2", "B1", "B2", "C1", "C2")
+# EkGuru extension tracks. They are audited with the same deterministic gate
+# and enter the release manifest only when they pass; they never count towards
+# `complete`, which remains a CEFR A1–C2 statement.
+EXTENSION = ("A3", "B3", "C3", "C4", "C5")
+LADDER = ("A1", "A2", "A3", "B1", "B2", "B3", "C1", "C2", "C3", "C4", "C5")
+EXTENSION_NOTE = {
+    "A3": "EkGuru A2→B1 bridge. Not a CEFR level.",
+    "B3": "EkGuru B2→C1 bridge. Not a CEFR level.",
+    "C3": "EkGuru post-C2 extension (Expert). Not a CEFR level.",
+    "C4": "EkGuru post-C2 extension (Scholar). Not a CEFR level.",
+    "C5": "EkGuru post-C2 extension (Master). Not a CEFR level.",
+}
 
 # These phrases are visible evidence of templated filler rather than useful
 # instruction. They caught phase-3 vocabulary whose "meaning" was merely
@@ -130,17 +142,26 @@ def build() -> tuple[dict, dict]:
     for original in index.get("courses", []):
         checks = [audit_level(original, level) for level in CEFR]
         publishable = [row["level"] for row in checks if row["state"] == "PUBLISHABLE_EXISTING"]
+        ext_checks = [row for row in (audit_level(original, level) for level in EXTENSION)
+                      if row["state"] != "NOT_AUTHORED"]
+        ext_publishable = [row["level"] for row in ext_checks if row["state"] == "PUBLISHABLE_EXISTING"]
         target = by_code[original["code"]]
         old_levels = original.get("levels") or {}
+        # Manifest order is ladder order: the player and the hubs list levels in
+        # the order a learner meets them, A3 after A2, B3 after B2, C3–C5 after C2.
+        listed = sorted(publishable + ext_publishable, key=LADDER.index)
+        rows = checks + ext_checks
         target["levels"] = {
             level: {
-                "lessons": next(row["lessons"] for row in checks if row["level"] == level),
-                "test_items": next(row["test_items"] for row in checks if row["level"] == level),
+                "lessons": next(row["lessons"] for row in rows if row["level"] == level),
+                "test_items": next(row["test_items"] for row in rows if row["level"] == level),
                 **({"hours": old_levels[level].get("hours")} if level in old_levels and "hours" in old_levels[level] else {}),
-                **({"note": old_levels[level].get("note")} if level in old_levels and old_levels[level].get("note") else {}),
+                **({"note": EXTENSION_NOTE[level]} if level in EXTENSION_NOTE else
+                   ({"note": old_levels[level].get("note")} if level in old_levels and old_levels[level].get("note") else {})),
             }
-            for level in publishable
+            for level in listed
         }
+        target["extra_levels_published"] = ext_publishable
         target["complete"] = publishable == list(CEFR)
         target["quality_status"] = (
             "PUBLISHABLE_COMPLETE" if target["complete"]
@@ -148,7 +169,12 @@ def build() -> tuple[dict, dict]:
             else "RESEARCH_REQUIRED"
         )
         blocked = [row for row in checks if row["state"] != "PUBLISHABLE_EXISTING"]
-        if target["complete"]:
+        if target["complete"] and ext_publishable:
+            target["complete_reason"] = (
+                "CEFR A1–C2 pass structural and public filler checks. Extension tracks published: "
+                + ", ".join(ext_publishable) + ". Editorial/source review remains required."
+            )
+        elif target["complete"]:
             target["complete_reason"] = "CEFR A1–C2 pass structural and public filler checks. Editorial/source review remains required."
         elif publishable:
             target["complete_reason"] = (
@@ -162,15 +188,17 @@ def build() -> tuple[dict, dict]:
             "name": original.get("name"),
             "phase": original.get("phase"),
             "publishable_levels": publishable,
+            "publishable_extension_levels": ext_publishable,
             "complete": target["complete"],
             "quality_status": target["quality_status"],
             "levels": checks,
+            "extension_levels": ext_checks,
         })
 
     audit = {
         "schema_version": 1,
         "generated_on": "2026-09-20",
-        "method": "Conservative publication gate: blocks the unreviewed phase-3 expansion and the C1/C2 advanced batch pending native review, then applies deterministic filler/placeholder, lesson and level-test checks. This does not substitute for native-speaker editorial review.",
+        "method": "Conservative publication gate: blocks the unreviewed phase-3 expansion and the C1/C2 advanced batch pending native review, then applies deterministic filler/placeholder, lesson and level-test checks. EkGuru extension tracks (A3/B3/C3/C4/C5) pass the same gate to be listed but never count towards completeness. This does not substitute for native-speaker editorial review.",
         "states": {
             "PUBLISHABLE_EXISTING": "No deterministic blocker found; existing content only, not a claim of independent linguistic verification.",
             "PUBLIC_CONTENT_BUG": "A deterministic public-content defect remains; keep unpublished/noindex.",

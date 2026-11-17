@@ -53,7 +53,10 @@ var FEED_CACHE_PREFIX = "ekguru-feed-v1:";
    published links as a backstop. (A gid survives renames but not delete-and-recreate: the reviews tab was recreated on 4 Nov 2026, gid 298809212 -> 293675115.) */
 var FEED_TABS = {
   tutors:   { names: ["tutors"],                          gid: 1631273256 },
-  reviews:  { names: ["reviews"],                         gid: 293675115 },
+  /* 17 Nov 2026 — ONE review tab. ?tab=reviews is answered from
+     reviews_pending (approved rows only, public shape) by reviewsFeed_();
+     the separate `reviews` tab was deleted. */
+  reviews:  { names: ["reviews_pending"],                 gid: -1, pending: true },
   settings: { names: ["settings"],                        gid: 1658518385 },
   support:  { names: ["support", "payments", "support-payments"], gid: 1041390059 }
 };
@@ -152,6 +155,7 @@ function isPrivateColumn_(header) {
 /* Returns { header: [...], rows: [[...]], dropped: [...] } with private
    columns and help rows already removed. */
 function readTab_(tab) {
+  if (FEED_TABS[tab] && FEED_TABS[tab].pending) return reviewsFeed_(tab);
   var sheet = findSheet_(tab);
   if (!sheet) return { header: [], rows: [], dropped: [], missing: true };
 
@@ -181,6 +185,65 @@ function readTab_(tab) {
     rows: rows,
     dropped: dropped
   };
+}
+
+var REVIEW_APPROVED_VALUES = ["approved", "approve", "live", "published", "publish", "yes", "y", "true", "1", "ok"];
+
+/* ----------------------------------------------------------------------------
+   v2.1.0 — PUBLISHED REVIEWS COME FROM reviews_pending, APPROVED ROWS ONLY
+   ----------------------------------------------------------------------------
+   reviews_pending columns (written by intake):
+     timestamp | reference | status | tutor_id | reviewer_name | stars | text |
+     lesson_date | contact_email | booking_id | notes
+   Public shape the site reads (js/reviews.js, unchanged):
+     tutor | name | date | stars | text | source | status
+   A row is published when status (or an optional "approved" column) is one of
+   REVIEW_APPROVED_VALUES. contact_email, booking_id, reference, timestamp and
+   notes are never sent — the public shape simply has no column for them.
+   -------------------------------------------------------------------------- */
+function reviewsFeed_(tab) {
+  var sheet = findSheet_(tab);
+  var out = { header: ["tutor", "name", "date", "stars", "text", "source", "status"],
+              rows: [], dropped: ["contact_email", "booking_id", "reference", "timestamp", "notes"] };
+  if (!sheet) { out.missing = true; return out; }
+  var values = sheet.getDataRange().getDisplayValues();
+  if (values.length < 2) return out;
+  var header = values[0].map(function (h) { return String(h).trim().toLowerCase(); });
+  function col(name) { return header.indexOf(name); }
+  var cStatus = col("status"), cApproved = col("approved"), cTutor = col("tutor_id"),
+      cName = col("reviewer_name"), cStars = col("stars"), cText = col("text"),
+      cDate = col("lesson_date"), cTs = col("timestamp");
+  if (cTutor === -1) cTutor = col("tutor");
+  if (cName === -1) cName = col("name");
+  if (cDate === -1) cDate = col("date");
+  for (var r = 1; r < values.length; r++) {
+    var row = values[r];
+    var first = String(row[0] == null ? "" : row[0]).trim();
+    if (first.charAt(0) === "#") continue;
+    if (row.every(function (c) { return String(c).trim() === ""; })) continue;
+    var flag = "";
+    if (cApproved !== -1) flag = String(row[cApproved] || "").trim().toLowerCase();
+    if (!flag && cStatus !== -1) flag = String(row[cStatus] || "").trim().toLowerCase();
+    if (REVIEW_APPROVED_VALUES.indexOf(flag) === -1) continue;   /* pending / rejected: private */
+    var date = cDate !== -1 ? String(row[cDate] || "").trim() : "";
+    if (!date && cTs !== -1) {
+      /* lesson_date is optional on the form; fall back to the day the review arrived */
+      var ts = String(row[cTs] || "").trim();
+      var m = /^(\d{4})-(\d{2})-(\d{2})/.exec(ts) || /^(\d{1,2})\/(\d{1,2})\/(\d{4})/.exec(ts);
+      if (m) date = m[1].length === 4 ? m[1] + "-" + m[2] + "-" + m[3]
+                                        : m[3] + "-" + ("0" + m[1]).slice(-2) + "-" + ("0" + m[2]).slice(-2);
+    }
+    out.rows.push([
+      cTutor !== -1 ? String(row[cTutor] || "").trim().toLowerCase() : "",
+      cName !== -1 ? String(row[cName] || "").trim() : "",
+      date,
+      cStars !== -1 ? String(row[cStars] || "").trim() : "",
+      cText !== -1 ? String(row[cText] || "").trim() : "",
+      "ekguru",
+      "live"
+    ]);
+  }
+  return out;
 }
 
 function csvCell_(v) {

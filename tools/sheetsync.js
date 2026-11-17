@@ -10,6 +10,13 @@
    Outputs:
      js/tutors/_overrides.js   window.EKGURU_SHEET_OVERRIDES  (tutors + reviews)
                                window.EKGURU_SHEET_SETTINGS   (from settings tab)
+                               window.EKGURU_SHEET_HIDDEN     (active=no ids)
+                               window.EKGURU_SHEET_TUTORS     (17 Nov 2026 —
+                               approved=yes rows with no tutor file, full
+                               records, private cells stripped)
+
+   Offline: node tools/sheetsync.js --offline <dir>  reads tutors,
+   reviews_pending (or legacy reviews), settings, support as .csv/.tsv.
 
    Privacy rule (matches js/sheet.js): an `email` cell is only written
    when it is a valid address; the production sheet intentionally keeps
@@ -25,9 +32,13 @@ const path = require("path");
 const BASE = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQIman_Um2wQrj_3mXqqgq4k69zzmJHkhZ1TRoAnh2jcamhzoo-0VeTd55UieGMi6mEaTl3Zy84G44h/pub";
 const SRC = {
   tutors:   `${BASE}?gid=1631273256&single=true&output=csv`,
-  reviews:  `${BASE}?gid=293675115&single=true&output=csv`,
-  /* Form submissions waiting for the owner. Rows the owner sets to
-     status=approved go live automatically (see pendingToReviews). */
+  /* 17 Nov 2026 — the separate `reviews` tab (gid 293675115) was deleted
+     on the owner's instruction. `reviews_pending` is now the ONE review
+     tab: every form submission lands there as pending and the owner
+     flips status to approved to publish it (see pendingToReviews).
+     `reviews` is kept as an optional legacy source so an old workbook
+     still builds; a dead link is tolerated below. */
+  reviews:  "",
   reviewsPending: `${BASE}?gid=176535552&single=true&output=csv`,
   settings: `${BASE}?gid=1658518385&single=true&output=csv`,
   support:  `${BASE}?gid=1041390059&single=true&output=csv`,
@@ -52,8 +63,11 @@ function toRecords(rows) {
     return o;
     /* v104 — reviews rows carry `tutor`, not `id`. The old filter dropped
        the entire reviews tab, so buildReviews() always got [] and every
-       baked `reviews` array was empty (review text rendered nowhere). */
-  }).filter(o => o.id || o.tutor);
+       baked `reviews` array was empty (review text rendered nowhere).
+       17 Nov 2026 — reviews_pending rows carry `tutor_id`; the same
+       filter was dropping that whole tab too, so pendingToReviews()
+       always received [] and no approved site review was ever baked. */
+  }).filter(o => o.id || o.tutor || o.tutor_id);
 }
 
 /* ---------- FIELDS transforms — ported from js/sheet.js ---------- */
@@ -208,14 +222,16 @@ const MARKETPLACE_SOURCES = ["preply", "italki"];
 function pendingToReviews(rows) {
   const out = [];
   for (const r of rows) {
-    if (String(r.status || "").trim().toLowerCase() !== "approved") continue;
+    /* same approved set as apps-script/Unified.gs REVIEW_APPROVED_VALUES */
+    const st = String(r.status || r.approved || "").trim().toLowerCase();
+    if (["approved", "approve", "live", "published", "publish", "yes", "true", "1", "ok"].indexOf(st) === -1) continue;
     let date = String(r.lesson_date || "").trim();
     if (!date) {
       const m = String(r.timestamp || "").match(/^(\d{2})\/(\d{2})\/(\d{4})/);
       if (m) date = `${m[3]}-${m[2]}-${m[1]}`;
     }
     out.push({
-      tutor: String(r.tutor_id || "").trim(),
+      tutor: String(r.tutor_id || r.tutor || "").trim().toLowerCase(),
       name: String(r.reviewer_name || "").trim(),
       date,
       stars: String(r.stars || "").trim(),
@@ -295,13 +311,17 @@ function offlineRows(dir, name) {
 
 function offlineAll(dir) {
   const t = offlineRows(dir, "tutors");
-  const r = offlineRows(dir, "reviews");
+  /* reviews_pending.{csv,tsv} (the live tab's shape: status/tutor_id/…)
+     is preferred; a legacy reviews.{csv,tsv} still works. */
+  let r, pendingShape = false;
+  try { r = offlineRows(dir, "reviews_pending"); pendingShape = true; }
+  catch (e) { r = offlineRows(dir, "reviews"); }
   const s = offlineRows(dir, "settings");
   const u = offlineRows(dir, "support");
   console.log(`  offline inputs: ${[t, r, s, u].map(x => path.relative(process.cwd(), x.file)).join(", ")}`);
   return {
     tutors: toRecords(t.rows),
-    reviews: toRecords(r.rows),
+    reviews: pendingShape ? pendingToReviews(toRecords(r.rows)) : toRecords(r.rows),
     settings: keyValues(s.rows),
     support: keyValues(u.rows)
   };
@@ -329,16 +349,21 @@ if (require.main === module) (async function main() {
     const src = offlineAll(argv[offIdx + 1]);
     tutors = src.tutors; reviews = src.reviews; settings = src.settings; support = src.support;
   } else {
-    [tutors, reviews, settings, support] = await Promise.all([
-      fetchCSV(SRC.tutors), fetchCSV(SRC.reviews), fetchSettings(SRC.settings),
-      fetchSettings(SRC.support),
+    [tutors, settings, support] = await Promise.all([
+      fetchCSV(SRC.tutors), fetchSettings(SRC.settings), fetchSettings(SRC.support),
     ]);
-    /* Optional: a missing or unpublished pending tab must not stop the build. */
+    /* reviews_pending is the review source (approved rows only). */
     try {
       const pending = await fetchCSV(SRC.reviewsPending);
-      reviews = reviews.concat(pendingToReviews(pending));
+      reviews = pendingToReviews(pending);
     } catch (e) {
-      console.warn(`  !! reviews_pending not read (${e.message}) — only the reviews tab is used.`);
+      reviews = [];
+      console.warn(`  !! reviews_pending not read (${e.message}) — no reviews will be baked this run.`);
+    }
+    /* Legacy: an old separate `reviews` tab, only if a URL is configured and alive. */
+    if (SRC.reviews) {
+      try { reviews = reviews.concat(await fetchCSV(SRC.reviews)); }
+      catch (e) { console.warn(`  !! legacy reviews tab not read (${e.message}) — ignored.`); }
     }
   }
   /* Support tab merges UNDER the main settings tab: on a conflict
@@ -356,22 +381,51 @@ if (require.main === module) (async function main() {
   const hidden = [];
   const skippedUnregistered = [];
   const HIDE_RE = /^(no|false|0|n|hidden)$/i;
-  /* 28 Oct 2026 — the build bakes ONLY tutors who are in the reviewed
-     registry. A sheet row for someone who is not in js/tutors/_registry.js
-     (an applicant, a draft, a row with approved=yes but no tutor file) is
-     published at RUN TIME by js/sheet.js, and never written into this file.
-     Before this gate the build baked every named row, which put an
-     applicant's bio, rate and photo link into a committed, public file in
-     git. An approved sheet-only tutor shows on the site within seconds of
-     the sheet change; the static profile page still needs the registry. */
+  /* 28 Oct 2026 — the build bakes registry tutors as overrides. A sheet
+     row for someone who is not in js/tutors/_registry.js is NOT written
+     here unless the owner marked it approved=yes (17 Nov 2026 rule below):
+     an applicant or draft row never reaches a committed, public file. */
   const registrySrc = fs.readFileSync(path.join(__dirname, "..", "js", "tutors", "_registry.js"), "utf8");
   const orderBlock = /window\.EKGURU_TUTOR_ORDER\s*=\s*\[([\s\S]*?)\]/.exec(registrySrc);
   const registered = new Set(((orderBlock && orderBlock[1]) || "").match(/"[a-z0-9-]+"/g)
     .map(x => x.slice(1, -1)));
+  /* 17 Nov 2026 — owner rule: "sheet data hard-coded nahi, sheet se aaye"
+     + "approved guru visible hai". A row that is NOT in the registry but
+     says approved=yes (and is not active=no, has a name and a safe id) is
+     now baked too — as a FULL record in window.EKGURU_SHEET_TUTORS — so the
+     first paint (and any visitor whose browser cannot reach Google's CSV
+     endpoint, which answers HTTP 500 for stretches) already shows the same
+     roster the live sheet publishes. The 28 Oct privacy gate stays for
+     everything else: a row without approved=yes is never written to git.
+     notification_email is never baked (see stripPrivate) — the mailer gets
+     it from the live sheet / the Apps Script, not from a public file. */
+  const sheetTutors = [];
+  const APPROVED_RE = /^(yes|true|1|y|approved)$/i;
+  const SAFE_ID = /^[a-z0-9][a-z0-9-]{1,59}$/;
+  const stripPrivate = (t) => { delete t.notification_email; delete t.email; return t; };
   for (const row of tutors) {
     const id = String(row.id || "").trim().toLowerCase();
     if (!id || id.charAt(0) === "#") continue;   // the #help row
-    if (!registered.has(id)) { skippedUnregistered.push(id); continue; }
+    if (!registered.has(id)) {
+      const approved = APPROVED_RE.test(String(row.approved || "").trim());
+      const hiddenRow = HIDE_RE.test(String(row.active || "yes").trim());
+      if (!approved || hiddenRow || !SAFE_ID.test(id)) { skippedUnregistered.push(id); continue; }
+      const nt = stripPrivate(buildTutor(row));
+      if (!nt.name) { skippedUnregistered.push(id + " (no name)"); continue; }
+      const revs0 = reviewMap[id] || [];
+      nt.reviews = revs0;
+      nt.reviewsCount = revs0.length;
+      nt.rating = revs0.length ? revs0.reduce((n, x) => n + x.stars, 0) / revs0.length : 0;
+      const ph = String(nt.photo || "").toLowerCase();
+      if (!ph || ph.indexOf("placeholder") !== -1) {
+        nt.photo = nt.photo || "images/placeholder-tutor.jpg";
+        nt.thumb = nt.thumb && nt.thumb.indexOf("placeholder") === -1 ? nt.thumb : nt.photo;
+        nt.noPhoto = true;
+      } else if (!nt.thumb) nt.thumb = nt.photo;
+      nt.sheetOnly = true;
+      sheetTutors.push(nt);
+      continue;
+    }
     /* v130 — active=no hides the tutor everywhere. No overrides are
        baked for them, and the id joins EKGURU_SHEET_HIDDEN so the
        FIRST paint — before the live sheet arrives — already excludes
@@ -384,7 +438,7 @@ if (require.main === module) (async function main() {
     if (/^(no|n|false|0)$/i.test(String(row.availability || "").trim())) {
       console.warn(`  !! "${id}": availability="${row.availability}" does nothing — to hide this tutor set active=no.`);
     }
-    const t = buildTutor(row);
+    const t = stripPrivate(buildTutor(row));
     if (!t.name) continue;                    // a tutor needs a name
     delete t.id;
     const revs = reviewMap[id] || [];
@@ -401,7 +455,10 @@ if (require.main === module) (async function main() {
   }
 
   if (skippedUnregistered.length) {
-    console.log(`  not baked (not in the reviewed registry, so runtime-only): ${skippedUnregistered.join(", ")}`);
+    console.log(`  not baked (not in the registry and not approved=yes, so private): ${skippedUnregistered.join(", ")}`);
+  }
+  if (sheetTutors.length) {
+    console.log(`  baked from the sheet (approved=yes, no tutor file): ${sheetTutors.map(t => t.id).join(", ")}`);
   }
 
   const settingsObj = {};
@@ -440,6 +497,12 @@ window.EKGURU_SHEET_SETTINGS = ${JSON.stringify(settingsObj, null, 2)};
    sheet then corrects both ways at runtime. Keep this line AFTER
    SETTINGS: tools/gate.js expects OVERRIDES and SETTINGS adjacent. */
 window.EKGURU_SHEET_HIDDEN = ${JSON.stringify(hidden)};
+/* 17 Nov 2026 — approved gurus who have no js/tutors/<id>.js file yet.
+   Full records straight from the sheet (approved=yes, active not no).
+   js/tutors-data.js appends them to the roster after the registry, in
+   sheet order, so the first paint already matches the sheet; the live
+   sheet then updates them in place at runtime like any other tutor. */
+window.EKGURU_SHEET_TUTORS = ${JSON.stringify(sheetTutors, null, 2)};
 `;
   const target = path.join(__dirname, "..", "js", "tutors", "_overrides.js");
   fs.writeFileSync(target, out);

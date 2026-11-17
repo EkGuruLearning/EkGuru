@@ -204,7 +204,9 @@ for (const f of files) {
 const CSVS = {
   settings: "https://docs.google.com/spreadsheets/d/e/2PACX-1vQIman_Um2wQrj_3mXqqgq4k69zzmJHkhZ1TRoAnh2jcamhzoo-0VeTd55UieGMi6mEaTl3Zy84G44h/pub?gid=1658518385&single=true&output=csv",
   content:  "https://docs.google.com/spreadsheets/d/e/2PACX-1vQIman_Um2wQrj_3mXqqgq4k69zzmJHkhZ1TRoAnh2jcamhzoo-0VeTd55UieGMi6mEaTl3Zy84G44h/pub?gid=1654125803&single=true&output=csv",
-  reviews:  "https://docs.google.com/spreadsheets/d/e/2PACX-1vQIman_Um2wQrj_3mXqqgq4k69zzmJHkhZ1TRoAnh2jcamhzoo-0VeTd55UieGMi6mEaTl3Zy84G44h/pub?gid=293675115&single=true&output=csv",
+  /* 17 Nov 2026 — the separate `reviews` tab (gid 293675115) was deleted;
+     reviews are served by the Apps Script feed from reviews_pending, which
+     holds contact_email/booking_id and is NEVER published as a CSV. */
   tutors:   "https://docs.google.com/spreadsheets/d/e/2PACX-1vQIman_Um2wQrj_3mXqqgq4k69zzmJHkhZ1TRoAnh2jcamhzoo-0VeTd55UieGMi6mEaTl3Zy84G44h/pub?gid=1631273256&single=true&output=csv",
 };
 

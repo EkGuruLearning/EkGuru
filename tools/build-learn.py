@@ -480,8 +480,8 @@ PRACTICE_PAGES = {
 }
 
 RELATED = {
-    "reading": [("The alphabet guide", "/learn/hindi-alphabet-for-beginners/"), ("Reading Hindi path", "/learn/paths/reading-hindi/"), ("Vocabulary practice", "/learn/practice/vocabulary/")],
-    "writing": [("Hindi typing tutor", "/toolbox/hindi-typing/"), ("The alphabet guide", "/learn/hindi-alphabet-for-beginners/"), ("Pronunciation lab", "/learn/practice/pronunciation/")],
+    "reading": [("The alphabet guide", "/learn/hindi-alphabet-for-beginners/"), ("Hindi Foundation — read like a class-1 child", "/learn/hindi/foundation/"), ("Reading Hindi path", "/learn/paths/reading-hindi/"), ("Vocabulary practice", "/learn/practice/vocabulary/")],
+    "writing": [("Hindi typing tutor", "/toolbox/hindi-typing/"), ("The alphabet guide", "/learn/hindi-alphabet-for-beginners/"), ("Hindi Foundation — trace and read", "/learn/hindi/foundation/"), ("Pronunciation lab", "/learn/practice/pronunciation/")],
     "speaking": [("Hindi phrasebook", "/toolbox/hindi-phrasebook/"), ("Speaking Starter path", "/learn/paths/speaking-starter/"), ("Book a trial lesson", "/find-tutors.html")],
     "vocabulary": [("Hindi vocabulary tool", "/toolbox/hindi-vocabulary/"), ("Flashcards", "/toolbox/hindi-flashcards/"), ("The alphabet guide", "/learn/hindi-alphabet-for-beginners/")],
     "grammar": [("Gender — the full guide", "/learn/hindi-gender-masculine-feminine/"), ("Word order", "/learn/hindi-sentence-structure/"), ("Verbs guide", "/learn/hindi-verbs-present-past-future/")],

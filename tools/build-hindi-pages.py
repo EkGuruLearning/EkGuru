@@ -670,6 +670,17 @@ def update_hub_nav():
             li_start = h.rfind('<li>', 0, idx)
             h = h[:li_start] + add + h[li_start:]
             changed = True
+    # Hindi Foundation (children's-textbook primer, tools/build-hindi-foundation.py):
+    # one quick-start card next to "Read the script" so the section is reachable from the hub.
+    if 'href="foundation/"' not in h:
+        anchor = '<a class="hs-card" href="../hindi-alphabet-for-beginners/">'
+        idx = h.find(anchor)
+        if idx > 0:
+            end = h.find('</a>', idx) + 4
+            card = ('\n<a class="hs-card" href="foundation/"><b>Read like a child learns</b>'
+                    '<span>Hindi Foundation — 18 lessons, one matra at a time, with sound</span></a>')
+            h = h[:end] + card + h[end:]
+            changed = True
     if changed and h != orig:
         open(p, "w", encoding="utf-8").write(h)
     return changed

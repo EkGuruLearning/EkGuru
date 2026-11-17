@@ -16,7 +16,7 @@ script that lives inside your sheet, reads the cells directly, and tells the
 site what they say right now.
 
 - It only **reads**. It cannot change a single cell.
-- It sends only the public tabs: `tutors`, `reviews`, `settings`, `support`.
+- It sends only the public tabs: `tutors`, `settings`, `support`, plus `reviews`, which since 17 Nov 2026 is built from the **approved rows of `reviews_pending`** (public columns only: tutor, name, date, stars, text).
 - It removes private columns before anything leaves Google: `email`,
   `notification_email`, `formKey`, `whatsapp`, and any column whose name looks
   like a phone, mobile, password, token, bank, UPI or card field. This is done
@@ -81,7 +81,7 @@ updated.
 |---|---|---|
 | The site shows old data after an edit | The feed is off or the URL is wrong. The site fell back to the published CSV | Check `feed.url`, then open `?tab=health` |
 | `?tab=health` asks you to sign in | **Who has access** is not **Anyone** | Deploy a new version with access set to **Anyone** |
-| A tab shows `found: false` | The tab was renamed | Rename it back: `tutors`, `reviews`, `settings`, `support` |
+| A tab shows `found: false` | The tab was renamed | Rename it back: `tutors`, `reviews_pending`, `settings`, `support` |
 | A new guru does not appear | `approved` is not `yes`, `active` is `no`, there is no real photo, or the id has capitals or spaces | Open the browser console on ekguru.shop. It names the row and the reason |
 
 ## What this feed must never contain

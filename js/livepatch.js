@@ -196,17 +196,31 @@
       if (!Object.keys(live).length) {
         var RR = window.EKGURU_SHEET_RECORDS || {};
         var RH = window.EKGURU_SHEET_HIDDEN || [];
-        if (Object.keys(RR).length) {
+        /* 16 Nov 2026 — js/sheet.js now publishes EVERY id the live
+           sheet hides (file-backed AND record-only). Without it, a
+           page that loads tutors-data.js with all registry tutors
+           active=no had an empty EKGURU_TUTORS and RR held only the
+           record-only rows, so the five file-backed cards on
+           es/fr/de/… find-tutors.html were never removed while the
+           English roster showed none. Still gated on a real load:
+           an empty hidden list with no records means nothing moves. */
+        var RL = window.EKGURU_SHEET_HIDDEN_LIVE || [];
+        if (Object.keys(RR).length || RL.length) {
           hideSet = {};
           Object.keys(RR).forEach(function (id) {
             if (RR[id] && RR[id]._hiddenBySheet) hideSet[id] = 1;
             else knownVisible[id] = 1;
           });
+          RL.forEach(function (id) { hideSet[id] = 1; });
           /* Baked ids yield to live full records: reactivated since
              the build means visible, not hidden. */
           RH.forEach(function (id) {
             if (!(RR[id] && !RR[id]._hiddenBySheet)) hideSet[id] = 1;
           });
+          /* Owner rule (16 Nov 2026): approved tutors are visible —
+             only an explicit active=no (RL / hidden RR / baked RH)
+             removes a row. A tutor with no sheet row keeps their place,
+             matching js/sheet.js and tools/sheetsync.js. */
         }
       }
 
@@ -216,11 +230,14 @@
          would delete the whole page. */
       if (Object.keys(live).length || hideSet) {
         var rows = document.querySelectorAll("[data-t-row]");
+        var emptied = [];
         for (var j = rows.length - 1; j >= 0; j--) {
           var rid = rows[j].getAttribute("data-t-row");
           var gone = hideSet ? !!hideSet[rid] : !live[rid];
           if (gone) {
-            rows[j].parentNode && rows[j].parentNode.removeChild(rows[j]);
+            var parentEl = rows[j].parentNode;
+            parentEl && parentEl.removeChild(rows[j]);
+            if (parentEl && emptied.indexOf(parentEl) === -1) emptied.push(parentEl);
             hidden++;
           } else if (rows[j].getAttribute("data-baked-hide")) {
             /* Reactivated since the build: lift the first-paint
@@ -228,6 +245,16 @@
             rows[j].removeAttribute("data-baked-hide");
             rows[j].style.display = "";
           }
+        }
+        /* 16 Nov 2026 — a card list that just lost its LAST card must
+           not stand there blank. The translated find-tutors pages
+           (es/fr/de/pt/ja/ar) bake their cards into .lp-cards with no
+           JS repaint, so with every tutor active=no the visitor saw
+           an empty grid under "Profesores". Drop in the same honest
+           zero state the generators and js/main.js use, in the
+           page's language. */
+        for (var q = 0; q < emptied.length; q++) {
+          try { emptyState(emptied[q]); } catch (e) { /* never break a page over this */ }
         }
       }
     }
@@ -273,6 +300,53 @@
       } catch (e) {}
     }
     return changed + hidden;
+  }
+
+  /* 16 Nov 2026 — see the call site in apply(). Mirrors
+     tools/lib/zero-state.js and js/main.js emptyTutorsHTML(): same
+     keys (tutors.emptyTitle/Body/Cta), same links, same classes. */
+  function emptyState(host) {
+    if (!host || host.querySelector("[data-t-row]") || host.querySelector("[data-eg-empty]")) return;
+    if (host === document.body || host === document.documentElement) return;
+    var lang = String(document.documentElement.getAttribute("lang") || "en").slice(0, 2).toLowerCase();
+    var packs = window.EKGURU_I18N || {};
+    var dict = packs[lang] || {};
+    var en = packs.en || {};
+    var EN = {
+      "tutors.emptyTitle": "No tutors are available for booking right now.",
+      "tutors.emptyBody": "Free lessons, practice and courses are always open.",
+      "tutors.emptyCta": "Start the free course"
+    };
+    var tr = function (k) { return dict[k] || en[k] || EN[k]; };
+    var esc = function (x) {
+      return String(x == null ? "" : x).replace(/&/g, "&amp;").replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+    };
+    var segs = String(location.pathname || "/").split("/").filter(Boolean);
+    if (segs.length && /\.html?$/i.test(segs[segs.length - 1])) segs.pop();
+    var prefix = new Array(segs.length + 1).join("../");
+    /* A plain list (the "other tutors" <ul> on a profile) gets one
+       honest line, not a block with buttons inside a <ul>. */
+    if (/^(UL|OL)$/.test(host.tagName)) {
+      var li = document.createElement("li");
+      li.setAttribute("data-eg-empty", "1");
+      li.textContent = tr("tutors.emptyTitle");
+      host.appendChild(li);
+      return;
+    }
+    var div = document.createElement("div");
+    div.className = "empty t-empty";
+    div.setAttribute("data-eg-empty", "1");
+    div.innerHTML =
+      '<p class="t-empty-title"><strong>' + esc(tr("tutors.emptyTitle")) + "</strong></p>" +
+      '<p class="t-empty-body">' + esc(tr("tutors.emptyBody")) + "</p>" +
+      '<p class="t-empty-actions">' +
+        '<a class="btn btn-primary" href="' + prefix + 'learn/hindi/">' + esc(tr("tutors.emptyCta")) + "</a>" +
+        '<a class="btn btn-ghost" href="' + prefix + 'learn/">Learn</a>' +
+        '<a class="btn btn-ghost" href="' + prefix + 'courses/">Courses</a>' +
+        '<a class="btn btn-ghost" href="' + prefix + 'daily-hindi/">Daily Hindi</a>' +
+      "</p>";
+    host.appendChild(div);
   }
 
   /* v130 — see the note at the call site in apply(). */

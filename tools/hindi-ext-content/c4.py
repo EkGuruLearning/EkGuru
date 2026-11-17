@@ -1,0 +1,626 @@
+# -*- coding: utf-8 -*-
+"""Hindi C4 — SCHOLAR: literary reading, the grammar of words, academic writing.
+
+Post-C2 EkGuru extension, authored 16 Nov 2026. All example texts are
+original EkGuru prose/verse written to illustrate a device; named poets
+and novelists are referred to as traditions, never quoted.
+"""
+
+TITLE = "Scholar: Literature, Word-Craft and Academic Hindi"
+GOALS = [
+    "Read modern Hindi poetry and prose with an eye for device, metre and voice.",
+    "Take words apart: sandhi, samās, prefixes and suffixes.",
+    "Trace a word's history — Sanskrit, Prakrit, Persian, Portuguese, English.",
+    "Write an abstract, a critical review and a reasoned thesis paragraph in Hindi.",
+    "Handle counter-arguments with concession and synthesis, not volume.",
+]
+
+UNITS = [
+    # ------------------------------------------------------------------ U1
+    {
+        "id": "hi-c4-u1",
+        "title": "Reading Literature Closely",
+        "lessons": [
+            {
+                "id": "hi-c4-l1",
+                "title": "Poetic Devices: Upamā, Rūpak, Anuprās",
+                "learn": "Hindi poetics names its tools precisely. उपमा compares with a marker (सा, जैसा, समान); रूपक fuses the two things with no marker; अनुप्रास repeats a sound; मानवीकरण gives a thing a human act. Scholars name the device, show the two terms, and say what the fusion adds that plain statement could not.",
+                "vocab": [
+                    ("अलंकार", "alaṅkār", "figure of speech; ornament", "noun"),
+                    ("उपमा", "upamā", "simile", "noun"),
+                    ("रूपक", "rūpak", "metaphor (fusion, no marker)", "noun"),
+                    ("अनुप्रास", "anuprās", "alliteration", "noun"),
+                    ("मानवीकरण", "mānavīkaraṇ", "personification", "noun"),
+                    ("उपमेय", "upamey", "the thing compared (tenor)", "noun"),
+                    ("उपमान", "upamān", "the thing compared to (vehicle)", "noun"),
+                    ("बिम्ब", "bimb", "image (in poetry)", "noun"),
+                ],
+                "grammar": {
+                    "title": "Simile vs metaphor in Hindi: the marker test",
+                    "explain": "If a comparison word is present — सा/सी/से, जैसा, समान, सदृश, की तरह — it is उपमा. If the poet says the tenor IS the vehicle (चाँद-सा मुख → मुख-चंद्र, or ‘जीवन एक नदी है’), it is रूपक. In analysis, always name उपमेय (what is described) and उपमान (what it is likened to) and the साधारण धर्म (the shared quality). अनुप्रास is counted by repeated consonant onset; मानवीकरण by a human verb on a non-human subject.",
+                    "pattern": "उपमेय + (सा/जैसा/समान) + उपमान = उपमा ; उपमेय = उपमान (no marker) = रूपक",
+                    "examples": [
+                        ("उसकी हँसी झरने-सी बहती थी। — उपमा", "uskī hãsī jharne-sī bahtī thī. — upamā", "Her laugh flowed like a waterfall. — simile"),
+                        ("उसकी हँसी का झरना कमरे में भर गया। — रूपक", "uskī hãsī kā jharnā kamre mẽ bhar gayā. — rūpak", "The waterfall of her laugh filled the room. — metaphor"),
+                        ("हवा ने खिड़की खटखटाई। — मानवीकरण", "havā ne khiṛkī khaṭkhaṭāī. — mānavīkaraṇ", "The wind knocked on the window. — personification"),
+                    ],
+                    "mistakes": [
+                        "Calling every comparison a रूपक: the marker सा/जैसा makes it उपमा.",
+                        "Naming the device without the two terms: an analysis must say what is compared to what.",
+                    ],
+                },
+                "dialogue": [
+                    ("छात्र", "‘रात की चादर’ — यह उपमा है या रूपक?", "‘rāt kī cādar’ — yah upamā hai yā rūpak?", "‘The sheet of night’ — simile or metaphor?"),
+                    ("प्राध्यापक", "कोई ‘सी/जैसी’ नहीं है; रात को चादर कह दिया गया — रूपक।", "koī ‘sī/jaisī’ nahī̃ hai; rāt ko cādar kah diyā gayā — rūpak.", "No ‘like’; night is called a sheet outright — metaphor."),
+                    ("छात्र", "और ‘रात चादर जैसी फैल गई’?", "aur ‘rāt cādar jaisī phail gaī’?", "And ‘night spread like a sheet’?"),
+                    ("प्राध्यापक", "अब ‘जैसी’ आ गया — उपमा। उपमेय रात, उपमान चादर, धर्म फैलना।", "ab ‘jaisī’ ā gayā — upamā. upamey rāt, upamān cādar, dharm phailnā.", "Now ‘like’ is there — simile. Tenor: night; vehicle: sheet; shared quality: spreading."),
+                ],
+                "practice": [
+                    {"type": "multiple_choice", "q": "Identify the device: ‘समय की नदी सब बहा ले जाती है।’", "answer": "रूपक", "skill_target": "device identification", "options": ["उपमा", "रूपक", "अनुप्रास", "मानवीकरण"]},
+                    {"type": "multiple_choice", "q": "Identify the device: ‘चंचल चाँदनी चुपके चली।’", "answer": "अनुप्रास", "skill_target": "device identification", "options": ["उपमा", "रूपक", "अनुप्रास", "मानवीकरण"]},
+                    {"type": "transformation", "q": "Turn the simile into a metaphor: ‘उसका क्रोध आग जैसा था।’", "answer": "उसके क्रोध की आग भड़क उठी।", "skill_target": "simile to metaphor"},
+                    {"type": "transformation", "q": "Turn the metaphor into a simile: ‘बचपन का बाग़ सूख गया।’", "answer": "बचपन बाग़ की तरह सूख गया।", "skill_target": "metaphor to simile"},
+                    {"type": "fill_in_the_blank", "q": "In ‘मुख चंद्र-सा सुंदर’, the उपमेय is ____ and the उपमान is ____.", "answer": "मुख; चंद्र", "skill_target": "terms of comparison"},
+                    {"type": "sentence_building", "q": "Write one line of मानवीकरण about a city at dawn.", "answer": "सुबह ने शहर को धीरे से जगाया।", "skill_target": "device production"},
+                    {"type": "guided_composition", "q": "Write a four-line analysis (in Hindi) of the line ‘दुख की बदली छँट गई’: name device, tenor, vehicle, shared quality.", "answer": "यहाँ रूपक है। उपमेय दुख है, उपमान बदली। साधारण धर्म है छा जाना और छँट जाना। कवि दुख को अस्थायी मौसम बनाकर आशा का संकेत देता है।", "skill_target": "literary analysis"},
+                ],
+                "quiz": [
+                    {"q": "Which word signals a simile?", "options": ["है", "जैसा", "ने", "का"], "answer": 1, "why": "जैसा/सा/समान are simile markers."},
+                    {"q": "‘हवा गुनगुनाने लगी’ is…", "options": ["उपमा", "रूपक", "मानवीकरण", "अनुप्रास"], "answer": 2, "why": "A human act (humming) on a non-human subject = personification."},
+                    {"q": "उपमान means…", "options": ["the thing described", "the thing it is likened to", "the poet", "the metre"], "answer": 1, "why": "उपमान is the vehicle; उपमेय is the tenor."},
+                    {"q": "बिम्ब in poetics is…", "options": ["a rhyme", "an image", "a line count", "a title"], "answer": 1, "why": "बिम्ब = image."},
+                ],
+                "worksheet": {
+                    "title": "Device Lab",
+                    "tasks": [
+                        {"instruction": "Name the device and the two terms.", "items": ["आँसुओं का समुद्र", "ओस मोती-सी चमकी", "पर्वत ने सिर उठाया"], "key": ["रूपक: आँसू = समुद्र", "उपमा: ओस ~ मोती (सी)", "मानवीकरण: पर्वत + सिर उठाना"]},
+                        {"instruction": "Write one line each of उपमा, रूपक and अनुप्रास on the theme ‘monsoon’.", "items": ["बरसात"], "key": ["बादल हाथी-से मँडराए / बादलों की सेना उमड़ी / बरसी बूँदें बरगद पर"]},
+                        {"instruction": "Choose any Hindi poem you like; mark five devices in the margin with tenor and vehicle.", "items": ["open task"], "key": ["(open — check: marker test applied correctly)"]},
+                    ],
+                },
+                "srs": ["अलंकार", "उपमा", "रूपक", "मानवीकरण"],
+            },
+            {
+                "id": "hi-c4-l2",
+                "title": "Realist Prose: Narrative Tense and Free Indirect Speech",
+                "learn": "The realist short-story tradition narrates in the simple past (गया, कहा), slides into the habitual past for routine (जाता था), and lets a character's thoughts leak into narration without ‘उसने सोचा कि’ — free indirect speech. Scholars track whose voice each sentence belongs to and how tense shifts manage time.",
+                "vocab": [
+                    ("कथावाचक", "kathāvācak", "narrator", "noun"),
+                    ("सर्वज्ञ", "sarvagya", "omniscient", "adjective"),
+                    ("दृष्टिकोण", "dṛṣṭikoṇ", "point of view", "noun"),
+                    ("अप्रत्यक्ष कथन", "apratyakṣ kathan", "indirect speech", "noun"),
+                    ("मुक्त अप्रत्यक्ष कथन", "mukt apratyakṣ kathan", "free indirect speech", "noun"),
+                    ("अभ्यस्त भूत", "abhyast bhūt", "habitual past (-ता था)", "noun"),
+                    ("पूर्ण भूत", "pūrṇ bhūt", "perfect/past (-आ, -चुका था)", "noun"),
+                    ("पात्र", "pātra", "character", "noun"),
+                ],
+                "grammar": {
+                    "title": "Tense layering and voice in narration",
+                    "explain": "Backbone events: simple past (वह उठा, दरवाज़ा खोला). Background/routine: habitual past (रोज़ सुबह वह मंदिर जाता था). Earlier past: pluperfect (वह पहले ही जा चुका था). Free indirect speech keeps third person and past tense but uses the character's words, questions and particles: ‘अब क्या करे वह? पैसे तो थे नहीं।’ — no उसने सोचा, yet it is his thought. Spot it by exclamations, questions and तो/ही inside narration.",
+                    "pattern": "event = simple past · routine = -ता था · earlier = -चुका था · thought without tag = free indirect (3rd person + character's idiom)",
+                    "examples": [
+                        ("हरिया रोज़ भोर में खेत जाता था। उस दिन वह गया नहीं।", "hariyā roz bhor mẽ khet jātā thā. us din vah gayā nahī̃.", "Hariya went to the field every dawn. That day he did not go."),
+                        ("जब वह पहुँचा, मेला उठ चुका था।", "jab vah pahũcā, melā uṭh cukā thā.", "When he arrived, the fair had already packed up."),
+                        ("अब क्या करे वह? क़र्ज़ तो चुकाना ही था, और फ़सल सूख गई थी।", "ab kyā kare vah? qarz to cukānā hī thā, aur fasal sūkh gaī thī.", "What was he to do now? The debt had to be paid, and the crop had dried up. (free indirect)"),
+                    ],
+                    "mistakes": [
+                        "Writing every background sentence in simple past flattens time; routine needs -ता था.",
+                        "Tagging every thought with ‘उसने सोचा कि’ kills intimacy; let the character's idiom carry it.",
+                    ],
+                },
+                "dialogue": [
+                    ("शोधार्थी", "इस वाक्य में ‘क्या करे वह?’ — यह लेखक पूछ रहा है या पात्र?", "is vākya mẽ ‘kyā kare vah?’ — yah lekhak pūch rahā hai yā pātra?", "In this sentence ‘what was he to do?’ — is the author asking or the character?"),
+                    ("मार्गदर्शक", "पात्र। तीसरा पुरुष है, पर सवाल और ‘तो…ही’ पात्र के हैं। यही मुक्त अप्रत्यक्ष कथन है।", "pātra. tīsrā puruṣ hai, par savāl aur ‘to…hī’ pātra ke haĩ. yahī mukt apratyakṣ kathan hai.", "The character. It's third person, but the question and ‘to…hī’ are his. That's free indirect speech."),
+                    ("शोधार्थी", "तो कथावाचक सर्वज्ञ है?", "to kathāvācak sarvagya hai?", "So the narrator is omniscient?"),
+                    ("मार्गदर्शक", "सर्वज्ञ, पर इस क्षण हरिया के मन में उतर आया है।", "sarvagya, par is kṣaṇ hariyā ke man mẽ utar āyā hai.", "Omniscient, but at this moment he has climbed inside Hariya's mind."),
+                ],
+                "practice": [
+                    {"type": "transformation", "q": "Convert to free indirect speech: ‘उसने सोचा कि अब घर कैसे लौटेगा।’", "answer": "अब घर कैसे लौटे वह?", "skill_target": "free indirect speech"},
+                    {"type": "transformation", "q": "Convert back to tagged indirect speech: ‘पैसे तो थे नहीं, किससे माँगे?’", "answer": "उसने सोचा कि उसके पास पैसे नहीं हैं और वह किससे माँगे।", "skill_target": "indirect speech"},
+                    {"type": "error_correction", "q": "Fix the tense for routine: ‘वह हर रविवार बाज़ार गया।’", "answer": "वह हर रविवार बाज़ार जाता था।", "skill_target": "habitual past"},
+                    {"type": "fill_in_the_blank", "q": "जब डॉक्टर आया, मरीज़ ____ (die, pluperfect)।", "answer": "मर चुका था", "skill_target": "pluperfect"},
+                    {"type": "multiple_choice", "q": "Which sentence is free indirect speech?", "answer": "क्या वह सच में इतना अकेला था?", "skill_target": "recognition", "options": ["उसने कहा, ‘मैं अकेला हूँ।’", "उसने कहा कि वह अकेला है।", "क्या वह सच में इतना अकेला था?", "वह अकेला था।"]},
+                    {"type": "reverse_translation", "q": "Translate, keeping the voice: ‘माँ तो यही कहेगी — बेटा, लौट आ। पर लौटे कैसे?’", "answer": "Mother would say just this — son, come back. But how could he go back?", "skill_target": "voice in translation"},
+                    {"type": "guided_composition", "q": "Write a 6–8 sentence paragraph about a shopkeeper's bad day using simple past, habitual past, pluperfect and at least one free-indirect sentence.", "answer": "रामलाल रोज़ सात बजे दुकान खोलता था। उस दिन वह आठ बजे पहुँचा। ताला टूटा हुआ था; कोई रात में आ चुका था। गल्ला खाली था। अब क्या करे? पुलिस के पास जाए तो दिन भर वहीं बीतेगा। उसने शटर गिराया और चुपचाप बैठ गया।", "skill_target": "guided composition"},
+                ],
+                "quiz": [
+                    {"q": "Habitual past in Hindi is formed with…", "options": ["-आ", "-ता था", "-चुका था", "-एगा"], "answer": 1, "why": "-ता/-ती था/थी marks routine in the past."},
+                    {"q": "Free indirect speech keeps…", "options": ["first person and present", "third person and past, with the character's idiom", "quotation marks", "the tag ‘उसने कहा कि’"], "answer": 1, "why": "That blend is its defining feature."},
+                    {"q": "‘मेला उठ चुका था’ expresses…", "options": ["future", "routine", "an event before another past event", "command"], "answer": 2, "why": "-चुका था = pluperfect."},
+                    {"q": "A सर्वज्ञ narrator…", "options": ["knows only one character's mind", "knows all minds", "is a character", "never uses past tense"], "answer": 1, "why": "सर्वज्ञ = omniscient."},
+                ],
+                "worksheet": {
+                    "title": "Whose Voice Is It?",
+                    "tasks": [
+                        {"instruction": "Label each sentence: event / routine / earlier past / free indirect.", "items": ["वह चुप बैठा रहा।", "वह रोज़ चिट्ठी लिखती थी।", "चिट्ठी पहले ही जा चुकी थी।", "अब क्या बचा था कहने को?"], "key": ["event", "routine", "earlier past", "free indirect"]},
+                        {"instruction": "Rewrite the tagged thought as free indirect speech.", "items": ["उसने सोचा कि क्या वह भी कभी शहर देखेगा।"], "key": ["क्या वह भी कभी शहर देखेगा?"]},
+                        {"instruction": "Take any page of a Hindi short story; underline every tense shift and note why it happens.", "items": ["open task"], "key": ["(open — check: routine vs event vs earlier past identified)"]},
+                    ],
+                },
+                "srs": ["कथावाचक", "मुक्त अप्रत्यक्ष कथन", "अभ्यस्त भूत", "दृष्टिकोण"],
+            },
+            {
+                "id": "hi-c4-l3",
+                "title": "Nayī Kavitā: Fragment, Line Break, Silence",
+                "learn": "Post-1950 Hindi poetry abandoned fixed metre for free verse: short lines, dropped verbs, images that sit side by side without ‘और’, and a final line that turns the poem. Scholars read the line break as punctuation, ask what the missing verb would have been, and describe the turn (मोड़) rather than paraphrasing the ‘message’.",
+                "vocab": [
+                    ("नई कविता", "naī kavitā", "New Poetry (post-1950 free verse)", "noun"),
+                    ("छंद", "chand", "metre", "noun"),
+                    ("मुक्त छंद", "mukt chand", "free verse", "noun"),
+                    ("पंक्ति-विच्छेद", "paṅkti-vicched", "line break", "noun"),
+                    ("मोड़", "moṛ", "turn (volta) in a poem", "noun"),
+                    ("संकेत", "saṅket", "suggestion; hint", "noun"),
+                    ("संयोजन", "saṃyojan", "juxtaposition; arrangement", "noun"),
+                    ("अनकहा", "ankahā", "the unsaid", "adjective/noun"),
+                ],
+                "grammar": {
+                    "title": "Reading an ellipsis: supplying the verb",
+                    "explain": "Free verse drops copulas and conjunctions: ‘खिड़की / एक चिड़िया / और फिर कुछ नहीं’. To analyse, (1) supply the most neutral verb in brackets (खिड़की [पर] एक चिड़िया [बैठी]), (2) treat each line break as a pause that changes emphasis, (3) find the turn — usually the last one or two lines reverse or widen the image. Describe what the poem withholds; do not invent a moral.",
+                    "pattern": "noun phrase / noun phrase / turn — reader supplies the verb and the link",
+                    "examples": [
+                        ("बारिश के बाद\nसड़क पर आसमान\nऔर उस पर\nएक साइकिल का पहिया", "bāriś ke bād / saṛak par āsmān / aur us par / ek sāikil kā pahiyā", "After the rain / sky on the road / and on it / a bicycle wheel  (puddle-reflection; turn on the last line)"),
+                        ("घर लौटा\nताला वही\nचाबी वही\nदरवाज़ा नया", "ghar lauṭā / tālā vahī / cābī vahī / darvāzā nayā", "Came home / the same lock / the same key / a new door  (turn: something changed that keys cannot open)"),
+                        ("माँ ने कहा था\nखा लेना\n— थाली अब भी ढकी है", "mā̃ ne kahā thā / khā lenā / — thālī ab bhī ḍhakī hai", "Mother had said / eat / — the plate is still covered  (the unsaid: she is gone)"),
+                    ],
+                    "mistakes": [
+                        "Paraphrasing a free-verse poem into one ‘message’ erases the design; describe the turn and the withheld verb.",
+                        "Reading line breaks as mere layout: each break is a beat.",
+                    ],
+                },
+                "dialogue": [
+                    ("पाठक", "‘दरवाज़ा नया’ — कवि कहना क्या चाहता है?", "‘darvāzā nayā’ — kavi kahnā kyā cāhtā hai?", "‘A new door’ — what does the poet want to say?"),
+                    ("आलोचक", "पहले देखिए क्या नहीं कहा — कौन गया, कौन आया। बस दरवाज़ा बदला है।", "pahle dekhie kyā nahī̃ kahā — kaun gayā, kaun āyā. bas darvāzā badlā hai.", "First see what isn't said — who left, who came. Only the door changed."),
+                    ("पाठक", "तो मोड़ आख़िरी पंक्ति है।", "to moṛ ākhirī paṅkti hai.", "So the turn is the last line."),
+                    ("आलोचक", "हाँ। तीन पंक्तियाँ ‘वही’ कहती हैं, चौथी ‘नया’ — यही संयोजन कविता है।", "hā̃. tīn paṅktiyā̃ ‘vahī’ kahtī haĩ, cauthī ‘nayā’ — yahī saṃyojan kavitā hai.", "Yes. Three lines say ‘same’, the fourth ‘new’ — that juxtaposition is the poem."),
+                ],
+                "practice": [
+                    {"type": "transformation", "q": "Supply the missing verbs in brackets: ‘मेज़ पर चाय / खिड़की में शाम / फ़ोन चुप’", "answer": "मेज़ पर चाय [रखी है] / खिड़की में शाम [उतर रही है] / फ़ोन चुप [है]", "skill_target": "ellipsis"},
+                    {"type": "multiple_choice", "q": "Where is the turn in: ‘हर सुबह अलार्म / हर सुबह चाय / हर सुबह दौड़ / आज रविवार’?", "answer": "the last line", "skill_target": "locating the turn", "options": ["the first line", "the second line", "the last line", "there is none"]},
+                    {"type": "transformation", "q": "Break this sentence into four free-verse lines so the last line turns: ‘बाज़ार में सब कुछ था सिवाय उस दुकान के जहाँ बाबा बैठते थे।’", "answer": "बाज़ार में सब कुछ था / भीड़, आवाज़ें, रोशनी / बस एक दुकान बंद / जहाँ बाबा बैठते थे", "skill_target": "line breaking"},
+                    {"type": "fill_in_the_blank", "q": "Poetry without fixed metre is called ____ ____.", "answer": "मुक्त छंद", "skill_target": "terminology"},
+                    {"type": "reverse_translation", "q": "Translate, keeping line breaks: ‘चिट्ठी आई / लिखा था ठीक हूँ / लिखावट काँपती थी’", "answer": "A letter came / it said I'm fine / the handwriting trembled", "skill_target": "translation of verse"},
+                    {"type": "error_correction", "q": "This analysis invents a moral. Rewrite it descriptively: ‘कविता हमें सिखाती है कि माँ का आदर करो।’ (poem: ‘माँ ने कहा था / खा लेना / — थाली अब भी ढकी है’)", "answer": "कविता माँ की अनुपस्थिति को सीधे नहीं कहती; ढकी थाली का बिम्ब उसे संकेत से कहता है, और डैश के बाद का मोड़ समय के बीत जाने को दिखाता है।", "skill_target": "descriptive analysis"},
+                    {"type": "guided_composition", "q": "Write a 5–7 line free-verse poem about a railway platform with one clear turn, then one sentence naming the turn.", "answer": "प्लेटफ़ॉर्म / चाय की भाप / घोषणा / भीड़ का धक्का / गाड़ी गई / और मैं / सही प्लेटफ़ॉर्म पर नहीं था — मोड़ आख़िरी पंक्ति में है: भीड़ और शोर के बाद व्यक्तिगत चूक।", "skill_target": "guided composition"},
+                ],
+                "quiz": [
+                    {"q": "मोड़ in a poem means…", "options": ["a rhyme", "the turn or shift", "the title", "the metre"], "answer": 1, "why": "मोड़ = volta/turn."},
+                    {"q": "In free verse, a line break works as…", "options": ["decoration", "a pause/beat that changes emphasis", "a spelling rule", "a grammar error"], "answer": 1, "why": "The break is a unit of rhythm and meaning."},
+                    {"q": "Good analysis of free verse…", "options": ["gives one moral", "describes the design: ellipsis, juxtaposition, turn", "counts syllables only", "ignores line breaks"], "answer": 1, "why": "Describe, don't moralise."},
+                    {"q": "संयोजन here means…", "options": ["rhyme scheme", "juxtaposition/arrangement of images", "metre", "author's name"], "answer": 1, "why": "Placing images side by side without a link."},
+                ],
+                "worksheet": {
+                    "title": "Line by Line",
+                    "tasks": [
+                        {"instruction": "Supply the elided verb for each line.", "items": ["सीढ़ियाँ", "ऊपर अँधेरा", "नीचे टीवी की आवाज़"], "key": ["[चढ़ीं/हैं]", "[छाया है]", "[आ रही है]"]},
+                        {"instruction": "Mark the turn and say what it reverses.", "items": ["सब थे / सब हँसे / सब गए / कुर्सी गरम थी"], "key": ["Last line: presence lingers after departure."]},
+                        {"instruction": "Rewrite a paragraph from today's news as a six-line free-verse poem with a turn.", "items": ["open task"], "key": ["(open — check: dropped verbs, juxtaposition, final turn)"]},
+                    ],
+                },
+                "srs": ["नई कविता", "मुक्त छंद", "मोड़", "अनकहा"],
+            },
+        ],
+    },
+    # ------------------------------------------------------------------ U2
+    {
+        "id": "hi-c4-u2",
+        "title": "The Grammar of Words",
+        "lessons": [
+            {
+                "id": "hi-c4-l4",
+                "title": "Sandhi: Where Sounds Meet",
+                "learn": "Tatsam Hindi words fuse at their joints by Sanskrit rules. विद्या + आलय = विद्यालय (अ+आ→आ), सूर्य + उदय = सूर्योदय (अ+उ→ओ), देव + इंद्र = देवेंद्र (अ+इ→ए). Scholars split a long word into its parts to read it, and know the three families: स्वर, व्यंजन, विसर्ग sandhi.",
+                "vocab": [
+                    ("संधि", "sandhi", "junction of sounds", "noun"),
+                    ("संधि-विच्छेद", "sandhi-vicched", "splitting a sandhi", "noun"),
+                    ("स्वर संधि", "svar sandhi", "vowel sandhi", "noun"),
+                    ("व्यंजन संधि", "vyañjan sandhi", "consonant sandhi", "noun"),
+                    ("विसर्ग संधि", "visarg sandhi", "visarga sandhi", "noun"),
+                    ("दीर्घ", "dīrgh", "long (vowel)", "adjective"),
+                    ("गुण", "guṇ", "guṇa grade (अ+इ→ए, अ+उ→ओ)", "noun"),
+                    ("वृद्धि", "vṛddhi", "vṛddhi grade (अ+ए→ऐ, अ+ओ→औ)", "noun"),
+                ],
+                "grammar": {
+                    "title": "The four vowel rules you meet most",
+                    "explain": "दीर्घ: same vowels merge long — विद्या+अर्थी = विद्यार्थी, कवि+इंद्र = कवींद्र. गुण: अ/आ + इ/ई → ए (नर+इंद्र = नरेंद्र); अ/आ + उ/ऊ → ओ (सूर्य+उदय = सूर्योदय); अ/आ + ऋ → अर् (महा+ऋषि = महर्षि). वृद्धि: अ/आ + ए/ऐ → ऐ (एक+एक = एकैक); अ/आ + ओ/औ → औ (महा+औषध = महौषध). यण: इ+vowel → य (अति+अधिक = अत्यधिक), उ+vowel → व (सु+आगत = स्वागत). Consonant sandhi: जगत्+नाथ = जगन्नाथ, सत्+जन = सज्जन. Visarga: निः+चल = निश्चल, दुः+ख = दुःख.",
+                    "pattern": "split at the vowel joint, name the rule, rejoin: विद्या + आलय → (दीर्घ) → विद्यालय",
+                    "examples": [
+                        ("हिम + आलय = हिमालय (दीर्घ)", "him + ālay = himālay (dīrgh)", "snow + abode = Himalaya"),
+                        ("महा + ईश = महेश (गुण)", "mahā + īś = maheś (guṇ)", "great + lord = Mahesh"),
+                        ("इति + आदि = इत्यादि (यण)", "iti + ādi = ityādi (yaṇ)", "thus + beginning = etcetera"),
+                    ],
+                    "mistakes": [
+                        "Applying sandhi to Perso-Arabic or English words (ज़रूरत, टिकट): sandhi belongs to the tatsam layer only.",
+                        "Guessing गुण where दीर्घ applies: विद्या + आलय is आ+आ (दीर्घ), not अ+इ.",
+                    ],
+                },
+                "dialogue": [
+                    ("छात्रा", "‘परमेश्वर’ को कैसे तोड़ें?", "‘parmeśvar’ ko kaise toṛẽ?", "How do we split ‘parmeśvar’?"),
+                    ("आचार्य", "परम + ईश्वर। अ + ई मिलकर ए — गुण संधि।", "param + īśvar. a + ī milkar e — guṇ sandhi.", "param + īśvar. a + ī become e — guṇa sandhi."),
+                    ("छात्रा", "और ‘स्वागत’?", "aur ‘svāgat’?", "And ‘svāgat’?"),
+                    ("आचार्य", "सु + आगत। उ + आ → वा — यण संधि। इसलिए ‘सुआगत’ नहीं, ‘स्वागत’।", "su + āgat. u + ā → vā — yaṇ sandhi. islie ‘suāgat’ nahī̃, ‘svāgat’.", "su + āgat. u + ā → vā — yaṇ sandhi. That's why it's ‘svāgat’, not ‘suāgat’."),
+                ],
+                "practice": [
+                    {"type": "transformation", "q": "Split and name the rule: ‘सूर्योदय’", "answer": "सूर्य + उदय — गुण संधि", "skill_target": "sandhi split"},
+                    {"type": "transformation", "q": "Join and name the rule: ‘विद्या + अर्थी’", "answer": "विद्यार्थी — दीर्घ संधि", "skill_target": "sandhi join"},
+                    {"type": "transformation", "q": "Split: ‘अत्यधिक’", "answer": "अति + अधिक — यण संधि", "skill_target": "sandhi split"},
+                    {"type": "multiple_choice", "q": "‘जगन्नाथ’ is an example of…", "answer": "व्यंजन संधि", "skill_target": "classification", "options": ["स्वर संधि", "व्यंजन संधि", "विसर्ग संधि", "no sandhi"]},
+                    {"type": "fill_in_the_blank", "q": "महा + ऋषि = ____ (गुण: आ + ऋ → अर्)", "answer": "महर्षि", "skill_target": "sandhi join"},
+                    {"type": "error_correction", "q": "Which is wrong and why: ‘नर + इंद्र = नरैंद्र’", "answer": "नरेंद्र — अ + इ → ए is गुण, not वृद्धि (ऐ).", "skill_target": "rule correction"},
+                    {"type": "guided_composition", "q": "Write three tatsam compound words you have seen on signboards (e.g. विद्यालय, महोत्सव, स्वागत), split each and name the rule.", "answer": "विद्यालय = विद्या+आलय (दीर्घ); महोत्सव = महा+उत्सव (गुण); स्वागत = सु+आगत (यण)", "skill_target": "application"},
+                ],
+                "quiz": [
+                    {"q": "अ + उ gives…", "options": ["औ", "ओ", "ऊ", "उ"], "answer": 1, "why": "गुण: अ/आ + उ/ऊ → ओ (सूर्योदय)."},
+                    {"q": "‘निश्चल’ shows…", "options": ["स्वर संधि", "विसर्ग संधि", "यण", "वृद्धि"], "answer": 1, "why": "निः + चल → विसर्ग becomes श."},
+                    {"q": "Sandhi applies to…", "options": ["all Hindi words", "tatsam (Sanskrit-layer) words", "English loans", "Bambaiya"], "answer": 1, "why": "It is a Sanskrit-layer process."},
+                    {"q": "इति + आदि = इत्यादि is…", "options": ["दीर्घ", "गुण", "यण", "वृद्धि"], "answer": 2, "why": "इ before a vowel → य."},
+                ],
+                "worksheet": {
+                    "title": "Sandhi Table",
+                    "tasks": [
+                        {"instruction": "Split and name the rule.", "items": ["हिमालय", "महेश", "सज्जन", "दुःख"], "key": ["हिम+आलय (दीर्घ)", "महा+ईश (गुण)", "सत्+जन (व्यंजन)", "दुः+ख (विसर्ग)"]},
+                        {"instruction": "Join.", "items": ["रवि + इंद्र", "महा + उत्सव", "प्रति + एक"], "key": ["रवींद्र", "महोत्सव", "प्रत्येक"]},
+                        {"instruction": "Collect ten tatsam words from a Hindi newspaper editorial and split each.", "items": ["open task"], "key": ["(open — check: rule named for each)"]},
+                    ],
+                },
+                "srs": ["संधि", "संधि-विच्छेद", "गुण", "वृद्धि"],
+            },
+            {
+                "id": "hi-c4-l5",
+                "title": "Samās: Compounds and Who Is in Charge",
+                "learn": "Hindi packs phrases into compounds (समास). The scholar's question is: which member is the head? तत्पुरुष — the last word rules (राजपुत्र = राजा का पुत्र); द्वंद्व — both equal (माता-पिता); बहुव्रीहि — neither, the compound names a third thing (चक्रपाणि = the one with a discus in hand, Vishnu); कर्मधारय — adjective + noun (नीलकमल); द्विगु — number first (त्रिलोक); अव्ययीभाव — indeclinable first (यथाशक्ति).",
+                "vocab": [
+                    ("समास", "samās", "compound", "noun"),
+                    ("समास-विग्रह", "samās-vigrah", "expansion of a compound", "noun"),
+                    ("तत्पुरुष", "tatpuruṣ", "determinative compound (last word head)", "noun"),
+                    ("द्वंद्व", "dvandva", "copulative compound (and)", "noun"),
+                    ("बहुव्रीहि", "bahuvrīhi", "exocentric compound (names a third thing)", "noun"),
+                    ("कर्मधारय", "karmadhāray", "descriptive compound (adj + noun)", "noun"),
+                    ("द्विगु", "dvigu", "numeral compound", "noun"),
+                    ("अव्ययीभाव", "avyayībhāv", "adverbial compound", "noun"),
+                ],
+                "grammar": {
+                    "title": "The head test",
+                    "explain": "Expand the compound (विग्रह) and ask what it refers to. If the expansion ends on the last word (राजा का पुत्र → a पुत्र), it is तत्पुरुष (or कर्मधारय if the first is an adjective: नीला कमल). If you need ‘और’ (माता और पिता), द्वंद्व. If the expansion needs ‘वाला/जिसका’ and points outside (चक्र है पाणि में जिसके → विष्णु), बहुव्रीहि. A number first (तीन लोकों का समूह) → द्विगु. An adverb-like whole (शक्ति के अनुसार) → अव्ययीभाव. Note: पीतांबर as ‘yellow cloth’ is कर्मधारय; as ‘the one wearing yellow’ (Krishna) it is बहुव्रीहि — context decides.",
+                    "pattern": "विग्रह → head? last word / both / outside / adjective+noun / number / adverb",
+                    "examples": [
+                        ("रसोईघर = रसोई के लिए घर — तत्पुरुष", "rasoīghar = rasoī ke lie ghar — tatpuruṣ", "kitchen = house for cooking — determinative"),
+                        ("दिन-रात = दिन और रात — द्वंद्व", "din-rāt = din aur rāt — dvandva", "day and night — copulative"),
+                        ("दशानन = दस हैं आनन जिसके (रावण) — बहुव्रीहि", "daśānan = das haĩ ānan jiske (rāvaṇ) — bahuvrīhi", "ten-faced = he who has ten faces (Ravana) — exocentric"),
+                    ],
+                    "mistakes": [
+                        "Confusing द्विगु with बहुव्रीहि: त्रिलोक (three worlds) is द्विगु; त्रिनेत्र as ‘Shiva’ is बहुव्रीहि.",
+                        "Calling every hyphenated pair द्वंद्व: घर-घर (every house) is अव्ययीभाव, not ‘house and house’.",
+                    ],
+                },
+                "dialogue": [
+                    ("विद्यार्थी", "‘लंबोदर’ कौन-सा समास है?", "‘lambodar’ kaun-sā samās hai?", "Which compound is ‘lambodar’?"),
+                    ("गुरु", "विग्रह करो — लंबा है उदर जिसका। किसकी बात है?", "vigrah karo — lambā hai udar jiskā. kiskī bāt hai?", "Expand it — he whose belly is long. Who is meant?"),
+                    ("विद्यार्थी", "गणेश जी की। मतलब शब्द बाहर की ओर इशारा करता है।", "gaṇeś jī kī. matlab śabd bāhar kī or iśārā kartā hai.", "Ganesh. So the word points outside itself."),
+                    ("गुरु", "ठीक — बहुव्रीहि। अगर सिर्फ़ ‘लंबा पेट’ होता तो कर्मधारय।", "ṭhīk — bahuvrīhi. agar sirf ‘lambā peṭ’ hotā to karmadhāray.", "Right — bahuvrīhi. If it just meant ‘a long belly’, it would be karmadhāraya."),
+                ],
+                "practice": [
+                    {"type": "transformation", "q": "Expand and classify: ‘गंगाजल’", "answer": "गंगा का जल — तत्पुरुष", "skill_target": "compound analysis"},
+                    {"type": "transformation", "q": "Expand and classify: ‘भाई-बहन’", "answer": "भाई और बहन — द्वंद्व", "skill_target": "compound analysis"},
+                    {"type": "transformation", "q": "Expand and classify: ‘पंचवटी’", "answer": "पाँच वटों का समूह — द्विगु", "skill_target": "compound analysis"},
+                    {"type": "multiple_choice", "q": "‘नीलकंठ’ meaning Shiva is…", "answer": "बहुव्रीहि", "skill_target": "classification", "options": ["कर्मधारय", "बहुव्रीहि", "द्वंद्व", "द्विगु"]},
+                    {"type": "fill_in_the_blank", "q": "‘यथासंभव’ (as far as possible) is an ____ compound.", "answer": "अव्ययीभाव", "skill_target": "classification"},
+                    {"type": "error_correction", "q": "Correct the classification: ‘महापुरुष = महान पुरुष — तत्पुरुष’", "answer": "महापुरुष = महान पुरुष — कर्मधारय (adjective + noun).", "skill_target": "rule correction"},
+                    {"type": "guided_composition", "q": "Write one compound of each type (तत्पुरुष, द्वंद्व, बहुव्रीहि, कर्मधारय, द्विगु, अव्ययीभाव) with its expansion.", "answer": "देशभक्ति = देश के लिए भक्ति; सुख-दुख = सुख और दुख; चतुर्भुज = चार भुजाएँ हैं जिसकी (विष्णु); पीतांबर = पीला अंबर; सप्ताह = सात दिनों का समूह; प्रतिदिन = हर दिन", "skill_target": "production"},
+                ],
+                "quiz": [
+                    {"q": "Which compound needs ‘और’ to expand?", "options": ["तत्पुरुष", "द्वंद्व", "बहुव्रीहि", "द्विगु"], "answer": 1, "why": "द्वंद्व joins equals: माता और पिता."},
+                    {"q": "A compound that names a third thing is…", "options": ["कर्मधारय", "बहुव्रीहि", "अव्ययीभाव", "तत्पुरुष"], "answer": 1, "why": "बहुव्रीहि is exocentric."},
+                    {"q": "‘त्रिभुज’ (triangle) is…", "options": ["द्विगु", "द्वंद्व", "बहुव्रीहि", "अव्ययीभाव"], "answer": 0, "why": "Number first, names a collection of three sides → द्विगु."},
+                    {"q": "समास-विग्रह means…", "options": ["joining words", "expanding a compound into a phrase", "sandhi", "metre"], "answer": 1, "why": "विग्रह = analysis/expansion."},
+                ],
+                "worksheet": {
+                    "title": "Head Hunt",
+                    "tasks": [
+                        {"instruction": "Expand and classify.", "items": ["राजमहल", "अन्न-जल", "चंद्रमुखी (a woman)", "नवरात्र"], "key": ["राजा का महल — तत्पुरुष", "अन्न और जल — द्वंद्व", "चंद्र के समान मुख है जिसका — बहुव्रीहि", "नौ रात्रियों का समूह — द्विगु"]},
+                        {"instruction": "Decide कर्मधारय or बहुव्रीहि from context.", "items": ["पीतांबर (a yellow cloth)", "पीतांबर (Krishna)"], "key": ["कर्मधारय", "बहुव्रीहि"]},
+                        {"instruction": "Find eight compounds in any Hindi textbook chapter and sort them into the six types.", "items": ["open task"], "key": ["(open — check: head test applied)"]},
+                    ],
+                },
+                "srs": ["समास", "तत्पुरुष", "बहुव्रीहि", "द्वंद्व"],
+            },
+            {
+                "id": "hi-c4-l6",
+                "title": "Word Histories: Layers of Borrowing",
+                "learn": "Every Hindi sentence is an archaeological site. चाय came through Chinese via Persian; अलमारी, चाबी, पाव and बाल्टी are Portuguese; क़ानून, अदालत, सज़ा are Arabic via Persian; स्टेशन, रेल, बस are English; and the core — पानी, हाथ, आँख — is tadbhav from Sanskrit through Prakrit. Scholars identify the layer from sound shape and spelling, and read the history of contact in it.",
+                "vocab": [
+                    ("व्युत्पत्ति", "vyutpatti", "etymology", "noun"),
+                    ("देशज", "deśaj", "indigenous word of uncertain origin", "adjective"),
+                    ("विदेशज", "videśaj", "foreign loan", "adjective"),
+                    ("प्राकृत", "prākṛt", "Prakrit (middle Indo-Aryan)", "noun"),
+                    ("अपभ्रंश", "apabhraṃś", "Apabhramsha (late middle Indo-Aryan)", "noun"),
+                    ("नुक़्ता", "nuqtā", "the dot marking Perso-Arabic sounds (क़ ख़ ग़ ज़ फ़)", "noun"),
+                    ("हिंदुस्तानी", "hindustānī", "Hindustani (shared Hindi-Urdu base)", "noun"),
+                    ("आगत शब्द", "āgat śabd", "loanword", "noun"),
+                ],
+                "grammar": {
+                    "title": "Reading the layer from the shape of a word",
+                    "explain": "Clues: a नुक़्ता (क़ ख़ ग़ ज़ फ़) or final -त/-ात on an abstract noun (हालत, इजाज़त) → Arabic/Persian. Conjuncts like ज्ञ, क्ष, त्र, श्र and endings -ता, -त्व → tatsam Sanskrit. A simplified shape beside a tatsam twin (हाथ/हस्त, आग/अग्नि, दूध/दुग्ध) → tadbhav. Words for furniture, bread and sailing that look un-Sanskritic (अलमारी, पाव, बाल्टी, चाबी, कमरा) → Portuguese. Modern objects and institutions → English. Words with no traceable parent (लोटा, खिड़की, झाड़ू) → देशज.",
+                    "pattern": "sound/spelling clue → layer → historical contact that brought it",
+                    "examples": [
+                        ("अदालत ने सज़ा सुनाई। — अरबी-फ़ारसी परत (नुक़्ता, -त)", "adālat ne sazā sunāī. — arabī-fārsī parat", "The court pronounced the sentence. — Arabic-Persian layer"),
+                        ("अलमारी की चाबी कमरे में है। — तीनों पुर्तगाली", "almārī kī cābī kamre mẽ hai. — tīnõ purtgālī", "The cupboard key is in the room. — all three Portuguese"),
+                        ("हस्त → हाथ, कर्ण → कान, दुग्ध → दूध — तद्भव", "hast → hāth, karṇ → kān, dugdh → dūdh — tadbhav", "Sanskrit → Prakrit → Hindi body and food words"),
+                    ],
+                    "mistakes": [
+                        "Treating Perso-Arabic words as ‘not Hindi’: ज़रूरत, वक़्त, किताब are as Hindi as पानी.",
+                        "Dropping the नुक़्ता in formal writing changes words: ख़ुदा/खुदा, राज़/राज, फ़न/फन.",
+                    ],
+                },
+                "dialogue": [
+                    ("बेटी", "‘पाव’ रोटी का पाव क्यों? चौथाई तो नहीं है।", "‘pāv’ roṭī kā pāv kyõ? cauthāī to nahī̃ hai.", "Why is bread roll ‘pāv’? It's not a quarter."),
+                    ("पिता", "यह पुर्तगाली ‘pão’ है, रोटी। गोवा और बंबई से आया।", "yah purtgālī ‘pão’ hai, roṭī. goā aur bambaī se āyā.", "It's Portuguese ‘pão’, bread. It came via Goa and Bombay."),
+                    ("बेटी", "और ‘चाबी’?", "aur ‘cābī’?", "And ‘cābī’?"),
+                    ("पिता", "वह भी — ‘chave’। अलमारी, बाल्टी, कमरा, सब उसी जहाज़ से उतरे।", "vah bhī — ‘chave’. almārī, bālṭī, kamrā, sab usī jahāz se utre.", "That too — ‘chave’. Cupboard, bucket, room — all came off the same ship."),
+                ],
+                "practice": [
+                    {"type": "matching", "q": "Match each word to its layer: अदालत / अलमारी / आँख / स्टेशन", "answer": "अदालत – अरबी-फ़ारसी; अलमारी – पुर्तगाली; आँख – तद्भव; स्टेशन – अंग्रेज़ी", "skill_target": "matching", "options": ["अदालत – अरबी-फ़ारसी; अलमारी – पुर्तगाली; आँख – तद्भव; स्टेशन – अंग्रेज़ी", "अदालत – पुर्तगाली; अलमारी – अंग्रेज़ी; आँख – अरबी; स्टेशन – तद्भव", "अदालत – तद्भव; अलमारी – अरबी; आँख – अंग्रेज़ी; स्टेशन – पुर्तगाली"]},
+                    {"type": "multiple_choice", "q": "Which clue points to the Arabic-Persian layer?", "answer": "a नुक़्ता under क/ख/ग/ज/फ", "skill_target": "layer clue", "options": ["the conjunct क्ष", "a नुक़्ता under क/ख/ग/ज/फ", "the suffix -त्व", "a final -ी"]},
+                    {"type": "transformation", "q": "Give the tatsam twin of each tadbhav: हाथ, आग, दूध", "answer": "हस्त, अग्नि, दुग्ध", "skill_target": "tadbhav–tatsam pairs"},
+                    {"type": "fill_in_the_blank", "q": "A word with no traceable parent language (लोटा, झाड़ू) is called ____.", "answer": "देशज", "skill_target": "terminology"},
+                    {"type": "error_correction", "q": "Restore the नुक़्ता where meaning depends on it: ‘उसने अपना राज बता दिया।’ (= secret)", "answer": "उसने अपना राज़ बता दिया।", "skill_target": "orthography"},
+                    {"type": "reverse_translation", "q": "Translate and name the layer of each noun: ‘बस स्टेशन के पास अदालत है।’", "answer": "There is a court near the bus station. — बस, स्टेशन: English; अदालत: Arabic-Persian", "skill_target": "layer tagging"},
+                    {"type": "guided_composition", "q": "Write a four-sentence paragraph about your kitchen using at least one word from each of five layers; underline and label them.", "answer": "रसोई (तद्भव) में अलमारी (पुर्तगाली) के ऊपर चाय (चीनी-फ़ारसी) का डिब्बा है। फ़्रिज (अंग्रेज़ी) में दूध (तद्भव) रखा है। ज़रूरत (अरबी) पड़े तो झाड़ू (देशज) कोने में है। भोजन (तत्सम) सात बजे बनता है।", "skill_target": "guided composition"},
+                ],
+                "quiz": [
+                    {"q": "अलमारी, चाबी, बाल्टी come from…", "options": ["Arabic", "Portuguese", "English", "Sanskrit"], "answer": 1, "why": "Portuguese trade and settlement on the west coast."},
+                    {"q": "A tadbhav word is…", "options": ["borrowed from English", "evolved from Sanskrit via Prakrit", "unchanged Sanskrit", "of unknown origin"], "answer": 1, "why": "हस्त → हाथ is the classic path."},
+                    {"q": "Which word carries a नुक़्ता in careful spelling?", "options": ["पानी", "किताब", "ज़रूरत", "घर"], "answer": 2, "why": "ज़रूरत has Perso-Arabic ज़."},
+                    {"q": "हिंदुस्तानी refers to…", "options": ["Sanskrit", "the shared colloquial base of Hindi and Urdu", "Bhojpuri", "Portuguese Hindi"], "answer": 1, "why": "The common spoken base before script and register diverge."},
+                ],
+                "worksheet": {
+                    "title": "Word Dig",
+                    "tasks": [
+                        {"instruction": "Label the layer.", "items": ["कुर्सी", "विद्यालय", "कान", "टिकट", "खिड़की"], "key": ["अरबी", "तत्सम", "तद्भव", "अंग्रेज़ी", "देशज"]},
+                        {"instruction": "Give the tadbhav for each tatsam.", "items": ["कर्ण", "सर्प", "ग्राम"], "key": ["कान", "साँप", "गाँव"]},
+                        {"instruction": "List twenty words from your morning routine and sort them by layer; which layer dominates and why?", "items": ["open task"], "key": ["(open — expect tadbhav for body/home, English for devices, Persian for time/need words)"]},
+                    ],
+                },
+                "srs": ["व्युत्पत्ति", "देशज", "नुक़्ता", "अपभ्रंश"],
+            },
+        ],
+    },
+    # ------------------------------------------------------------------ U3
+    {
+        "id": "hi-c4-u3",
+        "title": "Academic Writing in Hindi",
+        "lessons": [
+            {
+                "id": "hi-c4-l7",
+                "title": "The Research Abstract: Five Moves",
+                "learn": "A Hindi शोध-सार follows five moves in order: पृष्ठभूमि (background), उद्देश्य (aim), पद्धति (method), निष्कर्ष (findings), निहितार्थ (implications). Each move has fixed phrasing; the verbs are impersonal passive (किया गया, पाया गया). Scholars write it last, keep it under 200 words, and never put a claim in the abstract that the paper does not support.",
+                "vocab": [
+                    ("शोध-सार", "śodh-sār", "abstract", "noun"),
+                    ("पृष्ठभूमि", "pṛṣṭhbhūmi", "background", "noun"),
+                    ("उद्देश्य", "uddeśya", "aim; objective", "noun"),
+                    ("पद्धति", "paddhati", "method", "noun"),
+                    ("प्रतिदर्श", "pratidarś", "sample", "noun"),
+                    ("निष्कर्ष", "niṣkarṣ", "conclusion; finding", "noun"),
+                    ("निहितार्थ", "nihitārth", "implication", "noun"),
+                    ("मुख्य शब्द", "mukhya śabd", "keywords", "noun"),
+                ],
+                "grammar": {
+                    "title": "Impersonal passive and move signals",
+                    "explain": "Research Hindi hides the researcher: अध्ययन किया गया (a study was conducted), आँकड़े एकत्र किए गए (data were collected), पाया गया कि (it was found that). Move signals: पृष्ठभूमि — ‘…के संदर्भ में’, ‘हाल के वर्षों में’; उद्देश्य — ‘प्रस्तुत अध्ययन का उद्देश्य … का विश्लेषण करना है’; पद्धति — ‘… प्रतिदर्श पर … पद्धति से’; निष्कर्ष — ‘परिणाम दर्शाते हैं कि’; निहितार्थ — ‘ये निष्कर्ष … के लिए उपयोगी हो सकते हैं’. Hedge findings (संकेत देते हैं), do not overclaim (सिद्ध करते हैं).",
+                    "pattern": "पृष्ठभूमि → उद्देश्य → पद्धति (प्रतिदर्श + उपकरण) → निष्कर्ष (hedged) → निहितार्थ",
+                    "examples": [
+                        ("प्रस्तुत अध्ययन का उद्देश्य ग्रामीण विद्यालयों में डिजिटल शिक्षण की प्रभावशीलता का मूल्यांकन करना है।", "prastut adhyayan kā uddeśya grāmīṇ vidyālayõ mẽ ḍijiṭal śikṣaṇ kī prabhāvśīltā kā mūlyāṅkan karnā hai.", "The present study aims to evaluate the effectiveness of digital teaching in rural schools."),
+                        ("120 विद्यार्थियों के प्रतिदर्श पर मिश्रित पद्धति से आँकड़े एकत्र किए गए।", "120 vidyārthiyõ ke pratidarś par miśrit paddhati se ā̃kṛe ekatra kie gae.", "Data were collected from a sample of 120 students using a mixed method."),
+                        ("परिणाम संकेत देते हैं कि नियमित अभ्यास से पठन-गति में सुधार हुआ।", "pariṇām saṅket dete haĩ ki niyamit abhyās se paṭhan-gati mẽ sudhār huā.", "The results indicate that regular practice improved reading speed."),
+                    ],
+                    "mistakes": [
+                        "First person (‘मैंने पाया’) in an abstract reads as a blog; use पाया गया.",
+                        "‘सिद्ध होता है’ after a survey of 30 people is overclaiming; use संकेत मिलता है.",
+                    ],
+                },
+                "dialogue": [
+                    ("शोधार्थी", "मैंने सार में लिखा है कि डिजिटल शिक्षण से परिणाम बेहतर होते हैं।", "maĩne sār mẽ likhā hai ki ḍijiṭal śikṣaṇ se pariṇām behtar hote haĩ.", "I've written in the abstract that digital teaching improves results."),
+                    ("निर्देशक", "आपका प्रतिदर्श कितना था?", "āpkā pratidarś kitnā thā?", "What was your sample?"),
+                    ("शोधार्थी", "एक ज़िले के तीन स्कूल।", "ek zile ke tīn skūl.", "Three schools in one district."),
+                    ("निर्देशक", "तो लिखिए — ‘इस प्रतिदर्श में … सुधार का संकेत मिला’। दावा उतना ही बड़ा जितना आँकड़ा।", "to likhie — ‘is pratidarś mẽ … sudhār kā saṅket milā’. dāvā utnā hī baṛā jitnā ā̃kṛā.", "Then write — ‘in this sample … an improvement was indicated’. A claim only as big as the data."),
+                ],
+                "practice": [
+                    {"type": "transformation", "q": "Make impersonal: ‘मैंने 50 किसानों से साक्षात्कार लिए।’", "answer": "50 किसानों के साक्षात्कार लिए गए।", "skill_target": "impersonal passive"},
+                    {"type": "transformation", "q": "Hedge the claim: ‘यह सिद्ध होता है कि योजना असफल है।’", "answer": "परिणाम संकेत देते हैं कि योजना अपेक्षित प्रभाव नहीं दिखा सकी।", "skill_target": "hedging"},
+                    {"type": "multiple_choice", "q": "Which sentence belongs to the पद्धति move?", "answer": "आँकड़े प्रश्नावली द्वारा एकत्र किए गए।", "skill_target": "move identification", "options": ["हाल के वर्षों में प्रवास बढ़ा है।", "आँकड़े प्रश्नावली द्वारा एकत्र किए गए।", "परिणाम दर्शाते हैं कि…", "ये निष्कर्ष नीति-निर्माण में उपयोगी हो सकते हैं।"]},
+                    {"type": "fill_in_the_blank", "q": "प्रस्तुत अध्ययन का ____ शहरी प्रदूषण के कारणों का विश्लेषण करना है।", "answer": "उद्देश्य", "skill_target": "move signal"},
+                    {"type": "reorder", "q": "Put the moves in order: निहितार्थ / पद्धति / पृष्ठभूमि / निष्कर्ष / उद्देश्य", "answer": "पृष्ठभूमि, उद्देश्य, पद्धति, निष्कर्ष, निहितार्थ", "skill_target": "structure"},
+                    {"type": "error_correction", "q": "Fix the register: ‘हमने देखा कि बच्चे ऐप से ज़्यादा सीखते हैं, जो बहुत बढ़िया है।’", "answer": "पाया गया कि ऐप-आधारित शिक्षण से विद्यार्थियों के अधिगम में सुधार हुआ।", "skill_target": "academic register"},
+                    {"type": "guided_composition", "q": "Write a 120–150 word Hindi abstract (five moves) for a study of street-food hygiene in your city.", "answer": "पृष्ठभूमि: शहरी क्षेत्रों में स्ट्रीट-फ़ूड की खपत तेज़ी से बढ़ी है। उद्देश्य: प्रस्तुत अध्ययन का उद्देश्य जयपुर के चयनित स्ट्रीट-फ़ूड विक्रेताओं की स्वच्छता-प्रथाओं का मूल्यांकन करना है। पद्धति: 60 विक्रेताओं के प्रतिदर्श पर अवलोकन-सूची और संक्षिप्त साक्षात्कार द्वारा आँकड़े एकत्र किए गए। निष्कर्ष: परिणाम संकेत देते हैं कि अधिकांश विक्रेता हाथ धोने की सुविधा से वंचित हैं, जबकि भोजन ढकने की प्रथा व्यापक है। निहितार्थ: ये निष्कर्ष नगर निकायों को कम लागत वाली जल-सुविधा पर ध्यान केंद्रित करने का सुझाव देते हैं। मुख्य शब्द: स्वच्छता, स्ट्रीट-फ़ूड, नगर निकाय।", "skill_target": "guided composition"},
+                ],
+                "quiz": [
+                    {"q": "Which verb form hides the researcher?", "options": ["मैंने किया", "किया गया", "करूँगा", "कर रहा हूँ"], "answer": 1, "why": "Impersonal passive is the academic default."},
+                    {"q": "‘संकेत देते हैं’ is preferred over ‘सिद्ध करते हैं’ because…", "options": ["it is shorter", "it hedges appropriately", "it is more formal", "it is Persian"], "answer": 1, "why": "Findings suggest; proofs are rare."},
+                    {"q": "The abstract should be written…", "options": ["first", "last", "never", "by someone else"], "answer": 1, "why": "Write it after the paper so it reports what the paper actually shows."},
+                    {"q": "प्रतिदर्श means…", "options": ["method", "sample", "conclusion", "keyword"], "answer": 1, "why": "प्रतिदर्श = sample."},
+                ],
+                "worksheet": {
+                    "title": "Abstract Builder",
+                    "tasks": [
+                        {"instruction": "Label each sentence with its move.", "items": ["हाल के दशकों में नदी-प्रदूषण चिंता का विषय रहा है।", "जल के 40 नमूनों का रासायनिक परीक्षण किया गया।", "ये निष्कर्ष स्थानीय निकायों के लिए उपयोगी हो सकते हैं।"], "key": ["पृष्ठभूमि", "पद्धति", "निहितार्थ"]},
+                        {"instruction": "Rewrite in impersonal academic Hindi.", "items": ["हमने लोगों से पूछा और उन्होंने कहा कि पानी गंदा है।"], "key": ["उत्तरदाताओं ने जल की गुणवत्ता को असंतोषजनक बताया।"]},
+                        {"instruction": "Find a Hindi research abstract online (any journal) and mark its five moves; note any missing move.", "items": ["open task"], "key": ["(open — check: five moves labelled)"]},
+                    ],
+                },
+                "srs": ["शोध-सार", "पद्धति", "प्रतिदर्श", "निहितार्थ"],
+            },
+            {
+                "id": "hi-c4-l8",
+                "title": "The Critical Review: Praise, Fault, Verdict",
+                "learn": "A Hindi समीक्षा of a book, film or paper is not a summary. It states the work's aim, judges how far it is met, gives evidence from the text, and ends with a verdict for a named reader. The tone is firm and courteous: faults are named precisely, never sneered at; praise is specific, never gushing.",
+                "vocab": [
+                    ("समीक्षा", "samīkṣā", "review; critique", "noun"),
+                    ("समीक्षक", "samīkṣak", "reviewer", "noun"),
+                    ("कथ्य", "kathya", "content; what is said", "noun"),
+                    ("शिल्प", "śilp", "craft; form", "noun"),
+                    ("सराहनीय", "sarāhnīya", "commendable", "adjective"),
+                    ("खटकना", "khaṭaknā", "to jar; to strike as wrong", "verb"),
+                    ("पठनीय", "paṭhnīya", "readable; worth reading", "adjective"),
+                    ("संतुलित", "santulit", "balanced", "adjective"),
+                ],
+                "grammar": {
+                    "title": "Evaluative frames with evidence",
+                    "explain": "Praise frame: ‘… की सबसे बड़ी शक्ति … है; उदाहरण के लिए …’. Fault frame: ‘… जहाँ कमज़ोर पड़ती है, वह … है; अध्याय तीन में …’. Soften with concession: ‘यद्यपि … तथापि …’, ‘यह सच है कि …, फिर भी …’. Verdict frame: ‘… के पाठकों के लिए यह पुस्तक पठनीय है; … की अपेक्षा रखने वाले निराश हो सकते हैं।’ Every judgement is followed by a location or quotation — page, chapter, scene.",
+                    "pattern": "aim → strength + evidence → weakness + evidence (with concession) → verdict for a named reader",
+                    "examples": [
+                        ("उपन्यास की सबसे बड़ी शक्ति उसका कथ्य है; गाँव के ऋण-चक्र का चित्रण, विशेषकर चौथे अध्याय में, सराहनीय है।", "upanyās kī sabse baṛī śakti uskā kathya hai; gā̃v ke ṛṇ-cakra kā citraṇ, viśeṣkar cauthe adhyāy mẽ, sarāhnīya hai.", "The novel's greatest strength is its content; the portrayal of the village debt cycle, especially in chapter four, is commendable."),
+                        ("यद्यपि भाषा प्रवाहमय है, तथापि अंतिम सौ पृष्ठों में घटनाएँ जल्दबाज़ी में निपटाई गई लगती हैं।", "yadyapi bhāṣā pravāhmay hai, tathāpi antim sau pṛṣṭhõ mẽ ghaṭnāẽ jaldbāzī mẽ nipṭāī gaī lagtī haĩ.", "Although the language flows, the events of the last hundred pages feel hurried."),
+                        ("ग्रामीण अर्थव्यवस्था में रुचि रखने वाले पाठकों के लिए यह पुस्तक पठनीय है; रोमांच की अपेक्षा रखने वाले निराश हो सकते हैं।", "grāmīṇ arthvyavasthā mẽ ruci rakhne vāle pāṭhakõ ke lie yah pustak paṭhnīya hai; romāñc kī apekṣā rakhne vāle nirāś ho sakte haĩ.", "For readers interested in the rural economy the book is worth reading; those expecting thrills may be disappointed."),
+                    ],
+                    "mistakes": [
+                        "A review that is 80% plot summary; the reader wants judgement with evidence.",
+                        "Insult in place of critique (‘लेखक को लिखना नहीं आता’); name the specific failure instead.",
+                    ],
+                },
+                "dialogue": [
+                    ("संपादक", "आपकी समीक्षा में कहानी पूरी बता दी गई है। मूल्यांकन कहाँ है?", "āpkī samīkṣā mẽ kahānī pūrī batā dī gaī hai. mūlyāṅkan kahā̃ hai?", "Your review tells the whole story. Where's the evaluation?"),
+                    ("समीक्षक", "मुझे लगा पाठक को पता होना चाहिए कि क्या होता है।", "mujhe lagā pāṭhak ko patā honā cāhie ki kyā hotā hai.", "I thought the reader should know what happens."),
+                    ("संपादक", "दो पंक्तियों में। बाकी में बताइए — क्या सराहनीय है, क्या खटकता है, और किसे पढ़ना चाहिए।", "do paṅktiyõ mẽ. bākī mẽ batāie — kyā sarāhnīya hai, kyā khaṭaktā hai, aur kise paṛhnā cāhie.", "In two lines. In the rest tell us — what is commendable, what jars, and who should read it."),
+                    ("समीक्षक", "और हर बात के साथ पृष्ठ-संख्या।", "aur har bāt ke sāth pṛṣṭh-saṅkhyā.", "And a page number with every point."),
+                ],
+                "practice": [
+                    {"type": "transformation", "q": "Turn the insult into a precise critique: ‘फ़िल्म का दूसरा हिस्सा बकवास है।’", "answer": "फ़िल्म का उत्तरार्ध कमज़ोर पड़ता है; नायिका का निर्णय बिना किसी पूर्व-संकेत के आता है, जिससे विश्वसनीयता टूटती है।", "skill_target": "precise critique"},
+                    {"type": "transformation", "q": "Add a concession: ‘संवाद लंबे हैं।’ (the acting is strong)", "answer": "यद्यपि अभिनय सशक्त है, तथापि संवाद अनावश्यक रूप से लंबे हैं।", "skill_target": "concession"},
+                    {"type": "multiple_choice", "q": "Which sentence is a verdict for a named reader?", "answer": "इतिहास-प्रेमियों के लिए यह पुस्तक पठनीय है।", "skill_target": "verdict frame", "options": ["कहानी 1947 में शुरू होती है।", "लेखक ने बहुत मेहनत की है।", "इतिहास-प्रेमियों के लिए यह पुस्तक पठनीय है।", "मुझे किताब पसंद आई।"]},
+                    {"type": "fill_in_the_blank", "q": "A review judges both ____ (what is said) and ____ (how it is made).", "answer": "कथ्य; शिल्प", "skill_target": "terminology"},
+                    {"type": "error_correction", "q": "Add evidence to the judgement: ‘चरित्र-चित्रण कमज़ोर है।’", "answer": "चरित्र-चित्रण कमज़ोर है; उदाहरण के लिए, पृष्ठ 112 पर पिता का क्रोध बिना किसी कारण के प्रकट होता है।", "skill_target": "evidence"},
+                    {"type": "reverse_translation", "q": "Translate: ‘शिल्प सराहनीय है, पर कथ्य में नया कुछ नहीं।’", "answer": "The craft is commendable, but there is nothing new in the content.", "skill_target": "comprehension"},
+                    {"type": "guided_composition", "q": "Write a 150-word review of any Hindi film or book you know: aim, one strength with evidence, one weakness with concession, verdict for a named reader.", "answer": "(Model) फ़िल्म का उद्देश्य एक छोटे शहर की लड़की के संघर्ष को दिखाना है। इसकी सबसे बड़ी शक्ति शिल्प है — पहले दृश्य में ही गली की आवाज़ें पात्र का परिचय दे देती हैं। यद्यपि अभिनय सहज है, तथापि कथ्य में पूर्वानुमेयता खटकती है; अंतिम बीस मिनट की हर घटना दर्शक पहले से जानता है। पारिवारिक दर्शकों के लिए फ़िल्म देखने योग्य है; नयेपन की अपेक्षा रखने वाले निराश हो सकते हैं।", "skill_target": "guided composition"},
+                ],
+                "quiz": [
+                    {"q": "A review should mainly contain…", "options": ["the full plot", "judgement with evidence", "the author's biography", "jokes"], "answer": 1, "why": "Evaluation with located evidence is the core."},
+                    {"q": "‘यद्यपि … तथापि …’ is used to…", "options": ["summarise", "concede before a criticism", "insult", "cite a page"], "answer": 1, "why": "Concession frame."},
+                    {"q": "खटकना means…", "options": ["to shine", "to jar / strike as wrong", "to end", "to begin"], "answer": 1, "why": "Something that jars the reader खटकता है."},
+                    {"q": "The verdict should be addressed to…", "options": ["the author", "a named kind of reader", "nobody", "the editor"], "answer": 1, "why": "Tell a specific reader whether to read it."},
+                ],
+                "worksheet": {
+                    "title": "Review Scaffold",
+                    "tasks": [
+                        {"instruction": "Convert each vague remark into a precise, located judgement.", "items": ["गाने अच्छे हैं।", "किताब बोरिंग है।"], "key": ["गीत कथा को आगे बढ़ाते हैं; विशेषकर मध्यांतर से पहले का गीत नायक के द्वंद्व को बिना संवाद के कह देता है।", "मध्य के पाँच अध्याय एक ही घटना को दोहराते हैं, जिससे गति टूटती है।"]},
+                        {"instruction": "Write one concession sentence for each pair.", "items": ["strong research / weak prose", "funny / too long"], "key": ["यद्यपि शोध ठोस है, तथापि गद्य बोझिल है।", "यह सच है कि फ़िल्म हँसाती है, फिर भी तीन घंटे की अवधि खटकती है।"]},
+                        {"instruction": "Review a Hindi web series episode in 200 words using the four-part scaffold.", "items": ["open task"], "key": ["(open — check: aim, evidence, concession, named reader)"]},
+                    ],
+                },
+                "srs": ["समीक्षा", "कथ्य", "शिल्प", "खटकना"],
+            },
+            {
+                "id": "hi-c4-l9",
+                "title": "Thesis Paragraphs: Claim, Counter, Synthesis",
+                "learn": "An academic paragraph in Hindi makes one claim, supports it, faces the strongest counter-argument honestly, and ends by synthesising — not by repeating the claim louder. The connectives are a toolkit: अतः, तथापि, इसके विपरीत, दूसरी ओर, निस्संदेह … किंतु, इस प्रकार. Scholars give the opponent their best case before answering it.",
+                "vocab": [
+                    ("तर्क", "tark", "argument; reasoning", "noun"),
+                    ("प्रतितर्क", "pratitark", "counter-argument", "noun"),
+                    ("खंडन", "khaṇḍan", "refutation", "noun"),
+                    ("समन्वय", "samanvay", "synthesis; reconciliation", "noun"),
+                    ("पूर्वधारणा", "pūrvdhārṇā", "assumption; premise", "noun"),
+                    ("इसके विपरीत", "iske viparīt", "on the contrary", "connector"),
+                    ("दूसरी ओर", "dūsrī or", "on the other hand", "connector"),
+                    ("इस प्रकार", "is prakār", "thus; in this way", "connector"),
+                ],
+                "grammar": {
+                    "title": "Steel-manning and the synthesis move",
+                    "explain": "Paragraph skeleton: (1) claim — ‘यह तर्क दिया जा सकता है कि …’; (2) support — ‘क्योंकि … ; उदाहरणार्थ …’; (3) strongest counter, stated fairly — ‘इसके विपरीत, आलोचकों का मत है कि …, और यह आपत्ति निराधार नहीं है’; (4) answer — ‘तथापि, यह आपत्ति … को ध्यान में नहीं रखती’; (5) synthesis — ‘इस प्रकार, … और … दोनों को स्वीकार करते हुए, … अधिक उपयुक्त प्रतीत होता है’. Never ‘refute’ by adjective (मूर्खतापूर्ण तर्क); refute by missing premise or counter-evidence.",
+                    "pattern": "दावा → आधार → (निष्पक्ष) प्रतितर्क → उत्तर → समन्वय",
+                    "examples": [
+                        ("यह तर्क दिया जा सकता है कि मातृभाषा में प्रारंभिक शिक्षा अधिगम को सुगम बनाती है, क्योंकि बच्चा अवधारणा और भाषा दोनों एक साथ नहीं सीख रहा होता।", "yah tark diyā jā saktā hai ki mātṛbhāṣā mẽ prārambhik śikṣā adhigam ko sugam banātī hai, kyõki baccā avdhārṇā aur bhāṣā donõ ek sāth nahī̃ sīkh rahā hotā.", "It can be argued that early education in the mother tongue eases learning, because the child is not learning the concept and the language at once."),
+                        ("इसके विपरीत, आलोचकों का मत है कि इससे अंग्रेज़ी में पिछड़ने का जोखिम है — और यह आपत्ति निराधार नहीं है।", "iske viparīt, ālocakõ kā mat hai ki isse aṅgrezī mẽ pichaṛne kā jokhim hai — aur yah āpatti nirādhār nahī̃ hai.", "On the contrary, critics hold that this risks falling behind in English — and the objection is not baseless."),
+                        ("इस प्रकार, दोनों पक्षों को स्वीकार करते हुए, द्विभाषी क्रमिक मॉडल अधिक उपयुक्त प्रतीत होता है।", "is prakār, donõ pakṣõ ko svīkār karte hue, dvibhāṣī kramik môḍal adhik upyukt pratīt hotā hai.", "Thus, accepting both sides, a gradual bilingual model appears more suitable."),
+                    ],
+                    "mistakes": [
+                        "Straw-manning: stating the counter weakly so it is easy to knock down.",
+                        "Ending with the claim repeated (‘अतः मातृभाषा ही सही है’) instead of a synthesis that absorbs the counter.",
+                    ],
+                },
+                "dialogue": [
+                    ("शोधार्थी", "मैंने विरोधी तर्क को एक पंक्ति में निपटा दिया — ‘यह तर्क कमज़ोर है’।", "maĩne virodhī tark ko ek paṅkti mẽ nipṭā diyā — ‘yah tark kamzor hai’.", "I dismissed the opposing argument in one line — ‘this argument is weak’."),
+                    ("मार्गदर्शक", "कमज़ोर क्यों? कौन-सी पूर्वधारणा ग़लत है, कौन-सा आँकड़ा उसके विरुद्ध है?", "kamzor kyõ? kaun-sī pūrvdhārṇā galat hai, kaun-sā ā̃kṛā uske viruddh hai?", "Weak why? Which premise is wrong, which figure contradicts it?"),
+                    ("शोधार्थी", "पहले उसे पूरी ताक़त से रखूँ, फिर जवाब दूँ?", "pahle use pūrī tāqat se rakhū̃, phir javāb dū̃?", "State it at full strength first, then answer?"),
+                    ("मार्गदर्शक", "हाँ। जो तर्क आप सबसे अच्छी तरह रख सकें, उसी का खंडन मायने रखता है।", "hā̃. jo tark āp sabse acchī tarah rakh sakẽ, usī kā khaṇḍan māyne rakhtā hai.", "Yes. Only the refutation of the argument you can state best counts."),
+                ],
+                "practice": [
+                    {"type": "transformation", "q": "Steel-man this counter-argument before answering it: ‘कुछ लोग कहते हैं ऑनलाइन कक्षाएँ बेकार हैं।’", "answer": "इसके विपरीत, आलोचकों का मत है कि ऑनलाइन कक्षाओं में सहपाठी-संवाद और शिक्षक की तत्काल प्रतिक्रिया घट जाती है — और यह आपत्ति निराधार नहीं है।", "skill_target": "steel-manning"},
+                    {"type": "transformation", "q": "Replace adjective-refutation with a premise-based one: ‘यह तर्क मूर्खतापूर्ण है।’", "answer": "यह तर्क इस पूर्वधारणा पर टिका है कि सभी विद्यार्थियों के पास समान संसाधन हैं, जो आँकड़ों से पुष्ट नहीं होती।", "skill_target": "refutation"},
+                    {"type": "multiple_choice", "q": "Which connective opens a fairly stated counter-argument?", "answer": "इसके विपरीत, आलोचकों का मत है कि…", "skill_target": "connectives", "options": ["अतः", "इसके विपरीत, आलोचकों का मत है कि…", "इस प्रकार", "उदाहरणार्थ"]},
+                    {"type": "fill_in_the_blank", "q": "A conclusion that absorbs both sides is a ____, not a repetition.", "answer": "समन्वय", "skill_target": "terminology"},
+                    {"type": "reorder", "q": "Order the moves: उत्तर / दावा / समन्वय / प्रतितर्क / आधार", "answer": "दावा, आधार, प्रतितर्क, उत्तर, समन्वय", "skill_target": "structure"},
+                    {"type": "error_correction", "q": "Fix the ending (it merely repeats): ‘… अतः सार्वजनिक परिवहन ही एकमात्र समाधान है।’ (counter was: last-mile connectivity is poor)", "answer": "इस प्रकार, अंतिम-मील संपर्क की कमी को स्वीकार करते हुए, सार्वजनिक परिवहन के साथ साझा साइकिल-सेवा का संयोजन अधिक व्यावहारिक प्रतीत होता है।", "skill_target": "synthesis"},
+                    {"type": "guided_composition", "q": "Write a five-move paragraph (150–200 words) on: ‘क्या विश्वविद्यालयों में उपस्थिति अनिवार्य होनी चाहिए?’", "answer": "(Model) यह तर्क दिया जा सकता है कि अनिवार्य उपस्थिति अधिगम को अनुशासित करती है, क्योंकि नियमित संपर्क से अवधारणाएँ क्रमशः बनती हैं; उदाहरणार्थ, प्रयोगशाला-आधारित पाठ्यक्रमों में अनुपस्थिति की भरपाई कठिन है। इसके विपरीत, आलोचकों का मत है कि वयस्क विद्यार्थियों को अपने समय का प्रबंधन स्वयं करना चाहिए और उपस्थिति-दबाव सीखने के बजाय हस्ताक्षर की संस्कृति पैदा करता है — यह आपत्ति निराधार नहीं है। तथापि, यह आपत्ति उन विद्यार्थियों को ध्यान में नहीं रखती जिनके पास घर पर अध्ययन का वातावरण नहीं है। इस प्रकार, दोनों पक्षों को स्वीकार करते हुए, प्रयोगात्मक पाठ्यक्रमों में अनिवार्य और व्याख्यान-आधारित पाठ्यक्रमों में लचीली उपस्थिति का मिश्रित मॉडल अधिक उपयुक्त प्रतीत होता है।", "skill_target": "guided composition"},
+                ],
+                "quiz": [
+                    {"q": "Steel-manning means…", "options": ["stating the counter at its strongest", "ignoring the counter", "insulting the opponent", "using metal metaphors"], "answer": 0, "why": "Give the opponent their best case before answering."},
+                    {"q": "‘तथापि’ signals…", "options": ["an example", "the answer after a concession", "a question", "a citation"], "answer": 1, "why": "तथापि = nevertheless; it turns from concession to response."},
+                    {"q": "A good synthesis…", "options": ["repeats the claim", "absorbs the counter into a refined position", "lists sources", "ends with a quote"], "answer": 1, "why": "Synthesis refines rather than repeats."},
+                    {"q": "प्रतितर्क means…", "options": ["premise", "counter-argument", "proof", "summary"], "answer": 1, "why": "प्रति + तर्क = counter-argument."},
+                ],
+                "worksheet": {
+                    "title": "Argument Map",
+                    "tasks": [
+                        {"instruction": "Label each sentence with its move.", "items": ["यह तर्क दिया जा सकता है कि…", "इसके विपरीत, आलोचकों का मत है कि…", "तथापि, यह आपत्ति … को ध्यान में नहीं रखती।", "इस प्रकार, …"], "key": ["दावा", "प्रतितर्क", "उत्तर", "समन्वय"]},
+                        {"instruction": "Write the strongest counter-argument to your own opinion on any topic, in two sentences, without weakening it.", "items": ["open task"], "key": ["(open — check: no straw man, concession phrase used)"]},
+                        {"instruction": "Take a Hindi editorial; map its claim, support, counter (if any), and ending. Does it synthesise or repeat?", "items": ["open task"], "key": ["(open)"]},
+                    ],
+                },
+                "srs": ["तर्क", "प्रतितर्क", "खंडन", "समन्वय"],
+            },
+        ],
+    },
+]
+
+TEST = {
+    "title": "Hindi C4 Scholar Test",
+    "items": [
+        {"type": "translate_en", "q": "Name the device and translate: ‘समय की नदी सब बहा ले जाती है।’", "answer": "रूपक (metaphor) — The river of time carries everything away."},
+        {"type": "translate_hi", "q": "Convert to free indirect speech: ‘उसने सोचा कि अब वह घर कैसे लौटेगा।’", "answer": "अब घर कैसे लौटे वह?"},
+        {"type": "translate_en", "q": "Supply the elided verb and translate: ‘मेज़ पर चाय / फ़ोन चुप’", "answer": "Tea [sits] on the table / the phone [is] silent"},
+        {"type": "translate_hi", "q": "Split and name the rule: ‘सूर्योदय’", "answer": "सूर्य + उदय — गुण संधि"},
+        {"type": "translate_hi", "q": "Expand and classify: ‘दशानन’", "answer": "दस हैं आनन जिसके (रावण) — बहुव्रीहि"},
+        {"type": "translate_en", "q": "Name the layer of each noun: ‘अलमारी में किताब और टिकट है।’", "answer": "अलमारी Portuguese; किताब Arabic-Persian; टिकट English"},
+        {"type": "translate_hi", "q": "Make impersonal and hedged: ‘मैंने सिद्ध किया कि योजना असफल है।’", "answer": "परिणाम संकेत देते हैं कि योजना अपेक्षित प्रभाव नहीं दिखा सकी।"},
+        {"type": "translate_hi", "q": "Add a concession: ‘संवाद लंबे हैं।’ (acting is strong)", "answer": "यद्यपि अभिनय सशक्त है, तथापि संवाद अनावश्यक रूप से लंबे हैं।"},
+        {"type": "translate_en", "q": "Translate: ‘इस प्रकार, दोनों पक्षों को स्वीकार करते हुए, मिश्रित मॉडल अधिक उपयुक्त प्रतीत होता है।’", "answer": "Thus, accepting both sides, a mixed model appears more suitable."},
+        {"type": "translate_hi", "q": "Steel-man: ‘कुछ लोग कहते हैं ऑनलाइन कक्षाएँ बेकार हैं।’", "answer": "इसके विपरीत, आलोचकों का मत है कि ऑनलाइन कक्षाओं में सहपाठी-संवाद और तत्काल प्रतिक्रिया घट जाती है — और यह आपत्ति निराधार नहीं है।"},
+        {"type": "speak", "q": "In four sentences, analyse ‘दुख की बदली छँट गई’: device, tenor, vehicle, effect.", "answer": "यह रूपक है। उपमेय दुख, उपमान बदली। साधारण धर्म छा जाना और छँट जाना। दुख को मौसम बनाकर कवि उसे अस्थायी दिखाता है।"},
+        {"type": "speak", "q": "Give the five moves of an abstract in order, one phrase each.", "answer": "पृष्ठभूमि — हाल के वर्षों में…; उद्देश्य — प्रस्तुत अध्ययन का उद्देश्य…; पद्धति — … प्रतिदर्श पर…; निष्कर्ष — परिणाम संकेत देते हैं…; निहितार्थ — ये निष्कर्ष … के लिए उपयोगी हो सकते हैं।"},
+    ],
+}
+
+EXTRA = {
+    "culture": {
+        "text": "Hindi scholarship inherits two toolkits. From Sanskrit poetics come the names of devices (अलंकार), the rules of sound-junction (संधि) and compounding (समास), and a habit of precise classification. From the modern university come the research abstract, the critical review and the argued paragraph, written in an impersonal register that hides the author and hedges every claim. Between them sits the literature itself: the Chhayavad poets' dense imagery, the realist short story's tense-shifting narration, and the free verse of the नई कविता that trusts the reader to supply the missing verb. A scholar reads with both toolkits open, and writes so that a stranger could check every judgement against the text.",
+        "source_url": "https://en.wikipedia.org/wiki/Hindi_literature",
+    },
+    "reading": {
+        "text": "विभागीय गोष्ठी में एक शोधार्थी ने अपना शोध-सार पढ़ा। पृष्ठभूमि ठीक थी, उद्देश्य स्पष्ट था, पर निष्कर्ष में उसने लिखा था कि ‘अध्ययन सिद्ध करता है कि मातृभाषा-माध्यम से परिणाम बेहतर होते हैं’। पहला प्रश्न प्रतिदर्श पर आया — दो विद्यालय, एक ज़िला। दूसरा प्रश्न एक वरिष्ठ प्राध्यापिका का था, जिन्होंने पहले उसके तर्क को उसी से बेहतर ढंग से दोहराया, फिर पूछा कि अंग्रेज़ी में पिछड़ने की आपत्ति का उत्तर कहाँ है। शोधार्थी ने कहा कि वह आपत्ति कमज़ोर है। प्राध्यापिका मुस्कुराईं — ‘कमज़ोर क्यों? कौन-सी पूर्वधारणा ग़लत है?’ सभागार में थोड़ी देर चुप्पी रही। फिर शोधार्थी ने धीरे से कहा कि आपत्ति यह मान लेती है कि दोनों भाषाएँ एक ही समय में, एक ही गति से सीखनी होंगी, जबकि उसके आँकड़े क्रमिक द्विभाषी मॉडल की ओर संकेत करते हैं। ‘यही लिखिए,’ प्राध्यापिका ने कहा, ‘“सिद्ध करता है” हटाइए, “संकेत देता है” रखिए, और प्रतितर्क को उसकी पूरी ताक़त में रखिए। खंडन तभी मायने रखता है।’ उस दिन शोधार्थी ने सीखा कि विद्वत्ता आवाज़ ऊँची करने में नहीं, विरोधी को उसका सबसे अच्छा तर्क देकर फिर उत्तर देने में है।",
+        "original": True,
+    },
+    "listening": {
+        "script": "आज की संगोष्ठी का विषय है — हिंदी शब्द-भंडार की परतें। हम देखेंगे कि ‘हाथ’ कैसे ‘हस्त’ से बना, ‘अलमारी’ किस जहाज़ से उतरी, और ‘अदालत’ का नुक़्ता क्यों ज़रूरी है। दूसरे सत्र में संधि और समास — विद्यालय को तोड़िए, दशानन का विग्रह कीजिए। अंतिम सत्र में हम एक शोध-सार के पाँच चरण लिखेंगे। कृपया अपने साथ कोई एक हिंदी संपादकीय लेकर आइए; उसी पर अभ्यास होगा।",
+        "voice_tag": "hi-IN",
+    },
+    "idioms": [
+        {"t": "अंधों में काना राजा", "literal": "among the blind, the one-eyed is king", "meaning": "mediocre but best of a poor field"},
+        {"t": "आ बैल मुझे मार", "literal": "come, bull, hit me", "meaning": "to invite trouble on oneself"},
+        {"t": "एक अनार सौ बीमार", "literal": "one pomegranate, a hundred sick", "meaning": "too many claimants for one thing"},
+        {"t": "कागज़ी घोड़े दौड़ाना", "literal": "to race paper horses", "meaning": "to produce paperwork instead of action"},
+        {"t": "गागर में सागर", "literal": "an ocean in a pitcher", "meaning": "much meaning in few words"},
+        {"t": "तिल का ताड़ बनाना", "literal": "to make a palm tree out of a sesame seed", "meaning": "to exaggerate a trifle"},
+        {"t": "दूध का दूध, पानी का पानी", "literal": "milk as milk, water as water", "meaning": "a perfectly just verdict"},
+        {"t": "न नौ मन तेल होगा, न राधा नाचेगी", "literal": "neither nine maunds of oil, nor Radha dancing", "meaning": "an impossible precondition used as an excuse"},
+        {"t": "बाल की खाल निकालना", "literal": "to skin a hair", "meaning": "to split hairs; nitpick"},
+        {"t": "लकीर का फ़क़ीर", "literal": "a beggar of the line", "meaning": "one who follows the rule blindly"},
+    ],
+    "mistakes": [
+        {"wrong": "‘रात की चादर’ उपमा है।", "right": "‘रात की चादर’ रूपक है — कोई ‘सी/जैसी’ नहीं है।", "why": "The marker test: no comparison word means metaphor, not simile."},
+        {"wrong": "नर + इंद्र = नरैंद्र", "right": "नरेंद्र (गुण: अ + इ → ए)", "why": "वृद्धि (ऐ) applies only when the second vowel is ए/ऐ."},
+        {"wrong": "मैंने सिद्ध किया कि योजना असफल है। (30 उत्तरदाता)", "right": "परिणाम संकेत देते हैं कि योजना अपेक्षित प्रभाव नहीं दिखा सकी।", "why": "Impersonal voice and a hedge sized to the sample."},
+        {"wrong": "यह तर्क मूर्खतापूर्ण है।", "right": "यह तर्क इस पूर्वधारणा पर टिका है कि …, जो आँकड़ों से पुष्ट नहीं होती।", "why": "Refute a premise or cite counter-evidence; never refute by adjective."},
+    ],
+    "task": {
+        "title": "A short scholarly dossier",
+        "instructions": "Choose one Hindi short story or poem you can read in full. Produce a four-part dossier in Hindi: (1) a close reading of 300 words that names at least four devices with tenor and vehicle, and tracks one tense shift or one line-break turn; (2) a word-study table of fifteen words from the text sorted by layer (तत्सम, तद्भव, देशज, अरबी-फ़ारसी, पुर्तगाली, अंग्रेज़ी), with any sandhi or samās split; (3) a 150-word abstract of your own reading in the five moves; (4) a five-move argued paragraph defending one interpretive claim about the text, with the strongest counter-reading stated fairly before your synthesis.",
+    },
+}

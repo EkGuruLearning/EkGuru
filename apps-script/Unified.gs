@@ -52,7 +52,9 @@
  *
  * THE CONTRACT WITH THE SITE
  *   GET  ?tab=tutors|reviews|settings|support   CSV of that tab (private
- *                                               columns and #help rows removed)
+ *                                               columns and #help rows removed;
+ *                                               reviews = approved rows of
+ *                                               reviews_pending, public shape)
  *   GET  ?tab=tutors&format=json                the same tab as JSON
  *                                               {header, rows} (Section 3)
  *   GET  ?tab=health  (or ?tab=, legacy)        feed health, counts only
@@ -68,8 +70,12 @@
  *   · the feed never sends a private column (email, notification_email,
  *     formKey, whatsapp, phone-like names) or a #help row — enforced in
  *     readTab_, so a sheet mistake cannot publish an address
- *   · intake never writes to the public tabs (tutors, reviews, settings,
- *     support) — every submission lands pending/requested for the owner
+ *   · intake never writes to the public tabs (tutors, settings, support) —
+ *     every submission lands pending/requested for the owner; reviews are
+ *     published from reviews_pending only once the owner marks them approved
+ *   · v2.1.0: a saved booking emails the BOOKED TUTOR (private address from
+ *     the tutors tab) and the student, with the owner inbox as the fallback
+ *     when the tutor has no address — see bookingMail_ in Section 5
  *   · intake never echoes a field back — only a short random reference
  *   · intake never stores an IP address, user agent or cookie
  *   · no workbook id and no Razorpay key is hard-coded anywhere here;
@@ -104,7 +110,7 @@
    Edit → New version → Deploy). No other edit is ever needed: each flag
    below is read live on every request.
    ========================================================================== */
-var EK_UNIFIED_VERSION = "2.0.0";
+var EK_UNIFIED_VERSION = "2.1.0";
 
 var EK_ = {
   /* Whole-backend maintenance switch. While true, EVERY GET and POST
@@ -143,7 +149,31 @@ var EK_ = {
   /* A bare /exec (no tab=, no action=) answers combined feed+intake health
      in one object. Legacy clients always send tab= or action=, so this
      changes nothing for the site. Default ON. */
-  combinedHealth: true
+  combinedHealth: true,
+
+  /* v2.1.0 — BOOKING MAIL FROM THE SERVER.
+     The browser cannot know a tutor's private address (the feed strips
+     email / notification_email on purpose), so a booking mail sent from the
+     page could only ever reach the relay owner's inbox — which is exactly the
+     bug reported: "mail EkGuruLearning ke paas hi aata hai, tutor ke paas
+     nahi". This script HAS the tutors tab, so it sends the notification
+     itself, as the deploying Gmail account, the moment a booking row is saved:
+       1. tutor notification   → tutors.notification_email, else tutors.email,
+                                 else tutors.formkey (when it is an address)
+       2. student receipt      → the student's own address
+       3. FALLBACK             → when the tutor has no usable address, or
+                                 Gmail refuses, the owner inbox gets the same
+                                 notification with a [FORWARD TO <tutor>] subject
+                                 so a booking is never silent.
+     Every outcome is written back into the booking row (tutor_email,
+     email_delivery) and returned to the page as {mail:{tutor,student}} so the
+     site can skip its own duplicate send. Script Properties override these:
+       BOOKING_MAIL_ENABLED = false   switch it off
+       BOOKING_OWNER_INBOX  = …       where the fallback goes */
+  bookingMail: true,
+  bookingOwnerInbox: "EkGuruLearning@gmail.com",
+  bookingSenderName: "EkGuru",
+  bookingSiteUrl: "https://ekguru.shop/"
 };
 
 /* ============================================================================
@@ -324,10 +354,22 @@ var FEED_CACHE_PREFIX = "ekguru-feed-v1:";
    published links. A gid never changes, a name can be edited by accident. */
 var FEED_TABS = {
   tutors:   { names: ["tutors"],                          gid: 1631273256 },
-  reviews:  { names: ["reviews"],                         gid: 293675115 },
+  /* v2.1.0 — ONE review tab. The old separate "reviews" tab is retired:
+     every review a student submits lands in reviews_pending, the owner
+     approves it THERE (status = approved, or approved = yes), and the feed
+     publishes only those rows — mapped to the public column names the site
+     has always read (tutor, name, date, stars, text, source, status). The
+     old "reviews" tab is no longer read at all; delete it from the workbook
+     when convenient. See reviewsFeed_() below. */
+  reviews:  { names: ["reviews_pending"],                 gid: -1, pending: true },
   settings: { names: ["settings"],                        gid: 1658518385 },
   support:  { names: ["support", "payments", "support-payments"], gid: 1041390059 }
 };
+
+/* Values in reviews_pending.status (or an optional approved column) that
+   publish a review. Anything else — pending, blank, rejected, hidden,
+   spam — stays private. Case-insensitive. */
+var REVIEW_APPROVED_VALUES = ["approved", "approve", "live", "published", "publish", "yes", "y", "true", "1", "ok"];
 
 /* Columns removed by exact name (case-insensitive). */
 var FEED_PRIVATE_EXACT = [
@@ -402,6 +444,7 @@ function isPrivateColumn_(header) {
 /* Returns { header: [...], rows: [[...]], dropped: [...] } with private
    columns and help rows already removed. */
 function readTab_(tab) {
+  if (FEED_TABS[tab] && FEED_TABS[tab].pending) return reviewsFeed_(tab);
   var sheet = findSheet_(tab);
   if (!sheet) return { header: [], rows: [], dropped: [], missing: true };
 
@@ -433,6 +476,63 @@ function readTab_(tab) {
   };
 }
 
+/* ----------------------------------------------------------------------------
+   v2.1.0 — PUBLISHED REVIEWS COME FROM reviews_pending, APPROVED ROWS ONLY
+   ----------------------------------------------------------------------------
+   reviews_pending columns (written by intake):
+     timestamp | reference | status | tutor_id | reviewer_name | stars | text |
+     lesson_date | contact_email | booking_id | notes
+   Public shape the site reads (js/reviews.js, unchanged):
+     tutor | name | date | stars | text | source | status
+   A row is published when status (or an optional "approved" column) is one of
+   REVIEW_APPROVED_VALUES. contact_email, booking_id, reference, timestamp and
+   notes are never sent — the public shape simply has no column for them.
+   -------------------------------------------------------------------------- */
+function reviewsFeed_(tab) {
+  var sheet = findSheet_(tab);
+  var out = { header: ["tutor", "name", "date", "stars", "text", "source", "status"],
+              rows: [], dropped: ["contact_email", "booking_id", "reference", "timestamp", "notes"] };
+  if (!sheet) { out.missing = true; return out; }
+  var values = sheet.getDataRange().getDisplayValues();
+  if (values.length < 2) return out;
+  var header = values[0].map(function (h) { return String(h).trim().toLowerCase(); });
+  function col(name) { return header.indexOf(name); }
+  var cStatus = col("status"), cApproved = col("approved"), cTutor = col("tutor_id"),
+      cName = col("reviewer_name"), cStars = col("stars"), cText = col("text"),
+      cDate = col("lesson_date"), cTs = col("timestamp");
+  if (cTutor === -1) cTutor = col("tutor");
+  if (cName === -1) cName = col("name");
+  if (cDate === -1) cDate = col("date");
+  for (var r = 1; r < values.length; r++) {
+    var row = values[r];
+    var first = String(row[0] == null ? "" : row[0]).trim();
+    if (first.charAt(0) === "#") continue;
+    if (row.every(function (c) { return String(c).trim() === ""; })) continue;
+    var flag = "";
+    if (cApproved !== -1) flag = String(row[cApproved] || "").trim().toLowerCase();
+    if (!flag && cStatus !== -1) flag = String(row[cStatus] || "").trim().toLowerCase();
+    if (REVIEW_APPROVED_VALUES.indexOf(flag) === -1) continue;   /* pending / rejected: private */
+    var date = cDate !== -1 ? String(row[cDate] || "").trim() : "";
+    if (!date && cTs !== -1) {
+      /* lesson_date is optional on the form; fall back to the day the review arrived */
+      var ts = String(row[cTs] || "").trim();
+      var m = /^(\d{4})-(\d{2})-(\d{2})/.exec(ts) || /^(\d{1,2})\/(\d{1,2})\/(\d{4})/.exec(ts);
+      if (m) date = m[1].length === 4 ? m[1] + "-" + m[2] + "-" + m[3]
+                                        : m[3] + "-" + ("0" + m[1]).slice(-2) + "-" + ("0" + m[2]).slice(-2);
+    }
+    out.rows.push([
+      cTutor !== -1 ? String(row[cTutor] || "").trim().toLowerCase() : "",
+      cName !== -1 ? String(row[cName] || "").trim() : "",
+      date,
+      cStars !== -1 ? String(row[cStars] || "").trim() : "",
+      cText !== -1 ? String(row[cText] || "").trim() : "",
+      "ekguru",
+      "live"
+    ]);
+  }
+  return out;
+}
+
 function csvCell_(v) {
   var s = String(v == null ? "" : v);
   return /[",\r\n]/.test(s) ? '"' + s.replace(/"/g, '""') + '"' : s;
@@ -453,6 +553,7 @@ function buildHealth_() {
   Object.keys(FEED_TABS).forEach(function (tab) {
     var t = readTab_(tab);
     var info = { found: !t.missing, rows: t.rows.length, columns: t.header.length, privateColumnsRemoved: t.dropped.length };
+    if (tab === "reviews") info.source = "reviews_pending (approved rows only)";
     if (tab === "tutors" && !t.missing) {
       var a = t.header.map(function (h) { return h.toLowerCase(); }).indexOf("approved");
       info.hasApprovedColumn = a !== -1;
@@ -618,6 +719,9 @@ function intakePost_(e) {
     if (kind === "review") {
       var gate = intakeReviewGate_(clean.values.booking_id, clean.values.tutor_id);
       if (!gate.ok) return intakeJson_({ ok: false, error: gate.error });
+      /* Store the reference the way the bookings tab spells it, so the
+         owner can match the two rows by eye. */
+      clean.values.booking_id = intakeNormRef_(clean.values.booking_id);
     }
 
     var quota = intakeQuota_(kind);
@@ -627,7 +731,15 @@ function intakePost_(e) {
     var saved = intakeAppend_(kind, spec, ref, clean.values);
     /* A booking is confirmed by its own booking_ref (the same code the
        student sees and the email carries), not by a second server code. */
-    return intakeJson_({ ok: true, reference: saved.reference, duplicate: saved.duplicate === true });
+    var answer = { ok: true, reference: saved.reference, duplicate: saved.duplicate === true };
+    /* v2.1.0 — notify the booked tutor from here (see bookingMail_). A
+       duplicate submit never re-sends; a mail failure never fails the
+       booking — the row is already saved and the outcome is written on it. */
+    if (kind === "booking" && saved.duplicate !== true) {
+      try { answer.mail = bookingMail_(saved.reference, clean.values); }
+      catch (mailErr) { answer.mail = { tutor: "failed", student: "failed", note: "mail error" }; }
+    }
+    return intakeJson_(answer);
   } catch (err) {
     /* never leak a stack trace or a field value to the visitor */
     return intakeJson_({ ok: false, error: "could not save, please email us instead" });
@@ -682,8 +794,21 @@ function intakeValidate_(spec, fields) {
    The review's booking_id must match a row in the bookings tab whose
    tutor_id is the tutor being reviewed. Read-only: never writes.
    ---------------------------------------------------------------------------- */
+/* How a human types a booking reference (16 Nov 2026, real-life test):
+   "ek-ab2cd3", " EK-AB2CD3 ", "EK AB2CD3", "EKAB2CD3", "EK–AB2CD3" (a
+   phone's long dash). All of them mean EK-AB2CD3, and all of them used
+   to be refused as "not found" because the gate compared raw strings.
+   Both sides of the comparison now pass through this. */
+function intakeNormRef_(v) {
+  var s = String(v == null ? "" : v).toUpperCase();
+  s = s.replace(/[\u2010-\u2015\u2212]/g, "-");   /* unicode dashes -> "-" */
+  s = s.replace(/[\s_]+/g, "");                    /* no spaces anywhere */
+  s = s.replace(/^EK-*/, "EK-");                   /* EKAB2CD3 / EK--AB2CD3 -> EK-AB2CD3 */
+  return s;
+}
+
 function intakeReviewGate_(bookingId, tutorId) {
-  var id = String(bookingId || "").trim();
+  var id = intakeNormRef_(bookingId);
   if (!id) return { ok: false, error: "booking reference is needed to verify this review" };
   try {
     var ss = intakeSpreadsheet_();
@@ -696,7 +821,7 @@ function intakeReviewGate_(bookingId, tutorId) {
     var refs = tab.getRange(2, 1, last - 1, 1).getValues();
     var tutors = tab.getRange(2, 3, last - 1, 1).getValues();
     for (var i = 0; i < refs.length; i++) {
-      if (String(refs[i][0] || "").trim() === id) {
+      if (intakeNormRef_(refs[i][0]) === id) {
         var tid = String((tutors[i] && tutors[i][0]) || "").trim();
         if (tid === String(tutorId || "").trim()) return { ok: true };
         /* The booking exists but for a different tutor: the reviewer may
@@ -806,6 +931,237 @@ function intakeAppendLocked_(kind, spec, ref, values, ss) {
   });
   tab.appendRow(row);
   return { reference: ownRef, duplicate: false };
+}
+
+/* ============================================================================
+   v2.1.0 — BOOKING MAIL (tutor notification + student receipt + owner fallback)
+   ========================================================================== */
+function bookingMailEnabled_() {
+  var p = String(PropertiesService.getScriptProperties().getProperty("BOOKING_MAIL_ENABLED") || "").trim().toLowerCase();
+  if (p === "false" || p === "0" || p === "no" || p === "off") return false;
+  if (p === "true" || p === "1" || p === "yes" || p === "on") return true;
+  return EK_.bookingMail !== false;
+}
+function bookingOwnerInbox_() {
+  var p = String(PropertiesService.getScriptProperties().getProperty("BOOKING_OWNER_INBOX") || "").trim();
+  return isEmailAddr_(p) ? p : EK_.bookingOwnerInbox;
+}
+function isEmailAddr_(s) {
+  s = String(s == null ? "" : s).trim();
+  return /^[^\s@<>"',;]+@[^\s@<>"',;]+\.[^\s@<>"',;]{2,}$/.test(s);
+}
+function firstEmailIn_(s) {
+  var m = /[^\s@<>"',;]+@[^\s@<>"',;]+\.[A-Za-z]{2,}/.exec(String(s || ""));
+  return m ? m[0] : "";
+}
+
+/* Look the tutor up in the tutors tab by id. Returns
+   { found, name, email, source } — email is the first usable private
+   address in precedence order notification_email → email → formkey. */
+function tutorContact_(tutorId) {
+  var out = { found: false, name: "", email: "", source: "" };
+  var id = String(tutorId || "").trim().toLowerCase();
+  if (!id) return out;
+  var sheet = findSheet_("tutors");
+  if (!sheet) return out;
+  var values = sheet.getDataRange().getDisplayValues();
+  if (values.length < 2) return out;
+  var header = values[0].map(function (h) { return String(h).trim().toLowerCase(); });
+  var cId = header.indexOf("id"), cName = header.indexOf("name");
+  if (cId === -1) return out;
+  var candidates = ["notification_email", "notificationemail", "email", "formkey"];
+  for (var r = 1; r < values.length; r++) {
+    if (String(values[r][cId] || "").trim().toLowerCase() !== id) continue;
+    out.found = true;
+    out.name = cName !== -1 ? String(values[r][cName] || "").trim() : "";
+    for (var c = 0; c < candidates.length; c++) {
+      var idx = header.indexOf(candidates[c]);
+      if (idx === -1) continue;
+      var v = firstEmailIn_(values[r][idx]);
+      if (v) { out.email = v; out.source = candidates[c]; break; }
+    }
+    return out;
+  }
+  return out;
+}
+
+function esc_(s) {
+  return String(s == null ? "" : s).replace(/[&<>"]/g, function (c) {
+    return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c];
+  });
+}
+
+/* The two bodies. Plain text first (every client reads it), HTML second. */
+function bookingTutorMessage_(ref, f, tutorName, forwardNote) {
+  var rows = [
+    ["Reference", ref],
+    ["Student", f.student_name],
+    ["Student email", f.student_email],
+    ["WhatsApp", f.student_whatsapp || "—"],
+    ["Preferred time (IST)", f.preferred_times_ist || "Not chosen"],
+    ["Student timezone", f.student_timezone || "—"],
+    ["Level", f.student_level || "—"],
+    ["Goal", f.student_goal || "—"],
+    ["Lesson", (f.lesson || "Trial lesson") + (f.price_usd ? " · $" + f.price_usd : "")],
+    ["Booked from", f.source_page || EK_.bookingSiteUrl]
+  ];
+  var subject = "New lesson request " + ref + " — " + f.student_name + " wants a trial with " + (tutorName || "you");
+  var text = (forwardNote ? forwardNote + "\n\n" : "") +
+    "Namaste " + (tutorName || "Guru") + ",\n\n" +
+    "A student has requested a trial lesson with you on EkGuru.\n\n" +
+    rows.map(function (r) { return r[0] + ": " + r[1]; }).join("\n") +
+    "\n\nWHAT TO DO NOW\n" +
+    "1. Reply to this email (it goes straight to the student) or message them on WhatsApp within 24 hours.\n" +
+    "2. Confirm the time in IST and in the student's timezone.\n" +
+    "3. Tell EkGuru (" + bookingOwnerInbox_() + ") if you cannot take this lesson, so we can help the student.\n\n" +
+    "— EkGuru · " + EK_.bookingSiteUrl;
+  var html = '<div style="font-family:Inter,Arial,sans-serif;max-width:600px;margin:auto;color:#10131f">' +
+    (forwardNote ? '<p style="background:#fff3cd;border:1px solid #f0c36d;padding:10px 14px;border-radius:8px"><b>' + esc_(forwardNote) + "</b></p>" : "") +
+    '<h2 style="margin:0 0 6px">New lesson request <span style="color:#4f32d9">' + esc_(ref) + "</span></h2>" +
+    "<p>Namaste " + esc_(tutorName || "Guru") + ", a student has requested a trial lesson with you on EkGuru.</p>" +
+    '<table cellpadding="8" style="border-collapse:collapse;width:100%;font-size:15px">' +
+    rows.map(function (r) {
+      return '<tr><td style="border:1px solid #e4e4ef;background:#f8f7fd;width:38%"><b>' + esc_(r[0]) + "</b></td>" +
+             '<td style="border:1px solid #e4e4ef">' + esc_(r[1]) + "</td></tr>";
+    }).join("") + "</table>" +
+    '<h3 style="margin:18px 0 6px">What to do now</h3><ol>' +
+    "<li><b>Reply to this email</b> (it goes straight to the student) or WhatsApp them within 24 hours.</li>" +
+    "<li>Confirm the time in IST <i>and</i> in the student's timezone.</li>" +
+    "<li>Cannot take it? Tell EkGuru at " + esc_(bookingOwnerInbox_()) + " so we can help the student.</li></ol>" +
+    '<p style="color:#5f6577;font-size:13px">EkGuru · <a href="' + esc_(EK_.bookingSiteUrl) + '">' + esc_(EK_.bookingSiteUrl) + "</a></p></div>";
+  return { subject: subject, text: text, html: html };
+}
+
+function bookingStudentMessage_(ref, f, tutorName, tutorReached) {
+  var next = tutorReached
+    ? tutorName + " has been emailed and will reply to confirm the time."
+    : "EkGuru will confirm " + tutorName + "'s availability with you shortly.";
+  var subject = "Your EkGuru lesson request " + ref + " — " + tutorName;
+  var text = "Namaste " + f.student_name + ",\n\n" +
+    "Your trial lesson request with " + tutorName + " has been received.\n\n" +
+    "Reference: " + ref + "\n" +
+    "Preferred time (IST): " + (f.preferred_times_ist || "Not chosen") + "\n" +
+    "Lesson: " + (f.lesson || "Trial lesson") + (f.price_usd ? " · $" + f.price_usd : "") + "\n\n" +
+    next + " Keep this reference — quote it in any reply.\n\n" +
+    "Questions? Reply to this email.\n— EkGuru · " + EK_.bookingSiteUrl;
+  var html = '<div style="font-family:Inter,Arial,sans-serif;max-width:600px;margin:auto;color:#10131f">' +
+    '<h2 style="margin:0 0 6px">Request received <span style="color:#4f32d9">' + esc_(ref) + "</span></h2>" +
+    "<p>Namaste " + esc_(f.student_name) + ", your trial lesson request with <b>" + esc_(tutorName) + "</b> has been received.</p>" +
+    '<table cellpadding="8" style="border-collapse:collapse;width:100%;font-size:15px">' +
+    '<tr><td style="border:1px solid #e4e4ef;background:#f8f7fd;width:38%"><b>Reference</b></td><td style="border:1px solid #e4e4ef">' + esc_(ref) + "</td></tr>" +
+    '<tr><td style="border:1px solid #e4e4ef;background:#f8f7fd"><b>Preferred time (IST)</b></td><td style="border:1px solid #e4e4ef">' + esc_(f.preferred_times_ist || "Not chosen") + "</td></tr>" +
+    '<tr><td style="border:1px solid #e4e4ef;background:#f8f7fd"><b>Lesson</b></td><td style="border:1px solid #e4e4ef">' + esc_((f.lesson || "Trial lesson") + (f.price_usd ? " · $" + f.price_usd : "")) + "</td></tr>" +
+    "</table><p>" + esc_(next) + " Keep this reference — quote it in any reply.</p>" +
+    '<p style="color:#5f6577;font-size:13px">Questions? Reply to this email. · EkGuru · <a href="' + esc_(EK_.bookingSiteUrl) + '">' + esc_(EK_.bookingSiteUrl) + "</a></p></div>";
+  return { subject: subject, text: text, html: html };
+}
+
+function gmailSend_(to, msg, replyTo, name) {
+  var opts = { htmlBody: msg.html, name: name || EK_.bookingSenderName };
+  if (replyTo && isEmailAddr_(replyTo)) opts.replyTo = replyTo;
+  /* GmailApp first (sends as the deploying account, lands in Sent); MailApp
+     is the fallback when the Gmail scope was not granted at deploy time. */
+  try { GmailApp.sendEmail(to, msg.subject, msg.text, opts); return "gmail"; }
+  catch (e1) {
+    try { MailApp.sendEmail({ to: to, subject: msg.subject, body: msg.text, htmlBody: msg.html, replyTo: opts.replyTo || "", name: opts.name }); return "mailapp"; }
+    catch (e2) { throw e2; }
+  }
+}
+
+/* Writes tutor_email + email_delivery back onto the booking row. */
+function bookingRowNote_(ref, tutorEmail, delivery) {
+  try {
+    var tab = intakeSpreadsheet_().getSheetByName(INTAKE_KINDS.booking.tab);
+    if (!tab || tab.getLastRow() < 2) return;
+    var header = tab.getRange(1, 1, 1, tab.getLastColumn()).getValues()[0].map(function (h) { return String(h).trim(); });
+    var cRef = header.indexOf("booking_ref"), cTe = header.indexOf("tutor_email"), cDel = header.indexOf("email_delivery");
+    if (cRef === -1) return;
+    var refs = tab.getRange(2, cRef + 1, tab.getLastRow() - 1, 1).getValues();
+    for (var i = refs.length - 1; i >= 0; i--) {
+      if (String(refs[i][0] || "").trim() === ref) {
+        if (cTe !== -1 && tutorEmail) tab.getRange(i + 2, cTe + 1).setValue(tutorEmail);
+        if (cDel !== -1) tab.getRange(i + 2, cDel + 1).setValue(delivery);
+        return;
+      }
+    }
+  } catch (e) { /* the row note is best-effort; the mail already went */ }
+}
+
+/* The orchestrator. Never throws to the caller; returns
+   { tutor: sent|owner_fallback|failed|disabled, student: sent|failed|disabled,
+     tutorEmailSource, note } */
+function bookingMail_(ref, f) {
+  var result = { tutor: "disabled", student: "disabled", tutorEmailSource: "", note: "" };
+  if (!bookingMailEnabled_()) { result.note = "BOOKING_MAIL_ENABLED=false"; return result; }
+  var owner = bookingOwnerInbox_();
+  var contact = tutorContact_(f.tutor_id);
+  var tutorName = contact.name || String(f.tutor_id || "").replace(/-/g, " ").replace(/\b\w/g, function (c) { return c.toUpperCase(); });
+  var studentEmail = isEmailAddr_(f.student_email) ? String(f.student_email).trim() : "";
+  var tutorEmail = contact.email;
+  var remaining = 0;
+  try { remaining = MailApp.getRemainingDailyQuota(); } catch (e) { remaining = 100; }
+  if (remaining < 2) {
+    result.tutor = "failed"; result.student = "failed"; result.note = "daily Gmail quota exhausted";
+    bookingRowNote_(ref, tutorEmail, "QUOTA_EXHAUSTED — forward by hand");
+    return result;
+  }
+
+  /* 1. tutor */
+  var tutorMsg = bookingTutorMessage_(ref, f, tutorName, "");
+  var tutorReached = false;
+  if (tutorEmail && tutorEmail.toLowerCase() !== owner.toLowerCase()) {
+    try {
+      gmailSend_(tutorEmail, tutorMsg, studentEmail, EK_.bookingSenderName);
+      result.tutor = "sent"; result.tutorEmailSource = contact.source; tutorReached = true;
+    } catch (e) {
+      result.note = "tutor send failed: " + String(e && e.message || e).slice(0, 120);
+    }
+  } else {
+    result.note = contact.found ? "tutor has no notification_email / email in the tutors tab" : "tutor id not in tutors tab";
+  }
+  /* 2. owner fallback — only when the tutor could not be reached */
+  if (!tutorReached) {
+    try {
+      var fwd = "FORWARD TO " + tutorName + (tutorEmail ? " <" + tutorEmail + ">" : " (no address on file)") + " — " + result.note;
+      var ownerMsg = bookingTutorMessage_(ref, f, tutorName, fwd);
+      ownerMsg.subject = "[FORWARD TO " + tutorName + "] " + ownerMsg.subject;
+      gmailSend_(owner, ownerMsg, studentEmail, EK_.bookingSenderName);
+      result.tutor = "owner_fallback";
+    } catch (e2) {
+      result.tutor = "failed";
+      result.note += " | owner fallback failed: " + String(e2 && e2.message || e2).slice(0, 120);
+    }
+  }
+  /* 3. student receipt — replies go to EkGuru, never to the tutor's private address */
+  if (studentEmail) {
+    try {
+      gmailSend_(studentEmail, bookingStudentMessage_(ref, f, tutorName, tutorReached), owner, EK_.bookingSenderName);
+      result.student = "sent";
+    } catch (e3) {
+      result.student = "failed";
+      result.note += " | student receipt failed: " + String(e3 && e3.message || e3).slice(0, 120);
+    }
+  } else {
+    result.student = "failed"; result.note += " | no student email";
+  }
+  bookingRowNote_(ref, tutorEmail,
+    "tutor:" + result.tutor + (result.tutorEmailSource ? "(" + result.tutorEmailSource + ")" : "") +
+    " student:" + result.student + " via Apps Script " + Utilities.formatDate(new Date(), "Asia/Kolkata", "yyyy-MM-dd HH:mm") +
+    (result.note ? " — " + result.note : ""));
+  return result;
+}
+
+/* Run this ONCE from the editor after pasting v2.1.0: it grants the Gmail
+   scope and sends a single test notification to the owner inbox. */
+function bookingMailSelfTest_() {
+  var r = bookingMail_("EK-TEST", {
+    tutor_id: "self-test", student_name: "Test Student", student_email: bookingOwnerInbox_(),
+    student_whatsapp: "", preferred_times_ist: "Sat 10:00 IST", lesson: "Trial lesson, 50 min",
+    price_usd: "5", student_level: "Beginner", student_goal: "Self test of booking mail",
+    student_timezone: "Asia/Kolkata", source_page: EK_.bookingSiteUrl
+  });
+  Logger.log(JSON.stringify(r));
+  return r;
 }
 
 function intakeHealth_() {

@@ -92,7 +92,15 @@ function loadSite(options) {
   const order = sandbox.EKGURU_TUTOR_ORDER || [];
   const registered = sandbox.EKGURU_TUTOR_FILES || {};
   const tutors = order.filter((id) => registered[id]).map((id) => registered[id]);
-  const unlisted = Object.keys(registered).filter((id) => order.indexOf(id) === -1);
+  /* 17 Nov 2026 — sheet-only gurus (approved=yes, no file) are part of the
+     assembled roster now: js/tutors-data.js appended them from
+     window.EKGURU_SHEET_TUTORS with defaults applied. Take them from the
+     assembled list (same objects the browser gets), after the registry. */
+  const haveId = new Set(tutors.map((t) => t.id));
+  (sandbox.EKGURU_TUTORS || []).forEach((t) => {
+    if (t && t.sheetOnly && !haveId.has(t.id)) { tutors.push(t); haveId.add(t.id); }
+  });
+  const unlisted = Object.keys(registered).filter((id) => order.indexOf(id) === -1 && !haveId.has(id));
 
   /* The overlay runs AFTER js/tutors-data.js on purpose: that file has already
      merged the defaults and removed anything that must never be published, and

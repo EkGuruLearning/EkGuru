@@ -75,6 +75,32 @@
     list = list.filter(function (t) { return bakedHidden.indexOf(t.id) === -1; });
   }
 
+  /* 2c. SHEET-ONLY GURUS (17 Nov 2026) — approved rows with no file.
+     tools/sheetsync.js writes window.EKGURU_SHEET_TUTORS: every sheet row
+     with approved=yes (and not active=no) whose id has no js/tutors file.
+     Owner rule: the sheet is the source of truth and an approved guru is
+     visible — so they join the roster here, after the registry and in
+     sheet order, and the first paint already shows them instead of
+     waiting (or failing) on the live CSV fetch. js/sheet.js then finds
+     them in the master list and updates in place like any other tutor.
+     A registry id always wins over a baked copy of the same id. */
+  var baked = window.EKGURU_SHEET_TUTORS || [];
+  if (baked.length) {
+    var have = {};
+    list.forEach(function (t) { have[t.id] = 1; });
+    baked.forEach(function (src) {
+      if (!src || !src.id || have[src.id] || bakedHidden.indexOf(src.id) !== -1) return;
+      var t = {};
+      Object.keys(src).forEach(function (k) {
+        var v = src[k];
+        t[k] = Array.isArray(v) ? v.slice() : (v && typeof v === "object" ? JSON.parse(JSON.stringify(v)) : v);
+      });
+      t.sheetOnly = true;
+      have[t.id] = 1;
+      list.push(t);
+    });
+  }
+
   /* 3. tell the developer clearly if a file failed to load */
   if (missing.length) {
     console.error('[EkGuru] These tutors are listed in _registry.js but their file did not load: ' +

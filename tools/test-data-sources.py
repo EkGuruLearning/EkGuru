@@ -58,6 +58,15 @@ def get_config_csvurls():
     cfg = (ROOT / "js" / "site-config.js").read_text(encoding="utf-8")
     return re.findall(r'csvUrl:\s*"([^"]*)"', cfg)
 
+def reviews_feed_only():
+    """17 Nov 2026 — the separate `reviews` tab was deleted on the owner's
+    instruction; reviews are served ONLY by the Apps Script feed from
+    reviews_pending (approved rows). A blank reviews.csvUrl is therefore the
+    designed state, not a misconfiguration: LIVE mode with three tabs."""
+    cfg = (ROOT / "js" / "site-config.js").read_text(encoding="utf-8")
+    m = re.search(r'reviews:\s*\{[^}]*?csvUrl:\s*"([^"]*)"', cfg, re.S)
+    return bool(m) and m.group(1).strip() == ""
+
 def is_paused():
     cfg = (ROOT / "js" / "site-config.js").read_text(encoding="utf-8")
     return "pausedForReupload: true" in cfg or "PAUSED_FOR_REUPLOAD" in cfg
@@ -149,6 +158,7 @@ def fetch_sheet(url, label):
         return rows, head
     return None, []
 
+REVIEWS_FEED_ONLY = False
 print("== 0. Mode detection ==")
 all_urls = get_config_csvurls()
 live_urls = [u for u in all_urls if u.strip()]
@@ -166,6 +176,10 @@ elif len(live_urls) == 0 and is_paused():
 elif len(live_urls) == 4:
     MODE = "LIVE"
     print("  MODE = LIVE — fetching published Google Sheets (csv first, tsv fallback)")
+elif len(live_urls) == 3 and reviews_feed_only():
+    MODE = "LIVE"
+    REVIEWS_FEED_ONLY = True
+    print("  MODE = LIVE — 3 published tabs; reviews are feed-only (reviews tab deleted 17 Nov 2026)")
 else:
     MODE = "MIXED"
     print("  MODE = MIXED — some csvUrl empty, some set (misconfiguration)")
@@ -266,7 +280,10 @@ if "active" in t_head:
     print("  tutor active flags:", dict(actives))
 
 r_rows, r_head = sheets.get("reviews", ([], []))
-check("reviews: has required cols", all(c in r_head for c in ["tutor", "name", "stars", "text"]), str(r_head))
+if REVIEWS_FEED_ONLY:
+    check("reviews: feed-only by design (no published reviews CSV; reviews_pending is never published)", True)
+else:
+    check("reviews: has required cols", all(c in r_head for c in ["tutor", "name", "stars", "text"]), str(r_head))
 if "tutor" in r_head:
     rr = data_rows(r_rows)
     # 30 Sep 2026: the tab may hold 0 rows (site-native reviews only); the

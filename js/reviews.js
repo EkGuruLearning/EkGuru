@@ -147,6 +147,16 @@
     return rowsToRecs(rows);
   }
 
+  /* True when the first line of a CSV/TSV body is the reviews tab's
+     own header (tutor + stars + text), whatever the row count. */
+  function hasReviewHeader(body, fmt) {
+    var first = String(body || "").replace(/^\uFEFF/, "").split(/\r?\n/)[0] || "";
+    var cells = first.split(fmt === "tsv" ? "\t" : ",").map(function (h) {
+      return h.replace(/^"|"$/g, "").trim().toLowerCase();
+    });
+    return cells.indexOf("tutor") !== -1 && cells.indexOf("stars") !== -1 && cells.indexOf("text") !== -1;
+  }
+
   function tsvVariant(u) {
     u = String(u || "");
     if (/[?&]output=/.test(u)) return u.replace(/([?&])output=[^&]*/, "$1output=tsv");
@@ -228,6 +238,12 @@
      free and cannot double-count.
      ========================================================= */
   var LAST_RECS = null;
+  /* 16 Nov 2026 — the last fetch error, or null after a good fetch.
+     The ekguru:sheet listener re-runs apply(null) from LAST_RECS,
+     and that used to rewrite EKGURU_REVIEWS_INFO as loaded:true —
+     so an offline visitor painting from the cache was reported as
+     "live" the moment the tutors tab landed. Keep the honest flag. */
+  var LAST_ERROR = null;
 
   /* Tutor ids whose EKGURU_TUTOR_FILES entry this file wrote. Only
      these are ever cleared when their rows leave the sheet — baked
@@ -435,6 +451,11 @@
       unknown: unknown,
       at: new Date().toISOString()
     };
+    if (LAST_ERROR) {
+      root.EKGURU_REVIEWS_INFO.loaded = false;
+      root.EKGURU_REVIEWS_INFO.error = LAST_ERROR;
+      root.EKGURU_REVIEWS_INFO.fromCache = true;
+    }
     return applied;
   }
 
@@ -465,7 +486,32 @@
           throw new Error("that URL returned a web page, not " + (fmt === "tsv" ? "TSV" : "CSV") + " — use Publish to web");
         }
         var recs = fmt === "tsv" ? parseTSV(body) : parseCSV(body);
-        if (!recs.length) throw new Error("no rows");
+        /* =====================================================
+           AN EMPTY TAB IS AN ANSWER, NOT AN ERROR  (16 Nov 2026)
+           -----------------------------------------------------
+           BUG FOUND — DELETED REVIEWS NEVER LEFT THE PAGE.
+
+           The owner deleted every review row (the #help row too),
+           leaving the published tab as a lone header. This parsed
+           to zero records, which used to throw "no rows", which
+           sent the loader down the error path: the snapshot URL
+           (404 since the file was retired), then a console warning
+           — and apply() was never called. A returning visitor had
+           yesterday's rows in localStorage, those had already
+           painted, and nothing ever replaced them. Three deleted
+           reviews stayed on the live profile for every repeat
+           visitor, indefinitely, with the rating they fed.
+
+           A header row that carries the review columns IS the
+           reviews tab answering "there are none". Accept it as
+           zero rows so apply([]) clears the page and the cache.
+           A body with no recognisable header is still refused —
+           that is a wrong tab or junk, and the old error stands.
+           ===================================================== */
+        if (!recs.length) {
+          if (!hasReviewHeader(body, fmt)) throw new Error("no rows");
+          return [];
+        }
         return recs;
       })
       .catch(function (e) { if (timer) clearTimeout(timer); throw e; });
@@ -500,6 +546,7 @@
                   : live().catch(function () { return snap(); });
     return first
       .then(function (recs) {
+        LAST_ERROR = null;
         writeCache(recs);
         apply(recs);
         announce();
@@ -509,7 +556,8 @@
           console.warn("[EkGuru] reviews sheet not loaded: " + e.message +
             " — the tutor files are being used instead.");
         }
-        root.EKGURU_REVIEWS_INFO = { loaded: false, error: e.message };
+        LAST_ERROR = e.message || "fetch failed";
+        root.EKGURU_REVIEWS_INFO = { loaded: false, error: LAST_ERROR, fromCache: !!LAST_RECS };
       });
   }
 

@@ -63,8 +63,13 @@ ok("placeholder generator refuses to write",
   /Refusing to generate placeholder/.test(gen) && !/hi_word_1_1/.test(gen));
 
 const sm = fs.existsSync("sitemap-levels.xml") ? fs.readFileSync("sitemap-levels.xml", "utf8") : "";
-const c3 = [...sm.matchAll(/\/level\/c[345]\//g)];
-ok("sitemap-levels.xml has no C3–C5 URLs", c3.length === 0, String(c3.length));
+/* C3–C5 may be in the sitemap only when the course file is REAL and the release
+   manifest lists the level (Hindi C3/C4/C5 are authored; every other C3–C5 is a stub). */
+const stubC345 = [...sm.matchAll(/\/languages\/([a-z-]+)\/level\/(c[345])\//g)].filter((m) => {
+  const row = catalogue.courses.find((c) => c.code === m[1]);
+  return !row || !(row.levels || {})[m[2].toUpperCase()];
+});
+ok("sitemap-levels.xml has no C3–C5 stub URLs", stubC345.length === 0, stubC345.map((m) => m[0]).slice(0, 5).join(", "));
 
 const robots = fs.readFileSync("robots.txt", "utf8");
 const sitemapIndex = fs.readFileSync("sitemap-index.xml", "utf8");
