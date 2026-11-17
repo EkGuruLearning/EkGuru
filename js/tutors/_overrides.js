@@ -2,7 +2,7 @@
    EkGuru — SHEET OVERRIDES  (GENERATED — DO NOT EDIT)
    ---------------------------------------------------------
    Written by tools/sheetsync.js from the Google Sheet on
-   2026-11-17T10:55:53.998Z
+   2026-11-17T13:20:07.436Z.
 
    Loaded AFTER the hand-written tutor files, so the sheet
    wins. Delete this file and the site falls back to those
@@ -138,9 +138,16 @@ window.EKGURU_SHEET_OVERRIDES = {
       ],
       "Sun": []
     },
-    "reviews": [],
-    "reviewsCount": 0,
-    "rating": 0
+    "reviews": [
+      {
+        "name": "akg",
+        "date": "2026-11-16",
+        "stars": 4,
+        "text": "good"
+      }
+    ],
+    "reviewsCount": 1,
+    "rating": 4
   },
   "shikha-dutta": {
     "name": "Shikha Dutta",
