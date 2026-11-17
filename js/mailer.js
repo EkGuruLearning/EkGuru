@@ -199,6 +199,11 @@
       cannotCC: false,
       /* THE WHOLE POINT. No activation link, ever. */
       canAddressStrangers: true,
+      /* v102 — and it is the only relay PROVEN to put a message in
+         a stranger's mailbox: GmailApp.sendEmail(to, …) from the
+         owner's own account. See deliversToStranger on Web3Forms for
+         why this flag exists at all. */
+      deliversToStranger: true,
       /* ⚠️ text/plain, NOT application/json — see the long note
          above. A JSON content-type triggers a CORS preflight that
          Apps Script cannot answer. */
@@ -365,6 +370,29 @@
          capability, so adding a fourth relay later needs no edit
          anywhere else. */
       canAddressStrangers: true,
+      /* =========================================================
+         v102 — ⚠️ IT ACCEPTS A `to`. IT DOES NOT DELIVER TO IT.
+         ---------------------------------------------------------
+         Live evidence, 17 Nov 2026, contact ref C-KNMQVE: the
+         visitor's acknowledgement was posted here addressed TO the
+         visitor's own address — and it arrived in
+         EkGuruLearning@gmail.com (the access key's owner), with
+         "to : <visitor address>" rendered as just another row of
+         the table. The free plan delivers every submission
+         to the key owner and treats `to` as a form field.
+
+         So from the owner's side a contact produced TWO emails
+         (the record + the "receipt") and the visitor received
+         NOTHING. Prakash: "ye dono mail bhi mere paas hi aate hai,
+         ye ek hi aana chahiye."
+
+         This flag is what contact() reads before it spends a
+         relay call on a visitor receipt. canAddressStrangers stays
+         true because the booking path still relies on this relay
+         as its addressed fallback and that policy is the owner's
+         to change; the contact acknowledgement is the one message
+         that is pointless unless it really reaches the stranger. */
+      deliversToStranger: false,
       /* =========================================================
          v87 — MORE THAN ONE ACCESS KEY
          ---------------------------------------------------------
@@ -895,7 +923,7 @@
           ok: !!(r && r.ok),
           to: (r && r.to) || to,
           via: (r && r.via) || "",
-          state: (r && r.ok) ? "ACCEPTED" : "FAILED"
+          state: (r && r.ok) ? "ACCEPTED" : ((r && r.skipped) ? "SKIPPED" : "FAILED")
         });
         return r;
       });
@@ -2185,10 +2213,15 @@
          problem this project keeps rediscovering. */
       function directToStranger() {
         /* sendable-aware (v101): a token-less Apps Script must not
-           win the stranger route only to refuse. */
+           win the stranger route only to refuse.
+           v102: and the relay must be one that is PROVEN to deliver
+           to the stranger (deliversToStranger), not one that merely
+           accepts a `to` and then mails the key owner — see the
+           Web3Forms note. */
         return PROVIDERS.filter(function (p) {
           var usable = typeof p.sendable === "function" ? p.sendable() : p.enabled();
-          return usable && !spent(p.id) && p.canAddressStrangers;
+          return usable && !spent(p.id) && p.canAddressStrangers &&
+                 p.deliversToStranger !== false;
         })[0] || null;
       }
 
@@ -2227,13 +2260,23 @@
             return postVia(direct, from, own);
           }
 
-          /* NO relay can reach a stranger right now — Web3Forms
-             spent for the month, or no key configured. Fall back to
-             the old path rather than dropping the receipt: posted
-             to our activated inbox with them CC'd. They still get
-             it; it just looks less tidy and costs us a duplicate.
-             A worse copy beats no copy. */
-          return preferContact(theirs);
+          /* =====================================================
+             v102 — NO relay can really reach the stranger right
+             now (Apps Script token not wired, or its daily quota
+             gone). The old fallback posted the receipt to OUR
+             inbox with the visitor CC'd — and Web3Forms drops the
+             CC, so the only effect was a second copy of the same
+             message in the owner's inbox and nothing for the
+             visitor. Owner, 17 Nov 2026: one email per contact.
+             So the receipt is SKIPPED, honestly: the on-page
+             confirmation already carries the reference and the
+             "reply within a day" promise, and the person who
+             reads the record replies by hand. */
+          return Promise.resolve({
+            ok: false, skipped: true, to: from, via: "",
+            state: "SKIPPED", errorClass: "NO_STRANGER_ROUTE",
+            error: "No relay can deliver to the visitor directly; receipt skipped (one email per contact)."
+          });
         }));
       }
       (CFG.alwaysCc || []).forEach(function (extra) {
@@ -2279,10 +2322,12 @@
           emailStates: {
             internal: primary.ok ? "ACCEPTED" : "FAILED",
             visitor: visitorJob
-              ? (visitorJob.ok ? "ACCEPTED" : "FAILED")
+              ? (visitorJob.ok ? "ACCEPTED" : (visitorJob.skipped ? "SKIPPED" : "FAILED"))
               : null
           },
-          failed: results.filter(function (r) { return !r.ok; }).map(function (r) {
+          /* v102 — a SKIPPED receipt is a decision, not a failure;
+             it must not light up the dashboard's failure column. */
+          failed: results.filter(function (r) { return !r.ok && !r.skipped; }).map(function (r) {
             return { to: r.to, error: r.error, state: r.state || "FAILED",
                      via: r.via || "", errorClass: r.errorClass || "UNKNOWN" };
           })
@@ -2855,6 +2900,10 @@
     routingMap: function () {
       function id(p) { return p ? p.id : null; }
       var stranger = chain().filter(function (p) { return p.canAddressStrangers; });
+      /* v102 — the contact receipt only goes where it is PROVEN to
+         arrive (deliversToStranger); null here means "skipped, one
+         email per contact". */
+      var proven = stranger.filter(function (p) { return p.deliversToStranger !== false; });
       var internal = ownInboxRelay(isEmail(SITE.email) ? SITE.email : "EkGuruLearning@gmail.com");
       /* compose() order: Apps Script primary, then free, then
          metered — every one honouring the recipient it is given. */
@@ -2877,7 +2926,7 @@
         bookingTutor: id(stranger[0]),
         bookingInternal: null,
         bookingInternalPolicy: "NOT_SENT_BY_POLICY",
-        contactVisitor: id(stranger[0]),
+        contactVisitor: id(proven[0]),
         contactInternal: id(internal),
         adminOutbound: id(outbound[0]),
         adminOutboundFallbacks: outbound.slice(1).map(id).filter(Boolean),
