@@ -1,0 +1,79 @@
+# Sheet → site, on a clock (17 Nov 2026).
+#
+# Owner rule: the Google Sheet is the source of truth and nothing about a
+# tutor is hand-edited in the repository. The browser still reads the sheet
+# live (js/sheet.js), but the FIRST paint and every visitor whose browser
+# cannot reach Google's published-CSV endpoint see the baked copy in
+# js/tutors/_overrides.js. This workflow keeps that copy honest without a
+# human: every two hours it re-runs tools/sheetsync.js against the live
+# sheet, rebuilds the tutor layer, runs the privacy + policy gates, and
+# commits to main only when something changed.
+#
+# Nothing here invents data; when Google is down the step fails and the
+# previous bake stays (no empty roster is ever committed).
+name: sheet-sync
+on:
+  schedule:
+    - cron: "17 */2 * * *"   # every 2 hours
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: sheet-sync
+  cancel-in-progress: false
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install test dependencies
+        run: npm install --no-audit --no-fund
+
+      - name: Pull the live sheet (tutors, reviews_pending, settings, support)
+        run: node tools/sheetsync.js
+
+      - name: Rebuild the tutor layer from the fresh bake
+        run: |
+          node tools/langsync.js
+          node tools/build-tutor-pages.js
+          node tools/build-home-tutors.js
+          node tools/build-market-pages.js
+          node tools/build-roster-rows.js
+          python3 tools/quarantine-tutor-drafts.py
+          python3 tools/update-editorial-metadata.py
+          python3 tools/apply-ultra.py
+
+      - name: Gates — nothing private, nothing off-policy, generators consistent
+        run: |
+          set -e
+          # No personal address or phone may ever land in a public file.
+          if grep -Eo "[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[a-z]{2,}" js/tutors/_overrides.js index.html find-tutors.html tutor/*/index.html \
+             | grep -viE "ekgurulearning@gmail\.com|support@ekguru\.shop|ops@ekguru\.com" ; then
+            echo "::error::a personal e-mail address reached a public file — refusing to commit"; exit 1; fi
+          if grep -Eo "(^|[^0-9A-Za-z_/=-])(\+?91[ -]?)?[6-9][0-9]{4}[ -]?[0-9]{5}([^0-9A-Za-z_/=-]|$)" js/tutors/_overrides.js | head -1 | grep -q . ; then
+            echo "::error::a phone-like number reached _overrides.js — refusing to commit"; exit 1; fi
+          node tools/test-sheet-only-bake.mjs
+          node tools/test-sheetsync-policy.js
+          node tools/test-sheet-apply.js
+          node tools/build-tutor-pages.js --check
+          node tools/build-home-tutors.js --check
+          node tools/build-market-pages.js --check
+          node tools/build-roster-rows.js --check
+
+      - name: Commit when the sheet changed
+        run: |
+          git add -A
+          if git diff --cached --quiet; then echo "sheet unchanged — nothing to commit"; exit 0; fi
+          git config user.name "ekguru-sheet-sync"
+          git config user.email "ekgurulearning@gmail.com"
+          git commit -m "sheet-sync: roster + reviews from the live sheet ($(date -u +%Y-%m-%dT%H:%MZ))"
+          git push origin HEAD:main
