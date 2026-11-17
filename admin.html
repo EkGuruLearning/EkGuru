@@ -5999,18 +5999,14 @@ someone@example.com" rows="6" style="width:100%;font:inherit;padding:11px 13px;b
     var S = window.EKGURU_SITE || {};
     var mats = window.EKGURU_MATERIALS || [];
     // data source state from the single source of truth in site-config
+    // (17 Nov 2026: the sheet is read ONLY through the Apps Script feed —
+    // feed.url — never through published CSV links or repo snapshots)
     var dsStatus = "GRAY", dsText = "Unknown — check js/site-config.js";
     try {
-      var statuses = [];
-      ["tutors", "settings", "reviews", "content"].forEach(function (k) {
-        if (S[k] && S[k].status) statuses.push(S[k].status);
-      });
-      if (S.sheets && S.sheets.length) S.sheets.forEach(function (s) { if (s.status) statuses.push(s.status); });
-      if (statuses.length) {
-        var allPaused = statuses.every(function (s) { return s === "PAUSED_FOR_REUPLOAD"; });
-        dsStatus = allPaused ? "YELLOW" : "GREEN";
-        dsText = statuses[0] + (allPaused ? " (all sources) — awaiting owner-provided CSV links" : "");
-      }
+      var feedOk = /^https:\/\/script\.google\.com\/macros\/s\/[A-Za-z0-9_-]+\/exec$/.test(String(S.feed && S.feed.url || "").trim());
+      dsStatus = feedOk ? "GREEN" : "RED";
+      dsText = feedOk ? "Apps Script feed configured (feed.url) — tutors · reviews · settings · support"
+                      : "feed.url is blank or malformed — tutors, reviews and settings cannot load from the sheet";
     } catch (e) { dsText = "Could not read data-source state"; }
     var sec = A.sections || R.sections || {};
     var qa = R.toolQa;
@@ -6042,16 +6038,20 @@ someone@example.com" rows="6" style="width:100%;font:inherit;padding:11px 13px;b
       row("Pages", (sec.totalHtml != null ? sec.totalHtml : "?") + " HTML · " + (sec.guides || "?") + " guides · " + (sec.tools || "?") + " tools · " + (sec.materials != null ? sec.materials : mats.length) + " materials · " + (sec.tutorProfiles || "?") + " tutor profiles") +
       "</table></div>";
 
-    // ---- Data: six sources + live-sheets ----
-    var six = ["settings", "content", "reviews", "tutors", "github_urls", "urls"];
-    var sixRows = six.map(function (s) {
-      var inRepo = (P.sheets && P.sheets.liveSheetsInRepo || []).indexOf(s + ".csv") > -1;
-      return row(s + ".csv", inRepo ? badge("YELLOW") + ' <span class="muted">in repo (live-sheets/) — validated; not activated</span>' : badge("GRAY") + ' <span class="muted">awaiting source</span>');
+    // ---- Data: the four feed tabs (no CSV export lives in the repo) ----
+    var feedTabs = [
+      ["tutors", "roster, prices, bios — e-mail columns stripped server-side"],
+      ["reviews", "approved rows of reviews_pending, public columns only"],
+      ["settings", "contact + switches"],
+      ["support", "payment links shown on /support/"]
+    ];
+    var feedRows = feedTabs.map(function (t) {
+      return row("?tab=" + t[0], badge(dsStatus === "GREEN" ? "GREEN" : "GRAY") + ' <span class="muted">' + esc(t[1]) + '</span>');
     }).join("");
     html += '<div class="card"><h2>Data</h2><table style="width:100%;border-collapse:collapse;font-size:.9rem">' +
-      row("Sheets (Google CSV)", badge(dsStatus) + ' <span class="muted">' + esc(dsText) + '</span>') +
-      row("Six sources", '<span class="muted">published URLs not yet supplied — runtime stays PAUSED_FOR_REUPLOAD</span>') +
-      sixRows +
+      row("Google Sheet", badge(dsStatus) + ' <span class="muted">' + esc(dsText) + '</span>') +
+      feedRows +
+      row("Repo snapshots", badge("GREEN") + ' <span class="muted">none — live-sheets/*.csv were removed 17 Nov 2026 so no private column can be downloaded from the site</span>') +
       row("Booking snapshot", '<span class="muted">immutable — tutor edits never rewrite history</span>') +
       "</table></div>";
 

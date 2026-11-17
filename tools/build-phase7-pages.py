@@ -386,7 +386,7 @@ def languages_page():
         '  })();\n'
         '  </script>\n'
     )
-    write("languages/index.html", "../", "Learn a language with EkGuru — available now and coming soon",
+    write("languages/index.html", "../", "Learn a language with EkGuru — live and coming soon",
           "Free language courses from English: " + avail_names + " available now, with starter packs and more coming.",
           "languages/", body, scripts=["content-graph.js", "vocab-phrase-engine.js", "grammar-engine.js",
                                        "hindi-srs.js", "language-pack.js", "hindi-audio.js"])

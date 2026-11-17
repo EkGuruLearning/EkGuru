@@ -227,6 +227,32 @@ def _level_title(lv, name, level):
     return prefix.sub("", t) or LEVEL_NAMES.get(level, level)
 
 
+TITLE_BUDGET = 56   # 65 visible characters minus head()'s " | EkGuru"
+
+
+def _seo_title(name, level, lv_title, budget=TITLE_BUDGET):
+    """<title> for a level page, kept to the ~65 characters a search result
+    shows (17 Nov 2026: 18 level pages ran to 79 and were cut mid-word in
+    the SERP). The <h1> keeps the full headline; only the tab title is
+    shortened, and it is shortened at a comma — whole topics, never half a
+    word — e.g. "Korean B1 — Intermediate: long negation, ability"."""
+    full = "%s %s — %s" % (name, level, lv_title)
+    if len(full) <= budget:
+        return full
+    if ":" in lv_title:
+        head_, topics = lv_title.split(":", 1)
+        base = "%s %s — %s" % (name, level, head_.strip())
+        kept = []
+        for item in [t.strip() for t in topics.split(",") if t.strip()]:
+            cand = base + ": " + ", ".join(kept + [item])
+            if len(cand) > budget:
+                break
+            kept.append(item)
+        return (base + ": " + ", ".join(kept)) if kept else base
+    cut = full[:budget]
+    return re.sub(r"[\s,:—–-]+$", "", cut.rsplit(" ", 1)[0] if " " in cut else cut)
+
+
 def compose(up, title, desc, url, crumb, body, index=True):
     """The exact page write_page() would write, without writing it.
 
@@ -770,7 +796,7 @@ def level_page(code, course, level, data, rungmap, figs, levels):
     test_bit = (", including a %d-item level test" % n["test"]) if n["test"] else ""
 
     lv_title = _level_title(lv, name, level)
-    title = "%s %s — %s" % (name, level, lv_title)
+    title = _seo_title(name, level, lv_title)
     desc = ("%s at level %s (%s): %d lessons in %d units, %d words with romanisation, "
             "%d questions with answers%s — free, in your browser."
             % (name, level, LEVEL_NAMES.get(level, level), n["lessons"], n["units"],

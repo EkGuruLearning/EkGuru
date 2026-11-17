@@ -482,5 +482,75 @@ console.log("\n== 13. Approved (registry) tutor with no sheet row at all -> visi
   p4.close();
 }
 
+/* ====== 14. THE OWNER'S SHEET, 17 Nov 2026, through the real Unified.gs ====== */
+console.log("\n== 14. reviews_pending as the owner has it today -> Unified.gs (vm) -> the live profile page ==");
+{
+  /* The exact rows of the `reviews_pending` tab on 17 Nov 2026 (contact
+     e-mails replaced by placeholders — the feed strips that column anyway):
+     three rejected rows, ONE approved row whose lesson_date is blank, so
+     the feed falls back to the form timestamp (a real Date cell displayed
+     day-first by the en_GB workbook). */
+  const vm = require("node:vm");
+  const DISPLAY = [
+    ["timestamp", "reference", "status", "tutor_id", "reviewer_name", "stars", "text", "lesson_date", "contact_email", "booking_id", "notes"],
+    ["04/11/2026 08:52:16", "EG-ZAVQPJ", "rejected", "sushila-g", "mnnm", "1", ",b;", "2026-11-04", "a@example.com", "", ""],
+    ["04/11/2026 10:30:42", "EG-J4C9QM", "rejected", "pinky-kumari", "prakaash", "5", "MST HAI BHAI KYA PDHATI hi yrr yr", "2026-11-04", "", "", ""],
+    ["04/11/2026 10:30:42", "EG-J4C9QM", "rejected", "pinky-kumari", "prakaash", "5", "good", "2026-11-04", "", "", ""],
+    ["16/11/2026 11:24:13", "EG-CXHT9D", "approved", "sushila-g", "akg", "4", "good", "", "", "EK-VRX96M", ""]
+  ];
+  const RAW = DISPLAY.map((r, i) => (i ? [new Date(2026, 10, Number(r[0].slice(0, 2)), Number(r[0].slice(11, 13)), Number(r[0].slice(14, 16)))].concat(r.slice(1)) : r));
+  function runUnified(source) {
+    const ctx = {
+      console: { log() {}, warn() {}, error() {} },
+      SpreadsheetApp: { getActive: () => ({ getSheets: () => [{ getName: () => "reviews_pending", getSheetId: () => 176535552, getDataRange: () => ({ getDisplayValues: () => DISPLAY, getValues: () => RAW.map((r) => r.slice()) }) }] }) },
+      CacheService: { getScriptCache: () => ({ get: () => null, put() {}, removeAll() {} }) },
+      ContentService: { MimeType: { CSV: "CSV", JSON: "JSON" }, createTextOutput: (t) => ({ text: t, setMimeType() { return this; }, getContent() { return this.text; } }) },
+      ScriptApp: { getProjectTriggers: () => [] },
+      Utilities: { formatDate: (d) => d.toISOString().slice(0, 10) },
+      Session: { getScriptTimeZone: () => "Asia/Kolkata" },
+      PropertiesService: { getScriptProperties: () => ({ getProperty: () => null }) }
+    };
+    vm.createContext(ctx);
+    vm.runInContext(source, ctx);
+    return ctx.doGet({ parameter: { tab: "reviews" } }).getContent();
+  }
+  const repoCsv = runUnified(fs.readFileSync(path.join(ROOT, "apps-script/Unified.gs"), "utf8"));
+  ok("Unified.gs (repo) publishes exactly the ONE approved row, dated 2026-11-16", /^sushila-g,akg,2026-11-16,4,good,/m.test(repoCsv) && !/pinky-kumari|EG-|example\.com|EK-VRX96M/.test(repoCsv), repoCsv);
+  /* the still-deployed 2.1.0 build emitted the month/day swapped */
+  const oldCsv = repoCsv.replace("2026-11-16", "2026-16-11");
+  /* and the sheet's own word, should a row ever reach the browser unmapped */
+  const approvedCsv = repoCsv.replace(/,live(\r?\n|$)/, ",approved$1");
+  for (const [label, body] of [["repo 2.1.1 feed", repoCsv], ["deployed 2.1.0 feed (2026-16-11)", oldCsv], ["status=approved spelled as in the sheet", approvedCsv]]) {
+    STORAGE.clear();
+    const g = makeGoogle({ reviews: [], tutorMut: (o, c, h) => { if (o.id === "sushila-g") setCell(o, c, h, "active", "yes"); } });
+    const real = g.fetch;
+    g.fetch = (u) => (String(u).indexOf(FEED_EXEC + "?tab=reviews") === 0 ? Promise.resolve({ ok: true, status: 200, text: () => Promise.resolve(body) }) : real(u));
+    const p = await loadPage(PROFILE, PROFILE_URL, g, { settle: 1200 });
+    const r = profileReviews(p.win);
+    ok(label + ": sushila-g's profile prints akg's 4-star review and nothing else", r.count === 1 && r.names[0] === "akg" && r.rating === 4, JSON.stringify(r));
+    ok(label + ": the printed date reads 16 Nov 2026", /16 Nov 2026|2026-11-16|Nov 16, 2026/.test(p.win.document.querySelector('[data-eg-reviews][data-tutor="sushila-g"]').textContent), p.win.document.querySelector('[data-eg-reviews][data-tutor="sushila-g"]').textContent.replace(/\s+/g, " ").slice(0, 200));
+    ok(label + ": no script errors", p.errors.length === 0, p.errors.join(" | "));
+    p.close();
+    /* pinky-kumari: both her rows are rejected -> honest zero */
+    STORAGE.clear();
+    const pk = await loadPage("tutor/pinky-kumari/index.html", "https://ekguru.shop/tutor/pinky-kumari/", g, { settle: 1200 });
+    const host = pk.win.document.querySelector('[data-eg-reviews][data-tutor="pinky-kumari"]');
+    ok(label + ": pinky-kumari (rejected rows only) shows no review cards", host && host.querySelectorAll("article.rev").length === 0 && !/prakaash|MST HAI/.test(pk.win.document.body.textContent), host ? host.textContent.replace(/\s+/g, " ").slice(0, 120) : "no host");
+    pk.close();
+    /* ?reviews=debug — the owner's self-check box says what happened */
+    STORAGE.clear();
+    const dbg = await loadPage(PROFILE, PROFILE_URL + "?reviews=debug", g, { settle: 1200 });
+    const box = dbg.win.document.getElementById("ekguru-reviews-debug");
+    ok(label + ": ?reviews=debug prints the self-check (feed answered, 1 row, 1 published on sushila-g)", box && /answered\s*: yes/.test(box.textContent) && /rows received\s*: 1/.test(box.textContent) && /published\s*: 1 review\(s\) on sushila-g/.test(box.textContent), box ? box.textContent : "no box");
+    dbg.close();
+    /* the dynamic profile tutor.html?id=sushila-g (js/main.js) must agree */
+    STORAGE.clear();
+    const dyn = await loadPage("tutor.html", "https://ekguru.shop/tutor.html?id=sushila-g", g, { settle: 1500 });
+    const dynMain = dyn.win.document.querySelector("main") ? dyn.win.document.querySelector("main").textContent : "";
+    ok(label + ": tutor.html?id=sushila-g shows akg's review with a 4.0 rating", /akg/.test(dynMain) && /4\.0/.test(dynMain) && !/prakaash/.test(dynMain), dynMain.replace(/\s+/g, " ").slice(0, 160));
+    dyn.close();
+  }
+}
+
 console.log("\n" + pass + " passed, " + fail + " failed");
 process.exit(fail ? 1 : 0);
