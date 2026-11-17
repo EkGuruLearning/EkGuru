@@ -73,6 +73,8 @@ def title_of(path):
 def desc_of(path):
     html = read_file(path)
     m = re.search(r'<meta name="description" content="([^"]*)"', html)
+    if not m:  # attribute order varies on generated pages (content= first)
+        m = re.search(r'<meta content="([^"]*)" name="description"', html)
     if m:
         return unescape(m.group(1)).strip()
     return None
@@ -131,6 +133,18 @@ def main():
         else:
             idx.append({"u": p, "t": t, "d": d, "s": "Practice", "k": k})
             added += 1
+
+    # 3b) 17 Nov 2026 — the one Hindi hub (tools/build-hindi-hub.py rewrites
+    #     its title/description from the real page set); refresh from the page.
+    for p in ("hindi/",):
+        f = os.path.join(p, "index.html")
+        if not os.path.exists(f) or not is_public(p):
+            continue
+        t, d = title_of(f) or "Learn Hindi", desc_of(f) or ""
+        if p in by_url:
+            by_url[p]["t"], by_url[p]["d"], by_url[p]["k"] = t, d, keywords(t, d)
+        else:
+            idx.append({"u": p, "t": t, "d": d, "s": "Page", "k": keywords(t, d)}); by_url[p] = idx[-1]; added += 1
 
     # 4) home page must always be present
     if "" not in by_url and os.path.exists("index.html"):

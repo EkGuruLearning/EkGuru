@@ -151,13 +151,11 @@ def main():
         print(f"  quiz {slug}: injected={n}")
 
     n = add_hub_pointer("learn/index.html", "hindi/",
-                        "Learn Hindi — the complete structure",
-                        "choose a goal, pick your level, work through a topic, then learn, practise, quiz and review.")
+                        "Learn Hindi — everything in one place",
+                        "levels, topics, the daily course, practice, tools, printables, answers and tutors from one page.")
     print(f"  learn hub pointer: {n}")
-    n = add_hub_pointer("hindi/index.html", "../learn/hindi/",
-                        "Learn Hindi — the complete structure",
-                        "the same topics, organised as a journey from level to topic to lesson.")
-    print(f"  hindi topic-map pointer: {n}")
+    # 17 Nov 2026 — hindi/index.html IS the one door now (tools/build-hindi-hub.py
+    # owns its content region); it no longer carries a pointer to learn/hindi/.
 
     print(f"done: {total_crumb} crumbs, {total_ld} JSON-LD lists, {total_quiz} quizzes")
 
