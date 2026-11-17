@@ -52,6 +52,25 @@ jobs:
           python3 tools/update-editorial-metadata.py
           python3 tools/apply-ultra.py
 
+      # 17 Nov 2026 — the derived data that `python3 tools/build-all.py check`
+      # (the `ci` workflow) compares against the HTML. Without this step a
+      # sheet-sync commit that changes any page (a guru hidden, a price
+      # edited) turns the next CI run on main red on "copy index STALE" /
+      # "noindex search target" / "Phase 2 inventory is current". Search and
+      # copy index are built with the ultra layer stripped, the inventories
+      # with it applied — the same order build-all itself uses.
+      - name: Refresh derived data (search index, copy index, page inventories)
+        run: |
+          python3 tools/apply-ultra.py --strip
+          python3 tools/build-search-index.py
+          node tools/build-copy-index.js
+          python3 tools/update-editorial-metadata.py
+          python3 tools/apply-ultra.py
+          python3 tools/build-full-page-inventory.py
+          python3 tools/build-phase2-content-inventory.py
+          python3 tools/build-phase3-originality-audit.py
+          git checkout -- reports/adsready-local.json 2>/dev/null || true
+
       - name: Gates — nothing private, nothing off-policy, generators consistent
         run: |
           set -e
@@ -69,6 +88,8 @@ jobs:
           node tools/build-home-tutors.js --check
           node tools/build-market-pages.js --check
           node tools/build-roster-rows.js --check
+          python3 tools/quarantine-tutor-drafts.py --check
+          node tools/test-orphan-tutor-quarantine.mjs
 
       - name: Commit when the sheet changed
         run: |

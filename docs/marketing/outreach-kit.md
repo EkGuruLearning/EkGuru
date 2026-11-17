@@ -73,9 +73,17 @@ Apps Script digest can report it weekly.
 
 - [x] All approved gurus visible on first paint (PR #53)
 - [x] Dark-mode safety net
-- [ ] Merge PR #53 → main (the live site still runs the old code until then)
-- [ ] Deploy `apps-script/Unified.gs` to the existing intake project and paste
-      the same `/exec` URL into `feed.url` (10 minutes; makes reviews + roster
-      live within 30 s instead of the 2-hour sheet-sync)
-- [ ] Decide indexing for `/tutor/<id>/` pages (currently noindex by the
-      1 Oct owner contract)
+- [x] Merge PR #53 → main (merged 17 Nov 2026; #54 and #55 followed)
+- [x] `apps-script/Unified.gs` deployed; its `/exec` URL is `feed.url` AND
+      `intake.url` in `js/site-config.js` (reviews + roster live within 30 s)
+      — still owner's: redeploy the repo's 2.1.1 as a *New version* of the
+      same deployment (the live health endpoint reports 1.0.0)
+- [x] Indexing for `/tutor/<id>/` decided: public gurus `index, follow`;
+      a hidden guru (sheet `active=no`) or an unpublished draft is
+      `noindex, follow` with booking off (PR #55, round 13)
+- [ ] Owner: un-publish the `reviews_pending` tab from "File → Share →
+      Publish to web" (its public CSV shows reviewer contact e-mails; the
+      build reads approved reviews from the Apps Script feed since round 13)
+- [ ] Owner: Cloudflare → Purge Everything after each merge, and the WAF
+      skip rule for the `EkGuruGuard` user-agent (weekly live-guard is red
+      only because Cloudflare challenges the probe)
