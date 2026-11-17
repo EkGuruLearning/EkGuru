@@ -2,7 +2,7 @@
    EkGuru — SHEET OVERRIDES  (GENERATED — DO NOT EDIT)
    ---------------------------------------------------------
    Written by tools/sheetsync.js from the Google Sheet on
-   2026-11-17T03:21:00.310Z.
+   2026-11-17T10:55:53.998Z
 
    Loaded AFTER the hand-written tutor files, so the sheet
    wins. Delete this file and the site falls back to those
@@ -1297,73 +1297,6 @@ window.EKGURU_SHEET_TUTORS = [
       "Bachelor of Arts, Kapilvastu University (Siddharth Nagar, Uttar Pradesh).",
       "Teaches children, adults and beginners.",
       "Reading, writing, grammar and basic spoken Hindi."
-    ],
-    "reviews": [],
-    "reviewsCount": 0,
-    "rating": 0,
-    "photo": "images/placeholder-tutor.jpg",
-    "thumb": "images/placeholder-tutor.jpg",
-    "noPhoto": true,
-    "sheetOnly": true
-  },
-  {
-    "id": "neelam-dawar",
-    "name": "Neelam Dawar",
-    "nickname": "Neelam",
-    "headline": "Experienced Hindi Teacher (MA Hindi, B.Ed.) — Speaking, Reading, Writing, Grammar & Culture",
-    "city": "Dachau, Germany",
-    "country": "Germany",
-    "timezone": "CET (GMT+1)",
-    "subject": "Hindi",
-    "lessonLength": "50 min",
-    "priceUSD": 5,
-    "experienceYears": 10,
-    "videoTitle": "Hindi Tutor Intro",
-    "countryFlag": "🇩🇪",
-    "tags": [
-      "Experienced",
-      "Structured",
-      "Children",
-      "Practical"
-    ],
-    "teaches": [
-      "Hindi for beginners",
-      "Hindi for children",
-      "Hindi for teenagers",
-      "Conversational Hindi",
-      "Devanagari reading and writing",
-      "Hindi grammar",
-      "Indian culture"
-    ],
-    "levels": [
-      "Beginner",
-      "Intermediate",
-      "Advanced"
-    ],
-    "speaks": [
-      {
-        "lang": "Hindi",
-        "level": "Native"
-      },
-      {
-        "lang": "English",
-        "level": "Fluent"
-      },
-      {
-        "lang": "German",
-        "level": "Learning"
-      }
-    ],
-    "about": [
-      "My name is Neelam Dawar. I am a native Hindi speaker with an M.A. in Hindi and a B.Ed., and I have around 10 years of teaching experience in India, teaching students from Classes 3 to 8.",
-      "I offer online Hindi lessons for children, teenagers and adults, including Hindi speaking, reading, writing, grammar and Indian culture. I enjoy making lessons practical, engaging and suitable for the learner's level.",
-      "I currently live in Dachau, Germany, and I am comfortable teaching in Hindi and English. European daytime and evening slots work well for me."
-    ],
-    "experience": [
-      "M.A. in Hindi and B.Ed.",
-      "Around 10 years of teaching in India, Classes 3 to 8.",
-      "Teaches children, teenagers and adults.",
-      "Speaking, reading, writing, grammar and Indian culture."
     ],
     "reviews": [],
     "reviewsCount": 0,

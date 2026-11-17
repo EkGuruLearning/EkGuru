@@ -236,6 +236,8 @@ def main():
                 ["node", "tools/test-sheetsync-policy.js"])
             run("sheet-only guru bake test (approved=yes rows bake, private cells never)",
                 ["node", "tools/test-sheet-only-bake.mjs"])
+            run("orphan tutor page quarantine (a sheet-only guru set active=no loses the public page)",
+                ["node", "tools/test-orphan-tutor-quarantine.mjs"])
             run("no-competitor-attribution gate (public output + rendered strings)",
                 ["node", "tools/test-no-competitor-attribution.js"])
             run("experience DOM test", ["node", "tools/test-experience-dom.mjs"])

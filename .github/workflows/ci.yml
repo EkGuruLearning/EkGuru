@@ -78,6 +78,7 @@ jobs:
       - name: Tutor re-activation cycle (active=yes/no restores everything)
         run: |
           node tools/test-tutor-activation.mjs
+          node tools/test-orphan-tutor-quarantine.mjs
 
       - name: Real-life sheet cycle (reviews add/delete/replace, roster, price, offline cache)
         run: |

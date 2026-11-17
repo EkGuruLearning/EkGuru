@@ -125,6 +125,14 @@ publish a review change its `status` to `approved` — nothing else to copy.
 The old separate `reviews` tab is no longer read at all: delete it from the
 workbook whenever convenient (nothing breaks while it still exists).
 
+**Un-publish `reviews_pending`.** Since round 13 (17 Nov 2026) the build
+(`tools/sheetsync.js`, run by the `sheet-sync` workflow) also takes approved
+reviews from this feed, not from the tab's "Publish to web" CSV. That CSV
+carries `contact_email`, so remove `reviews_pending` from *File → Share →
+Publish to web* (keep `tutors`, `settings`, `content`, `support` published —
+they are the CSV fallback for the site). Nothing else changes: the feed
+strips the private columns (`privateColumnsRemoved` in the JSON answer).
+
 ## Updating later (URL must not change)
 
 1. Paste the new `Unified.gs` over the old file, **Save**.

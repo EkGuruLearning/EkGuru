@@ -39,10 +39,47 @@ const SRC = {
      `reviews` is kept as an optional legacy source so an old workbook
      still builds; a dead link is tolerated below. */
   reviews:  "",
+  /* 17 Nov 2026 (round 13) — the published-CSV copy of reviews_pending is a
+     FALLBACK only. That tab holds the reviewer's contact_email, so its
+     "Publish to web" link is a privacy leak on its own; the build now asks
+     the Apps Script feed first (feedReviewsUrl() below — `?tab=reviews&
+     format=json`, approved rows only, private columns stripped server
+     side), and the owner can un-publish the tab. The CSV line stays so an
+     old workbook / an undeployed feed still bakes the approved reviews. */
   reviewsPending: `${BASE}?gid=176535552&single=true&output=csv`,
   settings: `${BASE}?gid=1658518385&single=true&output=csv`,
   support:  `${BASE}?gid=1041390059&single=true&output=csv`,
 };
+
+/* The deployed Apps Script /exec from js/site-config.js (feed.url), or ""
+   when the feed is not wired. Same regex tools/test-public-surface.mjs uses. */
+function feedReviewsUrl() {
+  try {
+    const cfg = fs.readFileSync(path.join(__dirname, "..", "js", "site-config.js"), "utf8");
+    const url = (cfg.match(/feed:\s*\{[\s\S]*?url:\s*"([^"]*)"/) || [])[1] || "";
+    if (!/^https:\/\/script\.google\.com\/macros\/s\/[A-Za-z0-9_-]+\/exec$/.test(url)) return "";
+    return url + "?tab=reviews&format=json";
+  } catch (e) { return ""; }
+}
+
+/* Approved reviews from the feed, already in the public row shape
+   (tutor, name, date, stars, text, source, status). Throws on any
+   non-JSON / not-ok answer so the caller can fall back to the CSV. */
+async function fetchFeedReviews(url) {
+  const r = await fetch(url, { redirect: "follow", headers: { "accept": "application/json" } });
+  if (!r.ok) throw new Error(`HTTP ${r.status}`);
+  const body = await r.text();
+  let j;
+  try { j = JSON.parse(body); } catch (e) { throw new Error("not JSON (" + body.slice(0, 40).replace(/\s+/g, " ") + "…)"); }
+  if (!j || j.ok !== true || !Array.isArray(j.header) || !Array.isArray(j.rows)) throw new Error("feed answered without ok/header/rows");
+  const rows = [j.header].concat(j.rows);
+  return toRecords(rows).map(o => {
+    /* the feed may print the date day-first (en_GB workbook) — normalise
+       exactly like pendingToReviews does. */
+    o.date = isoDate(o.date);
+    return o;
+  });
+}
 
 /* ---------- delimited-text parsing (shared, see tools/sheet-fetch.js) ----------
    v143 (30 Sep 2026): the parser and the CSV→TSV fallback now live in
@@ -373,13 +410,28 @@ if (require.main === module) (async function main() {
     [tutors, settings, support] = await Promise.all([
       fetchCSV(SRC.tutors), fetchSettings(SRC.settings), fetchSettings(SRC.support),
     ]);
-    /* reviews_pending is the review source (approved rows only). */
-    try {
-      const pending = await fetchCSV(SRC.reviewsPending);
-      reviews = pendingToReviews(pending);
-    } catch (e) {
-      reviews = [];
-      console.warn(`  !! reviews_pending not read (${e.message}) — no reviews will be baked this run.`);
+    /* reviews_pending is the review source (approved rows only): the Apps
+       Script feed first (private columns never leave the server), the
+       published CSV of the tab only when the feed is unavailable. */
+    reviews = null;
+    const feedUrl = feedReviewsUrl();
+    if (feedUrl) {
+      try {
+        reviews = await fetchFeedReviews(feedUrl);
+        console.log(`  reviews: ${reviews.length} approved row(s) from the Apps Script feed`);
+      } catch (e) {
+        console.warn(`  !! feed reviews not read (${e.message}) — trying the published reviews_pending CSV.`);
+      }
+    }
+    if (reviews === null) {
+      try {
+        const pending = await fetchCSV(SRC.reviewsPending);
+        reviews = pendingToReviews(pending);
+        console.log(`  reviews: ${reviews.length} approved row(s) from the published reviews_pending CSV`);
+      } catch (e) {
+        reviews = [];
+        console.warn(`  !! reviews_pending not read (${e.message}) — no reviews will be baked this run.`);
+      }
     }
     /* Legacy: an old separate `reviews` tab, only if a URL is configured and alive. */
     if (SRC.reviews) {
@@ -534,4 +586,4 @@ window.EKGURU_SHEET_TUTORS = ${JSON.stringify(sheetTutors, null, 2)};
   console.log(`  emails written: ${Object.values(overrides).filter(t => t.email).length}`);
 })();
 
-module.exports = { buildTutor, buildReviews, pendingToReviews, MARKETPLACE_SOURCES, normalizePhoto };
+module.exports = { buildTutor, buildReviews, pendingToReviews, MARKETPLACE_SOURCES, normalizePhoto, feedReviewsUrl, fetchFeedReviews, isoDate };

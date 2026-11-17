@@ -1,5 +1,18 @@
 #!/usr/bin/env python3
-"""Keep three hidden/incomplete tutor drafts out of public discovery.
+"""Keep hidden/incomplete tutor profile pages out of public discovery.
+
+Two sources of pages to quarantine:
+  1. DRAFTS below — hand-written tutor files that are not in the registry
+     (and not published by the sheet).
+  2. 17 Nov 2026 — ORPHANS: any tutor/<id>/index.html whose id is no longer
+     in the build roster at all. This happens when a sheet-only guru (baked
+     from an approved=yes row, see tools/sheetsync.js) is later set
+     active=no: the next bake drops the record, tools/build-tutor-pages.js
+     no longer owns the page, and without this step the old profile would
+     stay indexable with booking on. The page is rewritten as the same
+     noindex "profile not published" stub (name taken from the old title),
+     so a direct link still resolves and nothing private or bookable is
+     left. Flipping the row back to active=yes rebuilds the real profile.
 
 `--check` is a byte comparison and never writes.
 """
@@ -69,32 +82,71 @@ def desired(slug: str, name: str, reason: str, text: str) -> str:
     return text
 
 
-def public_ids() -> set:
-    """The public roster as the build sees it (registry + approved sheet
-    rows, minus active=no). 17 Nov 2026: the sheet is the source of truth,
-    so a draft listed above is only quarantined while the sheet does NOT
-    publish it; once the owner writes approved=yes / active=yes the real
-    profile from tools/build-tutor-pages.js is left alone."""
+def roster_ids() -> tuple:
+    """(public, roster, unlisted) as the build sees them. public = registry +
+    approved sheet rows, minus active=no. 17 Nov 2026: the sheet is the
+    source of truth, so a draft listed above is only quarantined while the
+    sheet does NOT publish it; once the owner writes approved=yes /
+    active=yes the real profile from tools/build-tutor-pages.js is left
+    alone. roster = every id that still has data (registry files + baked
+    sheet-only gurus); unlisted = tutor files outside the registry."""
     import subprocess
     try:
         out = subprocess.run(
-            ["node", "-e", "const {loadSite}=require('./tools/lib/site-data');"
-             "process.stdout.write(JSON.stringify(loadSite().publicTutors.map(t=>t.id)))"],
+            ["node", "-e", "const {loadSite}=require('./tools/lib/site-data');const s=loadSite();"
+             "process.stdout.write(JSON.stringify({public:s.publicTutors.map(t=>t.id),"
+             "roster:s.tutors.map(t=>t.id),unlisted:s.unlisted}))"],
             capture_output=True, text=True, cwd=ROOT, timeout=60)
-        return set(json.loads(out.stdout or "[]"))
+        d = json.loads(out.stdout or "{}")
+        return set(d.get("public", [])), set(d.get("roster", [])), set(d.get("unlisted", []))
     except Exception as exc:  # a broken roster must not silently quarantine anyone
         print(f"warn: could not read the public roster ({exc}); quarantining nothing")
-        return set(DRAFTS)
+        return set(DRAFTS), None, set()
+
+
+def public_ids() -> set:
+    return roster_ids()[0]
+
+
+def page_name(text: str, slug: str) -> str:
+    """The guru's display name from an existing page: the part of <title>
+    before the first em dash ("Neelam Dawar — Online Hindi Tutor Profile |
+    EkGuru" and the quarantined form both start with the name)."""
+    m = re.search(r"<title>(.*?)</title>", text, re.I | re.S)
+    raw = re.sub(r"\s+", " ", m.group(1)).strip() if m else ""
+    name = re.split(r"\s+[—|-]\s+", raw, maxsplit=1)[0].strip() if raw else ""
+    return name or slug.replace("-", " ").title()
+
+
+def orphans(roster, unlisted) -> dict:
+    """tutor/<id>/ directories with a page but no data source anywhere."""
+    if roster is None:
+        return {}
+    found = {}
+    for d in sorted((ROOT / "tutor").iterdir()):
+        page = d / "index.html"
+        if not d.is_dir() or not page.is_file():
+            continue
+        slug = d.name
+        if slug in roster or slug in unlisted or slug in DRAFTS:
+            continue
+        name = page_name(page.read_text(encoding="utf-8"), slug)
+        found[slug] = (name, "This tutor profile is currently hidden from the public roster.")
+    return found
 
 
 def main() -> int:
     check = "--check" in sys.argv
     stale = []
-    live = public_ids()
+    live, roster, unlisted = roster_ids()
     drafts = {k: v for k, v in DRAFTS.items() if k not in live}
     skipped = [k for k in DRAFTS if k in live]
     if skipped:
         print("published by the sheet, not quarantined: " + ", ".join(skipped))
+    gone = orphans(roster, unlisted)
+    if gone:
+        print("no longer in the roster (sheet active=no / unapproved), quarantined: " + ", ".join(gone))
+    drafts.update(gone)
     for slug, (name, reason) in drafts.items():
         path = ROOT / "tutor" / slug / "index.html"
         old = path.read_text(encoding="utf-8")
