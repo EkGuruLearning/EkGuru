@@ -126,7 +126,12 @@ console.log("\n2. the only cross-origin dependency is the ad loader\n");
       if (logic && host !== "pagead2.googlesyndication.com") {
         risky.push(`${f} <${tag}> ${host}`);
       }
-      if (!logic && host !== "i.ytimg.com" && host !== "www.youtube-nocookie.com") {
+      /* Tutor photos come from the owner's Google Sheet as Drive links
+         (lh3.googleusercontent.com). They are content, carry a
+         data-eg-photo-fallback swap to the local placeholder, and nothing on
+         the page waits for them. */
+      const contentHosts = ["i.ytimg.com", "www.youtube-nocookie.com", "lh3.googleusercontent.com"];
+      if (!logic && !contentHosts.includes(host)) {
         risky.push(`${f} <${tag}> ${host}`);
       }
     }

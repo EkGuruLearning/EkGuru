@@ -53,16 +53,50 @@ const TUTORS_TSV = fs.readFileSync(path.join(ROOT, "tests/fixtures/tutors.tsv"),
    of them (deepika, utkarsh-upadhyay) — exactly the production shape. */
 const REGISTRY = (fs.readFileSync(path.join(ROOT, "js/tutors/_registry.js"), "utf8").match(/"([a-z0-9-]+)"/g) || [])
   .map((x) => x.replace(/"/g, "")).filter((id) => fs.existsSync(path.join(ROOT, "js/tutors", id + ".js")));
+/* 17 Nov 2026 — the sheet is the roster: approved=yes rows with no tutor
+   file are baked into window.EKGURU_SHEET_TUTORS (js/tutors/_overrides.js).
+   In production every one of them HAS a sheet row, so "the owner sets every
+   row to active=no" must cover them too — otherwise the fixture, not the
+   site, would be keeping them visible. */
+const SHEET_BAKED = (() => {
+  const ov = fs.readFileSync(path.join(ROOT, "js/tutors/_overrides.js"), "utf8");
+  const m = /window\.EKGURU_SHEET_TUTORS\s*=\s*(\[[\s\S]*?\n\]);/.exec(ov);
+  try { return m ? JSON.parse(m[1]).map((t) => t.id) : []; } catch (e) { return []; }
+})();
+const ALL_PUBLIC = Array.from(new Set(REGISTRY.concat(SHEET_BAKED)));
+/* Quote-aware TSV: the fixture (like Google's TSV export) wraps a cell that
+   holds a newline, tab or quote in double quotes and doubles inner quotes.
+   Splitting on "\n" treated every continuation line of a tutor's bio as a
+   row of its own, so dropping or editing a tutor left orphan lines that
+   js/sheet.js then read as garbage ids. Parse records, mutate, re-encode. */
+function parseTSV(text) {
+  const rows = []; let row = [], cell = "", q = false;
+  for (let i = 0; i < text.length; i++) {
+    const c = text[i];
+    if (q) {
+      if (c === '"') { if (text[i + 1] === '"') { cell += '"'; i++; } else q = false; }
+      else cell += c;
+    } else if (c === '"' && cell === "") q = true;
+    else if (c === "\t") { row.push(cell); cell = ""; }
+    else if (c === "\n" || c === "\r") {
+      if (c === "\r" && text[i + 1] === "\n") i++;
+      row.push(cell); rows.push(row); row = []; cell = "";
+    } else cell += c;
+  }
+  if (cell !== "" || row.length) { row.push(cell); rows.push(row); }
+  return rows.filter((r) => r.length > 1 || (r[0] || "").trim());
+}
+const tsvCell = (v) => (/[\t\n\r"]/.test(v) ? '"' + String(v).replace(/"/g, '""') + '"' : String(v));
+const TUTOR_ROWS = parseTSV(TUTORS_TSV);
 function tutorsSheet(mut, opts) {
   opts = opts || {};
-  const lines = TUTORS_TSV.split("\n");
-  const head = lines[0].split("\t");
-  let rows = lines.slice(1).filter(Boolean).map((l) => l.split("\t"));
+  const head = TUTOR_ROWS[0].slice();
+  let rows = TUTOR_ROWS.slice(1).map((r) => { const c = r.slice(); while (c.length < head.length) c.push(""); return c; });
   if (opts.drop) rows = rows.filter((r) => !opts.drop.includes(r[0]));
-  /* allNo: give EVERY registry tutor a row that says active=no — the
-     only way to hide an approved tutor (owner rule, 16 Nov 2026). */
+  /* allNo: give EVERY public tutor a row that says active=no — the only
+     way to hide an approved tutor (owner rule, 16 Nov 2026). */
   if (opts.allNo) {
-    REGISTRY.forEach((id) => {
+    ALL_PUBLIC.forEach((id) => {
       if (rows.some((r) => r[0] === id)) return;
       const r = head.map(() => ""); r[0] = id; r[head.indexOf("active")] = "no"; r[head.indexOf("name")] = id;
       rows.push(r);
@@ -70,14 +104,19 @@ function tutorsSheet(mut, opts) {
     rows.forEach((r) => { if (r[0] !== "#help") r[head.indexOf("active")] = "no"; });
   }
   if (mut) rows.forEach((r) => mut(Object.fromEntries(head.map((h, i) => [h, r[i]])), r, head));
-  return [head.join("\t")].concat(rows.map((r) => r.join("\t"))).join("\n");
+  return [head].concat(rows).map((r) => r.map(tsvCell).join("\t")).join("\n");
 }
 function setCell(row, cells, head, key, val) { const i = head.indexOf(key); if (i >= 0) cells[i] = val; }
 
 const csv = (rows) => rows.map((r) => r.map((c) => '"' + String(c).replace(/"/g, '""') + '"').join(",")).join("\n");
 
-/* "Google" — answers by gid. CSV is dead for reviews (as live), TSV
-   works; the tutors tab answers CSV. Anything else is offline. */
+/* "Google" — the Apps Script feed answers `?tab=reviews` with the public
+   shape of reviews_pending (17 Nov 2026: ONE review tab, served only by
+   the feed, apps-script/Unified.gs feedGet_). The old published `reviews`
+   tab (gid 293675115) was deleted, so it answers 404 like the real one.
+   The tutors tab still answers TSV (CSV 500s, as live). Anything else is
+   offline. */
+const FEED_EXEC = "https://script.google.com/macros/s/AKfycbTESTFEEDsushila/exec";
 function makeGoogle(state) {
   const log = [];
   const fetch = (u) => {
@@ -85,12 +124,11 @@ function makeGoogle(state) {
     log.push(u);
     const resp = (body) => Promise.resolve({ ok: true, status: 200, text: () => Promise.resolve(body) });
     const fail = (code) => Promise.resolve({ ok: false, status: code, text: () => Promise.resolve("") });
-    if (/gid=293675115/.test(u)) {               /* reviews tab */
+    if (u.indexOf(FEED_EXEC + "?tab=reviews") === 0) {   /* the feed */
       if (state.reviewsDown) return Promise.reject(new Error("offline"));
-      if (/output=csv/.test(u)) return fail(500); /* the real workbook does this */
-      const rows = [REVIEW_HEAD].concat(state.reviews);
-      return resp(rows.map((r) => r.join("\t")).join("\n"));
+      return resp(csv([REVIEW_HEAD].concat(state.reviews)));
     }
+    if (/gid=293675115/.test(u)) { log.push("DEAD_TAB"); return fail(404); }
     if (/gid=1631273256/.test(u)) {              /* tutors tab */
       if (state.tutorsDown) return Promise.reject(new Error("offline"));
       /* The real workbook answers HTTP 500 on output=csv and 200 on
@@ -142,6 +180,12 @@ async function loadPage(rel, url, google, { settle = 400 } = {}) {
     const file = path.join(ROOT, p);
     if (!fs.existsSync(file)) continue;
     try { win.eval(fs.readFileSync(file, "utf8")); } catch (e) { errors.push(p + ": " + String(e && e.message).slice(0, 100)); }
+    /* The owner has deployed the feed (js/site-config.js feed.url is the
+       /exec address). Set it the moment the config is on the page, before
+       js/reviews.js reads it — exactly what the deployed site does. */
+    if (/js\/site-config\.js$/.test(p) && win.EKGURU_SITE) {
+      win.EKGURU_SITE.feed = Object.assign({}, win.EKGURU_SITE.feed || {}, { url: FEED_EXEC, cacheSeconds: 30 });
+    }
   }
   win.document.dispatchEvent(new win.Event("DOMContentLoaded", { bubbles: true }));
   win.dispatchEvent(new win.Event("load"));
@@ -399,7 +443,7 @@ for (const [rel, url] of [["hindi-tutor/worldwide/index.html", "https://ekguru.s
 /* ====== 13. OWNER RULE: approved tutor with NO sheet row is visible ====== */
 console.log("\n== 13. Approved (registry) tutor with no sheet row at all -> visible everywhere; active=no row -> hidden ==");
 {
-  const noRow = REGISTRY.filter((id) => !TUTORS_TSV.split("\n").some((l) => l.startsWith(id + "\t")));
+  const noRow = REGISTRY.filter((id) => !TUTOR_ROWS.some((r) => r[0] === id));
   ok("the fixture really lacks rows for some approved tutors (production shape)", noRow.length >= 1, noRow.join(","));
   STORAGE.clear();
   /* sheet: only sushila-g active=yes; shikha-dutta + pinky-kumari rows REMOVED */

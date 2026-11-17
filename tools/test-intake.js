@@ -315,10 +315,16 @@ const BOOK = {
   const st = fs.readFileSync(path.join(ROOT, "tools", "sheetsync.js"), "utf8");
   check("sheetsync reads the reviewed registry before it bakes anything",
     /window\\.EKGURU_TUTOR_ORDER/.test(st) && /registered\.has\(id\)/.test(st));
-  check("sheetsync skips a row that is not in the registry, before any field is copied",
-    st.indexOf("if (!registered.has(id)) { skippedUnregistered.push(id); continue; }") >
-      st.indexOf("const registered = new Set(") &&
-    st.indexOf("if (!registered.has(id))") < st.indexOf("const t = buildTutor(row);"));
+  /* 17 Nov 2026 — the sheet is the roster: a row outside the registry is
+     baked ONLY when the owner wrote approved=yes on it (and it is not
+     active=no). An applicant who was never approved is skipped before any
+     field is copied — the approval guard must come before buildTutor. */
+  const guard = st.indexOf("if (!approved || hiddenRow || !SAFE_ID.test(id)) { skippedUnregistered.push(id); continue; }");
+  check("sheetsync skips an unapproved row that is not in the registry, before any field is copied",
+    guard > st.indexOf("const registered = new Set(") &&
+    st.indexOf("if (!registered.has(id))") < guard &&
+    guard < st.indexOf("buildTutor(row)", guard) &&
+    st.indexOf("if (!registered.has(id))") < st.indexOf("const t = stripPrivate(buildTutor(row));"));
   const ov = fs.readFileSync(path.join(ROOT, "js", "tutors", "_overrides.js"), "utf8");
   check("the committed overrides hold no applicant id, bio or photo link",
     !/"(hemlata|tara|sarshtee-baliyan)"\s*:\s*\{/.test(ov) && !/"photo_link"|"bio":\s*"I teach/.test(ov));
