@@ -299,6 +299,57 @@ await (async function () {
     POSTED.length === 1 && pendingType.length === 1 && !toOwner,
     "ok=" + (degradedRes && degradedRes.ok) + " posted=" + POSTED.length);
 
+  /* v103 (17 Nov 2026) — THE LIVE CONFIG: Apps Script token not wired,
+     Web3Forms the only addressable relay. Web3Forms delivers every post to
+     the key owner, so the student receipt addressed to the student used to
+     land in EkGuruLearning@gmail.com as a SECOND copy of the same booking
+     ("booking ki 2 mail aati hai"). Now: exactly ONE relay post (the tutor
+     copy, which the owner forwards), the student receipt SKIPPED and the
+     result still ok with an honest per-role state. */
+  localStorage.clear();
+  POSTED.length = 0;
+  const savedToken = window.EKGURU_SITE.mail.appsScript.token;
+  window.EKGURU_SITE.mail.appsScript.token = "";
+  let liveRes = null;
+  try {
+    liveRes = await M.send({
+      tutor: { id: "tara", name: "Tara", email: "tara@example.com", lessonLength: "50 min" },
+      name: "Priya", email: "priya@example.com",
+      slot: "22 September 2026, 7:00 PM", timezone: "Asia/Kolkata",
+      goal: "Conversation", message: "I want to speak better Hindi please.",
+      price: "$8", ref: "EK-LIVE-01"
+    });
+  } catch (e) { liveRes = { ok: false, error: e.message }; }
+  const liveWeb3 = POSTED.filter((p) => /web3forms/.test(p.url));
+  check("live config (no Apps Script token): ONE relay post per booking — tutor copy only, student receipt SKIPPED",
+    liveRes && liveRes.ok === true && POSTED.length === 1 && liveWeb3.length === 1 &&
+    String(liveWeb3[0].parsed.to || "").toLowerCase() === "tara@example.com" &&
+    /booking/i.test(liveWeb3[0].parsed.subject || "") &&
+    liveRes.emailStates && liveRes.emailStates.student === "SKIPPED" &&
+    liveRes.emailDelivery && liveRes.emailDelivery.student.status === "SKIPPED" &&
+    liveRes.failed.length === 0,
+    "ok=" + (liveRes && liveRes.ok) + " posted=" + POSTED.length + " to=" + (liveWeb3[0] && liveWeb3[0].parsed.to) + " subject=" + (liveWeb3[0] && liveWeb3[0].parsed.subject) + " student=" +
+    JSON.stringify(liveRes && liveRes.emailStates) + " err=" + (liveRes && liveRes.error));
+  check("live config: routingMap says the student receipt has no proven route (null), contact receipt too",
+    M.routingMap().bookingStudent === null && M.routingMap().contactVisitor === null,
+    JSON.stringify([M.routingMap().bookingStudent, M.routingMap().contactVisitor]));
+  /* degraded + live config: nothing can be sent, but the booking (already in
+     the sheet) is not an error on screen */
+  localStorage.clear();
+  POSTED.length = 0;
+  let liveDeg = null;
+  try {
+    liveDeg = await M.send({
+      tutor: { id: "missing-address", name: "Tutor without address" },
+      name: "Priya", email: "priya@example.com", ref: "EK-LIVE-02"
+    });
+  } catch (e) { liveDeg = { ok: false, error: e.message }; }
+  check("live config + no tutor address: zero relay posts, result ok, student SKIPPED (no owner-inbox duplicate)",
+    liveDeg && liveDeg.ok === true && POSTED.length === 0 &&
+    liveDeg.emailStates.student === "SKIPPED" && liveDeg.tutorEmailUnavailable === true,
+    "ok=" + (liveDeg && liveDeg.ok) + " posted=" + POSTED.length + " err=" + (liveDeg && liveDeg.error));
+  window.EKGURU_SITE.mail.appsScript.token = savedToken;
+
   /* CRLF email rejected */
   let threw = false;
   try {

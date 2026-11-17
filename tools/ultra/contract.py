@@ -51,6 +51,15 @@ def check():
    if h.canonical!=want:errors.append(rel+': canonical must be '+want)
    continue
   old=data['pages'].get(rel)
+  moved=data.get('owner_approved_canonical_changes',{}).get(rel)
+  if old and moved:
+   # 17 Nov 2026 owner approval ("merge duplicate Hindi pages onto their best
+   # URL"): an original page merged into another by canonical. Index state is
+   # still pinned to the original entry; only the canonical is re-pinned to the
+   # approved target — any other value is a violation.
+   if old['indexable']!=(not h.noindex):errors.append(rel+': unauthorized index change')
+   if h.canonical!=moved['canonical']:errors.append(rel+': canonical must be the approved merge target '+moved['canonical'])
+   continue
   if old:
    if old['indexable']!=(not h.noindex):errors.append(rel+': unauthorized index change')
    if old['canonical']!=h.canonical:errors.append(rel+': unauthorized canonical change')

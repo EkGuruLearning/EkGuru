@@ -282,7 +282,9 @@ def build_region() -> tuple[str, dict]:
     a('<ul class="li-cols">')
     for t, label in (("learn/hindi/foundation", None), ("learn/hindi-alphabet-for-beginners", None),
                      ("learn/paths/hindi-from-zero", None), ("daily-hindi", None),
-                     ("hindi", None), ("learn/practice", None), ("toolbox", None),
+                     # 17 Nov 2026 — "hindi" (the topic index) is merged into
+                     # learn/hindi/ (canonical + refresh); not listed twice.
+                     ("learn/practice", None), ("toolbox", None),
                      ("name-in-hindi", None), ("learn/practice/placement", None), ("learn/contexts", None)):
         a(li(t, label))
     a('</ul>')

@@ -711,8 +711,10 @@ GLOBAL_NAV = [
      "Hindi in full, seven Indian languages with levels and topic chapters, ten world languages with lessons, levels, practice and quizzes."),
     ("learn/hindi/", "Learn Hindi — everything in one place",
      "Levels A1 to C2, 34 topics, the 30-day course, practice labs, tools, printables, answers and tutors — the one Hindi door."),
-    ("hindi/", "Hindi topics — all 34 chapters",
-     "From the alphabet to slang, each chapter explained properly and linked to every guide, question and tool on it."),
+    # 17 Nov 2026 — the "hindi/" card is gone: /hindi/ is merged into
+    # /learn/hindi/ (canonical + refresh, tools/build-hindi-hub.py), and the
+    # card above already names the 34 topics. A nav link to a page that
+    # forwards is a hop for every visitor and a duplicate for every crawler.
     ("materials/", "Printable materials",
      "Charts, worksheets, verb tables and quick references to print, pin and memorise."),
     ("toolbox/", "Free Hindi tools",

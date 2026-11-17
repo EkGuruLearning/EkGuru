@@ -3,6 +3,52 @@
   "recorded_on": "2026-10-01",
   "owner_decision": "Preserve existing index/noindex and canonical. New pages noindex. No quality quarantine without separate permission.",
   "restoration": "Missing file reconstructed from the SAME immutable original Git object, never from current status.",
+  "owner_approved_new_indexable": {
+    "hindi-tutor/malaysia/index.html": {
+      "indexable": true,
+      "canonical": "https://ekguru.shop/hindi-tutor/malaysia/"
+    },
+    "hindi-tutor/hong-kong/index.html": {
+      "indexable": true,
+      "canonical": "https://ekguru.shop/hindi-tutor/hong-kong/"
+    },
+    "hindi-tutor/qatar/index.html": {
+      "indexable": true,
+      "canonical": "https://ekguru.shop/hindi-tutor/qatar/"
+    },
+    "hindi-tutor/saudi-arabia/index.html": {
+      "indexable": true,
+      "canonical": "https://ekguru.shop/hindi-tutor/saudi-arabia/"
+    },
+    "hindi-tutor/kuwait/index.html": {
+      "indexable": true,
+      "canonical": "https://ekguru.shop/hindi-tutor/kuwait/"
+    },
+    "hindi-tutor/netherlands/index.html": {
+      "indexable": true,
+      "canonical": "https://ekguru.shop/hindi-tutor/netherlands/"
+    }
+  },
+  "owner_approved_new_indexable_recorded_on": "2026-11-13",
+  "owner_approved_prefixes": {
+    "tutor/": {
+      "rule": "roster",
+      "canonical": "https://ekguru.shop/tutor/<slug>/",
+      "approved_on": "2026-11-17",
+      "owner_words": "haan — 18 approved profiles index karo",
+      "note": "tutor/<id>/index.html: index+sitemap while the sheet publishes the tutor (approved=yes, not active=no); noindex and out of every sitemap when hidden. tutor/index.html (the directory) keeps its original entry."
+    }
+  },
+  "owner_approved_canonical_changes": {
+    "hindi/index.html": {
+      "indexable": true,
+      "canonical": "https://ekguru.shop/learn/hindi/",
+      "approved_on": "2026-11-17",
+      "owner_words": "hindi — merge duplicate Hindi pages onto their best URL (dedupe)",
+      "note": "hindi/index.html (the 34-chapter topic index) is 86% contained in learn/hindi/index.html (8-word shingles; every other Hindi hub pair is under 10%). It is merged into the hub: canonical + og:url = /learn/hindi/, 0-second meta refresh to /learn/hindi/#hh-topics, dropped from every sitemap (tools/build-sitemaps.py lists self-canonical pages only), global-nav card removed. File, content and robots index,follow kept; hindi/<topic>/ chapter pages untouched. Written by tools/build-hindi-hub.py."
+    }
+  },
+  "owner_approved_canonical_changes_recorded_on": "2026-11-17",
   "pages": {
     "404.html": {
       "indexable": false,
@@ -10547,42 +10593,6 @@
     "zh/hindi/index.html": {
       "indexable": true,
       "canonical": "https://ekguru.shop/zh/hindi/"
-    }
-  },
-  "owner_approved_new_indexable": {
-    "hindi-tutor/malaysia/index.html": {
-      "indexable": true,
-      "canonical": "https://ekguru.shop/hindi-tutor/malaysia/"
-    },
-    "hindi-tutor/hong-kong/index.html": {
-      "indexable": true,
-      "canonical": "https://ekguru.shop/hindi-tutor/hong-kong/"
-    },
-    "hindi-tutor/qatar/index.html": {
-      "indexable": true,
-      "canonical": "https://ekguru.shop/hindi-tutor/qatar/"
-    },
-    "hindi-tutor/saudi-arabia/index.html": {
-      "indexable": true,
-      "canonical": "https://ekguru.shop/hindi-tutor/saudi-arabia/"
-    },
-    "hindi-tutor/kuwait/index.html": {
-      "indexable": true,
-      "canonical": "https://ekguru.shop/hindi-tutor/kuwait/"
-    },
-    "hindi-tutor/netherlands/index.html": {
-      "indexable": true,
-      "canonical": "https://ekguru.shop/hindi-tutor/netherlands/"
-    }
-  },
-  "owner_approved_new_indexable_recorded_on": "2026-11-13",
-  "owner_approved_prefixes": {
-    "tutor/": {
-      "rule": "roster",
-      "canonical": "https://ekguru.shop/tutor/<slug>/",
-      "approved_on": "2026-11-17",
-      "owner_words": "haan — 18 approved profiles index karo",
-      "note": "tutor/<id>/index.html: index+sitemap while the sheet publishes the tutor (approved=yes, not active=no); noindex and out of every sitemap when hidden. tutor/index.html (the directory) keeps its original entry."
     }
   }
 }
