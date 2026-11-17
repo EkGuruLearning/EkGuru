@@ -36,8 +36,21 @@ def check():
  if not OUT.exists():raise SystemExit('FAIL: immutable contract missing')
  data=json.loads(OUT.read_text());errors=[];seen=set()
  if data['base_commit']!=BASE or len(data['pages'])!=2636 or sum(x['indexable'] for x in data['pages'].values())!=1006:errors.append('original contract changed')
+ prefixes=data.get('owner_approved_prefixes',{})
+ def prefix_rule(rel):
+  for pre,rule in prefixes.items():
+   if re.fullmatch(re.escape(pre)+r'[a-z0-9-]+/index\.html',rel):return pre,rule
+  return None,None
  for p in files():
-  rel=p.relative_to(ROOT).as_posix();seen.add(rel);h=Head(p.read_text());old=data['pages'].get(rel)
+  rel=p.relative_to(ROOT).as_posix();seen.add(rel);h=Head(p.read_text())
+  pre,rule=prefix_rule(rel)
+  if rule:
+   # 17 Nov 2026 owner approval: pages under this prefix are governed by the
+   # roster (public -> index, hidden -> noindex); only the canonical is pinned.
+   want=rule['canonical'].replace('<slug>',rel[len(pre):].split('/')[0])
+   if h.canonical!=want:errors.append(rel+': canonical must be '+want)
+   continue
+  old=data['pages'].get(rel)
   if old:
    if old['indexable']!=(not h.noindex):errors.append(rel+': unauthorized index change')
    if old['canonical']!=h.canonical:errors.append(rel+': unauthorized canonical change')

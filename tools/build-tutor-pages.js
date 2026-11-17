@@ -615,10 +615,14 @@ function build(t, roster, publics, hidden) {
     out = out.replace(re, () => value);
   };
 
-  /* Owner indexing freeze: tutor profile pages remain noindex until the
-     owner explicitly changes the canonical/indexing contract. The active
-     switch controls cards, booking and discovery surfaces, not search indexing. */
-  const robotsWanted = '<meta name="robots" content="noindex, follow">';
+  /* 17 Nov 2026 — owner decision ("haan, 18 approved profiles index karo"):
+     a PUBLIC tutor profile (approved in the sheet, not active=no) is
+     indexable and sits in sitemap-tutors.xml; a hidden one stays noindex and
+     out of every sitemap. The 1 Oct freeze is lifted for tutor/<id>/ only —
+     tools/ultra/contract.py carries the approval as a prefix rule. */
+  const robotsWanted = hidden
+    ? '<meta name="robots" content="noindex, follow">'
+    : '<meta name="robots" content="index, follow, max-image-preview:large">';
   if (/<meta(?=[^>]*\bname="robots")[^>]*>/.test(out)) {
     out = out.replace(/<meta(?=[^>]*\bname="robots")[^>]*>/, () => robotsWanted);
   } else {
@@ -837,16 +841,17 @@ function updateIndexFiles(roster, stamp, check) {
     results.push("wrote " + file + " (" + what + ")");
   };
 
-  /* Tutor profiles are deliberately `noindex, follow` under the owner
-     indexing freeze. Keep them out of both sitemaps (including image entries)
-     until the profile indexing policy changes; public roster visibility and
-     the tutor feed are independent of search indexing. */
-  let st = pruneTutorEntries(fs.readFileSync("sitemap-tutors.xml", "utf8"), [], "sitemap");
-  write("sitemap-tutors.xml", st, "0 indexable tutor URLs (profiles noindex)");
+  /* 17 Nov 2026 — public profiles are indexable again (owner decision), so
+     every public tutor has an entry in sitemap-tutors.xml; a hidden tutor's
+     entry is pruned. sitemap.xml (the master map) keeps only non-tutor URLs
+     — the tutor map is listed in sitemap-index.xml, no duplicates. */
+  let st = pruneTutorEntries(fs.readFileSync("sitemap-tutors.xml", "utf8"), tutors, "sitemap");
+  for (const t of tutors) st = upsertUrlBlock(st, t.id, sitemapEntry(t, stamp));
+  write("sitemap-tutors.xml", st, tutors.length + " indexable tutor URLs");
 
   let sm = pruneTutorImageEntries(fs.readFileSync("sitemap.xml", "utf8"), []);
   sm = pruneTutorEntries(sm, [], "sitemap");
-  write("sitemap.xml", sm, "0 indexable tutor URLs (profiles noindex)");
+  write("sitemap.xml", sm, "tutor URLs live in sitemap-tutors.xml");
 
   /* feed.xml — items, with the channel's build date */
   let feed = pruneTutorEntries(fs.readFileSync("feed.xml", "utf8"), tutors, "feed");

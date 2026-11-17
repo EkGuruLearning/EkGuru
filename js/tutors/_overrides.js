@@ -2,7 +2,7 @@
    EkGuru — SHEET OVERRIDES  (GENERATED — DO NOT EDIT)
    ---------------------------------------------------------
    Written by tools/sheetsync.js from the Google Sheet on
-   2026-11-17T02:38:53.806Z.
+   2026-11-17T03:21:00.310Z.
 
    Loaded AFTER the hand-written tutor files, so the sheet
    wins. Delete this file and the site falls back to those
@@ -67,7 +67,7 @@ window.EKGURU_SHEET_OVERRIDES = {
       }
     ],
     "about": [
-      "Hello! My name is Sashi, and I am a passionate Hindi tutor. I love teaching Hindi and helping students learn in an easy, fun and effective way. I have experience working with learners of every level, whether you are a complete beginner or looking to improve your fluency.",
+      "Hello! My name is Sushila, and I am a passionate Hindi tutor. I love teaching Hindi and helping students learn in an easy, fun and effective way. I have experience working with learners of every level, whether you are a complete beginner or looking to improve your fluency.",
       "In my classes I focus on speaking skills, grammar, vocabulary and correct pronunciation. I always adapt my teaching style to each student's needs, so that learning stays simple and genuinely enjoyable.",
       "My interests include reading, learning new languages, listening to music and exploring different cultures. I enjoy connecting with people and sharing knowledge. If you are interested in learning Hindi, I would be happy to guide you on your journey."
     ],
