@@ -94,7 +94,7 @@ function waitForLoad(dom) {
   // unpopulated tutor-search box. Keep the primary route explicit and real.
   const courseCta = doc.querySelector(".xp-searchbox a.btn");
   check("home: primary CTA opens the free Hindi course",
-    !!courseCta && courseCta.getAttribute("href") === "learn/hindi/" &&
+    !!courseCta && courseCta.getAttribute("href") === "hindi/" &&
       /free Hindi course/i.test(courseCta.textContent));
   check("home: the removed tutor-search form leaves no dead controls",
     !doc.getElementById("home-q") && !doc.getElementById("home-sugg"));

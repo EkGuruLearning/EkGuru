@@ -163,7 +163,11 @@ const TARGETS = {
   ask: "ask/", answers: "answers/", countries: "learn/countries/",
   contact: "contact/", about: "about/", privacy: "privacy/",
   terms: "terms/", monetization: "monetization-disclosure/", disclaimer: "disclaimer/", copyright: "copyright/",
-  cookies: "cookie-policy/", learnHindi: "learn/hindi/",
+  cookies: "cookie-policy/",
+  /* 17 Nov 2026 — owner: "ek Hindi se hi khulna chahiye". /hindi/ is the one
+     door for all Hindi content (tools/build-hindi-hub.py); the header CTA and
+     every "free Hindi course" button land there. */
+  learnHindi: "hindi/",
 };
 
 /* U0 (30 Sep 2026) — while the sheet marks every tutor active=no there is
