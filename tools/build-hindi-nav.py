@@ -150,12 +150,9 @@ def main():
         total_quiz += n
         print(f"  quiz {slug}: injected={n}")
 
-    n = add_hub_pointer("learn/index.html", "hindi/",
-                        "Learn Hindi — everything in one place",
-                        "levels, topics, the daily course, practice, tools, printables, answers and tutors from one page.")
-    print(f"  learn hub pointer: {n}")
-    # 17 Nov 2026 — hindi/index.html IS the one door now (tools/build-hindi-hub.py
-    # owns its content region); it no longer carries a pointer to learn/hindi/.
+    # 18 Nov 2026 — learn/index.html (tools/build-learn-index.py) and
+    # learn/hindi/index.html (tools/build-hindi-hub.py) are generated hubs now;
+    # neither needs a hand-spliced pointer, so add_hub_pointer is not called.
 
     print(f"done: {total_crumb} crumbs, {total_ld} JSON-LD lists, {total_quiz} quizzes")
 

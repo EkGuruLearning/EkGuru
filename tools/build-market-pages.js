@@ -65,7 +65,7 @@ const RTL = { ar: true };
    the real state ("complete A1–C2", "A1 · A2 · B1 · B2 available"). The rail
    now shows the same level band as that section, so the two agree. */
 const RAIL = [
-  ["hi", "हिन्दी", "अ", "../hindi/", "A1–C2"],
+  ["hi", "हिन्दी", "अ", "../learn/hindi/", "A1–C2"],
   ["bn", "বাংলা", "অ", "../bengali/", "A1–B2"],
   ["ta", "தமிழ்", "அ", "../learn/tamil/", "A1–C2"],
   ["te", "తెలుగు", "అ", "../learn/telugu/", "A1–C2"],
@@ -227,9 +227,9 @@ function hero(lang, t, tutors, price) {
     : "—";
   const heroActions = tutors.length
     ? `<a class="btn btn-primary btn-lg" href="../find-tutors.html?lang=${lang0}" data-i18n="nav.cta">${esc(t(lang0, "nav.cta"))}</a>
-        <a class="btn btn-ghost btn-lg" href="../courses/" data-i18n="nav.courses">${esc(t(lang0, "nav.courses"))}</a>`
-    : `<a class="btn btn-primary btn-lg" href="../hindi/" data-i18n="tutors.emptyCta">${esc(t(lang0, "tutors.emptyCta"))}</a>
-        <a class="btn btn-ghost btn-lg" href="../courses/" data-i18n="nav.courses">${esc(t(lang0, "nav.courses"))}</a>`;
+        <a class="btn btn-ghost btn-lg" href="../learn/" data-i18n="nav.learn">${esc(t(lang0, "nav.learn"))}</a>`
+    : `<a class="btn btn-primary btn-lg" href="../learn/hindi/" data-i18n="tutors.emptyCta">${esc(t(lang0, "tutors.emptyCta"))}</a>
+        <a class="btn btn-ghost btn-lg" href="../learn/" data-i18n="nav.learn">${esc(t(lang0, "nav.learn"))}</a>`;
   const priceStat =
     price == null
       ? "<b>—</b>"
@@ -261,7 +261,7 @@ function hero(lang, t, tutors, price) {
     : `      <div class="hero-card xp-sheen" data-eg-empty="1">
         <p class="hc-name">${esc(t(lang0, "tutors.emptyTitle"))}</p>
         <p class="sm">${esc(t(lang0, "tutors.emptyBody"))}</p>
-        <a class="btn btn-primary btn-sm btn-block" href="../hindi/">${esc(
+        <a class="btn btn-primary btn-sm btn-block" href="../learn/hindi/">${esc(
         t(lang0, "tutors.emptyCta")
       )}</a>
       </div>`;
@@ -326,11 +326,11 @@ function rail(t, lang) {
         RTL[code] ? ' dir="rtl"' : ""
       }>${letter}</b> ${native}${band ? ` <small>${band}</small>` : ""}</a>`
   ).join("\n");
-  return `<section class="xp-rail" data-xp-rail aria-label="${esc(t(lang, "nav.courses"))}">
+  return `<section class="xp-rail" data-xp-rail aria-label="${esc(t(lang, "nav.learn"))}">
   <div class="xp-rail-track">
 ${items}
-    <a class="xp-rail-item" href="../courses/"><b aria-hidden="true">＋</b> 39 <small>${esc(
-    t(lang, "nav.courses")
+    <a class="xp-rail-item" href="../learn/"><b aria-hidden="true">＋</b> 18 <small>${esc(
+    t(lang, "nav.learn")
   )}</small></a>
   </div>
 </section>`;
@@ -525,10 +525,10 @@ function cta(t, lang) {
       <h2 data-i18n="cta.title">${esc(t(lang, "cta.title"))}</h2>
       <p data-i18n="cta.sub">${esc(t(lang, "cta.sub"))}</p>
       <div class="xp-hero-actions" style="justify-content:center">
-        <a class="btn btn-primary btn-lg" href="../hindi/" data-i18n="cta.btn1">${esc(
+        <a class="btn btn-primary btn-lg" href="../learn/hindi/" data-i18n="cta.btn1">${esc(
     t(lang, "cta.btn1")
   )}</a>
-        <a class="btn btn-ghost btn-lg" href="../courses/" data-i18n="cta.btn2">${esc(
+        <a class="btn btn-ghost btn-lg" href="../learn/" data-i18n="cta.btn2">${esc(
     t(lang, "cta.btn2")
   )}</a>
       </div>

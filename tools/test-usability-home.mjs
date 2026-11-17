@@ -252,7 +252,7 @@ check("20: the ambiguous 'Find My Guru' label is gone from the page",
   !/>\s*Find My Guru\s*</.test(home) && !/data-i18n="tutors.all"/.test(home));
 const homeCourseCta = doc.querySelector(".xp-searchbox > a.btn-primary");
 check("19: the hero's primary action opens the free Hindi course",
-  !!homeCourseCta && homeCourseCta.getAttribute("href") === "hindi/" &&
+  !!homeCourseCta && homeCourseCta.getAttribute("href") === "learn/hindi/" &&
   /Start the free Hindi course/.test(homeCourseCta.textContent) &&
   !doc.querySelector(".xp-searchbar"));
 

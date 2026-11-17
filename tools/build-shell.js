@@ -112,11 +112,16 @@ function loadI18n() {
 
 /* Every link in the chrome, once. `key` is the i18n key; `target` is the key
    into TARGETS below. */
+/* 18 Nov 2026 — owner: "course ko hata do, language ko hata do … learn se hi
+   khulna chahiye". /learn/ is the one door for every language
+   (tools/build-learn-index.py) and /learn/hindi/ for all of Hindi
+   (tools/build-hindi-hub.py); the chrome no longer sells /courses/ or
+   /languages/ as separate places. Both pages stay online, unchanged in
+   canonical and robots, per the owner indexing contract. */
 const NAV = [
   ["Home", "nav.home", "home"],
   ["Learn", "nav.learn", "learn"],
   ["Tutors", "nav.tutors", "findTutors"],
-  ["Courses", "nav.courses", "courses"],
   ["About", "nav.about", "about"],
   ["Contact", "nav.contact", "contact"],
 ];
@@ -128,13 +133,12 @@ const COLUMNS = [
     ["Become a tutor", "nav.join", "join"],
     ["All tutors — text directory", "ftr.tutors", "tutorDir"],
     ["Hindi tutors by location", "ftr.locations", "locations"],
-    ["Courses", "nav.courses", "courses"],
-    ["Courses by country", "ftr.bycountry", "byCountry"],
     ["Search the site", "ftr.search", "search"],
   ]],
   ["Learn Hindi", "ftr.learn", [
-    ["Free guides", "ftr.guides", "guides"],
-    ["Every topic, mapped", "ftr.topics", "topics"],
+    ["Learn Hindi — everything in one place", "ftr.hindiHub", "learnHindi"],
+    ["Every language, one page", "ftr.guides", "guides"],
+    ["Hindi topics — all 34 chapters", "ftr.topics", "topics"],
     ["Interactive tools", "ftr.tools", "tools"],
     ["Daily Hindi — 30 days", "ftr.daily", "daily"],
     ["Questions answered", "ftr.ask", "ask"],
@@ -164,10 +168,11 @@ const TARGETS = {
   contact: "contact/", about: "about/", privacy: "privacy/",
   terms: "terms/", monetization: "monetization-disclosure/", disclaimer: "disclaimer/", copyright: "copyright/",
   cookies: "cookie-policy/",
-  /* 17 Nov 2026 — owner: "ek Hindi se hi khulna chahiye". /hindi/ is the one
-     door for all Hindi content (tools/build-hindi-hub.py); the header CTA and
-     every "free Hindi course" button land there. */
-  learnHindi: "hindi/",
+  /* 17 Nov 2026 — owner: "ek Hindi se hi khulna chahiye"; 18 Nov: "learn mein
+     hi saare hone chahiye". /learn/hindi/ is the one door for all Hindi content
+     (tools/build-hindi-hub.py); the header CTA and every "free Hindi course"
+     button land there. */
+  learnHindi: "learn/hindi/",
 };
 
 /* U0 (30 Sep 2026) — while the sheet marks every tutor active=no there is
