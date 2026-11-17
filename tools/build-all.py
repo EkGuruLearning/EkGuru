@@ -170,7 +170,8 @@ def main():
                 ["python3", "tools/build-legal-pages.py", "--check"])
             run("research quarantine --check", ["python3", "tools/quarantine-country-funnels.py", "--check"])
             run("draft tutor quarantine --check", ["python3", "tools/quarantine-tutor-drafts.py", "--check"])
-            run("the one Hindi hub --check (/hindi/ lists every real Hindi page)", ["python3", "tools/build-hindi-hub.py", "--check"])
+            run("the one Hindi hub --check (/learn/hindi/ lists every real Hindi page)", ["python3", "tools/build-hindi-hub.py", "--check"])
+            run("the learn index --check (/learn/ lists every language)", ["python3", "tools/build-learn-index.py", "--check"])
             run("language publication quarantine --check", ["python3", "tools/quarantine-language-surfaces.py", "--check"])
             run("courses by country --check", ["python3", "tools/build-course-countries.py", "--check"])
             run("sitemap publication gate --check", ["python3", "tools/build-sitemaps.py", "--check"])
@@ -288,7 +289,8 @@ def main():
     run("language publication quarantine", ["python3", "tools/quarantine-language-surfaces.py"])
     run("courses by country (published + sourced)", ["python3", "tools/build-course-countries.py"])
     run("Hindi learning pages (learn/hindi/**)", ["python3", "tools/build-hindi-pages.py"])
-    run("the one Hindi hub (/hindi/ — every Hindi page from one door)", ["python3", "tools/build-hindi-hub.py"])
+    run("the one Hindi hub (/learn/hindi/ — every Hindi page from one door)", ["python3", "tools/build-hindi-hub.py"])
+    run("the learn index (/learn/ — every language from one page)", ["python3", "tools/build-learn-index.py"])
     run("country visuals (one plate per country, on both country page sets)",
         ["python3", "tools/build-country-visuals.py"])
     run("toolbox visuals (one plate per tool, from the tool's own data)",

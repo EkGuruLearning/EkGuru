@@ -136,6 +136,10 @@ def load():
     return courses, levels, meta
 
 
+LEARN_DOORS = {"hi": "hindi", "bn": "bengali", "gu": "gujarati", "mr": "marathi",
+               "pa": "punjabi", "ta": "tamil", "te": "telugu", "ur": "urdu"}
+
+
 def course_href(code, levels):
     """Prefer a pre-rendered page over the player route, always.
 
@@ -148,6 +152,13 @@ def course_href(code, levels):
     course page existed. The player route is the last resort, not the first."""
     if os.path.isdir(os.path.join("languages", code, "course")):
         return "/languages/%s/course/" % code
+    # 18 Nov 2026 — "learn mein hi saare hone chahiye": a language whose one
+    # door is its /learn/<name>/ course page (Hindi + the Indian courses
+    # built by tools/build-language-course.py) is linked there, not at its
+    # bare level ladder.
+    door = LEARN_DOORS.get(code)
+    if door and os.path.exists(os.path.join("learn", door, "index.html")):
+        return "/learn/%s/" % door
     if os.path.isdir(os.path.join("learn", code)):
         return "/learn/%s/" % code
     if os.path.exists(os.path.join("languages", code, "level", "index.html")):
@@ -269,8 +280,9 @@ def build_hub(courses, levels, meta, names=None):
         "publication checks. Complete courses are labelled A1–C2; partial courses "
         "show only the levels that are actually available. Research-only languages "
         "are not listed here. Progress stays on your own device.</p>"
-        '<p style="margin-top:12px"><strong>New:</strong> All courses are now at '
-        '<a href="/learn/">/learn/</a> — one hub for every language, topic guides and practice tools.</p>'
+        '<p class="callout" style="margin-top:12px"><strong>Everything on this page now opens from one place:</strong> '
+        '<a href="/learn/">Learn a language — every course, one page</a>. This library stays online for the '
+        'links that point at it; the course pages themselves are unchanged.</p>'
         '<div class="course-hero-stats">'
         "<span><b>%d</b> published languages</span>"
         "<span><b>%d</b> complete A1–C2</span>"
@@ -418,7 +430,7 @@ def build_home(courses, levels, meta):
         '      <span class="xp-kicker">Free courses</span>',
         "      <h2>Choose a free language course</h2>",
         '      <p class="center xp-mid-cta" style="margin:12px 0 8px">'
-        '<a class="btn btn-primary" href="courses/">Open the full course library</a> '
+        '<a class="btn btn-primary" href="learn/">See every language on one page</a> '
         '<a class="btn btn-ghost" href="start/">Find my level first</a></p>',
         '      <div class="xp-rule" aria-hidden="true"></div>',
         "    </div>",

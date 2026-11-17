@@ -323,6 +323,7 @@ Player.prototype.renderHub = function () {
   try { displayNames = new Intl.DisplayNames([document.documentElement.lang || "en"], { type: "region" }); } catch (e) {}
   function countryName(code) { try { return displayNames ? displayNames.of(code) : code; } catch (e) { return code; } }
   var h = '<div class="egc course-hub google-anno-skip"><section class="course-hero"><span class="pill">Published levels · free in your browser</span><h1>Choose your language journey</h1>';
+  h += '<p class="callout"><strong>Everything on this page now opens from one place:</strong> <a href="' + esc(self.base) + 'learn/">Learn a language — every course, one page</a>.</p>';
   h += '<p>Explore published course levels, practice and review. Not sure which language? <a href="' + esc(self.base) + 'courses/by-country/"><b>Browse published courses by country</b></a> — ' + withCourses.length + ' sourced country contexts are available.</p><div class="course-orbit" aria-hidden="true"><i>अ</i><i>Α</i><i>ع</i><i>あ</i><i>മ</i></div></section>';
   /* Only published, evidence-qualified country contexts are offered. */
   h += '<div class="course-tools"><label>Find a language or country<input id="course-search" type="search" placeholder="e.g. Italian, Japan, Arabic" autocomplete="off" aria-describedby="course-result-count"></label><label>Country context<select id="country-filter">';

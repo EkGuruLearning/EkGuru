@@ -134,9 +134,10 @@ def main():
             idx.append({"u": p, "t": t, "d": d, "s": "Practice", "k": k})
             added += 1
 
-    # 3b) 17 Nov 2026 — the one Hindi hub (tools/build-hindi-hub.py rewrites
-    #     its title/description from the real page set); refresh from the page.
-    for p in ("hindi/",):
+    # 3b) 17/18 Nov 2026 — the generated hubs (tools/build-hindi-hub.py,
+    #     tools/build-learn-index.py rewrite title/description from the real
+    #     page set); refresh from the page.
+    for p in ("hindi/", "learn/hindi/", "learn/"):
         f = os.path.join(p, "index.html")
         if not os.path.exists(f) or not is_public(p):
             continue

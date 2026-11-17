@@ -94,12 +94,12 @@ function waitForLoad(dom) {
   // unpopulated tutor-search box. Keep the primary route explicit and real.
   const courseCta = doc.querySelector(".xp-searchbox a.btn");
   check("home: primary CTA opens the free Hindi course",
-    !!courseCta && courseCta.getAttribute("href") === "hindi/" &&
+    !!courseCta && courseCta.getAttribute("href") === "learn/hindi/" &&
       /free Hindi course/i.test(courseCta.textContent));
   check("home: the removed tutor-search form leaves no dead controls",
     !doc.getElementById("home-q") && !doc.getElementById("home-sugg"));
   check("home: course CTA and browse link remain distinct",
-    !!courseCta && !!doc.querySelector('.xp-hero-actions a[href="courses/"]'));
+    !!courseCta && !!doc.querySelector('.xp-hero-actions a[href="learn/"]'));
 }
 
 /* ---------- search page ------------------------------------------------ */

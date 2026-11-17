@@ -168,9 +168,9 @@ function block(roster, site) {
    writes whichever door the roster actually opens; js/main.js
    tutorsCtaHTML() keeps the same promise when it repaints live. */
 function ctaBlock(roster) {
-  const href = roster.length ? "find-tutors.html" : "courses/";
+  const href = roster.length ? "find-tutors.html" : "learn/";
   const cls = roster.length ? "btn btn-primary" : "btn btn-ghost";
-  const label = roster.length ? "See all tutors + filters" : "Browse the free courses →";
+  const label = roster.length ? "See all tutors + filters" : "Browse every free course →";
   return (
     CTA_START +
     "\n<p class=\"center xp-mid-cta\" data-eg-tutors-cta=\"1\" style=\"margin:0 0 22px\">\n" +
@@ -198,7 +198,7 @@ function tutorIntroBlock(roster) {
 <article class="xp-card"><h3>Connect words into sentences</h3><p>Use vocabulary, grammar notes and guided exercises to turn individual words into everyday Hindi.</p></article>
 <article class="xp-card"><h3>Keep learning at your pace</h3><p>Continue with a self-paced course, free tools and a learning journal stored in your browser.</p></article>
 </div>
-<p class="center" style="margin-top:24px"><a class="btn btn-primary" href="hindi/">Start the free Hindi course</a></p>
+<p class="center" style="margin-top:24px"><a class="btn btn-primary" href="learn/hindi/">Start the free Hindi course</a></p>
 </div>
 </section>`;
   } else {
@@ -242,7 +242,7 @@ function heroBlock(roster, site) {
              honest empty state (U0), leading with the free resources. -->
 <p class="hc-name">${esc(en("tutors.emptyBody", "Free lessons, practice and courses are always open."))}</p>
 <p class="sm">${esc(en("tutors.emptyTitle", "No tutors are available for booking right now."))}</p>
-<a class="btn btn-primary btn-sm btn-block" href="hindi/">${esc(en("tutors.emptyCta", "Start the free course"))}</a>
+<a class="btn btn-primary btn-sm btn-block" href="learn/hindi/">${esc(en("tutors.emptyCta", "Start the free course"))}</a>
 </div>`;
   }
   const photo = first.thumb || first.photo || "images/placeholder-tutor.jpg";
