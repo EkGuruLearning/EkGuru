@@ -156,10 +156,14 @@ def is_indexable(target: str) -> bool:
 
 
 def href(target: str) -> str:
-    """From learn/index.html (depth 1)."""
+    """From learn/index.html (depth 1). Children are plain relative paths
+    ("hindi-alphabet-for-beginners/" — the form tools/test-journeys.mjs
+    clicks); the three held guide hubs keep the "./spanish/" spelling that
+    tools/test-phase3-content.py pins."""
     if target.startswith("learn/"):
         rest = target[len("learn/"):]
-        return "./" + (rest if rest.endswith(".html") else rest.rstrip("/") + "/")
+        rel = rest if rest.endswith(".html") else rest.rstrip("/") + "/"
+        return "./" + rel if rest in GUIDE_HUBS.values() else rel
     if target.endswith(".html"):
         return "../" + target
     return "../" + target.rstrip("/") + "/"
