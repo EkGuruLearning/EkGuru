@@ -72,7 +72,10 @@
     var keys = Object.keys(rules);
     for (var k = 0; k < keys.length; k++) {
       var val = String(fields[keys[k]] == null ? "" : fields[keys[k]]).trim();
-      if (val.length > rules[keys[k]]) return keys[k].replace(/_/g, " ") + " is too long.";
+      if (val.length > rules[keys[k]]) {
+        var label = keys[k].replace(/_/g, " ");
+        return label.charAt(0).toUpperCase() + label.slice(1) + " is too long (" + rules[keys[k]] + " characters at most).";
+      }
     }
     /* The email field is NOT called "email" on every form: a booking
        sends student_email (and an optional tutor_email), a review an
