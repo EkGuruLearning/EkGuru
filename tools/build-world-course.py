@@ -23,7 +23,6 @@ Run: python3 tools/build-world-course.py            # all data modules
 """
 import importlib.util, json, os, sys, time, glob
 from lib.speech_tags import speech_tag   # canonical BCP-47 tags
-from lib.flashcard_section import flashcard_section, mount_script  # PHASE 9 decks
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 os.chdir(ROOT)
@@ -238,13 +237,15 @@ def build_practice(C):
     ) % (esc_html(C["name"]), esc_html(C["name"]), code, code, code,
          C["jsvar"], C["jsvar"], C["jsvar"], code, C["speech"],
          code, code, C["jsvar"])
-    fc_html, fc_scripts = flashcard_section(code, C["name"])
-    scripts = ["course-%s.js" % code, "practice-engine.js"] + fc_scripts
-    if fc_html:
-        body += fc_html + mount_script(code, C["name"], C["speech"])
+    # The flashcard lab is NOT baked here any more: tools/inject-flashcards.py
+    # places the one marked block (<!-- ekguru:flashcards:start/end -->) on
+    # every practice page with a deck, and baking it here as well put two
+    # labs — two "<h2 id=fc-h-xx">", two decks mounted — on all ten world
+    # practice pages (17 Nov 2026 browser sweep).
+    scripts = ["course-%s.js" % code, "practice-engine.js"]
     write_page("languages/%s/practice/index.html" % code, "../../../",
                "%s Practice — Vocabulary & Grammar Drills" % C["name"],
-               "Free %s practice drills and flashcards: see a %s word or rule, pick the meaning, get the explanation. Computer voice playback, saved in your browser." % (C["name"], C["name"]),
+               "Free %s practice drills and flashcards: see %s %s word or rule, pick the meaning, get the explanation. Computer voice playback, saved in your browser." % (C["name"], "an" if C["name"][:1].lower() in "aeiou" else "a", C["name"]),
                "languages/%s/practice/" % code,
                '<a href="/">EkGuru</a> › <a href="/languages/">Languages</a> › <a href="/languages/%s/">%s</a> › Practice'
                % (code, esc_html(C["name"])),

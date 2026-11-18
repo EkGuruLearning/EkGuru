@@ -39,12 +39,26 @@
     var hash = location.hash.toLowerCase();
     match = hash.match(/(a1|a2|a3|b1|b2|b3|c1|c2|c3|c4|c5)/);
     if (match) return match[1].toUpperCase();
+    /* A hash ROUTE without a level (#/hi, #/xx, #/) is the language hub or
+       an unpublished course: no level, no strip. Falling through to the
+       data attribute here re-read the level this script itself had written
+       onto <html> for the previous route, so the "A1 · Children" strip
+       stayed on the hub and "B2 · Adults" sat under "Course not published". */
+    if (/^#\//.test(location.hash)) return null;
     
-    // Check data attribute
-    var el = document.querySelector('[data-level]');
+    // Check data attribute (never <html>, which this script sets itself)
+    var el = document.querySelector('[data-level]:not(html)');
     if (el) return el.getAttribute('data-level').toUpperCase();
     
     return null;
+  }
+
+  function clearLevelVisuals() {
+    var old = document.querySelectorAll('.age-visual');
+    for (var i = 0; i < old.length; i++) old[i].parentNode && old[i].parentNode.removeChild(old[i]);
+    var root = document.documentElement;
+    root.removeAttribute('data-level');
+    root.removeAttribute('data-age');
   }
 
   function getCountryFromPath() {
@@ -67,6 +81,7 @@
     var info = LEVEL_AGES[level] || LEVEL_AGES.A1;
     var container = document.createElement('div');
     container.className = 'age-visual age-visual-' + level.toLowerCase();
+    container.setAttribute('data-level', level);
     container.setAttribute('data-level', level);
     container.setAttribute('data-age', info.age);
     container.style.cssText = 'display:flex;align-items:center;gap:16px;padding:16px;border-radius:16px;background:linear-gradient(135deg,' + info.colors[0] + ',' + info.colors[1] + ');border:1px solid rgba(0,0,0,.06);margin:16px 0';
@@ -115,13 +130,15 @@
 
   function enhanceLevelPages() {
     var level = getLevelFromPath();
-    if (!level) return;
+    if (!level) { clearLevelVisuals(); return; }
     
     var main = document.querySelector('.egc, .lv-main, .art, .pw-legacy');
     if (!main) return;
     
-    // Don't add if already exists
-    if (main.querySelector('.age-visual')) return;
+    // Don't add if already exists — unless it is the strip of another level
+    var existing = main.querySelector('.age-visual');
+    if (existing && existing.getAttribute('data-level') === level) return;
+    clearLevelVisuals();
     
     var ageVisual = createAgeVisual(level);
     var firstH1 = main.querySelector('h1');
