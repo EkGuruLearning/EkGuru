@@ -41,7 +41,9 @@
    later if traffic grows.
 
    Neither sets a cookie. Neither needs a consent banner under
-   GDPR, because neither stores personal data.
+   GDPR, because neither stores personal data. Counting therefore
+   runs by default; the privacy notice, Do Not Track and Global
+   Privacy Control all switch it OFF (see THE GATE below).
 
    ---------------------------------------------------------
    TO SWITCH ON
@@ -95,12 +97,47 @@
     return s;
   }
 
+  /* Browser-level "do not track me" signals (Do Not Track, Global Privacy
+     Control) are honoured as an opt-out even though GoatCounter stores no
+     cookie and no personal data. */
+  function browserOptsOut() {
+    try {
+      if (navigator.globalPrivacyControl === true) return true;
+      var dnt = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      return dnt === "1" || dnt === "yes";
+    } catch (e) { return false; }
+  }
+
+  /* ---------------------------------------------------------
+     THE GATE (18 Nov 2026)
+
+     Until this date GoatCounter loaded only after a visitor
+     pressed "Accept all" in the privacy notice. The notice
+     appears 1.2 s after load, most people never touch it, and
+     the dashboard showed 1-3 visits a day against ~2,000 real
+     page loads at the CDN. The owner could not see his own
+     traffic.
+
+     GoatCounter is cookieless, keeps no personal data and sets
+     no cross-site identifier, so page counting now runs by
+     default and the choice is an OPT-OUT, honoured three ways:
+
+       · "Only essential" / Analytics unticked in the notice
+         (ekguru_cookie_consent_v3.analytics === false)
+       · Do Not Track or Global Privacy Control in the browser
+       · ekguru_no_track (the owner's own browsers)
+
+     An explicit "no" wins over everything. An absent record
+     (no choice yet) counts the page.
+     --------------------------------------------------------- */
   var started = false;
   function analyticsAllowed() {
+    if (browserOptsOut()) return false;
     try {
       var consent = JSON.parse(localStorage.getItem("ekguru_cookie_consent_v3") || "null");
-      return !!(consent && consent.analytics === true);
-    } catch (e) { return false; }
+      if (consent && consent.analytics === false) return false;
+    } catch (e) {}
+    return true;
   }
 
   function bootAnalytics() {
@@ -171,11 +208,19 @@
   };
   }
 
-  // No consent/new session/reject: no analytics request. Accepting or changing
-  // settings starts the cookieless provider without a page reload. Withdrawal
-  // stops future EkGuru events; an already-sent page view cannot be recalled.
+  // Default and "Accept": the cookieless provider starts now. "Only essential",
+  // an unticked Analytics box, DNT or GPC: nothing is requested. Switching
+  // analytics on later starts it without a reload; switching it off stops
+  // every later EkGuru event — an already-sent page view cannot be recalled.
   bootAnalytics();
   document.addEventListener("ekguru:consent", function (event) {
-    if (event.detail && event.detail.analytics === true) bootAnalytics();
+    if (!event.detail) return;
+    if (event.detail.analytics === true) { bootAnalytics(); return; }
+    if (event.detail.analytics === false && started && window.goatcounter) {
+      /* Withdrawn after the script loaded: silence every later call,
+         including the direct window.goatcounter.count() calls in older
+         page scripts that do not go through EkGuruAnalytics.event(). */
+      try { window.goatcounter.count = function () {}; } catch (e) {}
+    }
   });
 })();

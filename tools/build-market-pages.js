@@ -518,7 +518,24 @@ ${chips}
 </section>`;
 }
 
+/* Each market has a full Hindi guide written in its own language at
+   /xx/hindi/ (es: "Aprende hindi desde cero", …). Only the
+   learn-hindi-for-*-speakers pages linked to them, never the market home
+   they sit under, so a visitor on /de/ had no path to the German guide.
+   Label = the guide's own h1. */
+const GUIDE_LABEL = {
+  es: "Aprende hindi desde cero (guía en español)",
+  fr: "Apprendre l'hindi en partant de zéro (guide en français)",
+  de: "Hindi lernen — von null an (Leitfaden auf Deutsch)",
+  pt: "Aprenda hindi do zero (guia em português)",
+  ja: "ヒンディー語をゼロから学ぶ（日本語ガイド）",
+  ar: "تعلم الهندية من الصفر (دليل بالعربية)",
+};
+
 function cta(t, lang) {
+  const guide = GUIDE_LABEL[lang] && fs.existsSync(path.join(ROOT, lang, "hindi", "index.html"))
+    ? `\n        <a class="btn btn-ghost btn-lg" href="hindi/">${esc(GUIDE_LABEL[lang])}</a>`
+    : "";
   return `<section class="xp-sec" id="cta">
   <div class="xp-wrap">
     <div class="xp-cta xp-rise">
@@ -530,7 +547,7 @@ function cta(t, lang) {
   )}</a>
         <a class="btn btn-ghost btn-lg" href="../learn/" data-i18n="cta.btn2">${esc(
     t(lang, "cta.btn2")
-  )}</a>
+  )}</a>${guide}
       </div>
     </div>
   </div>

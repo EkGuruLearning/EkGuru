@@ -67,6 +67,12 @@ def head(title, desc, url, up, index=True, extra_style=""):
     # The format string below still appends ' | EkGuru'. Strip the suffix
     # we just added so the template and this helper cannot double it.
     title = title[: -len(" | EkGuru")]
+    # Both land inside content="…" attributes. A description such as
+    # 'a present tense with no "is", …' used to end the attribute at the
+    # first inner quote, so eight world-course lessons shipped a 41-character
+    # description and a stray attribute soup after it.
+    title = str(title).replace('"', "&quot;")
+    desc = str(desc or "").replace('"', "&quot;")
     return """<!DOCTYPE html>
 <html lang="en" dir="ltr" data-ad-class="HIGH">
 <head>

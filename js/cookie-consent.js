@@ -30,7 +30,7 @@
     },
     analytics: {
       name: "Analytics",
-      desc: "Helps us improve: which pages help learners most, where people get stuck. No personal data.",
+      desc: "Counts page views without cookies or personal data (GoatCounter): which pages help learners most, where people get stuck. On by default; switch it off here any time.",
       examples: "page views, search queries (anonymous)",
       required: false
     },
@@ -87,10 +87,13 @@
   }
 
   function defaultConsent() {
+    /* What is in force before any choice: local progress storage and the
+       cookieless page counter (js/analytics.js, THE GATE). Advertising is
+       never on. A saved record always replaces this. */
     return {
       necessary: true,
       functional: true,
-      analytics: false,
+      analytics: true,
       advertising: false,
       timestamp: Date.now()
     };
@@ -117,7 +120,7 @@
         '<div class="consent-text">' +
           '<b>Privacy choices and browser storage</b><br>' +
           '<span style="font-size:.88em">Learning progress and preferences can stay in browser local storage. ' +
-          'With your permission, cookieless analytics counts page views so we can improve lessons. ' +
+          'Cookieless analytics counts page views (no cookie, no personal data) so we can see which lessons help; switch it off with <b>Only essential</b> or under Customise, and we also honour Do Not Track. ' +
           'Advertising is disabled until a certified consent flow is deployed. Learning progress stays on your device. ' +
           '<a href="/cookie-policy/" target="_blank" rel="noopener">Cookie and storage details</a> • ' +
           '<a href="/privacy/" target="_blank" rel="noopener">Privacy policy</a></span>' +
@@ -141,22 +144,24 @@
         '<div style="display:grid;gap:12px">' +
           '<label style="display:flex;gap:10px;align-items:start"><input type="checkbox" checked disabled> <span><b>Necessary</b> — records this privacy choice</span></label>' +
           '<label style="display:flex;gap:10px;align-items:start"><input type="checkbox" id="cc-functional"> <span><b>Functional</b> — remembers progress, language, offline saves</span></label>' +
-          '<label style="display:flex;gap:10px;align-items:start"><input type="checkbox" id="cc-analytics"> <span><b>Analytics</b> — helps us improve lessons (anonymous)</span></label>' +
+          '<label style="display:flex;gap:10px;align-items:start"><input type="checkbox" id="cc-analytics"> <span><b>Analytics</b> — cookieless page counts, no personal data (untick to switch off)</span></label>' +
           '<label style="display:flex;gap:10px;align-items:start"><input type="checkbox" id="cc-advertising" disabled> <span><b>Advertising</b> — unavailable until a certified consent flow is deployed</span></label>' +
         '</div>' +
         '<div style="margin-top:16px;display:flex;gap:10px"><button type="button" class="consent-btn consent-accept" id="consent-save-custom">Save preferences</button><button type="button" class="consent-btn consent-reject" id="consent-cancel-custom">Cancel</button></div>' +
       '</div>';
 
     document.body.appendChild(banner);
-    var saved = readConsent();
-    if (saved) {
-      var functionalBox = banner.querySelector('#cc-functional');
-      var analyticsBox = banner.querySelector('#cc-analytics');
-      var advertisingBox = banner.querySelector('#cc-advertising');
-      if (functionalBox) functionalBox.checked = saved.functional === true;
-      if (analyticsBox) analyticsBox.checked = saved.analytics === true;
-      if (advertisingBox) advertisingBox.checked = ADVERTISING_AVAILABLE && saved.advertising === true;
-    }
+    /* The boxes show the state that is actually in force: with no record
+       yet, functional storage and cookieless counting are both on, so a
+       visitor who opens Customise sees the truth and unticks what they
+       do not want (previously both showed unticked while on). */
+    var saved = readConsent() || defaultConsent();
+    var functionalBox = banner.querySelector('#cc-functional');
+    var analyticsBox = banner.querySelector('#cc-analytics');
+    var advertisingBox = banner.querySelector('#cc-advertising');
+    if (functionalBox) functionalBox.checked = saved.functional === true;
+    if (analyticsBox) analyticsBox.checked = saved.analytics === true;
+    if (advertisingBox) advertisingBox.checked = ADVERTISING_AVAILABLE && saved.advertising === true;
     
     // Animate in
     requestAnimationFrame(function() {
@@ -272,7 +277,7 @@
           "Quiz and test scores"
         ],
         analytics: [
-          "Cookieless page views after an affirmative choice",
+          "Cookieless page views, on by default, off the moment you say so",
           "Page, referrer, approximate country and browser type",
           "No cross-site advertising identifier"
         ],
@@ -283,7 +288,7 @@
         howToUse: [
           "Necessary: records the privacy choice",
           "Functional: local progress and display preferences",
-          "Analytics: optional cookieless page counts",
+          "Analytics: cookieless page counts, switch off with Only essential or Customise",
           "Advertising: disabled and unavailable",
           "Change choices with the Privacy settings button"
         ],

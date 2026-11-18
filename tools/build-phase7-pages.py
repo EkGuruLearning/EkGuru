@@ -386,8 +386,16 @@ def languages_page():
         '  })();\n'
         '  </script>\n'
     )
+    # Twenty names in one meta description ran to 263 characters; search
+    # engines cut it around 160, so the pitch never showed. Name a few and
+    # count the rest.
+    _lead = _an[:5]
+    _rest = len(_an) - len(_lead)
+    hub_desc = ("Free language courses from English: " + ", ".join(_lead) +
+                (" and %d more" % _rest if _rest else "") +
+                " — lessons, vocabulary and quizzes, no sign-up needed.")
     write("languages/index.html", "../", "Learn a language with EkGuru — live and coming soon",
-          "Free language courses from English: " + avail_names + " available now, with starter packs and more coming.",
+          hub_desc,
           "languages/", body, scripts=["content-graph.js", "vocab-phrase-engine.js", "grammar-engine.js",
                                        "hindi-srs.js", "language-pack.js", "hindi-audio.js"])
 
