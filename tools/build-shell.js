@@ -486,6 +486,19 @@ function rebuild(html, file, shell, dict) {
      only gain the id. */
   out = ensureMain(out, file);
 
+  /* The 24 pages that wrote their own chrome before the shell existed kept
+     their original skip link directly under the injected header, so a
+     keyboard user met "Skip to content" twice in a row — the second one
+     landing on the same #main. The shell header carries the link; the
+     legacy copy goes. Only the one immediately after the header marker is
+     touched, so a page's own in-content anchors are left alone. */
+  const dupSkip = new RegExp("(" + H_END.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, "\\$&") +
+    ")\\s*<a class=\"skip\" href=\"#main\">[^<]*</a>\\n?");
+  if (dupSkip.test(out)) {
+    out = out.replace(dupSkip, "$1\n");
+    touched = true;
+  }
+
   /* the pages that write their own chrome used to be the only ones with a
      hand-written header, and they were the only ones without copywatch */
   if (!/js\/copywatch\.js/.test(out)) {

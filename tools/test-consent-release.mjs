@@ -30,25 +30,51 @@ window.document.head.appendChild = (node) => {
 };
 function load(file) { window.eval(fs.readFileSync(path.join(ROOT, file), "utf8")); }
 
+/* THE GATE (js/analytics.js, 18 Nov 2026): GoatCounter is cookieless and keeps
+   no personal data, so counting runs by default and the privacy notice, Do Not
+   Track and Global Privacy Control are honoured as an OPT-OUT. Advertising
+   stays fail-closed. */
+const isCounter = (url) => /goatcounter|gc\.zgo\.at/.test(url);
+
+/* 1. a stored "no" from an earlier visit: nothing is requested */
+window.localStorage.setItem("ekguru_cookie_consent_v3", JSON.stringify({ necessary: true, functional: true, analytics: false, advertising: false, timestamp: 1 }));
 load("js/analytics.js");
-ok("analytics is not requested before a choice", loaded.length === 0, loaded.join(","));
+ok("a saved analytics opt-out means no analytics request", !loaded.some(isCounter), loaded.join(","));
+window.localStorage.removeItem("ekguru_cookie_consent_v3");
+
+/* 2. Do Not Track: nothing is requested even with no record */
+Object.defineProperty(window.navigator, "doNotTrack", { value: "1", configurable: true });
+load("js/analytics.js");
+ok("Do Not Track means no analytics request", !loaded.some(isCounter), loaded.join(","));
+Object.defineProperty(window.navigator, "doNotTrack", { value: null, configurable: true });
+
+/* 3. the ordinary new visitor: the cookieless counter loads by default */
+load("js/analytics.js");
+ok("a new visitor is counted by the cookieless provider by default", loaded.some(isCounter), loaded.join(","));
+ok("no advertising or Google Analytics request", !loaded.some((url) => /googlesyndication|doubleclick|googletagmanager|google-analytics/.test(url)), loaded.join(","));
 load("js/cookie-consent.js");
 window.document.dispatchEvent(new window.Event("DOMContentLoaded"));
 await new Promise((resolve) => setTimeout(resolve, 1300));
 ok("new visitor sees privacy controls", !!window.document.getElementById("ekguru-consent"));
+ok("the analytics box shows the state in force (ticked)", window.document.getElementById("cc-analytics")?.checked === true);
 ok("advertising checkbox is disabled", window.document.getElementById("cc-advertising")?.disabled === true);
+const requestsBeforeReject = loaded.length;
+window.goatcounter = window.goatcounter || {};
+window.goatcounter.count = () => { throw new Error("count after opt-out"); };
 window.document.getElementById("consent-reject").click();
 let state = JSON.parse(window.localStorage.getItem("ekguru_cookie_consent_v3"));
 ok("reject denies analytics", state.analytics === false);
 ok("reject denies advertising", state.advertising === false);
-ok("reject causes no analytics request", loaded.length === 0);
+ok("reject causes no further analytics request", loaded.length === requestsBeforeReject);
+let threw = false;
+try { window.goatcounter.count({ path: "event/x", event: true }); } catch (e) { threw = true; }
+ok("reject silences later direct count() calls", !threw);
 await new Promise((resolve) => setTimeout(resolve, 450));
 window.document.getElementById("ekguru-cookie-settings").click();
 window.document.getElementById("consent-accept-all").click();
 state = JSON.parse(window.localStorage.getItem("ekguru_cookie_consent_v3"));
 ok("accept allows optional analytics", state.analytics === true);
 ok("accept still denies unavailable advertising", state.advertising === false);
-ok("analytics provider starts after accept", loaded.some((url) => /goatcounter|gc\.zgo\.at/.test(url)), loaded.join(","));
 
 load("js/monetization.js");
 window.localStorage.setItem("ekguru_cookie_consent_v3", JSON.stringify({ necessary: true, functional: true, analytics: true, advertising: true }));

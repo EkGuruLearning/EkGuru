@@ -197,7 +197,23 @@ def build():
         'c.hidden=!hit;if(hit)n++;});'
         'if(count)count.textContent=n+(n===1?" country":" countries");'
         'if(empty)empty.hidden=n>0;});'
-        'if(count)count.textContent=cards.length+" countries";})();</script>')
+        'if(count)count.textContent=cards.length+" countries";'
+        # Arriving on #country-XX from a country page (196 of them link here;
+        # only the sourced countries have a card). A match scrolls into view
+        # and is highlighted; a miss filters to nothing and says so instead
+        # of leaving the visitor at the top of an unrelated list. Hash case
+        # is normalised because older pages linked the lowercase form.
+        'function hash(){var m=/^#country-([a-z]{2})$/i.exec(location.hash||"");if(!m)return;'
+        'var id="country-"+m[1].toUpperCase(),card=document.getElementById(id);'
+        'if(card){cards.forEach(function(c){c.hidden=false;});'
+        'if(empty)empty.hidden=true;if(count)count.textContent=cards.length+" countries";'
+        'card.classList.add("country-card-hit");card.setAttribute("tabindex","-1");'
+        'card.scrollIntoView({block:"start"});card.focus({preventScroll:true});return;}'
+        'cards.forEach(function(c){c.hidden=true;});if(count)count.textContent="0 countries";'
+        'if(empty){empty.hidden=false;empty.innerHTML="No sourced course context for "+m[1].toUpperCase()+" yet. "'
+        '+"Clear the search to see every country, or try a language on the <a href=\\"../\\">course hub</a>.";}'
+        'box.value=m[1].toUpperCase();}'
+        'window.addEventListener("hashchange",hash);hash();})();</script>')
     out.append(MARK_END)
     return "\n".join(out)
 

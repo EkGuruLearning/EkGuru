@@ -484,9 +484,11 @@ window.EKGURU_SITE = {
                             ekguru.goatcounter.com
                plausible:   your domain
 
-     Both are optional in this release. The provider is requested
-     only after the visitor allows analytics in Privacy settings.
-     Google Analytics is not used — see js/analytics.js.
+     Both are cookieless and keep no personal data, so the provider
+     is requested by default; the visitor switches it off with
+     "Only essential" / Analytics unticked in Privacy settings, or
+     with Do Not Track / Global Privacy Control in the browser.
+     Google Analytics is not used — see js/analytics.js (THE GATE).
 
      SETUP: goatcounter.com → sign up → pick a code → paste it
      below → push. Free, two minutes.

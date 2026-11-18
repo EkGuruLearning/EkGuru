@@ -117,6 +117,17 @@ def theme(cc):
             "hsl(%d 70%% 95%%)" % hue)
 
 
+# "the United States", "the Philippines": the article the country page itself
+# uses (data/content/country-specifics.json, applied by apply-country-seo.py).
+# Written here too so the two tools agree whatever order they run in.
+_SPECIFICS = (load(os.path.join(ROOT, "data", "content", "country-specifics.json"), {}) or {}).get("countries", {})
+
+
+def with_article(slug, name):
+    the = (_SPECIFICS.get(slug) or {}).get("the") or ""
+    return the if the.lower().endswith(name.lower()) else name
+
+
 def slug_of(cc, name):
     if cc in SLUGS:
         return SLUGS[cc]
@@ -305,6 +316,7 @@ def block(info, fig, taught_names, documented):
                    if fig["taught"] > len(taught_names) else ""))
     else:
         said = ("No published course level is linked from this research record yet.")
+    the_name = with_article(fig["slug"], info["name"])
     return (
         MARK_START + "\n"
         '<section class="ct-visual" data-documented="%d" data-taught="%d" '
@@ -321,12 +333,12 @@ def block(info, fig, taught_names, documented):
         '<a href="/courses/by-country/#country-%s">Courses for %s →</a></figcaption></figure>\n'
         "</section>\n" % (
             documented, fig["taught"],
-            esc(info["name"]), esc(info["name"]),
+            esc(the_name[0].upper() + the_name[1:]), esc(the_name),
             fig["path"], esc(fig["alt"]),
             esc(info["name"]),
             esc(info["subregion"] or info["region"] or "world"),
             documented, "" if documented == 1 else "s",
-            said, info["cc"].lower(), esc(info["name"]))
+            said, info["cc"].upper(), esc(the_name))  # card ids are #country-XX (upper)
         + MARK_END + "\n")
 
 

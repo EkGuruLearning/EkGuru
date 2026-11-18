@@ -202,6 +202,7 @@ def main():
             run("print sheets --check (only the sheet prints)", ["python3", "tools/build-print-sheets.py", "--check"])
             run("site shell --check (header + footer on every page)", ["node", "tools/build-shell.js", "--check"])
             run("country specifics --check (P3 de-templated country pages)", ["python3", "tools/apply-country-specifics.py", "--check"])
+            run("country SEO copy --check (titles, descriptions, roster honesty)", ["python3", "tools/apply-country-seo.py", "--check"])
             run("tutor location specifics --check (P3 location pages + FAQ markup parity)", ["python3", "tools/apply-tutor-location-specifics.py", "--check"])
             run("copy index --check", ["node", "tools/build-copy-index.js", "--check"])
             run("search publication check", ["python3", "tools/check-search-index.py"])
@@ -302,6 +303,7 @@ def main():
     run("questions api (flags and likes reach other learners)",
         ["python3", "tools/inject-questions-api.py"])
     run("duplicate external scripts", ["python3", "tools/dedupe-script-tags.py"])
+    run("country SEO copy (titles, descriptions, roster honesty)", ["python3", "tools/apply-country-seo.py"])
     run("site shell (one header + one footer, every page)", ["node", "tools/build-shell.js"])
     run("sitemap publication gate", ["python3", "tools/build-sitemaps.py"])
     run("search index (published pages only)", ["python3", "tools/build-search-index.py"])

@@ -482,6 +482,17 @@ def language_of_folder(folder):
     return best[1] if best else None
 
 
+def _country_article(slug, name):
+    """'the United States', 'the Philippines' — the article the country's own
+    pages use (data/content/country-specifics.json); bare name otherwise."""
+    try:
+        with open(os.path.join(ROOT, "data", "content", "country-specifics.json"), encoding="utf-8") as f:
+            the = ((json.load(f).get("countries") or {}).get(slug) or {}).get("the") or ""
+    except (OSError, ValueError):
+        the = ""
+    return the if the.lower().endswith((name or "").lower()) else name
+
+
 def next_band(path, countries, by_country):
     """The next step for this exact page, or nothing when we have nothing real to say."""
     segs = path.lstrip("./").split("/")
@@ -489,6 +500,7 @@ def next_band(path, countries, by_country):
         hit = countries.get(segs[1])
         if hit:
             code, name = hit
+            name = _country_article(segs[1], name)
             names = [n for _, n in by_country.get(code, [])]
             if len(names) == 1:
                 taught = "EkGuru teaches <b>%s</b> over video, one to one, with a tutor who speaks it." % names[0]

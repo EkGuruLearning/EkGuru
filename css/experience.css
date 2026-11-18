@@ -3315,6 +3315,8 @@ body.xp-market .hdr .hdr-in {
 }
 
 .country-card:hover { border-color: color-mix(in srgb, var(--xp-a) 35%, var(--line)); transform: translateY(-2px); }
+/* the card a country page linked to (#country-XX): a visible landing, not a silent scroll */
+.country-card-hit, .country-card:target { border-color: var(--xp-a); box-shadow: 0 0 0 3px color-mix(in srgb, var(--xp-a) 30%, transparent); outline: none; }
 
 .country-card h3 {
   margin: 0 0 10px;
