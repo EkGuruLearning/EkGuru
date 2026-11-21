@@ -2,7 +2,7 @@
    EkGuru — SHEET OVERRIDES  (GENERATED — DO NOT EDIT)
    ---------------------------------------------------------
    Written by tools/sheetsync.js from the Google Sheet on
-   2026-11-21T03:12:11.002Z.
+   2026-11-21T12:36:27.697Z.
 
    Loaded AFTER the hand-written tutor files, so the sheet
    wins. Delete this file and the site falls back to those
