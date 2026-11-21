@@ -36,7 +36,21 @@ PAGES = [
                  "Both spellings are shown wherever Punjabi really uses two."),
         "html_lang": "pa",
         "script_name": "Gurmukhi",
-    }
+    },
+    {
+        "slug": "numbers-in-marathi",
+        "file": "marathi.json",
+        "title": "Marathi Numbers 1 to 100 — Devanagari Chart and Tool | EkGuru",
+        "h1": "Marathi numbers 1 to 100",
+        "desc": ("Every Marathi number from 0 to 100 with its Devanagari numeral, the word in "
+                 "Marathi and how to say it. Plus a tool that reads any number you type, and "
+                 "the subtraction pattern that makes the tricky ones stick."),
+        "lede": ("The full number list in one table — the number, its Devanagari digit, the "
+                 "Marathi word and how to say it. Type any number below and it answers straight "
+                 "away. Both spellings are shown wherever Marathi really uses two."),
+        "html_lang": "mr",
+        "script_name": "Devanagari",
+    },
 ]
 
 
@@ -107,7 +121,9 @@ TABLE_START = "<!-- ekguru:numbers-table:start -->"
 TABLE_END = "<!-- ekguru:numbers-table:end -->"
 
 
-def table(d: dict) -> str:
+def table(spec: dict, d: dict) -> str:
+    lang = d["language"]
+    script = spec["script_name"]
     rows = []
     for x in d["numbers"]:
         num = "".join(d["numerals"][int(c)] for c in str(x["n"]))
@@ -115,12 +131,13 @@ def table(d: dict) -> str:
         if x.get("also"):
             also = ' <span class="alt">or ' + " / ".join(x["also"]) + "</span>"
         rows.append(
-            f'<tr id="n{x["n"]}"><td>{x["n"]}</td><td class="h" lang="pa">{num}</td>'
-            f'<td class="h" lang="pa">{x["word"]}</td>'
+            f'<tr id="n{x["n"]}"><td>{x["n"]}</td><td class="h" lang="{lang}">{num}</td>'
+            f'<td class="h" lang="{lang}">{x["word"]}</td>'
             f'<td class="rom">{x["roman"]}{also}</td></tr>'
         )
-    return ('<table class="ex numtab"><thead><tr><th>Number</th><th>Gurmukhi digit</th>'
-            '<th>Punjabi word</th><th>Say it</th></tr></thead><tbody>'
+    return ('<table class="ex numtab"><thead><tr><th>Number</th>'
+            f'<th>{script} digit</th>'
+            f'<th>{d["languageName"]} word</th><th>Say it</th></tr></thead><tbody>'
             + "".join(rows) + "</tbody></table>")
 
 
@@ -135,7 +152,7 @@ def update_page(spec: dict, check: bool) -> str | None:
         return f"{spec['slug']}/index.html has no numbers-table markers"
     a = html.index(TABLE_START) + len(TABLE_START)
     b = html.index(TABLE_END)
-    want = "\n" + table(d) + "\n"
+    want = "\n" + table(spec, d) + "\n"
     if html[a:b] != want:
         if check:
             return f"STALE table in {spec['slug']}/index.html — run: python3 tools/build-numbers-pages.py"
