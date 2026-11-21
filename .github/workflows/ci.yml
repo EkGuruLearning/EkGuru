@@ -51,6 +51,8 @@ jobs:
 
       - name: "Time/days: stale-check the generated data, tables and page bodies"
         run: python3 tools/build-time-pages.py --check && python3 tools/build-time-pages-bodies.py --check
+      - name: "Hindi classes page: stale-check the generated hub"
+        run: python3 tools/build-hindi-classes-page.py --check
 
       - name: "Time/days page: English in, real script out"
         run: node tools/test-time-page.mjs
