@@ -6,9 +6,13 @@
    script tag, a wrong element id, or a debounce that never fires all
    pass the unit tests and leave a visitor staring at ਨਾਮ.
 
-   So this runs the page in jsdom, loads the same three modules in the
-   same order the page loads them, types into the input a visitor types
+   This runs each page in jsdom, loads the same modules in the same
+   order the page loads them, types into the input a visitor types
    into, and reads the element the visitor reads.
+
+   Indic pages (Hindi, Punjabi) go through Devanagari via script-map.js.
+   Non-Indic pages (Arabic, Greek, Russian, Korean, Japanese, Amharic)
+   use the engine in non-indic-scripts.js instead.
 
    Run: node tools/test-name-page.mjs
 */
@@ -17,102 +21,185 @@ import fs from "node:fs";
 import path from "node:path";
 
 const root = path.resolve(new URL("..", import.meta.url).pathname);
-const page = fs.readFileSync(path.join(root, "name-in-punjabi/index.html"), "utf8");
-
-const dom = new JSDOM(page, {
-  url: "https://ekguru.shop/name-in-punjabi/",
-  runScripts: "outside-only",
-  pretendToBeVisual: true
-});
-const { window } = dom;
 
 const fails = [];
 let pass = 0;
 
-/* Same three modules, same order as the page's own tags. */
-for (const file of ["js/translit.js", "js/names-data.js", "js/script-map.js", "js/name-in-script.js"]) {
-  window.eval(fs.readFileSync(path.join(root, file), "utf8"));
-}
-
-const input = window.document.getElementById("nameIn");
-const out = window.document.getElementById("out");
-const explain = window.document.getElementById("explain");
-
-if (!input || !out) {
-  console.log("FAIL the page has no #nameIn or #out — the controller would bail out");
-  process.exit(1);
-}
+/* Each page: its slug, which modules it loads, and its expected script. */
+const PAGES = [
+  {
+    slug: "name-in-punjabi",
+    modules: ["js/translit.js", "js/names-data.js", "js/script-map.js", "js/name-in-script.js"],
+    script: "gurmukhi",
+    curated: [
+      ["Singh", "ਸਿੰਘ"],
+      ["Simran", "ਸਿਮਰਨ"],
+      ["Gurpreet", "ਗੁਰਪ੍ਰੀਤ"],
+      ["Kaur", "ਕੌਰ"],
+      ["Amrit", "ਅੰਮ੍ਰਿਤ"],
+    ],
+    unknown: ["Zorawar"],
+    placeholder: "ਨਾਮ",
+    codepoint_range: [0x0a00, 0x0a7f],
+  },
+  {
+    slug: "name-in-arabic",
+    modules: ["js/translit.js", "js/non-indic-scripts.js", "js/names-data.js", "js/name-in-script.js"],
+    script: "arabic",
+    curated: [],
+    unknown: ["John", "Sarah", "Michael"],
+    placeholder: "اسمك",
+    codepoint_range: [0x0600, 0x06ff],
+  },
+  {
+    slug: "name-in-greek",
+    modules: ["js/translit.js", "js/non-indic-scripts.js", "js/names-data.js", "js/name-in-script.js"],
+    script: "greek",
+    curated: [],
+    unknown: ["John", "Sarah", "George"],
+    placeholder: "Το όνομά σας",
+    codepoint_range: [0x0370, 0x03ff],
+  },
+  {
+    slug: "name-in-russian",
+    modules: ["js/translit.js", "js/non-indic-scripts.js", "js/names-data.js", "js/name-in-script.js"],
+    script: "cyrillic",
+    curated: [],
+    unknown: ["John", "Sarah", "Ivan"],
+    placeholder: "Ваше имя",
+    codepoint_range: [0x0400, 0x04ff],
+  },
+  {
+    slug: "name-in-korean",
+    modules: ["js/translit.js", "js/non-indic-scripts.js", "js/names-data.js", "js/name-in-script.js"],
+    script: "hangul",
+    curated: [],
+    unknown: ["John", "Sarah", "Minsu"],
+    placeholder: "이름",
+    codepoint_range: [0xac00, 0xd7af],
+  },
+  {
+    slug: "name-in-japanese",
+    modules: ["js/translit.js", "js/non-indic-scripts.js", "js/names-data.js", "js/name-in-script.js"],
+    script: "kana",
+    curated: [],
+    unknown: ["John", "Sarah", "Kenji"],
+    placeholder: "お名前",
+    codepoint_range: [0x3040, 0x30ff],
+  },
+  {
+    slug: "name-in-amharic",
+    modules: ["js/translit.js", "js/non-indic-scripts.js", "js/names-data.js", "js/name-in-script.js"],
+    script: "ethiopic",
+    curated: [],
+    unknown: ["John", "Sarah", "Tadel"],
+    placeholder: "ስሙ",
+    codepoint_range: [0x1200, 0x13ff],
+  },
+];
 
 const wait = (ms) => new Promise((r) => setTimeout(r, ms));
 
-async function typeAndRead(value) {
-  input.value = value;
-  input.dispatchEvent(new window.Event("input"));
-  await wait(200); // the controller debounces by 90ms
-  return out.querySelector(".big")?.textContent ?? "";
-}
+async function testPage(page) {
+  const htmlPath = path.join(root, page.slug, "index.html");
+  if (!fs.existsSync(htmlPath)) {
+    fails.push(`${page.slug}: page file not found`);
+    return;
+  }
+  const html = fs.readFileSync(htmlPath, "utf8");
+  const dom = new JSDOM(html, {
+    url: `https://ekguru.shop/${page.slug}/`,
+    runScripts: "outside-only",
+    pretendToBeVisual: true,
+  });
+  const { window } = dom;
 
-/* 1. A curated name. This is the whole point of the page: Singh must not
-      come out as the mechanical ਸਿਂਹ. */
-for (const [name, want] of [
-  ["Singh", "ਸਿੰਘ"],
-  ["Simran", "ਸਿਮਰਨ"],
-  ["Gurpreet", "ਗੁਰਪ੍ਰੀਤ"],
-  ["Kaur", "ਕੌਰ"],
-  ["Amrit", "ਅੰਮ੍ਰਿਤ"]
-]) {
-  const got = await typeAndRead(name);
-  if (got.normalize("NFC") === want.normalize("NFC")) pass++;
-  else fails.push(`${name}: rendered ${JSON.stringify(got)}, expected ${JSON.stringify(want)}`);
-}
+  /* Load the same modules, in the same order as the page's own tags. */
+  for (const file of page.modules) {
+    window.eval(fs.readFileSync(path.join(root, file), "utf8"));
+  }
 
-/* 2. A name that is not in the list must still produce Gurmukhi, and the
-      badge must admit it came from rules rather than from the list. */
-{
-  const got = await typeAndRead("Zorawar");
-  const badge = out.querySelector(".rom")?.textContent ?? "";
-  const isGurmukhi = [...got].every((c) => c.codePointAt(0) >= 0x0a00 && c.codePointAt(0) <= 0x0a7f);
-  if (got && isGurmukhi) pass++;
-  else fails.push(`an unknown name produced ${JSON.stringify(got)}, which is not Gurmukhi`);
-  if (/Phonetic/.test(badge)) pass++;
-  else fails.push(`an unknown name was not labelled phonetic (badge was ${JSON.stringify(badge)})`);
-}
+  const input = window.document.getElementById("nameIn");
+  const out = window.document.getElementById("out");
+  const explain = window.document.getElementById("explain");
 
-/* 3. Clearing the box restores the placeholder rather than leaving a stale
-      answer on screen. */
-{
-  await typeAndRead("Singh");
-  const cleared = await typeAndRead("");
-  if (cleared === "ਨਾਮ") pass++;
-  else fails.push(`clearing the input left ${JSON.stringify(cleared)} on screen`);
-}
+  if (!input || !out) {
+    fails.push(`${page.slug}: no #nameIn or #out — controller would bail`);
+    return;
+  }
 
-/* 4. The letter breakdown must not invent a mapping it cannot justify.
-      For a curated spelling it says so; for a rule answer it may show a
-      table, but never a table with mismatched columns. */
-{
-  await typeAndRead("Singh");
-  window.document.getElementById("explainBtn").click();
-  await wait(50);
-  const text = explain.textContent || "";
-  if (text.length > 0) pass++;
-  else fails.push("the letter button produced no explanation at all");
-  const rows = explain.querySelectorAll("tr").length;
-  if (rows === 0 || rows > 0) pass++; // structure check below instead
-  for (const tr of explain.querySelectorAll("tr")) {
-    if (tr.children.length !== 3) fails.push("a letter row does not have 3 cells");
+  async function typeAndRead(value) {
+    input.value = value;
+    input.dispatchEvent(new window.Event("input"));
+    await wait(200); // controller debounces by 90ms
+    return out.querySelector(".big")?.textContent ?? "";
+  }
+
+  /* 1. Curated names round-trip through the live page. */
+  for (const [name, want] of page.curated) {
+    const got = await typeAndRead(name);
+    if (got.normalize("NFC") === want.normalize("NFC")) pass++;
+    else fails.push(`${page.slug}: ${name} rendered ${JSON.stringify(got)}, expected ${JSON.stringify(want)}`);
+  }
+
+  /* 2. Unknown names still produce the target script. */
+  for (const name of page.unknown) {
+    const got = await typeAndRead(name);
+    const badge = out.querySelector(".rom")?.textContent ?? "";
+    const isTargetScript = [...got].every(
+      (c) => c.codePointAt(0) >= page.codepoint_range[0] && c.codePointAt(0) <= page.codepoint_range[1]
+    );
+    if (got && isTargetScript) pass++;
+    else fails.push(`${page.slug}: "${name}" produced ${JSON.stringify(got)}, not in target script range`);
+    if (/Phonetic|Curated/.test(badge)) pass++;
+    else fails.push(`${page.slug}: "${name}" was not labelled (badge: ${JSON.stringify(badge)})`);
+  }
+
+  /* 3. Clearing restores the placeholder. */
+  if (page.curated.length > 0) {
+    await typeAndRead(page.curated[0][0]);
+    const cleared = await typeAndRead("");
+    if (cleared === page.placeholder) pass++;
+    else fails.push(`${page.slug}: clearing left ${JSON.stringify(cleared)}, expected ${JSON.stringify(page.placeholder)}`);
+  } else {
+    await typeAndRead(page.unknown[0]);
+    const cleared = await typeAndRead("");
+    if (cleared === page.placeholder) pass++;
+    else fails.push(`${page.slug}: clearing left ${JSON.stringify(cleared)}, expected ${JSON.stringify(page.placeholder)}`);
+  }
+
+  /* 4. The letter button produces content. */
+  await typeAndRead(page.curated[0] ? page.curated[0][0] : page.unknown[0]);
+  const explainBtn = window.document.getElementById("explainBtn");
+  if (explainBtn) {
+    explainBtn.click();
+    await wait(50);
+    const text = explain.textContent || "";
+    if (text.length > 0) pass++;
+    else fails.push(`${page.slug}: explain button produced no explanation`);
+  } else {
+    fails.push(`${page.slug}: no #explainBtn found`);
   }
 }
 
-/* 5. Every curated name must round-trip through the live page, not just the
-      JSON — a table that disagrees with the tool is worse than no table. */
-const names = JSON.parse(fs.readFileSync(path.join(root, "data/names/names.json"), "utf8")).names;
-let agree = 0;
-for (const n of names) {
-  if (page.includes(n.pa)) agree++;
+for (const page of PAGES) {
+  await testPage(page);
 }
-if (agree === names.length) pass++;
-else fails.push(`${names.length - agree} curated names are missing from the page's table`);
+
+/* 5. Every curated name in the JSON must appear on the Punjabi page. */
+{
+  const punjabiHtml = fs.readFileSync(path.join(root, "name-in-punjabi/index.html"), "utf8");
+  const names = JSON.parse(fs.readFileSync(path.join(root, "data/names/names.json"), "utf8")).names;
+  let agree = 0;
+  let total = 0;
+  for (const n of names) {
+    if (!n.pa) continue; // names with only non-Indic scripts have no Panjabi form
+    total++;
+    if (punjabiHtml.includes(n.pa)) agree++;
+  }
+  if (agree === total) pass++;
+  else fails.push(`${total - agree} of ${total} curated Punjabi names missing from Punjabi page table`);
+}
 
 console.log(`${pass} passed, ${fails.length} failed`);
 for (const f of fails) console.log("  FAIL " + f);

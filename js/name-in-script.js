@@ -39,6 +39,7 @@
     if (!input || !out) return;
 
     var script = input.getAttribute("data-script") || "gurmukhi";
+    var scriptVariant = input.getAttribute("data-variant") || null;
     var btnrow = document.getElementById("btnrow");
     var copyBtn = document.getElementById("copyBtn");
     var explainBtn = document.getElementById("explainBtn");
@@ -56,6 +57,20 @@
       return lib ? lib.lookup(name) : null;
     };
 
+    /* Non-Indic scripts (Arabic, Greek, Cyrillic, Hangul, Kana,
+       Ethiopic) have their own engine in js/non-indic-scripts.js.
+       They do not share the Devanagari abugida structure, so they
+       cannot go through script-map.js. */
+    var NON_INDIC = ["arabic", "greek", "cyrillic", "hangul", "kana", "ethiopic"];
+    var isNonIndic = NON_INDIC.indexOf(script) !== -1;
+
+    function fromEnglish(name) {
+      if (isNonIndic) {
+        return window.EkGuruNonIndic.fromEnglish(name, script, scriptVariant);
+      }
+      return window.EkGuruScriptMap.fromEnglish(name, script);
+    }
+
     function render(value) {
       var name = String(value || "").trim();
       if (!name) {
@@ -70,14 +85,23 @@
       var hit = curatedFor(name);
       var result, note, badge;
 
-      if (hit) {
-        result = hit[scriptShort(script)] || hit.pa;
+      /* For non-Indic scripts, a curated entry only counts if it
+         actually has a field for this script. Otherwise the entry
+         exists for an Indic script and would fall back to hit.pa,
+         producing Punjabi for an Arabic page. */
+      var curatedHit = hit;
+      if (hit && isNonIndic && !hit[scriptShort(script)]) {
+        curatedHit = null;
+      }
+
+      if (curatedHit) {
+        result = curatedHit[scriptShort(script)] || hit.pa;
         note = "This spelling is curated — it is how the name is actually written, " +
                "not a rule applied to the letters. Surnames like Singh are the reason " +
                "the list exists.";
         badge = "Curated spelling";
       } else {
-        var r = window.EkGuruScriptMap.fromEnglish(name, script);
+        var r = fromEnglish(name);
         result = r.text;
         note = "This is the phonetic spelling — the rule engine read the sounds and " +
                "wrote them in " + scriptName() + ". For an uncommon name that is the best " +
@@ -86,20 +110,30 @@
       }
 
       lastText = result;
-      out.innerHTML = '<div class="big" lang="pa">' + esc(result) + "</div>" +
+      out.innerHTML = '<div class="big" lang="' + script + '">' + esc(result) + "</div>" +
         '<div class="rom">' + esc(badge) + " · " + esc(name) + "</div>";
       if (btnrow) btnrow.hidden = false;
       if (help) help.textContent = note;
-      if (explain && explain.getAttribute("data-open") === "1") showLetters(name, hit);
+      if (explain && explain.getAttribute("data-open") === "1") showLetters(name, curatedHit);
       else if (explain) explain.innerHTML = "";
     }
 
     function scriptShort(s) {
-      return s === "gurmukhi" ? "pa" : s === "devanagari" ? "hi" : s;
+      var map = {
+        "gurmukhi": "pa", "devanagari": "hi",
+        "arabic": "ar", "greek": "el", "cyrillic": "ru",
+        "hangul": "ko", "kana": "ja", "ethiopic": "am"
+      };
+      return map[s] || s;
     }
 
     function scriptName() {
-      var n = window.EkGuruScriptMap && window.EkGuruScriptMap.names[script];
+      var n;
+      if (isNonIndic && window.EkGuruNonIndic) {
+        n = window.EkGuruNonIndic.names[script];
+      } else if (window.EkGuruScriptMap) {
+        n = window.EkGuruScriptMap.names[script];
+      }
       return n ? n.en : script;
     }
 
@@ -111,7 +145,10 @@
 
     /* Letter-by-letter only for the rule path: a curated spelling is a
        whole word, and splitting it into letters would invent a story
-       about why each letter is there. */
+       about why each letter is there.
+       For non-Indic scripts the Devanagari intermediate is not a
+       meaningful comparison, so we show the script's own characters
+       and their codepoints instead. */
     function showLetters(name, hit) {
       if (hit) {
         explain.innerHTML = '<p class="rom" style="margin-top:12px">A curated spelling is kept as a ' +
@@ -119,8 +156,18 @@
           "come from one.</p>";
         return;
       }
-      var r = window.EkGuruScriptMap.fromEnglish(name, script);
-      var rows = "";
+      var r = fromEnglish(name);
+      if (isNonIndic) {
+        var chars = Array.from(r.text);
+        var rows = "";
+        for (var i = 0; i < chars.length; i++) {
+          rows += "<tr><td>" + esc(chars[i]) + '</td><td class="rom">U+' +
+            chars[i].codePointAt(0).toString(16).toUpperCase() + "</td></tr>";
+        }
+        explain.innerHTML = '<table class="ex" style="margin-top:14px"><thead><tr><th>' +
+          esc(scriptName()) + "</th><th>Codepoint</th></tr></thead><tbody>" + rows + "</tbody></table>";
+        return;
+      }
       var dev = Array.from(r.devanagari);
       var tgt = Array.from(r.text);
       /* Only pairs of equal length can be shown honestly; the orthography
@@ -172,7 +219,10 @@
         var open = explain.getAttribute("data-open") === "1";
         explain.setAttribute("data-open", open ? "0" : "1");
         explainBtn.textContent = open ? "Show every letter" : "Hide letters";
-        if (!open) showLetters(input.value.trim(), curatedFor(input.value));
+        var val = input.value.trim();
+        var hitForExplain = curatedFor(val);
+        if (hitForExplain && isNonIndic && !hitForExplain[scriptShort(script)]) hitForExplain = null;
+        if (!open) showLetters(val, hitForExplain);
         else explain.innerHTML = "";
       });
     }

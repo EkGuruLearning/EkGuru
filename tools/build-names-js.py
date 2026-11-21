@@ -27,7 +27,10 @@ def render() -> str:
     data = json.loads(SRC.read_text(encoding="utf-8"))
     rows = []
     for n in data["names"]:
-        row = {"pa": n["pa"], "hi": n["hi"]}
+        row = {}
+        for k in ("pa", "hi", "ar", "el", "ru", "ko", "ja", "am"):
+            if n.get(k):
+                row[k] = n[k]
         if n.get("also"):
             row["also"] = n["also"]
         rows.append((n["name"], row))
@@ -49,7 +52,9 @@ def render() -> str:
         '    var key = String(name).trim().toLowerCase();\n'
         "    for (var k in NAMES) {\n"
         "      if (k.toLowerCase() === key) return { name: k, pa: NAMES[k].pa,\n"
-        "        hi: NAMES[k].hi, also: NAMES[k].also || [] };\n"
+        "        hi: NAMES[k].hi, also: NAMES[k].also || [],\n"
+        "        ar: NAMES[k].ar, el: NAMES[k].el, ru: NAMES[k].ru,\n"
+        "        ko: NAMES[k].ko, ja: NAMES[k].ja, am: NAMES[k].am };\n"
         "    }\n"
         "    return null;\n"
         "  }\n"
