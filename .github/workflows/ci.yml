@@ -34,6 +34,15 @@ jobs:
       - name: "Demand vs coverage (reports which markets are frozen or uncovered)"
         run: python3 tools/trend-analysis.py --check
 
+      - name: "Name spellings: generated JS matches the curated JSON"
+        run: python3 tools/build-names-js.py --check
+
+      - name: "Script conversion: exact strings, no unassigned codepoints"
+        run: node tools/test-script-map.mjs
+
+      - name: "Name page: typing in the real page produces the curated answer"
+        run: node tools/test-name-page.mjs
+
       - name: Master build check (all generated layers + policy gates)
         run: python3 tools/build-all.py check
 
