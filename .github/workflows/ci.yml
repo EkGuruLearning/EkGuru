@@ -43,6 +43,12 @@ jobs:
       - name: "Name page: typing in the real page produces the curated answer"
         run: node tools/test-name-page.mjs
 
+      - name: "Numbers: data, generated JS and visible table agree"
+        run: python3 tools/build-numbers-pages.py --check
+
+      - name: "Numbers page: every number, and the tool that reads it"
+        run: node tools/test-numbers-page.mjs
+
       - name: Master build check (all generated layers + policy gates)
         run: python3 tools/build-all.py check
 
