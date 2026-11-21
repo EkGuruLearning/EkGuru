@@ -53,6 +53,8 @@ jobs:
         run: python3 tools/build-time-pages.py --check && python3 tools/build-time-pages-bodies.py --check
       - name: "Hindi classes page: stale-check the generated hub"
         run: python3 tools/build-hindi-classes-page.py --check
+      - name: "Hindi tutor near me page: stale-check the generated hub"
+        run: python3 tools/build-hindi-tutor-near-me-page.py --check
 
       - name: "Time/days page: English in, real script out"
         run: node tools/test-time-page.mjs
