@@ -52,6 +52,58 @@ PAGES = [
         "html_lang": "mr",
         "script_name": "Devanagari",
     },
+    {
+        "slug": "days-and-months-in-gujarati",
+        "file": "gujarati.json",
+        "title": "Gujarati Days, Months and Time — Days of the Week in Gujarati Script | EkGuru",
+        "h1": "Gujarati days, months and time words",
+        "desc": ("Every day of the week, month of the year and everyday time word in Gujarati, with "
+                 "Gujarati writing and pronunciation. Type an English word and get it back in Gujarati."),
+        "lede": ("All seven days, all twelve months and the time words you use every day, in Gujarati "
+                 "script. Type any English day, month or time word below and it returns the Gujarati "
+                 "word in its own script, straight away."),
+        "html_lang": "gu",
+        "script_name": "Gujarati",
+    },
+    {
+        "slug": "days-and-months-in-kannada",
+        "file": "kannada.json",
+        "title": "Kannada Days, Months and Time — Days of the Week in Kannada Script | EkGuru",
+        "h1": "Kannada days, months and time words",
+        "desc": ("Every day of the week, month of the year and everyday time word in Kannada, with "
+                 "Kannada writing and pronunciation. Type an English word and get it back in Kannada."),
+        "lede": ("All seven days, all twelve months and the time words you use every day, in Kannada "
+                 "script. Type any English day, month or time word below and it returns the Kannada "
+                 "word in its own script, straight away."),
+        "html_lang": "kn",
+        "script_name": "Kannada",
+    },
+    {
+        "slug": "days-and-months-in-telugu",
+        "file": "telugu.json",
+        "title": "Telugu Days, Months and Time — Days of the Week in Telugu Script | EkGuru",
+        "h1": "Telugu days, months and time words",
+        "desc": ("Every day of the week, month of the year and everyday time word in Telugu, with "
+                 "Telugu writing and pronunciation. Type an English word and get it back in Telugu."),
+        "lede": ("All seven days, all twelve months and the time words you use every day, in Telugu "
+                 "script. Type any English day, month or time word below and it returns the Telugu "
+                 "word in its own script, straight away."),
+        "html_lang": "te",
+        "script_name": "Telugu",
+    },
+    {
+        "slug": "days-and-months-in-urdu",
+        "file": "urdu.json",
+        "title": "Urdu Days, Months and Time — Days of the Week in Urdu (Arabic Script) | EkGuru",
+        "h1": "Urdu days, months and time words",
+        "desc": ("Every day of the week, month of the year and everyday time word in Urdu, with "
+                 "Arabic writing and pronunciation. Type an English word and get it back in Urdu."),
+        "lede": ("All seven days, all twelve months and the time words you use every day, in Urdu "
+                 "Arabic script. Type any English day, month or time word below and it returns the "
+                 "Urdu word in its own script, straight away."),
+        "html_lang": "ur",
+        "script_name": "Arabic",
+    },
 ]
 
 

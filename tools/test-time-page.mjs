@@ -16,12 +16,37 @@ import path from "node:path";
 const root = path.resolve(new URL("..", import.meta.url).pathname);
 const PAGE_SPECS = [
   { slug: "days-and-months-in-punjabi", file: "data/time/punjabi.json", lang: "pa",
-    samples: [["Tuesday", "ਮੰਗਲਵਾਰ"], ["March", "ਮਾਰਚ"], ["morning", "ਸਵੇਰ"],
+    samples: [["Tuesday", "ਮੰਗਲਵਾਰ"], ["March", "ਮਾરਚ"], ["morning", "ਸਵੇਰ"],
               ["Saturday", "ਸ਼ਨਿੱਚਰਵਾਰ"], ["today", "ਅੱਜ"]] },
   { slug: "days-and-months-in-marathi", file: "data/time/marathi.json", lang: "mr",
     samples: [["Tuesday", "मंगळवार"], ["March", "मार्च"], ["morning", "सकाळ"],
               ["Saturday", "शनिवार"], ["today", "आज"]] },
+  { slug: "days-and-months-in-gujarati", file: "data/time/gujarati.json", lang: "gu",
+    samples: [["Tuesday", "મંગળવાર"], ["March", "માર્ચ"], ["morning", "સવાર"],
+              ["Saturday", "શનિવાર"], ["today", "આજ"]] },
+  { slug: "days-and-months-in-kannada", file: "data/time/kannada.json", lang: "kn",
+    samples: [["Tuesday", "ಮಂಗಳವಾರ"], ["March", "ಮಾರ್ಚ್"], ["morning", "ಬೆಳಿಗ್ಗೆ"],
+              ["Saturday", "ಶನಿವಾರ"], ["today", "ಇಂದು"]] },
+  { slug: "days-and-months-in-telugu", file: "data/time/telugu.json", lang: "te",
+    samples: [["Tuesday", "మంగళవారం"], ["March", "మార్చి"], ["morning", "ఉదయం"],
+              ["Saturday", "శనివారం"], ["today", "నేడు"]] },
+  { slug: "days-and-months-in-urdu", file: "data/time/urdu.json", lang: "ur",
+    samples: [["Tuesday", "منگل"], ["March", "مارچ"], ["morning", "صبح"],
+              ["Saturday", "ہفتہ"], ["today", "آج"]] },
 ];
+
+/* The six scripts these pages use: Gurmukhi, Devanagari, Gujarati, Kannada,
+   Telugu, and Perso-Arabic (Urdu). A word may contain a space when it is a
+   multi-word phrase (e.g. Gujarati આવતી કાલ). */
+const SCRIPTS = [
+  [0x0a00, 0x0a7f], // Gurmukhi
+  [0x0900, 0x097f], // Devanagari
+  [0x0a80, 0x0aff], // Gujarati
+  [0x0c80, 0x0cff], // Kannada
+  [0x0c00, 0x0c7f], // Telugu
+  [0x0600, 0x06ff], // Perso-Arabic
+];
+const inAnyScript = (cp) => SCRIPTS.some(([lo, hi]) => cp >= lo && cp <= hi);
 
 const fails = [];
 let pass = 0;
@@ -36,19 +61,26 @@ for (const { slug, file, lang, samples } of PAGE_SPECS) {
   const data = JSON.parse(fs.readFileSync(path.join(root, file), "utf8"));
   ok(data.language === lang, `${slug}: data language must be ${lang}`);
 
-  /* every word is in the right Indic script (Gurmukhi or Devanagari) */
+  /* every word is in one of the known scripts (space allowed in multi-word phrases) */
   for (const e of allEntries(data)) {
     for (const ch of e.word) {
       const cp = ch.codePointAt(0);
-      ok(cp >= 0x0a00 && cp <= 0x0a7f || cp >= 0x0900 && cp <= 0x097f,
-         `${slug}: "${e.word}" (${e.en}) has a character outside a known Indic script`);
+      ok(cp === 0x20 || inAnyScript(cp),
+         `${slug}: "${e.word}" (${e.en}) has a character outside a known script`);
     }
     ok(!!e.en, `${slug}: every entry needs an English key`);
   }
-  /* the two shared-word cases are intentional, not a bug — assert they exist */
-  ok(data.time_words.some(e => e.en === "Tomorrow" && data.time_words.some(x => x.en === "Yesterday" && x.word === e.word))
-     || data.time_words.some(e => e.en === "Day after tomorrow" && data.time_words.some(x => x.en === "Day before yesterday" && x.word === e.word)),
-     `${slug}: the shared tomorrow/yesterday or after/before word should be present`);
+  /* some languages share one word for tomorrow/yesterday or after/before;
+     that is intentional, not a bug. Just confirm the four entries exist. */
+  const tw = Object.fromEntries(data.time_words.map((e) => [e.en, e.word]));
+  for (const k of ["Tomorrow", "Yesterday", "Day after tomorrow", "Day before yesterday"]) {
+    ok(k in tw, `${slug}: the time word "${k}" should be present`);
+  }
+  /* helper: expected word straight from the data, case-insensitive like the tool */
+  const expect = (en) => {
+    const e = allEntries(data).find((x) => x.en.toLowerCase() === en.toLowerCase());
+    return e?.word;
+  };
 
   const page = fs.readFileSync(path.join(root, `${slug}/index.html`), "utf8");
   const dom = new JSDOM(page, {
@@ -96,9 +128,10 @@ for (const { slug, file, lang, samples } of PAGE_SPECS) {
     };
   }
 
-  for (const [value, word] of samples) {
+  for (const [value] of samples) {
     const r = await type(value);
-    ok(r.big === word, `${slug}: typing "${value}" should give ${word}, got ${JSON.stringify(r.big)}`);
+    const want = expect(value);
+    ok(r.big === want, `${slug}: typing "${value}" should give ${want}, got ${JSON.stringify(r.big)}`);
     ok(r.rom.toLowerCase().includes(value.toLowerCase()),
        `${slug}: the answer should echo the typed word "${value}" (got ${JSON.stringify(r.rom)})`);
   }
@@ -106,7 +139,7 @@ for (const { slug, file, lang, samples } of PAGE_SPECS) {
   /* case-insensitive: typed lowercase, key is uppercase */
   {
     const r = await type("tuesday");
-    ok(r.big === samples.find(s => s[0] === "Tuesday")[1],
+    ok(r.big === expect("Tuesday"),
        `${slug}: lowercase "tuesday" should still match`);
   }
 
