@@ -48,11 +48,12 @@ def research_country_pages() -> set[Path]:
 
 
 def candidates() -> list[Path]:
-    out = research_country_pages()
-    out.update(ROOT.glob("world-languages/**/index.html"))
-    # A quarantined source-language funnel includes its four child articles;
-    # excluding only the hub left research pages indexable through sitemap.xml.
-    out.update(ROOT.glob("learn-hindi-for-*-speakers/**/index.html"))
+    # 2026-11-21 owner approval: the three country-language clusters
+    # (world-languages/**, learn-hindi-from-*/index.html,
+    # learn-hindi-for-*-speakers/**) are unfrozen and indexable. They are no
+    # longer quarantine targets. Only the hub/comparison pages below remain
+    # research-only.
+    out = set()
     for rel in ["learn-hindi-for-speakers/index.html", "learn-hindi-by-country/index.html", *sorted(COMPARISONS)]:
         path = ROOT / rel
         if path.is_file(): out.add(path)
