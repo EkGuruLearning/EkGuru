@@ -31,6 +31,9 @@ jobs:
       - name: Owner indexing and canonical freeze
         run: python3 tools/ultra/contract.py
 
+      - name: "Demand vs coverage (reports which markets are frozen or uncovered)"
+        run: python3 tools/trend-analysis.py --check
+
       - name: Master build check (all generated layers + policy gates)
         run: python3 tools/build-all.py check
 
