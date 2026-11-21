@@ -49,6 +49,12 @@ jobs:
       - name: "Numbers page: every number, and the tool that reads it"
         run: node tools/test-numbers-page.mjs
 
+      - name: "Time/days: stale-check the generated data and tables"
+        run: python3 tools/build-time-pages.py --check
+
+      - name: "Time/days page: English in, real script out"
+        run: node tools/test-time-page.mjs
+
       - name: Master build check (all generated layers + policy gates)
         run: python3 tools/build-all.py check
 
