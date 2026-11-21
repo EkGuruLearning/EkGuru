@@ -75,11 +75,12 @@ for (const p of pages) {
 /* ---------- 1. the class is where it should be, and nowhere else ---------- */
 check("the reading layer is on every hand-written page", legacy.length === 976,  /* 970 original + 6 owner-approved country pages (2026-11-13) */
   legacy.length + " page(s)");
-/* 1747 = 1724 previous page-layer pages + 23 'how to say X in Hindi' Q&A pages
-   (2026-11-21). Update this count deliberately whenever the inventory changes;
-   every page-layer page must still carry the class, and tools/test-page-layer.mjs
-   independently enforces the content and bands for the pages it owns. */
-check("the page layer's pages carry the same class, tested separately", pageLayer.length === 1747,
+/* 1762 = 1724 previous page-layer pages + 38 'how to say X in Hindi' Q&A pages
+   (2026-11-21, second batch of daily-search pages). Update this count deliberately
+   whenever the inventory changes; every page-layer page must still carry the class,
+   and tools/test-page-layer.mjs independently enforces the content and bands for the
+   pages it owns. */
+check("the page layer's pages carry the same class, tested separately", pageLayer.length === 1762,
   pageLayer.length + " page(s)");
 check("the pages already on the v200 system were left alone", modern.length === 6,
   modern.join(", "));

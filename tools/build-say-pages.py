@@ -1082,6 +1082,749 @@ PAGES = [
              "माफ़ कर (Maaf kar) is the casual form used between friends, family, and people you are close to. The ending changes from the polite -ein to the casual -a, which signals informality."),
         ],
     },
+    {
+        "slug": "how-to-say-good-evening-in-hindi",
+        "question": "How do you say good evening in Hindi?",
+        "answer": (
+            "<strong>शुभ संध्या</strong> <em>(shubh sandhya)</strong> is the direct "
+            "translation, but like <em>suprabhaat</em> it is written far more "
+            "than spoken. In conversation, <strong>नमस्ते</strong> "
+            "<em>(namaste)</em> covers the evening the same way it covers every "
+            "other time."
+        ),
+        "table": [
+            ("Written, formal", "शुभ संध्या <em>shubh sandhya</em>"),
+            ("In conversation, any time", "नमस्ते <em>namaste</em>"),
+            ("To a friend", "क्या हाल है? <em>kyaa haal hai?</em>"),
+            ("Warm, casual", "\"good evening\" in English or namaste"),
+        ],
+        "sections": [
+            (
+                "Shubh sandhya \u2014 correct but rare in speech",
+                "<p>Like <em>suprabhaat</em> (good morning), <em>shubh sandhya</em> "
+                "is the literary, written form of good evening. It is correct and "
+                "you will see it on cards and in formal writing, but in everyday "
+                "conversation people rarely say it. In an Indian office or among "
+                "younger speakers, English \"good evening\" is far more common.</p>"
+            ),
+            (
+                "Namaste covers the evening too",
+                "<p>The single most useful thing to know: <strong>namaste works "
+                "at every hour.</strong> It is never wrong for greeting, whether "
+                "morning, afternoon, or evening. If you only remember one Hindi "
+                "greeting, namaste is the one \u2014 it covers all of them.</p>"
+            ),
+        ],
+        "faq": [
+            ("What is the most common way to say good evening in Hindi?",
+             "नमस्ते (Namaste) is the most common and natural \u2014 it works at any time of day including evening. शुभ संध्या (Shubh sandhya) is the written form but rarely spoken."),
+            ("Is shubh sandhya wrong to say?",
+             "No. Shubh sandhya is correct \u2014 it is the literal translation of good evening. It is not wrong, just literary. People will understand it, but namaste is more natural in speech."),
+            ("How do you say good evening in Hindi in a formal setting?",
+             "शुभ संध्या (Shubh sandhya) is the formal, written form. For a formal speech or written greeting, use it. For conversation, namaste is still the safest."),
+            ("What is the difference between good evening and good night in Hindi?",
+             "Good evening is शुभ संध्या (shubh sandhya) and good night is शुभ रात्रि (shubh raatri). In speech, both are rarely used \u2014 namaste covers the evening, and good night in English or naite is more common at night."),
+        ],
+    },
+    {
+        "slug": "how-to-say-i-am-fine-in-hindi",
+        "question": "How do you say I am fine in Hindi?",
+        "answer": (
+            "<strong>मैं ठीक हूँ</strong> <em>(main thiik hoon)</strong> is the "
+            "direct, all-purpose translation. In response to "
+            "<em>kyaa haal hain?</em> (how are you?), <strong>ठीक है</strong> "
+            "<em>(thik hai)</em> \u2014 \"it is fine\" \u2014 is the most common, "
+            "natural reply."
+        ),
+        "table": [
+            ("Direct, complete", "मैं ठीक हूँ <em>main thiik hoon</em>"),
+            ("Most common reply (short)", "ठीक है <em>thik hai</em>"),
+            ("I am fine, thank you", "ठीक हूँ, धन्यवाद <em>thiik hoon, dhanyavaad</em>"),
+            ("Casual, between friends", "सब ठीक है <em>sab thiik hai</em>"),
+        ],
+        "sections": [
+            (
+                "Thik hai \u2014 the everyday reply",
+                "<p>When someone asks <em>kyaa haal hain?</em> (how are you?), the "
+                "most natural reply is <em>thik hai</em> \u2014 literally \"it is "
+                "fine.\" It is short, universal, and the default response in almost "
+                "every context. You can add <em>dhanyavaad</em> (thank you) to be "
+                "polite: <em>thik hai, dhanyavaad.</em></p>"
+            ),
+            (
+                "Main thiik hoon \u2014 the full statement",
+                "<p><em>Main thiik hoon</em> is the complete sentence \u2014 \"I am "
+                "fine.\" It is slightly more deliberate than the short <em>thik "
+                "hai</em>, and is used when you want to state it as a complete "
+                "thought. Both are correct; <em>thik hai</em> is the more common "
+                "reply in conversation.</p>"
+            ),
+        ],
+        "faq": [
+            ("What is the most common way to say I am fine in Hindi?",
+             "ठीक है (Thik hai) is the most common reply \u2014 literally \"it is fine.\" The full form is मैं ठीक हूँ (Main thiik hoon)."),
+            ("How do you say I am fine thank you in Hindi?",
+             "ठीक हूँ, धन्यवाद (Thik hoon, dhanyavaad) \u2014 \"I am fine, thank you.\" Add dhanyavaad (thank you) after the basic phrase."),
+            ("How do you respond to how are you in Hindi?",
+             "The standard reply is ठीक है (Thik hai) \u2014 \"fine.\" You can also say सब ठीक है (Sab thiik hai) \u2014 \"everything is fine\" \u2014 for a slightly fuller response."),
+            ("What is the difference between thik hai and main thiik hoon?",
+             "Thik hai means \"it is fine\" \u2014 the short, common reply. Main thiik hoon means \"I am fine\" \u2014 the complete sentence. Both mean essentially the same thing; thik hai is more common in everyday conversation."),
+        ],
+    },
+    {
+        "slug": "how-to-say-my-name-is-in-hindi",
+        "question": "How do you say my name is in Hindi?",
+        "answer": (
+            "<strong>मेरा नाम ... है</strong> <em>(meraa naam ... hai)</strong> is "
+            "the direct, standard pattern \u2014 \"my name is [name].\" "
+            "<strong>मैं ... कहलाता हूँ</strong> <em>(main ... kahlaataa hoon)</em> "
+            "is the alternative \"I am called [name].\""
+        ),
+        "table": [
+            ("Standard, all-purpose", "मेरा नाम ... है <em>meraa naam ... hai</em>"),
+            ("My name is John", "मेरा नाम जॉन है <em>meraa naam John hai</em>"),
+            ("I am called ...", "मैं ... कहलाता हूँ <em>main ... kahlaataa hoon</em>"),
+            ("Polite, formal", "मेरे नाम ... हैं <em>mere naam ... hain</em>"),
+        ],
+        "sections": [
+            (
+                "Mera naam ... hai \u2014 the core pattern",
+                "<p><em>Mera</em> means \"my,\" <em>naam</em> means \"name,\" and "
+                "<em>hai</em> means \"is.\" <em>Mera naam [name] hai</em> is the "
+                "standard, universal way to introduce yourself by name. It works "
+                "in every context \u2014 casual, formal, with strangers or friends. "
+                "It is one of the first sentences every Hindi learner should "
+                "master.</p>"
+            ),
+            (
+                "Kahlaataa hoon \u2014 \"I am called\"",
+                "<p><em>Main [name] kahlaataa hoon</em> means \"I am called "
+                "[name].\" It is slightly more formal and is used when you want "
+                "to describe how people address you, rather than simply stating "
+                "your name. The feminine form is <em>kahlaatii hoon.</em> Both "
+                "are correct; <em>mera naam ... hai</em> is the more common "
+                "introduction.</p>"
+            ),
+        ],
+        "faq": [
+            ("What is the most common way to say my name is in Hindi?",
+             "मेरा नाम ... है (Mera naam ... hai) is the standard, all-purpose form. Fill in the name where the ... is."),
+            ("How do you say my name is John in Hindi?",
+             "मेरा नाम जॉन है (Mera naam John hai). The name can be in Hindi script or the Latin alphabet \u2014 both are understood."),
+            ("How do you introduce yourself in Hindi?",
+             "Start with नमस्ते (Namaste), then say मेरा नाम ... है (Mera naam ... hai). For example: नमस्ते, मेरा नाम John है (Namaste, mera naam John hai)."),
+            ("How do you say what is your name in Hindi?",
+             "आपका नाम क्या है? (Aapkaa naam kyaa hai?) \u2014 \"what is your name?\" The polite form uses aapkaa (your, polite) instead of meraa (my)."),
+        ],
+    },
+    {
+        "slug": "how-to-say-where-do-you-live-in-hindi",
+        "question": "How do you say where do you live in Hindi?",
+        "answer": (
+            "<strong>आप कहाँ रहते हैं?</strong> <em>(aap kahaan rahte "
+            "hain?)</strong> is the direct, polite form \u2014 \"you where live "
+            "are?\" <strong>आपका घर कहाँ है?</strong> "
+            "<em>(aapkaa ghar kahaan hai?)</strong> asks \"where is your home?\""
+        ),
+        "table": [
+            ("Polite, standard", "आप कहाँ रहते हैं? <em>aap kahaan rahte hain?</em>"),
+            ("Where is your home?", "आपका घर कहाँ है? <em>aapkaa ghar kahaan hai?</em>"),
+            ("Informal", "तुम कहाँ रहते हो? <em>tum kahaan rahte ho?</em>"),
+            ("Which city do you live in?", "आप कौनसे शहर में रहते हैं? <em>aap kaunse shahar meN rahte hain?</em>"),
+        ],
+        "sections": [
+            (
+                "Kahaan rahte hain \u2014 the standard form",
+                "<p><em>Rahte hain</em> is the verb for \"live/reside\" (from "
+                "<em>rahnaa</em>, to live/stay). <em>Aap kahaan rahte hain?</em> "
+                "is the standard, polite way to ask where someone lives. It "
+                "works with strangers, colleagues, and acquaintances \u2014 use it "
+                "as your default question.</p>"
+            ),
+            (
+                "Aapkaa ghar kahaan hai? \u2014 \"where is your home?\"",
+                "<p><em>Aapkaa ghar kahaan hai?</em> asks more specifically "
+                "\"where is your home?\" It is slightly warmer and more personal "
+                "than <em>kahaan rahte hain.</em> Both are correct; the choice "
+                "depends on whether you want to ask about their residence or "
+                "their home. In casual conversation, both are understood the "
+                "same way.</p>"
+            ),
+        ],
+        "faq": [
+            ("What is the most common way to say where do you live in Hindi?",
+             "आप कहाँ रहते हैं? (Aap kahaan rahte hain?) is the standard, polite form. It literally means \"you where live are?\""),
+            ("What is the difference between kahaan rahte hain and kahaan hain?",
+             "Kahaan rahte hain asks \"where do you live?\" (residence). Kahaan hain asks \"where are you?\" (current location). The verb rahte hain (live) makes the difference."),
+            ("How do you say where is your home in Hindi?",
+             "आपका घर कहाँ है? (Aapkaa ghar kahaan hai?) \u2014 \"where is your home?\" This is slightly warmer and more personal than asking where someone lives."),
+            ("How do you say I live in Hindi?",
+             "मैं ... में रहता हूँ (Main ... meN rahtaa hoon) \u2014 \"I live in [place].\" For a female speaker: रहती हूँ (rahtii hoon). For example: मैं दिल्ली में रहता हूँ (Main Delhi meN rahtaa hoon)."),
+        ],
+    },
+    {
+        "slug": "how-to-say-i-dont-speak-hindi-in-hindi",
+        "question": "How do you say I don't speak Hindi in Hindi?",
+        "answer": (
+            "<strong>मैं हिंदी नहीं बोलता</strong> <em>(main hindii nahin "
+            "bolataa)</strong> is the direct, standard form. For a female speaker, "
+            "<strong>hindii nahin boltii</strong> <em>(nahin boltii)</strong>. "
+            "<strong>मैं थोड़ा हिंदी बोलता हूँ</strong> "
+            "<em>(main thodaa hindii bolataa hoon)</strong> means \"I speak a "
+            "little Hindi.\""
+        ),
+        "table": [
+            ("Standard, male speaker", "मैं हिंदी नहीं बोलता <em>main hindii nahin bolataa</em>"),
+            ("Standard, female speaker", "मैं हिंदी नहीं बोलती <em>main hindii nahin boltii</em>"),
+            ("I speak a little Hindi", "मैं थोड़ा हिंदी बोलता हूँ <em>main thodaa hindii bolataa hoon</em>"),
+            ("I don't understand Hindi", "मुझे हिंदी नहीं समझ आती <em>mujhe hindii nahin samajh aati</em>"),
+        ],
+        "sections": [
+            (
+                "Nahin bolataa \u2014 the negative form",
+                "<p><em>Nahin</em> is the negation (\u201cnot\u201d) and <em>bolataa</em> "
+                "is the masculine verb form of <em>bolnaa</em> (to speak). "
+                "<em>Main hindii nahin bolataa</em> is the standard way to say "
+                "\"I don't speak Hindi.\" The feminine form is <em>boltii</em> "
+                "instead of <em>bolataa.</em> It is a useful, honest phrase for "
+                "any learner.</p>"
+            ),
+            (
+                "Thodaa hindii bolataa hoon \u2014 \"I speak a little\"",
+                "<p><em>Thodaa</em> means \"a little, some.\" <em>Main thodaa "
+                "hindii bolataa hoon</em> means \"I speak a little Hindi.\" It "
+                "is the natural, honest way to describe your level when you are "
+                "learning \u2014 not a full speaker, but not a complete beginner "
+                "either. It is the most accurate way to describe an intermediate "
+                "level.</p>"
+            ),
+        ],
+        "faq": [
+            ("What is the most common way to say I don't speak Hindi in Hindi?",
+             "मैं हिंदी नहीं बोलता (Main hindii nahin bolataa) for a male speaker, or मैं हिंदी नहीं बोलती (Main hindii nahin boltii) for a female speaker."),
+            ("How do you say I speak a little Hindi in Hindi?",
+             "मैं थोड़ा हिंदी बोलता हूँ (Main thodaa hindii bolataa hoon) \u2014 \"I speak a little Hindi.\" Thodaa means \"a little/some.\""),
+            ("How do you say I don't understand Hindi in Hindi?",
+             "मुझे हिंदी नहीं समझ आती (Mujhe hindii nahin samajh aati) \u2014 \"Hindi does not come to me in understanding.\" Or the simpler: मैं हिंदी नहीं समझता (Main hindii nahin samajhta) \u2014 \"I don't understand Hindi.\""),
+            ("How do you say I speak English in Hindi?",
+             "मैं अंग्रेज़ी बोलता हूँ (Main angrezii bolataa hoon) \u2014 \"I speak English.\" For a female speaker: मैं अंग्रेज़ी बोलती हूँ (Main angrezii boltii hoon)."),
+        ],
+    },
+    {
+        "slug": "how-to-say-see-you-tomorrow-in-hindi",
+        "question": "How do you say see you tomorrow in Hindi?",
+        "answer": (
+            "<strong>कल मिलते हैं</strong> <em>(kal milte hain)</strong> is the "
+            "most natural \u2014 \"we meet tomorrow.\" "
+            "<strong>फिर कल मिलते हैं</strong> <em>(phir kal milte hain)</strong> "
+            "adds \"again\" for warmth."
+        ),
+        "table": [
+            ("Most common, all-purpose", "कल मिलते हैं <em>kal milte hain</em>"),
+            ("Warm, \"we meet again tomorrow\"", "फिर कल मिलते हैं <em>phir kal milte hain</em>"),
+            ("Casual, between friends", "कल मिलते हैं <em>kal milte hain</em>"),
+            ("Take care, see you tomorrow", "कल मिलते हैं, ख्याल रखें <em>kal milte hain, khayaal rakhein</em>"),
+        ],
+        "sections": [
+            (
+                "Kal milte hain \u2014 the standard farewell",
+                "<p><em>Kal</em> means \"tomorrow\" and <em>milte hain</em> means "
+                "\"we meet.\" <em>Kal milte hain</em> is the natural, everyday way "
+                "to say \"see you tomorrow.\" It works with friends, colleagues, "
+                "and acquaintances. It is one of the most common, useful "
+                "farewell phrases in Hindi.</p>"
+            ),
+            (
+                "Phir kal milte hain \u2014 extra warmth",
+                "<p><em>Phir</em> means \"again.\" <em>Phir kal milte hain</em> "
+                "adds a touch of warmth \u2014 \"we meet again tomorrow.\" It is "
+                "slightly more meaningful than the basic form and is used when "
+                "you want the farewell to feel a little warmer, especially with "
+                "close friends or family.</p>"
+            ),
+        ],
+        "faq": [
+            ("What is the most common way to say see you tomorrow in Hindi?",
+             "कल मिलते हैं (Kal milte hain) \u2014 \"we meet tomorrow.\" This is the standard, natural farewell for the next day."),
+            ("How do you say see you later in Hindi?",
+             "बाद में मिलते हैं (Baad meN milte hain) \u2014 \"we meet later.\" This is the more general form when you don't specify when."),
+            ("How do you say see you soon in Hindi?",
+             "जल्द मिलते हैं (Jaldi milte hain) \u2014 \"we meet soon.\" Jaldi means \"soon/quickly.\" It is the natural way to say see you soon."),
+            ("How do you say see you again in Hindi?",
+             "फिर मिलते हैं (Phir milte hain) \u2014 \"we meet again.\" Phir means \"again.\" This is used when you expect to see the person again but don't specify when."),
+        ],
+    },
+    {
+        "slug": "how-to-say-what-do-you-do-in-hindi",
+        "question": "How do you say what do you do in Hindi?",
+        "answer": (
+            "<strong>आप क्या करते हैं?</strong> <em>(aap kyaa karte "
+            "hain?)</strong> is the direct, polite form \u2014 \"you what do "
+            "are?\" In casual conversation, people often shorten it to "
+            "<strong>क्या करते हैं?</strong> <em>(kyaa karte hain?)</strong>."
+        ),
+        "table": [
+            ("Polite, standard", "आप क्या करते हैं? <em>aap kyaa karte hain?</em>"),
+            ("Shorter, casual", "क्या करते हैं? <em>kyaa karte hain?</em>"),
+            ("What is your job?", "आपकी नौकरी क्या है? <em>aapkii naukarii kyaa hai?</em>"),
+            ("What work do you do?", "आपका काम क्या है? <em>aapkaa kaam kyaa hai?</em>"),
+        ],
+        "sections": [
+            (
+                "Kyaa karte hain \u2014 the standard question",
+                "<p><em>Kyaa karte hain</em> literally means \"what do (you) "
+                "do?\" It is the standard, polite way to ask what someone does "
+                "\u2014 for a job, a profession, or how they spend their time. It "
+                "is one of the most common small-talk questions in Hindi and "
+                "works with strangers, colleagues, and new acquaintances.</p>"
+            ),
+            (
+                "Naukarii kyaa hai? \u2014 \"what is your job?\"",
+                "<p><em>Aapkii naukarii kyaa hai?</em> asks more specifically "
+                "\"what is your job?\" <em>Naukarii</em> means \"job, "
+                "employment.\" It is a slightly more direct question about "
+                "employment. Both <em>kyaa karte hain</em> and <em>naukarii "
+                "kyaa hai</em> are common; the first is broader (what do you "
+                "do), the second is more specific (what is your job).</p>"
+            ),
+        ],
+        "faq": [
+            ("What is the most common way to say what do you do in Hindi?",
+             "आप क्या करते हैं? (Aap kyaa karte hain?) is the standard, polite form. In casual conversation, people often shorten it to क्या करते हैं? (Kyaa karte hain?)."),
+            ("What is the difference between aap kyaa karte hain and aapki naukarii kyaa hai?",
+             "Aap kyaa karte hain means \"what do you do?\" \u2014 broader, covering job or activities. Aapki naukarii kyaa hai means \"what is your job?\" \u2014 more specific to employment."),
+            ("How do you answer what do you do in Hindi?",
+             "मैं ... करता हूँ (Main ... kartaa hoon) for a male speaker, or ... करती हूँ (kartii hoon) for a female. For example: मैं शिक्षक हूँ (Main shikshak hoon) \u2014 \"I am a teacher.\""),
+            ("How do you say what is your work in Hindi?",
+             "आपका काम क्या है? (Aapkaa kaam kyaa hai?) \u2014 \"what is your work?\" Kaam means work, and aapkaa means your (polite). This is a slightly more direct way to ask about employment."),
+        ],
+    },
+    {
+        "slug": "how-to-say-i-am-happy-in-hindi",
+        "question": "How do you say I am happy in Hindi?",
+        "answer": (
+            "<strong>मैं खुश हूँ</strong> <em>(main khush hoon)</strong> is the "
+            "direct, universal translation \u2014 \"I happy am.\" "
+            "<strong>मैं आनंदित हूँ</strong> <em>(main aanandit hoon)</strong> "
+            "means \"I am joyful\" \u2014 a more formal, deeper feeling."
+        ),
+        "table": [
+            ("Most common, universal", "मैं खुश हूँ <em>main khush hoon</em>"),
+            ("I am very happy", "मैं बहुत खुश हूँ <em>main bahut khush hoon</em>"),
+            ("I am joyful (formal)", "मैं आनंदित हूँ <em>main aanandit hoon</em>"),
+            ("I am happy (same for both genders)", "मैं खुश हूँ <em>main khush hoon</em>"),
+        ],
+        "sections": [
+            (
+                "Khush hoon \u2014 the everyday word",
+                "<p><em>Khush</em> means \"happy, pleased, content\" and is "
+                "the most common, universal word for happy in Hindi. "
+                "<em>Main khush hoon</em> works in every context \u2014 casual, "
+                "formal, with friends or strangers. It is the everyday "
+                "word for the everyday feeling, and it is the same for "
+                "male and female speakers. It is the most useful happiness "
+                "word to know.</p>"
+            ),
+            (
+                "Aanandit hoon \u2014 the deeper joy",
+                "<p><em>Aanandit</em> means \"joyful, in a state of joy\" "
+                "and carries a deeper, more profound sense than <em>khush.</em> "
+                "<em>Main aanandit hoon</em> means \"I am joyful\" \u2014 it "
+                "implies a deeper, more spiritual or profound happiness. It "
+                "is more formal and literary, and is used when the happiness "
+                "is more than a simple contentment. For everyday use, "
+                "<em>khush hoon</em> is the natural choice.</p>"
+            ),
+        ],
+        "faq": [
+            ("What is the most common way to say I am happy in Hindi?",
+             "मैं खुश हूँ (Main khush hoon) is the direct, universal translation. Khush is the most common word for happy and works in every context."),
+            ("What is the difference between khush and aanandit?",
+             "Khush means \"happy, pleased, content\" \u2014 the everyday, common word. Aanandit means \"joyful\" \u2014 a deeper, more profound, more formal feeling. Use khush for everyday happiness, aanandit for deeper joy."),
+            ("How do you say I am very happy in Hindi?",
+             "मैं बहुत खुश हूँ (Main bahut khush hoon) \u2014 add bahut (very) before khush. This is the natural way to express strong happiness."),
+            ("How do you say I am sad in Hindi?",
+             "मैं उदास हूँ (Main udaas hoon) \u2014 \"I am sad.\" Udaas is the everyday word for sadness, the opposite of khush (happy)."),
+        ],
+    },
+    {
+        "slug": "how-to-say-i-am-sad-in-hindi",
+        "question": "How do you say I am sad in Hindi?",
+        "answer": (
+            "<strong>मैं उदास हूँ</strong> <em>(main udaas hoon)</strong> is the "
+            "direct, standard translation \u2014 \"I sad am.\" "
+            "<strong>मैं दुखी हूँ</strong> <em>(main dukhii hoon)</strong> means "
+            "\"I am sorrowful\" \u2014 a deeper feeling."
+        ),
+        "table": [
+            ("Standard, all-purpose", "मैं उदास हूँ <em>main udaas hoon</em>"),
+            ("I am sorrowful", "मैं दुखी हूँ <em>main dukhii hoon</em>"),
+            ("I am a little sad", "मैं थोड़ा उदास हूँ <em>main thodaa udaas hoon</em>"),
+            ("I have sorrow", "मुझे गम है <em>mujhe gham hai</em>"),
+        ],
+        "sections": [
+            (
+                "Udaas hoon \u2014 the standard form",
+                "<p><em>Udaas</em> means \"sad, dejected\" and <em>hoon</em> "
+                "means \"am.\" <em>Main udaas hoon</em> is the direct, "
+                "standard way to say \"I am sad.\" It is neutral in register "
+                "\u2014 fine with friends, family, or in any context where you "
+                "want to express sadness. It is the most common, natural "
+                "word for the everyday feeling of being sad.</p>"
+            ),
+            (
+                "Dukhii hoon \u2014 the deeper sorrow",
+                "<p><em>Dukhii</em> means \"sorrowful, grieved\" and carries "
+                "a slightly deeper, more profound sense than <em>udaas.</em> "
+                "<em>Main dukhii hoon</em> means \"I am sorrowful\" \u2014 it "
+                "implies a deeper grief or distress. Use it when the sadness "
+                "is more than a passing mood. <em>Udaas</em> is the lighter, "
+                "everyday word; <em>dukhii</em> is the deeper one.</p>"
+            ),
+        ],
+        "faq": [
+            ("What is the most common way to say I am sad in Hindi?",
+             "मैं उदास हूँ (Main udaas hoon) is the direct, standard translation. It is the most common, natural word for the everyday feeling of being sad."),
+            ("What is the difference between udaas and dukhii?",
+             "Udaas means \"sad, dejected\" \u2014 the everyday, lighter word for sadness. Dukhii means \"sorrowful, grieved\" \u2014 a deeper, more profound sense. Use udaas for a passing mood, dukhii for deeper grief."),
+            ("How do you say I am happy in Hindi?",
+             "मैं खुश हूँ (Main khush hoon) \u2014 \"I am happy.\" Khush means happy, content. For extra emphasis: मैं बहुत खुश हूँ (Main bahut khush hoon) \u2014 \"I am very happy.\""),
+            ("How do you say I am a little sad in Hindi?",
+             "मैं थोड़ा उदास हूँ (Main thodaa udaas hoon) \u2014 add thodaa (a little) before udaas. This softens the statement for a milder feeling."),
+        ],
+    },
+    {
+        "slug": "how-to-say-i-am-busy-in-hindi",
+        "question": "How do you say I am busy in Hindi?",
+        "answer": (
+            "<strong>मैं व्यस्त हूँ</strong> <em>(main vyast hoon)</strong> is the "
+            "direct, standard form \u2014 \"I occupied am.\" "
+            "<strong>मेरे पास समय नहीं है</strong> "
+            "<em>(mere paas samay nahin hai)</strong> \u2014 \"with me time "
+            "is not\" \u2014 means \"I don't have time.\""
+        ),
+        "table": [
+            ("Direct, standard", "मैं व्यस्त हूँ <em>main vyast hoon</em>"),
+            ("I don't have time", "मेरे पास समय नहीं है <em>mere paas samay nahin hai</em>"),
+            ("I am a little busy", "मैं थोड़ा व्यस्त हूँ <em>main thodaa vyast hoon</em>"),
+            ("I am very busy right now", "अभी मैं बहुत व्यस्त हूँ <em>abhi main bahut vyast hoon</em>"),
+        ],
+        "sections": [
+            (
+                "Vyast hoon \u2014 the standard form",
+                "<p><em>Vyast</em> means \"busy, occupied\" and <em>hoon</em> "
+                "means \"am.\" <em>Main vyast hoon</em> is the direct, standard "
+                "way to say \"I am busy.\" It is neutral in register \u2014 fine "
+                "with strangers, colleagues, or friends. It is the most "
+                "common, natural way to express that you are occupied.</p>"
+            ),
+            (
+                "Mere paas samay nahin hai \u2014 \"I don't have time\"",
+                "<p><em>Mere paas samay nahin hai</em> literally means \"with "
+                "me time is not.\" It is the alternative way to say you are "
+                "busy \u2014 by saying you don't have time. It is slightly more "
+                "explanatory and is used when you want to explain why you "
+                "can't do something right now. Both <em>vyast hoon</em> and "
+                "<em>samay nahin hai</em> are common and natural.</p>"
+            ),
+        ],
+        "faq": [
+            ("What is the most common way to say I am busy in Hindi?",
+             "मैं व्यस्त हूँ (Main vyast hoon) is the direct, standard form. The alternative is मेरे पास समय नहीं है (Mere paas samay nahin hai) \u2014 \"I don't have time.\""),
+            ("How do you say I am very busy in Hindi?",
+             "मैं बहुत व्यस्त हूँ (Main bahut vyast hoon) \u2014 add bahut (very) before vyast. Or: अभी मैं बहुत व्यस्त हूँ (Abhi main bahut vyast hoon) \u2014 \"right now I am very busy.\""),
+            ("How do you say I am free in Hindi?",
+             "मेरे पास समय है (Mere paas samay hai) \u2014 \"I have time.\" Or: मैं उपलब्ध हूँ (Main uplabhdh hoon) \u2014 \"I am available.\" In casual speech, people often say मेरा समय है (Mera samay hai)."),
+            ("How do you say I am not available in Hindi?",
+             "मैं उपलब्ध नहीं हूँ (Main uplabhdh nahin hoon) \u2014 \"I am not available.\" Or the more natural: मैं व्यस्त हूँ (Main vyast hoon) \u2014 \"I am busy.\" Both are correct; vyast hoon is more common in casual speech."),
+        ],
+    },
+    {
+        "slug": "how-to-say-i-am-here-in-hindi",
+        "question": "How do you say I am here in Hindi?",
+        "answer": (
+            "<strong>मैं यहाँ हूँ</strong> <em>(main yahaan hoon)</strong> is the "
+            "direct, universal translation \u2014 \"I here am.\" "
+            "<strong>मैं आया हूँ</strong> <em>(main aa gayaa hoon)</strong> means "
+            "\"I have arrived.\""
+        ),
+        "table": [
+            ("Most common, universal", "मैं यहाँ हूँ <em>main yahaan hoon</em>"),
+            ("I have arrived", "मैं आया हूँ <em>main aa gayaa hoon</em>"),
+            ("I am here now", "अभी मैं यहाँ हूँ <em>abhi main yahaan hoon</em>"),
+            ("Yes, I am here", "हाँ, मैं हूँ <em>haan, main hoon</em>"),
+        ],
+        "sections": [
+            (
+                "Yahaan hoon \u2014 the core phrase",
+                "<p><em>Yahaan</em> means \"here\" and <em>hoon</em> means "
+                "\"am.\" <em>Main yahaan hoon</em> is the direct, universal "
+                "way to say \"I am here.\" It works in every context \u2014 in "
+                "person, on the phone, in a message. It is one of the most "
+                "basic, essential sentences in Hindi. If you only learn one "
+                "location sentence, this is the one.</p>"
+            ),
+            (
+                "Aa gayaa hoon \u2014 \"I have arrived\"",
+                "<p><em>Aa gayaa hoon</em> means \"I have arrived/come.\" It "
+                "is used when you want to confirm that you have reached a "
+                "place \u2014 \"I'm here (and I've arrived).\" It is slightly "
+                "different from <em>yahaan hoon</em> (I am here) in that it "
+                "emphasises the completion of the arrival. On a phone call "
+                "asking if you are coming, <em>main aa gayaa hoon</em> is "
+                "the natural reply.</p>"
+            ),
+        ],
+        "faq": [
+            ("What is the most common way to say I am here in Hindi?",
+             "मैं यहाँ हूँ (Main yahaan hoon) is the direct, universal translation. It works in every context \u2014 in person, on the phone, in a message."),
+            ("What is the difference between main yahaan hoon and main aa gayaa hoon?",
+             "Main yahaan hoon means \"I am here\" \u2014 stating your location. Main aa gayaa hoon means \"I have arrived\" \u2014 emphasising that you have reached the destination. Both are correct; the first is location, the second is arrival."),
+            ("How do you say I am not here in Hindi?",
+             "मैं यहाँ नहीं हूँ (Main yahaan nahin hoon) \u2014 \"I am not here.\" Add nahin (not) before hoon. This is the standard negation."),
+            ("How do you say I am there in Hindi?",
+             "मैं वहाँ हूँ (Main vahaan hoon) \u2014 \"I am there.\" Vahaan means \"there\" (far from both speaker and listener), while yahaan means \"here\" (near the speaker)."),
+        ],
+    },
+    {
+        "slug": "how-to-say-welcome-in-hindi",
+        "question": "How do you say welcome in Hindi?",
+        "answer": (
+            "<strong>स्वागत है</strong> <em>(svaagat hai)</strong> is the "
+            "direct, universal translation \u2014 \"welcome.\" For a warmer, "
+            "more formal welcome, <strong>आपका स्वागत है</strong> "
+            "<em>(aapkaa svaagat hai)</strong> \u2014 \"your welcome is\" \u2014 "
+            "adds politeness."
+        ),
+        "table": [
+            ("All-purpose, standard", "स्वागत है <em>svaagat hai</em>"),
+            ("Polite, formal", "आपका स्वागत है <em>aapkaa svaagat hai</em>"),
+            ("Welcome, please come in", "स्वागत है, आइए <em>svaagat hai, aaiye</em>"),
+            ("Welcome home", "घर में स्वागत है <em>ghar meN svaagat hai</em>"),
+        ],
+        "sections": [
+            (
+                "Svaagat hai \u2014 the standard welcome",
+                "<p><em>Svaagat</em> means \"welcome\" and <em>hai</em> means "
+                "\"is.\" <em>Svaagat hai</em> is the universal, all-purpose way "
+                "to say welcome. It works everywhere \u2014 at a home, at a "
+                "function, in a formal speech, or in a casual greeting. It "
+                "is the single most useful welcome word in Hindi.</p>"
+            ),
+            (
+                "Aapkaa svaagat hai \u2014 the polite form",
+                "<p><em>Aapkaa svaagat hai</em> adds <em>aapkaa</em> (your, "
+                "polite) to make it more formal and respectful \u2014 \"your "
+                "welcome is.\" It is the polite form to use with elders, "
+                "dignitaries, or in formal settings. The basic <em>svaagat "
+                "hai</em> is perfectly correct in every context, but "
+                "<em>aapkaa svaagat hai</em> adds a touch of warmth and "
+                "respect.</p>"
+            ),
+        ],
+        "faq": [
+            ("What is the most common way to say welcome in Hindi?",
+             "स्वागत है (Svaagat hai) is the universal, all-purpose welcome. It works everywhere \u2014 at a home, in a speech, in casual conversation."),
+            ("What is the difference between svaagat hai and aapkaa svaagat hai?",
+             "Svaagat hai means \"welcome.\" Aapkaa svaagat hai means \"your welcome is\" \u2014 the polite, formal form. Both are correct; aapkaa svaagat hai adds respect, especially with elders or in formal settings."),
+            ("How do you say welcome home in Hindi?",
+             "घर में स्वागत है (Ghar meN svaagat hai) \u2014 \"welcome in the home.\" Or simply स्वागत है (Svaagat hai) if the context is clear that you are welcoming them home."),
+            ("How do you say you're welcome in Hindi?",
+             "It is also स्वागत है (Svaagat hai). When someone thanks you, responding with स्वागत है is the standard \"you're welcome.\" There is no separate word for \"you're welcome\" in Hindi \u2014 svaagat hai covers both."),
+        ],
+    },
+    {
+        "slug": "how-to-say-good-afternoon-in-hindi",
+        "question": "How do you say good afternoon in Hindi?",
+        "answer": (
+            "There is no commonly used Hindi word for good afternoon. "
+            "<strong>नमस्ते</strong> <em>(namaste)</strong> covers it the same "
+            "way it covers every other time of day. In formal speech, "
+            "<strong>शुभ अपराह्न</strong> <em>(shubh apraahahn)</strong> is "
+            "the written form, but it is almost never spoken."
+        ),
+        "table": [
+            ("In conversation, any time", "नमस्ते <em>namaste</em>"),
+            ("Written, formal", "शुभ अपराह्न <em>shubh apraahahn</em>"),
+            ("English, common in offices", "\u201cgood afternoon\u201d in English"),
+            ("Warm, casual", "नमस्ते, क्या हाल है? <em>namaste, kyaa haal hai?</em>"),
+        ],
+        "sections": [
+            (
+                "Namaste covers the afternoon",
+                "<p>Unlike good morning (suprabhaat) and good evening (shubh "
+                "sandhya), which have written forms that are sometimes used, "
+                "there is no common spoken Hindi word for good afternoon. "
+                "<strong>Namaste</strong> is the universal greeting that "
+                "covers it \u2014 at noon, at 3 PM, at any time. It is what "
+                "people actually say, and it is never wrong.</p>"
+            ),
+            (
+                "Shubh apraahahn \u2014 the written form",
+                "<p><em>Shubh apraahahn</em> (शुभ अपराह्न) is the formal, "
+                "written translation of good afternoon. You might see it on "
+                "a card or in a formal letter, but it is almost never "
+                "spoken in everyday conversation. If you say it, people "
+                "will understand it, but it will sound literary.</p>"
+            ),
+        ],
+        "faq": [
+            ("What is the most common way to say good afternoon in Hindi?",
+             "नमस्ते (Namaste) is the most common \u2014 it covers the afternoon the same way it covers every other time. There is no common spoken Hindi word specifically for afternoon."),
+            ("Is there a Hindi word for good afternoon?",
+             "शुभ अपराह्न (Shubh apraahahn) is the written, formal translation. But it is almost never spoken. In practice, namaste is what people use for the afternoon."),
+            ("Can I say good afternoon in English in India?",
+             "Yes, absolutely. In offices, among younger speakers, and in urban settings, saying good afternoon in English is completely natural and widely understood."),
+            ("How do you say good morning, afternoon, and evening in Hindi?",
+             "Good morning is शुभ प्रभात (shubh prabhaat, written) / नमस्ते (namaste, spoken). Good afternoon is शुभ अपराह्न (shubh apraahahn, written) / नमस्ते (namaste, spoken). Good evening is शुभ संध्या (shubh sandhya, written) / नमस्ते (namaste, spoken). Namaste covers all of them."),
+        ],
+    },
+    {
+        "slug": "how-to-say-happy-new-year-in-hindi",
+        "question": "How do you say happy new year in Hindi?",
+        "answer": (
+            "<strong>नये साल की शुभकामनाएँ</strong> "
+            "<em>(naye saal kii shubhkaamanaaen)</strong> is the standard, "
+            "warm translation \u2014 \"new year's good wishes.\" "
+            "<strong>नया साल मुबारक!</strong> <em>(naya saal mubaanrak!)</em> "
+            "is a shorter, casual alternative."
+        ),
+        "table": [
+            ("Most common, all-purpose", "नये साल की शुभकामनाएँ! <em>naye saal kii shubhkaamanaaen!</em>"),
+            ("Shorter, casual", "नया साल मुबारक! <em>naya saal mubaanrak!</em>"),
+            ("Wishing you a happy new year", " आपको नया साल मंगलमय लगे <em>aapko naya saal mangalamay lage</em>"),
+            ("More formal", "नये साल में आपकी मंगलमय शुभकामनाएँ! <em>naye saal meN aapkii mangalamaya shubhkaamanaaen!</em>"),
+        ],
+        "sections": [
+            (
+                "Naye saal kii shubhkaamanaaen \u2014 the standard wish",
+                "<p><em>Naye saal</em> means \"new year,\" <em>kii</em> means "
+                "\"of,\" and <em>shubhkaamanaaen</em> means \"good "
+                "wishes.\" <em>Naye saal kii shubhkaamanaaen!</em> is the "
+                "standard, warm way to say \"happy new year.\" It is what "
+                "you will hear and use everywhere \u2014 in messages, on cards, "
+                "in conversation. It is the universal new-year greeting in "
+                "Hindi.</p>"
+            ),
+            (
+                "Naya saal mubaanrak \u2014 the casual form",
+                "<p><em>Naya saal mubaanrak!</em> is a shorter, casual "
+                "alternative \u2014 borrowing <em>mubaanrak</em> (blessed, from "
+                "Urdu) the way <em>janmadin mubaanrak</em> uses it for "
+                "birthday. It is warm, informal, and common in casual "
+                "messages and conversation. It is slightly less formal "
+                "than <em>shubhkaamanaaen</em> but equally natural.</p>"
+            ),
+        ],
+        "faq": [
+            ("What is the most common way to say happy new year in Hindi?",
+             "नये साल की शुभकामनाएँ! (Naye saal kii shubhkaamanaaen!) is the standard, warm translation. It is what you will hear everywhere \u2014 in messages, on cards, in conversation."),
+            ("How do you say happy new year in Hindi \u2014 the casual form?",
+             "नया साल मुबारक! (Naya saal mubaanrak!) is the shorter, casual alternative. It borrows mubaanrak (blessed) from Urdu, the same way janmadin mubaanrak is used for birthday."),
+            ("How do you say new year in Hindi?",
+             "साल (Saal) means \"year.\" नया साल (Naya saal) means \"new year.\" For \"happy new year,\" use नये साल की शुभकामनाएँ (Naye saal kii shubhkaamanaaen)."),
+            ("How do you say happy christmas in Hindi?",
+             "क्रिसमस मुबारक! (Khrisamas mubaanrak!) or शुभ क्रिसमस (Shubh khrismas) are the common forms. Christmas is borrowed directly. Mubaarak means blessed, the same way it is used in janmadin mubaanrak (happy birthday)."),
+        ],
+    },
+    {
+        "slug": "how-to-say-what-is-your-name-in-hindi",
+        "question": "How do you say what is your name in Hindi?",
+        "answer": (
+            "<strong>आपका नाम क्या है?</strong> <em>(aapkaa naam "
+            "kyaa hai?)</strong> is the direct, polite form \u2014 \"your "
+            "name what is?\" <strong>तुमका नाम क्या है?</strong> "
+            "<em>(tumkaa naam kyaa hai?)</strong> is the informal version used "
+            "with friends."
+        ),
+        "table": [
+            ("Polite, standard", "आपका नाम क्या है? <em>aapkaa naam kyaa hai?</em>"),
+            ("Informal", "तुमका नाम क्या है? <em>tumkaa naam kyaa hai?</em>"),
+            ("What is your name, please?", "कृपया आपका नाम बताइए <em>krupayaa aapkaa naam bataaiye</em>"),
+            ("May I know your name?", "क्या मैं आपका नाम जान सकता हूँ? <em>kyaa main aapkaa naam jaan saktaa hoon?</em>"),
+        ],
+        "sections": [
+            (
+                "Aapkaa naam kyaa hai \u2014 the standard question",
+                "<p><em>Aapkaa</em> means \"your\" (polite), <em>naam</em> "
+                "means \"name,\" and <em>kyaa hai</em> means \"what is.\" "
+                "<em>Aapkaa naam kyaa hai?</em> is the standard, polite way "
+                "to ask someone's name. It is one of the first questions "
+                "you learn in Hindi and works with strangers, colleagues, "
+                "and acquaintances. Use <em>aapkaa</em> as your default "
+                "\u2014 it is never wrong.</p>"
+            ),
+            (
+                "Aapkaa naam bataaiye \u2014 the alternative",
+                "<p><em>Aapkaa naam bataaiye</em> means \"tell me your "
+                "name\" \u2014 a slightly more direct request. It uses the "
+                "imperative <em>bataaiye</em> (please tell). It is equally "
+                "polite and is often used when you want to ask someone to "
+                "state their name, rather than asking the question. Both "
+                "are common and natural.</p>"
+            ),
+        ],
+        "faq": [
+            ("What is the most common way to say what is your name in Hindi?",
+             "आपका नाम क्या है? (Aapkaa naam kyaa hai?) is the direct, polite form. It is the standard, universal way to ask someone's name."),
+            ("What is the difference between aapkaa naam kyaa hai and tumkaa naam kyaa hai?",
+             "Aapkaa naam kyaa hai uses the polite \"your\" (aapkaa) \u2014 use with strangers, elders, or in formal contexts. Tumkaa naam kyaa hai uses the informal \"your\" (tumkaa) \u2014 use with close friends or people younger than you."),
+            ("How do you say my name is in Hindi?",
+             "मेरा नाम ... है (Mera naam ... hai) \u2014 \"my name is [name].\" This is the response to what is your name."),
+            ("How do you say may I know your name in Hindi?",
+             "क्या मैं आपका नाम जान सकता हूँ? (Kyaa main aapkaa naam jaan saktaa hoon?) \u2014 \"can I know your name?\" This is a more formal, polite way to ask. For a female speaker: जान सकती हूँ (jaan saktii hoon)."),
+        ],
+    },
+    {
+        "slug": "how-to-say-i-am-learning-hindi-in-hindi",
+        "question": "How do you say I am learning Hindi in Hindi?",
+        "answer": (
+            "<strong>मैं हिंदी सीख रहा हूँ</strong> "
+            "<em>(main hindii sikhaa rahaa hoon)</strong> is the direct, "
+            "natural form \u2014 \"I Hindi learning am.\" For a female "
+            "speaker, <strong>hindii sikhaa rahii hoon</strong>. "
+            "<strong>मुझे हिंदी सीखना है</strong> "
+            "<em>(mujhe hindii seekhnaa hai)</strong> means \"I want to "
+            "learn Hindi.\""
+        ),
+        "table": [
+            ("Standard, male speaker", "मैं हिंदी सीख रहा हूँ <em>main hindii sikhaa rahaa hoon</em>"),
+            ("Standard, female speaker", "मैं हिंदी सीख रही हूँ <em>main hindii sikhaa rahii hoon</em>"),
+            ("I want to learn Hindi", "मुझे हिंदी सीखना है <em>mujhe hindii seekhnaa hai</em>"),
+            ("I am studying Hindi", "मैं हिंदी पढ़ रहा हूँ <em>main hindii padh rahaa hoon</em>"),
+        ],
+        "sections": [
+            (
+                "Sikhaa rahaa hoon \u2014 the standard form",
+                "<p><em>Seekhnaa</em> means \"to learn\" and <em>rahaa hoon</em> "
+                "is the present continuous \u2014 \"I am [doing].\" <em>Main "
+                "hindii sikhaa rahaa hoon</em> is the standard, natural way to "
+                "say \"I am learning Hindi.\" The feminine form changes to "
+                "<em>sikhaa rahii hoon.</em> It is a useful, honest sentence "
+                "for any learner to know.</p>"
+            ),
+            (
+                "Mujhe seekhnaa hai \u2014 \"I want to learn\"",
+                "<p><em>Mujhe hindii seekhnaa hai</em> means \"I want to "
+                "learn Hindi\" \u2014 it expresses the intention rather than the "
+                "ongoing action. It is the natural way to say you are a Hindi "
+                "learner, even before you have started. It is what you say "
+                "when introducing yourself as someone who is learning the "
+                "language.</p>"
+            ),
+        ],
+        "faq": [
+            ("What is the most common way to say I am learning Hindi in Hindi?",
+             "मैं हिंदी सीख रहा हूँ (Main hindii sikhaa rahaa hoon) for a male speaker, or मैं हिंदी सीख रही हूँ (Main hindii sikhaa rahii hoon) for a female speaker."),
+            ("How do you say I want to learn Hindi in Hindi?",
+             "मुझे हिंदी सीखना है (Mujhe hindii seekhnaa hai) \u2014 \"I want to learn Hindi.\" This expresses the intention rather than the ongoing action."),
+            ("How do you say I am studying Hindi in Hindi?",
+             "मैं हिंदी पढ़ रहा हूँ (Main hindii padh rahaa hoon) \u2014 \"I am studying Hindi.\" Padhnaa means \"to study/read,\" while seekhnaa means \"to learn.\" Both are correct; seekhnaa is more general."),
+            ("How do you say I love learning Hindi in Hindi?",
+             "मुझे हिंदी सीखना पसंद है (Mujhe hindii seekhnaa pasand hai) \u2014 \"I like learning Hindi.\" For stronger feeling: मुझे हिंदी सीखना बहुत पसंद है (Mujhe hindii seekhnaa bahut pasand hai) \u2014 \"I very much like learning Hindi.\""),
+        ],
+    },
+
 ]
 
 
@@ -1091,6 +1834,7 @@ def build_page(entry: dict, idx: int) -> str:
     q = entry["question"]
     desc = entry["answer"].replace("<strong>", "").replace("</strong>", "")
     desc = desc.replace("<em>", "").replace("</em>", "")
+    desc = desc.replace('"', "&quot;")
     desc = desc[:155] if len(desc) > 155 else desc
 
     # Breadcrumb + QAPage + FAQPage + BreadcrumbList schema
