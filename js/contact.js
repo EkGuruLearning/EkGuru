@@ -384,7 +384,11 @@
             var fields = {
               name: data.name, email: data.email,
               subject: data.subject || "", topic: data.topic || "",
-              message: data.message, page: data.pageUrl || ""
+              message: data.message, page: data.pageUrl || "",
+              /* The visitor-facing reference (C-xxxxxx), so the sheet
+                 row can be matched to the email and later marked
+                 replied by reference. */
+              ref: data.ref || ""
             };
             I.submit("contact", fields, true, "").then(function (r) {
               if (r && r.ok) {

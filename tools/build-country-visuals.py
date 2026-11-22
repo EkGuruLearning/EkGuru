@@ -315,7 +315,7 @@ def block(info, fig, taught_names, documented):
                     (fig["taught"] - len(taught_names), "" if fig["taught"] - len(taught_names) == 1 else "s"))
                    if fig["taught"] > len(taught_names) else ""))
     else:
-        said = ("No published course level is linked from this research record yet.")
+        said = ("No course exists for them here yet.")
     the_name = with_article(fig["slug"], info["name"])
     return (
         MARK_START + "\n"

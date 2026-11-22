@@ -182,6 +182,43 @@
     });
   }
 
+  /* Mark a contact-form message as replied in the sheet.
+     Called by the admin dashboard AFTER a reply email has actually
+     been sent, so the contacts tab shows status = "replied" with
+     the time and a short note. Best-effort by design: the reply
+     already went out, so a sheet failure must never turn a sent
+     reply into an error. Resolves { ok } and never rejects. */
+  function markReplied(ref, email, note) {
+    if (!ready()) return Promise.resolve({ ok: false, fallback: true });
+    var body = JSON.stringify({
+      action: "markReplied",
+      ref: String(ref || "").trim().slice(0, 20),
+      email: String(email || "").trim().slice(0, 120),
+      note: String(note || "").trim().slice(0, 500)
+    });
+    var ctrl = typeof AbortController === "function" ? new AbortController() : null;
+    var timer = ctrl ? setTimeout(function () { ctrl.abort(); }, TIMEOUT_MS) : null;
+    return window.fetch(intakeUrl(), {
+      method: "POST",
+      headers: { "Content-Type": "text/plain;charset=utf-8" },
+      body: body,
+      signal: ctrl ? ctrl.signal : undefined,
+      redirect: "follow"
+    }).then(function (r) {
+      if (!r.ok) throw new Error("HTTP " + r.status);
+      return r.text();
+    }).then(function (t) {
+      var j;
+      try { j = JSON.parse(t); } catch (e) { throw new Error("not JSON"); }
+      return { ok: !!(j && j.ok), reference: String((j && j.reference) || "") };
+    }).catch(function () {
+      return { ok: false, fallback: true };
+    }).then(function (res) {
+      if (timer) clearTimeout(timer);
+      return res;
+    });
+  }
+
   function formFields(form) {
     var out = {};
     Array.prototype.forEach.call(form.elements, function (el) {
@@ -245,7 +282,7 @@
   /* Re-wire forms injected after load (the profile review form is
      re-rendered on every sheet repaint — without this its submit
      falls back to a native mailto POST). Idempotent. */
-  window.EkGuruIntake = { ready: ready, submit: submit, checkFields: checkFields, normalizeRef: normalizeRef, intakeUrl: intakeUrl, rewire: init };
+  window.EkGuruIntake = { ready: ready, submit: submit, markReplied: markReplied, checkFields: checkFields, normalizeRef: normalizeRef, intakeUrl: intakeUrl, rewire: init };
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", init);
   else init();
 })();

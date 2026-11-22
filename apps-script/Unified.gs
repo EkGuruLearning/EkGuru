@@ -659,14 +659,15 @@ var INTAKE_KINDS = {
   contact: {
     tab: "contacts",
     header: ["timestamp", "reference", "status", "name", "email", "subject",
-             "topic", "message", "page", "ref"],
+             "topic", "message", "page", "ref", "replied_at", "reply_note"],
     fields: {
       name:    { type: "text",  max: 80,  required: true },
       email:   { type: "email", max: 120, required: true },
       subject: { type: "text",  max: 120 },
       topic:   { type: "text",  max: 60 },
       message: { type: "text",  max: 4000, required: true },
-      page:    { type: "url",   max: 300 }
+      page:    { type: "url",   max: 300 },
+      ref:     { type: "text",  max: 20 }
     }
   },
   signup: {
@@ -728,6 +729,14 @@ function intakePost_(e) {
 
     var body;
     try { body = JSON.parse(raw); } catch (err) { return intakeJson_({ ok: false, error: "not JSON" }); }
+
+    /* Owner action, not a visitor submission: the admin dashboard
+       calls this AFTER a reply email has been sent, so the contacts
+       tab shows status = "replied". No consent, no quota, no new row. */
+    if (String(body.action || "") === "markReplied") {
+      return intakeJson_(markContactReplied_(
+        String(body.ref || ""), String(body.email || ""), String(body.note || "")));
+    }
 
     /* Honeypot: a real person never sees this box. Pretend success, store nothing. */
     if (String(body.website || "").trim() !== "") {
@@ -1197,6 +1206,61 @@ function bookingMailSelfTest_() {
   });
   Logger.log(JSON.stringify(r));
   return r;
+}
+
+/* Mark one contacts row as replied. Matches by the visitor-facing
+   reference (column "ref", e.g. C-PA0KN4) first, then by email
+   (newest row wins). Header-driven, so it works on a tab that still
+   has the old 10 columns: the two reply columns are appended to the
+   header first. Never creates a row — a reply with no matching
+   contact row is reported, not invented. */
+function markContactReplied_(ref, email, note) {
+  var lock = LockService.getScriptLock();
+  lock.waitLock(20000);
+  try {
+    var ss = intakeSpreadsheet_();
+    var tab = ss.getSheetByName(INTAKE_KINDS.contact.tab);
+    if (!tab || tab.getLastRow() < 2) {
+      return { ok: false, error: "no matching contact row" };
+    }
+    var spec = INTAKE_KINDS.contact;
+    var header = tab.getRange(1, 1, 1, tab.getLastColumn()).getValues()[0];
+    var at = function (name) { return header.indexOf(name); };
+    /* Old tabs may not have the reply columns yet. */
+    if (at("replied_at") < 0 || at("reply_note") < 0) {
+      var next = tab.getLastColumn() + 1;
+      if (at("replied_at") < 0) { tab.getRange(1, next, 1, 1).setValue("replied_at"); next++; }
+      if (at("reply_note") < 0) { tab.getRange(1, next, 1, 1).setValue("reply_note"); next++; }
+      header = tab.getRange(1, 1, 1, tab.getLastColumn()).getValues()[0];
+    }
+    var refAt = at("ref"), emailAt = at("email"), statusAt = at("status"),
+        refRowAt = at("reference"), repliedAt = at("replied_at"), noteAt = at("reply_note");
+    var wantRef = String(ref || "").trim().toUpperCase();
+    var wantEmail = String(email || "").trim().toLowerCase();
+    if (!wantRef && !wantEmail) return { ok: false, error: "ref or email needed" };
+    var rows = tab.getRange(2, 1, tab.getLastRow() - 1, tab.getLastColumn()).getValues();
+    var hit = -1;
+    for (var r = rows.length - 1; r >= 0; r--) {
+      if (wantRef && refAt >= 0 &&
+          String(rows[r][refAt] || "").trim().toUpperCase() === wantRef) { hit = r; break; }
+    }
+    if (hit < 0 && wantEmail && emailAt >= 0) {
+      for (var e = rows.length - 1; e >= 0; e--) {
+        if (String(rows[e][emailAt] || "").trim().toLowerCase() === wantEmail) { hit = e; break; }
+      }
+    }
+    if (hit < 0) return { ok: false, error: "no matching contact row" };
+    var rowNumber = hit + 2;
+    tab.getRange(rowNumber, statusAt + 1, 1, 1).setValue("replied");
+    tab.getRange(rowNumber, repliedAt + 1, 1, 1).setValue(
+      Utilities.formatDate(new Date(), "Asia/Kolkata", "yyyy-MM-dd HH:mm") + " IST");
+    tab.getRange(rowNumber, noteAt + 1, 1, 1).setValue(String(note || "").slice(0, 500));
+    return { ok: true, reference: refRowAt >= 0 ? String(rows[hit][refRowAt] || "") : "" };
+  } catch (err) {
+    return { ok: false, error: "could not mark replied" };
+  } finally {
+    lock.releaseLock();
+  }
 }
 
 function intakeHealth_() {

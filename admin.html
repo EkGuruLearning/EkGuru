@@ -4688,6 +4688,17 @@ someone@example.com" rows="6" style="width:100%;font:inherit;padding:11px 13px;b
           btn.disabled = false;
           say("Sent to " + to, true);
           if (el("ct-body")) el("ct-body").value = "";
+          /* Mark the contacts sheet row as replied, so the sheet
+             knows this message was answered. Best-effort: the reply
+             already went out, so a sheet failure must not turn a
+             sent reply into an error. */
+          try {
+            if (window.EkGuruIntake && window.EkGuruIntake.markReplied) {
+              window.EkGuruIntake.markReplied(ref, to, "Replied from admin dashboard").then(function (r) {
+                if (r && r.ok) say("Sent to " + to + " — sheet marked replied.", true);
+              });
+            }
+          } catch (e0) {}
         })
         .catch(function (e) {
           btn.disabled = false;
