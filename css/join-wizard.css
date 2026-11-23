@@ -1,0 +1,1151 @@
+/* =========================================================
+   EkGuru — TUTOR APPLICATION WIZARD (join.html)
+   ---------------------------------------------------------
+   Six guided steps, built on the existing design tokens so the
+   page still belongs to the site: --brand/--grad/--r/--sh-1 come
+   from css/style.min.css, and the dark/contrast themes are
+   handled at the bottom.
+
+   Rules followed here:
+   · No layout relies on JavaScript to be readable — without JS
+     every step is visible and the form still posts (mailto).
+   · Single column on phones, no horizontal overflow anywhere.
+   · Touch targets >= 44px.
+   · Focus is never hidden; focus-visible gets a real ring.
+   · Colours always meet 4.5:1 on their own background.
+   ========================================================= */
+
+.jw {
+  --jw-gap: 18px;
+  --jw-ring: 0 0 0 3px rgba(91, 61, 245, .22);
+  max-width: 1080px;
+  margin: 0 auto;
+}
+
+/* ---------- shell ---------- */
+.jw-shell {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 300px;
+  gap: 32px;
+  align-items: start;
+}
+
+.jw-card {
+  background: #fff;
+  border: 1px solid var(--line, #e8e9f3);
+  border-radius: var(--r-lg, 24px);
+  box-shadow: var(--sh-2, 0 4px 16px rgba(15, 18, 34, .08));
+  padding: 30px;
+  min-width: 0;
+}
+
+/* ---------- progress ---------- */
+.jw-progress {
+  margin: 0 0 26px;
+}
+
+.jw-progress-top {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+.jw-progress-top b {
+  font-size: .95rem;
+  font-weight: 800;
+}
+
+.jw-progress-top span {
+  font-size: .84rem;
+  color: var(--muted, #6b7280);
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.jw-bar {
+  height: 8px;
+  border-radius: 999px;
+  background: var(--bg-soft, #f7f7fd);
+  overflow: hidden;
+  border: 1px solid var(--line, #e8e9f3);
+}
+
+.jw-bar i {
+  display: block;
+  height: 100%;
+  width: 16.6%;
+  border-radius: 999px;
+  background: var(--grad, linear-gradient(90deg, #5b3df5, #8b5cf6));
+  transition: width .3s var(--ease, cubic-bezier(.22, 1, .36, 1));
+}
+
+.jw-steps {
+  display: flex;
+  gap: 6px;
+  list-style: none;
+  padding: 0;
+  margin: 14px 0 0;
+  flex-wrap: wrap;
+}
+
+/* Each chip is an <li> WRAPPER around a real <button>. The button carries
+   the pill styling so Enter/Space and :focus-visible work natively; the li
+   stays a plain list item and is never clickable. */
+.jw-steps li {
+  display: block;
+  margin: 0;
+}
+
+.jw-steps button {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: .78rem;
+  font-weight: 700;
+  font-family: inherit;
+  color: var(--muted, #6b7280);
+  padding: 5px 11px 5px 5px;
+  border-radius: 999px;
+  border: 1px solid var(--line, #e8e9f3);
+  background: #fff;
+  cursor: pointer;
+  line-height: 1.2;
+  transition: border-color .2s, color .2s, background .2s;
+}
+
+.jw-steps button .n {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-size: .72rem;
+  background: var(--bg-soft, #f7f7fd);
+  color: var(--muted, #6b7280);
+  flex: none;
+  font-weight: 800;
+}
+
+.jw-steps button[aria-current="step"] {
+  border-color: var(--brand, #5b3df5);
+  color: var(--brand, #5b3df5);
+  background: #f5f2ff;
+}
+
+.jw-steps button[aria-current="step"] .n {
+  background: var(--brand, #5b3df5);
+  color: #fff;
+}
+
+/* the progress chips are real buttons now: they must show focus */
+.jw-steps button:focus-visible {
+  outline: 2px solid var(--brand, #5b3df5);
+  outline-offset: 2px;
+}
+
+.jw-steps button[aria-current="step"].is-done .n,
+.jw-steps li.is-done .n {
+  background: #147a3d;
+  color: #fff;
+}
+
+.jw-steps button:disabled {
+  cursor: not-allowed;
+  opacity: .55;
+}
+
+/* ---------- step panels ---------- */
+.jw-step {
+  display: none;
+}
+
+.jw-step.is-active {
+  display: block;
+  animation: jw-in .26s var(--ease, ease) both;
+}
+
+@keyframes jw-in {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .jw-step.is-active { animation: none; }
+  .jw-bar i { transition: none; }
+}
+
+/* A hidden element must stay hidden even if a rule above sets display.
+   The error summary, the conditional blocks and the status line all rely on
+   the hidden attribute, and a later display: block would silently expose
+   them — including a summary with no errors in it. */
+.jw-summary[hidden],
+.jw-status[hidden],
+.jw-nav .jw-submit[hidden],
+.jw-nav .jw-next[hidden],
+[data-when][hidden] {
+  display: none !important;
+}
+
+/* The review step can be long; its Edit buttons must never sit under the
+   sticky header when they are focused. */
+.jw-pv-edit { scroll-margin-top: 96px; }
+
+/* JS off: every step shows, in order, so nothing is unreachable. */
+.jw:not(.jw-on) .jw-step { display: block; }
+.jw:not(.jw-on) .jw-nav,
+.jw:not(.jw-on) .jw-jump { display: none; }
+
+.jw-step > h2 {
+  font-size: clamp(1.25rem, 2.6vw, 1.55rem);
+  margin: 0 0 6px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.jw-step > h2 .jw-ico {
+  width: 34px;
+  height: 34px;
+  border-radius: 11px;
+  display: grid;
+  place-items: center;
+  background: #f1edff;
+  font-size: 1rem;
+  flex: none;
+}
+
+.jw-lede {
+  color: var(--muted, #6b7280);
+  font-size: .94rem;
+  margin: 0 0 22px;
+  max-width: 62ch;
+}
+
+/* ---------- fields ---------- */
+.jw-fields {
+  display: grid;
+  gap: var(--jw-gap);
+}
+
+.jw-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--jw-gap);
+}
+
+.jw-field {
+  min-width: 0;
+}
+
+.jw-field > label,
+.jw-field > .jw-label {
+  display: block;
+  font-size: .86rem;
+  font-weight: 800;
+  margin-bottom: 6px;
+  color: var(--ink, #0f1222);
+}
+
+/* Never colour alone: the asterisk is decorative, this word is not. It is
+   the same word for every required field, so "what is required?" is answered
+   by reading, not by spotting a red glyph. */
+.jw-field .req {
+  color: #b42318;
+  font-weight: 900;
+  margin-left: 2px;
+}
+
+.jw-field .req::after {
+  content: " Required";
+  font-size: .72rem;
+  font-weight: 700;
+  letter-spacing: .02em;
+  text-transform: uppercase;
+  color: #b42318;
+  margin-left: 4px;
+  vertical-align: 1px;
+}
+
+.jw-field .opt {
+  font-weight: 600;
+  font-size: .78rem;
+  color: var(--muted, #6b7280);
+  margin-left: 4px;
+}
+
+.jw-field input[type="text"],
+.jw-field input[type="email"],
+.jw-field input[type="url"],
+.jw-field input[type="number"],
+.jw-field input[type="time"],
+.jw-field select,
+.jw-field textarea {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid var(--line, #e8e9f3);
+  border-radius: 12px;
+  background: #fff;
+  font: inherit;
+  font-size: .95rem;
+  color: var(--ink, #0f1222);
+  transition: border-color .2s, box-shadow .2s;
+  min-height: 46px;
+}
+
+.jw-field textarea {
+  min-height: 130px;
+  resize: vertical;
+  line-height: 1.6;
+}
+
+.jw-field input:focus,
+.jw-field select:focus,
+.jw-field textarea:focus {
+  outline: 2px solid transparent;
+  border-color: var(--brand, #5b3df5);
+  box-shadow: var(--jw-ring);
+}
+
+.jw-field [aria-invalid="true"] {
+  border-color: #b42318;
+  background: #fffafa;
+}
+
+.jw-field [aria-invalid="true"]:focus {
+  box-shadow: 0 0 0 3px rgba(180, 35, 24, .18);
+}
+
+.jw-help {
+  font-size: .82rem;
+  color: var(--muted, #6b7280);
+  margin: 6px 0 0;
+  line-height: 1.5;
+}
+
+.jw-help b { color: var(--ink-2, #3b4056); }
+
+/* ---------- error summary (top of a step) ---------- */
+.jw-summary {
+  margin: 0 0 18px;
+  padding: 14px 16px;
+  border: 1px solid #f0b4ae;
+  border-left: 4px solid #b42318;
+  border-radius: 12px;
+  background: #fff6f5;
+  font-size: .92rem;
+  line-height: 1.5;
+}
+
+.jw-summary:focus-visible {
+  outline: 2px solid #b42318;
+  outline-offset: 2px;
+}
+
+.jw-summary b {
+  display: block;
+  color: #8f1d14;
+  margin-bottom: 6px;
+}
+
+.jw-summary ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.jw-summary li { margin: 4px 0; }
+
+.jw-summary button {
+  display: inline;
+  padding: 2px 0;
+  border: 0;
+  background: none;
+  font: inherit;
+  font-weight: 700;
+  color: #8f1d14;
+  text-align: left;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  cursor: pointer;
+}
+
+.jw-summary button:hover { text-decoration-thickness: 2px; }
+
+.jw-summary button:focus-visible {
+  outline: 2px solid #b42318;
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+.jw-summary li span { color: #6b3b36; font-weight: 400; }
+
+/* ---------- valid / invalid states ----------
+   Colour is never the only signal: an invalid field gets a leading "!",
+   a valid one gets a tick in its label, so this works in greyscale. */
+.jw-field.is-valid > label::after,
+.jw-field.is-valid > .jw-label::after {
+  content: " ✓";
+  color: #147a3d;
+  font-weight: 800;
+}
+
+.jw-field.is-invalid input,
+.jw-field.is-invalid select,
+.jw-field.is-invalid textarea,
+.jw-chips.is-invalid {
+  border-color: #b42318;
+  background: #fffafa;
+}
+
+.jw-err::before {
+  content: "!  ";
+  font-weight: 800;
+}
+
+.jw-field input:disabled,
+.jw-field select:disabled,
+.jw-field textarea:disabled {
+  background: #f3f4f8;
+  color: #8b8f9c;
+  border-style: dashed;
+  cursor: not-allowed;
+}
+
+/* ---------- step chips: current / completed / has an error ---------- */
+.jw-steps li.is-error button .n {
+  background: #fbe9e7;
+  color: #b42318;
+}
+
+.jw-steps li.is-error button { border-color: #e9b4ae; }
+
+.jw-steps li.is-done button:not([aria-current="step"]) .lbl::after {
+  content: " ✓";
+  color: #147a3d;
+}
+
+.jw-stepname {
+  font-weight: 700;
+  color: var(--brand, #5b3df5);
+}
+
+.jw-stepname::before {
+  content: "— ";
+  color: var(--muted, #6b7280);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .jw-summary,
+  .jw-summary button {
+    transition: none;
+  }
+}
+
+.jw-err {
+  display: none;
+  font-size: .82rem;
+  font-weight: 700;
+  color: #b42318;
+  margin: 6px 0 0;
+}
+
+.jw-err.is-on { display: block; }
+
+/* ---------- chip multi-select ---------- */
+.jw-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.jw-chips label {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 9px 14px;
+  min-height: 44px;
+  border: 1px solid var(--line, #e8e9f3);
+  border-radius: 999px;
+  background: #fff;
+  font-size: .88rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: border-color .18s, background .18s, color .18s;
+  user-select: none;
+}
+
+.jw-chips label:hover {
+  border-color: #c9c0f5;
+  background: #faf8ff;
+}
+
+/* The real checkbox stays in the a11y tree — visually replaced by the
+   chip, so keyboard and screen readers behave as they normally do. */
+.jw-chips input {
+  position: absolute;
+  opacity: 0;
+  width: 1px;
+  height: 1px;
+  margin: 0;
+}
+
+.jw-chips input:focus-visible + span {
+  outline: 2px solid var(--brand, #5b3df5);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+.jw-chips input:checked + span::before {
+  content: "✓";
+  margin-right: 6px;
+  font-weight: 900;
+}
+
+.jw-chips label:has(input:checked) {
+  border-color: var(--brand, #5b3df5);
+  background: #f1edff;
+  color: var(--brand, #5b3df5);
+}
+
+/* ---------- photo preview ---------- */
+.jw-photo {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+.jw-photo-preview {
+  width: 92px;
+  height: 92px;
+  border-radius: 18px;
+  border: 2px dashed var(--line, #e8e9f3);
+  background: var(--bg-soft, #f7f7fd) center/cover no-repeat;
+  display: grid;
+  place-items: center;
+  font-size: 1.6rem;
+  color: var(--muted, #6b7280);
+  flex: none;
+  overflow: hidden;
+}
+
+/* JS adds .has-img when a resolvable picture URL is in the box. The name
+   is shared with the tutor cards so one convention covers the site. */
+.jw-photo-preview.has-img {
+  border-style: solid;
+  border-color: var(--brand, #5b3df5);
+  color: transparent;
+}
+
+/* The URL passed validation but the picture did not load (private Drive
+   file, deleted, or a page rather than an image). Say so in words, in the
+   tile itself, instead of showing an empty square. */
+.jw-photo-preview.is-broken {
+  border-style: dashed;
+  border-color: #e9b4ae;
+  background: #fdf0ef;
+  color: #b42318;
+  font-size: 1.3rem;
+}
+
+.jw-photo-body { flex: 1 1 220px; min-width: 0; }
+
+/* ---------- availability ---------- */
+.jw-days {
+  display: grid;
+  gap: 10px;
+  margin-top: 4px;
+}
+
+.jw-day {
+  display: grid;
+  grid-template-columns: 132px minmax(0, 1fr);
+  gap: 12px;
+  align-items: center;
+  padding: 10px 12px;
+  border: 1px solid var(--line, #e8e9f3);
+  border-radius: 12px;
+  background: #fff;
+}
+
+.jw-day.is-off {
+  background: var(--bg-soft, #f7f7fd);
+}
+
+.jw-day-toggle {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  font-size: .88rem;
+  font-weight: 700;
+  cursor: pointer;
+  min-height: 44px;
+}
+
+.jw-day-toggle input {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--brand, #5b3df5);
+  flex: none;
+}
+
+.jw-slots {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.jw-slots input[type="time"] {
+  width: auto;
+  min-width: 118px;
+  padding: 9px 10px;
+  border: 1px solid var(--line, #e8e9f3);
+  border-radius: 10px;
+  font: inherit;
+  font-size: .9rem;
+  background: #fff;
+  min-height: 44px;
+}
+
+.jw-slots input[type="time"]:focus {
+  outline: none;
+  border-color: var(--brand, #5b3df5);
+  box-shadow: var(--jw-ring);
+}
+
+.jw-slots .to {
+  font-size: .82rem;
+  color: var(--muted, #6b7280);
+  font-weight: 700;
+}
+
+/* ---------- word counter ---------- */
+.jw-counter {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  font-size: .8rem;
+  font-weight: 700;
+  color: var(--muted, #6b7280);
+  margin-top: 6px;
+}
+
+.jw-counter .ok { color: #147a3d; }
+.jw-counter .low { color: #b45309; }
+
+/* ---------- preview ---------- */
+.jw-preview {
+  border: 1px solid var(--line, #e8e9f3);
+  border-radius: 18px;
+  overflow: hidden;
+  background: #fff;
+}
+
+.jw-preview-head {
+  display: flex;
+  gap: 16px;
+  padding: 20px;
+  background: var(--grad-soft, linear-gradient(135deg, #f3f0ff, #fdf2f8));
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.jw-preview-avatar {
+  width: 72px;
+  height: 72px;
+  border-radius: 18px;
+  background: var(--bg-soft, #f7f7fd) center/cover no-repeat;
+  display: grid;
+  place-items: center;
+  font-size: 1.5rem;
+  font-weight: 900;
+  color: var(--brand, #5b3df5);
+  flex: none;
+  border: 2px solid #fff;
+  box-shadow: var(--sh-1, 0 1px 2px rgba(15, 18, 34, .06));
+  overflow: hidden;
+}
+
+.jw-preview-head h3 {
+  margin: 0 0 2px;
+  font-size: 1.12rem;
+}
+
+.jw-preview-head p {
+  margin: 0;
+  font-size: .86rem;
+  color: var(--ink-2, #3b4056);
+}
+
+.jw-preview-body {
+  padding: 6px 20px 20px;
+}
+
+.jw-pv {
+  display: grid;
+  grid-template-columns: 150px minmax(0, 1fr);
+  gap: 6px 14px;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--line, #e8e9f3);
+  font-size: .9rem;
+  align-items: start;
+}
+
+.jw-pv:last-child { border-bottom: 0; }
+
+.jw-pv dt {
+  font-weight: 800;
+  font-size: .78rem;
+  text-transform: uppercase;
+  letter-spacing: .04em;
+  color: var(--muted, #6b7280);
+  padding-top: 2px;
+}
+
+.jw-pv dd {
+  margin: 0;
+  color: var(--ink, #0f1222);
+  overflow-wrap: break-word;
+  word-break: break-word;
+  min-width: 0;
+}
+
+.jw-pv dd.missing { color: #b45309; font-style: italic; }
+
+.jw-pv-edit {
+  grid-column: 1 / -1;
+  justify-self: start;
+  background: none;
+  border: 0;
+  padding: 2px 0;
+  font: inherit;
+  font-size: .8rem;
+  font-weight: 800;
+  color: var(--brand, #5b3df5);
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.jw-checklist {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 20px;
+  display: grid;
+  gap: 7px;
+}
+
+.jw-checklist li {
+  display: flex;
+  gap: 9px;
+  font-size: .88rem;
+  align-items: flex-start;
+}
+
+.jw-checklist li .m {
+  flex: none;
+  width: 18px;
+  font-weight: 900;
+}
+
+.jw-checklist li.ok .m { color: #147a3d; }
+.jw-checklist li.no .m { color: #b45309; }
+
+/* ---------- consent ---------- */
+.jw-consent {
+  display: grid;
+  gap: 11px;
+  padding: 16px;
+  border: 1px solid var(--line, #e8e9f3);
+  border-radius: 14px;
+  background: var(--bg-soft, #f7f7fd);
+  margin: 4px 0 0;
+}
+
+.jw-consent label {
+  display: grid;
+  grid-template-columns: 22px minmax(0, 1fr);
+  gap: 10px;
+  font-size: .87rem;
+  line-height: 1.55;
+  cursor: pointer;
+  align-items: start;
+}
+
+.jw-consent input {
+  width: 18px;
+  height: 18px;
+  margin-top: 2px;
+  accent-color: var(--brand, #5b3df5);
+}
+
+/* One error line per consent box, directly under the text it refers to. The
+   .jw-field wrapper inside .jw-consent keeps it aligned with the label
+   instead of floating at the bottom of the whole block. */
+.jw-consent .jw-field {
+  margin: 0;
+  display: block;
+}
+
+.jw-consent .jw-err {
+  margin-left: 32px;
+}
+
+.jw-consent .jw-field.is-invalid label {
+  color: #b42318;
+}
+
+/* ---------- nav ----------
+   The one control strip for all seven steps. It sits INSIDE the card and is
+   deliberately not sticky or fixed: a floating bar would either cover the
+   tutor's last field or hide behind the page's own fixed Contact button.
+   Everything below exists to guarantee it is reachable at every width. */
+.jw-nav {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  margin-top: 26px;
+  padding-top: 20px;
+  border-top: 1px solid var(--line, #e8e9f3);
+  flex-wrap: wrap;
+  /* Nothing inside may escape the card and get clipped. */
+  position: relative;
+  z-index: 1;
+  /* A tap target never smaller than 44px, per platform guidance. */
+  min-height: 46px;
+}
+
+/* The page keeps a fixed Contact button (bottom-left on phones, 52x52 at
+   640px). The form's own buttons must never be under it, so the card ends
+   with enough room to scroll the nav clear of that corner. */
+.jw-card { scroll-margin-bottom: 96px; }
+.jw-nav { margin-bottom: 4px; }
+
+.jw-nav .spacer { flex: 1 1 auto; }
+
+.jw-nav button {
+  min-height: 46px;
+}
+
+.jw-nav .jw-back {
+  background: #fff;
+  color: var(--ink, #0f1222);
+  border: 1px solid var(--line, #e8e9f3);
+  border-radius: 999px;
+  padding: 0 20px;
+  font-weight: 700;
+  font-size: .92rem;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.jw-nav .jw-back:hover { border-color: var(--brand, #5b3df5); color: var(--brand, #5b3df5); }
+
+.jw-nav .jw-back:disabled { opacity: .45; cursor: not-allowed; }
+
+.jw-nav .jw-next {
+  border: 0;
+  border-radius: 999px;
+  padding: 0 26px;
+  font-weight: 800;
+  font-size: .95rem;
+  color: #fff;
+  background: var(--grad, linear-gradient(135deg, #5b3df5, #8b5cf6));
+  cursor: pointer;
+  box-shadow: var(--sh-3, 0 12px 40px rgba(91, 61, 245, .18));
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.jw-nav .jw-next:hover { transform: translateY(-1px); }
+
+.jw-nav .jw-next:disabled,
+.jw-submit:disabled {
+  opacity: .6;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+.jw-submit {
+  border: 0;
+  border-radius: 999px;
+  padding: 0 30px;
+  min-height: 50px;
+  font-weight: 800;
+  font-size: 1rem;
+  color: #fff;
+  background: var(--grad, linear-gradient(135deg, #5b3df5, #8b5cf6));
+  cursor: pointer;
+  box-shadow: var(--sh-3, 0 12px 40px rgba(91, 61, 245, .18));
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* ---------- status ---------- */
+.jw-status {
+  margin: 16px 0 0;
+  padding: 14px 16px;
+  border-radius: 12px;
+  font-size: .9rem;
+  font-weight: 600;
+  display: none;
+  line-height: 1.6;
+}
+
+.jw-status.is-on { display: block; }
+.jw-status.is-ok { background: #eaf7f0; color: #0f5a32; border: 1px solid #b7e3ca; }
+.jw-status.is-err { background: #fdf0ef; color: #8f1d15; border: 1px solid #f3c4c0; }
+.jw-status.is-info { background: #f1edff; color: #3d2a8f; border: 1px solid #d9d0fb; }
+
+/* ---------- done screen ---------- */
+.jw-done {
+  text-align: center;
+  padding: 20px 8px 8px;
+}
+
+.jw-done .tick {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: #eaf7f0;
+  color: #147a3d;
+  display: grid;
+  place-items: center;
+  font-size: 1.8rem;
+  margin: 0 auto 14px;
+}
+
+.jw-done h2 { margin: 0 0 8px; }
+
+.jw-ref {
+  display: inline-block;
+  margin: 12px 0 6px;
+  padding: 10px 20px;
+  border-radius: 12px;
+  background: #f1edff;
+  border: 1px dashed #c9bcf7;
+  font-family: ui-monospace, "SF Mono", Menlo, monospace;
+  font-size: 1.05rem;
+  font-weight: 800;
+  letter-spacing: .06em;
+  color: #3d2a8f;
+}
+
+/* ---------- side rail ---------- */
+.jw-rail {
+  position: sticky;
+  top: calc(var(--hdr-h, 70px) + 16px);
+  display: grid;
+  gap: 16px;
+}
+
+.jw-rail-card {
+  background: #fff;
+  border: 1px solid var(--line, #e8e9f3);
+  border-radius: var(--r-lg, 24px);
+  padding: 18px;
+  box-shadow: var(--sh-1, 0 1px 2px rgba(15, 18, 34, .06));
+  font-size: .87rem;
+}
+
+.jw-rail-card h3 {
+  font-size: .95rem;
+  margin: 0 0 10px;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.jw-rail-card ul {
+  margin: 0;
+  padding-left: 18px;
+  display: grid;
+  gap: 7px;
+  color: var(--ink-2, #3b4056);
+  line-height: 1.5;
+}
+
+.jw-rail-card p { margin: 0; color: var(--ink-2, #3b4056); line-height: 1.6; }
+
+.jw-rail-card .jw-tip {
+  background: var(--bg-soft, #f7f7fd);
+  border-radius: 10px;
+  padding: 10px 12px;
+  font-size: .83rem;
+  margin-top: 10px;
+}
+
+.jw-save-hint {
+  font-size: .8rem;
+  color: var(--muted, #6b7280);
+  margin: 10px 0 0;
+  display: flex;
+  gap: 7px;
+  align-items: flex-start;
+  line-height: 1.5;
+}
+
+/* ---------- responsive ---------- */
+@media (max-width: 940px) {
+  .jw-shell { grid-template-columns: 1fr; }
+  .jw-rail { position: static; }
+  /* On phones the rail is help, not a prerequisite: keep it after the form. */
+  .jw-rail-card.jw-rail-optional { display: none; }
+}
+
+@media (max-width: 640px) {
+  .jw-card { padding: 20px 16px; border-radius: 18px; }
+  .jw-row { grid-template-columns: 1fr; }
+  .jw-steps { gap: 5px; }
+  .jw-steps button { font-size: .72rem; padding: 4px 9px 4px 4px; }
+  .jw-steps button .lbl { display: none; }
+  .jw-steps button[aria-current="step"] .lbl { display: inline; }
+  .jw-day { grid-template-columns: 1fr; gap: 8px; }
+  .jw-day-toggle { min-height: 32px; }
+  .jw-pv { grid-template-columns: 1fr; gap: 2px; }
+  .jw-pv dt { padding-top: 6px; }
+  /* Phones: Previous and Next share the row, Submit takes the whole row on
+     the review step so the single most important button is unmissable and
+     is nowhere near the fixed Contact button in the bottom-left corner. */
+  .jw-nav { gap: 8px; }
+  .jw-nav .jw-back,
+  .jw-nav .jw-next { flex: 1 1 auto; justify-content: center; }
+  .jw-nav .spacer { display: none; }
+  .jw-nav .jw-submit { flex: 1 1 100%; justify-content: center; min-height: 52px; }
+  .jw-nav .jw-next,
+  .jw-nav .jw-back { min-height: 48px; }
+  /* Keep the last row of the form above the fixed Contact bubble (52px tall,
+     14px from the bottom) instead of letting it slide underneath. */
+  .jw-card { padding-bottom: 34px; }
+  .jw-preview-head { padding: 16px; gap: 12px; }
+}
+
+@media (max-width: 380px) {
+  .jw-slots input[type="time"] { min-width: 0; width: 100%; }
+  .jw-slots { flex-direction: column; align-items: stretch; }
+  .jw-slots .to { text-align: center; }
+}
+
+/* ---------- dark & high-contrast ---------- */
+[data-theme="dark"] .jw-card,
+[data-theme="contrast"] .jw-card,
+[data-theme="dark"] .jw-rail-card,
+[data-theme="contrast"] .jw-rail-card,
+[data-theme="dark"] .jw-preview,
+[data-theme="contrast"] .jw-preview,
+[data-theme="dark"] .jw-steps button,
+[data-theme="contrast"] .jw-steps button,
+[data-theme="dark"] .jw-chips label,
+[data-theme="contrast"] .jw-chips label,
+[data-theme="dark"] .jw-day,
+[data-theme="contrast"] .jw-day {
+  background: var(--card, #211b32);
+  border-color: var(--line, #9887ad);
+  color: var(--ink, #f8f5ff);
+}
+
+[data-theme="dark"] .jw-field input,
+[data-theme="dark"] .jw-field select,
+[data-theme="dark"] .jw-field textarea,
+[data-theme="contrast"] .jw-field input,
+[data-theme="contrast"] .jw-field select,
+[data-theme="contrast"] .jw-field textarea,
+[data-theme="dark"] .jw-slots input[type="time"],
+[data-theme="contrast"] .jw-slots input[type="time"] {
+  background: var(--bg, #131020);
+  border-color: var(--line, #9887ad);
+  color: var(--ink, #f8f5ff);
+}
+
+[data-theme="dark"] .jw-field > label,
+[data-theme="contrast"] .jw-field > label,
+[data-theme="dark"] .jw-field > .jw-label,
+[data-theme="contrast"] .jw-field > .jw-label,
+[data-theme="dark"] .jw-pv dd,
+[data-theme="contrast"] .jw-pv dd {
+  color: var(--ink, #f8f5ff);
+}
+
+[data-theme="dark"] .jw-steps button[aria-current="step"],
+[data-theme="contrast"] .jw-steps button[aria-current="step"],
+[data-theme="dark"] .jw-chips label:has(input:checked),
+[data-theme="contrast"] .jw-chips label:has(input:checked) {
+  background: #2d2350;
+  color: #ddd3ff;
+  border-color: #a78bfa;
+}
+
+[data-theme="dark"] .jw-preview-head,
+[data-theme="contrast"] .jw-preview-head {
+  background: var(--bg-soft, #131020);
+}
+
+[data-theme="dark"] .jw-day.is-off,
+[data-theme="contrast"] .jw-day.is-off,
+[data-theme="dark"] .jw-consent,
+[data-theme="contrast"] .jw-consent {
+  background: var(--bg, #131020);
+  border-color: var(--line, #9887ad);
+}
+
+[data-theme="dark"] .jw-err,
+[data-theme="contrast"] .jw-err { color: #ffb4b9; }
+
+[data-theme="dark"] .jw-status.is-ok,
+[data-theme="contrast"] .jw-status.is-ok {
+  background: #12301f;
+  color: #b8f0cf;
+  border-color: #2a6b45;
+}
+
+[data-theme="dark"] .jw-status.is-err,
+[data-theme="contrast"] .jw-status.is-err {
+  background: #3a1512;
+  color: #ffc3c6;
+  border-color: #7a2a24;
+}
+
+[data-theme="dark"] .jw-ref,
+[data-theme="contrast"] .jw-ref {
+  background: #2d2350;
+  color: #ddd3ff;
+  border-color: #8072b8;
+}
+
+[data-theme="dark"] .jw-nav .jw-back,
+[data-theme="contrast"] .jw-nav .jw-back {
+  background: var(--card, #211b32);
+  color: var(--ink, #f8f5ff);
+  border-color: var(--line, #9887ad);
+}
+
+[data-theme="dark"] .jw-rail-card .jw-tip,
+[data-theme="contrast"] .jw-rail-card .jw-tip {
+  background: var(--bg, #131020);
+}
+
+/* High contrast: never rely on a tint alone. */
+[data-theme="contrast"] .jw-chips label:has(input:checked) {
+  outline: 2px solid #fff06b;
+  outline-offset: 1px;
+}
+
+[data-theme="contrast"] .jw-steps button[aria-current="step"] {
+  outline: 2px solid #fff06b;
+  outline-offset: 1px;
+}
+
+/* ---------- print ---------- */
+@media print {
+  .jw-nav, .jw-rail, .jw-steps, .jw-bar { display: none !important; }
+  .jw-step { display: block !important; }
+  .jw-card { box-shadow: none; border: 0; }
+}
