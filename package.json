@@ -4,7 +4,7 @@
   "description": "EkGuru static site. Node is only used by the build and test tools in tools/ (tools/test-*.mjs), which run the pages in jsdom.",
   "scripts": {
     "start": "node server/server.js",
-    "test": "node tools/test-razorpay-api.mjs && node tools/test-browser-qa.mjs && node tools/test-runtime-qa.mjs && node tools/test-apps-script.mjs && node tools/test-payment-e2e.mjs && node tools/test-live-payment-contract.mjs && node tools/test-home-tutor-reveal.mjs",
+    "test": "node tools/test-razorpay-api.mjs && node tools/test-join-wizard.mjs && node tools/test-application-backend.mjs && node tools/test-defect-regressions.mjs && node tools/test-wizard-sheets-e2e.mjs && node tools/test-join-wizard-nav.mjs && node tools/test-combined-code.mjs && node tools/test-browser-qa.mjs && node tools/test-runtime-qa.mjs && node tools/test-apps-script.mjs && node tools/test-payment-e2e.mjs && node tools/test-live-payment-contract.mjs && node tools/test-home-tutor-reveal.mjs && node tools/test-live-feed.js",
     "test:payments": "node tools/test-razorpay-api.mjs",
     "test:qa": "node tools/test-browser-qa.mjs",
     "test:sheets": "node tools/test-apps-script.mjs",
@@ -12,7 +12,8 @@
     "test:contract": "node tools/test-live-payment-contract.mjs",
     "test:course-reorder": "node tools/test-course-reorder.mjs",
     "test:courses": "node tools/test-course-placeholders.mjs && node tools/test-course-levels.mjs && python3 tools/test-course-voice-buttons.py && python3 tools/audit-course-pronunciation.py --check && node tools/test-course-matching.mjs && node tools/test-course-reorder.mjs",
-    "test:home": "node tools/test-home-tutor-reveal.mjs"
+    "test:home": "node tools/test-home-tutor-reveal.mjs",
+    "test:browser": "node tools/test-join-buttons-browser.mjs"
   },
   "devDependencies": {
     "@resvg/resvg-js": "^2.6.2",
