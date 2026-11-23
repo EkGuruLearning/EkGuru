@@ -110,7 +110,7 @@
    Edit → New version → Deploy). No other edit is ever needed: each flag
    below is read live on every request.
    ========================================================================== */
-var EK_UNIFIED_VERSION = "2.1.1";
+var EK_UNIFIED_VERSION = "2.2.0";
 
 var EK_ = {
   /* Whole-backend maintenance switch. While true, EVERY GET and POST
@@ -204,6 +204,14 @@ function doGet(e) {
       return feedJson_(tab);
     }
     return feedGet_(e);
+  }
+
+  /* Application backend v2 (ApplicationIntake.gs). Answers only its own
+     action and returns null for anything else, so every route below is
+     unchanged when that file is not pasted yet. */
+  if (typeof ekApplicationGet_ === "function") {
+    var ekGet = ekApplicationGet_(e);
+    if (ekGet) return ekGet;
   }
 
   /* Intake routes — behaviour identical to standalone Intake.gs. */
@@ -606,7 +614,7 @@ function jsonOut_(obj) {
    intakeGet_ and doPost is now intakePost_ (the router in Section 2 calls
    them). Everything else is verbatim.
    ========================================================================== */
-var INTAKE_VERSION = "1.2.0";
+var INTAKE_VERSION = "1.3.1";
 var INTAKE_MAX_BYTES = 12000;
 var INTAKE_HOURLY_CAP = 30;   /* per kind, whole site */
 var INTAKE_DAILY_CAP = 150;   /* per kind, whole site */
@@ -730,17 +738,30 @@ function intakePost_(e) {
     var body;
     try { body = JSON.parse(raw); } catch (err) { return intakeJson_({ ok: false, error: "not JSON" }); }
 
+    /* Application backend v2 (ApplicationIntake.gs). Handles kind
+       "application" and the three ek* actions; returns null for
+       everything else, so reviews, bookings, contacts and sign-ups keep
+       going through the code below exactly as before. */
+    /* Honeypot: a real person never sees this box. Pretend success, store
+       nothing. This MUST run before any handler that writes a row — the
+       application seam below used to run first, so a filled honeypot still
+       produced a stored application and an email to the owner. Owner actions
+       carry no `website` field, so they are unaffected. */
+    if (String(body.website || "").trim() !== "") {
+      return intakeJson_({ ok: true, reference: "EG-" + intakeRef_() });
+    }
+
+    if (typeof ekApplicationAction_ === "function") {
+      var ekHandled = ekApplicationAction_(body);
+      if (ekHandled) return ekHandled;
+    }
+
     /* Owner action, not a visitor submission: the admin dashboard
        calls this AFTER a reply email has been sent, so the contacts
        tab shows status = "replied". No consent, no quota, no new row. */
     if (String(body.action || "") === "markReplied") {
       return intakeJson_(markContactReplied_(
         String(body.ref || ""), String(body.email || ""), String(body.note || "")));
-    }
-
-    /* Honeypot: a real person never sees this box. Pretend success, store nothing. */
-    if (String(body.website || "").trim() !== "") {
-      return intakeJson_({ ok: true, reference: "EG-" + intakeRef_() });
     }
 
     var kind = String(body.kind || "");
@@ -1280,8 +1301,19 @@ function intakeHealth_() {
     var t = ss.getSheetByName(name);
     tabs[name] = t ? Math.max(0, t.getLastRow() - 1) : 0;
   });
-  return { ok: true, version: INTAKE_VERSION, spreadsheetBound: true,
-           at: new Date().toISOString(), pendingRows: tabs };
+  var out = { ok: true, version: INTAKE_VERSION, spreadsheetBound: true,
+              at: new Date().toISOString(), pendingRows: tabs };
+  /* Is the six-step wizard backend (ApplicationIntake.gs) in this project? */
+  if (typeof ekHealth_ === "function") {
+    var ek = ekHealth_();
+    out.application = { version: ek.version, schema: ek.schema, ok: ek.ok,
+                        columns: ek.columns ? { expected: ek.columns.expected, present: ek.columns.present } : null };
+    if (!ek.ok) out.application.error = ek.error;
+  } else {
+    out.application = { version: "absent", ok: false,
+                        error: "ApplicationIntake.gs is not pasted into this project" };
+  }
+  return out;
 }
 
 function intakeRef_() {

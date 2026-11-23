@@ -224,13 +224,13 @@ check("unified ?tab=health is the feed health (counts only)",
 
 /* the intake half */
 const intakeHealth = JSON.parse(uni.ctx.doGet({ parameter: { action: "health" } }).getContent());
-check("unified ?action=health is the intake health (v1.2.0, bound)",
-  intakeHealth.ok && intakeHealth.version === "1.2.0" && intakeHealth.spreadsheetBound === true &&
+check("unified ?action=health is the intake health (v1.3.1, bound)",
+  intakeHealth.ok && intakeHealth.version === "1.3.1" && intakeHealth.spreadsheetBound === true &&
   intakeHealth.pendingRows.bookings === 0, JSON.stringify(intakeHealth));
 const bare = JSON.parse(uni.ctx.doGet({ parameter: {} }).getContent());
 check("unified bare /exec answers combined feed+intake health",
-  bare.ok && bare.unified === "2.1.1" && bare.feed.tabs.tutors.rows === 2 &&
-  bare.intake.version === "1.2.0", JSON.stringify(bare).slice(0, 120));
+  bare.ok && bare.unified === "2.2.0" && bare.feed.tabs.tutors.rows === 2 &&
+  bare.intake.version === "1.3.1", JSON.stringify(bare).slice(0, 120));
 const ping = JSON.parse(uni.ctx.doGet({ parameter: { action: "ping", token: "nope" } }).getContent());
 check("unified ?action=ping without the token is refused as unknown action",
   ping.ok === false && ping.error === "unknown action", JSON.stringify(ping));

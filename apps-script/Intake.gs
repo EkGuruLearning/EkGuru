@@ -77,7 +77,7 @@
 
 "use strict";
 
-var INTAKE_VERSION = "1.2.0";
+var INTAKE_VERSION = "1.3.1";
 var INTAKE_MAX_BYTES = 12000;
 var INTAKE_HOURLY_CAP = 30;   /* per kind, whole site */
 var INTAKE_DAILY_CAP = 150;   /* per kind, whole site */
@@ -186,6 +186,12 @@ var INTAKE_KINDS = {
    -------------------------------------------------------------------------- */
 function doGet(e) {
   var action = String((e && e.parameter && e.parameter.action) || "health");
+  /* Application backend v2 (ApplicationIntake.gs), when that file is in the
+     project. Answers only ?action=ekHealth and returns null otherwise. */
+  if (typeof ekApplicationGet_ === "function") {
+    var ekGet = ekApplicationGet_(e);
+    if (ekGet) return ekGet;
+  }
   if (action !== "health") return intakeJson_({ ok: false, error: "unknown action" });
   return intakeJson_(intakeHealth_());
 }
@@ -199,17 +205,30 @@ function doPost(e) {
     var body;
     try { body = JSON.parse(raw); } catch (err) { return intakeJson_({ ok: false, error: "not JSON" }); }
 
+    /* Honeypot: a real person never sees this box. Pretend success, store nothing.
+       This MUST run before any handler that writes a row — the application seam
+       below used to run first, so a filled honeypot still produced a stored
+       application and an email to the owner. Owner actions carry no `website`
+       field, so they are unaffected. */
+    if (String(body.website || "").trim() !== "") {
+      return intakeJson_({ ok: true, reference: "EG-" + intakeRef_() });
+    }
+
+    /* Application backend v2 (ApplicationIntake.gs), when that file is in
+       the project. Handles kind "application" plus the ek* actions; returns
+       null for everything else, so reviews, bookings, contacts and sign-ups
+       run through the code below unchanged. */
+    if (typeof ekApplicationAction_ === "function") {
+      var ekHandled = ekApplicationAction_(body);
+      if (ekHandled) return ekHandled;
+    }
+
     /* Owner action, not a visitor submission: the admin dashboard
        calls this AFTER a reply email has been sent, so the contacts
        tab shows status = "replied". No consent, no quota, no new row. */
     if (String(body.action || "") === "markReplied") {
       return intakeJson_(markContactReplied_(
         String(body.ref || ""), String(body.email || ""), String(body.note || "")));
-    }
-
-    /* Honeypot: a real person never sees this box. Pretend success, store nothing. */
-    if (String(body.website || "").trim() !== "") {
-      return intakeJson_({ ok: true, reference: "EG-" + intakeRef_() });
     }
 
     var kind = String(body.kind || "");
