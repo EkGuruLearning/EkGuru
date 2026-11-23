@@ -54,13 +54,67 @@ def strip(raw):
     return re.sub(r'(<html\b[^>]*?) data-learning-language="[^"]*"', r'\1', raw, count=1, flags=re.I)
 
 
-def learning_code(rel):
+def learning_code(rel, raw=None):
+    """The language a page teaches, for the voice note and the theme file.
+
+    Path prefixes cover the course trees. They do not cover the standalone
+    tool pages, and those fell through to `return 'hi'` — so
+    /days-and-months-in-urdu/ asked for a HINDI voice, /days-and-months-in-
+    telugu/ for a Hindi one, and so on (23 Nov 2026). The time-page generator
+    was writing the correct code and apply-ultra was overwriting it with a
+    Hindi one on every build, which is why the two never agreed.
+
+    Those pages do declare the language themselves, on their own content
+    (`lang="ur"` on the table, `data-eg-language`, an /name-in-<language>/
+    slug). Reading it back is exact and needs no second slug table to drift
+    out of date. Falling back to 'hi' is still right for the Hindi-dominant
+    pages that declare nothing.
+    """
     parts = rel.split('/')
     if parts[0] == 'languages' and len(parts) > 2 and parts[1] in REGISTRY: return parts[1]
     if parts[0] == 'learn' and len(parts) > 2 and parts[1] in SLUG_CODE: return SLUG_CODE[parts[1]]
     if parts[0] == 'learn' and len(parts) > 2 and parts[1] in WORLD_GUIDE_CODES: return WORLD_GUIDE_CODES[parts[1]]
     if parts[0] in SLUG_CODE and len(parts) > 1: return SLUG_CODE[parts[0]]
-    return 'hi'
+    return page_declared_language(rel) or 'hi'
+
+
+def page_declared_language(rel):
+    """The language a standalone tool page teaches, read from its own path.
+
+    Deliberately narrow. `learning_code()` used to fall through to 'hi' for
+    everything that was not under learn/ or languages/, so /days-and-months-in-
+    urdu/ asked for a HINDI voice and every build overwrote the correct code
+    the time-page generator had just written (23 Nov 2026). The two tools then
+    disagreed forever and CI could not go green.
+
+    Only pages whose PATH names the language are resolved here — the tool
+    families built as /<topic>-in-<language>/. Market homes and course trees
+    keep their existing behaviour, because changing the language a market page
+    declares is a product decision, not a bug fix.
+
+    Falls back to None, and `learning_code()` keeps returning 'hi' for the
+    Hindi-dominant pages that name no language at all.
+    """
+    m = re.search(r'^(?:[a-z0-9-]+)-in-([a-z]+)/', rel)
+    if m:
+        word = m.group(1)
+        if word in TAUGHT_BY_NAME:
+            return TAUGHT_BY_NAME[word]
+    return None
+
+
+# Language names as they appear in the URL, mapped to their codes. Kept
+# separate from SLUG_CODE because the URLs use the full name ("urdu",
+# "gujarati") while the course trees use the same word for the hub — the
+# regex above needs the "-in-" form to tell them apart.
+TAUGHT_BY_NAME = {
+    'hindi': 'hi', 'bengali': 'bn', 'gujarati': 'gu', 'kannada': 'kn',
+    'malayalam': 'ml', 'marathi': 'mr', 'punjabi': 'pa', 'tamil': 'ta',
+    'telugu': 'te', 'urdu': 'ur', 'arabic': 'ar', 'spanish': 'es',
+    'german': 'de', 'french': 'fr', 'japanese': 'ja', 'portuguese': 'pt',
+    'russian': 'ru', 'korean': 'ko', 'chinese': 'zh', 'greek': 'el',
+    'amharic': 'am', 'turkish': 'tr', 'indonesian': 'id', 'thai': 'th',
+}
 
 
 def is_course_page(rel):
@@ -135,7 +189,7 @@ def transform(raw, rel, metadata):
     raw = strip(raw)
     parts = rel.split('/')
     locale = parts[0] if parts[0] in LOCALES else 'en'
-    code = learning_code(rel); url = route(rel)
+    code = learning_code(rel, raw); url = route(rel)
     learning = bool(re.match(r'^(?:index\.html|(?:learn|languages|courses|start|daily-hindi|toolbox|hindi)/)', rel)) or 'hindi-srs.js' in raw
     raw = re.sub(r'<html\b', f'<html data-learning-language="{code}"', raw, count=1, flags=re.I)
     m = re.search(r'<head\b[^>]*>', raw, re.I)
