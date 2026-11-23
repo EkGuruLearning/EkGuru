@@ -431,14 +431,23 @@ const fields = { name: "Asha", email: "asha@example.com", subject: "Hindi", bio:
   res = await c.api.submit("review", { tutor_id: "x", reviewer_name: "R", stars: 5, text: "fine", }, true, "");
   check("client-side: a review without a booking reference is caught", res.ok === false && /booking/.test(res.error));
 
-  /* the join page form and the site config */
+  /* the join page form and the site config.
+     23 Nov 2026: the flat form became the six-step wizard
+     (js/join-wizard.js), which posts through this same module. The
+     guarantees below are unchanged — they are just located in the new
+     markup: one application form, a human-proof honeypot, an explicit
+     consent tick, and a mailto action so the page still works with
+     JavaScript off. The wizard's own field contract is checked in
+     tools/test-join-wizard.mjs. */
   const join = fs.readFileSync(path.join(ROOT, "join.html"), "utf8");
-  const form = /<form class="intake-form" data-intake="application"[\s\S]*?<\/form>/.exec(join);
+  const form = /<form[^>]*id="jw-form"[\s\S]*?<\/form>/.exec(join);
   check("join.html has the online application form", !!form);
+  check("exactly one application form is on the page", (join.match(/<form[\s>]/g) || []).length === 1);
   check("the form has a honeypot named website, hidden from people", !!form && /name="website"/.test(form[0]) && /left:-10000px/.test(form[0]) && /tabindex="-1"/.test(form[0]));
   check("the form has an explicit consent checkbox", !!form && /name="consent"[^>]*required/.test(form[0]));
   check("the form falls back to a mailto action", !!form && /action="mailto:EkGuruLearning@gmail\.com"/.test(form[0]));
   check("join.html loads js/intake.js", /src="js\/intake\.js"/.test(join));
+  check("join.html loads the wizard, deferred", /src="js\/join-wizard\.js" defer/.test(join));
   const cfg = fs.readFileSync(path.join(ROOT, "js", "site-config.js"), "utf8");
   const m = /intake:\s*\{[\s\S]*?url:\s*"([^"]*)"/.exec(cfg);
   check("js/site-config.js has an intake block, blank or a valid /exec", !!m && (m[1] === "" || /^https:\/\/script\.google\.com\/macros\/s\/[A-Za-z0-9_-]+\/exec$/.test(m[1])), m && m[1]);

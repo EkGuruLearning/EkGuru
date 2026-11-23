@@ -119,6 +119,33 @@
   }
 
   /* Send. Resolves { ok, reference } or { ok:false, error, fallback }. Never rejects. */
+  /* A per-attempt id so a network retry is recognisably the SAME attempt.
+     Without it the server cannot tell "the request timed out, the tutor
+     pressed Submit again" from "a second application" — and the only thing
+     standing between a retry and a duplicate row was the email-dedupe
+     window. Kept in sessionStorage so it survives a reload of the same tab
+     but not a new application in a new tab. */
+  function newSubmissionId(kind) {
+    var key = "ekguru-intake-id-" + kind;
+    var made = "";
+    try {
+      var kept = window.sessionStorage && window.sessionStorage.getItem(key);
+      if (kept && /^[A-Za-z0-9._-]{6,60}$/.test(kept)) return kept;
+    } catch (e) { /* private mode: no storage, a fresh id each attempt is fine */ }
+    made = kind + "-" + Date.now().toString(36) + "-" +
+      Math.random().toString(36).slice(2, 10);
+    try { if (window.sessionStorage) window.sessionStorage.setItem(key, made); } catch (e2) {}
+    return made;
+  }
+
+  /* Once the server has ACCEPTED a submission, the id must not be reused:
+     the next application from the same tab is genuinely a new one. */
+  function clearSubmissionId(kind) {
+    try {
+      if (window.sessionStorage) window.sessionStorage.removeItem("ekguru-intake-id-" + kind);
+    } catch (e) {}
+  }
+
   function submit(kind, fields, consent, honeypot) {
     if (!KINDS[kind]) return Promise.resolve({ ok: false, error: "This form is not set up." });
     if (!ready()) return Promise.resolve({ ok: false, fallback: true, error: "Online sending is off right now." });
@@ -137,8 +164,10 @@
     if (problem) return Promise.resolve({ ok: false, error: problem });
     if (consent !== true) return Promise.resolve({ ok: false, error: "Please tick the box so we can reply to you." });
 
+    var submissionId = newSubmissionId(kind);
     var body = JSON.stringify({
-      kind: kind, consent: true, website: String(honeypot || ""), fields: fields || {}
+      kind: kind, consent: true, website: String(honeypot || ""),
+      submission_id: submissionId, fields: fields || {}
     });
     var ctrl = typeof AbortController === "function" ? new AbortController() : null;
     var timer = ctrl ? setTimeout(function () { ctrl.abort(); }, TIMEOUT_MS) : null;
@@ -161,6 +190,9 @@
          trusting it used to tell the student "saved" (and let the
          booking email go out) with no row in the sheet at all. */
       if (j && j.ok && String(j.reference || "").trim()) {
+        /* Accepted: this id has done its job. A later application from the
+           same tab must not look like a retry of this one. */
+        clearSubmissionId(kind);
         var out = { ok: true, reference: String(j.reference), duplicate: j.duplicate === true };
         /* v2.1.0 server mail outcome ({tutor, student, note}) — the
            booking modal uses it to skip its own duplicate send. */

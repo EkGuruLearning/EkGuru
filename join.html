@@ -92,6 +92,7 @@ and is applied without blocking rendering. */
 <meta content="index, follow, max-snippet:-1, max-image-preview:large" name="robots"/><!-- ekguru:ultra-assets:start -->
 <link rel="stylesheet" href="/css/tokens.css">
 <link rel="stylesheet" href="/css/ultra.css">
+<link rel="stylesheet" href="/css/join-wizard.css">
 <!-- ekguru:ultra-assets:end -->
 </head>
 <body>
@@ -118,6 +119,35 @@ and is applied without blocking rendering. */
 <script src="js/site-shell.js" defer></script>
 <script src="js/copywatch.js" defer></script>
 <script src="js/intake.js" defer></script>
+<script src="js/join-schema.js" defer></script>
+<script src="js/join-wizard.js" defer></script>
+<script>
+/* Last-resort watchdog. join.js is deferred, so by DOMContentLoaded it has had
+   its chance. If the form still lacks .jw-on, the wizard is dead (the file
+   404'd, was blocked, or threw early). Log it with something the person
+   debugging can act on, and make sure the visible fallback is on screen
+   rather than leaving a silently un-navigable page. */
+(function () {
+  function check() {
+    /* The CSS gate is `.jw:not(.jw-on)`, i.e. the OUTER wrapper, so that is
+       what decides whether the nav is painted. Check it, not the form. */
+    var root = document.getElementById("jw");
+    if (!root || root.classList.contains("jw-on")) return;   /* wizard is alive */
+    if (window.console && console.error) {
+      console.error("[EkGuru] The tutor wizard did not initialise: #jw never received .jw-on, so the " +
+        "navigation stays CSS-hidden. " +
+        "Most likely js/join-wizard.js or js/join-schema.js failed to load, or threw before init(). " +
+        "Check the Network and Console tabs.");
+    }
+    var fb = document.querySelector(".jw-fallback");
+    if (fb) fb.setAttribute("data-jw-fallback-on", "1");
+  }
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", check);
+  else check();
+  /* and once more after the deferred scripts are guaranteed to have run */
+  window.addEventListener("load", check);
+})();
+</script>
 <!-- ekguru:shell-header:end -->
 <div id="app-error"></div>
 <!-- v85 — English fallback inside every data-i18n container.
@@ -154,23 +184,624 @@ and is applied without blocking rendering. */
 <li data-i18n="join.step7">Contact email</li>
 <li data-i18n="join.step8">Links to your existing teaching profiles, if you have them</li>
 </ol>
-<form class="intake-form" data-intake="application" action="mailto:EkGuruLearning@gmail.com" method="post" enctype="text/plain" style="margin-top:8px">
-<h3 style="margin:0 0 6px">Apply online</h3>
-<p class="muted" style="margin:0 0 14px;font-size:.92rem">Takes about five minutes. Nothing goes live until we have checked you and you have said yes.</p>
-<label>Full name <input name="name" required maxlength="80" autocomplete="name"></label>
-<label>Email (kept private, never shown on the site) <input name="email" type="email" required maxlength="120" autocomplete="email"></label>
-<label>City <input name="city" maxlength="80"></label>
-<label>Country <input name="country" maxlength="60"></label>
-<label>What you teach <input name="subject" required maxlength="60" placeholder="Hindi conversation, Hindi for beginners"></label>
-<label>Price per 50-minute lesson, in USD <input name="rate_usd" type="number" min="1" max="200" step="1"></label>
-<label>Weekly availability and your timezone <input name="availability" maxlength="300"></label>
-<label>About you and how you teach (150 to 250 words) <textarea name="bio" required maxlength="1500" rows="6"></textarea></label>
-<label>Photo link, https (optional) <input name="photo_link" type="url" maxlength="300"></label>
-<label>Intro video link (optional) <input name="video_link" type="url" maxlength="300"></label>
-<div aria-hidden="true" style="position:absolute;left:-10000px;width:1px;height:1px;overflow:hidden"><label>Leave this empty <input name="website" tabindex="-1" autocomplete="off"></label></div>
-<label class="consent" style="display:flex;gap:10px;align-items:flex-start;font-size:.92rem"><input type="checkbox" name="consent" value="yes" required style="margin-top:4px"> <span>I agree that EkGuru keeps these details to check my application and to reply to me. I can ask for them to be deleted at any time.</span></label>
-<button class="btn btn-primary btn-block" type="submit" style="margin-top:12px">Send my application</button>
+<!-- =========================================================
+     TUTOR APPLICATION WIZARD (v2, 23 Nov 2026)
+     ---------------------------------------------------------
+     Seven guided steps. The form is REAL HTML: the submit action is
+     mailto, so with JavaScript blocked every step renders in
+     order and the application can still be sent. js/join-wizard.js
+     upgrades it to the step-by-step flow and posts to the same
+     intake endpoint js/intake.js already uses.
+
+     Field names are the contract with apps-script/ApplicationSchema.gs:
+     every column the wizard collects is its own Sheet column, so nothing
+     is packed into a catch-all any more (a name with no column still
+     lands in details_json server-side, never in the bin). Do not rename
+     these inputs on a whim — `tools/test-join-wizard.mjs` and
+     `tools/test-application-backend.mjs` both assert the mapping.
+     ========================================================= -->
+<div class="jw" id="jw">
+<form action="mailto:EkGuruLearning@gmail.com" class="jw-form" enctype="text/plain" id="jw-form" method="post" novalidate="">
+<div class="jw-shell">
+<div class="jw-card">
+
+<div class="jw-progress">
+<div class="jw-progress-top">
+<b><span data-jw-steplabel>Step 1 of 7</span> <span class="jw-stepname" data-jw-stepname>About you</span></b>
+<span data-jw-progressnote>Nothing goes live until we have checked you</span>
+</div>
+<div class="jw-bar" data-jw-track="" aria-hidden="true"><i style="width:14.2%"></i></div>
+<ol aria-label="Application steps" class="jw-steps">
+<li data-step-name="About you" class="is-current"><button type="button" data-jw-goto-step="0" tabindex="0" aria-current="step"><span class="n" aria-hidden="true">1</span><span class="lbl">About you</span><span class="sr-only" data-jw-stepstate> current step</span></button></li>
+<li data-step-name="What you teach" class=""><button type="button" data-jw-goto-step="1" tabindex="-1"><span class="n" aria-hidden="true">2</span><span class="lbl">Teaching</span><span class="sr-only" data-jw-stepstate></span></button></li>
+<li data-step-name="Education" class=""><button type="button" data-jw-goto-step="2" tabindex="-1"><span class="n" aria-hidden="true">3</span><span class="lbl">Education</span><span class="sr-only" data-jw-stepstate></span></button></li>
+<li data-step-name="Your profile" class=""><button type="button" data-jw-goto-step="3" tabindex="-1"><span class="n" aria-hidden="true">4</span><span class="lbl">Profile</span><span class="sr-only" data-jw-stepstate></span></button></li>
+<li data-step-name="Price and availability" class=""><button type="button" data-jw-goto-step="4" tabindex="-1"><span class="n" aria-hidden="true">5</span><span class="lbl">Price &amp; times</span><span class="sr-only" data-jw-stepstate></span></button></li>
+<li data-step-name="Anything else" class=""><button type="button" data-jw-goto-step="5" tabindex="-1"><span class="n" aria-hidden="true">6</span><span class="lbl">Extras</span><span class="sr-only" data-jw-stepstate></span></button></li>
+<li data-step-name="Review and submit" class=""><button type="button" data-jw-goto-step="6" tabindex="-1"><span class="n" aria-hidden="true">7</span><span class="lbl">Review</span><span class="sr-only" data-jw-stepstate></span></button></li>
+</ol>
+</div>
+
+<!-- ============ STEP 1 ============ -->
+<section aria-labelledby="jw-h1" class="jw-step is-active" id="jw-step-1">
+<h2 id="jw-h1"><span class="jw-ico">👤</span>About you</h2>
+<p class="jw-lede">Your legal name and email stay private — they are only used to reply to you and to verify who you are. Only the public details below ever appear on the site.</p>
+<div aria-live="assertive" class="jw-summary" data-jw-summary="" hidden="" role="alert" tabindex="-1">
+<b data-jw-summary-title=""></b>
+<ul data-jw-summary-list=""></ul>
+</div>
+<div class="jw-fields">
+<div class="jw-row">
+<div class="jw-field">
+<label for="jw-name">Full legal name<span class="req" aria-hidden="true">*</span></label>
+<input aria-describedby="jw-name-h" autocomplete="name" data-label="Your name" id="jw-name" maxlength="80" name="name" placeholder="e.g. Neha Sharma" required="" type="text"/>
+<p class="jw-help" id="jw-name-h">As it appears on your ID. Only your display name is ever shown.</p>
+<p class="jw-err" id="jw-name-e"></p>
+</div>
+<div class="jw-field">
+<label for="jw-display">Profile display name<span class="opt">optional</span></label>
+<input aria-describedby="jw-display-h" data-label="Display name" id="jw-display" maxlength="60" name="display_name" type="text"/>
+<p class="jw-help" id="jw-display-h">What students see, e.g. “Sashi” or “Neha S.” Leave blank to use your first name.</p>
+<p class="jw-err" id="jw-display-e"></p>
+</div>
+</div>
+<div class="jw-field">
+<label for="jw-email">Email address<span class="req" aria-hidden="true">*</span></label>
+<input aria-describedby="jw-email-h" autocomplete="email" data-label="Email" data-rule="email" id="jw-email" maxlength="120" name="email" placeholder="you@example.com" required="" type="email"/>
+<p class="jw-help" id="jw-email-h">Never shown on the site. This is where we send our reply and your application reference.</p>
+<p class="jw-err" id="jw-email-e"></p>
+</div>
+<div class="jw-row">
+<div class="jw-field">
+<label for="jw-city">City<span class="req" aria-hidden="true">*</span></label>
+<input aria-describedby="jw-city-h" autocomplete="address-level2" data-label="City" id="jw-city" maxlength="80" name="city" placeholder="e.g. Jaipur" required="" type="text"/>
+<p class="jw-help" id="jw-city-h">The city you teach from. It appears on your public profile so nearby students can find you.</p>
+<p class="jw-err" id="jw-city-e"></p>
+</div>
+<div class="jw-field">
+<label for="jw-country">Country<span class="req" aria-hidden="true">*</span></label>
+<input aria-describedby="jw-country-h" autocomplete="country-name" data-label="Country" id="jw-country" maxlength="60" name="country" placeholder="e.g. India" required="" type="text"/>
+<p class="jw-help" id="jw-country-h">Write the country you live in, or pick it from the list as you type.</p>
+<p class="jw-err" id="jw-country-e"></p>
+</div>
+</div>
+<div class="jw-field">
+<label for="jw-state">State or province<span class="opt">optional</span></label>
+<input autocomplete="address-level1" id="jw-state" maxlength="60" name="state" type="text"/>
+<p class="jw-err" id="jw-state-e"></p>
+</div>
+<div class="jw-field">
+<label for="jw-whatsapp">Personal WhatsApp Number (Optional)<span class="opt">optional</span></label>
+<input aria-describedby="jw-whatsapp-h" autocomplete="tel" data-label="WhatsApp number" data-rule="phone" id="jw-whatsapp" inputmode="tel" maxlength="24" name="whatsapp" placeholder="e.g. +91 98765 43210" type="tel"/>
+<p class="jw-help" id="jw-whatsapp-h">Only a number you are happy for us to use. Add the country code if you are outside India (+44, +1, +971…). <b>Never shown on your public profile</b>, and we do not message it without asking you first.</p>
+<p class="jw-err" id="jw-whatsapp-e"></p>
+</div>
+<div class="jw-field">
+<span class="jw-label" id="jw-photo-label">Profile photograph<span class="opt">optional, but profiles with a photo get far more bookings</span></span>
+<div class="jw-photo">
+<div aria-hidden="true" class="jw-photo-preview" data-jw-photo-preview="">🖼️</div>
+<div class="jw-photo-body">
+<label class="jw-label" for="jw-photo" style="font-weight:600;font-size:.85rem">Link to your photo</label>
+<input aria-describedby="jw-photo-h" data-label="Photo link" data-rule="url-image" id="jw-photo" maxlength="300" name="photo_link" placeholder="https://drive.google.com/… or https://…/me.jpg" type="url"/>
+<p class="jw-help" id="jw-photo-h">A <b>square photo, 500×500px or larger</b>, face clearly visible. Upload it to Google Drive, then set sharing to <b>Anyone with the link</b> and paste that link here. We do not accept file uploads directly.</p>
+<p class="jw-err" id="jw-photo-e"></p>
+</div>
+</div>
+</div>
+<div class="jw-field">
+<label for="jw-intro">A short introduction<span class="opt">optional</span></label>
+<textarea aria-describedby="jw-intro-h" id="jw-intro" maxlength="400" name="intro" rows="3"></textarea>
+<p class="jw-err" id="jw-intro-e"></p>
+<p class="jw-help" id="jw-intro-h">One or two sentences about who you are. You will write your full profile in step 4.</p>
+</div>
+</div>
+</section>
+
+<!-- ============ STEP 2 ============ -->
+<section aria-labelledby="jw-h2" class="jw-step" hidden="" id="jw-step-2">
+<h2 id="jw-h2"><span class="jw-ico">📚</span>What you teach</h2>
+<p class="jw-lede">Pick everything that applies. This decides which students find you — choosing more is better, as long as it is true.</p>
+<div aria-live="assertive" class="jw-summary" data-jw-summary="" hidden="" role="alert" tabindex="-1">
+<b data-jw-summary-title=""></b>
+<ul data-jw-summary-list=""></ul>
+</div>
+<div class="jw-fields">
+<div class="jw-field">
+<span class="jw-label" id="jw-subj-l">Subjects<span class="req" aria-hidden="true">*</span></span>
+<div aria-labelledby="jw-subj-l" class="jw-chips" data-label="Teaching subjects" data-min="1" data-msg="Select at least one teaching subject." data-need-min="subjects" role="group">
+<label><input name="subjects" type="checkbox" value="Hindi for Beginners"/><span>Hindi for Beginners</span></label>
+<label><input name="subjects" type="checkbox" value="Conversational Hindi"/><span>Conversational Hindi</span></label>
+<label><input name="subjects" type="checkbox" value="Hindi Grammar"/><span>Hindi Grammar</span></label>
+<label><input name="subjects" type="checkbox" value="Hindi Reading and Writing"/><span>Reading &amp; Writing</span></label>
+<label><input name="subjects" type="checkbox" value="Devanagari Script"/><span>Devanagari Script</span></label>
+<label><input name="subjects" type="checkbox" value="Hindi for Children"/><span>Hindi for Children</span></label>
+<label><input name="subjects" type="checkbox" value="Hindi for Adults"/><span>Hindi for Adults</span></label>
+<label><input name="subjects" type="checkbox" value="Hindi for Heritage Learners"/><span>Heritage Learners</span></label>
+<label><input name="subjects" type="checkbox" value="Hindi Pronunciation"/><span>Pronunciation</span></label>
+<label><input name="subjects" type="checkbox" value="Hindi for Academic Study"/><span>Academic Study</span></label>
+<label><input name="subjects" type="checkbox" value="Hindi for Travel"/><span>Hindi for Travel</span></label>
+</div>
+<p class="jw-err" id="jw-subj-e"></p>
+</div>
+<div class="jw-field">
+<span class="jw-label" id="jw-lvl-l">Student levels you can teach<span class="req" aria-hidden="true">*</span></span>
+<div aria-labelledby="jw-lvl-l" class="jw-chips" data-label="Student levels" data-min="1" data-msg="Select at least one student level." data-need-min="levels" role="group">
+<label><input name="levels" type="checkbox" value="Children"/><span>Children</span></label>
+<label><input name="levels" type="checkbox" value="Teenagers"/><span>Teenagers</span></label>
+<label><input name="levels" type="checkbox" value="Adults"/><span>Adults</span></label>
+<label><input name="levels" type="checkbox" value="Senior learners"/><span>Senior learners</span></label>
+<label><input name="levels" type="checkbox" value="Absolute beginners"/><span>Absolute beginners</span></label>
+<label><input name="levels" type="checkbox" value="Intermediate"/><span>Intermediate</span></label>
+<label><input name="levels" type="checkbox" value="Advanced"/><span>Advanced</span></label>
+</div>
+<p class="jw-err" id="jw-lvl-e"></p>
+</div>
+<div class="jw-row">
+<div class="jw-field">
+<label for="jw-hindi-level">Your Hindi level</label>
+<select data-label="Your Hindi level" id="jw-hindi-level" name="hindi_level">
+<option value="">Select</option>
+<option value="Native">Native</option>
+<option>Fluent</option>
+<option>Advanced</option>
+</select>
+<p class="jw-err" id="jw-hindi-level-e"></p>
+</div>
+<div class="jw-field">
+<label for="jw-english-level">Your English level</label>
+<select id="jw-english-level" name="english_level">
+<option value="">Not given</option>
+<option>Beginner</option>
+<option>Intermediate (B1)</option>
+<option>Upper intermediate (B2)</option>
+<option>Advanced (C1)</option>
+<option>Native / bilingual</option>
+</select>
+<p class="jw-err" id="jw-english-level-e"></p>
+<p class="jw-help">English helps you teach students who are just starting out.</p>
+</div>
+</div>
+<div class="jw-field">
+<label for="jw-other-langs">Other languages you speak<span class="opt">optional</span></label>
+<input aria-describedby="jw-other-h" id="jw-other-langs" maxlength="100" name="other_langs" placeholder="Bengali: native, German: learning" type="text"/>
+<p class="jw-help" id="jw-other-h">Separate each with a comma, with your level.</p>
+<p class="jw-err" id="jw-other-langs-e"></p>
+</div>
+<div class="jw-row">
+<div class="jw-field">
+<label for="jw-years">Total teaching experience</label>
+<select id="jw-years" name="years">
+<option value="">Select</option>
+<option>Less than 1 year</option>
+<option>1–2 years</option>
+<option>3–5 years</option>
+<option>6–10 years</option>
+<option>More than 10 years</option>
+</select>
+<p class="jw-err" id="jw-years-e"></p>
+</div>
+<div class="jw-field">
+<label for="jw-online-years">Of which online<span class="opt">optional</span></label>
+<input id="jw-online-years" name="online_years" placeholder="e.g. 2 years" type="text"/>
+
+<p class="jw-err" id="jw-online-years-e"></p></div>
+</div>
+<div class="jw-field" data-when="years:Less than 1 year" hidden="">
+<label for="jw-less-exp">You have less than a year of experience — what have you taught so far?<span class="req" aria-hidden="true">*</span></label>
+<textarea aria-describedby="jw-less-h" data-label="Your teaching so far" id="jw-less-exp" maxlength="300" name="less_exp" placeholder="e.g. I taught my neighbour's children Hindi for two months, twice a week." required="" rows="2"></textarea>
+<p class="jw-err" id="jw-less-exp-e"></p>
+<p class="jw-help" id="jw-less-h">Informal teaching counts. Tell us what you actually did, however small.</p>
+</div>
+<div class="jw-field">
+<label for="jw-platforms">Where have you taught before?<span class="opt">optional</span></label>
+<input aria-describedby="jw-plat-h" id="jw-platforms" maxlength="120" name="platforms" placeholder="Preply, school, private students" type="text"/>
+<p class="jw-help" id="jw-plat-h">Schools, coaching centres, other platforms, or private tuition. Informal experience counts.</p>
+<p class="jw-err" id="jw-platforms-e"></p>
+</div>
+<div class="jw-field">
+<span class="jw-label" id="jw-meth-l">How you teach<span class="opt">optional, pick all that apply</span></span>
+<div aria-labelledby="jw-meth-l" class="jw-chips" role="group">
+<label><input name="methods" type="checkbox" value="Conversation-based"/><span>Conversation</span></label>
+<label><input name="methods" type="checkbox" value="Grammar-based"/><span>Grammar</span></label>
+<label><input name="methods" type="checkbox" value="Structured curriculum"/><span>Structured curriculum</span></label>
+<label><input name="methods" type="checkbox" value="Practical exercises"/><span>Practical exercises</span></label>
+<label><input name="methods" type="checkbox" value="Reading and writing"/><span>Reading &amp; writing</span></label>
+<label><input name="methods" type="checkbox" value="Games and interactive"/><span>Games &amp; interactive</span></label>
+<label><input name="methods" type="checkbox" value="Custom learning plans"/><span>Custom plans</span></label>
+</div>
+<p class="jw-err" id="jw-meth-e"></p>
+</div>
+</div>
+</section>
+
+<!-- ============ STEP 3 ============ -->
+<section aria-labelledby="jw-h3" class="jw-step" hidden="" id="jw-step-3">
+<h2 id="jw-h3"><span class="jw-ico">🎓</span>Education &amp; qualifications</h2>
+<p class="jw-lede">A formal teaching degree is <b>not</b> required. Genuine informal teaching experience counts — tell us about it in step 4. Anything you write here is stored as <b>declared by you</b>; we never label it “verified” unless we have seen the document.</p>
+<div aria-live="assertive" class="jw-summary" data-jw-summary="" hidden="" role="alert" tabindex="-1">
+<b data-jw-summary-title=""></b>
+<ul data-jw-summary-list=""></ul>
+</div>
+<div class="jw-fields">
+<div class="jw-row">
+<div class="jw-field">
+<label for="jw-edu-qual">Highest qualification</label>
+<select id="jw-edu-qual" name="edu_qual">
+<option value="">Select</option>
+<option>Secondary school</option>
+<option>Higher secondary / 12th</option>
+<option>Bachelor's degree</option>
+<option>Master's degree</option>
+<option>M.Phil or PhD</option>
+<option>Teaching diploma (B.Ed / D.El.Ed / equivalent)</option>
+<option>Other</option>
+</select>
+<p class="jw-err" id="jw-edu-qual-e"></p>
+</div>
+<div class="jw-field">
+<label for="jw-edu-year">Year completed</label>
+<input id="jw-edu-year" inputmode="numeric" maxlength="4" name="edu_year" placeholder="e.g. 2018" type="text"/>
+
+<p class="jw-err" id="jw-edu-year-e"></p></div>
+</div>
+<div class="jw-field">
+<label for="jw-edu-inst">Institution or university</label>
+<input autocomplete="off" id="jw-edu-inst" maxlength="120" name="edu_inst" placeholder="e.g. University of Delhi" type="text"/>
+
+<p class="jw-err" id="jw-edu-inst-e"></p></div>
+<div class="jw-field">
+<label for="jw-certs">Certifications, training or awards<span class="opt">optional</span></label>
+<textarea aria-describedby="jw-certh" id="jw-certs" maxlength="400" name="certs" placeholder="Hindi teaching certificate (2021), IELTS 7.5, school award for teaching…" rows="3"></textarea>
+<p class="jw-err" id="jw-certs-e"></p>
+<p class="jw-help" id="jw-certh">One per line. If you have a document, mention it here — we will ask for it by email rather than collecting it on this page.</p>
+</div>
+<div class="jw-field">
+<label for="jw-doc-refs">Certificate or document references<span class="opt">optional</span></label>
+<input aria-describedby="jw-doc-h" id="jw-doc-refs" maxlength="300" name="doc_refs" placeholder="e.g. B.Ed certificate no. 1234, issued 2020, Bundelkhand University" type="text"/>
+<p class="jw-help" id="jw-doc-h">Do not upload documents here. Write what exists and where it is from — if we need to see one, we will ask you by email.</p>
+<p class="jw-err" id="jw-doc-refs-e"></p>
+</div>
+<div class="jw-field" data-when="edu_qual:Teaching diploma (B.Ed / D.El.Ed / equivalent)" hidden="">
+<label for="jw-bed-detail">Your teaching qualification<span class="req" aria-hidden="true">*</span></label>
+<input aria-describedby="jw-bed-h" data-label="Teaching qualification" id="jw-bed-detail" maxlength="160" name="bed_detail" placeholder="B.Ed, Hindi &amp; Education, Bundelkhand University, 2020" required="" type="text"/>
+<p class="jw-help" id="jw-bed-h">Which qualification, in which subject, from where, and when.</p>
+<p class="jw-err" id="jw-bed-detail-e"></p>
+</div>
+<div class="jw-field">
+<label for="jw-edu-extra">Other degrees or professional qualifications<span class="opt">optional</span></label>
+<textarea id="jw-edu-extra" maxlength="400" name="edu_extra" rows="2"></textarea>
+<p class="jw-err" id="jw-edu-extra-e"></p>
+</div>
+</div>
+</section>
+
+<!-- ============ STEP 4 ============ -->
+<section aria-labelledby="jw-h4" class="jw-step" hidden="" id="jw-step-4">
+<h2 id="jw-h4"><span class="jw-ico">✍️</span>Your profile</h2>
+<p class="jw-lede">This is the part students actually read. Write in your own words — a plain, honest paragraph beats a polished template, and we will not publish anything until a person has read it.</p>
+<div aria-live="assertive" class="jw-summary" data-jw-summary="" hidden="" role="alert" tabindex="-1">
+<b data-jw-summary-title=""></b>
+<ul data-jw-summary-list=""></ul>
+</div>
+<div class="jw-fields">
+<div class="jw-field">
+<label for="jw-headline">Professional headline<span class="opt">optional</span></label>
+<input aria-describedby="jw-head-h" id="jw-headline" maxlength="120" name="headline" placeholder="Patient Hindi tutor for children and beginners" type="text"/>
+<p class="jw-help" id="jw-head-h">One line under your name on the tutor card. Max 120 characters.</p>
+<p class="jw-err" id="jw-headline-e"></p>
+</div>
+<div class="jw-field">
+<label for="jw-bio">About you and how you teach<span class="req" aria-hidden="true">*</span></label>
+<textarea aria-describedby="jw-bio-h" data-label="Your biography" id="jw-bio" maxlength="1500" name="bio" required="" rows="9"></textarea>
+<p class="jw-err" id="jw-bio-e"></p>
+<div class="jw-counter"><span data-jw-wordhint="">Aim for 150–250 words.</span><span data-jw-wordcount="">0 words</span></div>
+<p class="jw-help" id="jw-bio-h">
+<b>Helpful prompts:</b> Where are you from and how long have you been teaching? Who do you teach best — children, beginners, adults? How does a typical lesson go? What do students get from you that they would not get from an app?
+</p>
+<details class="jw-help" style="margin-top:8px">
+<summary style="cursor:pointer;font-weight:700">Show a sample bio</summary>
+<p style="margin:8px 0 0">“Namaste! I am a native Hindi speaker from Varanasi and I have taught for six years — four of them online, mostly to children aged 6–12 living outside India. My lessons start with conversation, then move into reading and writing in Devanagari once a student feels confident speaking. I use pictures, stories and simple games because a child who is enjoying the lesson practises without noticing. Parents get a short note after every lesson about what we covered.”</p>
+</details>
+</div>
+<div class="jw-field">
+<label for="jw-video">Introduction video<span class="opt">optional</span></label>
+<input aria-describedby="jw-video-h" data-label="Video link" data-rule="url-youtube" id="jw-video" maxlength="300" name="video_link" placeholder="https://youtu.be/…" type="url"/>
+<p class="jw-help" id="jw-video-h">A YouTube link — <b>unlisted is fine</b>. If it is private, students will only see a blank box, so set it to Unlisted before you send. 30–60 seconds is plenty: who you are, who you teach.</p>
+<p class="jw-err" id="jw-video-e"></p>
+</div>
+<div class="jw-field">
+<label for="jw-sample">A recording of you teaching<span class="opt">optional</span></label>
+<input aria-describedby="jw-sample-h" data-label="Teaching sample link" data-rule="url" id="jw-sample" maxlength="300" name="sample_link" placeholder="https://youtu.be/… or a Drive link" type="url"/>
+<p class="jw-help" id="jw-sample-h">A short clip of a real lesson helps more than any description. Paste a link — we do not upload files on this page.</p>
+<p class="jw-err" id="jw-sample-e"></p>
+</div>
+<div class="jw-field">
+<label for="jw-thumb">Video thumbnail<span class="opt">optional</span></label>
+<input aria-describedby="jw-thumb-h" data-label="Thumbnail link" data-rule="url" id="jw-thumb" maxlength="300" name="video_thumb" placeholder="https://…" type="url"/>
+<p class="jw-help" id="jw-thumb-h">Only if your video has no picture of you — paste a still image link.</p>
+<p class="jw-err" id="jw-thumb-e"></p>
+</div>
+<div class="jw-field">
+<label for="jw-profileurl">Existing teaching profile<span class="opt">optional</span></label>
+<input data-label="Profile link" data-rule="url" id="jw-profileurl" maxlength="300" name="profile_url" placeholder="https://preply.com/… or your own site" type="url"/>
+
+<p class="jw-err" id="jw-profileurl-e"></p></div>
+<div class="jw-row">
+<div class="jw-field">
+<label for="jw-linkedin">LinkedIn<span class="opt">optional</span></label>
+<input data-label="LinkedIn link" data-rule="url" id="jw-linkedin" maxlength="300" name="linkedin" type="url"/>
+
+<p class="jw-err" id="jw-linkedin-e"></p></div>
+<div class="jw-field">
+<label for="jw-website">Website<span class="opt">optional</span></label>
+<input data-label="Website link" data-rule="url" id="jw-website" maxlength="300" name="website2" type="url"/>
+
+<p class="jw-err" id="jw-website-e"></p></div>
+</div>
+</div>
+</section>
+
+<!-- ============ STEP 5 ============ -->
+<section aria-labelledby="jw-h5" class="jw-step" hidden="" id="jw-step-5">
+<h2 id="jw-h5"><span class="jw-ico">💵</span>Price and availability</h2>
+<p class="jw-lede">You set your own price and keep all of it — EkGuru takes no commission. Times are in <b>your</b> timezone; students see them converted to theirs automatically.</p>
+<div aria-live="assertive" class="jw-summary" data-jw-summary="" hidden="" role="alert" tabindex="-1">
+<b data-jw-summary-title=""></b>
+<ul data-jw-summary-list=""></ul>
+</div>
+<div class="jw-fields">
+<div class="jw-row">
+<div class="jw-field">
+<label for="jw-price">Your price per lesson, in USD<span class="req" aria-hidden="true">*</span></label>
+<input aria-describedby="jw-price-h" data-label="Price" data-rule="price" id="jw-price" inputmode="numeric" max="200" min="1" name="rate_usd" required="" step="1" type="number"/>
+<p class="jw-help" id="jw-price-h">$1–$200. This is the amount you receive; the site displays it in the student's currency at the day's rate. Most new tutors start between $4 and $10.</p>
+<p class="jw-err" id="jw-price-e"></p>
+</div>
+<div class="jw-field">
+<label for="jw-duration">Lesson length<span class="opt">optional</span></label>
+<select data-label="Lesson length" id="jw-duration" name="duration">
+<option value="">Select</option>
+<option>50 min</option>
+<option>30 min</option>
+<option>60 min</option>
+<option>90 min</option>
+</select>
+<p class="jw-err" id="jw-duration-e"></p>
+</div>
+</div>
+<div class="jw-row">
+<div class="jw-field">
+<label for="jw-trial">Trial lesson<span class="opt">optional</span></label>
+<select id="jw-trial" name="trial">
+<option value="">Not offered</option>
+<option>Free short trial</option>
+<option>Discounted trial</option>
+<option>Full price from the first lesson</option>
+</select>
+<p class="jw-err" id="jw-trial-e"></p>
+</div>
+<div class="jw-field">
+<label for="jw-tz">Your timezone<span class="req" aria-hidden="true">*</span></label>
+<select aria-describedby="jw-tz-h" data-label="Timezone" id="jw-tz" name="timezone" required="">
+<option value="">Select your timezone</option>
+<option value="Asia/Kolkata">India — IST (GMT+5:30)</option>
+<option value="Asia/Karachi">Pakistan — PKT (GMT+5)</option>
+<option value="Asia/Dhaka">Bangladesh — BST (GMT+6)</option>
+<option value="Asia/Kathmandu">Nepal — NPT (GMT+5:45)</option>
+<option value="Asia/Dubai">UAE — GST (GMT+4)</option>
+<option value="Asia/Riyadh">Saudi Arabia — AST (GMT+3)</option>
+<option value="Asia/Singapore">Singapore — SGT (GMT+8)</option>
+<option value="Asia/Tokyo">Japan — JST (GMT+9)</option>
+<option value="Australia/Sydney">Australia — AEST/AEDT</option>
+<option value="Europe/London">UK — GMT/BST</option>
+<option value="Europe/Paris">Europe — CET/CEST</option>
+<option value="Europe/Berlin">Germany — CET/CEST</option>
+<option value="America/New_York">US Eastern — ET</option>
+<option value="America/Chicago">US Central — CT</option>
+<option value="America/Denver">US Mountain — MT</option>
+<option value="America/Los_Angeles">US Pacific — PT</option>
+<option value="America/Toronto">Canada Eastern — ET</option>
+<option value="America/Vancouver">Canada Pacific — PT</option>
+<option value="America/Sao_Paulo">Brazil — BRT</option>
+<option value="Africa/Nairobi">East Africa — EAT (GMT+3)</option>
+</select>
+<p class="jw-err" id="jw-tz-e"></p>
+<p class="jw-help" id="jw-tz-h">Not sure? Pick the one matching your city — we confirm it with you before your profile goes live.</p>
+</div>
+</div>
+<div class="jw-field">
+<span class="jw-label" id="jw-avail-l">Which days can you teach?<span class="req" aria-hidden="true">*</span></span>
+<p class="jw-help" style="margin:-2px 0 8px">Tick a day, then set the hours. Only tick days you genuinely keep free — a slot you cannot teach means a student waiting for nothing.</p>
+<div aria-labelledby="jw-avail-l" class="jw-days">
+<div class="jw-day is-off" data-day="Mon"><label class="jw-day-toggle"><input name="day-mon" type="checkbox"/> Monday</label><div class="jw-slots"><input aria-label="Monday start time" disabled="" name="mon-from" type="time"/><span class="to">to</span><input aria-label="Monday end time" disabled="" name="mon-to" type="time"/></div></div>
+<div class="jw-day is-off" data-day="Tue"><label class="jw-day-toggle"><input name="day-tue" type="checkbox"/> Tuesday</label><div class="jw-slots"><input aria-label="Tuesday start time" disabled="" name="tue-from" type="time"/><span class="to">to</span><input aria-label="Tuesday end time" disabled="" name="tue-to" type="time"/></div></div>
+<div class="jw-day is-off" data-day="Wed"><label class="jw-day-toggle"><input name="day-wed" type="checkbox"/> Wednesday</label><div class="jw-slots"><input aria-label="Wednesday start time" disabled="" name="wed-from" type="time"/><span class="to">to</span><input aria-label="Wednesday end time" disabled="" name="wed-to" type="time"/></div></div>
+<div class="jw-day is-off" data-day="Thu"><label class="jw-day-toggle"><input name="day-thu" type="checkbox"/> Thursday</label><div class="jw-slots"><input aria-label="Thursday start time" disabled="" name="thu-from" type="time"/><span class="to">to</span><input aria-label="Thursday end time" disabled="" name="thu-to" type="time"/></div></div>
+<div class="jw-day is-off" data-day="Fri"><label class="jw-day-toggle"><input name="day-fri" type="checkbox"/> Friday</label><div class="jw-slots"><input aria-label="Friday start time" disabled="" name="fri-from" type="time"/><span class="to">to</span><input aria-label="Friday end time" disabled="" name="fri-to" type="time"/></div></div>
+<div class="jw-day is-off" data-day="Sat"><label class="jw-day-toggle"><input name="day-sat" type="checkbox"/> Saturday</label><div class="jw-slots"><input aria-label="Saturday start time" disabled="" name="sat-from" type="time"/><span class="to">to</span><input aria-label="Saturday end time" disabled="" name="sat-to" type="time"/></div></div>
+<div class="jw-day is-off" data-day="Sun"><label class="jw-day-toggle"><input name="day-sun" type="checkbox"/> Sunday</label><div class="jw-slots"><input aria-label="Sunday start time" disabled="" name="sun-from" type="time"/><span class="to">to</span><input aria-label="Sunday end time" disabled="" name="sun-to" type="time"/></div></div>
+</div>
+<p class="jw-err" id="jw-avail-e"></p>
+</div>
+</div>
+</section>
+
+<!-- ============ STEP 6 ============ -->
+<section aria-labelledby="jw-h6" class="jw-step" hidden="" id="jw-step-6">
+<h2 id="jw-h6"><span class="jw-ico">📝</span>Anything else</h2>
+<p class="jw-lede">All optional — but a sentence here often decides a review. Use Continue when you are ready.</p>
+<div class="jw-summary" data-jw-summary="" hidden="" role="alert" aria-live="assertive" tabindex="-1">
+<b data-jw-summary-title=""></b>
+<ul data-jw-summary-list=""></ul>
+</div>
+<div class="jw-fields">
+<div class="jw-field">
+<label for="jw-why">Why do you want to teach with EkGuru?<span class="opt">optional</span></label>
+<textarea aria-describedby="jw-why-h" id="jw-why" maxlength="500" name="why" placeholder="e.g. I want more children to speak Hindi with their grandparents." rows="3"></textarea>
+<p class="jw-err" id="jw-why-e"></p>
+<p class="jw-help" id="jw-why-h">Two sentences is plenty. A person reads this, not a score.</p>
+</div>
+<div class="jw-row">
+<div class="jw-field">
+<label for="jw-currency">Currency<span class="opt">optional</span></label>
+<select aria-describedby="jw-currency-h" data-label="Currency" id="jw-currency" name="currency">
+<option value="">Select</option>
+<option value="USD">USD — US dollar</option>
+<option value="INR">INR — Indian rupee</option>
+</select>
+<p class="jw-err" id="jw-currency-e"></p>
+<p class="jw-help" id="jw-currency-h">Students pay in USD on this site, so an INR price is converted at checkout.</p>
+</div>
+<div class="jw-field">
+<label for="jw-contact-pref">How should we contact you first?<span class="opt">optional</span></label>
+<select aria-describedby="jw-contact-h" id="jw-contact-pref" name="contact_pref">
+<option value="">No preference</option>
+<option value="Email">Email</option>
+<option value="WhatsApp">WhatsApp</option>
+<option value="Video call">Video call</option>
+</select>
+<p class="jw-err" id="jw-contact-pref-e"></p>
+<p class="jw-help" id="jw-contact-h">We always start by email. This only tells us what to try next.</p>
+</div>
+</div>
+<div class="jw-field">
+<label for="jw-referral">How did you hear about EkGuru?<span class="opt">optional</span></label>
+<input aria-describedby="jw-referral-h" id="jw-referral" maxlength="120" name="referral" placeholder="e.g. a friend, YouTube, a Facebook group" type="text"/>
+<p class="jw-help" id="jw-referral-h">Helps us know where tutors actually find us.</p>
+<p class="jw-err" id="jw-referral-e"></p>
+</div>
+</div>
+<p class="jw-status" data-jw-stepnote="" role="status"></p>
+</section>
+
+<!-- ============ STEP 7 ============ -->
+<section aria-labelledby="jw-h7" class="jw-step" data-jw-final="" hidden="" id="jw-step-7">
+<h2 id="jw-h7"><span class="jw-ico">✅</span>Review and submit</h2>
+<p class="jw-lede">This is exactly what a student will see, minus your private details. Use an Edit button to change anything — nothing you typed is lost when you do.</p>
+
+<div class="jw-summary" data-jw-summary="" hidden="" role="alert" aria-live="assertive" tabindex="-1">
+<b data-jw-summary-title=""></b>
+<ul data-jw-summary-list=""></ul>
+</div>
+
+<div class="jw-field">
+<span class="jw-label">Completeness <b data-jw-pct="">0%</b></span>
+<div class="jw-bar" data-jw-pcttrack="" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><i data-jw-pctbar="" style="width:0%"></i></div>
+<ul class="jw-checklist" data-jw-checklist=""></ul>
+</div>
+
+<div class="jw-preview">
+<div class="jw-preview-head" data-jw-pv-head="">
+<div aria-hidden="true" class="jw-preview-avatar">?</div>
+<div><h3>Your name</h3><p>City, country</p></div>
+<button class="jw-pv-edit" data-jw-goto="0" type="button">Edit personal details</button>
+</div>
+<div class="jw-preview-body">
+<dl style="margin:0">
+<div class="jw-pv"><dt>Headline</dt><dd data-jw-pv="headline"></dd><button class="jw-pv-edit" data-jw-goto="3" type="button">Edit profile</button></div>
+<div class="jw-pv"><dt>About me</dt><dd data-jw-pv="bio"></dd><button class="jw-pv-edit" data-jw-goto="3" type="button">Edit profile</button></div>
+<div class="jw-pv"><dt>Teaches</dt><dd data-jw-pv="subject"></dd><button class="jw-pv-edit" data-jw-goto="1" type="button">Edit teaching</button></div>
+<div class="jw-pv"><dt>Student levels</dt><dd data-jw-pv="levels"></dd><button class="jw-pv-edit" data-jw-goto="1" type="button">Edit teaching</button></div>
+<div class="jw-pv"><dt>Languages</dt><dd data-jw-pv="languages"></dd><button class="jw-pv-edit" data-jw-goto="1" type="button">Edit teaching</button></div>
+<div class="jw-pv"><dt>Experience</dt><dd data-jw-pv="experience"></dd><button class="jw-pv-edit" data-jw-goto="1" type="button">Edit teaching</button></div>
+<div class="jw-pv"><dt>Education</dt><dd data-jw-pv="education"></dd><button class="jw-pv-edit" data-jw-goto="2" type="button">Edit education</button></div>
+<div class="jw-pv"><dt>Media</dt><dd data-jw-pv="media"></dd><button class="jw-pv-edit" data-jw-goto="3" type="button">Edit profile</button></div>
+<div class="jw-pv"><dt>Price</dt><dd data-jw-pv="price"></dd><button class="jw-pv-edit" data-jw-goto="4" type="button">Edit pricing</button></div>
+<div class="jw-pv"><dt>Availability</dt><dd data-jw-pv="availability"></dd><button class="jw-pv-edit" data-jw-goto="4" type="button">Edit availability</button></div>
+<div class="jw-pv"><dt>Anything else</dt><dd data-jw-pv="extra"></dd><button class="jw-pv-edit" data-jw-goto="5" type="button">Edit</button></div>
+</dl>
+</div>
+</div>
+
+<div class="jw-consent" style="margin-top:20px">
+<div class="jw-field">
+<label><input aria-describedby="jw-consent-data-e" data-label="Confirm your details are true" id="jw-consent-data" name="consent" required="" type="checkbox" value="yes"/> <span>Everything I have written is true and mine, and I am happy for EkGuru to publish the public parts of it once my application is approved.<span class="req" aria-hidden="true">*</span></span></label>
+<p class="jw-err" id="jw-consent-data-e"></p>
+</div>
+<div class="jw-field">
+<label><input aria-describedby="jw-consent-privacy-e" data-label="Privacy consent" id="jw-consent-privacy" name="consent_privacy" required="" type="checkbox" value="yes"/> <span>I agree that EkGuru may keep these details to review my application and to reply to me, and that I can ask for them to be deleted at any time. I have read the <a href="/cookie-policy/">privacy and cookie policy</a>.<span class="req" aria-hidden="true">*</span></span></label>
+<p class="jw-err" id="jw-consent-privacy-e"></p>
+</div>
+</div>
+
+<div aria-hidden="true" style="position:absolute;left:-10000px;width:1px;height:1px;overflow:hidden"><label>Leave this empty <input autocomplete="off" name="website" tabindex="-1"/></label></div>
+
+<p class="jw-status" data-jw-status="" role="status" aria-live="polite"></p>
+<p class="sr-only" data-jw-live="" aria-live="polite" role="status"></p>
+</section>
+
+<!-- ============ nav ============
+     ONE set of controls for all seven steps. The buttons are real
+     <button> elements; which of Save & Next / Submit Application is visible
+     is decided by the step index in js/join-wizard.js, so Submit Application
+     can never appear before the review step and Save & Next can never
+     appear on it. Previous is disabled on step 1 by the same code. -->
+<div class="jw-nav">
+<button class="jw-back" type="button" disabled="">← Previous</button>
+<span class="spacer"></span>
+<button class="jw-next" type="button">Save &amp; Next →</button>
+<button class="jw-submit" type="submit" hidden="">Submit Application</button>
+</div>
+<p class="jw-help" style="text-align:right;margin-top:8px" data-jw-submit-hint="" hidden=""></p>
+<p class="jw-help jw-submit-hint" style="text-align:right;margin-top:2px" hidden="">Nothing is published until we have reviewed it and you have approved your profile.</p>
+
+<!-- ============ no-JS / failed-init fallback ============
+     Shown by CSS only when the wizard did NOT take over (.jw-on missing), i.e.
+     when js/join-wizard.js failed to load or threw before it could wire the
+     buttons. Without this, that state silently renders all seven steps with no
+     navigation at all — which is exactly how "the buttons are missing" is
+     experienced. It hides itself the instant .jw-on is applied. -->
+<div class="jw-fallback" role="status">
+<p><b>The guided form did not start on this page.</b> Every question is
+still shown below and can be filled in, but the Save &amp; Next / Previous
+buttons only work when the page's script runs.</p>
+<p>If you would rather not scroll through it, email your application to
+<a data-email="" href="mailto:EkGuruLearning@gmail.com">EkGuruLearning@gmail.com</a>
+and we will reply. Nothing you have typed is lost if you reload.</p>
+</div>
+
+</div>
+
+<aside class="jw-rail">
+<div class="jw-rail-card">
+<h3>💡 How this works</h3>
+<ul>
+<li>Takes about 5 minutes.</li>
+<li>Nothing goes live until we have read it.</li>
+<li>You can stop at any step — the required ones are marked *.</li>
+<li>You keep everything you charge.</li>
+</ul>
+</div>
+<div class="jw-rail-card jw-rail-optional">
+<h3>📷 A good photo</h3>
+<p>Square, at least 500×500px, face clearly visible, plain background. Not a group photo or a screenshot.</p>
+<div class="jw-tip">Upload it to Google Drive → right-click → Share → <b>Anyone with the link</b> → copy the link.</div>
+</div>
+<div class="jw-rail-card jw-rail-optional">
+<h3>✍️ A good bio</h3>
+<p>Write it yourself. Say where you are from, how long you have taught, who you teach best, and what a lesson with you feels like.</p>
+<div class="jw-tip">150–250 words. Plain, honest sentences read better than big words.</div>
+</div>
+<div class="jw-rail-card">
+<h3>❓ Stuck?</h3>
+<p class="jw-save-hint"><span>✉️</span><span>Email <a data-email="" href="mailto:EkGuruLearning@gmail.com">EkGuruLearning@gmail.com</a> and we will reply. Your answers are not saved if you close this page.</span></p>
+</div>
+</aside>
+</div>
 </form>
+
+<div hidden="" data-jw-done="">
+<div class="jw-done">
+<div class="tick">✓</div>
+<h2>Application received</h2>
+<p>Your reference is</p>
+<p class="jw-ref" data-jw-ref="">—</p>
+<p class="muted" style="max-width:46ch;margin:14px auto 0">We review every application by hand — usually within a few days. Keep the reference above: quote it if you email us. Nothing is published until we have checked your details and you have confirmed them.</p>
+<p style="margin-top:18px"><a class="btn btn-primary" href="find-tutors.html">See the tutors already teaching</a></p>
+</div>
+</div>
+</div>
+
 <p class="muted" style="margin:14px 0 0;font-size:.92rem">Prefer email? Use the button below.</p>
 <a class="btn btn-primary btn-lg" data-i18n="join.emailBtn" href="mailto:EkGuruLearning@gmail.com" id="join-mail" style="margin-top:20px">Email your application</a>
 <p class="muted join-alt" id="join-alt" style="margin-top:12px;font-size:.9rem">
