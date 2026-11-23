@@ -2,7 +2,7 @@
    EkGuru — SHEET OVERRIDES  (GENERATED — DO NOT EDIT)
    ---------------------------------------------------------
    Written by tools/sheetsync.js from the Google Sheet on
-   2026-11-22T23:35:43.115Z.
+   2026-11-23T07:32:02.762Z.
 
    Loaded AFTER the hand-written tutor files, so the sheet
    wins. Delete this file and the site falls back to those
@@ -398,7 +398,10 @@ window.EKGURU_SHEET_OVERRIDES = {
 window.EKGURU_SHEET_SETTINGS = {
   "email": "EkGuruLearning@gmail.com",
   "applyFormUrl": "https://forms.gle/xtnT1mwuDvSKxn8F6",
+  "youtubeChannel": "https://www.youtube.com/@ekguru_india",
   "tagline": "One Student. One Goal. One Guru.",
+  "twitter": "https://x.com/ekguru_india",
+  "linkedin": "https://www.linkedin.com/company/ekguru",
   "supportPaypal": "https://paypal.me/itsThePrakas?locale.x=en_GB&country.x=IN"
 };
 /* v130 — ids whose sheet row says active=no, as of this build.
@@ -1311,6 +1314,129 @@ window.EKGURU_SHEET_TUTORS = [
     "photo": "images/placeholder-tutor.jpg",
     "thumb": "images/placeholder-tutor.jpg",
     "noPhoto": true,
+    "sheetOnly": true
+  },
+  {
+    "id": "mantasha-zafar",
+    "name": "Mantasha Zafar",
+    "nickname": "Mantasha",
+    "headline": "Hindi tutor for children and beginners",
+    "city": "Kanpur",
+    "country": "India",
+    "timezone": "Asia/Kolkata",
+    "subject": "Hindi",
+    "lessonLength": "50 min",
+    "priceUSD": 10,
+    "experienceYears": 1,
+    "trialAvailable": true,
+    "countryFlag": "🇮🇳",
+    "tags": [
+      "Hindi",
+      "Law",
+      "Postgraduate",
+      "Friendly"
+    ],
+    "teaches": [
+      "Hindi speaking",
+      "reading",
+      "writing",
+      "grammar; beginners and children"
+    ],
+    "levels": [
+      "Beginner"
+    ],
+    "speaks": [
+      {
+        "lang": "Hindi",
+        "level": "Fluent"
+      },
+      {
+        "lang": "English",
+        "level": "Fluent"
+      },
+      {
+        "lang": "Urdu",
+        "level": "Fluent"
+      }
+    ],
+    "about": [
+      "I am Mantasha Zafar, a Hindi tutor from Kanpur, Uttar Pradesh, India. I have completed my post-graduation and also studied law, and I love teaching Hindi to children and beginners."
+    ],
+    "methodology": [
+      {
+        "title": "I teach step by step and keep it simple: speaking first, then reading and writing. I use everyday conversation, short stories and repetition so a child remembers what was taught. I am patient with complete beginners and never rush a learner.",
+        "desc": ""
+      }
+    ],
+    "reviews": [],
+    "reviewsCount": 0,
+    "rating": 0,
+    "photo": "images/placeholder-tutor.jpg",
+    "thumb": "images/placeholder-tutor.jpg",
+    "noPhoto": true,
+    "sheetOnly": true
+  },
+  {
+    "id": "neha-sharma",
+    "name": "Neha Sharma",
+    "nickname": "Neha",
+    "headline": "Hindi tutor for all levels, beginners to advanced",
+    "city": "Agra",
+    "country": "India",
+    "timezone": "Asia/Kolkata",
+    "subject": "Hindi",
+    "lessonLength": "50 min",
+    "priceUSD": 20,
+    "experienceYears": 3,
+    "trialAvailable": true,
+    "photo": "https://nehasharma.me/wp-content/uploads/2026/05/ChatGPT-Image-May-6-2026-11_21_14-AM.png",
+    "countryFlag": "🇮🇳",
+    "tags": [
+      "Hindi",
+      "Grammar",
+      "Conversation",
+      "Pronunciation"
+    ],
+    "teaches": [
+      "Hindi speaking",
+      "conversation",
+      "reading",
+      "writing",
+      "grammar",
+      "vocabulary",
+      "pronunciation"
+    ],
+    "levels": [
+      "Beginner",
+      "Intermediate",
+      "Advanced"
+    ],
+    "speaks": [
+      {
+        "lang": "Hindi",
+        "level": "Fluent"
+      },
+      {
+        "lang": "English",
+        "level": "Fluent"
+      }
+    ],
+    "about": [
+      "I am a Hindi tutor based in Agra, India, teaching learners at every level — from complete beginners to advanced."
+    ],
+    "experience": [
+      "Lessons adapted to each learner's age, level and goals: speaking, reading, writing, grammar, vocabulary and pronunciation."
+    ],
+    "methodology": [
+      {
+        "title": "Lessons are adapted to each learner's age, level and goals: speaking, reading, writing, grammar, vocabulary and pronunciation.",
+        "desc": ""
+      }
+    ],
+    "reviews": [],
+    "reviewsCount": 0,
+    "rating": 0,
+    "thumb": "https://nehasharma.me/wp-content/uploads/2026/05/ChatGPT-Image-May-6-2026-11_21_14-AM.png",
     "sheetOnly": true
   }
 ];
