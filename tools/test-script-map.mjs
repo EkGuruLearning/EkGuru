@@ -33,17 +33,36 @@ function ok(name, actual, expected) {
 const list = JSON.parse(fs.readFileSync(new URL("../data/names/names.json", import.meta.url), "utf8")).names;
 assert.ok(list.length >= 100, "the curated list should cover at least 100 names");
 
+/* 23 Nov 2026 — `pa` and `hi` are OPTIONAL per field, and the gate has to say
+   so. tools/build-names-js.py already writes every script with
+   `if n.get(k)`, so a name may legitimately carry only the scripts it is
+   actually written in. Six entries (Ivan, George, Kenji, James, Paul, Mary)
+   carry ko/ru/am/el/ja/ar and no Indic form at all — they are non-Indian
+   names from the world list. This loop used to iterate `n.pa`
+   unconditionally, so the whole run died with "n.pa is not iterable" on the
+   first one and the gate never reached its real assertions.
+
+   The contract that matters is unchanged and still enforced: IF a form is
+   present, it must be in the right script and NFC-normalised. Guessing a
+   Gurmukhi or Devanagari spelling for a name nobody wrote one for would
+   invent data the curation note in names.json explicitly disclaims. */
 for (const n of list) {
-  for (const ch of n.pa) {
-    const cp = ch.codePointAt(0);
-    assert.ok(cp >= 0x0a00 && cp <= 0x0a7f, `${n.name}: ${ch} is not Gurmukhi`);
+  if (n.pa != null) {
+    assert.equal(typeof n.pa, "string", `${n.name}: pa must be a string`);
+    for (const ch of n.pa) {
+      const cp = ch.codePointAt(0);
+      assert.ok(cp >= 0x0a00 && cp <= 0x0a7f, `${n.name}: ${ch} is not Gurmukhi`);
+    }
+    assert.equal(n.pa.normalize("NFC"), n.pa, `${n.name}: pa should be NFC`);
   }
-  for (const ch of n.hi) {
-    const cp = ch.codePointAt(0);
-    assert.ok(cp >= 0x0900 && cp <= 0x097f, `${n.name}: ${ch} is not Devanagari`);
+  if (n.hi != null) {
+    assert.equal(typeof n.hi, "string", `${n.name}: hi must be a string`);
+    for (const ch of n.hi) {
+      const cp = ch.codePointAt(0);
+      assert.ok(cp >= 0x0900 && cp <= 0x097f, `${n.name}: ${ch} is not Devanagari`);
+    }
+    assert.equal(n.hi.normalize("NFC"), n.hi, `${n.name}: hi should be NFC`);
   }
-  assert.equal(n.pa.normalize("NFC"), n.pa, `${n.name}: pa should be NFC`);
-  assert.equal(n.hi.normalize("NFC"), n.hi, `${n.name}: hi should be NFC`);
 }
 pass++;
 ok("Singh is ਸਿੰਘ, not a mechanical ਸਿਂਹ", list.find(n => n.name === "Singh").pa, "ਸਿੰਘ");
@@ -138,7 +157,11 @@ assert.match(page, /href="https:\/\/ekguru\.shop\/name-in-punjabi\/" rel="canoni
 assert.match(page, /content="index, follow/, "page is approved for indexing, so it must say index");
 assert.match(page, /js\/script-map\.js/, "page must load the script map");
 assert.match(page, /js\/name-in-script\.js/, "page must load the controller");
+/* Same optional-field rule as §1: only names that HAVE a Gurmukhi form can be
+   required to appear in the Gurmukhi table. The six script-only entries above
+   would otherwise be asserted against the literal string "undefined". */
 for (const n of list) {
+  if (n.pa == null) continue;
   assert.ok(page.includes(n.pa), `curated table is missing ${n.name} (${n.pa})`);
 }
 pass++;
