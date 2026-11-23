@@ -1388,8 +1388,11 @@ window.EKGURU_SHEET_TUTORS = [
     "lessonLength": "50 min",
     "priceUSD": 20,
     "experienceYears": 3,
+    "youtubeId": "LRAPs5ujBt0",
     "trialAvailable": true,
     "photo": "https://nehasharma.me/wp-content/uploads/2026/05/ChatGPT-Image-May-6-2026-11_21_14-AM.png",
+    "thumb": "https://nehasharma.me/wp-content/uploads/2026/05/ChatGPT-Image-May-6-2026-11_21_14-AM.png",
+    "videoTitle": "Hindi Tutor Intro",
     "countryFlag": "🇮🇳",
     "tags": [
       "Hindi",
@@ -1436,7 +1439,6 @@ window.EKGURU_SHEET_TUTORS = [
     "reviews": [],
     "reviewsCount": 0,
     "rating": 0,
-    "thumb": "https://nehasharma.me/wp-content/uploads/2026/05/ChatGPT-Image-May-6-2026-11_21_14-AM.png",
     "sheetOnly": true
   }
 ];
