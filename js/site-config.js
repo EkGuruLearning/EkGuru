@@ -368,10 +368,17 @@ window.EKGURU_SITE = {
      Example: "https://forms.gle/AbCdEfGhIjKlMnOp"                       */
   applyFormUrl: "https://forms.gle/xtnT1mwuDvSKxn8F6",
 
-  /* ---------- Social (leave "" to hide) ---------- */
-  youtubeChannel: "https://www.youtube.com/@Sashi-e3s",
-  facebook: "",
-  instagram: "",
+  /* ---------- Social — official EkGuru accounts (leave "" to hide) ----------
+     These five are the ONLY official brand profiles. They feed the
+     footer "Follow EkGuru" column (tools/build-shell.js), the
+     Organization sameAs in js/seo.js, and the settings sheet
+     (js/settings.js) — one value, every surface. The founder's
+     personal LinkedIn lives separately under `founder` below. */
+  youtubeChannel: "https://www.youtube.com/@ekguru_india",
+  facebook: "https://www.facebook.com/profile.php?id=61596855810597",
+  instagram: "https://www.instagram.com/ekguru.in",
+  twitter: "https://x.com/ekguru_india",
+  linkedin: "https://www.linkedin.com/company/ekguru",
 
   /* ---------- Commerce ---------- */
   currency: "$",            // fallback symbol if conversion is off

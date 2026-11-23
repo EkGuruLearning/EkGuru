@@ -180,6 +180,7 @@ def build() -> str:
             {"@type": "Organization", "@id": "https://ekguru.shop/#org", "name": "EkGuru",
              "url": "https://ekguru.shop/", "description": "One Student. One Goal. One Guru.",
              "email": "EkGuruLearning@gmail.com",
+             "sameAs": ["https://www.youtube.com/@ekguru_india", "https://www.facebook.com/profile.php?id=61596855810597", "https://www.instagram.com/ekguru.in", "https://x.com/ekguru_india", "https://www.linkedin.com/company/ekguru"],
              "logo": {"@type": "ImageObject", "url": "https://ekguru.shop/images/og-cover.jpg"},
              "founder": {"@type": "Person", "name": "Prakash", "jobTitle": "Founder & CEO, EkGuru",
                          "alumniOf": {"@type": "CollegeOrUniversity", "name": "Malaviya National Institute of Technology Jaipur", "url": "https://www.mnit.ac.in/"},

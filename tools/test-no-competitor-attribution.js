@@ -65,6 +65,7 @@ const ALLOWED_HOSTS = new Set([
   "drive.google.com", "drive.usercontent.google.com",          /* public Drive photo URLs and resilient image fallbacks */
   "wa.me",                                                     /* tutor-provided WhatsApp contact links */
   "www.facebook.com", "twitter.com",                              /* social share buttons (js/features.js) */
+  "www.instagram.com", "instagram.com", "x.com",                   /* official EkGuru brand profiles (footer "Follow EkGuru", js/site-config.js) */
   "cal.com", "app.cal.com",                                      /* tutor-provided Cal.com booking links */
   "paypal.me"                                                  /* founder support payment link (owner data) */
 ]);

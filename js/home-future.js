@@ -21,17 +21,90 @@
   var finePointer = typeof window.matchMedia === "function" &&
     window.matchMedia("(pointer: fine)").matches;
 
-  /* ---- 1. motion + reveal ---- */
-  if (!reduceMotion) {
-    root.classList.add("hf-on");
-    var revealEls = doc.querySelectorAll(".xp-sec, .xp-rail");
-    if ("IntersectionObserver" in window && revealEls.length) {
-      var io = new IntersectionObserver(function (entries) {
-        entries.forEach(function (en) {
-          if (en.isIntersecting) { en.target.classList.add("hf-in"); io.unobserve(en.target); }
+  function toArray(list) { return Array.prototype.slice.call(list); }
+
+  /* ---- 1. motion + reveal ----
+     THRESHOLD BUG (fixed 23 Nov 2026). This used `{ threshold: 0.12 }`,
+     which asks "is 12% of this element on screen?". For a short section that
+     is a fine question. For the tutor section it is an impossible one: on a
+     phone the grid is one column, seventeen cards, roughly 7,000px tall, and
+     the largest ratio that can ever be visible is viewport/section ≈ 0.09 —
+     under the threshold no matter how far the visitor scrolls. The section
+     therefore never got .hf-in, stayed at `opacity: 0` from the rule in
+     css/home-future.css, and the tutor cards were blank on every phone and
+     narrow window. Desktop (3 columns, ~2,600px) cleared the threshold, which
+     is why it only ever looked broken on a small screen.
+
+     The intent is "has this section started to enter the viewport", not "is a
+     fixed share of it visible". rootMargin does that with threshold 0, and it
+     works for a section of any height. A fallback timer and a scroll-into-view
+     check cover the browsers where the observer is throttled or absent, so
+     the content is never left hidden. */
+    var REVEAL_AT = "0px 0px -50px 0px";
+
+    function showEl(el) { el.classList.add("hf-in"); }
+
+    if (!reduceMotion) {
+      /* .hf-on is what turns the motion rules in css/home-future.css on at
+         all — orbs, floats, the hero card transition, the [data-hf-reveal]
+         hide/reveal pair. It must be set on the same condition as before:
+         animation is opt-in and reduced-motion visitors never get it. */
+      root.classList.add("hf-on");
+      var revealEls = toArray(doc.querySelectorAll(".xp-sec, .xp-rail"));
+
+      if ("IntersectionObserver" in window) {
+        /* threshold 0 + a small negative bottom margin: fires as soon as the
+           section's top edge is 50px inside the viewport. Height-independent. */
+        var io = new IntersectionObserver(function (entries) {
+          entries.forEach(function (en) {
+            if (en.isIntersecting) { showEl(en.target); io.unobserve(en.target); }
+          });
+        }, { rootMargin: REVEAL_AT, threshold: 0 });
+
+        revealEls.forEach(function (el) {
+          el.setAttribute("data-hf-reveal", "");
+          io.observe(el);
         });
-      }, { threshold: 0.12 });
-      revealEls.forEach(function (el) { el.setAttribute("data-hf-reveal", ""); io.observe(el); });
+
+        /* Anything already on screen at load is shown at once: a short page
+           may never produce a scroll event, and the observer's first callback
+           can arrive after the first paint. */
+        revealEls.forEach(function (el) {
+          var r = el.getBoundingClientRect();
+          if (r.top < (root.innerHeight || 800) && r.bottom > 0) showEl(el);
+        });
+
+        /* Watchdog: if the observer is throttled, blocked, or the tab was in
+           the background during load, nothing may stay hidden. The old code
+           had no watchdog here, so one missed callback meant a permanently
+           invisible tutor section. `hf-stuck` is also the CSS hook that
+           outranks the hidden state, so even a stylesheet-only failure is
+           covered. */
+        window.setTimeout(function () {
+          toArray(doc.querySelectorAll("[data-hf-reveal]")).forEach(function (el) {
+            el.classList.add("hf-stuck");
+            showEl(el);
+          });
+          /* Last resort: if a section is still not visible for any reason,
+             switch the whole page to the flat fallback. */
+          var still = toArray(doc.querySelectorAll("[data-hf-reveal]")).filter(function (el) {
+            return !el.classList.contains("hf-in");
+          });
+          if (still.length) root.classList.add("hf-fallback");
+        }, 2500);
+      } else {
+        /* No IntersectionObserver (very old WebView, some in-app browsers):
+           reveal on first scroll, and show everything immediately otherwise. */
+        revealEls.forEach(function (el) { el.setAttribute("data-hf-reveal", ""); });
+        var revealOnScroll = function () {
+          toArray(doc.querySelectorAll("[data-hf-reveal]")).forEach(function (el) {
+            var r = el.getBoundingClientRect();
+            if (r.top < (root.innerHeight || 800)) showEl(el);
+          });
+        };
+        window.addEventListener("scroll", revealOnScroll, { passive: true });
+        revealOnScroll();
+      }
     }
     /* Gentle parallax on the hero orbs — transform only,
        throttled by rAF, fine pointers only. */
@@ -47,7 +120,6 @@
         });
       }, { passive: true });
     }
-  }
 
   /* ---- 2. header shadow ---- */
   var hdr = doc.querySelector(".hdr");

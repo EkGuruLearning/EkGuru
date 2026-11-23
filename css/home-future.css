@@ -140,6 +140,89 @@ h1, h2, .logo { text-wrap: balance; }
   *, *::before, *::after { animation: none !important; transition: none !important; }
 }
 
+/* =========================================================
+   SMALL SCREENS: REDUCE THE MOTION, NEVER THE CONTENT
+   ---------------------------------------------------------
+   Reported 23 Nov 2026: "chhoti size ke screen mai animated load
+   chia hate ya dilute chia to ye fallback lagaio jo sabhi size or
+   browser mai show ho".
+
+   Two separate promises, and this block keeps both:
+
+     1. ON A SMALL SCREEN the choreography is diluted, not replayed.
+        A page-tall reveal inside a 640px viewport is a scroll the
+        visitor did not ask for, and on a slow phone it is a blank
+        section while they wait. Sections appear at once, the
+        per-child stagger drops to a short fade.
+     2. IN ANY BROWSER, if the entrance never completes — observer
+        throttled, callback missed, old WebView, in-app browser —
+        the content is still on screen. The !important rules below
+        win over the hidden states in this file and in the legacy
+        .stagger rule, so a failed animation can never hide a tutor.
+
+   Nothing here changes layout, colour or hit-target size.
+   ========================================================= */
+
+@media (max-width: 767px) {
+  /* One short fade for the section, no travel, no per-child delay. */
+  .hf-on [data-hf-reveal] {
+    opacity: 0;
+    transform: none;
+  }
+  .hf-on [data-hf-reveal].hf-in {
+    opacity: 1;
+    transform: none;
+    transition: opacity .28s ease;
+  }
+  /* A phone scrolls the whole page at once; nothing waits on a stagger. */
+  .hf-on .xp-sec .xp-stagger > *,
+  .hf-on .xp-sec .xp-rise,
+  html.xp-anim .xp-sec .xp-stagger > * {
+    transition-delay: 0s !important;
+    transition-duration: .28s !important;
+    transform: none !important;
+  }
+  /* The 17-card tutor grid is one column here: the card content itself is
+     what matters, so it is never faded in per child. */
+  #tutor-list > *,
+  #find-list > * {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+  .hf-particle { display: none; }
+  .hf-scrollbar { display: none; }
+}
+
+/* Belt and braces for every width: if the visitor's browser never got the
+   .hf-in callback, [data-hf-reveal] must not stay at opacity 0. Any element
+   the scripts have forgotten is force-shown after the animation window, and
+   a browser without IntersectionObserver never gets the attribute at all
+   (js/home-future.js shows everything immediately in that case). */
+.hf-on [data-hf-reveal].hf-stuck,
+html.hf-fallback [data-hf-reveal] {
+  opacity: 1 !important;
+  transform: none !important;
+  transition: none !important;
+}
+
+/* Print, forced colours and high-contrast modes never animate or fade:
+   the page they get is the finished page. */
+@media print {
+  [data-hf-reveal],
+  .hf-on [data-hf-reveal] {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+@media (forced-colors: active), (prefers-contrast: more) {
+  .hf-on [data-hf-reveal] {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}
+
 /* Header gains a shadow once the page scrolls (JS toggles). */
 .hdr { transition: box-shadow .3s ease; }
 .hdr.hf-scrolled { box-shadow: 0 12px 34px rgba(10, 6, 32, .16); }

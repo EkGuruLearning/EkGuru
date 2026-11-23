@@ -207,7 +207,7 @@ def ensure_json_ld(soup, path):
                 "name": title,
                 "description": desc,
                 "isPartOf": {"@type":"WebSite","@id":"https://ekguru.shop/#website","url":"https://ekguru.shop/","name":"EkGuru"},
-                "about": {"@type":"Organization","name":"EkGuru","url":"https://ekguru.shop/"},
+                "about": {"@type":"Organization","name":"EkGuru","url":"https://ekguru.shop/","sameAs":["https://www.youtube.com/@ekguru_india","https://www.facebook.com/profile.php?id=61596855810597","https://www.instagram.com/ekguru.in","https://x.com/ekguru_india","https://www.linkedin.com/company/ekguru"]},
                 "inLanguage": "en"
             },
             {
