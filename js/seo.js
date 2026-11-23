@@ -399,7 +399,7 @@
     foundingDate: String(S.foundingYear || 2024),
     areaServed: M.map(function (m) { return { "@type": "Country", name: m.country }; }),
     knowsLanguage: ["hi", "en"],
-    sameAs: [S.youtubeChannel, S.facebook, S.instagram].filter(Boolean)
+    sameAs: [S.youtubeChannel, S.facebook, S.instagram, S.twitter, S.linkedin].filter(Boolean)
   };
 
   var WEBSITE = {

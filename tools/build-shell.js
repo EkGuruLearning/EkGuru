@@ -159,6 +159,18 @@ const COLUMNS = [
   ]],
 ];
 
+/* Official brand profiles — the "Follow EkGuru" footer column.
+   `key` is the js/site-config.js key (and the settings-sheet key);
+   the label is a proper noun, identical in every locale, so it is
+   not translated. A blank value hides that row (see site-config.js). */
+const SOCIALS = [
+  ["Facebook", "facebook"],
+  ["Instagram", "instagram"],
+  ["X (Twitter)", "twitter"],
+  ["YouTube", "youtubeChannel"],
+  ["LinkedIn", "linkedin"],
+];
+
 const TARGETS = {
   home: "index.html", findTutors: "find-tutors.html", join: "join.html",
   courses: "courses/index.html", byCountry: "courses/by-country/index.html", learn: "learn/", support: "support/index.html",
@@ -290,6 +302,19 @@ function footerHTML(p, shell, loc, dict) {
 ${links.map(renderLink).join("\n")}
     </div>`;
   }).join("\n");
+  /* Official profiles, from js/site-config.js (settings sheet wins).
+     data-s lets js/settings.js move the href if the sheet changes. */
+  const socialLinks = SOCIALS
+    .filter(([, key]) => shell.socials && shell.socials[key])
+    .map(([label, key]) =>
+      `      <a href="${esc(shell.socials[key])}" data-s="${key}" target="_blank" rel="noopener noreferrer">${esc(label)}</a>`)
+    .join("\n");
+  const followCol = socialLinks
+    ? `    <div>
+      <h3${loc ? ' data-i18n="ftr.follow"' : ""}>${esc(L("Follow EkGuru", "ftr.follow"))}</h3>
+${socialLinks}
+    </div>`
+    : "";
   return `${F_START}
 <footer class="ftr">
   <div class="wrap ftr-in">
@@ -301,6 +326,7 @@ ${links.map(renderLink).join("\n")}
       <p style="margin-top:14px"${loc ? ' data-i18n="ftr.about"' : ""}>${esc(L("Online Hindi lessons with independent tutor profiles.", "ftr.about"))}</p>
     </div>
 ${cols}
+${followCol}
   </div>
   <div class="wrap ftr-bot">
     <p class="ftr-founder">Written and maintained by Prakash in Jaipur, India.</p>
@@ -558,6 +584,15 @@ function main() {
     tagline: settings.tagline || config.tagline || "One Student. One Guru. One Goal.",
     mode: settings.mode || "",
     email: settings.email || config.email || "EkGuruLearning@gmail.com",
+    /* Official profiles: the settings sheet wins, js/site-config.js is
+       the fallback — the same precedence as tagline/email above. */
+    socials: {
+      facebook: settings.facebook || config.facebook || "",
+      instagram: settings.instagram || config.instagram || "",
+      twitter: settings.twitter || config.twitter || "",
+      youtubeChannel: settings.youtubeChannel || config.youtubeChannel || "",
+      linkedin: settings.linkedin || config.linkedin || "",
+    },
   };
 
   const pages = walk(".", []).sort();

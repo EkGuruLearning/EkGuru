@@ -43,6 +43,10 @@
        email            hello@example.com
        whatsapp         +919876543210
        youtubeChannel   https://youtube.com/@...
+       facebook         https://www.facebook.com/...
+       instagram        https://www.instagram.com/...
+       twitter          https://x.com/...
+       linkedin         https://www.linkedin.com/company/...
        applyFormUrl     https://forms.gle/...
        tagline          One Student. One Guru. One Goal.
 
@@ -130,6 +134,14 @@
     instagram: function (v) {
       if (/^(none|no|off)$/i.test(v)) return "";
       return /^https:\/\/(www\.)?instagram\.com\//.test(v) ? v : null;
+    },
+    twitter: function (v) {
+      if (/^(none|no|off)$/i.test(v)) return "";
+      return /^https:\/\/(www\.)?(x\.com|twitter\.com)\//.test(v) ? v : null;
+    },
+    linkedin: function (v) {
+      if (/^(none|no|off)$/i.test(v)) return "";
+      return /^https:\/\/(www\.)?linkedin\.com\//.test(v) ? v : null;
     },
     applyFormUrl: function (v) {
       if (/^(none|no|off)$/i.test(v)) return "";

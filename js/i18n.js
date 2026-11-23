@@ -532,6 +532,7 @@ window.EKGURU_I18N = {
     "ftr.about": "Clases de hindi online con perfiles de profesores independientes. Aprende a hablar, no solo a memorizar.",
     "ftr.contactForm": "Formulario de contacto", "ftr.contactSub": "Escríbenos — responde una persona",
     "ftr.legal": "Contacto y legal",
+    "ftr.follow": "Sigue a EkGuru",
     "ftr.bycountry": "Cursos por país",
     "ftr.tutors": "Todos los profesores",
     "ftr.locations": "Profesores de hindi por ciudad",
