@@ -1,0 +1,44 @@
+diff --git a/css/join-wizard.css b/css/join-wizard.css
+index 0509fe8..071f383 100644
+--- a/css/join-wizard.css
++++ b/css/join-wizard.css
+@@ -18,7 +18,8 @@
+ .jw {
+   --jw-gap: 18px;
+   --jw-ring: 0 0 0 3px rgba(91, 61, 245, .22);
+-  max-width: 1080px;
++  width: 100%;
++  max-width: 1120px;
+   margin: 0 auto;
+ }
+ 
+@@ -56,7 +57,7 @@
+ /* ---------- shell ---------- */
+ .jw-shell {
+   display: grid;
+-  grid-template-columns: minmax(0, 1fr) 300px;
++  grid-template-columns: 1fr;
+   gap: 32px;
+   align-items: start;
+ }
+@@ -1020,9 +1021,9 @@
+ 
+ /* ---------- side rail ---------- */
+ .jw-rail {
+-  position: sticky;
+-  top: calc(var(--hdr-h, 70px) + 16px);
++  position: static;
+   display: grid;
++  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+   gap: 16px;
+ }
+ 
+@@ -1074,8 +1075,6 @@
+ 
+ /* ---------- responsive ---------- */
+ @media (max-width: 940px) {
+-  .jw-shell { grid-template-columns: 1fr; }
+-  .jw-rail { position: static; }
+   /* On phones the rail is help, not a prerequisite: keep it after the form. */
+   .jw-rail-card.jw-rail-optional { display: none; }
+ }
