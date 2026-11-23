@@ -1074,6 +1074,37 @@
 }
 
 /* ---------- responsive ---------- */
+/* Desktop help cards: readable two-column guidance below the form. */
+@media (min-width: 941px) {
+  .jw-rail {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .jw-rail-card {
+    padding: 24px;
+    font-size: 1rem;
+  }
+
+  .jw-rail-card h3 {
+    font-size: 1.08rem;
+  }
+
+  .jw-rail-card ul,
+  .jw-rail-card p {
+    font-size: 1rem;
+    line-height: 1.7;
+  }
+
+  .jw-rail-card .jw-tip {
+    padding: 12px 14px;
+    font-size: .95rem;
+  }
+
+  .jw-save-hint {
+    font-size: .95rem;
+  }
+}
+
 @media (max-width: 940px) {
   /* On phones the rail is help, not a prerequisite: keep it after the form. */
   .jw-rail-card.jw-rail-optional { display: none; }
