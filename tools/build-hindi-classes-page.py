@@ -198,7 +198,25 @@ def build() -> str:
     text = text.replace(schema_old, new_schema, 1)
 
     # --- main body ---
+    # --- main body ---
+    # tools/apply-ultra.py decorates this page after the build (byline +
+    # voice note between </h1> and the first paragraph). Replacing <main>
+    # wholesale dropped that decoration, so the generator's --check and
+    # apply-ultra's --check could never both be green: whichever ran last
+    # made the other one stale (23 Nov 2026). Carry the decorated block
+    # across the rewrite instead.
+    # Read the decoration from the page ON DISK, not from `text`: `text` is
+    # rebuilt from find-tutors.html and never carries it. This keeps the
+    # generator correct in BOTH states — decorated (CI's build order) and
+    # stripped (CI's legacy-check order, where there is no block to carry).
+    ultra = None
+    if OUT.exists():
+        ultra = re.search(
+            r'<!-- ekguru:ultra-byline:start -->.*?<!-- ekguru:ultra-audio:end -->',
+            OUT.read_text(encoding="utf-8"), re.S)
     text = re.sub(r'<main id="main">.*?</main>\n', BODY, text, count=1, flags=re.S)
+    if ultra:
+        text = re.sub(r'(</h1>)', lambda m: m.group(1) + ultra.group(0), text, count=1)
 
     # --- normalise header/footer link prefixes to this page's depth ---
     # build-shell.js writes header/footer links relative to the page depth
