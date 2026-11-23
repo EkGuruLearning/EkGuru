@@ -473,6 +473,43 @@ html:not(.xp-anim) .xp-rise {
   animation: none !important;
 }
 
+/* ==========================================================================
+   FOLLOW-UP — THE LEGACY .stagger BUG (23 Nov 2026)
+   --------------------------------------------------------------------------
+   Reported: "home page pr tutor ... chhoti size ke screen mai animated load
+   chia hate ya dilute chia to ye fallback lagaio jo sabhi size or browser
+   mai show ho".
+
+   Root cause, and it is not the small screen: js/main.js renderHome() runs
+   AFTER js/experience.js boot() has already marked #tutor-list .in/.xp-in,
+   then replaces the grid's innerHTML with live cards. Every new node matches
+   the legacy `.stagger > * { opacity: 0 }` rule — the ancestor is already
+   `.in`, so the child inserts at opacity 0 and fades in from a transition it
+   never asked for. Visible symptoms, in order of how often they are met:
+
+     · iOS Safari / older WebKit: `.stagger.in > *` never matches the
+       re-created children, so all seventeen tutor cards stay at opacity 0 —
+       a blank "Public tutor profiles" section, no error in the console;
+     · every browser: the cards animate in on a scroll the visitor did not
+       perform, and a fast thumb-scroll paints them late ("load hi nahi hota");
+     · reduced-motion off, slow device: the 0.6s fade plus up to 0.5s delay
+       per child leaves the grid empty for a beat after the section paints.
+
+   The legacy hook is contractual (generators still write `stagger` into the
+   HTML), so the class is kept and the hiding is neutralised instead. The
+   live entrance effect is .xp-stagger and css/home-future.css, both of which
+   are opt-in and both of which are cancelled on small screens below.
+   ========================================================================== */
+
+html .stagger > *,
+html.xp-anim .stagger > *,
+html .stagger.in > *,
+html.xp-anim .stagger.in > * {
+  opacity: 1;
+  transform: none;
+  transition: none;
+}
+
 /* Sheen: a slow light pass over a card's top edge. Used on hero cards only —
    a whole page of sheens is noise. */
 .xp-sheen {
