@@ -121,6 +121,33 @@ and is applied without blocking rendering. */
 <script src="js/intake.js" defer></script>
 <script src="js/join-schema.js" defer></script>
 <script src="js/join-wizard.js" defer></script>
+<script>
+/* Last-resort watchdog. join.js is deferred, so by DOMContentLoaded it has had
+   its chance. If the form still lacks .jw-on, the wizard is dead (the file
+   404'd, was blocked, or threw early). Log it with something the person
+   debugging can act on, and make sure the visible fallback is on screen
+   rather than leaving a silently un-navigable page. */
+(function () {
+  function check() {
+    /* The CSS gate is `.jw:not(.jw-on)`, i.e. the OUTER wrapper, so that is
+       what decides whether the nav is painted. Check it, not the form. */
+    var root = document.getElementById("jw");
+    if (!root || root.classList.contains("jw-on")) return;   /* wizard is alive */
+    if (window.console && console.error) {
+      console.error("[EkGuru] The tutor wizard did not initialise: #jw never received .jw-on, so the " +
+        "navigation stays CSS-hidden. " +
+        "Most likely js/join-wizard.js or js/join-schema.js failed to load, or threw before init(). " +
+        "Check the Network and Console tabs.");
+    }
+    var fb = document.querySelector(".jw-fallback");
+    if (fb) fb.setAttribute("data-jw-fallback-on", "1");
+  }
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", check);
+  else check();
+  /* and once more after the deferred scripts are guaranteed to have run */
+  window.addEventListener("load", check);
+})();
+</script>
 <!-- ekguru:shell-header:end -->
 <div id="app-error"></div>
 <!-- v85 — English fallback inside every data-i18n container.
@@ -705,17 +732,33 @@ and is applied without blocking rendering. */
 
 <!-- ============ nav ============
      ONE set of controls for all seven steps. The buttons are real
-     <button> elements; which of Continue / Submit is visible is decided by
-     the step index in js/join-wizard.js, so Submit can never appear before
-     the review step and Next can never appear on it. -->
+     <button> elements; which of Save & Next / Submit Application is visible
+     is decided by the step index in js/join-wizard.js, so Submit Application
+     can never appear before the review step and Save & Next can never
+     appear on it. Previous is disabled on step 1 by the same code. -->
 <div class="jw-nav">
 <button class="jw-back" type="button" disabled="">← Previous</button>
 <span class="spacer"></span>
-<button class="jw-next" type="button">Continue →</button>
-<button class="jw-submit" type="submit" hidden="">Submit Tutor Application</button>
+<button class="jw-next" type="button">Save &amp; Next →</button>
+<button class="jw-submit" type="submit" hidden="">Submit Application</button>
 </div>
 <p class="jw-help" style="text-align:right;margin-top:8px" data-jw-submit-hint="" hidden=""></p>
 <p class="jw-help jw-submit-hint" style="text-align:right;margin-top:2px" hidden="">Nothing is published until we have reviewed it and you have approved your profile.</p>
+
+<!-- ============ no-JS / failed-init fallback ============
+     Shown by CSS only when the wizard did NOT take over (.jw-on missing), i.e.
+     when js/join-wizard.js failed to load or threw before it could wire the
+     buttons. Without this, that state silently renders all seven steps with no
+     navigation at all — which is exactly how "the buttons are missing" is
+     experienced. It hides itself the instant .jw-on is applied. -->
+<div class="jw-fallback" role="status">
+<p><b>The guided form did not start on this page.</b> Every question is
+still shown below and can be filled in, but the Save &amp; Next / Previous
+buttons only work when the page's script runs.</p>
+<p>If you would rather not scroll through it, email your application to
+<a data-email="" href="mailto:EkGuruLearning@gmail.com">EkGuruLearning@gmail.com</a>
+and we will reply. Nothing you have typed is lost if you reload.</p>
+</div>
 
 </div>
 

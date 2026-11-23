@@ -127,15 +127,35 @@ console.log("=== wizard buttons — real Chromium ===");
   /* This is the exact failure mode that produces the reported symptom:
      .jw:not(.jw-on) .jw-nav { display: none }. If the script never runs,
      Next/Previous/Submit vanish while the fields still work. */
+  /* The gate keys on the OUTER wrapper, not the form:
+       .jw:not(.jw-on) .jw-nav { display: none; }
+     #jw-form carries class `jw-form`, so removing the class from the form
+     proves nothing. This must strip it from #jw — which is exactly the
+     pre-fix state that hid the buttons on a healthy page. */
   const hiddenWithoutJS = await page.evaluate(() => {
-    const f = document.querySelector("#jw-form");
-    f.classList.remove("jw-on");
-    const cs = getComputedStyle(document.querySelector(".jw-nav"));
-    const hidden = cs.display === "none";
-    f.classList.add("jw-on");
-    return hidden;
+    const outer = document.getElementById("jw");
+    const form = document.getElementById("jw-form");
+    outer.classList.remove("jw-on");
+    const hidden = getComputedStyle(document.querySelector(".jw-nav")).display === "none";
+    outer.classList.add("jw-on");
+    return { hidden, formStillMarked: form.classList.contains("jw-on") };
   });
-  check("regression guard: without .jw-on the nav IS hidden (the reported symptom)", hiddenWithoutJS === true);
+  check("regression guard: removing .jw-on from the OUTER #jw hides the nav (the reported symptom)",
+    hiddenWithoutJS.hidden === true);
+  check("regression guard: the form's own .jw-on cannot rescue the nav (hence the bug)",
+    hiddenWithoutJS.formStillMarked === true && hiddenWithoutJS.hidden === true);
+
+  /* And with the class in place, the nav must actually be painted. */
+  const navPainted = await page.evaluate(() => {
+    const cs = getComputedStyle(document.querySelector(".jw-nav"));
+    const b = document.querySelector(".jw-next");
+    const bs = getComputedStyle(b);
+    const r = b.getBoundingClientRect();
+    return { nav: cs.display, btn: bs.display, vis: bs.visibility, w: Math.round(r.width), h: Math.round(r.height) };
+  });
+  check("with .jw-on on #jw the nav is painted, not display:none", navPainted.nav !== "none", navPainted.nav);
+  check("Save & Next has a real box (width>60, height>=44)", navPainted.w > 60 && navPainted.h >= 44,
+    navPainted.w + "x" + navPainted.h);
   await page.context().close();
 }
 
@@ -181,6 +201,9 @@ for (const width of [360, 390, 768, 1366]) {
 
   const onStep2 = await page.evaluate(() => document.querySelector(".jw-step.is-active").id);
   check("390px: valid step 1 advances to step 2", onStep2 === "jw-step-2", onStep2);
+
+  const lbl2 = await page.evaluate(() => document.querySelector(".jw-next").textContent.trim());
+  check("390px: step 2 forward button reads 'Save & Next \u2192'", lbl2 === "Save & Next \u2192", lbl2);
 
   const back2 = await reachable(page, ".jw-back");
   check("390px: Previous is visible and enabled on step 2", back2.found && back2.visible && !(await page.evaluate(() => document.querySelector(".jw-back").disabled)), back2.why);

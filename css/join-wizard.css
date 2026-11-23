@@ -192,10 +192,37 @@
    sticky header when they are focused. */
 .jw-pv-edit { scroll-margin-top: 96px; }
 
-/* JS off: every step shows, in order, so nothing is unreachable. */
+/* JS off: every step shows, in order, so nothing is unreachable.
+   The nav is hidden in that state because one set of controls for seven
+   steps makes no sense when all seven are on screen at once. The corollory
+   is the bug this file was fixed for: if js/join-wizard.js never runs, the
+   form still accepts typing while the buttons are display:none. The
+   generated guard below keeps a dead button out of sight but the working
+   one visible, and tools/test-join-wizard-nav.mjs pins the contract. */
 .jw:not(.jw-on) .jw-step { display: block; }
 .jw:not(.jw-on) .jw-nav,
 .jw:not(.jw-on) .jw-jump { display: none; }
+
+/* The visible apology for that state. Hidden while the wizard is alive, shown
+   the moment .jw-on is missing, so the tutor is never left with seven steps
+   and no way forward and no explanation. */
+.jw-fallback { display: none; }
+.jw:not(.jw-on) .jw-fallback {
+  display: block;
+  margin: 0 0 22px;
+  padding: 16px 18px;
+  border: 1px solid #f3c4c0;
+  border-left: 4px solid #b42318;
+  border-radius: 12px;
+  background: #fdf0ef;
+  color: #7a1a12;
+  font-size: .95rem;
+  line-height: 1.6;
+}
+.jw:not(.jw-on) .jw-fallback p { margin: 0 0 8px; }
+.jw:not(.jw-on) .jw-fallback p:last-child { margin-bottom: 0; }
+.jw:not(.jw-on) .jw-fallback b { display: block; margin-bottom: 6px; font-size: 1rem; }
+.jw:not(.jw-on) .jw-fallback a { color: #7a1a12; text-decoration: underline; font-weight: 700; }
 
 .jw-step > h2 {
   font-size: clamp(1.25rem, 2.6vw, 1.55rem);
@@ -804,7 +831,10 @@
    tutor's last field or hide behind the page's own fixed Contact button.
    Everything below exists to guarantee it is reachable at every width. */
 .jw-nav {
+  /* flex, not grid, and never dependent on the parent's display: the strip
+     stays a row even if an ancestor's layout changes. */
   display: flex;
+  flex: 1 1 auto;
   gap: 12px;
   align-items: center;
   margin-top: 26px;
@@ -813,7 +843,12 @@
   flex-wrap: wrap;
   /* Nothing inside may escape the card and get clipped. */
   position: relative;
-  z-index: 1;
+  /* Stacking matters: the site's fixed Contact bubble is z-index 90 and its
+     back-to-top button 89. The nav sits inside the card, and a card with no
+     stacking context of its own would put these buttons UNDER those bubbles.
+     The buttons themselves now carry their own lift (below) so an overlapping
+     fixed element can never swallow a click. */
+  z-index: 2;
   /* A tap target never smaller than 44px, per platform guidance. */
   min-height: 46px;
 }
@@ -828,7 +863,20 @@
 
 .jw-nav button {
   min-height: 46px;
+  /* A button in a wrapping flex row can be squeezed to zero width by a
+     neighbouring item. This keeps every control wide enough to read and
+     tap whatever else is in the row. */
+  flex: 0 0 auto;
+  white-space: nowrap;
+  /* Each control is its own stacking point, so it paints above a neighbouring
+     fixed corner widget rather than behind it. It is a button in normal
+     flow, not a floating element, so this cannot cover the tutor's fields. */
+  position: relative;
+  z-index: 1;
 }
+
+/* The single most important control on the last step takes the room. */
+.jw-nav .jw-submit { flex: 1 1 auto; }
 
 .jw-nav .jw-back {
   background: #fff;

@@ -111,7 +111,10 @@ console.log("=== wizard navigation + photo preview (jsdom: behaviour only, NOT v
   check("Next is offered on step 1", visible(nx));
   check("Previous is not offered on step 1", bb.disabled === true || !visible(bb));
   check("Submit is not offered before the review step", !visible(sb));
-  check("Submit button text says what it does", /submit/i.test(sb.textContent), sb.textContent.trim());
+  check("Next is labelled exactly \"Save & Next \u2192\"", sb.textContent !== null && nx.textContent.trim() === "Save & Next \u2192", JSON.stringify(nx.textContent.trim()));
+  check("the OUTER #jw wrapper also receives .jw-on (the CSS gate keys on it)", d.getElementById("jw").classList.contains("jw-on"), d.getElementById("jw").className);
+  check("Submit is labelled exactly \"Submit Application\"", sb.textContent.trim() === "Submit Application", JSON.stringify(sb.textContent.trim()));
+  check("Previous is labelled \"Previous\"", /previous/i.test(bb.textContent), JSON.stringify(bb.textContent.trim()));
 
   /* the missing-buttons symptom, reproduced on purpose */
   form.classList.remove("jw-on");
@@ -314,6 +317,53 @@ console.log("=== wizard navigation + photo preview (jsdom: behaviour only, NOT v
   await wait(120);
   check("a bad link shows no picture (and the validator explains why)",
     !box().classList.contains("has-img"), box().className);
+  dom.window.close();
+}
+
+/* ---------------------------------------------------- 7. dead-wizard fallback */
+/* The state that produces "the form works but there are no buttons": the
+   wizard never initialises, so .jw-on is missing and CSS hides the nav. The
+   tutor must not be left with no navigation AND no explanation. */
+{
+  const dom = new JSDOM(read("join.html"), {
+    url: "http://localhost/join.html", runScripts: "dangerously", pretendToBeVisual: true,
+    beforeParse(w) {
+      w.matchMedia = () => ({ matches: false, addListener() {}, addEventListener() {}, removeEventListener() {} });
+      w.fetch = () => Promise.reject(new Error("offline in tests"));
+      w.scrollTo = () => {};
+      w.console = Object.assign({}, w.console, { error: () => {} });
+    },
+  });
+  const d = dom.window.document;
+  /* Everything except the wizard itself: this is a 404 / blocked / throwing
+     js/join-wizard.js, which is the real-world cause. */
+  for (const f of ["js/site-config.js", "js/intake.js", "js/sheet.js", "js/join-schema.js"]) {
+    const s = d.createElement("script"); s.textContent = read(f); d.body.appendChild(s);
+  }
+  await wait(400);
+
+  const form = d.querySelector("#jw-form");
+  check("dead wizard: the form is NOT upgraded (.jw-on absent)", !form.classList.contains("jw-on"));
+  const fb = d.querySelector(".jw-fallback");
+  check("dead wizard: a fallback message exists in the page", !!fb);
+  check("dead wizard: the fallback explains what happened, in words",
+    /did not start/i.test(fb ? fb.textContent : ""), (fb ? fb.textContent : "").slice(0, 60));
+  check("dead wizard: the fallback offers a working email route out",
+    !!(fb && /EkGuruLearning@gmail\.com/.test(fb.innerHTML)));
+  /* The CSS contract: the fallback is shown exactly in the broken state. */
+  check("dead wizard: CSS shows the fallback only when .jw-on is missing (margin/selector contract)",
+    /\.jw:not\(\.jw-on\) \.jw-fallback/.test(read("css/join-wizard.css")));
+  check("dead wizard: CSS hides the fallback while the wizard is alive",
+    /\.jw-fallback \{\s*display: none;/.test(read("css/join-wizard.css")));
+  dom.window.close();
+}
+
+/* ---------------------------------------------------- 8. live wizard hides fallback */
+{
+  const { d, dom } = await boot();
+  const form = d.querySelector("#jw-form");
+  check("live wizard: fallback is in the DOM but not the visible state",
+    !!d.querySelector(".jw-fallback") && form.classList.contains("jw-on"));
   dom.window.close();
 }
 

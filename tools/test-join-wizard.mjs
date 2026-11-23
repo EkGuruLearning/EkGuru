@@ -236,7 +236,7 @@ function boot() {
   check("wizard boots and marks the form live", form.classList.contains("jw-on"));
   check("only step 1 is visible on load", visible().length === 1 && visible()[0].id === "jw-step-1",
     visible().map((s) => s.id).join(","));
-  check("Continue is shown, Submit hidden", (() => {
+  check("Save & Next is shown, Submit hidden", (() => {
     const n = doc.querySelector(".jw-next"), s = doc.querySelector(".jw-submit");
     return !n.hidden && s.hidden;
   })());
@@ -651,7 +651,7 @@ const wait = (ms) => new Promise((r) => setTimeout(r, ms || 120));
   d.consent();
   check("3. the review step offers Previous and Submit, never Next",
     d.cur() === 6 && d.next().hidden === true && d.submit().hidden === false &&
-    d.submit().textContent.trim() === "Submit Tutor Application" &&
+    d.submit().textContent.trim() === "Submit Application" &&
     d.back().hidden !== true && d.back().disabled === false,
     "cur=" + d.cur() + " submit=" + d.submit().textContent);
 }

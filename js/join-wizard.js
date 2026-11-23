@@ -1285,6 +1285,33 @@
   function init() {
     var form = $("#jw-form");
     if (!form) return;
+
+    /* ---------------------------------------------------------
+       BOTH the wrapper and the form must be marked.
+       ---------------------------------------------------------
+       css/join-wizard.css gates the navigation on the OUTER wrapper:
+
+           .jw:not(.jw-on) .jw-nav { display: none; }
+
+       #jw-form carries the class `jw-form`, NOT `jw`, so it never matches
+       that selector. Marking only the form left the wrapper permanently
+       `.jw:not(.jw-on)`, and the nav strip — a descendant of BOTH — stayed
+       display:none even though the wizard had initialised perfectly.
+
+       That is why the buttons were invisible while every DOM-only test
+       passed: the buttons existed, were enabled and were wired, and CSS
+       painted them at zero height.
+
+       The tests missed it because they only ever asserted DOM state. jsdom
+       DOES resolve the cascade through getComputedStyle, so a
+       display:none assertion was always possible — it just was not written.
+       tools/test-join-css-visibility.mjs now does exactly that, and it
+       fails if the outer wrapper loses this class.
+       --------------------------------------------------------- */
+    var root = form.closest(".jw") || document.getElementById("jw");
+    if (root) root.classList.add("jw-on");
+
+    /* Kept for compatibility with anything that looks at the form itself. */
     form.classList.add("jw-on");
 
     var total = steps(form).length;
@@ -1367,11 +1394,28 @@
       live.textContent = "";
       setTimeout(function () { live.textContent = text; }, 40);
     }
+    /* The forward control says what pressing it will actually do:
+         steps 1-5  "Save & Next ->"        (validate, move on)
+         step 6     "Preview Application ->" (the last step before review)
+         step 7     hidden; Submit takes over
+       A single button with one label for all seven steps made step 6 read
+       the same as step 1, which hid the fact that the next screen is the
+       final review. */
+    var NEXT_LABEL = "Save & Next \u2192";
+    var PREVIEW_LABEL = "Preview Application \u2192";
+
     function toggleSubmit(on) {
       var nx = $(".jw-next", form);
       var sb = $(".jw-submit", form);
       var hint = $(".jw-submit-hint", form);
-      if (nx) nx.hidden = !!on;
+      if (nx) {
+        nx.hidden = !!on;
+        if (!on) {
+          var cur = parseInt(form.getAttribute("data-jw-step") || "0", 10);
+          var label = (cur === lastIndex - 1) ? PREVIEW_LABEL : NEXT_LABEL;
+          if (nx.textContent.trim() !== label) nx.textContent = label;
+        }
+      }
       if (sb) sb.hidden = !on;
       if (hint) hint.hidden = !on;
     }
@@ -1534,7 +1578,7 @@
           /* Recoverable failure: unlock, restore the EXACT button label, and
              keep every answer the tutor typed. Nothing is cleared here. */
           form.removeAttribute("data-jw-sending");
-          if (btn) { btn.disabled = false; btn.textContent = "Submit Tutor Application"; }
+          if (btn) { btn.disabled = false; btn.textContent = "Submit Application"; }
 
           if (res.fallback || res.urlFallback) {
             mailtoFallback(form, pv.payload);
