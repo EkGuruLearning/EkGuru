@@ -17,8 +17,9 @@
 | **Bilingual Voice-Over (EN + HI)** | **Completed & Synchronized** | Recorded with your selected English (`voice-00`) & Hindi (`voice-01`) voices; split into 16 clean per-scene WAV stems + 3 full 60.0s timeline masters (`bilingual`, `english`, `hindi`). |
 | **Original Cinematic Score & Mix** | **Completed & Broadcast-Leveled** | Composed 100% original royalty-free Indian-fusion cinematic score (Bansuri, Tanpura silk drone, Santoor/felt-piano arpeggios, warm orchestral strings, golden resolve) mixed beneath VO at `-17.8 dBFS RMS / -1.5 dBFS Peak`. |
 | **Scene 7 Brand Reveal (`48–60s`)** | **Completed (Broadcast 1080p MP4)** | Rendered 30fps procedural 3D floating golden bokeh & volumetric glow + staggered luxury reveal of `EKGURU`, English tagline, HarfBuzz-shaped Devanagari `एक भाषा, एक नई दुनिया।`, and `ekguru.shop`. |
-| **60s Timed Director's Pre-Viz** | **Completed (`1920x1080`, `60.00s`)** | Audio-locked 60s Pre-Viz (`ekguru_60s_directors_previz_16x9.mp4`) using our 7 QC-inspected continuity frames, smooth sub-pixel camera motion, warm cinema grade, and final bilingual audio mix. *(Explicitly labeled as Pre-Viz — NOT a substitute for Veo 3.1 Lite live-action motion clips.)* |
-| **Clean Thumbnail / Cover (`16:9`)** | **Completed (`1920x1080` PNG & JPG)** | Saved to `06_exports/ekguru_thumbnail_16x9.png` & `.jpg`. |
+| **60s Timed Director's Pre-Viz (`16:9`)** | **Completed (`1920x1080`, `60.00s`)** | Audio-locked 60s Pre-Viz (`ekguru_60s_directors_previz_16x9.mp4`) using our 7 QC-inspected continuity frames, smooth sub-pixel camera motion, warm cinema grade, and final bilingual audio mix. *(Explicitly labeled as Pre-Viz — NOT a substitute for Veo 3.1 Lite live-action motion clips.)* |
+| **9:16 Instagram Reels & YouTube Shorts Suite** | **Completed (`1080x1920`, `30fps`)** | Native `9:16` portrait continuity plates (`02_reference_frames_9x16/`), full 60s Reel/Short (`ekguru_60s_instagram_reel_youtube_shorts_9x16.mp4`), 15s vertical teaser (`ekguru_15s_reel_shorts_teaser_9x16.mp4`), 12s vertical Scene 7 reveal (`scene_07_brand_reveal_master_9x16.mp4`), and UI safe-zone cover (`ekguru_reel_shorts_cover_9x16.jpg`). |
+| **Clean Thumbnail / Cover (`16:9` & `9:16`)** | **Completed (`1920x1080` & `1080x1920`)** | Saved to `06_exports/ekguru_thumbnail_16x9.png`/`.jpg` and `06_exports/ekguru_reel_shorts_cover_9x16.jpg`. |
 
 ---
 
@@ -35,6 +36,14 @@ docs/marketing/ekguru-brand-ad/
 │   ├── scene_05_indian_culture_16x9.jpg
 │   ├── scene_06_global_connection_16x9.jpg
 │   └── scene_07_brand_reveal_bg_16x9.jpg
+├── 02_reference_frames_9x16/                  # QC-approved native 9:16 portrait continuity plates for Reels/Shorts
+│   ├── scene_01_jaipur_sunrise_9x16.jpg
+│   ├── scene_02_learner_curiosity_9x16.jpg
+│   ├── scene_03_tutor_connection_9x16.jpg
+│   ├── scene_04_joy_of_learning_9x16.jpg
+│   ├── scene_05_indian_culture_9x16.jpg
+│   ├── scene_06_global_connection_9x16.jpg
+│   └── scene_07_brand_reveal_bg_9x16.jpg
 ├── 03_voiceover/                              # Individual per-scene EN & HI WAVs + 60s timeline VO stems
 │   ├── en_scene_01.wav .. en_scene_07.wav, en_scene_07_cta.wav
 │   ├── hi_scene_01.wav .. hi_scene_07.wav, hi_scene_07_tagline.wav
@@ -45,22 +54,30 @@ docs/marketing/ekguru-brand-ad/
 │   ├── ekguru_cinematic_score_60s.flac
 │   ├── ekguru_master_audio_60s_bilingual.flac / .mp3
 │   ├── ekguru_master_audio_60s_english.flac   / .mp3
-│   └── ekguru_master_audio_60s_hindi.flac     / .mp3
+│   ├── ekguru_master_audio_60s_hindi.flac     / .mp3
+│   └── ekguru_teaser_audio_15s_bilingual.flac
 ├── 05_brand_graphics/                         # Official EkGuru SVG logos, HarfBuzz Devanagari vectors & 1080p/9:16 overlays
 │   ├── ekguru_logo_official.svg
 │   ├── scene_07_endcard_overlay_1920x1080.png
 │   ├── scene_07_endcard_overlay_1080x1920.png
 │   ├── scene_07_endcard_preview_dark_1920x1080.png
+│   ├── scene_07_endcard_preview_dark_1080x1920.png
+│   ├── reel_cover_overlay_1080x1920.png
 │   └── scene_07_clean_particle_bg_12s_16x9.mp4
-├── 06_exports/                                # Playable renders & final deliverables
-│   ├── ekguru_60s_directors_previz_16x9.mp4   # 60.0s Timed Pre-Viz (1920x1080, 30fps, H.264 + AAC)
-│   ├── scene_07_brand_reveal_master_16x9.mp4  # 12.0s Finished Brand Ending (48–60s)
-│   ├── ekguru_thumbnail_16x9.png / .jpg       # Clean 16:9 Cover / Thumbnail
+├── 06_exports/                                # Playable renders & final deliverables (16:9 + 9:16 Reels/Shorts)
+│   ├── ekguru_60s_directors_previz_16x9.mp4            # 60.0s 16:9 Timed Pre-Viz (1920x1080, 30fps, H.264 + AAC)
+│   ├── scene_07_brand_reveal_master_16x9.mp4           # 12.0s 16:9 Finished Brand Ending (48–60s)
+│   ├── ekguru_thumbnail_16x9.png / .jpg                # Clean 16:9 Cover / Thumbnail
+│   ├── ekguru_60s_instagram_reel_youtube_shorts_9x16.mp4 # 60.0s 9:16 Vertical Reel/Short (1080x1920, 30fps)
+│   ├── ekguru_15s_reel_shorts_teaser_9x16.mp4          # 15.0s 9:16 Vertical Fast Teaser (1080x1920, 30fps)
+│   ├── scene_07_brand_reveal_master_9x16.mp4           # 12.0s 9:16 Vertical Brand Ending (1080x1920, 30fps)
+│   ├── ekguru_reel_shorts_cover_9x16.jpg               # Clean 9:16 Reels/Shorts Cover (grid 1:1 & 4:5 safe)
 │   └── (ekguru_ad_FINAL_60s_16x9.mp4, 9x16, & 15s teaser generated via assemble_veo_master.py)
 └── scripts/
     ├── render_brand_graphics.mjs
     ├── compose_music_and_mix.py
     ├── render_scene7_and_previz.py
+    ├── render_9x16_reel_shorts.py
     └── assemble_veo_master.py
 ```
 

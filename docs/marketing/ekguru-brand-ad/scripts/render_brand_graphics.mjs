@@ -144,6 +144,52 @@ function makeEndCard9x16({ includeBackdrop = false, layer = 'all' }) {
 </svg>`;
 }
 
+// Clean 16:9 Thumbnail / Cover Overlay (composited onto golden Jaipur sunrise scene_01)
+function makeThumbnailOverlay16x9() {
+  return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" width="1920" height="1080">
+  <defs>
+    ${LOGO_DEFS}
+    <linearGradient id="leftScrim" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#0b0d16" stop-opacity="0.92"/>
+      <stop offset="36%" stop-color="#0b0d16" stop-opacity="0.80"/>
+      <stop offset="62%" stop-color="#14111a" stop-opacity="0.34"/>
+      <stop offset="100%" stop-color="#000000" stop-opacity="0.06"/>
+    </linearGradient>
+    <linearGradient id="bottomVignette" x1="0%" y1="75%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#000000" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#090a0f" stop-opacity="0.52"/>
+    </linearGradient>
+    <linearGradient id="thumbRule" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#fcd34d" stop-opacity="0.95"/>
+      <stop offset="100%" stop-color="#f59e0b" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <rect width="1920" height="1080" fill="url(#leftScrim)"/>
+  <rect width="1920" height="1080" fill="url(#bottomVignette)"/>
+
+  <!-- Official EkGuru Logo + Brand Lockup (safe margin x=128, top=164) -->
+  ${officialLogoGroup(184, 164, 112)}
+  <text x="262" y="232" font-family="Plus Jakarta Sans, Inter" font-size="52" font-weight="800" letter-spacing="5" fill="#ffffff">EKGURU</text>
+  <text x="264" y="264" font-family="Inter" font-size="16" font-weight="600" letter-spacing="3.2" fill="#fcd34d">INDIAN LANGUAGE TUTORS</text>
+
+  <!-- Main Headline -->
+  <text x="128" y="454" font-family="Plus Jakarta Sans, Inter" font-size="74" font-weight="800" letter-spacing="-0.8" fill="#ffffff">Learn Indian</text>
+  <text x="128" y="544" font-family="Plus Jakarta Sans, Inter" font-size="74" font-weight="800" letter-spacing="-0.8" fill="#ffffff">Languages.</text>
+  <text x="128" y="632" font-family="Plus Jakarta Sans, Inter" font-size="56" font-weight="600" letter-spacing="-0.3" fill="#fde68a">Connect with India.</text>
+
+  <rect x="128" y="674" width="440" height="2.5" fill="url(#thumbRule)"/>
+
+  <!-- Hindi Tagline (HarfBuzz shaped path) -->
+  <path d="${devPaths.thumb_16x9}" fill="#f8fafc" fill-opacity="0.96"/>
+
+  <!-- Clean Website Pill -->
+  <g transform="translate(128, 824)">
+    <rect x="0" y="0" width="320" height="58" rx="29" fill="#ffffff" fill-opacity="0.12" stroke="#fcd34d" stroke-opacity="0.72" stroke-width="1.8"/>
+    <text x="160" y="38" text-anchor="middle" font-family="Inter" font-size="27" font-weight="600" letter-spacing="2" fill="#ffffff">ekguru.shop</text>
+  </g>
+</svg>`;
+}
+
 // 9:16 Vertical Cover / Thumbnail Overlay (1080x1920 — grid-center 1:1 & 4:5 safe too!)
 function makeCoverOverlay9x16() {
   return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 1920" width="1080" height="1920">
@@ -173,6 +219,15 @@ function makeCoverOverlay9x16() {
 </svg>`;
 }
 
+// Render 16:9 Horizontal Brand Graphics
+renderSvgToPng(makeEndCard16x9({ includeBackdrop: false, layer: 'all' }), path.join(OUT_DIR, 'scene_07_endcard_overlay_1920x1080.png'), 1920);
+renderSvgToPng(makeEndCard16x9({ includeBackdrop: true, layer: 'all' }), path.join(OUT_DIR, 'scene_07_endcard_preview_dark_1920x1080.png'), 1920);
+for (const l of ['logo_and_title', 'en_tagline', 'hi_tagline', 'url_pill']) {
+  renderSvgToPng(makeEndCard16x9({ includeBackdrop: false, layer: l }), path.join(OUT_DIR, `layer_${l}_1920x1080.png`), 1920);
+}
+renderSvgToPng(makeThumbnailOverlay16x9(), path.join(OUT_DIR, 'thumbnail_overlay_1920x1080.png'), 1920);
+
+// Render 9:16 Vertical (Instagram Reels / YouTube Shorts) Brand Graphics
 renderSvgToPng(makeEndCard9x16({ includeBackdrop: false, layer: 'all' }), path.join(OUT_DIR, 'scene_07_endcard_overlay_1080x1920.png'), 1080);
 renderSvgToPng(makeEndCard9x16({ includeBackdrop: true, layer: 'all' }), path.join(OUT_DIR, 'scene_07_endcard_preview_dark_1080x1920.png'), 1080);
 for (const l of ['logo_and_title', 'en_tagline', 'hi_tagline', 'url_pill']) {
