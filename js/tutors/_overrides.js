@@ -2,7 +2,7 @@
    EkGuru — SHEET OVERRIDES  (GENERATED — DO NOT EDIT)
    ---------------------------------------------------------
    Written by tools/sheetsync.js from the Google Sheet on
-   2026-11-24T04:45:59.942Z.
+   2026-11-24T17:38:31.921Z.
 
    Loaded AFTER the hand-written tutor files, so the sheet
    wins. Delete this file and the site falls back to those
@@ -1387,7 +1387,7 @@ window.EKGURU_SHEET_TUTORS = [
     "subject": "Hindi",
     "lessonLength": "50 min",
     "priceUSD": 20,
-    "experienceYears": 3,
+    "experienceYears": 23,
     "youtubeId": "LRAPs5ujBt0",
     "trialAvailable": true,
     "photo": "https://nehasharma.me/wp-content/uploads/2026/05/ChatGPT-Image-May-6-2026-11_21_14-AM.png",
