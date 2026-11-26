@@ -353,4 +353,7 @@ html[data-theme="contrast"] .grad-text { animation: none !important; }
   border: 1px solid var(--eg-line, #ddd6ff); background: var(--eg-surface, #fff); color: var(--eg-ink, #10131f); font: inherit;
 }
 .hf-type-input:focus-visible { outline: 3px solid var(--eg-focus, #4f32d9); outline-offset: 2px; }
+.hf-type-label, .hf-type-hint { flex-basis: 100%; }
+.hf-type-label { font-size: .82rem; font-weight: 700; }
+.hf-type-input { min-width: 0; width: 100%; }
 .hf-type-hint { font-size: .78rem; font-weight: 700; color: var(--xp-muted, #5f6577); align-self: center; }

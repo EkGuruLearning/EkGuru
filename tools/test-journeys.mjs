@@ -154,3 +154,26 @@ test("J8 redirect fallback is keyboard usable when refresh is unavailable", asyn
   await expect(page).toHaveURL(base + "/learn/hindi/conversation/");
   await context.close();
 });
+
+test("J9 home Hindi practice validates the displayed phrase", async ({ page }) => {
+  await page.goto(base + "/");
+  const card = page.locator('[data-hf-practice]');
+  const input = card.getByLabel('Type the phrase above (Hindi or Roman letters)');
+  const feedback = card.locator('[data-hf-type-msg]');
+  await input.fill('this is wrong');
+  await card.getByRole('button', { name: 'Check answer' }).click();
+  await expect(input).toHaveAttribute('aria-invalid', 'true');
+  await expect(feedback).toContainText('Not quite');
+  const phrase = await card.locator('[data-hf-word]').textContent();
+  await input.fill(phrase);
+  await expect(feedback).toBeEmpty();
+  await input.press('Enter');
+  await expect(feedback).toContainText('Correct!');
+  await expect(card.locator('[data-hf-word]')).toHaveText(phrase);
+  await card.getByRole('button', { name: 'Next word' }).click();
+  await expect(input).toHaveValue('');
+  await expect(feedback).toBeEmpty();
+  await input.fill(phrase);
+  await input.press('Enter');
+  await expect(input).toHaveAttribute('aria-invalid', 'true');
+});

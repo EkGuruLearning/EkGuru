@@ -86,6 +86,7 @@ ULTRA_BUILDS = [
      ["node", "tools/test-flashcards.mjs"]),
 ]
 ULTRA_TESTS = [
+    ("home Hindi practice checks the displayed phrase locally", ["node", "tools/test-home-practice.mjs"]),
     ("country phrase consolidation stays bounded, crawlable and ad-free", ["python3", "tools/test-country-phrase-consolidation.py"]),
     ("sitemap rebuilds never fabricate editorial freshness", ["python3", "tools/test-sitemap-freshness.py"]),
     ("public crawl targets, assets and reciprocal hreflang", ["python3", "tools/discovery_integrity.py"]),

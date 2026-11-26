@@ -134,15 +134,16 @@
 
   var WORDS = [
     { hi: "नमस्ते", roman: "Namaste", en: "Hello / greetings" },
-    { hi: "धन्यवाद", roman: "Dhanyavaad", en: "Thank you" },
+    { hi: "धन्यवाद", roman: "Dhanyavaad", en: "Thank you", answers: ["dhanyavad", "dhanyavaad"] },
     { hi: "कैसे हो?", roman: "Kaise ho?", en: "How are you?" },
-    { hi: "मैं ठीक हूँ", roman: "Main theek hoon", en: "I am fine" },
-    { hi: "मेरा नाम … है", roman: "Mera naam … hai", en: "My name is …" },
+    { hi: "मैं ठीक हूँ", roman: "Main theek hoon", en: "I am fine", answers: ["main thik hoon", "main theek hun", "main thik hun"] },
+    { hi: "मेरा नाम आशा है", roman: "Mera naam Asha hai", en: "My name is Asha" },
     { hi: "कृपया", roman: "Kripya", en: "Please" },
-    { hi: "माफ़ कीजिए", roman: "Maaf keejiye", en: "Excuse me / sorry" },
+    { hi: "माफ़ कीजिए", roman: "Maaf keejiye", en: "Excuse me / sorry", answers: ["maaf kijiye"] },
     { hi: "फिर मिलेंगे", roman: "Phir milenge", en: "See you again" },
     { hi: "शुभ प्रभात", roman: "Shubh prabhaat", en: "Good morning" },
-    { hi: "हाँ / नहीं", roman: "Haan / Nahi", en: "Yes / No" }
+    { hi: "हाँ", roman: "Haan", en: "Yes", answers: ["han"] },
+    { hi: "नहीं", roman: "Nahi", en: "No", answers: ["nahin"] }
   ];
   var i = Math.floor(Math.random() * WORDS.length);
 
@@ -152,7 +153,7 @@
   card.setAttribute("aria-label", "Hindi practice: word of the moment");
   card.innerHTML =
     '<h2>✨ Hindi practice — try one now</h2>' +
-    '<p class="hf-sub">No sign-up. Read it, hear it, say it out loud.</p>' +
+    '<p class="hf-sub">Copy the phrase in Hindi or Roman letters, then check your answer.</p>' +
     '<div class="hf-stage"><div class="hf-word" lang="hi" data-hf-word></div>' +
     '<div class="hf-meta"><div class="hf-roman" data-hf-roman></div>' +
     '<div class="hf-mean" data-hf-mean></div></div></div>' +
@@ -175,6 +176,7 @@
     var w = WORDS[i];
     wEl.textContent = w.hi; rEl.textContent = w.roman; mEl.textContent = w.en;
     pEl.textContent = (i + 1) + " / " + WORDS.length;
+    if (typeInput) resetAnswer();
     if (flip && !reduceMotion) {
       wEl.classList.remove("hf-flip"); void wEl.offsetWidth; wEl.classList.add("hf-flip");
     }
@@ -269,50 +271,60 @@
     onScroll2();
   }
 
-  /* typing practice inside the Hindi widget */
-  if (host && !doc.querySelector("[data-hf-type]")) {
-    var TYPE_WORDS = [
-      { hi: "नमस्ते", roman: "namaste", en: "Hello" },
-      { hi: "धन्यवाद", roman: "dhanyavaad", en: "Thank you" },
-      { hi: "कृपया", roman: "kripya", en: "Please" },
-      { hi: "हाँ", roman: "haan", en: "Yes" },
-      { hi: "नहीं", roman: "nahi", en: "No" }
-    ];
-    var ti = 0;
-    var typeRow = doc.createElement("div");
-    typeRow.className = "hf-type-row";
-    typeRow.setAttribute("data-hf-type", "");
-    typeRow.innerHTML =
-      '<input class="hf-type-input" type="text" autocomplete="off" spellcheck="false" ' +
-      'aria-label="Type this word in Hindi script" placeholder="Type it…">' +
-      '<span class="hf-type-hint" data-hf-type-msg></span>';
-    var typeInput = typeRow.querySelector("input");
-    var typeMsg = typeRow.querySelector("[data-hf-type-msg]");
+  /* One displayed phrase, one answer key. Checking is deliberately local:
+     no API keys, network requests, daily quota or learner text uploads.
+     This is copy practice, not AI translation or pronunciation grading. */
+  var typeRow = doc.createElement("form");
+  typeRow.className = "hf-type-row";
+  typeRow.setAttribute("data-hf-type", "");
+  typeRow.setAttribute("aria-label", "Check the displayed Hindi phrase");
+  typeRow.innerHTML =
+    '<label class="hf-type-label" for="hf-answer">Type the phrase above (Hindi or Roman letters)</label>' +
+    '<input id="hf-answer" class="hf-type-input" type="text" autocomplete="off" spellcheck="false" ' +
+    'autocapitalize="none" maxlength="200" aria-describedby="hf-type-msg" placeholder="Type your answer…">' +
+    '<button type="submit" class="hf-btn hf-primary" data-hf-check>Check answer</button>' +
+    '<span id="hf-type-msg" class="hf-type-hint" data-hf-type-msg role="status" aria-live="polite" aria-atomic="true"></span>';
+  var typeInput = typeRow.querySelector("input");
+  var typeMsg = typeRow.querySelector("[data-hf-type-msg]");
 
-    function typeState() {
-      var w = TYPE_WORDS[ti];
-      typeInput.setAttribute("placeholder", "Type: " + w.roman + " (" + w.en + ")");
-      typeMsg.textContent = "";
-      typeMsg.style.color = "";
-    }
-    function typeCheck(e) {
-      if (e.key !== "Enter") return;
-      var w = TYPE_WORDS[ti];
-      var norm = typeInput.value.trim().toLowerCase().replace(/[।्]/g, "");
-      var want = w.roman.toLowerCase();
-      var ok = norm === want || norm === w.hi;
-      typeMsg.textContent = ok ? "✓ Perfect!" : "Try again — " + w.roman;
-      typeMsg.style.color = ok ? "var(--green, #1a7f37)" : "var(--red, #b3261e)";
-      if (ok) {
-        ti = (ti + 1) % TYPE_WORDS.length;
-        setTimeout(typeState, 500);
-      }
-    }
-    typeInput.addEventListener("keydown", typeCheck);
-
-    /* insert under the stage */
-    var stage = card.querySelector(".hf-stage");
-    if (stage && stage.parentNode) stage.parentNode.insertBefore(typeRow, stage.nextSibling);
-    typeState();
+  function clearFeedback() {
+    typeMsg.textContent = "";
+    typeMsg.style.color = "";
+    typeInput.removeAttribute("aria-invalid");
   }
+  function resetAnswer() {
+    typeInput.value = "";
+    clearFeedback();
+  }
+  function normalizeAnswer(value) {
+    // Preserve vowel signs, nasalization, nukta and virama: stripping them
+    // changes Hindi spelling. Ignore only case, spacing and end punctuation.
+    return value.normalize("NFC").toLowerCase().trim()
+      .replace(/[?!.।॥]+$/g, "").trim().replace(/\s+/g, " ");
+  }
+  typeRow.addEventListener("submit", function (e) {
+    e.preventDefault();
+    if (e.isComposing || composing) return;
+    var w = WORDS[i];
+    var answer = normalizeAnswer(typeInput.value);
+    var accepted = [w.hi, w.roman].concat(w.answers || []);
+    var ok = answer !== "" && accepted.some(function (value) {
+      return normalizeAnswer(value) === answer;
+    });
+    typeInput.setAttribute("aria-invalid", ok ? "false" : "true");
+    typeMsg.textContent = ok ? "✓ Correct! Choose Next word to continue." :
+      (answer ? "Not quite — try again. Copy: " + w.hi + " / " + w.roman :
+        "Type the phrase above before checking.");
+    typeMsg.style.color = ok ? "var(--green, #1a7f37)" : "var(--red, #b3261e)";
+    // Never auto-advance: feedback must describe the phrase still on screen.
+  });
+  var composing = false;
+  typeInput.addEventListener("compositionstart", function () { composing = true; });
+  typeInput.addEventListener("compositionend", function () { composing = false; });
+  typeInput.addEventListener("keydown", function (e) {
+    if (e.key === "Enter" && (e.isComposing || composing || e.keyCode === 229)) e.preventDefault();
+  });
+  typeInput.addEventListener("input", clearFeedback);
+  var stage = card.querySelector(".hf-stage");
+  stage.parentNode.insertBefore(typeRow, stage.nextSibling);
 })();
