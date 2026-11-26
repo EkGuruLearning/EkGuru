@@ -118,6 +118,7 @@ ULTRA_TESTS = [
     ("device journal, SRS scheduling, streak/freeze, backup, privacy", ["node", "tools/test-retention.mjs"]),
     ("legacy migration, corrupt/future storage, quota and calendar regressions", ["node", "tools/test-learning-storage.mjs"]),
     ("offline worker: private routes, aggregate quota, rollback, concurrency", ["node", "tools/test-learning-worker.mjs"]),
+    ("SEO, AEO & GEO discovery surfaces (OpenSearch, robots, llms-full, JSON-LD, Speculation Rules)", ["python3", "tools/build-seo-aeo-geo.py", "--check"]),
 ]
 
 

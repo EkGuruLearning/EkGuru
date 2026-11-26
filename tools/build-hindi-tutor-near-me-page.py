@@ -179,17 +179,21 @@ def build() -> str:
     }
     breadcrumb = {
         "@context": "https://schema.org", "@graph": [
-            {"@type": "Organization", "@id": "https://ekguru.shop/#org", "name": "EkGuru",
+            {"@type": ["Organization", "EducationalOrganization"], "@id": "https://ekguru.shop/#org", "name": "EkGuru",
              "url": "https://ekguru.shop/", "description": "One Student. One Goal. One Guru.",
-             "email": "EkGuruLearning@gmail.com",
+             "email": "EkGuruLearning@gmail.com", "areaServed": "Worldwide",
              "sameAs": ["https://www.youtube.com/@ekguru_india", "https://www.facebook.com/profile.php?id=61596855810597", "https://www.instagram.com/ekguru.in", "https://x.com/ekguru_india", "https://www.linkedin.com/company/ekguru"],
-             "logo": {"@type": "ImageObject", "url": "https://ekguru.shop/images/og-cover.jpg"},
+             "logo": {"@type": "ImageObject", "url": "https://ekguru.shop/images/icon-512.png", "width": 512, "height": 512},
              "founder": {"@type": "Person", "name": "Prakash", "jobTitle": "Founder & CEO, EkGuru",
                          "alumniOf": {"@type": "CollegeOrUniversity", "name": "Malaviya National Institute of Technology Jaipur", "url": "https://www.mnit.ac.in/"},
                          "sameAs": ["https://www.linkedin.com/in/itstheprakash/"]},
              "contactPoint": {"@type": "ContactPoint", "contactType": "customer support",
                               "email": "EkGuruLearning@gmail.com", "url": "https://ekguru.shop/contact/",
                               "availableLanguage": ["English", "Hindi"]}},
+            {"@type": "WebPage", "@id": f"{CANONICAL}#page", "url": CANONICAL,
+             "name": "Hindi Tutor Near Me — Online 1-on-1 Hindi Lessons",
+             "isPartOf": {"@id": "https://ekguru.shop/#website"},
+             "speakable": {"@type": "SpeakableSpecification", "cssSelector": [".hero h1", ".hero p.lead", ".faq b"]}},
             {"@type": "BreadcrumbList", "itemListElement": [
                 {"@type": "ListItem", "position": 1, "name": "EkGuru", "item": "https://ekguru.shop/"},
                 {"@type": "ListItem", "position": 2, "name": "Hindi tutor near me", "item": CANONICAL}]},
