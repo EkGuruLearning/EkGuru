@@ -60,7 +60,8 @@ ok("the analytics box shows the state in force (ticked)", window.document.getEle
 ok("advertising checkbox is disabled", window.document.getElementById("cc-advertising")?.disabled === true);
 const requestsBeforeReject = loaded.length;
 window.goatcounter = window.goatcounter || {};
-window.goatcounter.count = () => { throw new Error("count after opt-out"); };
+let directCalls = 0;
+window.goatcounter.count = () => { directCalls++; };
 window.document.getElementById("consent-reject").click();
 let state = JSON.parse(window.localStorage.getItem("ekguru_cookie_consent_v3"));
 ok("reject denies analytics", state.analytics === false);
@@ -68,7 +69,7 @@ ok("reject denies advertising", state.advertising === false);
 ok("reject causes no further analytics request", loaded.length === requestsBeforeReject);
 let threw = false;
 try { window.goatcounter.count({ path: "event/x", event: true }); } catch (e) { threw = true; }
-ok("reject silences later direct count() calls", !threw);
+ok("reject silences later direct count() calls", !threw && directCalls === 0);
 await new Promise((resolve) => setTimeout(resolve, 450));
 window.document.getElementById("ekguru-cookie-settings").click();
 window.document.getElementById("consent-accept-all").click();

@@ -38,9 +38,15 @@ const check = (n, c, e) => {
 };
 const wait = (ms = 240) => new Promise((r) => setTimeout(r, ms));
 
-/* All the stylesheets join.html loads, in document order, minus the two that
-   live outside css/ (icons/fonts are irrelevant to the nav). */
-const SHEETS = ["css/join-wizard.css"];
+/* Discover the stylesheet from the shipped page, not an assumed dependency.
+   Injecting an unlinked file made these tests pass while real visitors never
+   received the wizard CSS. The structure check must catch that regression. */
+const pageHead = new JSDOM(read("join.html")).window;
+const SHEETS = [...pageHead.document.querySelectorAll('link[rel="stylesheet"][href]')]
+  .map((link) => link.getAttribute("href").replace(/^\//, ""))
+  .filter((href) => href === "css/join-wizard.css");
+check("the shipped join page actually loads the wizard stylesheet", SHEETS.length === 1);
+pageHead.close();
 
 async function boot(opts = {}) {
   const dom = new JSDOM(read("join.html"), {

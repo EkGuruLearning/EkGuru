@@ -173,6 +173,7 @@
     try {
       var consent = JSON.parse(localStorage.getItem("ekguru_cookie_consent_v3") || "null");
       if (consent && consent.analytics === false) return false;
+      if (localStorage.getItem("ekguru_no_track") === "1") return false;
     } catch (e) {}
     return true;
   }
@@ -182,11 +183,42 @@
     started = true;
 
   if (provider === "goatcounter") {
-    /* GoatCounter counts the page view itself on load. */
-    window.goatcounter = { no_onload: false };
-    load("https://gc.zgo.at/count.js", {
+    /* Keep the provider's implementation intact across privacy changes.
+       A reversible guard also covers legacy direct count() calls, including
+       the race where count.js finishes loading after a visitor opts out. */
+    var counter = window.goatcounter = { no_onload: true };
+    var countImpl;
+    Object.defineProperty(counter, "count", {
+      configurable: true,
+      get: function () {
+        return function () {
+          if (analyticsAllowed() && typeof countImpl === "function") {
+            return countImpl.apply(counter, arguments);
+          }
+        };
+      },
+      set: function (fn) { countImpl = fn; }
+    });
+    var pageCounted = false;
+    var eventsBound = false;
+    function countPage() {
+      if (!analyticsAllowed() || typeof countImpl !== "function") return;
+      // no_onload also disables GoatCounter's automatic click binding. Keep
+      // that integration, and its visible-page behaviour, when starting by hand.
+      if (!eventsBound && !counter.no_events && typeof counter.bind_events === "function") {
+        counter.bind_events(); eventsBound = true;
+      }
+      if (pageCounted || ("visibilityState" in document && document.visibilityState !== "visible")) return;
+      try { counter.count(); pageCounted = true; } catch (e) {}
+    }
+    // Do not let the provider auto-count after an asynchronous opt-out.
+    // The first permitted load/accept counts once; toggling never duplicates it.
+    var counterScript = load("https://gc.zgo.at/count.js", {
       "data-goatcounter": "https://" + CFG.site + ".goatcounter.com/count"
     });
+    counterScript.addEventListener("load", countPage);
+    document.addEventListener("visibilitychange", countPage);
+    document.addEventListener("ekguru:consent", countPage);
 
     /* Record the things that matter as events, so the dashboard
        shows more than page views. Each is a path-style name so it
@@ -253,11 +285,7 @@
   document.addEventListener("ekguru:consent", function (event) {
     if (!event.detail) return;
     if (event.detail.analytics === true) { bootAnalytics(); return; }
-    if (event.detail.analytics === false && started && window.goatcounter) {
-      /* Withdrawn after the script loaded: silence every later call,
-         including the direct window.goatcounter.count() calls in older
-         page scripts that do not go through EkGuruAnalytics.event(). */
-      try { window.goatcounter.count = function () {}; } catch (e) {}
-    }
+    // No destructive count() replacement on rejection: the dynamic guard
+    // reads the persisted choice for every event and resumes on acceptance.
   });
 })();
