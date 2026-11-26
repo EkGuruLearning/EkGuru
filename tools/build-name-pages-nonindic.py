@@ -341,7 +341,7 @@ def render(page: dict) -> str:
 <link href="../manifest.webmanifest" rel="manifest"/>
 <link href="../images/apple-touch-icon.png" rel="apple-touch-icon"/>
 <meta content="#4f32d9" name="theme-color"/>
-<link href="../css/site.css" rel="stylesheet" type="text/css"/>
+<link href="../css/style.min.css" rel="stylesheet" type="text/css"/>
 
 <script type="application/ld+json">{ld}</script>
 

@@ -25,6 +25,8 @@ import re
 import sys
 from pathlib import Path
 
+from discovery_integrity import prefix_relative_references
+
 ROOT = Path(__file__).resolve().parents[1]
 SHELL = ROOT / "find-tutors.html"
 OUT = ROOT / "hindi-classes" / "index.html"
@@ -143,23 +145,12 @@ def build() -> str:
                 r'<meta content="Browse public Hindi tutor profiles\. Review tutor-provided details and confirm current terms and availability before sending an enquiry\." name="twitter:description"/>',
                 f'<meta content="{OGDESC}" name="twitter:description"/>')
 
-    # --- hreflang set: point every alternate at the new URL ---
-    text = text.replace('<link href="https://ekguru.shop/find-tutors.html" hreflang="en" rel="alternate"/>',
-                        f'<link href="{CANONICAL}" hreflang="en" rel="alternate"/>', 1)
-    text = text.replace('hreflang="en" rel="alternate"/>\n<link href="https://ekguru.shop/es/find-tutors.html"',
-                        f'hreflang="en" rel="alternate"/>\n<link href="https://ekguru.shop/es/hindi-classes/"', 1)
-    text = text.replace('hreflang="es" rel="alternate"/>\n<link href="https://ekguru.shop/fr/find-tutors.html"',
-                        'hreflang="es" rel="alternate"/>\n<link href="https://ekguru.shop/fr/hindi-classes/"', 1)
-    text = text.replace('hreflang="fr" rel="alternate"/>\n<link href="https://ekguru.shop/de/find-tutors.html"',
-                        'hreflang="fr" rel="alternate"/>\n<link href="https://ekguru.shop/de/hindi-classes/"', 1)
-    text = text.replace('hreflang="de" rel="alternate"/>\n<link href="https://ekguru.shop/pt/find-tutors.html"',
-                        'hreflang="de" rel="alternate"/>\n<link href="https://ekguru.shop/pt/hindi-classes/"', 1)
-    text = text.replace('hreflang="pt" rel="alternate"/>\n<link href="https://ekguru.shop/ja/find-tutors.html"',
-                        'hreflang="pt" rel="alternate"/>\n<link href="https://ekguru.shop/ja/hindi-classes/"', 1)
-    text = text.replace('hreflang="ja" rel="alternate"/>\n<link href="https://ekguru.shop/ar/find-tutors.html"',
-                        'hreflang="ja" rel="alternate"/>\n<link href="https://ekguru.shop/ar/hindi-classes/"', 1)
-    text = text.replace('hreflang="ar" rel="alternate"/>\n<link href="https://ekguru.shop/find-tutors.html" hreflang="x-default"',
-                        'hreflang="ar" rel="alternate"/>\n<link href="https://ekguru.shop/hindi-classes/" hreflang="x-default"', 1)
+    # No translated equivalents exist for this landing page. Do not invent
+    # alternate URLs or inherit the unrelated tutor-directory language set.
+    text = re.sub(r'<link\b[^>]*\bhreflang="[^"]+"[^>]*>\n?', '', text)
+    text = text.replace('</head>',
+                        f'<link href="{CANONICAL}" hreflang="en" rel="alternate"/>\n'
+                        f'<link href="{CANONICAL}" hreflang="x-default" rel="alternate"/>\n</head>', 1)
 
     # --- schema: breadcrumb + FAQ, no tutor ItemList ---
     schema_old = re.search(r'<!-- EKGURU:SCHEMA -->.*?<!-- /EKGURU:SCHEMA -->', text, re.S).group(0)
@@ -221,7 +212,9 @@ def build() -> str:
         lambda m: m.group(1) + _prefix_block(m.group(2), prefix) + m.group(3),
         text, count=1, flags=re.S)
 
-    return text
+    # The rest of this root-level shell (assets, body CTAs and scripts)
+    # also needs relocation, not just the header/footer.
+    return prefix_relative_references(text)
 
 
 ULTRA_STRIP = re.compile(r'<!-- ekguru:ultra-[a-z]+:start -->\n[\s\S]*?<!-- ekguru:ultra-[a-z]+:end -->\n')

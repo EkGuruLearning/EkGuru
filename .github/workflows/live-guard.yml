@@ -25,3 +25,22 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: bash tools/weekly-guard.sh
+
+  search-discovery:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Strict live crawlability (no local fallback for WAF challenges)
+        run: python3 tools/live-seo-gate.py --check-origins
+      - name: Preserve HTTP evidence even on failure
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: live-search-discovery
+          path: reports/live-seo-gate.json
+          if-no-files-found: error
+          retention-days: 14

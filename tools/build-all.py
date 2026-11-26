@@ -68,6 +68,7 @@ def run(label, cmd):
 
 # ULTRA v3 generators/tests. Each slice appends here so check and write modes stay in step.
 ULTRA_BUILDS = [
+    ("reciprocal language alternates on existing beginner guides", ["python3", "tools/build-guide-hreflang.py"]),
     ("flashcard decks from authored course vocabulary (PHASE 9)", ["python3", "tools/build-flashcards.py"]),
     ("flashcard lab on every practice page with a deck (PHASE 9)", ["python3", "tools/inject-flashcards.py"]),
     ("700-language draft registry + 197 country contexts", ["python3", "tools/build-language-registry.py"]),
@@ -84,6 +85,9 @@ ULTRA_BUILDS = [
      ["node", "tools/test-flashcards.mjs"]),
 ]
 ULTRA_TESTS = [
+    ("public crawl targets, assets and reciprocal hreflang", ["python3", "tools/discovery_integrity.py"]),
+    ("discovery audit and relocation regression tests", ["python3", "tools/test-discovery-integrity.py"]),
+    ("static landing metadata survives legacy SEO runtime", ["node", "tools/test-seo-runtime.mjs"]),
     ("Phase 2 public-page inventory is current (repository-only)",
      ["python3", "tools/build-full-page-inventory.py", "--check"]),
     ("Phase 2 detailed content inventory is current (live HTTP pending)",
