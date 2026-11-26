@@ -60,6 +60,9 @@ def learning_code(rel):
     if parts[0] == 'learn' and len(parts) > 2 and parts[1] in SLUG_CODE: return SLUG_CODE[parts[1]]
     if parts[0] == 'learn' and len(parts) > 2 and parts[1] in WORLD_GUIDE_CODES: return WORLD_GUIDE_CODES[parts[1]]
     if parts[0] in SLUG_CODE and len(parts) > 1: return SLUG_CODE[parts[0]]
+    if parts[0].startswith('days-and-months-in-'):
+        slug = parts[0].removeprefix('days-and-months-in-')
+        if slug in SLUG_CODE: return SLUG_CODE[slug]
     return 'hi'
 
 

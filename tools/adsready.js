@@ -39,7 +39,7 @@ function walkHtml() {
   const html = [];
   (function walk(d) {
     for (const e of fs.readdirSync(d, { withFileTypes: true })) {
-      if (e.name.startsWith(".") || ["node_modules", "tools", "reports", "audit"].includes(e.name)) continue;
+      if (e.name.startsWith(".") || ["node_modules", "tools", "reports", "audit", "docs", "tests"].includes(e.name)) continue;
       if (e.isDirectory()) walk(path.join(d, e.name));
       else if (/\.html?$/.test(e.name)) html.push(path.join(d, e.name));
     }

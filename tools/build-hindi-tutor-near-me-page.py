@@ -138,6 +138,8 @@ def build() -> str:
                 f'<meta content="{CANONICAL}" property="og:url"/>')
     text = repl(text, r'<meta content="Find a Hindi tutor \| EkGuru" name="twitter:title"/>',
                 f'<meta content="{TITLE}" name="twitter:title"/>')
+    text = repl(text, r'<meta name="twitter:image:alt" content="Find a Hindi tutor \| EkGuru">',
+                f'<meta name="twitter:image:alt" content="{TITLE}">')
     text = repl(text,
                 r'<meta content="Browse public Hindi tutor profiles\. Review tutor-provided details and confirm current terms and availability before sending an enquiry\." name="twitter:description"/>',
                 f'<meta content="{OGDESC}" name="twitter:description"/>')
@@ -214,11 +216,19 @@ def build() -> str:
     return text
 
 
+ULTRA_STRIP = re.compile(r'<!-- ekguru:ultra-[a-z]+:start -->\n[\s\S]*?<!-- ekguru:ultra-[a-z]+:end -->\n')
+
+
+def _strip_ultra(raw: str) -> str:
+    raw = ULTRA_STRIP.sub('', raw)
+    return re.sub(r'(<html\b[^>]*?) data-learning-language="[^"]*"', r'\1', raw, count=1, flags=re.I)
+
+
 def main() -> int:
     check = "--check" in sys.argv
     page = build()
     if check:
-        if not OUT.exists() or OUT.read_text(encoding="utf-8") != page:
+        if not OUT.exists() or _strip_ultra(OUT.read_text(encoding="utf-8")) != _strip_ultra(page):
             print(f"STALE {OUT.relative_to(ROOT)} — run: python3 tools/build-hindi-tutor-near-me-page.py")
             return 1
         print("ok    hindi-tutor-near-me page is current")
