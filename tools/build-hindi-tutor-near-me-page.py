@@ -72,7 +72,7 @@ BODY = """<main id="main">
 <h3>Check the lesson time against your day</h3>
 <p>For "near me", the lesson time is what really matters. Each tutor location page shows the lesson hours in your own timezone, so you can see whether a slot lands in your morning, evening or late night. <a href="hindi-tutor/">See tutors by location →</a></p>
 <h3>Check trial, price and terms before committing</h3>
-<p>Do not assume every tutor offers the same trial, lesson duration, payment or cancellation terms. Each profile shows the tutor's base lesson price; any converted amount is an estimate based on an exchange rate. Check the profile and confirm the amount, payment method and terms directly before you commit. A lesson request is an enquiry until current availability and terms are confirmed in a reply.</p>
+<p>Do not assume every tutor offers the same trial, lesson duration, payment or cancellation terms. Each profile shows the tutor's base lesson price; EkGuru takes no commission on tutor lessons and adds no platform fee to the displayed price in this release, and EkGuru does not collect tutor-lesson payments. Any converted amount is an estimate based on an exchange rate. Check the profile and confirm the amount, payment method and terms directly before you commit. A lesson request is an enquiry until current availability and terms are confirmed in a reply.</p>
 <h3>Language background and qualifications</h3>
 <p>Profiles contain tutor-provided statements about language background, experience and qualifications. EkGuru has not independently verified every statement; ask how the tutor would teach your particular goal before booking.</p>
 <h2>Common questions</h2>

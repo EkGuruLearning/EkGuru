@@ -1641,7 +1641,9 @@
     if (!host) return;
     var id = new URLSearchParams(location.search).get("id");
     var x = id ? tutorById(id) : null;
-    var url = location.href;
+    var url = (x && x.id)
+      ? ("https://ekguru.shop/tutor/" + encodeURIComponent(x.id) + "/?ref=tutor-" + encodeURIComponent(x.id))
+      : location.href;
     var title = x ? (x.name + " — Hindi tutor on EkGuru") : "EkGuru — learn Hindi online";
 
     host.innerHTML = '<span class="share-lbl">' + esc(t("share.title")) + "</span>" +

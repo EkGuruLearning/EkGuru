@@ -274,6 +274,15 @@ function headBlock(t, price, hidden) {
       "?subject=" + encodeURIComponent("Hindi lesson enquiry — " + t.name) + '">Send an enquiry</a>'
   ];
 
+  const shareUrl = SITE + "/tutor/" + t.id + "/?ref=tutor-" + t.id;
+  const shareText = t.name + " — Online Hindi Tutor on EkGuru: " + shareUrl;
+  const shareRow = hidden ? "" : `
+      <p class="pr-share" aria-label="Share tutor profile" style="margin-top:10px;display:flex;flex-wrap:wrap;align-items:center;gap:8px;font-size:.88rem;color:var(--muted)">
+        <span>Share profile:</span>
+        <button type="button" class="btn btn-ghost btn-sm" data-eg-share-copy="${attr(shareUrl)}" data-eg-share-label="tutor-${attr(t.id)}">Copy profile link</button>
+        <a class="btn btn-ghost btn-sm" target="_blank" rel="noopener noreferrer" href="https://wa.me/?text=${encodeURIComponent(shareText)}">Share on WhatsApp</a>
+      </p>`;
+
   return `  <header class="pr-head">
     <picture>
       ${webp ? '<source srcset="' + relImage(webp) + '" type="image/webp">\n      ' : ""}<img class="pr-photo" data-eg-photo-fallback src="${esc(photo)}" alt="${attr(t.name + ", online Hindi tutor from " + (t.city || t.country || "India"))}" width="200" height="200" itemprop="image" decoding="async">
@@ -287,7 +296,7 @@ function headBlock(t, price, hidden) {
       </p>
       <p class="pr-cta">
         ${cta.join("\n        ")}
-      </p>
+      </p>${shareRow}
     </div>
   </header>`;
 }
@@ -654,7 +663,7 @@ function build(t, roster, publics, hidden) {
   once(/<meta(?=[^>]*\bproperty="og:image")[^>]*>/, '<meta property="og:image" content="' + attr(h.image) + '">', "og:image");
   once(/<meta(?=[^>]*\bproperty="og:image:width")[^>]*>/, '<meta property="og:image:width" content="1200">', "og:image:width");
   once(/<meta(?=[^>]*\bproperty="og:image:height")[^>]*>/, '<meta property="og:image:height" content="630">', "og:image:height");
-  once(/<meta(?=[^>]*\bproperty="og:image:alt")[^>]*>/, '<meta property="og:image:alt" content="EkGuru — free, self-paced Hindi learning">', "og:image:alt");
+  once(/<meta(?=[^>]*\bproperty="og:image:alt")[^>]*>/, '<meta property="og:image:alt" content="' + attr(h.title) + '">', "og:image:alt");
   once(/<meta(?=[^>]*\bname="twitter:title")[^>]*>/, '<meta name="twitter:title" content="' + attr(h.title) + '">', "twitter:title");
   once(/<meta(?=[^>]*\bname="twitter:description")[^>]*>/, '<meta name="twitter:description" content="' + attr(h.desc) + '">', "twitter:description");
   once(/<meta(?=[^>]*\bname="twitter:image")[^>]*>/, '<meta name="twitter:image" content="' + attr(h.image) + '">', "twitter:image");

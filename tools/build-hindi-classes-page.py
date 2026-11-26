@@ -73,7 +73,7 @@ BODY = """<main id="main">
 <h3>Check the time against your day</h3>
 <p>For a live class, the lesson time is what "near me" really decides. Each tutor location page works out the lesson hours in your own timezone, so you can see whether a slot lands in your morning, evening or late night. <a href="hindi-tutor/">See Hindi tutors by location →</a></p>
 <h3>Confirm cost and terms before committing</h3>
-<p>The self-study course is free. A live class is booked per lesson at a price the tutor states on their profile. Do not assume every tutor offers the same trial, duration or cancellation terms — check the profile and confirm directly before you commit. A lesson request is an enquiry until current availability and terms are confirmed in a reply.</p>
+<p>The self-study course is free. A live class is booked per lesson at a price the tutor states on their profile; EkGuru takes no commission on tutor lessons and adds no platform fee to the displayed price in this release, and EkGuru does not collect tutor-lesson payments. Do not assume every tutor offers the same trial, duration or cancellation terms — check the profile and confirm directly before you commit. A lesson request is an enquiry until current availability and terms are confirmed in a reply.</p>
 <h2>Common questions</h2>
 <div class="faq"><b>Are there Hindi classes physically near me?</b>
 <p>EkGuru runs online Hindi classes only — there is no physical classroom or local branch to visit. Every class is taken over the internet, so "near me" means the lesson time and timezone fit your day rather than a location you travel to.</p></div>

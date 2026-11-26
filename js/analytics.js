@@ -59,6 +59,43 @@
 (function () {
   "use strict";
 
+  /* Site-wide [data-eg-share-copy] click handler — must bind BEFORE any
+     analytics early-return so Copy Profile Link works on localhost,
+     preview hosts, and browsers that opted out of analytics. */
+  if (!window.__egShareBound && typeof document !== "undefined" && document && typeof document.addEventListener === "function") {
+    window.__egShareBound = true;
+    document.addEventListener("click", function (ev) {
+      var el = ev && ev.target && ev.target.closest ? ev.target.closest("[data-eg-share-copy]") : null;
+      if (!el) return;
+      var url = el.getAttribute("data-eg-share-copy");
+      if (!url) return;
+      var orig = el.getAttribute("data-eg-orig-label") || el.textContent;
+      el.setAttribute("data-eg-orig-label", orig);
+      function markDone() {
+        el.textContent = "✓ Link copied";
+        setTimeout(function () { el.textContent = orig; }, 1800);
+        try {
+          if (window.EkGuruAnalytics && window.EkGuruAnalytics.event) {
+            window.EkGuruAnalytics.event("share_copy", el.getAttribute("data-eg-share-label") || url);
+          }
+        } catch (e) {}
+      }
+      if (typeof navigator !== "undefined" && navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(url).then(markDone, markDone);
+      } else {
+        try {
+          var ta = document.createElement("textarea");
+          ta.value = url;
+          document.body.appendChild(ta);
+          ta.select();
+          document.execCommand("copy");
+          document.body.removeChild(ta);
+        } catch (e) {}
+        markDone();
+      }
+    });
+  }
+
   var S = window.EKGURU_SITE || {};
   var CFG = S.analytics || {};
   var provider = String(CFG.provider || "").toLowerCase().trim();

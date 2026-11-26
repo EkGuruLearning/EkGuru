@@ -36,3 +36,17 @@ Two draft URL patterns in the original notes would have hit `404` on production 
    - Urdu: **https://ekguru.shop/learn/urdu/**
    - Bengali: **https://ekguru.shop/bengali/**
    *(Note: `/learn/kannada/` and `/learn/malayalam/` exist on disk as `noindex` drafts — excluded from active promotion per `GROWTH-PLAN-2026-11-24.md` Section 3 until native review is complete.)*
+
+---
+
+## Live Website & Code Upgrades Shipped (`ekguru.shop`)
+
+1. **Section 6(g) — Explicit Zero-Commission & Direct-Payment Transparency:**
+   - Updated `about/index.html`, `find-tutors.html`, `monetization-disclosure/index.html`, `hindi-classes/index.html` (`tools/build-hindi-classes-page.py`), and `hindi-tutor-near-me/index.html` (`tools/build-hindi-tutor-near-me-page.py`) to state plainly — matching `join.html` — that EkGuru takes **no commission** on tutor lessons, adds no platform fee to a tutor's displayed price, and does not collect tutor-lesson payments.
+2. **Built-In Tutor Share Bar (`?ref=tutor-<slug>`) + Dynamic `og:image:alt` Across All 19 Public Tutor Profiles:**
+   - Added 1-tap **Copy profile link** (`https://ekguru.shop/tutor/<id>/?ref=tutor-<id>`) and **Share on WhatsApp** controls to `tools/build-tutor-pages.js` (public profiles only, respecting `U0` hidden-tutor rules), wired clipboard + `share_copy` GoatCounter event support in `js/analytics.js`, updated `js/features.js` (`initShare()`) on `tutor.html?id=...` to share canonical `/tutor/<id>/?ref=tutor-<id>` URLs, and fixed `og:image:alt` on all tutor profiles to use each tutor's profile title.
+3. **Viral Share Loop & Click-to-Try Examples on `/name-in-hindi/` + All 7 Other `name-in-*` Pages:**
+   - Added **Share link** (`navigator.share` / clipboard) and **Share on WhatsApp** buttons to `name-in-hindi/index.html`, made all 40 pre-worked example rows click-to-load, unified `?n=` / `?name=` / `?q=` deep-link support across `name-in-hindi/index.html` and `js/name-in-script.js` (covering Punjabi, Arabic, Greek, Russian, Korean, Japanese, and Amharic), and added regression coverage in `tools/test-name-page.mjs`.
+4. **Homepage (`index.html`) 30-Second Browser Tools & Regional Indian Language Discovery:**
+   - Added `Gujarati` and `Punjabi` to the top language rail, added a **Start in 30 seconds with free browser tools** section (`/name-in-hindi/`, `/daily-hindi/`, `/toolbox/`, `/materials/` + `/learn/hindi/practice/worksheets/`), and added a dedicated **Learn a regional Indian language** section (`Hindi`, `Marathi`, `Tamil`, `Telugu`, `Gujarati`, `Bengali`, `Punjabi`, `Urdu`).
+

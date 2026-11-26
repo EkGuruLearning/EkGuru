@@ -51,14 +51,16 @@
 .ok-chk{color:#147a3d;font-weight:700}
 .altbox b{font-size:1.5rem;display:block;margin:2px 0 4px}
 .btnrow{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin:16px 0 0}
-.btnrow button{padding:9px 16px;border-radius:9px;border:1px solid var(--line);
-  background:var(--card,#fff);cursor:pointer;font-size:.92rem}
-.btnrow button:hover{background:var(--bg-soft,#f3f2ff)}
+.btnrow button,.btnrow a.btn-wa{padding:9px 16px;border-radius:9px;border:1px solid var(--line);
+  background:var(--card,#fff);color:inherit;text-decoration:none;cursor:pointer;font-size:.92rem;display:inline-flex;align-items:center}
+.btnrow button:hover,.btnrow a.btn-wa:hover{background:var(--bg-soft,#f3f2ff)}
 table.brk{width:100%;border-collapse:collapse;margin:18px 0 0;font-size:.95rem}
 table.brk th,table.brk td{text-align:left;padding:9px 10px;border-bottom:1px solid var(--line)}
 table.brk td.g{font-size:1.5rem;width:64px}
 table.ex{width:100%;border-collapse:collapse;margin:14px 0 26px}
 table.ex th,table.ex td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line)}
+table.ex tbody tr{cursor:pointer;transition:background .15s}
+table.ex tbody tr:hover{background:var(--bg-soft,#f3f2ff)}
 table.ex td.h{font-size:1.28rem}
 .two{display:grid;grid-template-columns:1fr 1fr;gap:26px}
 @media(max-width:640px){.two{grid-template-columns:1fr}.big{font-size:2.6rem}}
@@ -135,6 +137,8 @@ spelling.</p>
 <div class="btnrow" hidden="" id="btnrow">
 <button id="copyBtn" type="button">Copy</button>
 <button id="explainBtn" type="button">Show every letter</button>
+<button id="shareLinkBtn" type="button">Share link</button>
+<a class="btn-wa" href="https://wa.me/" id="waShareBtn" rel="noopener noreferrer" target="_blank">Share on WhatsApp</a>
 </div>
 <div id="explain"></div>
 <p class="rom" id="outHelp" style="margin-top:14px;font-size:.85rem">
@@ -423,9 +427,17 @@ app can — from <strong data-f="priceUSD" data-fmt="money" data-t="sushila-g">$
 
     /* One place that draws the result, so the offline and the
        checked version cannot drift apart in wording or layout. */
+    function escHtml(s) {
+      return String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+    }
+    var currentTyped = "";
+    function shareUrlFor(name) {
+      return "https://ekguru.shop/name-in-hindi/?n=" + encodeURIComponent(name);
+    }
     function paint(text, typed, indic, alts, verified) {
-      var html = '<div class="big">' + text + "</div>" +
-        '<div class="rom">' + typed + " · " + (indic
+      currentTyped = typed;
+      var html = '<div class="big">' + escHtml(text) + "</div>" +
+        '<div class="rom">' + escHtml(typed) + " · " + (indic
           ? "written with the Indian convention (त द)"
           : "written with the English-name convention (ट ड)") +
         (verified
@@ -442,12 +454,17 @@ app can — from <strong data-f="priceUSD" data-fmt="money" data-t="sushila-g">$
       var real = (alts || []).filter(function (a) { return a && a !== text; });
       if (real.length) {
         html += '<div class="altbox">Also written: ' +
-          real.slice(0, 3).map(function (a) { return "<b>" + a + "</b>"; }).join(" · ") +
+          real.slice(0, 3).map(function (a) { return "<b>" + escHtml(a) + "</b>"; }).join(" · ") +
           '<span class="alt-why">Hindi has no single official spelling for a ' +
           'foreign name. Any of these will be read correctly.</span></div>';
       }
       out.innerHTML = html;
       row.hidden = false;
+      var wa = document.getElementById("waShareBtn");
+      if (wa) {
+        var surl = shareUrlFor(typed);
+        wa.href = "https://wa.me/?text=" + encodeURIComponent(typed + " in Hindi is " + text + " — see every letter explained: " + surl);
+      }
     }
 
     inp.addEventListener("input", render);
@@ -487,7 +504,7 @@ app can — from <strong data-f="priceUSD" data-fmt="money" data-t="sushila-g">$
       words.forEach(function (w) {
         var rows = T.explain(w);
         if (!rows.length) return;
-        if (words.length > 1) h += "<h3>" + w + "</h3>";
+        if (words.length > 1) h += "<h3>" + escHtml(w) + "</h3>";
         h += '<table class="brk"><thead><tr><th>Sound</th><th>Letter</th><th>Why</th></tr></thead><tbody>';
         rows.forEach(function (r) {
           h += "<tr><td>" + r.sound + '</td><td class="g">' + r.glyph +
@@ -499,10 +516,51 @@ app can — from <strong data-f="priceUSD" data-fmt="money" data-t="sushila-g">$
       try { if (window.EkGuruAnalytics) window.EkGuruAnalytics.event("name_explain", ""); } catch (e) {}
     });
 
-    /* Deep-link support: /name-in-hindi/?n=Priya renders immediately.
+    var shareBtn = document.getElementById("shareLinkBtn");
+    if (shareBtn) {
+      shareBtn.addEventListener("click", function () {
+        if (!currentTyped) return;
+        var surl = shareUrlFor(currentTyped);
+        var done = function () {
+          shareBtn.textContent = "Link copied!";
+          setTimeout(function () { shareBtn.textContent = "Share link"; }, 1600);
+        };
+        if (navigator.share) {
+          navigator.share({
+            title: currentTyped + " in Hindi — " + (current || ""),
+            text: currentTyped + " in Hindi is " + (current || "") + " — see every letter explained:",
+            url: surl
+          }).catch(function () {});
+        } else if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(surl).then(done, done);
+        } else {
+          var ta = document.createElement("textarea");
+          ta.value = surl; document.body.appendChild(ta); ta.select();
+          try { document.execCommand("copy"); } catch (e) {}
+          document.body.removeChild(ta); done();
+        }
+        try { if (window.EkGuruAnalytics) window.EkGuruAnalytics.event("name_share", currentTyped); } catch (e) {}
+      });
+    }
+
+    /* Make all 40 pre-worked example rows interactive: click any row
+       to load that name into the converter and inspect its breakdown. */
+    Array.prototype.forEach.call(document.querySelectorAll("table.ex tbody tr"), function (tr) {
+      tr.setAttribute("title", "Click to try this name in the converter above");
+      tr.addEventListener("click", function () {
+        var cell = tr.querySelector("td");
+        if (!cell) return;
+        inp.value = cell.textContent.trim();
+        render();
+        try { inp.scrollIntoView({ behavior: "smooth", block: "center" }); inp.focus({ preventScroll: true }); } catch (e) {}
+      });
+    });
+
+    /* Deep-link support: /name-in-hindi/?n=Priya or ?name=Priya renders immediately.
        This is what makes the tool shareable — someone can send a
        friend their own name rather than a blank form. */
-    var q = new URLSearchParams(location.search).get("n");
+    var params = new URLSearchParams(location.search);
+    var q = params.get("n") || params.get("name") || params.get("q");
     if (q) { inp.value = q; render(); }
   });
 })();
