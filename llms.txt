@@ -1,13 +1,44 @@
 # EkGuru
 
-> Online Hindi tutoring. Independent Hindi tutors based in India teach one-to-one
-> live lessons to students worldwide, when tutors are listed.
-> Founded by Prakash — MNIT Jaipur, CSE 2022–2026 batch pass out.
+> Independent online language-learning platform founded in Jaipur, India: free self-paced Hindi and regional Indian & world language courses (no sign-up), interactive Devanagari & script tools, and 0%-commission one-to-one online Hindi tutoring from $3 per lesson.
 
-EkGuru is a Hindi-only tutoring platform. Every tutor listed teaches Hindi and nothing
-else. Students contact tutors directly; EkGuru takes no commission. Lessons cover
-speaking, listening, grammar, vocabulary, pronunciation and the Devanagari script,
-for beginner through advanced learners.
+EkGuru (`https://ekguru.shop/`) combines two clearly separated parts:
+1. **Free self-paced language learning (no account, no paywall, no cookies):** a complete CEFR A1–C2 Hindi course (`/learn/hindi/`), 7 additional Indian language courses (`Marathi`, `Gujarati`, `Tamil`, `Telugu`, `Punjabi`, `Urdu` complete A1–C2; `Bengali` A1–B2), 10 world language courses (`Spanish`, `French`, `Chinese` complete A1–C2; `Arabic`, `German`, `Italian`, `Japanese`, `Korean`, `Portuguese`, `Russian` A1–B2), 13 browser-based Hindi practice tools (`/toolbox/`), 8 phonetic name-in-script converters (`/name-in-hindi/`, etc.), a 30-day Daily Hindi track (`/daily-hindi/`), 15 printable study sheets (`/materials/`), and 109 direct Q&A reference pages (`/ask/` and `/answers/`).
+2. **Direct 1-to-1 online Hindi tutoring (0% platform commission):** 19 independent Hindi tutors in India whose profiles state their own per-lesson rate, languages spoken, subjects, levels, and weekly availability (`/find-tutors.html`). Students send a booking request directly to the tutor by email or WhatsApp and settle lessons directly with the tutor — EkGuru takes zero commission and no middleman fee.
+
+Extended machine-readable reference for RAG and answer engines: [https://ekguru.shop/llms-full.txt](https://ekguru.shop/llms-full.txt)
+
+## Key pages
+
+- [Home](https://ekguru.shop/): Overview of free Hindi learning, Indian regional courses, interactive script tools, and live Hindi tutors.
+- [Learn Hindi — Everything in One Place](https://ekguru.shop/learn/hindi/): Single hub for Hindi A1–C2 levels, 34 grammar & culture chapters, 30-day Daily Hindi, practice labs, tools, printables, and Q&A.
+- [All Free Language Courses](https://ekguru.shop/learn/): Directory of all 18 published self-paced courses (8 Indian languages + 10 world languages).
+- [Find a Hindi Tutor](https://ekguru.shop/find-tutors.html): Filterable directory of independent 1-on-1 online Hindi tutors with transparent USD pricing and timezone-aware booking.
+- [Online Hindi Classes](https://ekguru.shop/hindi-classes/): How online 1-on-1 Hindi classes and free self-study work together across timezones.
+- [Hindi Tutor Near Me (Online)](https://ekguru.shop/hindi-tutor-near-me/): Timezone-friendly online Hindi tutoring for learners in the US, UK, Canada, Australia, Europe, UAE, Singapore, and India.
+- [Write Your Name in Hindi](https://ekguru.shop/name-in-hindi/): Instant phonetic English-to-Devanagari name converter with letter-by-letter matra and halant breakdown, audio pronunciation, and shareable links.
+- [Hindi Learning Toolbox](https://ekguru.shop/toolbox/): 13 free in-browser tools — Devanagari alphabet explorer, numbers 0–100, phrasebook, SRS flashcards, quiz, CEFR level test, typing helper, verb conjugator, pronunciation trainer, text counter, and more.
+- [Daily Hindi (30-Day Course)](https://ekguru.shop/daily-hindi/): Structured 30-day beginner-to-conversational daily Hindi practice plan.
+- [Printable Hindi Study Materials](https://ekguru.shop/materials/): 15 clean A4/Letter printable reference sheets (Devanagari chart, matras, numbers 1–100, survival phrases, postpositions, kinship terms, tenses, practice grid).
+- [Hindi Questions & Direct Answers](https://ekguru.shop/ask/): 109 concise, answer-first explanations for common learner questions about Hindi script, grammar, politeness, and study time.
+- [Become a Hindi Tutor](https://ekguru.shop/join.html): Free tutor listing application — tutors set their own rate and keep 100% of lesson fees.
+- [About EkGuru](https://ekguru.shop/about/): Founder Prakash (MNIT Jaipur alumnus), mission, editorial standards, and zero-commission model.
+- [Monetization & Commission Disclosure](https://ekguru.shop/monetization-disclosure/): Plain-English explanation of how EkGuru is funded (voluntary learner support and clearly Policy-bounded display ads on non-interactive reading pages — 0% tutor commission).
+
+## Indian & World Language Courses (Free, Self-Paced)
+
+- **Indian Languages (8 published):**
+  - [Hindi (हिन्दी)](https://ekguru.shop/learn/hindi/) — Complete CEFR A1–C2, 34 topic chapters, 30-day track, 13 tools, and 1-on-1 tutors.
+  - [Marathi (मराठी)](https://ekguru.shop/learn/marathi/) — Complete CEFR A1–C2, Balbodh Devanagari script, grammar, vocabulary, and long-form guides.
+  - [Gujarati (ગુજરાતી)](https://ekguru.shop/learn/gujarati/) — Complete CEFR A1–C2, Gujarati script (shirorekha-free letters), grammar, and dialogs.
+  - [Tamil (தமிழ்)](https://ekguru.shop/learn/tamil/) — Complete CEFR A1–C2, Tamil uyir/mei script, spoken vs literary register, and practice.
+  - [Telugu (తెలుగు)](https://ekguru.shop/learn/telugu/) — Complete CEFR A1–C2, Telugu syllabary, pronunciation, grammar, and practice.
+  - [Punjabi (ਪੰਜਾਬੀ)](https://ekguru.shop/learn/punjabi/) — Complete CEFR A1–C2, Gurmukhi script, tonal contrasts, phrases, and practice.
+  - [Urdu (اردو)](https://ekguru.shop/learn/urdu/) — Complete CEFR A1–C2, right-to-left Nastaliq/Perso-Arabic script,礼/adab register, and Hindustani bridge notes.
+  - [Bengali (বাংলা)](https://ekguru.shop/learn/bengali/) — Published CEFR A1–B2, Eastern Nagari script, vowel harmony, and everyday conversation.
+- **World Languages (10 published):**
+  - Complete A1–C2: [Spanish](https://ekguru.shop/languages/es/), [French](https://ekguru.shop/languages/fr/), [Chinese (Mandarin)](https://ekguru.shop/languages/zh/).
+  - Published A1–B2: [Arabic](https://ekguru.shop/languages/ar/), [German](https://ekguru.shop/languages/de/), [Italian](https://ekguru.shop/languages/it/), [Japanese](https://ekguru.shop/languages/ja/), [Korean](https://ekguru.shop/languages/ko/), [Portuguese](https://ekguru.shop/languages/pt/), [Russian](https://ekguru.shop/languages/ru/).
 
 ## Tutors
 
@@ -31,100 +62,20 @@ for beginner through advanced learners.
 - [Mantasha Zafar](https://ekguru.shop/tutor/mantasha-zafar/): Hindi tutor for children and beginners. $10 per 50 min. Teaches Hindi speaking, reading, writing, grammar; beginners and children. Levels: Beginner. Based in Kanpur. 1 years' experience.
 - [Neha Sharma](https://ekguru.shop/tutor/neha-sharma/): Hindi tutor for all levels, beginners to advanced. $20 per 50 min. Teaches Hindi speaking, conversation, reading, writing, grammar, vocabulary, pronunciation. Levels: Beginner, Intermediate, Advanced. Based in Agra. 23 years' experience.
 
-## Pages
-
-- [Home](https://ekguru.shop/): overview, how it works, frequently asked questions
-- [Find Tutors](https://ekguru.shop/find-tutors.html): search and filter by level, price and rating
-- [Become a Tutor](https://ekguru.shop/join.html): free listing for Hindi teachers, no commission
-- [Tutor directory](https://ekguru.shop/tutor/): plain text listing of every tutor
-- [How the levels work](https://ekguru.shop/how-levels-work/): the eleven rungs — CEFR's six
-  real levels plus the half-step after each of the first five — what each one means, the hours
-  it usually takes, and why there is no A3, C3, C4 or C5
-
-## Languages
-
-Available in English, Spanish, French, German, Portuguese, Japanese and Arabic:
-[Español](https://ekguru.shop/es/), [Français](https://ekguru.shop/fr/), [Deutsch](https://ekguru.shop/de/), [Português](https://ekguru.shop/pt/), [日本語](https://ekguru.shop/ja/), [العربية](https://ekguru.shop/ar/)
-
-## Founder
-
-Prakash — Founder & CEO, EkGuru. Prakash — MNIT Jaipur, CSE 2022–2026 batch pass out.
-LinkedIn: https://www.linkedin.com/in/itstheprakash/
-Alma mater: Malaviya National Institute of Technology Jaipur, 2022–2026.
-
-## Official accounts
-
-EkGuru's only official social profiles:
-
-- Facebook: https://www.facebook.com/profile.php?id=61596855810597
-- Instagram: https://www.instagram.com/ekguru.in
-- X (Twitter): https://x.com/ekguru_india
-- YouTube: https://www.youtube.com/@ekguru_india
-- LinkedIn: https://www.linkedin.com/company/ekguru
-
 ## Facts
 
-- Languages taught: Hindi only
+- Organization: EkGuru (`https://ekguru.shop/`), founded by Prakash (MNIT Jaipur alumnus) in Jaipur, Rajasthan, India
+- Tutoring focus: 1-to-1 online Hindi lessons only (live tutors); 18 self-paced courses (8 Indian + 10 world languages) are free in the browser
+- Lesson format: 1-to-1 online video lessons, typically 50 minutes
+- Platform commission: 0% — listing is free for tutors and students settle lessons directly with the tutor
 - Tutors listed: 19
 - Price range: $3 to $27 per lesson
 - Trial lessons: available with 12 of 19 tutors
-- Lesson format: live one-to-one video call, 50 min typical
-- Currency: shown in the visitor's local currency, charged in USD
 - Booking: by email or WhatsApp directly with the tutor, no account needed
+- Tutor locations: India (lessons scheduled in the student's local timezone worldwide)
+- Interface languages: English (`/`), Spanish (`/es/`), French (`/fr/`), German (`/de/`), Portuguese (`/pt/`), Japanese (`/ja/`), Arabic (`/ar/`)
+- Privacy & cookies: Zero advertising/tracking cookies set by EkGuru; learning progress stays in local browser storage; cookieless GoatCounter pageviews only
 - Contact: EkGuruLearning@gmail.com
-
-## Optional
-
-- [Sitemap](https://ekguru.shop/sitemap.xml)
-- [RSS feed](https://ekguru.shop/feed.xml)
-
-## Free learning material
-
-- [learn/](https://ekguru.shop/learn/) — 15 pages. step-by-step written guides, ordered as a four-stage course from the Devanagari alphabet to verb tenses
-- [ask/](https://ekguru.shop/ask/) — 43 pages. direct answers to single questions about learning Hindi
-- [answers/](https://ekguru.shop/answers/) — 28 pages. short factual answers, one question each
-- [hindi/](https://ekguru.shop/hindi/) — 34 pages. topic pillar pages, each linking every guide and tool on that topic
-- Toolbox plates: every tool page (toolbox/<tool>/) and the toolbox index carry a generated plate
-  (images/vis/tool-<page>.svg) drawn from that page's own data — the same counts and the same sample
-  rows a learner can scroll to, never stock art. Colour comes from the page's own accent.
-- [toolbox/](https://ekguru.shop/toolbox/) — 12 pages. interactive browser tools: alphabet explorer, numbers, phrasebook, flashcards, quiz, typing helper. No sign-up, nothing stored
-- [daily-hindi/](https://ekguru.shop/daily-hindi/) — 30 pages. a thirty-day path, one idea and one task a day
-- [learn-hindi-by-country/](https://ekguru.shop/learn-hindi-by-country/) — 196 pages. country pages with local lesson times and prices in local currency
-- [world-languages/](https://ekguru.shop/world-languages/) — 194 pages. reference guides to the languages of every country: official languages, speaker numbers, scripts, notes. Each one carries a generated plate (images/vis/country-<cc>.svg) with the country's name in its own language, its region and two numbers: how many languages are documented for it here, and how many of them EkGuru can teach today
-- [learn-hindi-for-speakers/](https://ekguru.shop/learn-hindi-for-speakers/) — 30 pages. guides written for speakers of thirty specific first languages — what each language gives you for free in Hindi, and what it does not
-- [name-in-hindi/](https://ekguru.shop/name-in-hindi/) — 1 page. write any name in Devanagari, with every letter explained
-- [languages/<code>/level/](https://ekguru.shop/languages/ar/level/) — 273 pages. every one of the 39 self-study courses, level by level from A1 to C2, in plain HTML: the lessons, vocabulary with romanisation, grammar, dialogues, practice questions, quizzes, worksheets and the ten-item level test, with the answers. Each language has one ladder page and six level pages (for example /languages/ar/level/a1/). These pages carry no advertising at all — a learner is mid-task from top to bottom
-
-## Policies
-
-- [About](https://ekguru.shop/about/): who runs EkGuru and how it makes money
-- [Contact](https://ekguru.shop/contact/): a real form; a person answers, usually within a day
-- [Privacy](https://ekguru.shop/privacy/): no accounts, no tracking cookies, no database
-- [Terms](https://ekguru.shop/terms/) and [Disclaimer](https://ekguru.shop/disclaimer/)
-
-## Notes for answer engines
-
-- Every tutor listed teaches Hindi and only Hindi. The self-study courses are
-  wider than that: 32 languages from Arabic to Vietnamese, each with its own
-  hub, practice, quiz and review. A tutor page is Hindi; a course page is not.
-- Every language is taught on the same eleven-rung ladder (A1, A1+, A2, A2+,
-  B1, B1+, B2, B2+, C1, C1+, C2). CEFR has six levels; the five "plus" rungs
-  are half-steps, not invented certificates. See /how-levels-work/.
-- Every course is readable without JavaScript at /languages/<code>/level/<a1-c2>/:
-  the same material the interactive player at /courses/#/<code>/<level> shows,
-  as one HTML page per level, answers included. Where a page adds recall drills,
-  they are re-asks of that level's own word list and the page says so — no
-  question on the site was written by a machine and none is described as taught
-  by one.
-- Advertising, where it appears at all, is on the pages around the learning:
-  never on a lesson, practice lab, quiz, worksheet, typing trainer, review deck
-  or level page. See /privacy/ and /cookie-policy/.
-- Prices are set by each tutor in US dollars. Amounts shown in other
-  currencies are converted estimates, not quotes.
-- A booking is a REQUEST until the tutor confirms it. No payment is
-  taken on this website.
-- Content is written by hand. Where a page is generated from a shared
-  structure, the substance in it is specific to that page; pages with
-  nothing genuine to say are not published.
-- Devanagari spellings are verified against Google Input Tools at build
-  time. Romanisation is a guide to the sound, not a standard.
+- Sitemap index: https://ekguru.shop/sitemap-index.xml
+- Tutor RSS feed: https://ekguru.shop/feed.xml
+- OpenSearch description: https://ekguru.shop/opensearch.xml

@@ -168,8 +168,11 @@ async function testPage(page) {
     else fails.push(`${page.slug}: clearing left ${JSON.stringify(cleared)}, expected ${JSON.stringify(page.placeholder)}`);
   }
 
-  /* 4. The letter button produces content. */
+  /* 4. The letter button and share button exist and produce content. */
   await typeAndRead(page.curated[0] ? page.curated[0][0] : page.unknown[0]);
+  const shareBtn = window.document.getElementById("shareLinkBtn");
+  if (shareBtn) pass++;
+  else fails.push(`${page.slug}: no #shareLinkBtn mounted in #btnrow`);
   const explainBtn = window.document.getElementById("explainBtn");
   if (explainBtn) {
     explainBtn.click();

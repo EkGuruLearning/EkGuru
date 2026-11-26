@@ -33,7 +33,7 @@ const EXCLUDED = mon.excluded_paths || [];
 /* Public pages only: reports/ contains previews, tools/ contains generator
    inputs (including authored Phase 3 HTML fragments), and the Google
    site-verification file is not a page (it has no <html> at all). */
-const EXEMPT = (p) => p.startsWith("reports/") || p.startsWith("tools/") || /^google[a-z0-9]+\.html$/.test(p);
+const EXEMPT = (p) => p.startsWith("reports/") || p.startsWith("tools/") || p.startsWith("docs/") || p.startsWith("tests/") || /^google[a-z0-9]+\.html$/.test(p);
 const allHtml = execFileSync("git", ["ls-files", "*.html"], { encoding: "utf8" })
   .split("\n").filter(Boolean);
 const files = allHtml.filter((p) => !EXEMPT(p));

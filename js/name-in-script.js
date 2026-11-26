@@ -227,12 +227,46 @@
       });
     }
 
-    /* Shareable link: /name-in-punjabi/?q=Simran opens with the answer
-       already on screen. Same parameter name as the Hindi tool, so the
-       two pages can be linked with one convention. */
+    /* Shareable link: /name-in-punjabi/?n=Simran (or ?q= / ?name=) opens
+       with the answer already on screen — unified with /name-in-hindi/. */
+    if (btnrow && !document.getElementById("shareLinkBtn")) {
+      var shareBtn = document.createElement("button");
+      shareBtn.type = "button";
+      shareBtn.id = "shareLinkBtn";
+      shareBtn.textContent = "Share link";
+      shareBtn.addEventListener("click", function () {
+        var typed = String(input.value || "").trim();
+        if (!typed) return;
+        var base = window.location.origin + window.location.pathname;
+        var surl = base + "?n=" + encodeURIComponent(typed);
+        var done = function () {
+          shareBtn.textContent = "Link copied!";
+          setTimeout(function () { shareBtn.textContent = "Share link"; }, 1600);
+        };
+        if (navigator.share) {
+          navigator.share({
+            title: typed + " in " + scriptName() + " — " + (lastText || ""),
+            url: surl
+          }).catch(function () {});
+        } else if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(surl).then(done, done);
+        } else {
+          var ta = document.createElement("textarea");
+          ta.value = surl;
+          document.body.appendChild(ta);
+          ta.select();
+          try { document.execCommand("copy"); } catch (e) {}
+          document.body.removeChild(ta);
+          done();
+        }
+        try { if (window.EkGuruAnalytics) window.EkGuruAnalytics.event("name_share", script + ":" + typed); } catch (e) {}
+      });
+      btnrow.appendChild(shareBtn);
+    }
+
     try {
       var qp = new URLSearchParams(window.location.search);
-      var q = qp.get("q") || qp.get("name");
+      var q = qp.get("n") || qp.get("q") || qp.get("name");
       if (q) {
         input.value = q.slice(0, 60);
         render(input.value);

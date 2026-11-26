@@ -175,18 +175,49 @@ function jsonLd(t, hidden) {
      sameAs to an external marketplace profile. The marketplace URL
      (preplyUrl) stays in the owner's data for records only; the site
      does not emit it in structured data or in any link. */
+  const person = {
+    "@type": "Person",
+    "@id": url + "#person",
+    name: t.name,
+    jobTitle: "Hindi Tutor",
+    description: excerpt,
+    image: photo,
+    url,
+    worksFor: { "@type": "EducationalOrganization", "@id": SITE + "/#org", name: "EkGuru", url: SITE + "/" },
+    homeLocation: {
+      "@type": "Place",
+      name: t.city ? (t.country ? t.city + ", " + t.country : t.city) : (t.country || "India")
+    },
+    knowsLanguage: (t.speaks || []).map((s) => (typeof s === "string" ? s : s.lang)).filter(Boolean),
+    knowsAbout: t.teaches || []
+  };
+  if (Number(t.priceUSD) > 0) {
+    person.makesOffer = {
+      "@type": "Offer",
+      name: "1-to-1 online Hindi lesson (" + (t.lessonLength || "50 min") + ")",
+      price: String(t.priceUSD),
+      priceCurrency: "USD",
+      url,
+      availability: "https://schema.org/InStock",
+      areaServed: "Worldwide"
+    };
+  }
+
   const graph = [
     {
-      "@type": "Person",
-      "@id": url + "#person",
-      name: t.name,
-      jobTitle: "Hindi Tutor",
-      description: excerpt,
-      image: photo,
+      "@type": "ProfilePage",
+      "@id": url + "#profile",
       url,
-      knowsLanguage: (t.speaks || []).map((s) => (typeof s === "string" ? s : s.lang)).filter(Boolean),
-      knowsAbout: t.teaches || []
+      name: title(t),
+      inLanguage: "en",
+      isPartOf: { "@id": SITE + "/#website" },
+      mainEntity: { "@id": url + "#person" },
+      speakable: {
+        "@type": "SpeakableSpecification",
+        cssSelector: [".pr-head h1", ".pr-headline", ".pr-stats"]
+      }
     },
+    person,
     {
       "@type": "BreadcrumbList",
       "@id": url + "#breadcrumb",
@@ -197,6 +228,17 @@ function jsonLd(t, hidden) {
       ]
     }
   ];
+
+  if (t.youtubeId) {
+    graph.push({
+      "@type": "VideoObject",
+      "@id": url + "#intro-video",
+      name: t.name + " — Hindi tutor introduction video",
+      description: excerpt || ("Introduction video by " + t.name + ", online Hindi tutor on EkGuru."),
+      thumbnailUrl: "https://i.ytimg.com/vi/" + t.youtubeId + "/hqdefault.jpg",
+      embedUrl: "https://www.youtube-nocookie.com/embed/" + t.youtubeId
+    });
+  }
 
   return JSON.stringify({ "@context": "https://schema.org", "@graph": graph });
 }
@@ -274,6 +316,15 @@ function headBlock(t, price, hidden) {
       "?subject=" + encodeURIComponent("Hindi lesson enquiry — " + t.name) + '">Send an enquiry</a>'
   ];
 
+  const shareUrl = SITE + "/tutor/" + t.id + "/?ref=tutor-" + t.id;
+  const shareText = t.name + " — Online Hindi Tutor on EkGuru: " + shareUrl;
+  const shareRow = hidden ? "" : `
+      <p class="pr-share" aria-label="Share tutor profile" style="margin-top:10px;display:flex;flex-wrap:wrap;align-items:center;gap:8px;font-size:.88rem;color:var(--muted)">
+        <span>Share profile:</span>
+        <button type="button" class="btn btn-ghost btn-sm" data-eg-share-copy="${attr(shareUrl)}" data-eg-share-label="tutor-${attr(t.id)}">Copy profile link</button>
+        <a class="btn btn-ghost btn-sm" target="_blank" rel="noopener noreferrer" href="https://wa.me/?text=${encodeURIComponent(shareText)}">Share on WhatsApp</a>
+      </p>`;
+
   return `  <header class="pr-head">
     <picture>
       ${webp ? '<source srcset="' + relImage(webp) + '" type="image/webp">\n      ' : ""}<img class="pr-photo" data-eg-photo-fallback src="${esc(photo)}" alt="${attr(t.name + ", online Hindi tutor from " + (t.city || t.country || "India"))}" width="200" height="200" itemprop="image" decoding="async">
@@ -287,7 +338,7 @@ function headBlock(t, price, hidden) {
       </p>
       <p class="pr-cta">
         ${cta.join("\n        ")}
-      </p>
+      </p>${shareRow}
     </div>
   </header>`;
 }
@@ -638,7 +689,7 @@ function build(t, roster, publics, hidden) {
      tools/ultra/contract.py carries the approval as a prefix rule. */
   const robotsWanted = hidden
     ? '<meta name="robots" content="noindex, follow">'
-    : '<meta name="robots" content="index, follow, max-image-preview:large">';
+    : '<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">';
   if (/<meta(?=[^>]*\bname="robots")[^>]*>/.test(out)) {
     out = out.replace(/<meta(?=[^>]*\bname="robots")[^>]*>/, () => robotsWanted);
   } else {
@@ -648,13 +699,19 @@ function build(t, roster, publics, hidden) {
   once(/<title>[\s\S]*?<\/title>/, "<title>" + esc(h.title) + "</title>", "<title>");
   once(/<meta(?=[^>]*\bname="description")[^>]*>/, '<meta name="description" content="' + attr(h.desc) + '">', "meta description");
   once(/<link(?=[^>]*\brel="canonical")[^>]*>/, '<link rel="canonical" href="' + h.url + '">', "canonical");
+  if (!out.includes('href="/opensearch.xml"')) {
+    out = out.replace(/<link(?=[^>]*\brel="canonical")[^>]*>/, (m) =>
+      m + '\n  <link rel="search" type="application/opensearchdescription+xml" title="EkGuru" href="/opensearch.xml">' +
+      '\n  <link rel="alternate" type="text/plain" href="/llms-full.txt" title="EkGuru — comprehensive AI and answer-engine reference">'
+    );
+  }
   once(/<meta(?=[^>]*\bproperty="og:title")[^>]*>/, '<meta property="og:title" content="' + attr(h.title) + '">', "og:title");
   once(/<meta(?=[^>]*\bproperty="og:description")[^>]*>/, '<meta property="og:description" content="' + attr(h.desc) + '">', "og:description");
   once(/<meta(?=[^>]*\bproperty="og:url")[^>]*>/, '<meta property="og:url" content="' + h.url + '">', "og:url");
   once(/<meta(?=[^>]*\bproperty="og:image")[^>]*>/, '<meta property="og:image" content="' + attr(h.image) + '">', "og:image");
   once(/<meta(?=[^>]*\bproperty="og:image:width")[^>]*>/, '<meta property="og:image:width" content="1200">', "og:image:width");
   once(/<meta(?=[^>]*\bproperty="og:image:height")[^>]*>/, '<meta property="og:image:height" content="630">', "og:image:height");
-  once(/<meta(?=[^>]*\bproperty="og:image:alt")[^>]*>/, '<meta property="og:image:alt" content="EkGuru — free, self-paced Hindi learning">', "og:image:alt");
+  once(/<meta(?=[^>]*\bproperty="og:image:alt")[^>]*>/, '<meta property="og:image:alt" content="' + attr(h.title) + '">', "og:image:alt");
   once(/<meta(?=[^>]*\bname="twitter:title")[^>]*>/, '<meta name="twitter:title" content="' + attr(h.title) + '">', "twitter:title");
   once(/<meta(?=[^>]*\bname="twitter:description")[^>]*>/, '<meta name="twitter:description" content="' + attr(h.desc) + '">', "twitter:description");
   once(/<meta(?=[^>]*\bname="twitter:image")[^>]*>/, '<meta name="twitter:image" content="' + attr(h.image) + '">', "twitter:image");
@@ -1009,6 +1066,11 @@ function updateManifest(publics, check, results) {
       description: "Browse Hindi tutor profiles",
       url: "./find-tutors.html?utm_source=pwa_shortcut", icons: icon
     });
+    shortcuts.push({
+      name: "Start the free course", short_name: "Learn Hindi",
+      description: "Free Hindi lessons, practice and courses",
+      url: "./learn/hindi/?utm_source=pwa_shortcut", icons: icon
+    });
   } else {
     /* U0 — no roster, no "Find a tutor" shortcut (it would be a door to an
        empty room); the free course is the door that opens. */
@@ -1018,6 +1080,11 @@ function updateManifest(publics, check, results) {
       url: "./learn/hindi/?utm_source=pwa_shortcut", icons: icon
     });
   }
+  shortcuts.push({
+    name: "Write name in Hindi", short_name: "Name Tool",
+    description: "Convert any name into Devanagari script",
+    url: "./name-in-hindi/?utm_source=pwa_shortcut", icons: icon
+  });
   shortcuts.push({
     name: "Become a tutor", short_name: "Teach",
     description: "Apply to teach Hindi on EkGuru",

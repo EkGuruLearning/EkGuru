@@ -123,17 +123,17 @@ def head(title, desc, url, up=""):
 <meta property="og:image" content="https://ekguru.shop/images/og-cover.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="EkGuru — free, self-paced Hindi learning">
+<meta property="og:image:alt" content="%s | EkGuru">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://ekguru.shop/images/og-cover.jpg">
-<meta name="twitter:image:alt" content="EkGuru — free, self-paced Hindi learning">
+<meta name="twitter:image:alt" content="%s | EkGuru">
 <meta property="article:published_time" content="%s">
 <link rel="stylesheet" href="%scss/style.min.css">
 <style>%s</style>
 </head>
 <body>
 <div class="art">
-""" % (title, desc, BASE, url, up, up, up, title, desc, BASE, url, NOW, up, "")  # CORE_STYLE now ships in css/experience.css
+""" % (title, desc, BASE, url, up, up, up, title, desc, BASE, url, title, title, NOW, up, "")  # CORE_STYLE now ships in css/experience.css
 
 
 def foot(up="", scripts=()):

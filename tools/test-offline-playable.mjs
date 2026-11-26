@@ -102,7 +102,15 @@ console.log("\n2. the only cross-origin dependency is the ad loader\n");
      take away from a learner. */
   const { execSync } = require("node:child_process");
   const files = execSync("git ls-files '*.html'", { encoding: "utf8" })
-    .trim().split("\n").filter((f) => existsSync(f));
+    .trim().split("\n").filter((f) => existsSync(f) && !/^(docs|tests|reports)\//.test(f));
+
+  const { loadSite } = require("./lib/site-data");
+  const tutorPhotoUrls = new Set();
+  for (const t of loadSite().publicTutors) {
+    for (const k of ["photo", "thumb", "banner"]) {
+      if (t[k] && /^https:\/\//.test(t[k])) tutorPhotoUrls.add(t[k]);
+    }
+  }
 
   const hosts = new Map();
   const risky = [];
@@ -126,12 +134,15 @@ console.log("\n2. the only cross-origin dependency is the ad loader\n");
       if (logic && host !== "pagead2.googlesyndication.com") {
         risky.push(`${f} <${tag}> ${host}`);
       }
-      /* Tutor photos come from the owner's Google Sheet as Drive links
-         (lh3.googleusercontent.com). They are content, carry a
-         data-eg-photo-fallback swap to the local placeholder, and nothing on
-         the page waits for them. */
+      /* Tutor photos come from the owner's Google Sheet (Drive links on
+         lh3.googleusercontent.com or approved HTTPS image URLs accepted by
+         sheetsync.js). They are content, carry a fallback swap to the local
+         placeholder, and nothing on the page waits for them. */
       const contentHosts = ["i.ytimg.com", "www.youtube-nocookie.com", "lh3.googleusercontent.com"];
-      if (!logic && !contentHosts.includes(host)) {
+      const approvedTutorImg =
+        (tag === "img" || (tag === "link" && /\brel="preload"/.test(attrs) && /\bas="image"/.test(attrs))) &&
+        tutorPhotoUrls.has(href);
+      if (!logic && !contentHosts.includes(host) && !approvedTutorImg) {
         risky.push(`${f} <${tag}> ${host}`);
       }
     }

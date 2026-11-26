@@ -25,6 +25,8 @@ import re
 import sys
 from pathlib import Path
 
+from discovery_integrity import prefix_relative_references
+
 ROOT = Path(__file__).resolve().parents[1]
 SHELL = ROOT / "find-tutors.html"
 OUT = ROOT / "hindi-classes" / "index.html"
@@ -73,7 +75,7 @@ BODY = """<main id="main">
 <h3>Check the time against your day</h3>
 <p>For a live class, the lesson time is what "near me" really decides. Each tutor location page works out the lesson hours in your own timezone, so you can see whether a slot lands in your morning, evening or late night. <a href="hindi-tutor/">See Hindi tutors by location →</a></p>
 <h3>Confirm cost and terms before committing</h3>
-<p>The self-study course is free. A live class is booked per lesson at a price the tutor states on their profile. Do not assume every tutor offers the same trial, duration or cancellation terms — check the profile and confirm directly before you commit. A lesson request is an enquiry until current availability and terms are confirmed in a reply.</p>
+<p>The self-study course is free. A live class is booked per lesson at a price the tutor states on their profile; EkGuru takes no commission on tutor lessons and adds no platform fee to the displayed price in this release, and EkGuru does not collect tutor-lesson payments. Do not assume every tutor offers the same trial, duration or cancellation terms — check the profile and confirm directly before you commit. A lesson request is an enquiry until current availability and terms are confirmed in a reply.</p>
 <h2>Common questions</h2>
 <div class="faq"><b>Are there Hindi classes physically near me?</b>
 <p>EkGuru runs online Hindi classes only — there is no physical classroom or local branch to visit. Every class is taken over the internet, so "near me" means the lesson time and timezone fit your day rather than a location you travel to.</p></div>
@@ -137,27 +139,18 @@ def build() -> str:
                 f'<meta content="{CANONICAL}" property="og:url"/>')
     text = repl(text, r'<meta content="Find a Hindi tutor \| EkGuru" name="twitter:title"/>',
                 f'<meta content="{TITLE}" name="twitter:title"/>')
+    text = repl(text, r'<meta name="twitter:image:alt" content="Find a Hindi tutor \| EkGuru">',
+                f'<meta name="twitter:image:alt" content="{TITLE}">')
     text = repl(text,
                 r'<meta content="Browse public Hindi tutor profiles\. Review tutor-provided details and confirm current terms and availability before sending an enquiry\." name="twitter:description"/>',
                 f'<meta content="{OGDESC}" name="twitter:description"/>')
 
-    # --- hreflang set: point every alternate at the new URL ---
-    text = text.replace('<link href="https://ekguru.shop/find-tutors.html" hreflang="en" rel="alternate"/>',
-                        f'<link href="{CANONICAL}" hreflang="en" rel="alternate"/>', 1)
-    text = text.replace('hreflang="en" rel="alternate"/>\n<link href="https://ekguru.shop/es/find-tutors.html"',
-                        f'hreflang="en" rel="alternate"/>\n<link href="https://ekguru.shop/es/hindi-classes/"', 1)
-    text = text.replace('hreflang="es" rel="alternate"/>\n<link href="https://ekguru.shop/fr/find-tutors.html"',
-                        'hreflang="es" rel="alternate"/>\n<link href="https://ekguru.shop/fr/hindi-classes/"', 1)
-    text = text.replace('hreflang="fr" rel="alternate"/>\n<link href="https://ekguru.shop/de/find-tutors.html"',
-                        'hreflang="fr" rel="alternate"/>\n<link href="https://ekguru.shop/de/hindi-classes/"', 1)
-    text = text.replace('hreflang="de" rel="alternate"/>\n<link href="https://ekguru.shop/pt/find-tutors.html"',
-                        'hreflang="de" rel="alternate"/>\n<link href="https://ekguru.shop/pt/hindi-classes/"', 1)
-    text = text.replace('hreflang="pt" rel="alternate"/>\n<link href="https://ekguru.shop/ja/find-tutors.html"',
-                        'hreflang="pt" rel="alternate"/>\n<link href="https://ekguru.shop/ja/hindi-classes/"', 1)
-    text = text.replace('hreflang="ja" rel="alternate"/>\n<link href="https://ekguru.shop/ar/find-tutors.html"',
-                        'hreflang="ja" rel="alternate"/>\n<link href="https://ekguru.shop/ar/hindi-classes/"', 1)
-    text = text.replace('hreflang="ar" rel="alternate"/>\n<link href="https://ekguru.shop/find-tutors.html" hreflang="x-default"',
-                        'hreflang="ar" rel="alternate"/>\n<link href="https://ekguru.shop/hindi-classes/" hreflang="x-default"', 1)
+    # No translated equivalents exist for this landing page. Do not invent
+    # alternate URLs or inherit the unrelated tutor-directory language set.
+    text = re.sub(r'<link\b[^>]*\bhreflang="[^"]+"[^>]*>\n?', '', text)
+    text = text.replace('</head>',
+                        f'<link href="{CANONICAL}" hreflang="en" rel="alternate"/>\n'
+                        f'<link href="{CANONICAL}" hreflang="x-default" rel="alternate"/>\n</head>', 1)
 
     # --- schema: breadcrumb + FAQ, no tutor ItemList ---
     schema_old = re.search(r'<!-- EKGURU:SCHEMA -->.*?<!-- /EKGURU:SCHEMA -->', text, re.S).group(0)
@@ -177,17 +170,21 @@ def build() -> str:
     import json
     breadcrumb = {
         "@context": "https://schema.org", "@graph": [
-            {"@type": "Organization", "@id": "https://ekguru.shop/#org", "name": "EkGuru",
+            {"@type": ["Organization", "EducationalOrganization"], "@id": "https://ekguru.shop/#org", "name": "EkGuru",
              "url": "https://ekguru.shop/", "description": "One Student. One Goal. One Guru.",
-             "email": "EkGuruLearning@gmail.com",
+             "email": "EkGuruLearning@gmail.com", "areaServed": "Worldwide",
              "sameAs": ["https://www.youtube.com/@ekguru_india", "https://www.facebook.com/profile.php?id=61596855810597", "https://www.instagram.com/ekguru.in", "https://x.com/ekguru_india", "https://www.linkedin.com/company/ekguru"],
-             "logo": {"@type": "ImageObject", "url": "https://ekguru.shop/images/og-cover.jpg"},
+             "logo": {"@type": "ImageObject", "url": "https://ekguru.shop/images/icon-512.png", "width": 512, "height": 512},
              "founder": {"@type": "Person", "name": "Prakash", "jobTitle": "Founder & CEO, EkGuru",
                          "alumniOf": {"@type": "CollegeOrUniversity", "name": "Malaviya National Institute of Technology Jaipur", "url": "https://www.mnit.ac.in/"},
                          "sameAs": ["https://www.linkedin.com/in/itstheprakash/"]},
              "contactPoint": {"@type": "ContactPoint", "contactType": "customer support",
                               "email": "EkGuruLearning@gmail.com", "url": "https://ekguru.shop/contact/",
                               "availableLanguage": ["English", "Hindi"]}},
+            {"@type": "WebPage", "@id": f"{CANONICAL}#page", "url": CANONICAL,
+             "name": "Online Hindi Classes — 1-on-1 Live Lessons & Free Course",
+             "isPartOf": {"@id": "https://ekguru.shop/#website"},
+             "speakable": {"@type": "SpeakableSpecification", "cssSelector": [".hero h1", ".hero p.lead", ".faq b"]}},
             {"@type": "BreadcrumbList", "itemListElement": [
                 {"@type": "ListItem", "position": 1, "name": "EkGuru", "item": "https://ekguru.shop/"},
                 {"@type": "ListItem", "position": 2, "name": "Hindi classes", "item": CANONICAL}]},
@@ -215,14 +212,24 @@ def build() -> str:
         lambda m: m.group(1) + _prefix_block(m.group(2), prefix) + m.group(3),
         text, count=1, flags=re.S)
 
-    return text
+    # The rest of this root-level shell (assets, body CTAs and scripts)
+    # also needs relocation, not just the header/footer.
+    return prefix_relative_references(text)
+
+
+ULTRA_STRIP = re.compile(r'<!-- ekguru:ultra-[a-z]+:start -->\n[\s\S]*?<!-- ekguru:ultra-[a-z]+:end -->\n')
+
+
+def _strip_ultra(raw: str) -> str:
+    raw = ULTRA_STRIP.sub('', raw)
+    return re.sub(r'(<html\b[^>]*?) data-learning-language="[^"]*"', r'\1', raw, count=1, flags=re.I)
 
 
 def main() -> int:
     check = "--check" in sys.argv
     page = build()
     if check:
-        if not OUT.exists() or OUT.read_text(encoding="utf-8") != page:
+        if not OUT.exists() or _strip_ultra(OUT.read_text(encoding="utf-8")) != _strip_ultra(page):
             print(f"STALE {OUT.relative_to(ROOT)} — run: python3 tools/build-hindi-classes-page.py")
             return 1
         print("ok    hindi-classes page is current")

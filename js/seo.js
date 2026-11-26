@@ -16,6 +16,22 @@
   var I18N = window.EKGURU_I18N || {};
   var BASE = (S.baseUrl || "").replace(/\/?$/, "/");
 
+  /* This legacy runtime owns only the original top-level interactive
+     pages and their actual translated files. A nested landing page also
+     ends in index.html: treating it as the homepage overwrites its title,
+     canonical, hreflang and JSON-LD with unrelated home metadata. Static
+     course/tool/tutor pages already own their search metadata. */
+  var route = location.pathname;
+  var rootPage = /^\/(?:index\.html|find-tutors\.html|join\.html|tutor\.html)?$/.test(route);
+  var translatedPage = M.some(function (market) {
+    return market.code !== "en" &&
+      (route === "/" + market.code + "/" ||
+       route === "/" + market.code + "/index.html" ||
+       route === "/" + market.code + "/find-tutors.html" ||
+       route === "/" + market.code + "/join.html");
+  });
+  if (!rootPage && !translatedPage) return;
+
   /* ---------- helpers ---------- */
   function page() {
     var p = location.pathname.split("/").pop();

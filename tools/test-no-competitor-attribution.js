@@ -88,6 +88,18 @@ const ATTRIBUTION_PHRASES = [
 
 const MARKETPLACE_RE = /https?:\/\/([a-z0-9.-]+\.)?(preply\.com|italki\.com|italki\.in)\b/i;
 
+/* Owner-approved tutor image URLs accepted by tools/sheetsync.js (never
+   marketplace domains). Only exact full-URL matches pass. */
+const { loadSite } = require("./lib/site-data");
+const APPROVED_TUTOR_PHOTOS = new Set();
+for (const t of loadSite().publicTutors) {
+  for (const k of ["photo", "thumb", "banner"]) {
+    if (t[k] && /^https:\/\//.test(t[k]) && !MARKETPLACE_RE.test(t[k])) {
+      APPROVED_TUTOR_PHOTOS.add(t[k]);
+    }
+  }
+}
+
 let failures = 0;
 const fails = (what, where, detail) => {
   failures++;
@@ -131,9 +143,9 @@ for (const r of htmlFiles) {
     if (low.includes(phrase)) fails("attribution phrase in public HTML", r, phrase);
   }
 
-  for (const m of t.matchAll(/https?:\/\/([^/"'\s<>]+)/g)) {
+  for (const m of t.matchAll(/https?:\/\/([^/"'\s<>]+)([^\s"'<>]*)/g)) {
     const host = m[1].toLowerCase().split(":")[0];
-    if (!ALLOWED_HOSTS.has(host)) fails("URL host outside allowlist", r, m[0]);
+    if (!ALLOWED_HOSTS.has(host) && !APPROVED_TUTOR_PHOTOS.has(m[0])) fails("URL host outside allowlist", r, m[0]);
   }
   if (/http:\/\/ekguru/i.test(t)) fails("insecure self-reference", r, "http://ekguru…");
 
@@ -197,9 +209,9 @@ for (const r of jsFiles) {
     }
     if (MARKETPLACE_RE.test(lit)) fails("marketplace URL in rendered JS string", r, lit.slice(0, 80));
   }
-  for (const m of t.matchAll(/https?:\/\/([^/"'\s<>`]+)/g)) {
+  for (const m of t.matchAll(/https?:\/\/([^/"'\s<>`]+)([^\s"'<>`]*)/g)) {
     const host = m[1].toLowerCase().split(":")[0];
-    if (!ALLOWED_HOSTS.has(host)) fails("URL host outside allowlist in JS", r, m[0]);
+    if (!ALLOWED_HOSTS.has(host) && !APPROVED_TUTOR_PHOTOS.has(m[0])) fails("URL host outside allowlist in JS", r, m[0]);
   }
   if (/preplyUrl\s*:\s*["'][^"']+["']/.test(t)) fails("non-empty preplyUrl literal in public JS", r);
   if (/sameAs\s*:\s*\[[^\]]*preplyUrl/i.test(t)) fails("sameAs built from preplyUrl", r);

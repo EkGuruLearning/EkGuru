@@ -145,7 +145,13 @@ try {
 
   const prof1 = readFileSync(join(ROOT, "tutor", FLIP_ID, "index.html"), "utf8");
   // 17 Nov 2026 owner decision: a public profile is indexable; hidden ones go back to noindex.
-  check("active profile is indexable (owner approval of 17 Nov 2026)", /content="index, follow, max-image-preview:large"/.test(head(prof1)));
+  const activeRobots = (head(prof1).match(/<meta name="robots" content="([^"]+)"/) || [])[1] || "";
+  const activeDirectives = activeRobots.split(",").map((value) => value.trim());
+  check("active profile is indexable (owner approval of 17 Nov 2026)",
+    activeDirectives.includes("index") && activeDirectives.includes("follow") &&
+    !activeDirectives.includes("noindex") && !activeDirectives.includes("nofollow"));
+  check("active profile allows full text, large image and video previews",
+    ["max-snippet:-1", "max-image-preview:large", "max-video-preview:-1"].every((value) => activeDirectives.includes(value)));
   check("profile carries Person JSON-LD again", /"@type":\s*"Person"/.test(prof1));
   check("profile booking CTAs return (tutor.html?id=" + FLIP_ID + ")",
     new RegExp("tutor\\.html\\?id=" + FLIP_ID).test(prof1));

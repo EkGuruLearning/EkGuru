@@ -36,10 +36,33 @@ def build(today=None):
 
 
 def issue(report):
+    import os
+    repo = os.environ.get('GITHUB_REPOSITORY', 'EkGuruLearning/EkGuru')
     body = ('Automated weekly course-health report (owner indexing freeze unchanged; nothing is quarantined automatically).\n\n```json\n' + json.dumps({k: v for k, v in report.items() if k != 'gate_counts'}, indent=2) + '\n```\n\nGate counts: `' + json.dumps(report['gate_counts']) + '`\nSee data/quality/course-health.json and data/quality/language-gate.json.')
-    found = json.loads(subprocess.run(['gh', 'issue', 'list', '--label', 'course-health', '--state', 'open', '--json', 'number'], capture_output=True, text=True, check=True).stdout)
-    if found: subprocess.run(['gh', 'issue', 'edit', str(found[0]['number']), '--body', body], check=True)
-    else: subprocess.run(['gh', 'issue', 'create', '--title', 'Course health: weekly attention needed', '--label', 'course-health', '--body', body], check=True)
+    # Ensure the 'course-health' label exists (REST API; ignore 422 if already created)
+    subprocess.run(
+        ['gh', 'api', f'repos/{repo}/labels', '-X', 'POST',
+         '-f', 'name=course-health', '-f', 'color=FBCA04',
+         '-f', 'description=Automated weekly course health report'],
+        capture_output=True, text=True, check=False,
+    )
+    found_raw = subprocess.run(
+        ['gh', 'api', f'repos/{repo}/issues?labels=course-health&state=open&per_page=5'],
+        capture_output=True, text=True, check=True,
+    ).stdout
+    found = [x for x in json.loads(found_raw) if 'pull_request' not in x]
+    if found:
+        subprocess.run(
+            ['gh', 'api', f'repos/{repo}/issues/{found[0]["number"]}', '-X', 'PATCH', '-f', f'body={body}'],
+            capture_output=True, text=True, check=True,
+        )
+    else:
+        subprocess.run(
+            ['gh', 'api', f'repos/{repo}/issues', '-X', 'POST',
+             '-f', 'title=Course health: weekly attention needed',
+             '-f', f'body={body}', '-f', 'labels[]=course-health'],
+            capture_output=True, text=True, check=True,
+        )
 
 
 def main():

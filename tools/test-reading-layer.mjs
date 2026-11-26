@@ -61,13 +61,14 @@ const check = (name, ok, detail) => {
   ok ? pass++ : fail++;
 };
 
-const legacy = [], modern = [], pageLayer = [];
+const legacy = [], modern = [], pageLayer = [], consolidated = [];
 for (const p of pages) {
   const h = read(p);
   /* The reading layer owns the .pw container. The page layer puts the same
      class on .art / .qw / .aw containers and tools/test-page-layer.mjs owns
      those — counting them here would test the wrong layer's pages. */
-  if (/<div class="pw pw-legacy["\s]/.test(h)) legacy.push([p, h]);
+  if (h.includes("data-eg-country-phrase-merge")) consolidated.push(p);
+  else if (/<div class="pw pw-legacy["\s]/.test(h)) legacy.push([p, h]);
   else if (/class="[^"]*\bpw-legacy\b/.test(h)) pageLayer.push(p);
   else if (/class="[^"]*\bpw\b/.test(h) && /class="[^"]*\bxp-(page|main|sec|hero|doc|support-hero|freeband)\b/.test(h)) modern.push(p);
 }
@@ -75,13 +76,16 @@ for (const p of pages) {
 /* ---------- 1. the class is where it should be, and nowhere else ---------- */
 check("the reading layer is on every hand-written page", legacy.length === 976,  /* 970 original + 6 owner-approved country pages (2026-11-13) */
   legacy.length + " page(s)");
-/* 1958 = 1762 previous page-layer pages + 196 country daily-phrases pages
-   (2026-11-22, every country's daily Hindi phrase landing page). Update this
-   count deliberately whenever the inventory changes;
-   every page-layer page must still carry the class, and tools/test-page-layer.mjs
-   independently enforces the content and bands for the pages it owns. */
-check("the page layer's pages carry the same class, tested separately", pageLayer.length === 1958,
+/* The 196 empty country phrase landing pages are now owner-approved
+   redirect utilities, not reading-layer articles. Keep the original 1762
+   articles and independently pin the complete set of retired routes. */
+check("the page layer's pages carry the same class, tested separately", pageLayer.length === 1762,
   pageLayer.length + " page(s)");
+const approvedMerges = JSON.parse(read("data/quality/indexing-baseline.json"))
+  .owner_approved_country_phrase_consolidation.sources;
+check("only the exact 196 approved country phrase utilities leave the reading layer",
+  consolidated.length === 196 && JSON.stringify(consolidated.sort()) === JSON.stringify([...approvedMerges].sort()),
+  consolidated.length + " consolidated route(s)");
 check("the pages already on the v200 system were left alone", modern.length === 6,
   modern.join(", "));
 const untouched = ["terms/index.html", "privacy/index.html", "disclaimer/index.html",

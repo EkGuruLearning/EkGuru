@@ -6,6 +6,7 @@ import json
 import re
 from collections import Counter
 from pathlib import Path
+from discovery_integrity import Page, page_url
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -34,6 +35,8 @@ def main() -> int:
             continue
         head = path.read_text(encoding="utf-8", errors="replace").split("</head>", 1)[0]
         tags = re.findall(r"<meta\b[^>]*>", head, re.I)
+        if Page(head).canonicals != [page_url(path.relative_to(ROOT).as_posix())]:
+            failures.append(f"noncanonical search target: {url}")
         if any("robots" in tag.lower() and "noindex" in tag.lower() for tag in tags):
             failures.append(f"noindex search target: {url}")
     page = (ROOT / "search/index.html").read_text(encoding="utf-8")
