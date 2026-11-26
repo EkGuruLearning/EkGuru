@@ -58,6 +58,9 @@ ck(){
   fi
 
   echo "FAIL${why:+  ← $why}"
+  if [ "${GITHUB_ACTIONS:-}" = "true" ]; then
+    printf '::error title=Weekly guard::%s failed; %s\n' "$name" "${why:-see check command in tools/weekly-guard.sh}"
+  fi
   [ -n "$SUMMARY" ] && printf '| %s | ❌ FAIL | %s |\n' "$name" "${why:-see log}" >> "$SUMMARY"
   FAIL=1
 }
@@ -83,7 +86,7 @@ if [ $FAIL -eq 0 ] && [ $CF_CHALLENGED -eq 0 ]; then
   echo "GUARD: ALL GREEN"
 elif [ $FAIL -eq 0 ]; then
   echo "GUARD: REPO & POLICY GREEN ($CF_CHALLENGED live probe(s) received Cloudflare Bot Fight challenge; local invariants verified)"
-  [ -n "$SUMMARY" ] && printf '\nNote: %d live probe(s) received `cf-mitigated: challenge` from Cloudflare for the GitHub runner IP; all local repository/policy checks passed. Add a Cloudflare WAF skip rule for `EkGuruGuard` UA to enable unchallenged live probes.\n' "$CF_CHALLENGED" >> "$SUMMARY"
+  [ -n "$SUMMARY" ] && printf '\nNote: %d live probe(s) received `cf-mitigated: challenge` from Cloudflare for the GitHub runner IP; all local repository/policy checks passed. Review verified crawler access and WAF diagnostics with the hosting owner; a spoofable User-Agent is not a safe WAF bypass.\n' "$CF_CHALLENGED" >> "$SUMMARY"
 else
   echo "GUARD: FAILURES — report the FAIL lines to the owner"
   [ -n "$SUMMARY" ] && printf '\nOne or more checks failed without a Cloudflare bot challenge (or failed local verification).\n' >> "$SUMMARY"

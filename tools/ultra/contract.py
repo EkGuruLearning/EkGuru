@@ -43,6 +43,10 @@ def check():
   return None,None
  for p in files():
   rel=p.relative_to(ROOT).as_posix();seen.add(rel);h=Head(p.read_text())
+  consolidation=data.get('owner_approved_country_phrase_consolidation',{})
+  if rel in consolidation.get('sources',[]):
+   if h.noindex or h.canonical!=consolidation['canonical']:errors.append(rel+': must keep the owner-approved crawlable phrase merge target')
+   continue
   pre,rule=prefix_rule(rel)
   if rule:
    # 17 Nov 2026 owner approval: pages under this prefix are governed by the

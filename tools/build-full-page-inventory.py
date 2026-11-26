@@ -322,6 +322,11 @@ def main():
         "pages_total": len(pages),
         "indexable": sum(1 for p in pages if p["indexable"]),
         "noindex": sum(1 for p in pages if not p["indexable"]),
+        # Raw robots permission is preserved above; merged URLs are not
+        # independently eligible self-canonical landing pages.
+        "self_canonical_indexable": sum(1 for p in pages if p["indexable"] and p["canonical"] == p["url"]),
+        "crawlable_noncanonical_pages": sorted(p["source_file"] for p in pages if p["indexable"] and p["canonical"] and p["canonical"] != p["url"]),
+        "standalone_thin_indexable": sorted(p["source_file"] for p in pages if p["content_quality"] == "thin-indexable" and p["canonical"] == p["url"]),
         "indexable_not_in_sitemap": sorted(p["url"] for p in pages if p["indexable"] and not p["in_sitemap"]),
         "noindex_in_sitemap": sorted(p["url"] for p in pages if p["in_sitemap"] and not p["indexable"]),
         "thin_indexable": sorted(p["source_file"] for p in pages if p["content_quality"] == "thin-indexable"),

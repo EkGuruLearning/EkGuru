@@ -145,7 +145,6 @@ def ensure_core_urls() -> None:
             additions.append(
                 "  <url>\n"
                 f"    <loc>{loc}</loc>\n"
-                f"    <lastmod>{date.today().isoformat()}</lastmod>\n"
                 "  </url>\n"
             )
     if additions:
@@ -225,12 +224,21 @@ def rebuild_supplement(disallows: list[str]) -> None:
         '<?xml version="1.0" encoding="UTF-8"?>',
         '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">',
     ]
-    today = date.today().isoformat()
+    # Keep existing evidence; rebuilding is not an editorial update. New
+    # URLs omit the optional date rather than claiming a fabricated change.
+    old = ROOT / SUPPLEMENT
+    previous = {}
+    if old.exists():
+        for block in URL_BLOCK_RE.findall(old.read_text(encoding="utf-8")):
+            loc_match = LOC_RE.search(block)
+            date_match = re.search(r"<lastmod>([^<]+)</lastmod>", block)
+            if loc_match and date_match:
+                previous[html.unescape(loc_match.group(1).strip())] = date_match.group(1)
     for loc in missing:
         lines.extend([
             "  <url>",
             f"    <loc>{loc}</loc>",
-            f"    <lastmod>{today}</lastmod>",
+            *([f"    <lastmod>{previous[loc]}</lastmod>"] if loc in previous else []),
             "  </url>",
         ])
     lines.append("</urlset>")
@@ -238,7 +246,8 @@ def rebuild_supplement(disallows: list[str]) -> None:
 
 
 def rebuild_index(sitemaps: list[Path]) -> None:
-    today = date.today().isoformat()
+    # Child-file change dates are not known here. Omit optional lastmod;
+    # never stamp every child with the date of a generator run.
     body = [
         '<?xml version="1.0" encoding="UTF-8"?>',
         '<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">',
@@ -252,7 +261,6 @@ def rebuild_index(sitemaps: list[Path]) -> None:
         body.extend([
             "  <sitemap>",
             f"    <loc>{BASE}/{path.name}</loc>",
-            f"    <lastmod>{today}</lastmod>",
             "  </sitemap>",
         ])
     body.append("</sitemapindex>")

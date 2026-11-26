@@ -36,6 +36,7 @@ class Head(HTMLParser):
         super().__init__()
         self.canonicals = []
         self.robots = []
+        self.refresh = []
         self.title = False
         self.title_text = ""
         self.feed(body.split("</head>", 1)[0])
@@ -46,6 +47,8 @@ class Head(HTMLParser):
             self.canonicals.append(attrs.get("href", ""))
         if tag == "meta" and attrs.get("name", "").lower() in {"robots", "googlebot", "bingbot"}:
             self.robots.append(attrs.get("content", ""))
+        if tag == "meta" and attrs.get("http-equiv", "").lower() == "refresh":
+            self.refresh.append(attrs.get("content", ""))
         if tag == "title":
             self.title = True
 
@@ -101,6 +104,20 @@ def page_errors(result, expected_canonical):
     return errors
 
 
+def consolidation_errors(result, target):
+    errors = response_errors(result)
+    head = Head(result["body"])
+    if head.canonicals != [target]:
+        errors.append("retired phrase URL lost its approved merge canonical")
+    if head.refresh != ["0;url=" + urlsplit(target).path]:
+        errors.append("retired phrase URL lost its immediate HTML redirect")
+    if f'href="{urlsplit(target).path}"' not in result["body"]:
+        errors.append("retired phrase URL has no JavaScript-free fallback")
+    if "adsbygoogle.js" in result["body"]:
+        errors.append("advertising loader on redirect page")
+    return errors
+
+
 def sitemap_locs(result, expected_kind):
     errors = response_errors(result)
     if errors:
@@ -119,7 +136,7 @@ def sitemap_locs(result, expected_kind):
     return locs, errors
 
 
-def run(base, sample_size=24, discovery=False, check_origins=False):
+def run(base, sample_size=24, discovery=False, check_origins=False, check_consolidations=False):
     checks = []
 
     def record(path, result, errors, **extra):
@@ -181,6 +198,16 @@ def run(base, sample_size=24, discovery=False, check_origins=False):
                 except ET.ParseError:
                     errors.append("invalid OpenSearch XML")
             record(path, result, errors)
+    if check_consolidations:
+        approval = json.loads((Path(__file__).resolve().parents[1] / "data/quality/indexing-baseline.json").read_text())["owner_approved_country_phrase_consolidation"]
+        sources = approval["sources"]
+        for source in (sources[0], sources[len(sources) // 2], sources[-1]):
+            path = "/" + source[:-10]
+            result = fetch(base + path)
+            record(path, result, consolidation_errors(result, approval["canonical"]))
+        target_path = urlsplit(approval["canonical"]).path
+        result = fetch(base + target_path)
+        record(target_path, result, page_errors(result, approval["canonical"]))
     if check_origins:
         for origin in ("http://ekguru.shop", "http://www.ekguru.shop", "https://www.ekguru.shop"):
             result = fetch(origin + "/")
@@ -200,12 +227,13 @@ def main():
     cli.add_argument("--sample-size", type=int, default=24)
     cli.add_argument("--discovery", action="store_true")
     cli.add_argument("--check-origins", action="store_true")
+    cli.add_argument("--check-consolidations", action="store_true", help="After deployment, probe old phrase URLs and their shared destination")
     cli.add_argument("--report", default="reports/live-seo-gate.json")
     args = cli.parse_args()
     if args.sample_size < 1 or args.sample_size > 1000:
         cli.error("sample-size must be between 1 and 1000")
     base = args.base.rstrip("/")
-    report = run(base, args.sample_size, args.discovery, args.check_origins)
+    report = run(base, args.sample_size, args.discovery, args.check_origins, args.check_consolidations)
     path = Path(args.report)
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(json.dumps(report, indent=2) + "\n", encoding="utf-8")

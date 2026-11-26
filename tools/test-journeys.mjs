@@ -125,3 +125,32 @@ for (const vp of [{ name: "phone", width: 390, height: 844 }, { name: "laptop", 
     await expect(page.locator(".bk-leaf[hidden]")).toHaveCount(0);
   });
 }
+
+/* Old shared bookmarks must reach the real conversation content without JS.
+   The second case simulates a client that suppresses automatic refresh. */
+test("J7 retired country phrase bookmark redirects without JavaScript", async ({ browser }) => {
+  const context = await browser.newContext({ javaScriptEnabled: false });
+  const page = await context.newPage();
+  await page.goto(base + "/learn-hindi-from-ghana/daily-phrases/", { waitUntil: "domcontentloaded" });
+  await expect(page).toHaveURL(base + "/learn/hindi/conversation/");
+  await expect(page.locator("h1")).toContainText("Conversation");
+  await context.close();
+});
+
+test("J8 redirect fallback is keyboard usable when refresh is unavailable", async ({ browser }) => {
+  const context = await browser.newContext({ javaScriptEnabled: false });
+  const page = await context.newPage();
+  await page.route("**/learn-hindi-from-philippines/daily-phrases/", async route => {
+    const response = await route.fetch();
+    const body = (await response.text()).replace(/<meta http-equiv="refresh"[^>]*>/, "");
+    await route.fulfill({ response, body });
+  });
+  await page.goto(base + "/learn-hindi-from-philippines/daily-phrases/");
+  await expect(page.getByRole("heading", { level: 1 })).toHaveText("Hindi daily phrases have moved");
+  const link = page.getByRole("link", { name: "Open Hindi greetings and conversation" });
+  await expect(link).toBeVisible();
+  await link.focus();
+  await page.keyboard.press("Enter");
+  await expect(page).toHaveURL(base + "/learn/hindi/conversation/");
+  await context.close();
+});

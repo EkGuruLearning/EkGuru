@@ -14,6 +14,7 @@ Run after adding/removing any page or section:  python3 tools/build-search-index
 """
 import json, os, re, sys
 from html import unescape
+from discovery_integrity import Page, page_url
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 os.chdir(ROOT)
@@ -99,7 +100,9 @@ def is_public(url):
         return True  # Preserve the existing warning path; do not silently erase typos.
     head = read_file(path).split("</head>", 1)[0]
     tags = re.findall(r"<meta\b[^>]*>", head, re.I)
-    return not any("robots" in tag.lower() and "noindex" in tag.lower() for tag in tags)
+    canonical = Page(head).canonicals
+    return (canonical == [page_url(path.replace(os.sep, "/"))] and
+            not any("robots" in tag.lower() and "noindex" in tag.lower() for tag in tags))
 
 
 def main():

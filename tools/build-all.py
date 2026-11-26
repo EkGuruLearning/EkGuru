@@ -68,6 +68,7 @@ def run(label, cmd):
 
 # ULTRA v3 generators/tests. Each slice appends here so check and write modes stay in step.
 ULTRA_BUILDS = [
+    ("owner-approved country phrase consolidation", ["python3", "tools/build-country-phrases.py"]),
     ("reciprocal language alternates on existing beginner guides", ["python3", "tools/build-guide-hreflang.py"]),
     ("flashcard decks from authored course vocabulary (PHASE 9)", ["python3", "tools/build-flashcards.py"]),
     ("flashcard lab on every practice page with a deck (PHASE 9)", ["python3", "tools/inject-flashcards.py"]),
@@ -85,6 +86,8 @@ ULTRA_BUILDS = [
      ["node", "tools/test-flashcards.mjs"]),
 ]
 ULTRA_TESTS = [
+    ("country phrase consolidation stays bounded, crawlable and ad-free", ["python3", "tools/test-country-phrase-consolidation.py"]),
+    ("sitemap rebuilds never fabricate editorial freshness", ["python3", "tools/test-sitemap-freshness.py"]),
     ("public crawl targets, assets and reciprocal hreflang", ["python3", "tools/discovery_integrity.py"]),
     ("discovery audit and relocation regression tests", ["python3", "tools/test-discovery-integrity.py"]),
     ("static landing metadata survives legacy SEO runtime", ["node", "tools/test-seo-runtime.mjs"]),
