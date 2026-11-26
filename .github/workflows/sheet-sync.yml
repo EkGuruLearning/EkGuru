@@ -46,6 +46,8 @@ jobs:
           node tools/langsync.js
           node tools/build-tutor-pages.js
           node tools/build-home-tutors.js
+          python3 tools/build-hindi-classes-page.py
+          python3 tools/build-hindi-tutor-near-me-page.py
           node tools/build-market-pages.js
           node tools/build-roster-rows.js
           python3 tools/quarantine-tutor-drafts.py

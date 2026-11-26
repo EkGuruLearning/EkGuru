@@ -86,7 +86,7 @@ console.log("== 3. Application form (join.html) ==");
   const { win, errors } = loadPage("join.html", "https://ekguru.shop/join.html");
   await sleep(250);
   const d = win.document;
-  const form = d.querySelector("form[data-intake=application]");
+  const form = d.querySelector("form#jw-form, form[data-intake=application]");
   check("application form present", !!form);
   check("intake.js loaded", !!win.EkGuruIntake);
   check("no script errors", errors.length === 0, errors.slice(0,2).join(";"));
@@ -144,7 +144,7 @@ console.log("== 5. intake.js client checks ==");
 console.log("== 6. Server contract match (Intake.gs) ==");
 {
   const gs = fs.readFileSync(ROOT + "/apps-script/Intake.gs", "utf8");
-  check("Intake.gs version 1.2.0", gs.includes('var INTAKE_VERSION = "1.2.0";'));
+  check("Intake.gs version 1.3.1", gs.includes('var INTAKE_VERSION = "1.3.1";'));
   check("Intake.gs review requires booking_id", /booking_id:\s*\{\s*type:\s*"text",\s*max:\s*20,\s*required:\s*true/.test(gs));
   check("Intake.gs has intakeReviewGate_", gs.includes("function intakeReviewGate_"));
   check("Intake.gs gate used in doPost", /if \(kind === "review"\)\s*\{\s*var gate = intakeReviewGate_\(/.test(gs));

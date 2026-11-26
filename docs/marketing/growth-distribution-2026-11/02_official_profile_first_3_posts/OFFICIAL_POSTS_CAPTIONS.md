@@ -1,100 +1,80 @@
-# Official Social Profiles — First 3 Starter Posts (Ready to Upload)
+# Official Profiles — Bio Setup & First 3 Starter Posts (Section 8)
 
-Accounts linked in site schema (`sameAs`):
-- **Instagram:** `@ekguru.in`
-- **X (Twitter):** `@ekguru_india`
-- **YouTube:** `@ekguru_india` (Community tab)
-- **LinkedIn:** `linkedin.com/company/ekguru`
-- **Facebook:** Official EkGuru page
+Target official profiles:
+- **Instagram:** `@ekguru.in` — Bio link: `https://ekguru.shop/?ref=ig`
+- **YouTube:** `@ekguru_india` — Channel link: `https://ekguru.shop/?ref=yt`
+- **X (Twitter):** `@ekguru_india` — Bio link: `https://ekguru.shop/?ref=x`
+- **Facebook Page:** EkGuru — Page website: `https://ekguru.shop/?ref=fb`
+- **LinkedIn:** `company/ekguru` — Website: `https://ekguru.shop/?ref=li`
+
+**Recommended Bio Line (all platforms):**
+> Free Hindi & Indian-language courses, alphabet & browser practice tools. No account needed. एक भाषा, एक नई दुनिया।
 
 ---
 
-## Post 1 — EkGuru Platform Introduction
-**Image file:** `post_01_ekguru_intro_1080x1350.png`
+## Post 1 — EkGuru Introduction (Single Image `1080×1350`)
+- **Image file:** `post_01_ekguru_intro_1080x1350.png` (editable SVG: `post_01_ekguru_intro_1080x1350.svg`)
 
 ### Instagram / Facebook / LinkedIn Caption
-```text
-EkGuru is open: free self-paced courses for Hindi and Indian languages — right in your browser, with no account to create.
+We built EkGuru for anyone who wants to learn Hindi or another Indian language step by step — without creating an account, handing over an email address, or installing an app.
 
-Available courses today:
-• Hindi (structured course, script & pronunciation tools, 1-on-1 tutor profiles)
-• Marathi, Gujarati, Bengali, Tamil, Telugu, Punjabi & Urdu (5 levels, lessons & quizzes)
+What is live right now on https://ekguru.shop/?ref=social-post1 :
+- Structured Hindi path + 30-day daily routine (`20 min/day`, saved in your browser)
+- Regional Indian language courses: Marathi, Gujarati, Tamil, Telugu, Bengali, Punjabi & Urdu
+- 13 browser practice tools: Devanagari alphabet chart, numbers 1–100, flashcards, printable worksheets & name-in-Hindi explorer
+- Independent tutors listed with their stated lesson details (confirm availability & terms directly with the tutor)
 
-Your progress and spaced-repetition review cards stay saved on your own device.
-
-Start learning free:
-https://ekguru.shop/?ref=social-post1
-
+Learn Indian Languages. Connect with India.
 एक भाषा, एक नई दुनिया।
-#LearnHindi #IndianLanguages #Devanagari #LanguageLearning #EkGuru
-```
 
-### X (Twitter) Caption
-```text
-EkGuru: free Hindi and Indian-language courses in your browser.
+### X / Twitter Version
+EkGuru is live: free Hindi & Indian-language courses + 13 browser tools (alphabet, numbers, flashcards, worksheets, name-in-Devanagari).
 
-Hindi, Marathi, Gujarati, Bengali, Tamil, Telugu, Punjabi & Urdu — structured lessons, script guides, and quizzes. No account or sign-up wall.
-
-Start here: https://ekguru.shop/?ref=x-post1
-```
+No account or email required — open and start learning:
+https://ekguru.shop/?ref=x-post1
 
 ---
 
-## Post 2 — Free Tool Showcase (`/name-in-hindi/`)
-**Image file:** `post_02_name_in_hindi_tool_1080x1350.png`
+## Post 2 — Tool Spotlight: Your Name in Hindi (`1080×1350`)
+- **Image file:** `post_02_name_in_hindi_tool_1080x1350.png` (editable SVG: `post_02_name_in_hindi_tool_1080x1350.svg`)
 
 ### Instagram / Facebook / LinkedIn Caption
-```text
-Your name in Hindi — explained letter by letter.
+One of the easiest ways to start reading Devanagari is with a word you already know by heart: your own name.
 
-Devanagari writes by sound, not by English spelling. For example, “Anna” becomes अन्ना:
-1. अ (short vowel 'a')
-2. न् (half-consonant 'n' with halant)
-3. ना ('n' + long 'ā' vowel mark)
+Type any name on our free browser tool and see:
+1. How it is written in Devanagari script
+2. Every vowel mark (matra) and consonant cluster explained letter by letter
 
-Type your own name to see every syllable broken down and hear it spoken aloud (free, no sign-up):
+Try yours free (no login):
 https://ekguru.shop/name-in-hindi/?ref=social-post2
 
-#NameInHindi #Devanagari #LearnHindi #HindiScript #EkGuru
-```
+### X / Twitter Version
+How does your name look in Devanagari — and what does each letter actually do?
 
-### X (Twitter) Caption
-```text
-How is your name written in Hindi — and why?
-
-Devanagari writes by sound, not English spelling (“Anna” → अ + न् + ना = अन्ना).
-
-Try your own name letter by letter (free, no account):
+Type any name and see it broken down letter by letter in your browser (free, no sign-up):
 https://ekguru.shop/name-in-hindi/?ref=x-post2
-```
 
 ---
 
-## Post 3 — Learner FAQ (`Do I need to learn Devanagari?`)
-**Image file:** `post_03_devanagari_tip_1080x1350.png`
+## Post 3 — 4-Slide Swipeable Carousel: “Do I Really Need to Learn Devanagari?” (`1080×1350` × 4)
+- **Slide 1 (Cover):** `post_03_devanagari_tip_1080x1350.png`
+- **Slide 2 (Why Romanised Hindi Hits a Wall):** `post_03_slide_02_vowel_length_1080x1350.png`
+- **Slide 3 (The Logical Sound Grid):** `post_03_slide_03_sound_grid_1080x1350.png`
+- **Slide 4 (Free 2-Week Plan + Links):** `post_03_slide_04_two_week_plan_1080x1350.png`
 
-### Instagram / Facebook / LinkedIn Caption
-```text
-“Do I need to learn Devanagari before speaking Hindi?”
+### Instagram / LinkedIn / Facebook Carousel Caption
+“Can I learn Hindi using only English letters?”
 
-You can start with spoken Hindi and Romanized text — plenty of beginners do.
+You can for your first few greetings — and then romanised spelling starts hiding the exact vowel lengths (`kal` vs `kāl`) and aspirated consonants (`kāl` vs `khāl`) you need to be understood clearly.
 
-Why learning the script (~2 weeks) pays off fast:
-1. English spelling hides real Hindi contrasts — soft dental त (ta) vs retroflex ट (ṭa), and द (da) vs ड (ḍa).
-2. Devanagari has no silent letters: once you know the vowel marks (matras), किताब (kitāb) reads just as it sounds.
+The good news: Devanagari is organised like a logical sound table, not a random list of shapes. Twenty steady minutes a day for about two weeks is enough to start reading signs, menus, and beginner lessons.
 
-Read the short honest guide:
-https://ekguru.shop/ask/do-i-need-to-learn-devanagari/?ref=social-post3
+Swipe through all 4 slides, then use both free resources:
+- Full guide: https://ekguru.shop/ask/do-i-need-to-learn-devanagari/?ref=social-post3
+- Interactive alphabet & audio chart: https://ekguru.shop/hindi/alphabet/?ref=social-post3
 
-Free interactive alphabet chart:
-https://ekguru.shop/hindi/alphabet/?ref=social-post3
-```
+### X / Twitter Thread / Single Post Version
+Do you really need to learn Devanagari for Hindi?
 
-### X (Twitter) Caption
-```text
-“Do I need to learn Devanagari?”
-
-You can skip it at first — but English spelling merges त (soft dental ta) and ट (retroflex ṭa) into the same “ta”. Learning the script takes ~2 weeks and fixes pronunciation early.
-
-Full breakdown: https://ekguru.shop/ask/do-i-need-to-learn-devanagari/?ref=x-post3
-```
+Romanised Hindi works for week 1, then hides vowel length (`kal` vs `kāl`) and breathy consonants (`kāl` vs `khāl`). Because Devanagari is a phonetic sound grid, ~2 steady weeks opens up real reading:
+https://ekguru.shop/ask/do-i-need-to-learn-devanagari/?ref=x-post3
