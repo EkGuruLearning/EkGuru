@@ -510,7 +510,7 @@ window.EKGURU_SITE = {
        once on a browser, or run
          localStorage.setItem("ekguru_no_track","1")
        See js/analytics.js. The provider uses no analytics cookie,
-       but EkGuru still requires an affirmative local privacy choice. */
+       and honours the local privacy opt-out (plus DNT/GPC). */
     provider: "goatcounter",
     site: "ekguru"
   },

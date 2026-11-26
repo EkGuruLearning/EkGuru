@@ -86,6 +86,8 @@ ULTRA_BUILDS = [
      ["node", "tools/test-flashcards.mjs"]),
 ]
 ULTRA_TESTS = [
+    ("analytics privacy choices remain reversible across provider load races", ["node", "tools/test-analytics-lifecycle.mjs"]),
+    ("join wizard loads its real stylesheet and keeps navigation visible", ["node", "tools/test-join-css-visibility.mjs"]),
     ("home Hindi practice checks the displayed phrase locally", ["node", "tools/test-home-practice.mjs"]),
     ("country phrase consolidation stays bounded, crawlable and ad-free", ["python3", "tools/test-country-phrase-consolidation.py"]),
     ("sitemap rebuilds never fabricate editorial freshness", ["python3", "tools/test-sitemap-freshness.py"]),

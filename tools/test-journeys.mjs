@@ -177,3 +177,26 @@ test("J9 home Hindi practice validates the displayed phrase", async ({ page }) =
   await input.press('Enter');
   await expect(input).toHaveAttribute('aria-invalid', 'true');
 });
+
+for (const width of [390, 1280]) {
+  test(`J10 join wizard ships its real stylesheet at ${width}px`, async ({ page }) => {
+    await page.setViewportSize({ width, height: 900 });
+    const cssResponse = page.waitForResponse((r) => new URL(r.url()).pathname === '/css/join-wizard.css');
+    await page.goto(base + '/join.html');
+    expect((await cssResponse).status()).toBe(200);
+    await expect(page.locator('#jw')).toHaveClass(/jw-on/);
+    await expect(page.locator('.jw-next')).toBeVisible();
+    await expect(page.locator('.jw-fallback')).toBeHidden();
+    const layout = await page.locator('#jw').evaluate((el) => ({
+      maxWidth: getComputedStyle(el).maxWidth,
+      overflow: document.documentElement.scrollWidth > innerWidth + 1,
+      nextHeight: el.querySelector('.jw-next').getBoundingClientRect().height,
+    }));
+    expect(layout.maxWidth).toBe('1120px');
+    expect(layout.overflow).toBe(false);
+    expect(layout.nextHeight).toBeGreaterThanOrEqual(44);
+    await page.locator('.jw-next').click();
+    await expect(page.locator('#jw-step-1')).toBeVisible();
+    await expect(page.locator('#jw-step-1 [data-jw-summary]')).toBeVisible();
+  });
+}
