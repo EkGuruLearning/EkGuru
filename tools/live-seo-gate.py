@@ -12,6 +12,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 import re
 import sys
 import xml.etree.ElementTree as ET
@@ -208,9 +209,17 @@ def main():
     path = Path(args.report)
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(json.dumps(report, indent=2) + "\n", encoding="utf-8")
+    annotation_count = 0
     for row in report["checks"]:
         if row["errors"]:
             print("FAIL", row["path"], row["errors"])
+            if os.environ.get("GITHUB_ACTIONS") == "true" and annotation_count < 10:
+                # Expose actionable failures in the Checks API as well as the
+                # downloadable JSON; escape workflow-command control characters.
+                detail = (row["path"] + ": " + "; ".join(row["errors"]))
+                detail = detail.replace("%", "%25").replace("\r", "%0D").replace("\n", "%0A")
+                print("::error title=Live search discovery::" + detail)
+                annotation_count += 1
     print(f"Live SEO: {'PASS' if report['pass'] else 'FAIL'}; {report['sitemap_urls']} sitemap URLs; {report['html_sample_size']} HTML samples; {len(report['checks'])} probes")
     return int(not report["pass"])
 
