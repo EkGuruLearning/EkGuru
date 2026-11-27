@@ -10,7 +10,7 @@ assert.equal(report.status, 'BLOCKED_ACCOUNT_AND_PRODUCTION_VERIFICATION');
 assert.equal(report.launch_authorized, false);
 assert.ok(Object.values(report.repository_checks).every(Boolean));
 assert.ok(report.outstanding_evidence.length >= 5);
-assert.equal(report.recorded_account_status, 'APPLIED_AWAITING_GOOGLE_REVIEW');
+assert.equal(report.recorded_account_status, 'OWNER_REPORTED_NOT_APPROVED');
 assert.equal(report.recorded_consent_status, 'REVIEW_REQUIRED_ACCOUNT_CONFIGURATION');
 const release = run('--check', '--json');
 assert.equal(release.status, 1, 'release must fail, even though repository prerequisites pass');

@@ -103,6 +103,8 @@ ULTRA_TESTS = [
     ("Hindi Foundation depth: authored counts, preserved SEO and legacy generator", ["python3", "tools/test-hindi-foundation-depth.py"]),
     ("Hindi phrase answers: contextual inlinks and preserved publication contracts", ["python3", "tools/test-hindi-phrase-discovery.py"]),
     ("Contextual entry links preserve page metadata and existing forms", ["python3", "tools/test-contextual-entry-links.py"]),
+    ("AdSense publisher script, verification meta and root seller identity", ["python3", "tools/test-adsense-publisher-tags.py"]),
+    ("Advertising launch stays blocked without account and consent evidence", ["node", "tools/test-advertising-launch.mjs"]),
     ("Phase 2 public-page inventory is current (repository-only)",
      ["python3", "tools/build-full-page-inventory.py", "--check"]),
     ("Phase 2 detailed content inventory is current (live HTTP pending)",

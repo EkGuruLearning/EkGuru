@@ -149,8 +149,8 @@ if (mon.runtime_gate.adsense_loader_enabled === false) {
   ok("the runtime gate opens the loader for the content classes only",
     [...ALLOWED].sort().join(",") === "HIGH_CONTENT,MEDIUM_CONTENT",
     [...ALLOWED].join(", "));
-  ok("an open loader gate is backed by a recorded AdSense application",
-    /^(APPLIED_AWAITING_GOOGLE_REVIEW|APPROVED)$/.test(mon.approval_status || ""),
+  ok("a review loader has a recorded account state, not an invented approval",
+    /^(APPLIED_AWAITING_GOOGLE_REVIEW|OWNER_REPORTED_NOT_APPROVED|APPROVED)$/.test(mon.approval_status || ""),
     String(mon.approval_status));
   const foreign = files.filter((f) => /adsbygoogle\.js\?client=/.test(read(f)) &&
     !read(f).includes("adsbygoogle.js?client=" + mon.publisher.adsense_client));
