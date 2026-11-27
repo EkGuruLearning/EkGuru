@@ -282,8 +282,8 @@
     return hit || (x.teaches || [])[0] || "";
   }
 
-  /* Wire ANY input into a live dropdown. Used by the hero box and the
-     header box, so search works from every page. */
+  /* Wire the homepage and tutor-directory inputs into live dropdowns.
+     Search deliberately stays outside the navigation drawer. */
   function attachSearch(input, opts) {
     if (!input || input.dataset.acReady) return;
     input.dataset.acReady = "1";
@@ -390,17 +390,9 @@
       }, true);
     }
 
-    /* header search — injected into EVERY page so search is always reachable */
-    var nav = $(".nav");
-    if (nav && !$("#hdr-search")) {
-      var holder = document.createElement("div");
-      holder.className = "hdr-search";
-      holder.innerHTML = '<span class="hs-ico" aria-hidden="true">🔍</span>' +
-        '<input id="hdr-search" type="search" autocomplete="off" placeholder="' +
-        esc(t("search.headerPh")) + '" aria-label="' + esc(t("find.search")) + '">';
-      nav.insertBefore(holder, nav.firstChild);
-      attachSearch($("#hdr-search"), { compact: true });
-    }
+    /* No injected header search: it crowds the hamburger drawer and its
+       autocomplete conflicts with menu focus/scroll. Keep search in the
+       homepage content and tutor directory, not in site navigation. */
 
     /* the search page input also gets the dropdown */
     var fq = $("#f-q");

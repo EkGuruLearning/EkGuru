@@ -42,7 +42,9 @@ Google says AdSense Offerwall can offer a rewarded-ad choice and supports a dism
 
 ## Consent and privacy
 
-The current one-button cookie notice is informational and is **not** a consent mechanism. Do not represent it as one. Before serving personalized ads in the EEA, UK, or Switzerland, configure Google Privacy & messaging or another Google-certified CMP integrated with IAB TCF and synchronize Privacy wording with actual choices. Google requirement: https://support.google.com/adsense/answer/13554116. Legal applicability requires owner/legal review.
+The current custom Privacy settings UI manages local functional/analytics preferences; its Advertising control is disabled. It is **not a Google-certified CMP/TCF deployment**. Before serving personalized ads in the EEA, UK, or Switzerland, configure Google Privacy & messaging or another Google-certified CMP integrated with IAB TCF and synchronize Privacy wording with actual choices. Google requirement: https://support.google.com/adsense/answer/13554116. Legal applicability requires owner/legal review.
+
+Follow the account-owner steps, integration gates and production QA matrix in [Advertising consent launch checklist](ADVERTISING-CONSENT-LAUNCH.md). Run `npm run advertising:status` for read-only repository checks; `npm run advertising:check` intentionally fails until an evidence-backed launch is authorized. Publishing a message, account approval and consent-aware runtime integration are separate requirements. Keep account Auto ads off during setup: the existing review loader means local runtime flags alone cannot guarantee account-side serving is disabled.
 
 ## ads.txt and identifiers
 
