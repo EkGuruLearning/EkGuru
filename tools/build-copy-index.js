@@ -87,6 +87,10 @@ const decode = (s) => s
    comments, no noscript fallbacks, no navigation chrome. */
 function proseOf(html) {
   let s = html;
+  /* Master checks temporarily strip the generated learning chrome. Ownership
+     fingerprints must be identical before/after that reversible decoration,
+     not depend on shared bylines, appearance controls or journal widgets. */
+  s = s.replace(/<!-- ekguru:ultra-([a-z-]+):start -->\r?\n[\s\S]*?<!-- ekguru:ultra-\1:end -->\r?\n/g, "");
   s = s.replace(/<script[\s\S]*?<\/script>/gi, " ");
   s = s.replace(/<style[\s\S]*?<\/style>/gi, " ");
   s = s.replace(/<noscript[\s\S]*?<\/noscript>/gi, " ");

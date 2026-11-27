@@ -346,9 +346,11 @@
     }
     document.head.appendChild(el);
   });
-  /* bare language codes as well, which Google accepts alongside locales */
+  /* Keep language-wide fallbacks alongside regional annotations: Spanish
+     learners outside Spain (and English outside the US, etc.) use the same
+     real translated files. Skip only a genuinely identical language tag. */
   M.forEach(function (m) {
-    if (m.locale.split("-")[0] === m.code) return;
+    if (m.locale.toLowerCase() === m.code.toLowerCase()) return;
     var el = document.createElement("link");
     el.rel = "alternate";
     el.hreflang = m.code;
@@ -357,9 +359,15 @@
       : BASE + fileName + "?" + (tutor ? "id=" + encodeURIComponent(tutor.id) + "&" : "") + "lang=" + m.code;
     document.head.appendChild(el);
   });
-  var xd = document.createElement("link");
-  xd.rel = "alternate"; xd.hreflang = "x-default"; xd.href = canonical;
-  document.head.appendChild(xd);
+  /* One default per translated page family, identical to the static HTML.
+     Never point x-default at each visitor's selected language, or emit an
+     empty href on the deliberately noindex tutor shell. */
+  var defaultUrl = hasLangFile ? BASE + fileName : canonical;
+  if (defaultUrl) {
+    var xd = document.createElement("link");
+    xd.rel = "alternate"; xd.hreflang = "x-default"; xd.href = defaultUrl;
+    document.head.appendChild(xd);
+  }
 
   /* Open Graph */
   /* BUG FOUND v62 — see the same fix in tools/prerender.js.
@@ -377,6 +385,8 @@
   meta("property", "og:image", ogImg);
   meta("property", "og:image:alt", tutor ? tutor.name + " — Hindi tutor on EkGuru" : "EkGuru — learn Hindi online");
   meta("property", "og:locale", (market.locale || "en_US").replace("-", "_"));
+  // Replace this generated set on re-evaluation rather than accumulating it.
+  document.head.querySelectorAll('meta[property="og:locale:alternate"]').forEach(function (n) { n.remove(); });
   M.forEach(function (m) {
     if (m.code === L) return;
     var el = document.createElement("meta");

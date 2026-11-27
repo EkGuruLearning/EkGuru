@@ -1,0 +1,97 @@
+/* One-lesson pilot only. No global theme or component changes. */
+body[data-hindi-pilot="sentence"]{--hsl-navy:#142b4a;--hsl-blue:#175b98;--hsl-teal:#176b62;--hsl-orange:#98550c;--hsl-surface:#fff;--hsl-cream:#fff8ed;--hsl-soft:#edf5fb;--hsl-text:#243247;--hsl-muted:#526178;--hsl-line:#bdcbd9;background:var(--hsl-surface);color:var(--hsl-text)}
+html[data-theme="dark"] body[data-hindi-pilot="sentence"],html[data-theme="contrast"] body[data-hindi-pilot="sentence"]{--hsl-navy:var(--eg-ink);--hsl-blue:var(--eg-accent);--hsl-teal:var(--eg-success);--hsl-orange:#ffd194;--hsl-surface:var(--eg-surface);--hsl-cream:var(--eg-soft);--hsl-soft:var(--eg-soft);--hsl-text:var(--eg-ink);--hsl-muted:var(--eg-secondary);--hsl-line:var(--eg-line);background:var(--eg-bg)}
+body[data-hindi-pilot="sentence"] .hsl-lesson{max-width:1000px;padding:0 clamp(18px,4vw,40px) 64px;color:var(--hsl-text)}
+.hsl-lesson .crumb{font-size:.8rem;line-height:1.7;padding-top:24px}
+.hsl-lesson .sb-chapter{box-shadow:none;border-radius:8px;border:0;background:var(--hsl-soft);color:var(--hsl-blue);padding:10px 14px;margin:20px 0;max-width:max-content}
+.hsl-lesson .sb-ch-floats,.hsl-lesson .sb-ch-kind{display:none}
+.hsl-lesson h1{font-size:clamp(2rem,4.8vw,3.3rem);line-height:1.15;letter-spacing:-.035em;max-width:800px;color:var(--hsl-navy);text-decoration:none;background:none;margin:20px 0}
+.hsl-lesson h1::after,.hsl-lesson h2::after{display:none!important}
+.hsl-lesson h2{font-size:clamp(1.3rem,3vw,1.75rem);line-height:1.3;color:var(--hsl-navy);margin-top:42px;scroll-margin-top:110px}
+.hsl-lesson p,.hsl-lesson li{line-height:1.8}
+.hsl-lesson a{color:var(--hsl-blue);text-underline-offset:3px}
+.hsl-lesson :is(button,a,summary):focus-visible{outline:3px solid var(--hsl-blue);outline-offset:4px}
+.hsl-lesson .hsl-lede{font-size:1.13rem;max-width:66ch;color:var(--hsl-muted);margin:0 0 20px}
+.hsl-actions{display:flex;flex-wrap:wrap;gap:10px;margin:20px 0}
+.hsl-lesson .hsl-button{display:inline-flex;align-items:center;justify-content:center;min-height:46px;border:1px solid var(--hsl-blue);border-radius:9px;padding:10px 18px;font:inherit;font-size:.94rem;font-weight:650;color:var(--hsl-blue);background:var(--hsl-surface);cursor:pointer;text-decoration:none;gap:8px;line-height:1.5}
+.hsl-lesson .hsl-button.primary{background:var(--hsl-blue);color:var(--hsl-surface)}
+.hsl-lesson .hsl-button:hover{box-shadow:0 3px 0 var(--hsl-line)}
+.hsl-lesson .hsl-button:disabled{opacity:.55;cursor:default;box-shadow:none}
+.hsl-lesson .eg-byline{font-size:.8rem;border-left:2px solid var(--hsl-line);color:var(--hsl-muted);margin:20px 0}
+.hsl-lesson .sb-hint{font-size:.87rem;border:1px solid var(--hsl-line);border-left:3px solid var(--hsl-teal);background:var(--hsl-soft);box-shadow:none;color:var(--hsl-text)}
+.hsl-lesson .meta{font-size:.8rem;color:var(--hsl-muted)}
+.hsl-lesson .sb-toc{background:var(--hsl-surface);border:1px solid var(--hsl-line);box-shadow:none;font-size:.87rem;border-radius:12px}
+.hsl-lesson .sb-toc ol{columns:2}
+.hsl-lesson .sb-keys{display:none} /* Vocabulary controls remain in the lesson; avoid duplicate top-of-page chrome. */
+.hsl-overview{margin:24px 0;padding:22px 24px;border:1px solid var(--hsl-line);border-radius:16px;background:var(--hsl-cream)}
+.hsl-overview h2{margin:0 0 10px}
+.hsl-overview ul{margin-bottom:0;padding-left:22px}
+.hsl-kicker{font-size:.75rem;letter-spacing:.12em;text-transform:uppercase;font-weight:750;color:var(--hsl-teal);margin:0 0 12px}
+.hsl-lesson .pg-note{background:var(--hsl-soft);border-color:var(--hsl-line);color:var(--hsl-text);font-size:.85rem;box-shadow:none}
+.hsl-demo{border:1px solid var(--hsl-line);border-radius:18px;overflow:hidden;margin:24px 0;background:var(--hsl-surface)}
+.hsl-demo-head{padding:22px 24px 0}
+.hsl-demo-head h2{margin:0 0 8px}
+.hsl-demo-head p{color:var(--hsl-muted);margin:0 0 14px}
+.hsl-sentence{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;padding:14px 24px 22px}
+.hsl-piece{border:1px solid var(--hsl-line);border-top:4px solid var(--hsl-blue);background:var(--hsl-soft);padding:20px 10px;text-align:center;border-radius:10px;transition:transform 180ms ease,box-shadow 180ms ease}
+.hsl-piece[data-part="object"]{border-top-color:var(--hsl-teal)}
+.hsl-piece[data-part="verb"]{border-top-color:var(--hsl-orange)}
+.hsl-piece.is-active{transform:translateY(-4px);box-shadow:0 6px 0 var(--hsl-line);outline:2px solid var(--hsl-blue);outline-offset:2px}
+.hsl-piece b{display:block;font-size:clamp(1.7rem,4vw,2.5rem);font-family:var(--eg-font-script);line-height:1.9;color:var(--hsl-navy)}
+.hsl-piece small{display:block;font-size:.85rem;color:var(--hsl-muted)}
+.hsl-piece .hsl-label{font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;font-weight:750;color:var(--hsl-blue)}
+.hsl-demo-controls{display:flex;flex-wrap:wrap;gap:8px;padding:0 24px}
+.hsl-demo-controls button[aria-pressed="true"]{background:var(--hsl-blue);color:var(--hsl-surface)}
+.hsl-demo-note{min-height:3.6em;margin:14px 24px 20px!important;font-size:.9rem;color:var(--hsl-muted)}
+.hsl-lesson table{width:100%;border:1px solid var(--hsl-line);border-collapse:separate;border-spacing:0;border-radius:10px;overflow:hidden;font-size:.94rem;background:var(--hsl-surface)}
+.hsl-lesson table td,.hsl-lesson table th{padding:12px;vertical-align:top;border-color:var(--hsl-line);overflow-wrap:anywhere}
+.hsl-lesson table th{background:var(--hsl-soft);color:var(--hsl-navy)}
+.hsl-lesson .sb-band{background:var(--hsl-navy);color:var(--hsl-surface);border-radius:12px;padding:20px;text-align:left;font-size:1rem;animation:none}
+.hsl-lesson .sb-band::after{display:none}
+.hsl-lesson .sb-band .dev{color:inherit;font-size:1.4rem;line-height:1.9}
+.hsl-practice{margin:40px 0;padding:clamp(18px,4vw,28px);border:2px solid var(--hsl-teal);border-radius:18px;background:var(--hsl-cream);scroll-margin-top:110px}
+.hsl-practice h2{margin:0 0 12px}
+.hsl-practice .hsl-prompt{font-size:1.35rem;font-weight:700;color:var(--hsl-navy);margin:12px 0}
+.hsl-progress{font-size:.82rem;color:var(--hsl-muted);font-weight:650}
+.hsl-tile-bank,.hsl-answer{display:flex;flex-wrap:wrap;gap:8px;min-height:62px;padding:12px;border-radius:10px;margin:10px 0;background:var(--hsl-surface);border:1px solid var(--hsl-line)}
+.hsl-answer{border:2px dashed var(--hsl-teal);align-items:center}
+.hsl-answer p{font-size:.9rem;color:var(--hsl-muted);margin:0}
+.hsl-lesson .hsl-tile{font:inherit;font-size:1.2rem;font-family:var(--eg-font-script);min-height:48px;min-width:48px;padding:6px 14px;border:1px solid var(--hsl-blue);border-radius:8px;background:var(--hsl-surface);color:var(--hsl-navy);cursor:pointer;transition:transform 140ms ease}
+.hsl-lesson .hsl-tile:hover{transform:translateY(-2px)}
+.hsl-tile[aria-pressed="true"]{background:var(--hsl-soft);border-style:dashed}
+.hsl-feedback{min-height:4.8em;margin:14px 0 0;padding:12px;border-left:4px solid var(--hsl-blue);background:var(--hsl-surface);font-size:.95rem}
+.hsl-feedback[data-state="correct"]{border-color:var(--hsl-teal)}
+.hsl-feedback[data-state="retry"]{border-color:var(--hsl-orange)}
+.hsl-models{margin:18px 0 0;border-top:1px solid var(--hsl-line);padding-top:14px}
+.hsl-models summary{cursor:pointer;min-height:44px;line-height:1.7;font-weight:650}
+.hsl-models li{margin:18px 0}
+.hsl-models [lang="hi"]{font-family:var(--eg-font-script);font-size:1.2rem;line-height:1.9}
+.hsl-lesson .vcards{grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.hsl-lesson .vcard{opacity:1!important;transform:none!important}
+.hsl-lesson .vcard .in{min-height:190px}
+.hsl-lesson .vface{background:var(--hsl-soft);border-color:var(--hsl-line)}
+.hsl-lesson .vface.back{background:var(--hsl-cream)}
+.hsl-lesson .vface :is(.lt,.sd,.en,.mt){color:var(--hsl-text)}
+.hsl-lesson .vface.back .en{font-size:1.05rem;font-family:var(--eg-font-script);line-height:1.9}
+.hsl-lesson .vface .spk{min-height:44px;color:var(--hsl-blue);border-color:var(--hsl-blue);background:var(--hsl-surface)}
+.hsl-lesson .quiz{background:var(--hsl-soft)!important;border-color:var(--hsl-line)!important}
+.hsl-lesson .quiz :is(summary,p){color:var(--hsl-text)!important}
+.hsl-lesson .quiz summary{min-height:44px;line-height:1.7}
+.hsl-next-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin:20px 0}
+.hsl-next-grid a{border:1px solid var(--hsl-line);border-radius:10px;padding:16px;text-decoration:none;background:var(--hsl-soft)}
+.hsl-next-grid b,.hsl-next-grid span{display:block}
+.hsl-next-grid span{font-size:.85rem;color:var(--hsl-muted);margin-top:5px}
+html:not(.hsl-ready) .hsl-lesson .vcard .in{transform:none;min-height:0}
+html:not(.hsl-ready) .hsl-lesson .vface{position:static;transform:none;backface-visibility:visible}
+.hsl-lesson .cta-box,.hsl-lesson .related{margin-top:32px}
+@media(max-width:600px){.hsl-lesson .sb-toc ol{columns:1}.hsl-sentence{gap:7px;padding:12px 14px 20px}.hsl-piece{padding:14px 4px}.hsl-piece b{font-size:1.6rem}.hsl-piece small{font-size:.75rem}.hsl-piece .hsl-label{letter-spacing:0;font-size:.65rem}.hsl-demo-head{padding:20px 16px 0}.hsl-demo-controls{padding:0 16px}.hsl-demo-note{margin-inline:16px!important}.hsl-next-grid{grid-template-columns:1fr}.hsl-lesson .vcards{grid-template-columns:1fr}.hsl-lesson table{font-size:.84rem}.hsl-lesson table :is(th,td){padding:8px}.hsl-actions .hsl-button{flex:1}.hsl-overview{padding:20px}.hsl-lesson h1{letter-spacing:-.025em}}
+@media(prefers-reduced-motion:reduce){.hsl-lesson *,.hsl-lesson *::before,.hsl-lesson *::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}.hsl-piece.is-active,.hsl-lesson .hsl-tile:hover{transform:none}}
+@media print{.hsl-demo-controls,#hsl-exercise,.hsl-actions{display:none!important}.hsl-lesson .vcard .in{transform:none!important;min-height:0}.hsl-lesson .vface{position:static;transform:none;backface-visibility:visible}.hsl-lesson .hsl-models{display:block}}
+/* Legacy storybook applies a few inline accents; override only inside this pilot. */
+.hsl-lesson h1{text-decoration:none!important}
+.hsl-lesson .sb-hint{background:var(--hsl-soft)!important;border-left-color:var(--hsl-teal)!important}
+.hsl-lesson .hsl-practice h2{border:0!important;background:none!important}
+.hsl-practice .hsl-actions{display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}
+.hsl-practice .hsl-button{min-width:0;white-space:normal;overflow-wrap:normal;word-break:normal;padding:10px 12px}
+/* Author display rules must never override the native no-JS hidden fallback. */
+.hsl-lesson [hidden]{display:none!important}
