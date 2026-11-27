@@ -62,6 +62,9 @@ jobs:
       - name: "Time/days page: English in, real script out"
         run: node tests/regression/test-time-page.mjs
 
+      - name: Build-system legacy CLI and Python API compatibility (offline)
+        run: python3 -B tests/unit/test-build-system-compatibility.py
+
       - name: Master build check (all generated layers + policy gates)
         run: python3 tools/build-all.py check
 

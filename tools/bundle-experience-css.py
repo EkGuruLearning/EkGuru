@@ -1,155 +1,20 @@
 #!/usr/bin/env python3
-"""Bundle css/experience.css into css/style.min.css.
+"""Compatibility entrypoint; canonical implementation: tools/pipeline/assets/bundle-experience-css.py.
 
-WHY A BUNDLE AND NOT A SECOND <link>
-------------------------------------
-css/style.min.css is the one stylesheet every page loads — hand-written pages,
-the 460 shell-generated pages, the course hub, the 190 country funnels and the
-six translated home pages all link it through their own depth prefix. Adding a
-second stylesheet would mean editing ~1,560 files and every future generator,
-and one missed generator produces a page with a violet hero on an /ar/ site.
-
-So the language-aware layer rides along with the file that is already there,
-exactly as css/world-redesign.css did (see the EKGURU_WORLD_REDESIGN_BUNDLED
-marker at the end of the current stylesheet).
-
-WHAT IT DOES
-------------
-  1. reads  css/experience.css  (the readable, hand-maintained source)
-  2. strips comments and collapses indentation — the stylesheet ships
-     semi-minified, and GitHub Pages gzips the rest
-  3. replaces the block between
-
-         /* EKGURU_EXPERIENCE_BUNDLED */
-         ...
-         /* /EKGURU_EXPERIENCE_BUNDLED */
-
-     in css/style.min.css, or appends it the first time
-
-Idempotent: run it twice and the second run produces a byte-identical file.
-That matters because this repo has shipped stale CSS twice before — the fix
-was always "one source, one place".
-
-Run:  python3 tools/bundle-experience-css.py [--check]
-      --check exits 1 if the bundle is out of date (CI/gate use).
+Execute in this module's own namespace so functions use its mutable globals.
+ROOT and CWD semantics belong to the canonical implementation, not this adapter.
 """
-import os
-import re
-import sys
+from pathlib import Path as _ek_Path
 
-ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-os.chdir(ROOT)
-
-SRC = "css/experience.css"
-BUNDLE = "css/style.min.css"
-START = "/* EKGURU_EXPERIENCE_BUNDLED */"
-END = "/* /EKGURU_EXPERIENCE_BUNDLED */"
-
-
-def strip_comments(css):
-    """Remove /* … */ comments. The source contains no comment-like text
-    inside strings, no url() and no escaped delimiters — a plain non-greedy
-    match is exact here, and a stricter parser would only add a dependency."""
-    return re.sub(r"/\*.*?\*/", "", css, flags=re.S)
-
-
-def compact(css):
-    """Conservative compaction: collapse every run of whitespace to one space,
-    then remove the spaces that are unambiguously optional around structure.
-    Values, quotes and unicode are untouched — a stray space inside a
-    `content:` string is a rendering bug, so nothing here rewrites values."""
-    css = re.sub(r"\s+", " ", css)
-    css = re.sub(r"\s*([{};])\s*", r"\1", css)
-    css = re.sub(r";}", "}", css)
-    css = re.sub(r"\s*,\s*", ",", css)
-    css = re.sub(r"\s*:\s*", ":", css)
-    css = _strip_combinator_space(css)
-    return css.strip()
-
-
-def _strip_combinator_space(css):
-    """Remove the optional space around the selector combinators `>`, `+`
-    and `~` — but ONLY outside parentheses. Inside `calc()` the space around
-    `+` is part of the grammar: `calc(100% + 10px)` is valid,
-    `calc(100%+10px)` is not, and Chrome drops the whole declaration. 17 Nov
-    2026: that is exactly what happened to the initials avatar —
-    `hsl(calc(var(--eg-av-h) + 40) …)` was compacted to `+40`, the gradient
-    was discarded and every photo-less tutor card showed white initials on
-    a white card."""
-    out, depth, i, n = [], 0, 0, len(css)
-    seg = []
-    def flush():
-        if seg:
-            out.append(re.sub(r"\s*([>+~])\s*", r"\1", "".join(seg)))
-            seg.clear()
-    while i < n:
-        ch = css[i]
-        if ch == "(":
-            if depth == 0:
-                flush()
-            depth += 1
-            out.append(ch)
-        elif ch == ")":
-            depth = max(0, depth - 1)
-            out.append(ch)
-        elif depth == 0:
-            seg.append(ch)
-        else:
-            out.append(ch)
-        i += 1
-    flush()
-    return "".join(out)
-
-
-def build_block():
-    with open(SRC, encoding="utf-8") as f:
-        raw = f.read()
-    body = compact(strip_comments(raw))
-    if not body:
-        raise SystemExit("ERROR: %s produced an empty stylesheet" % SRC)
-    if body.count("{") != body.count("}"):
-        raise SystemExit(
-            "ERROR: unbalanced braces in %s (%d { vs %d })"
-            % (SRC, body.count("{"), body.count("}"))
-        )
-    return START + "\n" + body + "\n" + END + "\n"
-
-
-def main():
-    check = "--check" in sys.argv
-    with open(BUNDLE, encoding="utf-8") as f:
-        current = f.read()
-
-    block = build_block()
-
-    if START in current:
-        head, rest = current.split(START, 1)
-        if END not in rest:
-            raise SystemExit("ERROR: %s has a start marker with no end marker" % BUNDLE)
-        _, tail = rest.split(END, 1)
-        tail = tail.lstrip("\n")
-        updated = head + block + ("\n" + tail if tail else "")
-    else:
-        sep = "" if current.endswith("\n") else "\n"
-        updated = current + sep + block
-
-    if updated == current:
-        print("experience bundle already up to date (%d bytes)" % len(block))
-        return 0
-
-    if check:
-        print("STALE: %s is out of date — run tools/bundle-experience-css.py" % BUNDLE)
-        return 1
-
-    with open(BUNDLE, "w", encoding="utf-8") as f:
-        f.write(updated)
-
-    print(
-        "bundled %s -> %s (%d bytes of layer, stylesheet now %d bytes)"
-        % (SRC, BUNDLE, len(block), len(updated))
+_ek_legacy_file = __file__
+_ek_canonical_file = _ek_Path(__file__).resolve().parent / "pipeline" / "assets" / "bundle-experience-css.py"
+try:
+    __file__ = str(_ek_canonical_file)
+    exec(
+        compile(_ek_canonical_file.read_bytes(), __file__, "exec", dont_inherit=True),
+        globals(),
+        globals(),
     )
-    return 0
-
-
-if __name__ == "__main__":
-    sys.exit(main())
+finally:
+    __file__ = _ek_legacy_file
+    del _ek_Path, _ek_canonical_file, _ek_legacy_file
