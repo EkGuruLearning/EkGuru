@@ -1,0 +1,82 @@
+{
+  "schema_version": 1,
+  "phase": "two-file CSS build-system organization",
+  "baseline_commit": "3c671e9be32cde6833948bcec219a426dbfe6731",
+  "approval": "User approved the eight-path tranche with actual temporary-path ROOT tests and namespace-preserving adapters; no other migration authorized.",
+  "allowed_changed_paths": [
+    "tools/bundle-experience-css.py",
+    "tools/build-dark-fix.py",
+    "tools/pipeline/assets/bundle-experience-css.py",
+    "tools/pipeline/assets/build-dark-fix.py",
+    "tests/unit/test-build-system-compatibility.py",
+    "docs/architecture/build-system-path-map.json",
+    "docs/architecture/build-system-organization.md",
+    ".github/workflows/ci.yml"
+  ],
+  "moves": [
+    {
+      "legacy": "tools/bundle-experience-css.py",
+      "canonical": "tools/pipeline/assets/bundle-experience-css.py",
+      "original_sha256": "6f3f1d6b44a35e1046dc57625072c68f5d9b3cfea9b772ed061daa91287f0ad4",
+      "original_root_assignment": "ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))",
+      "canonical_root_assignment": "ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))",
+      "root_type": "str",
+      "import_changes_cwd": true,
+      "compatibility": "compile canonical bytes with dont_inherit=True and exec in legacy globals; restore __file__ in finally even on SystemExit",
+      "known_cli_callers": [
+        "tools/build-all.py:177,292"
+      ],
+      "generated_output": "css/style.min.css",
+      "network": false
+    },
+    {
+      "legacy": "tools/build-dark-fix.py",
+      "canonical": "tools/pipeline/assets/build-dark-fix.py",
+      "original_sha256": "e5c3cd8915e1a6230e830f61a850b95248c67a83c5b9ec307807613e8b4c09c3",
+      "original_root_assignment": "ROOT = Path(__file__).resolve().parents[1]",
+      "canonical_root_assignment": "ROOT = Path(__file__).resolve().parents[3]",
+      "root_type": "pathlib.Path",
+      "import_changes_cwd": false,
+      "compatibility": "compile canonical bytes with dont_inherit=True and exec in legacy globals; restore __file__ in finally even on SystemExit",
+      "known_cli_callers": [
+        "tools/build-all.py:178,293"
+      ],
+      "generated_output": "css/style.min.css",
+      "network": false
+    }
+  ],
+  "preserved_existing_test_launchers": 22,
+  "protected_content_files": 133,
+  "publisher": "tools/build-public-dist.py (unchanged); destinations remain under its private tools/ ancestor",
+  "validation_command": "python3 -B tests/unit/test-build-system-compatibility.py",
+  "rollback": "Restore each legacy script from its captured pre-move bytes after checking its current hash; remove only that move and its phase-specific additions. Never reset or clean the repository.",
+  "acceptance": {
+    "individual_tool_idempotence": "Required and independently checked on controlled inputs with no intervening other generator.",
+    "combined_pipeline": "Exact untouched-baseline vs legacy/canonical bytes, exit values and stdout/stderr at all four checkpoints over two ordered passes. Do not assert first combined output equals second; do not normalize bytes.",
+    "historical_transcript": "17 PASS / 1 FAIL retained unchanged outside checkout; SHA-256 1e48d34fa8af6259b65fe8257a02dca02a515aa4eb4a7fce94222b0e70bdbaf9. The failed composition-idempotence assertion was a new migration expectation, not an original combined-pipeline contract.",
+    "publisher": "Actual baseline/candidate artifact build and publisher checks in isolated copies, exact 5499-public-file inventory/SHA comparison and reference checks.",
+    "scope": "Only eight approved paths. Existing 22 test launchers and completed cleanup registries unchanged."
+  },
+  "validation_summary": {
+    "compatibility_tests": 20,
+    "existing_python_unit_tests_per_copy": 83,
+    "public_surface_assertions_per_copy": 48,
+    "publisher_artifacts_verified": true,
+    "retained_public_files": 5499,
+    "sitemap_urls_checked": 1576,
+    "HTML_files_checked": 3016,
+    "internal_references_checked": 249514,
+    "reference_errors": 0,
+    "service_worker_SHELL_entries_checked": 67,
+    "public_inventory_byte_equality": true,
+    "original_vs_migrated_API_comparisons": 4,
+    "production_checkpoint_equivalence": true,
+    "historical_transcript_preserved": true,
+    "pre_migration_private_and_public_inventory": 6628,
+    "earlier_inventory": 6627,
+    "inventory_difference": "docs/architecture/EkGuru-Build-System-Audit.zip added before this phase; five new private files make the post-migration inventory 6633.",
+    "python": "3.11.2",
+    "node": "22.22.3",
+    "full_build_live_remote_workflows": "NOT RUN"
+  }
+}
