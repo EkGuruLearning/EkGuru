@@ -259,7 +259,7 @@
           document.body.removeChild(ta);
           done();
         }
-        try { if (window.EkGuruAnalytics) window.EkGuruAnalytics.event("name_share", script + ":" + typed); } catch (e) {}
+        try { if (window.EkGuruAnalytics) window.EkGuruAnalytics.event("name_share", script); } catch (e) {}
       });
       btnrow.appendChild(shareBtn);
     }

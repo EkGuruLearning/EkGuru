@@ -54,6 +54,7 @@ import re
 import sys
 from html import escape, unescape
 from pathlib import Path
+from lib.hindi_learner_offer import hindi_learner_offer
 
 ROOT = Path(__file__).resolve().parents[1]
 os.chdir(ROOT)
@@ -68,8 +69,8 @@ POINTER = "<!-- ekguru:learn-pointer -->"
 
 TITLE = "Learn a Language — Every Free Course on One Page"
 H1 = "Learn a language — every course, one page"
-KICKER = "Free · no account · A1 to C2"
-DESC = ("Every free language course on EkGuru from one page: Hindi in full, seven Indian languages "
+KICKER = "Free self-paced materials · no account"
+DESC = ("Explore EkGuru’s free self-paced language materials: Hindi, seven other Indian languages "
         "with levels and topic chapters, and ten world languages with lessons, levels, practice and quizzes.")
 
 # The Indian languages that have a published course page at /learn/<slug>/,
@@ -250,22 +251,29 @@ def build_region() -> tuple[str, dict]:
 
     total_langs = 1 + len(indian) + len(world)
     counts.update(langs=total_langs, indian=len(indian), world=len(world),
-                  hi_lessons=hi_lessons, hi_chapters=len(hi_chapters))
+                  hi_lessons=hi_lessons, hi_chapters=len(hi_chapters),
+                  schema_courses=[("Hindi", "learn/hindi")] +
+                    [(name, f"learn/{slug}") for slug, code, name, native, levels, topics, labs, r in indian] +
+                    [(name, course) for code, name, native, course, lessons, r, extras in world])
 
     a(START)
     a(NOTE)
     a("<style>\n" + "\n".join(CSS) + "\n</style>")
-    a(f'<p class="lede">EkGuru teaches {total_langs} languages, and every one of them opens from this page. '
-      'Hindi is the full course — levels, topics, a daily habit, practice, tools and printables. '
-      f'{len(indian)} Indian languages follow the same shape. {len(world)} world languages have a course with '
-      'lessons, graded levels, practice and a quiz. Nothing here needs an account.</p>')
+    a(f'<p class="lede">EkGuru offers free self-paced materials for {total_langs} languages. '
+      'Hindi is the main learning path, with lessons, topics, daily practice, tools and printables. '
+      f'The library also includes {len(indian)} other Indian languages and {len(world)} world languages. '
+      'Coverage varies by language and level; listed publication status is not a claim of native-speaker review, '
+      'accreditation or proficiency certification. No account is needed.</p>')
+    a('<p>Looking for a teacher instead? <a href="#li-tutors">Optional independent Hindi tutoring</a> '
+      'is separate from the free multilingual materials. Native-speaker review is not yet recorded; '
+      '<a href="../editorial-policy/">read the editorial policy</a> before relying on a lesson.</p>')
     a('<ul class="li-nav" aria-label="On this page">'
       '<li><a href="#li-hindi">Hindi</a></li><li><a href="#li-indian">Indian languages</a></li>'
       '<li><a href="#li-world">World languages</a></li><li><a href="#li-shared">Tools for every learner</a></li>'
       '<li><a href="#li-tutors">Tutors</a></li></ul>')
 
     # 1. Hindi
-    a('<h2 id="li-hindi">Hindi — the complete course</h2>')
+    a('<h2 id="li-hindi">Hindi — lessons and practice</h2>')
     a('<div class="li-hero">')
     a(f'<a class="li-hindi" href="{href("learn/hindi")}"><b>Learn Hindi — everything in one place</b>'
       '<p>Start from zero or pick your level. The script, first words, grammar, conversation, thirty days of '
@@ -290,7 +298,7 @@ def build_region() -> tuple[str, dict]:
     a('</ul>')
 
     # 2. Indian languages
-    a(f'<h2 id="li-indian">Indian languages — {len(indian)} full course pages</h2>')
+    a(f'<h2 id="li-indian">Indian languages — {len(indian)} learning paths</h2>')
     a('<p>Each language has its own course page built the same way as Hindi: levels in order, topic chapters, '
       'practice labs, review and a progress checklist. Every lesson is written in English, Hindi and the target '
       'language.</p>')
@@ -337,11 +345,7 @@ def build_region() -> tuple[str, dict]:
       f'<a href="{href("learn/progress")}">learning journal</a> never upload anything.</p>')
 
     # 5. Tutors
-    a('<h2 id="li-tutors">Want a teacher?</h2>')
-    a('<p>Everything above is free and works alone. If you want someone to correct your pronunciation, '
-      f'<a href="{href("find-tutors.html")}">our tutors</a> teach one to one; '
-      f'<a href="{href("hindi-tutor")}">{escape(title_of("hindi-tutor"))}</a> lists them by place. '
-      'Tutoring is never required; it is available when you want it.</p>')
+    a(hindi_learner_offer("li-tutors", href("find-tutors.html"), href("learn/hindi")))
     a(END)
     return "\n".join(out), counts
 
@@ -356,6 +360,42 @@ def set_meta(h: str, key: str, value: str, content: str) -> str:
     if pat2.search(h):
         return pat2.sub(lambda m: m.group(1) + c + m.group(2), h, count=1)
     return h
+
+
+def apply_schema(h: str, courses: list[tuple[str, str]]) -> str:
+    """Replace stale Hindi-only/duplicate schema with the actual visible library.
+
+    Keep unrelated nodes; this builder owns only /learn/#... entities. In
+    particular, a library is not one eight-hour Hindi Course/qualification.
+    """
+    base = "https://ekguru.shop/learn/"
+    def clean(match):
+        data = json.loads(match.group(1))
+        nodes = data.get("@graph", [data])
+        kept = [n for n in nodes if not str(n.get("@id", "")).startswith(base + "#")]
+        if len(kept) == len(nodes):
+            return match.group(0)
+        if not kept:
+            return ""
+        return '<script type="application/ld+json">' + json.dumps(
+            {"@context": "https://schema.org", "@graph": kept}, ensure_ascii=False, separators=(",", ":")) + '</script>\n'
+    h = re.sub(r'<script[^>]*type="application/ld\+json"[^>]*>(.*?)</script>\n?', clean, h, flags=re.S)
+    graph = [
+        {"@type": "CollectionPage", "@id": base + "#page", "url": base,
+         "name": TITLE, "description": DESC, "inLanguage": "en",
+         "isPartOf": {"@id": "https://ekguru.shop/#website"}},
+        {"@type": "ItemList", "@id": base + "#courses", "name": "Free self-paced language materials",
+         "numberOfItems": len(courses), "itemListElement": [
+             {"@type": "ListItem", "position": i, "name": name,
+              "url": "https://ekguru.shop/" + target.rstrip("/") + "/"}
+             for i, (name, target) in enumerate(courses, 1)]},
+        {"@type": "BreadcrumbList", "@id": base + "#breadcrumb", "itemListElement": [
+            {"@type": "ListItem", "position": 1, "name": "EkGuru", "item": "https://ekguru.shop/"},
+            {"@type": "ListItem", "position": 2, "name": "Learn", "item": base}]},
+    ]
+    block = '<script type="application/ld+json">' + json.dumps(
+        {"@context": "https://schema.org", "@graph": graph}, ensure_ascii=False, separators=(",", ":")) + '</script>\n'
+    return h.replace('</head>', block + '</head>', 1)
 
 
 def apply_page(h: str, region: str) -> str:
@@ -409,7 +449,7 @@ def main() -> int:
     check = "--check" in sys.argv
     region, counts = build_region()
     jobs = [
-        (PAGE, lambda h: apply_page(h, region)),
+        (PAGE, lambda h: apply_schema(apply_page(h, region), counts["schema_courses"])),
         # courses/index.html: its hero is generated by tools/build-course-hub.py,
         # which carries the same pointer itself (the course player re-renders
         # that region on load, so a banner spliced in here would vanish).

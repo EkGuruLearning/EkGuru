@@ -200,3 +200,26 @@ for (const width of [390, 1280]) {
     await expect(page.locator('#jw-step-1 [data-jw-summary]')).toBeVisible();
   });
 }
+
+// Learners can distinguish free self-study from optional Hindi tutoring on
+// both layouts, without any popup, login, payment or invented availability.
+for (const width of [390, 1280]) {
+  test(`Hindi learner next step stays optional at ${width}px`, async ({ page }) => {
+    await page.setViewportSize({ width, height: 844 });
+    for (const route of ['/learn/', '/learn/hindi/']) {
+      await page.goto(base + route);
+      const offer = page.locator('[data-eg-hindi-help]');
+      await expect(offer.getByRole('heading', { name: 'Want help speaking Hindi?' })).toBeVisible();
+      await expect(offer).toContainText('a request is not a confirmed booking');
+      await expect(offer.getByRole('link', { name: 'continue learning Hindi for free' })).toBeVisible();
+      const cta = offer.getByRole('link', { name: 'Compare Hindi tutor profiles' });
+      await cta.scrollIntoViewIfNeeded();
+      const box = await cta.boundingBox();
+      expect(box.x).toBeGreaterThanOrEqual(0);
+      expect(box.x + box.width).toBeLessThanOrEqual(width + 1);
+      await cta.click();
+      await expect(page).toHaveURL(/find-tutors\.html$/);
+      await expect(page.locator('#f-q')).toBeVisible();
+    }
+  });
+}
