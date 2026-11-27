@@ -40,8 +40,11 @@ jobs:
       - name: "Script conversion: exact strings, no unassigned codepoints"
         run: node tools/test-script-map.mjs
 
-      - name: "Name page: typing in the real page produces the curated answer"
-        run: node tools/test-name-page.mjs
+      - name: "Name pages and learner trust: runtime, share privacy, offer and schema"
+        run: |
+          node tools/test-name-page.mjs
+          node tools/test-name-share-privacy.mjs
+          node tools/test-learner-trust.mjs
 
       - name: "Numbers: data, generated JS and visible table agree"
         run: python3 tools/build-numbers-pages.py --check

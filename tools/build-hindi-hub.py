@@ -52,6 +52,7 @@ import re
 import sys
 from html import escape, unescape
 from pathlib import Path
+from lib.hindi_learner_offer import hindi_learner_offer
 
 ROOT = Path(__file__).resolve().parents[1]
 os.chdir(ROOT)
@@ -397,15 +398,11 @@ def build_region() -> str:
     a('</div>')
 
     # 9. tutors
-    a('<h2 id="hh-tutors">Want a teacher?</h2>')
-    a('<p>Everything above is free and works alone. If you want someone to correct your pronunciation, '
-      f'<a href="{href("find-tutors.html")}">our tutors</a> teach one to one; '
-      f'<a href="{href("hindi-tutor")}">{escape(title_of("hindi-tutor"))}</a> lists them by place. '
-      'Tutoring is never required; it is available when you want it.</p>')
+    a(hindi_learner_offer("hh-tutors", href("find-tutors.html"), href("learn/practice")))
 
     # 10. other languages — one door for those too
     a('<h2 id="hh-other">Learning something other than Hindi?</h2>')
-    a(f'<p>Every language EkGuru teaches opens from one page: <a href="{href("learn")}">Learn a language — '
+    a(f'<p>Every language in EkGuru’s self-paced library opens from one page: <a href="{href("learn")}">Learn a language — '
       'every course, one page</a>. Bengali, Gujarati, Marathi, Punjabi, Tamil, Telugu and Urdu have their own '
       'course pages like this one; Arabic, French, Spanish, German, Italian, Japanese, Korean, Portuguese, '
       'Russian and Chinese have courses with lessons, levels, practice and quizzes.</p>')
