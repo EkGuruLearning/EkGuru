@@ -52,6 +52,16 @@ const check = (name, ok, extra) => {
   console.log((ok ? "ok    " : "FAIL  ") + name + (ok || !extra ? "" : " — " + extra));
 };
 
+// build-all checks both undecorated legacy pages and decorated public pages.
+// Shared generated chrome must not change ownership of the actual prose.
+{
+  const plain = '<h1>Lesson</h1><p>Own learning example.</p>';
+  const decorated = '<h1>Lesson</h1><!-- ekguru:ultra-byline:start -->\n<p>Shared author and date</p>\n<!-- ekguru:ultra-byline:end -->\n<p>Own learning example.</p><!-- ekguru:ultra-appearance:start -->\n<section>Theme and journal controls</section>\n<!-- ekguru:ultra-appearance:end -->\n';
+  check('generated chrome never changes a page fingerprint', B.proseOf(plain) === B.proseOf(decorated));
+  check('generated chrome exclusion accepts CRLF files', B.proseOf(plain) === B.proseOf(decorated.replaceAll('\n', '\r\n')));
+  check('ordinary authored text outside generated slots remains owned', B.proseOf('<p>Own text</p><!-- normal comment --><p>More own text</p>') === 'Own text More own text');
+}
+
 const INDEX = "data/copy-index.json";
 if (!fs.existsSync(INDEX)) {
   console.log("FAIL  " + INDEX + " missing — run: node tools/build-copy-index.js");

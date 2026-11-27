@@ -8,9 +8,9 @@ Date: 2026-11-24. Scope approved by the user: site-wide technical checks and ver
 2. **The translated page family's default URL varied by selected language.** `x-default` now consistently points to the existing root fallback for that page family (home, directory or application page), matching the static markup. Language selection, query-string behavior and existing canonical decisions are unchanged. The intentionally noindex tutor shell no longer receives an empty x-default href; its noindex and absent canonical remain unchanged.
 3. **Social locale annotations accumulated on runtime re-evaluation.** Generated `og:locale:alternate` metadata is replaced instead of appended repeatedly. No duplicate alternate locale tags after a second evaluation.
 4. **Sitemap check mode wrote files despite promising read-only validation.** `tools/build-sitemaps.py --check` no longer rewrites the dated audit report or creates its directory. Tests cover both passing and failing validation, preserve non-zero failure exits, and verify that existing report content stays untouched. Write mode still produces the report as before. No sitemap URL, lastmod or robots/canonical setting changed.
-5. **The site-wide ownership index was stale.** Regenerated `data/copy-index.json` using the existing tool after global scope approval. Its 1,874-page membership is unchanged. This is a derived fingerprint refresh, not new page content or editorial review. Its check and the existing ownership matcher now pass.
+5. **The site-wide ownership index was stale and depended on generated chrome.** Release CI exposed the underlying cause: master checks temporarily strip shared bylines/appearance widgets, but standalone fingerprints included them. The builder now excludes reversible generated ultra slots, with regression tests for decorated/undecorated and CRLF HTML. The regenerated index has 1,871 fingerprints; three chrome-heavy pages no longer meet the existing 150-word own-prose threshold. No site pages were removed or changed by that threshold. Both standalone and full master checks now pass.
 
-Source/test changes for this pass: `js/seo.js`, `tools/test-seo-runtime.mjs`, `tools/build-sitemaps.py`, `tools/test-sitemap-freshness.py`; derived data: `data/copy-index.json`. No dependency manifests, service worker, payment/booking logic, tutor content, storage keys or country publication decisions changed.
+Source/test changes for this pass: `js/seo.js`, `tools/test-seo-runtime.mjs`, `tools/build-sitemaps.py`, `tools/test-sitemap-freshness.py`, `tools/build-copy-index.js`, `tools/test-copy-index.mjs`; derived data: `data/copy-index.json`. The new lesson regression test is registered in `tools/build-all.py`. No dependency manifests, service worker, payment/booking logic, tutor content, storage keys or country publication decisions changed.
 
 ## Validation
 
@@ -26,7 +26,8 @@ Source/test changes for this pass: `js/seo.js`, `tools/test-seo-runtime.mjs`, `t
 | `python3 tools/audit-country-language-quality.py --check` | PASS: classifications current; no evidence upgrades |
 | `python3 tools/build-seo-aeo-geo.py --check` | PASS: existing OpenSearch, robots, discovery summaries and checked structured data |
 | Local HTTP discovery gate | PASS: 54 probes, 29 HTML samples, 1,561 sitemap URLs |
-| Copy index check and matcher | PASS: 1,874 fingerprints |
+| Copy index check and matcher | PASS: 1,871 fingerprints, including generated-chrome invariance tests |
+| `python3 tools/build-all.py check` | PASS locally after fixing generated-chrome fingerprint drift |
 | Indexing freeze contract | PASS: zero violations |
 | Existing menu/search, drawer and learner-trust tests | PASS |
 | Existing Googlebot parity test (`--local`) | PASS: 15 file-level comparisons; not a live production HTTP result |
@@ -49,6 +50,6 @@ Chromium 158.0.8127.0 used the already approved temporary tooling. External requ
 - Static country-language records retain their existing verification/publication states. We did not publish noindex/held pages or create doorway pages to target more countries.
 - A legacy exploratory `tools/test-phase6-seo.py` run reported missing descriptions/canonicals because its regular expressions assume attribute order; those tags are present. Its output is not treated as evidence of real missing metadata. That legacy report's incidental write was reverted; the parser-based and runtime checks above are the verification used here.
 - Some noindex lesson pages carry redundant self-only language annotations. These do not establish multilingual coverage and were not mass-rewritten; their indexation is intentionally unchanged.
-- Full `tools/build-all.py check` was not run because it strips/restores generated page layers across the repository. The checks listed above are the exact tested scope, not a full master-build claim.
+- Release preparation subsequently ran the full `tools/build-all.py check`, including its reversible strip/restore cycle. It passed after the ownership-fingerprint fix; this is still not native-language review or a ranking guarantee.
 
-No commit, push, pull request, merge or deployment performed.
+Release requested by the user and tracked in [PR #82](https://github.com/EkGuruLearning/EkGuru/pull/82). Consult its connected checks and GitHub Pages deployment for the final published status; this QA document is not itself deployment proof.
