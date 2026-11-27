@@ -15,6 +15,7 @@
     "test:course-reorder": "node tools/test-course-reorder.mjs",
     "test:courses": "node tools/test-course-placeholders.mjs && node tools/test-course-levels.mjs && python3 tools/test-course-voice-buttons.py && python3 tools/audit-course-pronunciation.py --check && node tools/test-course-matching.mjs && node tools/test-course-reorder.mjs",
     "test:home": "node tools/test-home-tutor-reveal.mjs && node tools/test-home-practice.mjs && node tools/test-menu-search.mjs",
+    "test:monetization": "node tools/test-monetization-disclosures.mjs && node tools/test-name-card.mjs && node tools/test-adsready-diagnostics.mjs",
     "test:advertising": "node tools/test-advertising-launch.mjs && node tools/test-consent-release.mjs && node tools/test-ad-policy.mjs",
     "advertising:status": "node tools/check-advertising-launch.mjs",
     "advertising:check": "node tools/check-advertising-launch.mjs --check",

@@ -78,6 +78,9 @@ ok("every class says why it exists",
   Object.values(CLASSES).every((c) => c.why));
 ok("the interactive class may never load the loader",
   !ALLOWED.has("INTERACTIVE_LEARNING"));
+ok("all name transliteration tools are interactive, not ad content",
+  ["hindi", "punjabi", "arabic", "amharic", "greek", "japanese", "korean", "russian"]
+    .every((lang) => classify(`/name-in-${lang}/index.html`) === "INTERACTIVE_LEARNING"));
 ok("the legal pages are excluded twice over (class + excluded_paths)",
   ["/privacy/", "/terms/", "/disclaimer/", "/copyright/", "/cookie-policy/"]
     .every((p) => EXCLUDED.includes(p)) &&

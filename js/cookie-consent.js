@@ -37,7 +37,7 @@
     advertising: {
       name: "Advertising",
       desc: "Currently disabled. A certified regional consent flow must be deployed before AdSense can be enabled.",
-      examples: "No AdSense loader in this release",
+      examples: "No runtime ad units; review loader on eligible content pages",
       required: false
     }
   };
@@ -283,7 +283,7 @@
         ],
         advertising: [
           "Unavailable in this release",
-          "No AdSense loader or ad unit is authorized"
+          "Runtime ad units disabled; review loader already present on eligible content pages"
         ],
         howToUse: [
           "Necessary: records the privacy choice",
