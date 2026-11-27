@@ -42,21 +42,57 @@
     }
   };
 
+  var currentConsent = null;
+
   function readConsent() {
     try {
       var raw = localStorage.getItem(CONSENT_KEY);
-      return raw ? JSON.parse(raw) : null;
+      var consent = raw ? JSON.parse(raw) : null;
+      if (!consent || Array.isArray(consent) || consent.necessary !== true ||
+          !['functional', 'analytics', 'advertising'].every(function (key) { return typeof consent[key] === 'boolean'; }) ||
+          !Number.isFinite(consent.timestamp) || consent.timestamp <= 0) return null;
+      return consent;
     } catch (e) { return null; }
   }
 
   function writeConsent(consent) {
-    var previous = readConsent();
-    consent = consent || defaultConsent();
-    consent.advertising = ADVERTISING_AVAILABLE && consent.advertising === true;
+    var previous = currentConsent || readConsent();
+    var requested = consent || defaultConsent();
+    consent = {
+      necessary: true, functional: requested.functional === true,
+      analytics: requested.analytics === true,
+      advertising: ADVERTISING_AVAILABLE && requested.advertising === true,
+      timestamp: Date.now()
+    };
+    var saved = false, oldRecord, oldDate, captured = false;
     try {
+      oldRecord = localStorage.getItem(CONSENT_KEY);
+      oldDate = localStorage.getItem(CONSENT_DATE_KEY); captured = true;
       localStorage.setItem(CONSENT_KEY, JSON.stringify(consent));
-      localStorage.setItem(CONSENT_DATE_KEY, new Date().toISOString());
-    } catch (e) {}
+      localStorage.setItem(CONSENT_DATE_KEY, new Date(consent.timestamp).toISOString());
+      saved = true;
+    } catch (e) {
+      if (captured) try {
+        if (oldRecord === null) localStorage.removeItem(CONSENT_KEY); else localStorage.setItem(CONSENT_KEY, oldRecord);
+        if (oldDate === null) localStorage.removeItem(CONSENT_DATE_KEY); else localStorage.setItem(CONSENT_DATE_KEY, oldDate);
+      } catch (ignored) {}
+    }
+    applyConsent(consent, previous);
+    var notice = document.getElementById('ekguru-consent-storage-status');
+    if (!saved) {
+      if (!notice) {
+        notice = document.createElement('p'); notice.id = 'ekguru-consent-storage-status';
+        notice.setAttribute('role', 'status'); document.body.appendChild(notice);
+      }
+      notice.textContent = 'Privacy choices apply to this page, but this browser could not save them. You may be asked again on another page or visit.';
+    } else if (notice) notice.remove();
+    return saved;
+  }
+
+  function applyConsent(consent, previous) {
+    // Restoring a saved choice must not rewrite its record or consent date.
+    consent = Object.assign({}, consent, { advertising: ADVERTISING_AVAILABLE && consent.advertising === true });
+    currentConsent = consent;
     // gtag consent mode
     try {
       if (window.gtag) {
@@ -112,6 +148,7 @@
     banner.setAttribute('role', 'dialog');
     banner.setAttribute('aria-label', 'Privacy settings');
     banner.setAttribute('aria-live', 'polite');
+    banner.style.cssText = 'position:fixed;left:0;right:0;bottom:0;background:var(--bg,#fff);padding:16px;max-height:calc(100vh - 16px);overflow-y:auto;overscroll-behavior:contain;box-sizing:border-box;z-index:10000';
     
     var isSmall = window.innerWidth < 600;
     
@@ -155,7 +192,7 @@
        yet, functional storage and cookieless counting are both on, so a
        visitor who opens Customise sees the truth and unticks what they
        do not want (previously both showed unticked while on). */
-    var saved = readConsent() || defaultConsent();
+    var saved = currentConsent || readConsent() || defaultConsent();
     var functionalBox = banner.querySelector('#cc-functional');
     var analyticsBox = banner.querySelector('#cc-analytics');
     var advertisingBox = banner.querySelector('#cc-advertising');
@@ -210,7 +247,7 @@
     button.className = 'consent-settings';
     button.textContent = 'Privacy settings';
     button.setAttribute('aria-haspopup', 'dialog');
-    button.style.cssText = 'position:fixed;left:12px;bottom:12px;z-index:89;padding:8px 12px;border:1px solid #d7d3e8;border-radius:999px;background:#fff;color:#332a66;font:600 13px/1.2 system-ui;box-shadow:0 2px 10px rgba(0,0,0,.1);cursor:pointer';
+    button.style.cssText = 'position:fixed;left:12px;bottom:calc(84px + env(safe-area-inset-bottom,0px));z-index:89;padding:8px 12px;border:1px solid #d7d3e8;border-radius:999px;background:#fff;color:#332a66;font:600 13px/1.2 system-ui;box-shadow:0 2px 10px rgba(0,0,0,.1);cursor:pointer';
     button.addEventListener('click', function () {
       createBanner();
       var custom = document.getElementById('consent-custom');
@@ -245,7 +282,7 @@
     
     var consent = readConsent();
     if (consent) {
-      writeConsent(consent); // re-apply
+      applyConsent(consent, null); // restore without renewing the saved date
     } else {
       // Show banner after short delay
       setTimeout(createBanner, 1200);

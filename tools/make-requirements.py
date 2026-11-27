@@ -35,13 +35,13 @@ def req(src, r, cat, prio, status, evidence, files="", plan="", test="", result=
 
 # ── Header command ──────────────────────────────────────────────
 req(HDR, "Remove unnecessary header items (Learn / Become a Tutor)", "header", "P0", "PASS",
-    "git commit 9ed3a62; geometry test found no forbidden nav labels", "index.html, ar/*, ask/*", "committed earlier", "tools/test-header-geometry.py asserts labels absent", "PASS")
+    "git commit 9ed3a62; geometry test found no forbidden nav labels", "index.html, ar/*, ask/*", "committed earlier", "tests/regression/test-header-geometry.py asserts labels absent", "PASS")
 req(HDR, "Remove / fix the Coming soon pill", "header", "P0", "PASS_LOCAL",
     "js/site-config.js status:\"live\" locally; LIVE ekguru.shop still serves status:\"soon\"", "js/site-config.js, js/main.js", "set status live; regenerate overrides", "grep local vs live site-config.js", "PASS_LOCAL (deploy pending)")
 req(HDR, "Desktop header architecture (single row, no overflow)", "header", "P1", "PASS",
     "reports/header-geometry.json: 0 failures at 1024-1920", "index.html, css/style.min.css", "done", "Playwright getBoundingClientRect", "PASS")
 req(HDR, "Real-browser width matrix 1024-1920 & 320-768", "header", "P1", "PASS",
-    "17 widths measured, 0 failures", "tools/test-header-geometry.py", "done", "Chromium 151 headless", "PASS")
+    "17 widths measured, 0 failures", "tests/regression/test-header-geometry.py", "done", "Chromium 151 headless", "PASS")
 req(HDR, "Breakpoint strategy (burger ≤1200, compact-logo 1201-1279, desktop ≥1280)", "header", "P1", "PASS",
     "CSS media queries verified at 900/1200/981/1240", "css/style.min.css", "done", "DOM measurement at 320-1280", "PASS")
 req(HDR, "Header search box", "header", "P2", "PASS",
@@ -69,7 +69,7 @@ req(HDR, "Z-index / layering", "header", "P3", "PARTIAL",
 req(HDR, "Touch / mouse QA", "header", "P2", "PARTIAL",
     "click interactions pass; touch emulation not run", "js/main.js", "run touch", "Playwright touch", "PARTIAL")
 req(HDR, "Responsive resize", "header", "P1", "PASS",
-    "17 widths incl. 320/360/390/430/768/820/900/1024-1920", "tools/test-header-geometry.py", "done", "Playwright", "PASS")
+    "17 widths incl. 320/360/390/430/768/820/900/1024-1920", "tests/regression/test-header-geometry.py", "done", "Playwright", "PASS")
 req(HDR, "Header performance", "header", "P3", "PARTIAL",
     "no perf budget measured", "-", "measure", "lighthouse", "PARTIAL")
 req(HDR, "SEO / crawlability of header", "header", "P2", "PASS",
@@ -77,7 +77,7 @@ req(HDR, "SEO / crawlability of header", "header", "P2", "PASS",
 req(HDR, "Header content rule (no Learn/Become-a-Tutor/Coming soon)", "header", "P1", "PASS_LOCAL",
     "local passes; live still shows Coming soon until deploy", "js/site-config.js", "deploy", "geometry + live grep", "PASS_LOCAL")
 req(HDR, "Automated header regression tests", "header", "P1", "PASS",
-    "tools/test-header-geometry.py exists and passes", "tools/test-header-geometry.py", "done", "python3 run", "PASS")
+    "tests/regression/test-header-geometry.py exists and passes", "tests/regression/test-header-geometry.py", "done", "python3 run", "PASS")
 req(HDR, "Final visual acceptance", "header", "P2", "DEFERRED",
     "7 screenshots saved; cannot be inspected (no vision)", "reports/shots/", "human review", "manual", "DEFERRED")
 req(HDR, "Final report", "header", "P1", "PASS",
@@ -127,9 +127,9 @@ req(ADM, "Every page — global health audit", "pages", "P0", "PASS",
 req(ADM, "Every page — error state", "pages", "P2", "PARTIAL",
     "404.html exists; per-page JS error capture not instrumented", "404.html", "deferred", "manual", "PARTIAL")
 req(ADM, "Every page — mobile QA", "pages", "P1", "PASS",
-    "header mobile QA at 320-768 passes; full-page QA deferred", "tools/test-header-geometry.py", "done", "Playwright", "PASS")
+    "header mobile QA at 320-768 passes; full-page QA deferred", "tests/regression/test-header-geometry.py", "done", "Playwright", "PASS")
 req(ADM, "Every page — desktop QA", "pages", "P1", "PASS",
-    "header desktop QA at 1024-1920 passes", "tools/test-header-geometry.py", "done", "Playwright", "PASS")
+    "header desktop QA at 1024-1920 passes", "tests/regression/test-header-geometry.py", "done", "Playwright", "PASS")
 req(ADM, "Header current issue", "header", "P0", "PASS_LOCAL",
     "Coming soon root cause fixed (status live) locally", "js/site-config.js", "deploy", "grep", "PASS_LOCAL")
 req(ADM, "Form reliability", "email", "P1", "PASS",
@@ -189,11 +189,11 @@ req(FIN, "Internationalization", "content", "P2", "PARTIAL",
 req(FIN, "Structured data", "seo", "P1", "PASS",
     "JSON-LD Course/ItemList/Breadcrumb present (daily-hindi)", "daily-hindi/index.html", "done", "inspection", "PASS")
 req(FIN, "Mobile real-browser QA", "qa", "P1", "PASS",
-    "320-768 header QA passes", "tools/test-header-geometry.py", "done", "Playwright", "PASS")
+    "320-768 header QA passes", "tests/regression/test-header-geometry.py", "done", "Playwright", "PASS")
 req(FIN, "Desktop real-browser QA", "qa", "P1", "PASS",
-    "1024-1920 header QA passes", "tools/test-header-geometry.py", "done", "Playwright", "PASS")
+    "1024-1920 header QA passes", "tests/regression/test-header-geometry.py", "done", "Playwright", "PASS")
 req(FIN, "Responsive breakpoint QA", "qa", "P1", "PASS",
-    "17 widths, 0 failures", "tools/test-header-geometry.py", "done", "Playwright", "PASS")
+    "17 widths, 0 failures", "tests/regression/test-header-geometry.py", "done", "Playwright", "PASS")
 req(FIN, "Interaction QA", "qa", "P1", "PASS",
     "burger open/close/aria verified", "js/main.js", "done", "Playwright", "PASS")
 req(FIN, "JavaScript / assets", "qa", "P1", "PASS",

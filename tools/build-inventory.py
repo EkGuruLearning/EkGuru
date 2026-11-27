@@ -10,9 +10,9 @@ _*.json helpers) and generates the owner Phase-14 outputs:
     data/global/language-country-relations.json (Phase 3 relationships)
     data/global/language-priority.json          (Phase 8 scores)
     data/global/language-support-readiness.json (Phase 9 readiness)
-    research/global-language-inventory.md       (Phase 15 tables)
-    research/country-language-summary.md        (Phase 2 per-country)
-    research/language-inventory-report.json     (Phase 7 totals + Phase 17 gate)
+    docs/research/global-language-inventory.md       (Phase 15 tables)
+    docs/research/country-language-summary.md        (Phase 2 per-country)
+    docs/research/language-inventory-report.json     (Phase 7 totals + Phase 17 gate)
 
 Transparent rules (re-printed in outputs; no hidden weights):
 
@@ -68,7 +68,7 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 os.chdir(ROOT)
 INV = "data/language-inventory"
 OUT_D = "data/global"
-OUT_R = "research"
+OUT_R = "docs/research"
 
 ROLE2CAT = {"official": "OFFICIAL", "official-regional": "OFFICIAL",
             "national": "NATIONAL",
@@ -628,9 +628,9 @@ def build():
         "sign_separate": "PASS (SIGN_LANGUAGE category + type; no mixing)"
         if not [x for x in review if x["check"] == "sign-mixed-with-spoken" and x["status"] == "open"] else "FAIL",
         "dialects_separate": "PASS (watchlist clean)",
-        "india_deep_audit": "research/india-language-inventory.md (this build)" if os.path.exists(OUT_R + "/india-language-inventory.md") else "PENDING",
+        "india_deep_audit": "docs/research/india-language-inventory.md (this build)" if os.path.exists(OUT_R + "/india-language-inventory.md") else "PENDING",
         "multilingual_audits": "AF/BD/BT/IN/IR/LK/MV/NP/PK in batch 1; NG + ID + PG + PH + ZA + CN + RU audits done (research/); all 13 deep audits done (IN/NG/ID/PG/PH/ZA/CN/RU/TR/IR/MY/TH/VN in research/)",
-        "api_licensing": "research/language-data-sources.md (this build)" if os.path.exists(OUT_R + "/language-data-sources.md") else "PENDING",
+        "api_licensing": "docs/research/language-data-sources.md (this build)" if os.path.exists(OUT_R + "/language-data-sources.md") else "PENDING",
         "qa": "OPEN items: %d (see review list)" % len(openrev),
     }
     complete = all([gate["countries_pass"], gate["countries_pass"]])

@@ -99,27 +99,27 @@ LESSONS = [
     # ------------------------------------------------------------ 1
     dict(
         n=1, slug="swar", kind="letters",
-        hi="स्वर", en="The vowels", sub="13 letters that make a sound on their own",
+        hi="स्वर", en="The vowels", sub="11 independent vowels, plus anusvara and visarga chart forms",
         lede="A Hindi primer always opens with the स्वर (swar) — the vowels. Each one is a sound "
              "you can hold with your mouth open: say it, trace it, meet the word every Indian "
              "child learns it with.",
         letters=VOWELS,
         notes=[
-            "There are eleven vowel letters plus two 'extras': <b>अं</b> adds a nasal hum and "
-            "<b>अः</b> a soft breath. Children chant all thirteen as one song: "
+            "There are eleven independent vowel letters plus two chart forms: <b>अं</b> includes anusvara "
+            "and <b>अः</b> includes visarga. Their pronunciation depends on context. A traditional chart sequence is: "
             "<span class=\"spk\" lang=\"hi\">अ आ इ ई उ ऊ ऋ ए ऐ ओ औ अं अः</span>.",
-            "Short and long come in pairs — <b>अ/आ, इ/ई, उ/ऊ</b>. The long one is simply held "
-            "about twice as long. Getting the length wrong changes the word: "
+            "Compare the short/long pairs — <b>अ/आ, इ/ई, उ/ऊ</b>. Vowel quality and duration "
+            "both matter; timing varies with context, so an exact two-to-one rule is only an approximation. Compare "
             "<span class=\"spk\" lang=\"hi\">दिन</span> (day) vs <span class=\"spk\" lang=\"hi\">दीन</span> (poor).",
             "These full letters appear at the <b>start</b> of a word or after another vowel. "
             "Inside a word, after a consonant, the vowel shrinks to a sign — the मात्रा — "
             "which is lesson 6 onwards.",
         ],
-        task="Say the thirteen vowels aloud in order, three times. Then write अ to अः once each, "
+        task="Read the eleven vowels and two additional chart forms in order. Then write अ to अः once each, "
              "saying the sound as your pen moves. Hand and mouth learn together.",
         quiz=[
-            ("Which vowel is long: इ or ई?", "ई. The long one is held about twice as long — like 'see' against 'sit'."),
-            ("What do अं and अः add?", "अं adds a nasal hum (like the ng in 'sing'); अः adds a soft puff of breath."),
+            ("Which vowel is long: इ or ई?", "ई is the long partner. Vowel quality and duration both matter; exact timing varies with context."),
+            ("What do अं and अः add?", "अं has anusvara; अः has visarga. These marks have context-dependent pronunciation, explained in the later nasal-mark lesson."),
             ("Where do full vowel letters appear?", "At the start of a word, or after another vowel. After a consonant the vowel becomes a मात्रा sign."),
         ],
     ),

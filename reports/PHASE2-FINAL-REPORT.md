@@ -71,7 +71,7 @@ Phase 2 of the cumulative command — `EkGuru_Next_Major_Update_Content_Material
 ## 7. Blockers (owner action required)
 
 1. **Git push / Pages deploy** — no remote/credentials here. To ship: `git remote add origin <repo>` then push, verify GitHub Pages builds, then verify `ekguru.shop` serves the new build (release board shows `LOCAL COMMIT` until this happens).
-2. **Sheets re-upload** — data sources remain `PAUSED_FOR_REUPLOAD` until the owner supplies the six new published Google-Sheet CSV links; then `tools/test-data-sources.py` re-verifies.
+2. **Sheets re-upload** — data sources remain `PAUSED_FOR_REUPLOAD` until the owner supplies the six new published Google-Sheet CSV links; then `tests/integration/test-data-sources.py` re-verifies.
 3. **Student-email end-to-end** — regression-only per the command; the full student-inbox receipt check (fresh controlled address, no duplicate, persisted admin status, fallback) stays an owner/verified-external step.
 
 ## 8. Honest status

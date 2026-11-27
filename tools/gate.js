@@ -87,7 +87,7 @@ async function main() {
   const geoWidths = geo?.evidence ? Object.keys(geo.evidence).length : 0;
   const geoOk = geoFails === 0 && geoWidths === 17;
   check("header-geometry", "Header geometry clean at 17 widths", geoOk,
-    geo ? `${geoWidths} widths, ${geoFails} failures` : "reports/header-geometry.json missing — run tools/test-header-geometry.py",
+    geo ? `${geoWidths} widths, ${geoFails} failures` : "reports/header-geometry.json missing — run tests/regression/test-header-geometry.py",
     !geo);
 
   /* 6 — SEO */

@@ -29,7 +29,7 @@
       "evidence": "git commit 9ed3a62; geometry test found no forbidden nav labels",
       "files_affected": "index.html, ar/*, ask/*",
       "implementation_plan": "committed earlier",
-      "test": "tools/test-header-geometry.py asserts labels absent",
+      "test": "tests/regression/test-header-geometry.py asserts labels absent",
       "result": "PASS"
     },
     {
@@ -66,7 +66,7 @@
       "priority": "P1",
       "current_status": "PASS",
       "evidence": "17 widths measured, 0 failures",
-      "files_affected": "tools/test-header-geometry.py",
+      "files_affected": "tests/regression/test-header-geometry.py",
       "implementation_plan": "done",
       "test": "Chromium 151 headless",
       "result": "PASS"
@@ -248,7 +248,7 @@
       "priority": "P1",
       "current_status": "PASS",
       "evidence": "17 widths incl. 320/360/390/430/768/820/900/1024-1920",
-      "files_affected": "tools/test-header-geometry.py",
+      "files_affected": "tests/regression/test-header-geometry.py",
       "implementation_plan": "done",
       "test": "Playwright",
       "result": "PASS"
@@ -299,8 +299,8 @@
       "category": "header",
       "priority": "P1",
       "current_status": "PASS",
-      "evidence": "tools/test-header-geometry.py exists and passes",
-      "files_affected": "tools/test-header-geometry.py",
+      "evidence": "tests/regression/test-header-geometry.py exists and passes",
+      "files_affected": "tests/regression/test-header-geometry.py",
       "implementation_plan": "done",
       "test": "python3 run",
       "result": "PASS"
@@ -612,7 +612,7 @@
       "priority": "P1",
       "current_status": "PASS",
       "evidence": "header mobile QA at 320-768 passes; full-page QA deferred",
-      "files_affected": "tools/test-header-geometry.py",
+      "files_affected": "tests/regression/test-header-geometry.py",
       "implementation_plan": "done",
       "test": "Playwright",
       "result": "PASS"
@@ -625,7 +625,7 @@
       "priority": "P1",
       "current_status": "PASS",
       "evidence": "header desktop QA at 1024-1920 passes",
-      "files_affected": "tools/test-header-geometry.py",
+      "files_affected": "tests/regression/test-header-geometry.py",
       "implementation_plan": "done",
       "test": "Playwright",
       "result": "PASS"
@@ -1002,7 +1002,7 @@
       "priority": "P1",
       "current_status": "PASS",
       "evidence": "320-768 header QA passes",
-      "files_affected": "tools/test-header-geometry.py",
+      "files_affected": "tests/regression/test-header-geometry.py",
       "implementation_plan": "done",
       "test": "Playwright",
       "result": "PASS"
@@ -1015,7 +1015,7 @@
       "priority": "P1",
       "current_status": "PASS",
       "evidence": "1024-1920 header QA passes",
-      "files_affected": "tools/test-header-geometry.py",
+      "files_affected": "tests/regression/test-header-geometry.py",
       "implementation_plan": "done",
       "test": "Playwright",
       "result": "PASS"
@@ -1028,7 +1028,7 @@
       "priority": "P1",
       "current_status": "PASS",
       "evidence": "17 widths, 0 failures",
-      "files_affected": "tools/test-header-geometry.py",
+      "files_affected": "tests/regression/test-header-geometry.py",
       "implementation_plan": "done",
       "test": "Playwright",
       "result": "PASS"
@@ -3774,7 +3774,7 @@
       "evidence": "E2E: reports/email-e2e.json A/B show all three roles with honest states",
       "files_affected": "js/mailer.js,js/features.js,js/contact.js",
       "implementation_plan": "verified live",
-      "test": "tools/test-email-e2e.py",
+      "test": "tests/integration/test-email-e2e.py",
       "result": "PASS"
     },
     {
@@ -3786,9 +3786,9 @@
       "priority": "P0",
       "current_status": "PASS",
       "evidence": "reports/provider-probe.json + reports/email-e2e.json are real provider responses",
-      "files_affected": "tools/test-email-e2e.py,tools/probe-providers.py",
+      "files_affected": "tests/integration/test-email-e2e.py,tools/probe-providers.py",
       "implementation_plan": "ran real Chromium against real endpoints",
-      "test": "tools/test-email-e2e.py",
+      "test": "tests/integration/test-email-e2e.py",
       "result": "PASS"
     },
     {
@@ -3816,7 +3816,7 @@
       "evidence": "js/mailer.js single orchestrator; keys public-by-design (documented), no secrets",
       "files_affected": "js/mailer.js",
       "implementation_plan": "verified via E2E",
-      "test": "tools/test-email-e2e.py",
+      "test": "tests/integration/test-email-e2e.py",
       "result": "PASS"
     },
     {
@@ -3830,7 +3830,7 @@
       "evidence": "roles implemented; reschedule/cancel not a product feature -> N/A (no fake confirmed emails)",
       "files_affected": "js/mailer.js",
       "implementation_plan": "product has no reschedule/cancel flow",
-      "test": "tools/test-email-e2e.py",
+      "test": "tests/integration/test-email-e2e.py",
       "result": "PASS"
     },
     {
@@ -3844,7 +3844,7 @@
       "evidence": "tutorTarget()+tutorEmailStatus; three tutor files cleared of the platform-email placeholder; E2E B shows TUTOR_EMAIL_UNAVAILABLE",
       "files_affected": "js/mailer.js,js/tutors/hemlata.js,js/tutors/sushila-g.js,js/tutors/tara.js",
       "implementation_plan": "fixed hard-coded generic tutor email",
-      "test": "tools/test-email-e2e.py (B)",
+      "test": "tests/integration/test-email-e2e.py (B)",
       "result": "PASS"
     },
     {
@@ -3858,7 +3858,7 @@
       "evidence": "js/store.js add() now stores tutorEmailStatus/Note/emailStates/error + existing snapshot fields",
       "files_affected": "js/store.js,js/features.js",
       "implementation_plan": "snapshot at booking time",
-      "test": "tools/test-email-e2e.py",
+      "test": "tests/integration/test-email-e2e.py",
       "result": "PASS"
     },
     {
@@ -3872,7 +3872,7 @@
       "evidence": "studentBody() omits tutor inbox/page URL/internal notes",
       "files_affected": "js/mailer.js",
       "implementation_plan": "existing, verified",
-      "test": "tools/test-email-e2e.py",
+      "test": "tests/integration/test-email-e2e.py",
       "result": "PASS"
     },
     {
@@ -3886,7 +3886,7 @@
       "evidence": "tutorBody() carries student name/email/level/goal/time/slot",
       "files_affected": "js/mailer.js",
       "implementation_plan": "existing, verified",
-      "test": "tools/test-email-e2e.py",
+      "test": "tests/integration/test-email-e2e.py",
       "result": "PASS"
     },
     {
@@ -3900,7 +3900,7 @@
       "evidence": "siteBody() includes tutor inbox, page URL, distribution list, sent-via",
       "files_affected": "js/mailer.js",
       "implementation_plan": "existing, verified",
-      "test": "tools/test-email-e2e.py",
+      "test": "tests/integration/test-email-e2e.py",
       "result": "PASS"
     },
     {
@@ -3914,7 +3914,7 @@
       "evidence": "Bookings tab + References tab + retry exist; but per-browser localStorage (static site has no backend) — the [record] email to the inbox is the durable copy; stated honestly in UI",
       "files_affected": "js/store.js,js/ledger.js,admin.html",
       "implementation_plan": "per-browser limitation documented",
-      "test": "tools/test-email-e2e.py",
+      "test": "tests/integration/test-email-e2e.py",
       "result": "PARTIAL"
     },
     {
@@ -3928,7 +3928,7 @@
       "evidence": "js/ledger.js contact/report kinds + References room + contact records list",
       "files_affected": "js/ledger.js,js/contact.js,admin.html",
       "implementation_plan": "verified",
-      "test": "tools/test-email-e2e.py",
+      "test": "tests/integration/test-email-e2e.py",
       "result": "PASS"
     },
     {
@@ -3942,7 +3942,7 @@
       "evidence": "contact() posts with reply-to=visitor, from=EkGuru; never visitor-as-FROM",
       "files_affected": "js/mailer.js",
       "implementation_plan": "verified",
-      "test": "tools/test-email-e2e.py",
+      "test": "tests/integration/test-email-e2e.py",
       "result": "PASS"
     },
     {
@@ -3956,7 +3956,7 @@
       "evidence": "post() chain with per-key quota + activation fallback; E2E A/C show FormSubmit->StaticForms fallback",
       "files_affected": "js/mailer.js",
       "implementation_plan": "verified live",
-      "test": "tools/test-email-e2e.py (A,C)",
+      "test": "tests/integration/test-email-e2e.py (A,C)",
       "result": "PASS"
     },
     {
@@ -3970,7 +3970,7 @@
       "evidence": "pick()/ownInboxRelay()/directToStranger() capability routing",
       "files_affected": "js/mailer.js",
       "implementation_plan": "existing, verified",
-      "test": "tools/test-email-e2e.py",
+      "test": "tests/integration/test-email-e2e.py",
       "result": "PASS"
     },
     {
@@ -3998,7 +3998,7 @@
       "evidence": "v97 sent-store + guarded(); E2E F shows internal role deduped on same ref",
       "files_affected": "js/mailer.js",
       "implementation_plan": "verified",
-      "test": "tools/test-email-e2e.py (F)",
+      "test": "tests/integration/test-email-e2e.py (F)",
       "result": "PASS"
     },
     {
@@ -4012,7 +4012,7 @@
       "evidence": "post() returns state:ACCEPTED; send/contact results carry emailStates; UI says accepted/routed",
       "files_affected": "js/mailer.js,admin.html",
       "implementation_plan": "verified",
-      "test": "tools/test-email-e2e.py",
+      "test": "tests/integration/test-email-e2e.py",
       "result": "PASS"
     },
     {
@@ -4026,7 +4026,7 @@
       "evidence": "activation=PERMANENT (retire+fallback), quota/auth retire key, throttle/network backoff retry",
       "files_affected": "js/mailer.js",
       "implementation_plan": "verified",
-      "test": "tools/test-email-e2e.py",
+      "test": "tests/integration/test-email-e2e.py",
       "result": "PASS"
     },
     {
@@ -4040,7 +4040,7 @@
       "evidence": "errorClass set on every post() failure path",
       "files_affected": "js/mailer.js",
       "implementation_plan": "verified",
-      "test": "tools/test-email-e2e.py",
+      "test": "tests/integration/test-email-e2e.py",
       "result": "PASS"
     },
     {
@@ -4054,7 +4054,7 @@
       "evidence": "booking committed before send (record survives); true background queue impossible on a static site (no backend) — documented",
       "files_affected": "js/features.js,js/store.js",
       "implementation_plan": "best-effort for static site",
-      "test": "tools/test-email-e2e.py",
+      "test": "tests/integration/test-email-e2e.py",
       "result": "PARTIAL"
     },
     {
@@ -4068,7 +4068,7 @@
       "evidence": "features.js v97 commits record (status sending) before EkGuruMail.send, updates after",
       "files_affected": "js/features.js",
       "implementation_plan": "verified",
-      "test": "tools/test-email-e2e.py",
+      "test": "tests/integration/test-email-e2e.py",
       "result": "PASS"
     },
     {
@@ -4082,7 +4082,7 @@
       "evidence": "status email_degraded + book.emailDegraded message (7 languages)",
       "files_affected": "js/features.js,js/i18n.js",
       "implementation_plan": "verified",
-      "test": "tools/test-email-e2e.py",
+      "test": "tests/integration/test-email-e2e.py",
       "result": "PASS"
     },
     {
@@ -4096,7 +4096,7 @@
       "evidence": "retryBooking() re-sends via mailer (force), records audit in ledger",
       "files_affected": "admin.html",
       "implementation_plan": "verified",
-      "test": "tools/test-email-e2e.py",
+      "test": "tests/integration/test-email-e2e.py",
       "result": "PASS"
     },
     {
@@ -4110,7 +4110,7 @@
       "evidence": "retryContact() re-sends, appends ledger audit, no new record",
       "files_affected": "admin.html",
       "implementation_plan": "verified",
-      "test": "tools/test-email-e2e.py",
+      "test": "tests/integration/test-email-e2e.py",
       "result": "PASS"
     },
     {
@@ -4124,7 +4124,7 @@
       "evidence": "bodies are versioned relay-rendered tables + plain-text rows (mobile-safe); no custom HTML templates — relay renders; documented",
       "files_affected": "js/mailer.js",
       "implementation_plan": "relay templates, versioned in code",
-      "test": "tools/test-email-e2e.py",
+      "test": "tests/integration/test-email-e2e.py",
       "result": "PARTIAL"
     },
     {
@@ -4152,7 +4152,7 @@
       "evidence": "student tz captured as IANA (GMT offset); slot carries day/time; both in every email",
       "files_affected": "js/features.js,js/mailer.js",
       "implementation_plan": "verified",
-      "test": "tools/test-email-e2e.py",
+      "test": "tests/integration/test-email-e2e.py",
       "result": "PASS"
     },
     {
@@ -4166,7 +4166,7 @@
       "evidence": "message passed verbatim; full message row in record; UTF-8 throughout",
       "files_affected": "js/mailer.js",
       "implementation_plan": "verified",
-      "test": "tools/test-email-e2e.py",
+      "test": "tests/integration/test-email-e2e.py",
       "result": "PASS"
     },
     {
@@ -4194,7 +4194,7 @@
       "evidence": "Bookings Emails column, References per-recipient, Mail centre relays + ping, incidents",
       "files_affected": "admin.html",
       "implementation_plan": "verified",
-      "test": "tools/test-email-e2e.py",
+      "test": "tests/integration/test-email-e2e.py",
       "result": "PASS"
     },
     {
@@ -4208,7 +4208,7 @@
       "evidence": "mcIncidents dedupes ledger.problems() by role×relay×error",
       "files_affected": "admin.html,js/ledger.js",
       "implementation_plan": "verified",
-      "test": "tools/test-email-e2e.py",
+      "test": "tests/integration/test-email-e2e.py",
       "result": "PASS"
     },
     {
@@ -4222,7 +4222,7 @@
       "evidence": "E2E A-F: Tutor A(sushila-g)/Tutor B(tara) honest routing, fallback, all-down survival, negative, idempotency",
       "files_affected": "reports/email-e2e.json",
       "implementation_plan": "ran real Chromium",
-      "test": "tools/test-email-e2e.py",
+      "test": "tests/integration/test-email-e2e.py",
       "result": "PASS"
     },
     {
@@ -4236,7 +4236,7 @@
       "evidence": "bad email rejected; all-down honest + record survives; dedup verified; Unicode/long passed through",
       "files_affected": "reports/email-e2e.json",
       "implementation_plan": "verified",
-      "test": "tools/test-email-e2e.py",
+      "test": "tests/integration/test-email-e2e.py",
       "result": "PASS"
     },
     {
@@ -4250,7 +4250,7 @@
       "evidence": "ledger records link ref->recipients; store update in place (no dup refs); no orphan records",
       "files_affected": "js/store.js,js/ledger.js",
       "implementation_plan": "verified",
-      "test": "tools/test-email-e2e.py",
+      "test": "tests/integration/test-email-e2e.py",
       "result": "PASS"
     },
     {
@@ -4264,7 +4264,7 @@
       "evidence": "Bookings tab (filters, search, email states, retry) + References search",
       "files_affected": "admin.html",
       "implementation_plan": "verified",
-      "test": "tools/test-email-e2e.py",
+      "test": "tests/integration/test-email-e2e.py",
       "result": "PASS"
     },
     {
@@ -4278,7 +4278,7 @@
       "evidence": "contact records list + References search + retryContact",
       "files_affected": "admin.html,js/ledger.js",
       "implementation_plan": "verified",
-      "test": "tools/test-email-e2e.py",
+      "test": "tests/integration/test-email-e2e.py",
       "result": "PASS"
     },
     {
@@ -4306,7 +4306,7 @@
       "evidence": "E2E C (Web3Forms blocked) and D (all blocked) prove fallback + survival",
       "files_affected": "reports/email-e2e.json",
       "implementation_plan": "simulated in controlled environment",
-      "test": "tools/test-email-e2e.py",
+      "test": "tests/integration/test-email-e2e.py",
       "result": "PASS"
     },
     {
@@ -4348,7 +4348,7 @@
       "evidence": "node --check on all touched JS; real-browser smoke of contact/admin/tutor/index; E2E passed; live deploy pending",
       "files_affected": "all touched files",
       "implementation_plan": "local regression clean",
-      "test": "tools/test-email-e2e.py + node --check",
+      "test": "tests/integration/test-email-e2e.py + node --check",
       "result": "PASS_LOCAL"
     },
     {
@@ -4362,7 +4362,7 @@
       "evidence": "All local gates PASS except Web3Forms (datacenter 403/browser Failed-to-fetch). FormSubmit now ACTIVATED (live-verified internal ACCEPTED). Apps Script contract live, auth pending shared token. Visitor leg GREEN requires a real residential browser + token.",
       "files_affected": "reports/release-decision.json",
       "implementation_plan": "honest blockers",
-      "test": "tools/test-email-e2e.py",
+      "test": "tests/integration/test-email-e2e.py",
       "result": "PARTIAL"
     },
     {
@@ -4390,7 +4390,7 @@
       "evidence": "All claims above tied to reports/email-e2e.json + provider-probe.json",
       "files_affected": "reports/email-e2e.json",
       "implementation_plan": "honoured",
-      "test": "tools/test-email-e2e.py",
+      "test": "tests/integration/test-email-e2e.py",
       "result": "PASS"
     },
     {
@@ -4400,7 +4400,7 @@
       "category": "sheets",
       "priority": "P1",
       "current_status": "PASS",
-      "evidence": "tools/test-data-sources.py: 4 CSV endpoints HTTP 200 + headers, tutors 4 rows/47 cols, reviews, settings, content 29 rows; Apps Script endpoint JSON health",
+      "evidence": "tests/integration/test-data-sources.py: 4 CSV endpoints HTTP 200 + headers, tutors 4 rows/47 cols, reviews, settings, content 29 rows; Apps Script endpoint JSON health",
       "files_affected": "",
       "implementation_plan": "",
       "test": "",

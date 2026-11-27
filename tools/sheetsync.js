@@ -5,7 +5,7 @@
    This is the generator the repo has been missing (referenced in the
    _overrides.js header and in js/sheet.js comments). It ports the SAME
    FIELDS transforms as js/sheet.js so the two parsers agree — see
-   tools/test-data-sources.py and tools/test-sheet-loader.js.
+   tests/integration/test-data-sources.py and tests/integration/test-sheet-loader.js.
 
    Outputs:
      js/tutors/_overrides.js   window.EKGURU_SHEET_OVERRIDES  (tutors + reviews)
@@ -52,7 +52,7 @@ const SRC = {
 };
 
 /* The deployed Apps Script /exec from js/site-config.js (feed.url), or ""
-   when the feed is not wired. Same regex tools/test-public-surface.mjs uses. */
+   when the feed is not wired. Same regex tests/regression/test-public-surface.mjs uses. */
 function feedReviewsUrl() {
   try {
     const cfg = fs.readFileSync(path.join(__dirname, "..", "js", "site-config.js"), "utf8");
@@ -84,7 +84,7 @@ async function fetchFeedReviews(url) {
 /* ---------- delimited-text parsing (shared, see tools/sheet-fetch.js) ----------
    v143 (30 Sep 2026): the parser and the CSV→TSV fallback now live in
    tools/sheet-fetch.js — one implementation for the build, the offline
-   fixtures and the unit tests (tools/test-sheet-fetch.mjs asserts this file
+   fixtures and the unit tests (tests/integration/test-sheet-fetch.mjs asserts this file
    and js/sheet.js agree). Google's published-CSV endpoints for this workbook
    answer HTTP 500 while output=tsv answers 200; the fallback order is
    csv first, tsv second, and it is not configurable. */
@@ -194,7 +194,7 @@ function buildTutor(r) {
   /* =========================================================
      REPUTATION-METRIC POLICY  (27 Sep 2026 master audit)
      Mirrors the runtime gate in js/sheet.js — the two parsers
-     must agree (tools/test-sheet-loader.js asserts that).
+     must agree (tests/integration/test-sheet-loader.js asserts that).
      The sheet's rating / reviewsCount / lessonsCount /
      superTutor / preplyUrl cells are the owner's records only;
      the site publishes:
@@ -354,7 +354,7 @@ async function fetchSettings(url) {
 /* ---------- offline mode (--offline <dir>) ----------
    Reads a saved export instead of the network:
        <dir>/tutors.tsv  reviews.tsv  settings.tsv  support.tsv
-   (.csv works too). Used by tools/test-tutor-activation.mjs and by
+   (.csv works too). Used by tests/integration/test-tutor-activation.mjs and by
    builds in a sandbox where docs.google.com is unreachable. The
    parsing path is the SAME code the network path uses. */
 function offlineRows(dir, name) {
@@ -394,7 +394,7 @@ function keyValues(rows) {
 }
 
 /* The policy functions above are unit-tested directly by
-   tools/test-sheetsync-policy.js (build-side of the 27 Sep 2026
+   tests/integration/test-sheetsync-policy.js (build-side of the 27 Sep 2026
    reputation gate). Requiring this file must not run the sync —
    only running it as a CLI does. */
 if (require.main === module) (async function main() {

@@ -72,6 +72,10 @@ ULTRA_BUILDS = [
     ("reciprocal language alternates on existing beginner guides", ["python3", "tools/build-guide-hreflang.py"]),
     ("flashcard decks from authored course vocabulary (PHASE 9)", ["python3", "tools/build-flashcards.py"]),
     ("flashcard lab on every practice page with a deck (PHASE 9)", ["python3", "tools/inject-flashcards.py"]),
+    ("Hindi first-letters-to-reading collection on the existing practice hub", ["python3", "tools/build-hindi-learning-library.py"]),
+    ("Authored depth on existing Hindi Foundation chapters", ["python3", "tools/build-hindi-foundation-depth.py"]),
+    ("Existing Hindi phrase answers linked from their question/course hubs", ["python3", "tools/build-hindi-phrase-discovery.py"]),
+    ("Contextual entry links for existing class and script guides", ["python3", "tools/build-contextual-entry-links.py"]),
     ("700-language draft registry + 197 country contexts", ["python3", "tools/build-language-registry.py"]),
     ("per-language AA themes (script font, direction, accent)", ["python3", "tools/build-themes.py"]),
     ("voice language tags + recording manifests (owner-supplied only)", ["python3", "tools/build-voice-languages.py"]),
@@ -83,52 +87,61 @@ ULTRA_BUILDS = [
     ("Phase 1: contextual glosses for advanced phrase lessons", ["python3", "tools/repair-phase1-advanced-glosses.py", "--check"]),
     ("world-language long-form Learn content (Phase 3)", ["python3", "tools/build-world-phase3.py"]),
     ("flashcard decks + lab: sizes, ids, keyboard, SRS (PHASE 9)",
-     ["node", "tools/test-flashcards.mjs"]),
+     ["node", "tests/regression/test-flashcards.mjs"]),
 ]
 ULTRA_TESTS = [
-    ("analytics privacy choices remain reversible across provider load races", ["node", "tools/test-analytics-lifecycle.mjs"]),
-    ("join wizard loads its real stylesheet and keeps navigation visible", ["node", "tools/test-join-css-visibility.mjs"]),
-    ("home Hindi practice checks the displayed phrase locally", ["node", "tools/test-home-practice.mjs"]),
-    ("country phrase consolidation stays bounded, crawlable and ad-free", ["python3", "tools/test-country-phrase-consolidation.py"]),
-    ("sitemap rebuilds never fabricate editorial freshness", ["python3", "tools/test-sitemap-freshness.py"]),
+    ("analytics privacy choices remain reversible across provider load races", ["node", "tests/regression/test-analytics-lifecycle.mjs"]),
+    ("join wizard loads its real stylesheet and keeps navigation visible", ["node", "tests/regression/test-join-css-visibility.mjs"]),
+    ("home Hindi practice checks the displayed phrase locally", ["node", "tests/regression/test-home-practice.mjs"]),
+    ("country phrase consolidation stays bounded, crawlable and ad-free", ["python3", "tests/regression/test-country-phrase-consolidation.py"]),
+    ("sitemap rebuilds never fabricate editorial freshness", ["python3", "tests/unit/test-sitemap-freshness.py"]),
     ("public crawl targets, assets and reciprocal hreflang", ["python3", "tools/discovery_integrity.py"]),
-    ("discovery audit and relocation regression tests", ["python3", "tools/test-discovery-integrity.py"]),
-    ("static landing metadata survives legacy SEO runtime", ["node", "tools/test-seo-runtime.mjs"]),
-    ("Hindi sentence pilot: accessible practice and preserved learning contracts", ["node", "tools/test-hindi-sentence-lesson.mjs"]),
+    ("discovery audit and relocation regression tests", ["python3", "tests/unit/test-discovery-integrity.py"]),
+    ("static landing metadata survives legacy SEO runtime", ["node", "tests/regression/test-seo-runtime.mjs"]),
+    ("Hindi sentence pilot: accessible practice and preserved learning contracts", ["node", "tests/regression/test-hindi-sentence-lesson.mjs"]),
+    ("Hindi learning collection: distinct sources, reading, voice and shared review", ["node", "tests/regression/test-hindi-learning-library.mjs"]),
+    ("Hindi Foundation depth: authored counts, preserved SEO and legacy generator", ["python3", "tests/regression/test-hindi-foundation-depth.py"]),
+    ("Hindi phrase answers: contextual inlinks and preserved publication contracts", ["python3", "tests/regression/test-hindi-phrase-discovery.py"]),
+    ("Contextual entry links preserve page metadata and existing forms", ["python3", "tests/regression/test-contextual-entry-links.py"]),
+    ("AdSense publisher script, verification meta and root seller identity", ["python3", "tests/regression/test-adsense-publisher-tags.py"]),
+    ("Advertising launch stays blocked without account and consent evidence", ["node", "tests/regression/test-advertising-launch.mjs"]),
+    ("Privacy preferences persist without renewing consent or removing withdrawal", ["node", "tests/regression/test-consent-persistence.mjs"]),
+    ("Published artifact must contain the exact root ads.txt seller record", ["python3", "tests/unit/test-public-ads-txt.py"]),
+    ("Repository layout: retained tests, commands and private-folder sentinels", ["python3", "tests/unit/test-repository-layout.py"]),
     ("Phase 2 public-page inventory is current (repository-only)",
      ["python3", "tools/build-full-page-inventory.py", "--check"]),
     ("Phase 2 detailed content inventory is current (live HTTP pending)",
      ["python3", "tools/build-phase2-content-inventory.py", "--check"]),
-    ("Phase 2 inventory fields, safety and scope", ["python3", "tools/test-phase2-content-inventory.py"]),
-    ("Hindi hunger answer: source-backed restaurant phrase and Hindi next-step routing", ["python3", "tools/test-hindi-hunger-answer-content.py"]),
-    ("Phase 5 original-value Hindi numbers practice (repository consistency)", ["python3", "tools/test-phase5-ekguru-value.py"]),
-    ("Phase 6 Hindi text counter rules, UI events and page contract", ["node", "tools/test-hindi-text-counter.mjs"]),
-    ("Phase 7 answer-first Q&A placement (structural check only)", ["python3", "tools/test-answer-first-pages.py"]),
+    ("Phase 2 inventory fields, safety and scope", ["python3", "tests/regression/test-phase2-content-inventory.py"]),
+    ("Hindi hunger answer: source-backed restaurant phrase and Hindi next-step routing", ["python3", "tests/regression/test-hindi-hunger-answer-content.py"]),
+    ("Phase 5 original-value Hindi numbers practice (repository consistency)", ["python3", "tests/regression/test-phase5-ekguru-value.py"]),
+    ("Phase 6 Hindi text counter rules, UI events and page contract", ["node", "tests/regression/test-hindi-text-counter.mjs"]),
+    ("Phase 7 answer-first Q&A placement (structural check only)", ["python3", "tests/regression/test-answer-first-pages.py"]),
     ("Phase 3 repository-backed originality audit is current (human review pending)",
      ["python3", "tools/build-phase3-originality-audit.py", "--check"]),
-    ("Phase 3 audit fields and non-fabrication safety", ["python3", "tools/test-phase3-originality-audit.py"]),
-    ("world-course quiz bank bindings, topic maps and visible copy", ["python3", "tools/test-world-course-quiz-content.py"]),
-    ("Spanish/French numbers lessons: complete source-matched 1–20 tables", ["python3", "tools/test-world-course-numbers-content.py"]),
-    ("Daily Hindi Day 23 future examples and task (repository consistency only)", ["python3", "tools/test-daily-hindi-future-content.py"]),
-    ("published vocabulary excludes generated segmentation placeholders", ["python3", "tools/test-published-vocabulary.py"]),
-    ("partial Phase 1 courses mark C1/C2 unpublished", ["python3", "tools/test-partial-course-publication.py"]),
+    ("Phase 3 audit fields and non-fabrication safety", ["python3", "tests/regression/test-phase3-originality-audit.py"]),
+    ("world-course quiz bank bindings, topic maps and visible copy", ["python3", "tests/regression/test-world-course-quiz-content.py"]),
+    ("Spanish/French numbers lessons: complete source-matched 1–20 tables", ["python3", "tests/regression/test-world-course-numbers-content.py"]),
+    ("Daily Hindi Day 23 future examples and task (repository consistency only)", ["python3", "tests/regression/test-daily-hindi-future-content.py"]),
+    ("published vocabulary excludes generated segmentation placeholders", ["python3", "tests/regression/test-published-vocabulary.py"]),
+    ("partial Phase 1 courses mark C1/C2 unpublished", ["python3", "tests/regression/test-partial-course-publication.py"]),
     ("rendered Phase 2 root Indian topic parity", ["python3", "tools/audit-indian-topic-parity.py", "--check"]),
-    ("Indian beginner leads use their authored language data", ["python3", "tools/test-language-course-uniqueness.py"]),
-    ("Phase 3 long-form Learn posts (130 guides across Indian tracks + Hindi, Spanish, Arabic and German)", ["python3", "tools/test-phase3-content.py"]),
+    ("Indian beginner leads use their authored language data", ["python3", "tests/regression/test-language-course-uniqueness.py"]),
+    ("Phase 3 long-form Learn posts (130 guides across Indian tracks + Hindi, Spanish, Arabic and German)", ["python3", "tests/regression/test-phase3-content.py"]),
     ("immutable owner indexing/canonical contract", ["python3", "tools/ultra/contract.py"]),
     ("own-content dates are current (never a rebuild timestamp)", ["python3", "tools/update-editorial-metadata.py", "--check"]),
     ("site features on every page are current (additive, strip-invertible)", ["python3", "tools/apply-ultra.py", "--check"]),
-    ("site features: markers, order, robots/canonical untouched, honest bylines, no ad on interactive pages", ["python3", "tools/test-ultra-integration.py"]),
-    ("theme semantic AA contrast + motion budgets", ["node", "tools/test-theme-contrast.mjs"]),
+    ("site features: markers, order, robots/canonical untouched, honest bylines, no ad on interactive pages", ["python3", "tests/regression/test-ultra-integration.py"]),
+    ("theme semantic AA contrast + motion budgets", ["node", "tests/regression/test-theme-contrast.mjs"]),
     ("shared runtime freshness (voice.js is built from src/runtime)", ["node", "tools/build-runtime.mjs", "--check"]),
-    ("voice: exact-language voices, no autoplay, honest fallback, licensed recordings, mic transcript", ["node", "tools/test-voice.mjs"]),
-    ("mounted voice controls: language, labels, pressed state and fallback (mocked runtime)", ["node", "tools/test-voice-mounted-controls.mjs"]),
-    ("page-wide native voice controls and no nested interactive links", ["python3", "tools/test-voice-page-coverage.py"]),
-    ("voice speed/replay controls: availability, state and accessible labels", ["node", "tools/test-voice-ux.mjs"]),
-    ("Indian course/topic controls and visible target-script coverage", ["python3", "tools/test-language-course-voice-controls.py"]),
-    ("device journal, SRS scheduling, streak/freeze, backup, privacy", ["node", "tools/test-retention.mjs"]),
-    ("legacy migration, corrupt/future storage, quota and calendar regressions", ["node", "tools/test-learning-storage.mjs"]),
-    ("offline worker: private routes, aggregate quota, rollback, concurrency", ["node", "tools/test-learning-worker.mjs"]),
+    ("voice: exact-language voices, no autoplay, honest fallback, licensed recordings, mic transcript", ["node", "tests/regression/test-voice.mjs"]),
+    ("mounted voice controls: language, labels, pressed state and fallback (mocked runtime)", ["node", "tests/regression/test-voice-mounted-controls.mjs"]),
+    ("page-wide native voice controls and no nested interactive links", ["python3", "tests/regression/test-voice-page-coverage.py"]),
+    ("voice speed/replay controls: availability, state and accessible labels", ["node", "tests/regression/test-voice-ux.mjs"]),
+    ("Indian course/topic controls and visible target-script coverage", ["python3", "tests/regression/test-language-course-voice-controls.py"]),
+    ("device journal, SRS scheduling, streak/freeze, backup, privacy", ["node", "tests/regression/test-retention.mjs"]),
+    ("legacy migration, corrupt/future storage, quota and calendar regressions", ["node", "tests/regression/test-learning-storage.mjs"]),
+    ("offline worker: private routes, aggregate quota, rollback, concurrency", ["node", "tests/regression/test-learning-worker.mjs"]),
     ("SEO, AEO & GEO discovery surfaces (OpenSearch, robots, llms-full, JSON-LD, Speculation Rules)", ["python3", "tools/build-seo-aeo-geo.py", "--check"]),
 ]
 
@@ -196,17 +209,17 @@ def main():
             run("toolbox visuals --check (one plate per tool)",
                 ["python3", "tools/build-toolbox-visuals.py", "--check"])
             run("level visuals test (the ladder, the figures, the strip)",
-                ["node", "tools/test-level-visuals.mjs"])
+                ["node", "tests/regression/test-level-visuals.mjs"])
             run("course levels test (every course readable at every level)",
-                ["node", "tools/test-course-levels.mjs"])
+                ["node", "tests/regression/test-course-levels.mjs"])
             run("course voice controls + optional IPA renderer test",
-                ["python3", "tools/test-course-voice-buttons.py"])
+                ["python3", "tests/regression/test-course-voice-buttons.py"])
             run("country visuals test (numbers match the data)",
-                ["node", "tools/test-country-visuals.mjs"])
+                ["node", "tests/regression/test-country-visuals.mjs"])
             run("toolbox visuals test (the plates cannot lie about the pages)",
-                ["node", "tools/test-toolbox-visuals.mjs"])
+                ["node", "tests/regression/test-toolbox-visuals.mjs"])
             run("offline playable test (the game plays with the network off)",
-                ["node", "tools/test-offline-playable.mjs"])
+                ["node", "tests/regression/test-offline-playable.mjs"])
             run("readiness audit selftest (the word counter, on unspaced scripts)",
                 ["python3", "tools/audit-adsense-readiness.py", "--selftest"])
             run("ads readiness, repository mode (ads.txt, canonicals, sitemaps)",
@@ -218,44 +231,44 @@ def main():
             run("tutor location specifics --check (P3 location pages + FAQ markup parity)", ["python3", "tools/apply-tutor-location-specifics.py", "--check"])
             run("copy index --check", ["node", "tools/build-copy-index.js", "--check"])
             run("search publication check", ["python3", "tools/check-search-index.py"])
-            run("ownership test (matcher vs its own corpus)", ["node", "tools/test-copy-index.mjs"])
-            run("search facet test (country + language)", ["node", "tools/test-search-facets.mjs"])
-            run("header drawer test (one owner, one open)", ["node", "tools/test-shell-drawer.mjs"])
-            run("course country search test", ["node", "tools/test-course-country.mjs"])
-            run("reading layer test (one stylesheet, two bands)", ["node", "tools/test-reading-layer.mjs"])
-            run("page layer test (one design on all 828 pages)", ["node", "tools/test-page-layer.mjs"])
-            run("book mode test (stepped Hindi lessons + generated practice)", ["node", "tools/test-book-mode.mjs"])
-            run("print sheet test (what lands on paper)", ["node", "tools/test-print-sheets.mjs"])
+            run("ownership test (matcher vs its own corpus)", ["node", "tests/regression/test-copy-index.mjs"])
+            run("search facet test (country + language)", ["node", "tests/regression/test-search-facets.mjs"])
+            run("header drawer test (one owner, one open)", ["node", "tests/regression/test-shell-drawer.mjs"])
+            run("course country search test", ["node", "tests/regression/test-course-country.mjs"])
+            run("reading layer test (one stylesheet, two bands)", ["node", "tests/regression/test-reading-layer.mjs"])
+            run("page layer test (one design on all 828 pages)", ["node", "tests/regression/test-page-layer.mjs"])
+            run("book mode test (stepped Hindi lessons + generated practice)", ["node", "tests/regression/test-book-mode.mjs"])
+            run("print sheet test (what lands on paper)", ["node", "tests/regression/test-print-sheets.mjs"])
             run("print sheet dom test (the copy the script builds)",
-                ["node", "tools/test-print-sheet-dom.mjs"])
+                ["node", "tests/regression/test-print-sheet-dom.mjs"])
             run("print visible test (what the printer receives)",
-                ["node", "tools/test-print-visible.mjs"])
+                ["node", "tests/regression/test-print-visible.mjs"])
             run("ad policy --check (loader only where the matrix allows)",
                 ["python3", "tools/inject-ads.py", "--check"])
             run("ad policy test (excluded pages carry no ad tag)",
-                ["node", "tools/test-ad-policy.mjs"])
+                ["node", "tests/regression/test-ad-policy.mjs"])
             run("questions api --check (votes on every question page)",
                 ["python3", "tools/inject-questions-api.py", "--check"])
             run("duplicate external scripts --check", ["python3", "tools/dedupe-script-tags.py", "--check"])
             run("questions api test (flag -> queue -> community)",
-                ["node", "tools/test-question-api.mjs"])
+                ["node", "tests/regression/test-question-api.mjs"])
             run("refresh test (a reload shows the deploy and starts nothing)",
-                ["node", "tools/test-refresh-quiet.mjs"])
-            run("page skeleton test (one main, skip link lands)", ["node", "tools/test-page-skeleton.mjs"])
-            run("sheet-apply test (sheet row -> site)", ["node", "tools/test-sheet-apply.js"])
-            run("live-feed test (apps script feed, loaders, privacy)", ["node", "tools/test-live-feed.js"])
+                ["node", "tests/regression/test-refresh-quiet.mjs"])
+            run("page skeleton test (one main, skip link lands)", ["node", "tests/regression/test-page-skeleton.mjs"])
+            run("sheet-apply test (sheet row -> site)", ["node", "tests/integration/test-sheet-apply.js"])
+            run("live-feed test (apps script feed, loaders, privacy)", ["node", "tests/integration/test-live-feed.js"])
             run("public surface gate (deploy set = website only; no contact data, no secrets)",
-                ["node", "tools/test-public-surface.mjs"])
-            run("intake test (online forms: pending-only, honeypot, caps)", ["node", "tools/test-intake.js"])
+                ["node", "tests/regression/test-public-surface.mjs"])
+            run("intake test (online forms: pending-only, honeypot, caps)", ["node", "tests/integration/test-intake.js"])
             run("sheetsync policy test (build side refuses marketplace values)",
-                ["node", "tools/test-sheetsync-policy.js"])
+                ["node", "tests/integration/test-sheetsync-policy.js"])
             run("sheet-only guru bake test (approved=yes rows bake, private cells never)",
-                ["node", "tools/test-sheet-only-bake.mjs"])
+                ["node", "tests/integration/test-sheet-only-bake.mjs"])
             run("orphan tutor page quarantine (a sheet-only guru set active=no loses the public page)",
-                ["node", "tools/test-orphan-tutor-quarantine.mjs"])
+                ["node", "tests/regression/test-orphan-tutor-quarantine.mjs"])
             run("no-competitor-attribution gate (public output + rendered strings)",
-                ["node", "tools/test-no-competitor-attribution.js"])
-            run("experience DOM test", ["node", "tools/test-experience-dom.mjs"])
+                ["node", "tests/regression/test-no-competitor-attribution.js"])
+            run("experience DOM test", ["node", "tests/regression/test-experience-dom.mjs"])
         finally:
             subprocess.run(["python3", "tools/apply-ultra.py"], check=False)
         ultra_tests()
@@ -322,7 +335,7 @@ def main():
     run("copy index (ownership fingerprints)", ["node", "tools/build-copy-index.js"])
     run("truthful editorial dates", ["python3", "tools/update-editorial-metadata.py"])
     run("site features on every page (theme, voice, journal, bylines, honest notices)", ["python3", "tools/apply-ultra.py"])
-    run("partial Phase 1 course publication boundary", ["python3", "tools/test-partial-course-publication.py"])
+    run("partial Phase 1 course publication boundary", ["python3", "tests/regression/test-partial-course-publication.py"])
     run("rendered Phase 2 root Indian topic parity + report",
         ["python3", "tools/audit-indian-topic-parity.py", "--write-report"])
     run("Phase 2: full public-page technical inventory", ["python3", "tools/build-full-page-inventory.py"])

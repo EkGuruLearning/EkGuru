@@ -285,14 +285,14 @@ No tutors, reviews, ratings, lesson counts, traffic, offices, registrations, aff
 
 ## Tests run here
 
-- `tools/test-sheet-apply.js` PASS, including refusal of sheet-only tutors
-- `tools/test-sheetsync-policy.js` PASS
-- `tools/test-no-competitor-attribution.js` PASS
-- `tools/test-ad-policy.mjs` PASS (0 loader pages)
-- `tools/test-consent-release.mjs` 12/12 PASS
-- `tools/test-shell-drawer.mjs` PASS
-- `tools/test-browser-qa.mjs` 26 PASS
-- `tools/test-runtime-qa.mjs` 142 PASS
+- `tests/integration/test-sheet-apply.js` PASS, including refusal of sheet-only tutors
+- `tests/integration/test-sheetsync-policy.js` PASS
+- `tests/regression/test-no-competitor-attribution.js` PASS
+- `tests/regression/test-ad-policy.mjs` PASS (0 loader pages)
+- `tests/regression/test-consent-release.mjs` 12/12 PASS
+- `tests/regression/test-shell-drawer.mjs` PASS
+- `tests/regression/test-browser-qa.mjs` 26 PASS
+- `tests/regression/test-runtime-qa.mjs` 142 PASS
 - `tools/build-shell.js --check` PASS
 - Playwright: not run
 - Googlebot user-agent fetch: not run (sandbox TLS failure)

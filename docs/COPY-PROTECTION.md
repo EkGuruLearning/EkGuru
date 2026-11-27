@@ -120,8 +120,8 @@ and there is no server to send it to.
 ### Tests
 
 ```
-node tools/test-copy-index.mjs      # the panel's own matcher, in a DOM, real corpus
-node tools/test-search-facets.mjs   # country + language facets (see docs/DESIGN-SYSTEM.md)
+node tests/regression/test-copy-index.mjs      # the panel's own matcher, in a DOM, real corpus
+node tests/regression/test-search-facets.mjs   # country + language facets (see docs/DESIGN-SYSTEM.md)
 ```
 
 `test-copy-index.mjs` loads `js/admin-ownership.js` itself rather than

@@ -1,5 +1,22 @@
 # EkGuru — System Architecture and Repository Structure
 
+> **Approved cleanup status (2026-11-24):** documentation/archive organization,
+> test relocation and publishing safeguards are implemented in the working tree.
+> See [cleanup scope and validation](architecture/repository-cleanup.md) and the
+> [complete 197-file path map](architecture/cleanup-path-map.json).
+> `docs/ARCHITECTURE.md` and `docs/HANDOVER-FOR-AI.md` keep their authoritative paths.
+> The older proposal and operational statements below are historical context,
+> not approval for content, generator, integration or output migration.
+>
+> Current corrections: Pages publishes filtered `_site/` through `pages.yml`;
+> public pages are mixed authored/generated; `src/runtime/voice.js` is browser
+> source, not server code; `data/quality/indexing-baseline.json` is a protected
+> publication contract, not an ordinary regenerable report. Tests live under
+> `tests/{unit,integration,regression,e2e}`; selected `tools/test-*` files are
+> compatibility launchers only. No public route/assets or integration behavior
+> is changed by this cleanup. Readable content and generators remain in place.
+> A physical output-folder change alone need not change URLs or need redirects.
+
 Status: proposal + current-state reference. Owner decision needed before any
 folder move (see §7). Nothing in this document changes a published URL.
 

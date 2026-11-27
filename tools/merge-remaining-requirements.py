@@ -28,7 +28,7 @@ entries = []  # (source_file, list of req dicts)
 f = "EkGuru_Advanced_Sheets_SEO_FreeContent_Master_Command.md"
 entries.append((f, [
     S("Phase 0 — inventory every CSV/Apps Script use, schema and row counts", "PASS", "sheets",
-      "tools/test-data-sources.py: 4 CSV endpoints HTTP 200 + headers, tutors 4 rows/47 cols, reviews, settings, content 29 rows; Apps Script endpoint JSON health"),
+      "tests/integration/test-data-sources.py: 4 CSV endpoints HTTP 200 + headers, tutors 4 rows/47 cols, reviews, settings, content 29 rows; Apps Script endpoint JSON health"),
     S("Phase 0 — backup/hash snapshot before any change; never delete production data on a failed fetch", "PASS", "sheets",
       "reports/backups-20260911/ snapshot taken before this turn's edits; sheet loader keeps stale cache on failure (js/sheet.js)"),
     S("Phase 1 — single source-of-truth data config, no scattered CSV URLs", "PASS", "sheets",

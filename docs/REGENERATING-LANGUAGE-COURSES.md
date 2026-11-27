@@ -49,7 +49,7 @@ python3 tools/build-all.py check               # must end "generated layers are 
 It is what puts `data-topic="lang-<slug>"` on the page, which is how
 `build-print-sheets.py` finds the language behind a worksheet and bakes five
 real questions into `#ws-app`. Skip it and the worksheet prints nothing with
-JavaScript off — `node tools/test-print-sheets.mjs` fails with "worksheets ship a
+JavaScript off — `node tests/regression/test-print-sheets.mjs` fails with "worksheets ship a
 sheet in the file".
 
 **Step 8 reverses step 7's side effect.** `inject-storybook.py` is a site-wide
@@ -98,7 +98,7 @@ PHASE 3 posts per language: `common-words/`, `mistakes/`, `reading/`,
 ## The phase test
 
 ```bash
-python3 tools/test-phase3-content.py
+python3 tests/regression/test-phase3-content.py
 ```
 
 Checks all ten PHASE 3 post types per language: page exists, ≥1000 words, one

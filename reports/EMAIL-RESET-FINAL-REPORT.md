@@ -15,7 +15,7 @@ Generated 2026-09-11 (Asia/Kolkata) · Command: `/home/user/uploads/EkGuru_EMAIL
 | Sender identity | **verified EkGuru sender** (owner Gmail). Visitor/student/tutor address is never `From` (enforced server-side) |
 | Orchestration | one central layer: `js/mailer.js` + `js/email-templates.js`; `tools/apps-script-mailer.gs` relay |
 
-## ROUTING (live-verified by `tools/test-routing.js`)
+## ROUTING (live-verified by `tests/integration/test-routing.js`)
 
 Probe output against the LIVE config (token wired):
 
@@ -90,9 +90,9 @@ Role-language QA (§27-H) passes for all seven (a tutor mail never says "your bo
 
 | Suite | Runner | Result |
 |---|---|---|
-| Template registry + render + escaping + role QA (7 types) | `tools/test-email-system.js` | **PASS** |
-| Mailer integration: send / contact / compose / tutorEmailInfo / testSend / idempotency | `tools/test-email-system.js` | **PASS** |
-| Security: XSS, header injection, unknown type, secret scan, relay static | `tools/test-email-security.js` | **PASS** |
+| Template registry + render + escaping + role QA (7 types) | `tests/integration/test-email-system.js` | **PASS** |
+| Mailer integration: send / contact / compose / tutorEmailInfo / testSend / idempotency | `tests/integration/test-email-system.js` | **PASS** |
+| Security: XSS, header injection, unknown type, secret scan, relay static | `tests/integration/test-email-security.js` | **PASS** |
 | Two-student / two-tutor routing | covered by role-template + recipient assertions (student≠tutor recipients, no tutor inbox in student copy) | PASS (code) |
 | Duplicate submission | idempotency `entityId:type` client + relay | PASS (code; live replay proven 11 Sep) |
 | Real mailbox | **NOT DONE** — needs the owner to re-upload sheets, re-wire URLs, and run the two-student inbox test | **BLOCKED** |

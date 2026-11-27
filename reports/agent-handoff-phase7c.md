@@ -29,12 +29,12 @@
 
 ## Next exact command
 ```
-python3 tools/build-language-course.py && python3 tools/build-phase7c-registries.py && python3 tools/build-phase7-pages.py && python3 tools/build-hindi-pages.py && python3 tools/test-phase7c-stage7.py
+python3 tools/build-language-course.py && python3 tools/build-phase7c-registries.py && python3 tools/build-phase7-pages.py && python3 tools/build-hindi-pages.py && python3 tests/regression/test-phase7c-stage7.py
 ```
 
 ## Test command
 ```
-python3 tools/test-phase7c.py && python3 tools/test-phase7c-conversation.py && python3 tools/test-phase7c-engines.py && python3 tools/test-phase7c-context.py && python3 tools/test-phase7c-admin.py && python3 tools/test-phase7c-langpack.py && python3 tools/test-phase7c-langs.py && python3 tools/test-phase7c-starter.py && python3 tools/test-phase7c-stage6.py && python3 tools/test-phase7c-stage7.py && python3 tools/test-phase7-browser.py && python3 tools/test-phase6-matrix.py && python3 tools/test-card-interactions.py
+python3 tests/regression/test-phase7c.py && python3 tests/regression/test-phase7c-conversation.py && python3 tests/regression/test-phase7c-engines.py && python3 tests/regression/test-phase7c-context.py && python3 tests/regression/test-phase7c-admin.py && python3 tests/regression/test-phase7c-langpack.py && python3 tests/regression/test-phase7c-langs.py && python3 tests/regression/test-phase7c-starter.py && python3 tests/regression/test-phase7c-stage6.py && python3 tests/regression/test-phase7c-stage7.py && python3 tests/regression/test-phase7-browser.py && python3 tests/regression/test-phase6-matrix.py && python3 tests/regression/test-card-interactions.py
 ```
 
 ## Unresolved errors

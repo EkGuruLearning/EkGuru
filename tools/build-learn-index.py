@@ -158,9 +158,9 @@ def is_indexable(target: str) -> bool:
 
 def href(target: str) -> str:
     """From learn/index.html (depth 1). Children are plain relative paths
-    ("hindi-alphabet-for-beginners/" — the form tools/test-journeys.mjs
+    ("hindi-alphabet-for-beginners/" — the form tests/e2e/test-journeys.mjs
     clicks); the three held guide hubs keep the "./spanish/" spelling that
-    tools/test-phase3-content.py pins."""
+    tests/regression/test-phase3-content.py pins."""
     if target.startswith("learn/"):
         rest = target[len("learn/"):]
         rel = rest if rest.endswith(".html") else rest.rstrip("/") + "/"

@@ -13,7 +13,7 @@ Editorial date: 2026-11-24. Scope: `/learn/hindi-sentence-structure/` only.
 - Restored the pilot's stable heading anchors after storybook's TOC generation, updating those TOC links locally. Shared storybook source is untouched.
 - Updated this page's descriptions and actual modification date without claiming a native review. Refreshed its editorial metadata, copy fingerprint, and the three existing inventory reports. Other inventory changes are inbound counts on four newly linked destinations, not edits to those pages.
 
-Primary files: `learn/hindi-sentence-structure/index.html`, `css/hindi-sentence-lesson.css`, `js/hindi-sentence-lesson.js`, `tools/test-hindi-sentence-lesson.mjs`.
+Primary files: `learn/hindi-sentence-structure/index.html`, `css/hindi-sentence-lesson.css`, `js/hindi-sentence-lesson.js`, `tests/regression/test-hindi-sentence-lesson.mjs`.
 
 ## Browser evidence
 
@@ -44,7 +44,7 @@ Before captures were initially taken before editing. The final comparison rerend
 Run the new dependency-free-at-runtime regression test using the repository's existing jsdom dev dependency:
 
 ```sh
-node tools/test-hindi-sentence-lesson.mjs
+node tests/regression/test-hindi-sentence-lesson.mjs
 ```
 
 Result: **13 checks passed**. The test also verifies this lesson's exact copy fingerprint and resolves local resource links. New CSS + JS: **5,070 bytes combined gzip**, measured independently with Node zlib. This is an added-asset budget, not total page weight or a Core Web Vitals result.

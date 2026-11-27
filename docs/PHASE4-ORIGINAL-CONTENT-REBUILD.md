@@ -81,24 +81,24 @@ Not every short Phase 3 candidate needs more copy. Source inspection shows the s
 
 Passed:
 
-- `python3 tools/test-world-course-quiz-content.py` — all 10 quiz content/script fragments match the source builder; topic counts, lesson links, course-bank bindings, and JavaScript syntax checked.
-- `python3 tools/test-world-course-numbers-content.py` — Spanish and French tables each contain 20 ordered rows matching their source data; existing page layers remain present.
-- `python3 tools/test-daily-hindi-future-content.py` — the Day 23 forms match the in-repository example, and the task, metadata, and responsive table labels are present. This is repository consistency, not linguistic validation.
-- `python3 tools/test-hindi-hunger-answer-content.py` — the answer copy, summary metadata, QAPage text, restaurant example, and Hindi route bands match repository sources and the page-layer selector. Native-language review remains pending.
+- `python3 tests/regression/test-world-course-quiz-content.py` — all 10 quiz content/script fragments match the source builder; topic counts, lesson links, course-bank bindings, and JavaScript syntax checked.
+- `python3 tests/regression/test-world-course-numbers-content.py` — Spanish and French tables each contain 20 ordered rows matching their source data; existing page layers remain present.
+- `python3 tests/regression/test-daily-hindi-future-content.py` — the Day 23 forms match the in-repository example, and the task, metadata, and responsive table labels are present. This is repository consistency, not linguistic validation.
+- `python3 tests/regression/test-hindi-hunger-answer-content.py` — the answer copy, summary metadata, QAPage text, restaurant example, and Hindi route bands match repository sources and the page-layer selector. Native-language review remains pending.
 - `python3 tools/build-page-layer.py --check` — all generated page-layer pages are current after the Hindi route correction.
-- `node tools/test-page-layer.mjs` — all 24 existing checks pass across 1,703 pages.
-- `python3 -m py_compile tools/build-page-layer.py tools/test-hindi-hunger-answer-content.py`
-- `python3 tools/test-phase3-originality-audit.py` — the Phase 3 baseline still has 2,720 inventoried pages and claims zero completed human, native-language, source/fact, or external-similarity reviews.
-- `python3 tools/test-partial-course-publication.py` — partial-course publication boundary remains intact.
+- `node tests/regression/test-page-layer.mjs` — all 24 existing checks pass across 1,703 pages.
+- `python3 -m py_compile tools/build-page-layer.py tests/regression/test-hindi-hunger-answer-content.py`
+- `python3 tests/regression/test-phase3-originality-audit.py` — the Phase 3 baseline still has 2,720 inventoried pages and claims zero completed human, native-language, source/fact, or external-similarity reviews.
+- `python3 tests/regression/test-partial-course-publication.py` — partial-course publication boundary remains intact.
 - `python3 tools/build-legacy-pages.py --check --only daily-hindi/day-23/index.html` — the edited page remains on the reading layer.
-- `python3 -m py_compile tools/build-world-course.py tools/course-data/es.py tools/course-data/fr.py tools/test-world-course-quiz-content.py tools/test-world-course-numbers-content.py`
-- `python3 -m py_compile tools/build-all.py tools/test-daily-hindi-future-content.py`
+- `python3 -m py_compile tools/build-world-course.py tools/course-data/es.py tools/course-data/fr.py tests/regression/test-world-course-quiz-content.py tests/regression/test-world-course-numbers-content.py`
+- `python3 -m py_compile tools/build-all.py tests/regression/test-daily-hindi-future-content.py`
 - `git diff --check`
 
 Not completed:
 
-- `python3 tools/test-phase7c-stage7.py` could not start because the environment lacks the Python `playwright` package (`ModuleNotFoundError`). No browser-runtime result is claimed. The temporary local HTTP server from Batch 1 was stopped.
-- `node tools/test-voice.mjs` could not start because `jsdom` is not installed. No voice-runtime result is claimed for this batch.
+- `python3 tests/regression/test-phase7c-stage7.py` could not start because the environment lacks the Python `playwright` package (`ModuleNotFoundError`). No browser-runtime result is claimed. The temporary local HTTP server from Batch 1 was stopped.
+- `node tests/regression/test-voice.mjs` could not start because `jsdom` is not installed. No voice-runtime result is claimed for this batch.
 - No independent human editorial or native-language review, external source/fact verification or similarity review, AdSense/Search Console check, or production crawl was performed.
 
 ## Remaining Phase 4 work

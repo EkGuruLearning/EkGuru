@@ -8,7 +8,7 @@ site, read-only) and the intake (site → sheet, pending rows only).
 - Paste the **same** `/exec` URL into `js/site-config.js` twice: `feed.url`
   **and** `intake.url`.
 - Behaviour is identical to `LiveFeed.gs` v1.0.0 + `Intake.gs` v1.2.0 —
-  `tools/test-live-feed.js` proves it on every run.
+  `tests/integration/test-live-feed.js` proves it on every run.
 
 The two separate files (`LiveFeed.gs`, `Intake.gs`) still work and are
 still in this folder. Use the unified file unless you have a reason not

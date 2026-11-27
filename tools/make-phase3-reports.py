@@ -102,7 +102,7 @@ w("email-external-e2e-phase3.json", {
 
 email_matrix = {
     "generated": NOW,
-    "note": "Controlled-failure expectations are encoded in tools/test-email-system.js (which PASSES). Live provider failures (Apps Script down, timeout) are exercised against the real relay only when the owner supplies the token + controlled mailboxes.",
+    "note": "Controlled-failure expectations are encoded in tests/integration/test-email-system.js (which PASSES). Live provider failures (Apps Script down, timeout) are exercised against the real relay only when the owner supplies the token + controlled mailboxes.",
     "cases": [
         {"case": "missing tutor email", "expected": "TUTOR_EMAIL_UNAVAILABLE + EkGuru fallback recipient; student never told 'sent to tutor'", "verified": "code path present (mailer.js); live-sheets tutors.csv emails blank"},
         {"case": "invalid recipient", "expected": "request refused client-side; relay replies 'Missing or invalid recipient.'", "verified": "relay probe (prior phase)"},

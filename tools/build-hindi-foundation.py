@@ -39,6 +39,8 @@ def _load(name, path):
 
 C = _load("hindi_foundation_content", os.path.join(ROOT, "tools", "hindi-foundation-content.py"))
 P = _load("build_hindi_pages", os.path.join(ROOT, "tools", "build-hindi-pages.py"))
+D = _load("foundation_depth", os.path.join(ROOT, "tools", "build-hindi-foundation-depth.py"))
+DEPTH_CHAPTERS = {chapter['slug']: chapter for chapter in D.content()['chapters']}
 
 BASE = "https://ekguru.shop"
 SECTION = "learn/hindi/foundation"
@@ -115,7 +117,7 @@ def e(s):
     return H.escape(str(s), quote=True)
 
 def say(dev, label="🔊"):
-    """A native speaker button (tools/test-voice-page-coverage.py: every voice
+    """A native speaker button (tests/regression/test-voice-page-coverage.py: every voice
     control must be a <button>, never a span that speaks itself)."""
     return '<button class="spk" type="button" data-sb-say="%s" aria-label="Play %s">%s</button>' % (e(dev), e(dev), label)
 
@@ -228,7 +230,7 @@ CSS_PATH = "css/foundation.css"
 
 def head(title, desc, url, up):
     """The shared pre-shell head, with the section stylesheet LINKED (not inlined:
-    tools/test-page-layer.mjs caps pages that carry their own <style> rules)."""
+    tests/regression/test-page-layer.mjs caps pages that carry their own <style> rules)."""
     h = P.head(title, desc, url, up, index=False)
     h = h.replace('<html lang="en" dir="ltr" data-ad-class="HIGH">',
                   '<html lang="en" dir="ltr" data-learning-language="hi" data-ad-class="HIGH_CONTENT">')
@@ -417,6 +419,8 @@ def lesson_page(L, prev, nxt, total):
     # book-mode.js (17 Nov 2026) turns the article into a stepped reader with
     # generated practice; it reads the markup above, so nothing else changes.
     html += P.foot(up, ("book-mode.js",))
+    if L['slug'] in DEPTH_CHAPTERS:
+        html = D.transformed(html, DEPTH_CHAPTERS[L['slug']])
     path = os.path.join(SECTION, L["slug"], "index.html")
     os.makedirs(os.path.dirname(path), exist_ok=True)
     with open(path, "w", encoding="utf-8") as f:

@@ -32,7 +32,7 @@ both times: `[FAIL] Apps Script: reachable — The read operation timed out`
 (`MODE=LIVE: 27 checks, 1 failures`). Every build, SEO and policy step before it
 passed on both runs, and nothing in the branch touches that endpoint, so the
 probe is flaky rather than the branch being broken. Fixed at the source rather
-than re-run until green: `tools/test-data-sources.py` now retries that one probe
+than re-run until green: `tests/integration/test-data-sources.py` now retries that one probe
 three times, 5s apart, prints the attempt it answered on, and still fails the run
 if the endpoint never answers (verified against a stubbed flaky/dead/healthy
 fetcher, not against the live host — the sandbox cannot reach it).
@@ -77,7 +77,7 @@ renderers; object rows print `<b>wrong</b> → right <span class="muted">why</sp
 and string rows are byte-identical to before. Regenerated with the documented
 level-page recipe, so the 58 pages are generated output, not hand edits.
 
-**Gate.** `tools/test-course-levels.mjs` (runs in `build-all.py check` and in CI)
+**Gate.** `tests/regression/test-course-levels.mjs` (runs in `build-all.py check` and in CI)
 now reads the rendered page against the course file, row by row: no page may
 print a Python literal, and every authored `{wrong, right, why}` row — grammar
 and extra — must appear on its page exactly as the lesson writes it. 556 rows
@@ -119,7 +119,7 @@ printed inside the Cyrillic `НАПИСÁТЬ` in `ru_B1`.
 
 **Two gates, because they read different things.** `tools/normalise-romanisation.py`
 (`--write`, 0 strings left) runs in `build-all.py check` and answers "is this file
-consistent with itself"; `tools/test-course-levels.mjs` reads the *rendered pages*
+consistent with itself"; `tests/regression/test-course-levels.mjs` reads the *rendered pages*
 and answers "does the reader see one scheme" — for every published page whose
 script is not Latin, each parenthesised transliteration must use letters that
 page's own "Say it" lane taught (68 pages, 42 marks in use). Both were proofed by

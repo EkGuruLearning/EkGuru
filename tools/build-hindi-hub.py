@@ -146,7 +146,7 @@ DEPTH = 2  # set per page before rendering: learn/hindi/ = 2, hindi/ = 1
 def href(target: str) -> str:
     """From the page being rendered to a site-root-relative target — the
     shortest relative path (learn/x from learn/hindi/ is ../x/, which is also
-    the form tools/test-phase3-content.py expects on the Hindi hub)."""
+    the form tests/regression/test-phase3-content.py expects on the Hindi hub)."""
     if DEPTH == 2 and target.startswith("learn/"):
         rest = target[len("learn/"):]
         if rest.startswith("hindi/"):
@@ -348,6 +348,7 @@ def build_region() -> str:
 
     # 6. practice
     a('<h2 id="hh-practice">Practice, quiz and review</h2>')
+    a('<p><a href="practice/#hindi-learning-library"><strong>From first letters to advanced reading</strong></a> — explore 1,000+ distinct letter, word, sentence and paragraph models, with optional Hindi listening and English support.</p>')
     a('<h3 class="hh-h3">Learning paths</h3>')
     a('<div class="hh-grid">')
     for p in paths:

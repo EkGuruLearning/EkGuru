@@ -2,7 +2,7 @@
 
 **Status:** one focused increment; Phase 9 is not complete.
 
-**Source command:** `Arena latest command  arena/Arena latest command  arena/01a0e655-ekguru/after fasst.md` — Phase 9.
+**Source command:** `docs/commands/legacy-arena/01a0e655-ekguru/after-fasst.md` — Phase 9.
 
 **Existing handoff:** `reports/PHASE9-FLASHCARDS.md` identifies quiz question types as an open slice.
 
@@ -15,7 +15,7 @@
 
 ## Coverage and checks
 
-`node tools/test-course-matching.mjs` exercises pair construction, explicit pairs, ambiguity fallback, accessible labels, incomplete submission, scoring, and answer reveal. It also scans the current course files: **1,446 of 1,832** existing matching prompts have at least two distinct pairs and can use the new UI. This is a data-shape coverage measure, not a linguistic-quality or native-speaker review.
+`node tests/regression/test-course-matching.mjs` exercises pair construction, explicit pairs, ambiguity fallback, accessible labels, incomplete submission, scoring, and answer reveal. It also scans the current course files: **1,446 of 1,832** existing matching prompts have at least two distinct pairs and can use the new UI. This is a data-shape coverage measure, not a linguistic-quality or native-speaker review.
 
 `npm run test:courses` exited successfully: the placeholder, level-page, voice-button, and matching checks passed. Its pronunciation audit still reports **BLOCKED** because 0/5,694 published vocabulary items have source-referenced IPA; that is pre-existing and outside this slice.
 

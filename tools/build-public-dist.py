@@ -34,8 +34,9 @@ WHAT IS PUBLIC (copied verbatim)
            (2) every sw.js precache entry is copied,
            (3) nothing copied references a private path,
            (4) no private file slipped in.
-           Exit 1 on any failure. Run by tools/test-public-surface.mjs and CI.
+           Exit 1 on any failure. Run by tests/regression/test-public-surface.mjs and CI.
 """
+import json
 import os
 import re
 import shutil
@@ -50,6 +51,7 @@ PRIVATE_DIRS = {
     ".git", ".github", ".arena", ".cache", ".local", ".playwright-cli",
     "node_modules", "tools", "tests", "src", "reports", "docs", "research",
     "apps-script", "server", "csv", "live-sheets", "uploads", "audit",
+    "generators", "integrations", "config", "scripts", "_site", ".artifacts",
     "playwright-report", "test-results", "Unselected files",
     "Arena latest command  arena",
 }
@@ -107,13 +109,31 @@ def build(out):
 
 
 PRIVATE_REF = re.compile(
-    r"""(?:href|src|action|url)\s*[=(]\s*["']?(?:https?://ekguru\.shop)?/(?:tools|reports|docs|research|apps-script|server|csv|live-sheets|tests|src)/""",
+    r"""(?:href|src|action|url)\s*[=(]\s*["']?(?:https?://ekguru\.shop)?/(?:tools|reports|docs|research|apps-script|server|csv|live-sheets|tests|src|generators|integrations|config|scripts)/""",
     re.I,
 )
 
 
+def check_ads_txt(out):
+    """Check the deployed root seller file, not merely its repository source."""
+    path = os.path.join(out, 'ads.txt')
+    if not os.path.isfile(path):
+        return ['missing root ads.txt in public artifact']
+    try:
+        with open(path, encoding='utf-8-sig') as f:
+            records = [line.strip() for line in f if line.strip() and not line.lstrip().startswith('#')]
+        with open(os.path.join(ROOT, 'data/monetization/google-monetization.json'), encoding='utf-8') as f:
+            publisher = json.load(f)['publisher']
+        expected = ', '.join(publisher[k] for k in ('seller_domain', 'ads_txt_id', 'relationship', 'certification_authority_id'))
+        if records != [expected]:
+            return ['root ads.txt seller record missing, duplicated or incorrect in public artifact']
+    except (OSError, UnicodeError, ValueError, KeyError):
+        return ['unreadable root ads.txt or publisher configuration']
+    return []
+
+
 def check(out):
-    fails = []
+    fails = check_ads_txt(out)
     # 1. sitemap URLs -> files
     sitemap_files = [f for f in os.listdir(out) if f.startswith("sitemap") and f.endswith(".xml")]
     urls = set()

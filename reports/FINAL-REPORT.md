@@ -93,8 +93,8 @@ wrong-answer shake class, question fade retrigger), `js/site-config.js` (appende
 
 ```
 node --check  (mailer, config, features, sheet, schedule, main, tutors-data, .gs)   → all OK
-python3 tools/test-email-e2e.py                     → contact/booking/fallback/all-down/idempotency
-python3 tools/test-data-sources.py                  → 26 checks, 0 failures (4 CSVs + Apps Script JSON)
+python3 tests/integration/test-email-e2e.py                     → contact/booking/fallback/all-down/idempotency
+python3 tests/integration/test-data-sources.py                  → 26 checks, 0 failures (4 CSVs + Apps Script JSON)
 Playwright: burger→X morph, backdrop, Escape, aria  → PASS, 0 console errors @390px
 Playwright: timezone IST (Asia/Kolkata) → 330       → PASS
 Playwright: motion regression (motion-test.py)      → 31/31 PASS (burger/drawer/backdrop/reduced-motion/cards/search/quiz/flashcards/level-test/booking; 0 errors)

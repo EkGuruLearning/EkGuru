@@ -345,7 +345,7 @@ def main() -> int:
         "- Inventory/SEO/canonical/robots/sitemap/internal-link, placeholder-signal, duplicate, course, relation, legal, mail, payment-release-state, consent-source, advertising and affiliate checks were run against the working tree.",
         f"- `tools/seocheck.js` reported {seo.get('pages', 0):,} pages, {seo.get('checkedLinks', 0):,} checked internal links, {len(seo.get('broken', []))} broken links and {len(seo.get('orphanPages', []))} orphans.",
         "- Static mail-flow, payment backend and release-mode DOM suites passed. These do not prove live email receipt or a real payment transaction.",
-        "- A real Chromium run was prepared in `tools/test-release-browser.py`, but Playwright’s browser download failed at the sandbox TLS boundary. This unresolved requirement is why readiness is not a pass.",
+        "- A real Chromium run was prepared in `tests/e2e/test-release-browser.py`, but Playwright’s browser download failed at the sandbox TLS boundary. This unresolved requirement is why readiness is not a pass.",
         "",
         "## Blocking findings",
         "",
@@ -385,12 +385,12 @@ No affiliate link is authorized until a real programme relationship and tracking
 - Country relation gate: {country['summary']['states'].get('VERIFIED', 0)} verified; {country['summary']['states'].get('PROVISIONAL', 0)} provisional; {country['summary']['states'].get('RESEARCH_REQUIRED', 0)} research-required.
 - Local HTTP gate: **{local_http.get('status')}**; {local_http.get('unique_sitemap_urls', 0)} sitemap URLs fetched; {len(local_http.get('failures', []))} failures.
 - DOM resource/accessibility scan: {matrix['duplicate_id_pages']} duplicate-ID pages; {matrix['duplicate_external_script_pages']} duplicate-script pages; {matrix['images_missing_alt']} images missing `alt`.
-- Consent/release-mode DOM tests are automated in `tools/test-consent-release.mjs` and `tools/test-browser-qa.mjs`.
+- Consent/release-mode DOM tests are automated in `tests/regression/test-consent-release.mjs` and `tests/regression/test-browser-qa.mjs`.
 - Required rendered-browser result: **{browser.get('status')}**; unresolved and not waived.
 
 ## Blocking technical work
 
-1. Run `tools/test-release-browser.py` in an environment where Playwright Chromium is available, and resolve every rendered accessibility, overflow, keyboard, reduced-motion and request failure.
+1. Run `tests/e2e/test-release-browser.py` in an environment where Playwright Chromium is available, and resolve every rendered accessibility, overflow, keyboard, reduced-motion and request failure.
 2. Verify live mail delivery end to end after secure deployment-time configuration.
 3. Verify the Razorpay-hosted route, merchant identity, confirmation, refund/contact wording and transaction record using an owner-controlled test.
 4. Complete editorial/source review before moving any quarantined country or source-language surface to indexable status.

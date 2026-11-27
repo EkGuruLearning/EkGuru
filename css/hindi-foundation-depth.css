@@ -1,0 +1,14 @@
+/* Static authored explanation inside existing Foundation/book-mode lessons. */
+.hf-depth{max-width:72ch;color:var(--eg-ink,var(--ink));line-height:1.85;margin:0 0 24px;overflow-wrap:anywhere}
+.hf-depth p{margin:0 0 1.2em;color:inherit;line-height:inherit}
+.hf-depth-heading{scroll-margin-top:110px;line-height:1.4}
+.hf-depth a{color:var(--eg-accent,var(--accent));text-decoration:underline;text-underline-offset:3px}
+.hf-depth .hf-models{list-style:none;padding:0;display:grid;gap:12px}
+.hf-models li{border:1px solid var(--eg-line,var(--line));border-radius:12px;padding:14px;background:var(--eg-soft,var(--bg-soft));color:var(--eg-ink,var(--ink))}
+.hf-depth .hf-hi{font-family:var(--eg-font-script,inherit);font-size:2rem;line-height:1.8;margin-right:10px}
+.hf-depth button{font:inherit;line-height:1.5;min-height:46px;padding:8px 14px;margin:6px;border:1px solid var(--eg-accent,var(--accent));border-radius:8px;color:var(--eg-accent,var(--accent));background:var(--eg-surface,var(--bg));cursor:pointer}
+.hf-depth details{padding:12px;border:1px solid var(--eg-line,var(--line));border-radius:10px;margin:12px 0;background:var(--eg-soft,var(--bg-soft))}
+.hf-depth summary{min-height:44px;cursor:pointer;font-weight:650;line-height:1.7}
+.hf-depth details p{margin:10px 0 0}
+.hf-depth :is(button,summary,a):focus-visible{outline:3px solid var(--eg-focus,var(--accent));outline-offset:3px}
+@media print{.hf-depth button{display:none}.hf-depth{max-width:none}.hf-models li,.hf-depth details{break-inside:avoid}}

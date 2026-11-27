@@ -38,7 +38,7 @@ gap = {
     ],
     "high_remaining": [
         {"item": "FormSubmit activation", "detail": "FormSubmit answers 'needs Activation' for every address; the chain already routes around it (StaticForms/Apps Script). Re-activate or drop the account.", "priority": "HIGH"},
-        {"item": "Web3Forms live verification", "detail": "Blocked from this datacenter (403 Pro-plan/server-IP); verify once from a residential browser via tools/test-email-e2e.py.", "priority": "HIGH"},
+        {"item": "Web3Forms live verification", "detail": "Blocked from this datacenter (403 Pro-plan/server-IP); verify once from a residential browser via tests/integration/test-email-e2e.py.", "priority": "HIGH"},
         {"item": "Tutor personal addresses / formKey", "detail": "All 4 tutors have email:''; bookings correctly route via EkGuru inbox with TUTOR_EMAIL_UNAVAILABLE. Add real addresses when available.", "priority": "HIGH"}
     ],
     "medium_remaining": [
@@ -62,8 +62,8 @@ gap = {
     ],
     "tests_run_this_pass": [
         "node --check on all edited JS (mailer, config, features, sheet, schedule, main, tutors-data, .gs)",
-        "python3 tools/test-email-e2e.py  (contact/booking/fallback/all-down/idempotency)",
-        "python3 tools/test-data-sources.py  (26 checks, 0 failures — 4 CSVs + Apps Script JSON)",
+        "python3 tests/integration/test-email-e2e.py  (contact/booking/fallback/all-down/idempotency)",
+        "python3 tests/integration/test-data-sources.py  (26 checks, 0 failures — 4 CSVs + Apps Script JSON)",
         "Playwright motion smoke: burger→X morph, backdrop, Escape close, aria-expanded, 0 console errors",
         "Playwright timezone check: IST (Asia/Kolkata) → offset 330",
         "Apps Script live probe: doGet health JSON + doPost 'Not authorised' (token absent)"

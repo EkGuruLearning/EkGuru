@@ -773,7 +773,7 @@ Hard rule during all 30 days: **0 new auto-generated pages** — measure, index,
 // ---------------------------------------------------------------------------
 const masterReadme = `# EkGuru Growth Plan & Complete Distribution Execution Kit (Nov 2026)
 
-**PRIVATE INTERNAL PACKAGE** — Stored under \`docs/marketing/growth-distribution-2026-11/\`, which is automatically excluded from public deployment (\`_site\`) by \`tools/build-public-dist.py\` and verified clean of personal contact data by \`node tools/test-public-surface.mjs\`.
+**PRIVATE INTERNAL PACKAGE** — Stored under \`docs/marketing/growth-distribution-2026-11/\`, which is automatically excluded from public deployment (\`_site\`) by \`tools/build-public-dist.py\` and verified clean of personal contact data by \`node tests/regression/test-public-surface.mjs\`.
 
 Every \`https://ekguru.shop/...\` URL across this entire kit has been programmatically checked against the repository tree so zero \`404\` links exist.
 

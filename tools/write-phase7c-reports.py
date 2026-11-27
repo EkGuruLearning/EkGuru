@@ -199,7 +199,7 @@ handoff = {
     "nextBatch": "Implement the reusable LESSON engine: data-driven lesson renderer that serves "
                  "any target language from the graph, proven with Hindi content in real Chromium.",
     "buildCommand": "python3 tools/build-phase7c-content-graph.py && python3 tools/build-phase7c-registries.py && python3 tools/build-phase7-pages.py",
-    "testCommand": "python3 tools/test-phase7c.py && python3 tools/test-phase7-browser.py",
+    "testCommand": "python3 tests/regression/test-phase7c.py && python3 tests/regression/test-phase7-browser.py",
     "blockers": [
         "GitHub main is 82910c3 (Phase 5/6/7 absent) — owner must push before GitHub is the continuity layer",
         "live ekguru.shop is v30-era — owner must deploy",
@@ -218,7 +218,7 @@ md = """# Phase 7C — Agent Handoff (tranche 1)
   country↔language relations, live inventory on /languages/, all verified in Chromium).
 - **Next exact command:**
   `python3 tools/build-phase7c-content-graph.py && python3 tools/build-phase7c-registries.py && python3 tools/build-phase7-pages.py`
-- **Test command:** `python3 tools/test-phase7c.py && python3 tools/test-phase7-browser.py`
+- **Test command:** `python3 tests/regression/test-phase7c.py && python3 tests/regression/test-phase7-browser.py`
 - **Next batch:** implement the reusable LESSON engine (data-driven renderer from the graph).
 - **Blockers:** GitHub main 82910c3 + live v30 need owner push/deploy; no secure relay for APIs.
 - **Do not:** force-push, fabricate language support, mass-generate thin pages, put keys in client.

@@ -33,7 +33,7 @@ The reference contains 5109 tracked files (2636 HTML). The working tree reconcil
 - Inventory/SEO/canonical/robots/sitemap/internal-link, placeholder-signal, duplicate, course, relation, legal, mail, payment-release-state, consent-source, advertising and affiliate checks were run against the working tree.
 - `tools/seocheck.js` reported 2,636 pages, 155,787 checked internal links, 0 broken links and 0 orphans.
 - Static mail-flow, payment backend and release-mode DOM suites passed. These do not prove live email receipt or a real payment transaction.
-- A real Chromium run was prepared in `tools/test-release-browser.py`, but Playwright’s browser download failed at the sandbox TLS boundary. This unresolved requirement is why readiness is not a pass.
+- A real Chromium run was prepared in `tests/e2e/test-release-browser.py`, but Playwright’s browser download failed at the sandbox TLS boundary. This unresolved requirement is why readiness is not a pass.
 
 ## Blocking findings
 

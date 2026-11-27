@@ -117,7 +117,7 @@ Capability matrix: `reports/email-provider-matrix.json`.
   removed the platform-inbox placeholder email.
 - `admin.html` — honest delivery-route text; Bookings "Emails" column + retry;
   contact records + retry; Incidents panel; sent-log clear; References "Via".
-- New tools: `tools/test-email-e2e.py`, `tools/probe-providers.py`,
+- New tools: `tests/integration/test-email-e2e.py`, `tools/probe-providers.py`,
   `tools/make-email-reports.py`, `tools/merge-email-requirements.py`.
 - New reports: `email-provider-inventory.json`, `email-provider-matrix.json`,
   `email-e2e.json`, `provider-probe.json`.

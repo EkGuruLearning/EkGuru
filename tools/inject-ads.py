@@ -25,6 +25,7 @@ list of directories. The list and the monetization matrix drifted apart, which
 is how the legal pages — and then the cookie policy — ended up loading an
 advertising script they were supposed to be excluded from.
 """
+from html.parser import HTMLParser
 import json
 import os
 import re
@@ -68,7 +69,7 @@ AD_LEFT = [
     re.compile(r"<!--\s*Google AdSense[\s\S]*?-->", re.I),
     re.compile(r"<!--\s*ekguru:ads(?:ense)?(?::(?:start|end))?\s*-->", re.I),
     re.compile(r'<link[^>]*preconnect[^>]*(?:googlesyndication|doubleclick)[^>]*>', re.I),
-    re.compile(r'<meta\s+name="google-adsense-account"[^>]*>', re.I),
+    re.compile(r'''<meta\b(?=[^>]*\bname\s*=\s*["']google-adsense-account["'])[^>]*>''', re.I),
     re.compile(r'<script[^>]*adsbygoogle\.js[^>]*>\s*</script>', re.I),
     re.compile(r'<ins[^>]*class="[^"]*adsbygoogle[^"]*"[^>]*>[\s\S]*?</ins>', re.I),
     re.compile(r'<script[^>]*>\s*\(adsbygoogle[\s\S]*?</script>', re.I),
@@ -210,6 +211,44 @@ def scrub(html):
     return out
 
 
+def valid_publisher_tags(text):
+    """Verify actual elements, not just markers or an adsbygoogle substring.
+
+    A stale publisher ID, missing verification meta or a duplicate outside the
+    marked block must not silently pass the generator's fast path.
+    """
+    class Tags(HTMLParser):
+        def __init__(self):
+            super().__init__(convert_charrefs=True)
+            self.in_head = False
+            self.heads = 0
+            self.loaders = []
+            self.accounts = []
+
+        def handle_starttag(self, tag, attrs):
+            attrs = dict(attrs)
+            if tag == 'head':
+                self.in_head = True
+                self.heads += 1
+            if tag == 'meta' and attrs.get('name', '').lower() == 'google-adsense-account':
+                self.accounts.append((self.in_head, attrs.get('content')))
+            if tag == 'script' and 'adsbygoogle.js' in attrs.get('src', '').lower():
+                self.loaders.append((self.in_head, attrs))
+
+        def handle_endtag(self, tag):
+            if tag == 'head':
+                self.in_head = False
+
+    tags = Tags()
+    tags.feed(text)
+    expected_src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=' + CLIENT
+    return (tags.heads == 1 and tags.accounts == [(True, CLIENT)] and
+            len(tags.loaders) == 1 and tags.loaders[0][0] and
+            tags.loaders[0][1].get('src') == expected_src and
+            'async' in tags.loaders[0][1] and
+            tags.loaders[0][1].get('crossorigin') == 'anonymous')
+
+
 def apply_policy(rel, html):
     """(new_html, what happened). Idempotent: a second run writes nothing."""
     cls, allowed, _why = may_load(rel, html)
@@ -220,7 +259,7 @@ def apply_policy(rel, html):
         out = scrub(html)
         return out, ("stripped" if had_ads else "kept-clean")
 
-    if html.count(MARK) == 1 and html.count(END) == 1 and "adsbygoogle.js" in html:
+    if html.count(MARK) == 1 and html.count(END) == 1 and valid_publisher_tags(html):
         return html, "have"
     html = scrub(html)
     if "</head>" not in html:

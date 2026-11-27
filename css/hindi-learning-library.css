@@ -1,0 +1,49 @@
+/* Existing Hindi practice hub only; shared themes/voice/progress remain owners. */
+.hll{margin:30px 0;padding:clamp(16px,3vw,28px);border:2px solid var(--eg-line);border-radius:18px;background:var(--eg-soft);color:var(--eg-ink);scroll-margin-top:100px}
+.hll [hidden]{display:none!important}
+.hll .hll-kicker{font-size:.78rem;text-transform:uppercase;letter-spacing:.08em;font-weight:750;color:var(--eg-secondary)}
+.hll h2{margin-top:0!important;color:var(--eg-ink)}
+.hll p,.hll label{line-height:1.75}
+.hll a{color:var(--eg-accent);text-underline-offset:3px}
+.hll-path{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin:20px 0}
+.hll-path a{display:block;border:1px solid var(--eg-line);background:var(--eg-surface);border-radius:9px;padding:10px 12px;min-height:44px;box-sizing:border-box}
+.hll-audio-note{font-size:.9rem;border-left:3px solid var(--eg-accent);padding-left:14px;color:var(--eg-secondary)}
+.hll-toolbar{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:20px 0}
+.hll-toolbar label:last-child{grid-column:1/-1}
+.hll label{display:block;font-weight:650}
+.hll :is(select,input,textarea){display:block;box-sizing:border-box;width:100%;min-width:0;max-width:100%;min-height:46px;padding:10px;border:1px solid var(--eg-line);border-radius:8px;background:var(--eg-surface);color:var(--eg-ink);font:inherit}
+.hll input,.hll textarea{font-weight:400}
+.hll button{display:inline-flex;align-items:center;justify-content:center;min-height:46px;max-width:100%;margin:5px 6px 5px 0;padding:10px 14px;border:1px solid var(--eg-accent);border-radius:9px;background:var(--eg-surface);color:var(--eg-accent);font:inherit;font-size:.92rem;font-weight:650;line-height:1.5;cursor:pointer;overflow-wrap:anywhere}
+.hll button:disabled{opacity:.5;cursor:default}
+.hll button[aria-pressed="true"]{border-style:dashed;background:var(--eg-soft)}
+.hll :is(button,input,select,textarea,summary,a):focus-visible{outline:3px solid var(--eg-focus);outline-offset:3px}
+.hll-buttons{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0}
+.hll-buttons button{flex:1;min-width:130px;margin:0}
+#hll-card{padding:clamp(14px,3vw,24px);border:1px solid var(--eg-line);border-radius:14px;background:var(--eg-surface);scroll-margin-top:100px}
+#hll-card h3{font-size:1.2rem;line-height:1.5;margin:0 0 16px;color:var(--eg-ink)}
+.hll .hll-hindi{font-family:var(--eg-font-script);font-size:clamp(1.5rem,3vw,1.9rem);font-weight:550;line-height:1.95;overflow-wrap:anywhere;margin:12px 0 20px;color:var(--eg-ink)}
+.hll details{margin:12px 0;border:1px solid var(--eg-line);border-radius:8px;padding:10px 12px;background:var(--eg-soft)}
+.hll summary{cursor:pointer;min-height:36px;line-height:1.7;font-weight:650;color:var(--eg-ink)}
+.hll details p{margin-bottom:4px;color:var(--eg-ink)}
+.hll-build,.hll-meaning{border-top:1px solid var(--eg-line);padding:16px 0;margin-top:20px}
+.hll-build h4,.hll-meaning h4{margin:0;font-size:1.1rem}
+.hll-meaning fieldset{min-width:0;border:1px solid var(--eg-line);border-radius:9px;padding:12px}
+.hll-meaning legend{font-weight:650;padding:0 6px}
+.hll-meaning label{display:flex;align-items:center;gap:12px;min-height:46px;padding:6px;cursor:pointer;overflow-wrap:anywhere;font-weight:400}
+.hll-meaning input[type="radio"]{display:inline-block;flex:0 0 22px;width:22px;height:22px;min-height:22px;margin:0;padding:0;accent-color:var(--eg-accent)}
+.hll-jump{display:flex;flex-wrap:wrap;align-items:end;gap:10px;margin:16px 0}
+.hll-jump label{flex:1 1 170px;min-width:0}
+.hll-jump button{margin:0}
+.hll-jump p{flex-basis:100%;margin:0;font-size:.88rem;color:var(--eg-secondary)}
+.hll input[aria-invalid="true"]{outline:2px solid var(--eg-accent);outline-offset:2px}
+.hll-tiles{display:flex;flex-wrap:wrap;gap:6px;margin:12px 0}
+.hll-tiles button{font-family:var(--eg-font-script);font-size:1.15rem;min-width:46px;margin:0}
+.hll-preview{padding:12px;border:1px dashed var(--eg-line);font-family:var(--eg-font-script);line-height:1.9;font-size:1.2rem}
+.hll-focus{border-left:3px solid var(--eg-accent);padding-left:12px}
+.hll-sentence-audio{border-bottom:1px solid var(--eg-line);padding-bottom:12px}
+.hll #hll-position,.hll #hll-session{font-size:.88rem;color:var(--eg-secondary)}
+#hll-card>a{display:block;margin:16px 0}
+@media(max-width:480px){.hll-toolbar,.hll-path{grid-template-columns:1fr}.hll-toolbar label:last-child{grid-column:auto}.hll-buttons button{min-width:0;flex-basis:100%}.hll{padding:14px}#hll-card{padding:14px}}
+@media(prefers-reduced-motion:reduce){.hll *{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+@media print{.hll-toolbar,.hll-buttons,.hll button,.hll textarea{display:none!important}.hll{border:1px solid #777}.hll details{break-inside:avoid}}
+.hll #hll-card[data-kind="letter"] .hll-hindi{font-size:4rem;line-height:1.5}

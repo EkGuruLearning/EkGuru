@@ -53,7 +53,7 @@ is removed from a bank by a vote.
    the sheet's `votes` tab. Then open the same page in another browser — the
    question shows "1 learner flagged this".
 
-Run `node tools/test-question-api.mjs` any time (32 checks, no network needed)
+Run `node tests/regression/test-question-api.mjs` any time (32 checks, no network needed)
 to prove the client and the server still agree on the contract.
 
 ---
@@ -100,6 +100,6 @@ endpoint, not to an advertising or analytics third party.
 | `js/question-api.js` | the client: votes, queue, cache, badges |
 | `tools/apps-script-questions.gs` | the server: one row per vote, counts back |
 | `tools/inject-questions-api.py` | puts the client on all 73 question pages (`--check` in the build loop) |
-| `tools/test-question-api.mjs` | 32 checks — contract, offline, sync, community |
+| `tests/regression/test-question-api.mjs` | 32 checks — contract, offline, sync, community |
 | `js/hindi-tools.js` | the quiz UI: the ⚑ and ★ row and the community block |
 | `js/site-config.js` | `api.questions` — the one place the endpoint is set |

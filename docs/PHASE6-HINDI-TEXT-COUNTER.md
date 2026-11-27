@@ -19,10 +19,10 @@ The displayed Hindi sample is a demonstration string, not a reviewed language le
 
 ## Checks and limits
 
-- `node tools/test-hindi-text-counter.mjs` — passed. Covers the counting rules, mixed Hindi/English input, Unicode edge cases, paragraph splitting, simulated UI events, copy fallback and static page contract. The UI simulation is not a real browser test.
-- `node tools/test-toolbox-visuals.mjs` — passed (8 checks); `python3 tools/build-toolbox-visuals.py --check` — passed (14 plates, no stale pages).
+- `node tests/regression/test-hindi-text-counter.mjs` — passed. Covers the counting rules, mixed Hindi/English input, Unicode edge cases, paragraph splitting, simulated UI events, copy fallback and static page contract. The UI simulation is not a real browser test.
+- `node tests/regression/test-toolbox-visuals.mjs` — passed (8 checks); `python3 tools/build-toolbox-visuals.py --check` — passed (14 plates, no stale pages).
 - `python3 tools/build-sitemaps.py --check` — passed (1,007 indexed URL memberships, 0 invalid at the time of the check).
-- `node tools/test-page-skeleton.mjs` — passed (2,723 pages; one main landmark and shell ordering).
+- `node tests/regression/test-page-skeleton.mjs` — passed (2,723 pages; one main landmark and shell ordering).
 - Local static-server GETs for the page, counter script, SVG and stylesheet returned HTTP 200; this is not a production HTTP check.
 - Python/Node syntax checks for the edited scripts — passed.
 - Real Chromium interaction, screen-reader/accessibility review, native-speaker review and production HTTP verification have **not** been performed. The tool registry records real-browser `last_tested` as `pending` rather than implying a QA pass.

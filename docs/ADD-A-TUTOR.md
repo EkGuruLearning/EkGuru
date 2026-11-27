@@ -115,7 +115,7 @@ multi-line cells, the booking inbox) and that a row with no tutor file yet
 still creates the tutor:
 
 ```bash
-EKGURU_TEST_CSV=csv/ekguru_tutors.local.csv node tools/test-sheet-apply.js
+EKGURU_TEST_CSV=csv/ekguru_tutors.local.csv node tests/integration/test-sheet-apply.js
 ```
 
 **It is not committed, and it is regenerated, not hand-edited.** The
@@ -166,7 +166,7 @@ keeps `email` separate from `notification_email`. `.gitignore` covers
 python3 tools/build-all.py check          # everything below, in one command:
 #   langsync / build-tutor-pages / build-home-tutors / build-market-pages /
 #   build-roster-rows --check, the CSS bundle, the emblems, the course hub,
-#   and tools/test-experience-dom.mjs (needs: npm i jsdom)
+#   and tests/regression/test-experience-dom.mjs (needs: npm i jsdom)
 ```
 
 Then look at `https://ekguru.shop/tutor/sarshtee-baliyan/` (a hard refresh —

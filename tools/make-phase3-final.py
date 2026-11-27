@@ -69,7 +69,7 @@ Only use `git push -f origin main` if `--force-with-lease` refuses and you have 
 The six runtime data sources are still PAUSED_FOR_REUPLOAD. To reactivate:
 1. In each Google Sheet: File → Share → Publish to web → CSV → publish.
 2. Paste the six published URLs into `js/site-config.js` (the four `csvUrl` fields + the GitHub-URLs and EkGuru.shop-URLs sources) — NOT into chat, NOT into any public place that ships the links (they are public-read URLs, but keep them in the config mechanism).
-3. Run `python3 tools/test-data-sources.py` and only activate sources whose schema, rows, and privacy classification pass.
+3. Run `python3 tests/integration/test-data-sources.py` and only activate sources whose schema, rows, and privacy classification pass.
 Your current data already lives in `live-sheets/{content,reviews,settings,tutors}.csv` (validated: 4/4 PASS, 0 private emails) — those are snapshots, not the runtime source.
 
 ## C. Exact email E2E action (one controlled test)

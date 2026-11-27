@@ -617,7 +617,7 @@ def extra_block(ex, name, level, lang="und"):
         url = str(culture.get("source_url") or "")
         if url.startswith("http"):
             # The public surface is closed to outbound hosts outside the
-            # calibrated allowlist (tools/test-no-competitor-attribution.js),
+            # calibrated allowlist (tests/regression/test-no-competitor-attribution.js),
             # so the source is named, not linked. The URL stays in the course
             # data as provenance.
             tail = url.split("//", 1)[-1]

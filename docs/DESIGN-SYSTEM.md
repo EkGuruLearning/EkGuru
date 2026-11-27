@@ -139,7 +139,7 @@ in three different places and ~1,500 pages with no header at all.
   `window.EKGURU_DRAWER` is the handshake: first one to bind claims it, the
   other stands down. Two handlers on one button is not cosmetic — one click
   opens the drawer and closes it again, which is the "3 lines open karte hi
-  bug" report. `tools/test-shell-drawer.mjs` drives the real file in a DOM and
+  bug" report. `tests/regression/test-shell-drawer.mjs` drives the real file in a DOM and
   fails if a click stops opening the menu.
 - **The scroll lock is the v74 rule** in both files: remember `scrollY`, pin
   the body with `top:-<offset>px`, restore with `behavior:"auto"`. Anything
@@ -160,7 +160,7 @@ The language list exists because the site spells a language three ways — the
 guide says `japanese`, the starter pack says `ja`, the market says `ja/hindi`.
 They are merged into one English name learned from the index itself, so
 "Japanese" appears once with all seven of its pages rather than twice with
-half. `tools/test-search-facets.mjs` holds that line.
+half. `tests/regression/test-search-facets.mjs` holds that line.
 
 ## The document pages (legal, and the long tail)
 
@@ -268,19 +268,19 @@ node    tools/build-tutor-pages.js --check       # profiles + sitemaps + feed
 node    tools/build-home-tutors.js --check       # the home page's tutor grid
 node    tools/build-market-pages.js --check      # the six market home pages
 node    tools/build-roster-rows.js --check       # 44 more pages that list tutors
-node    tools/test-page-layer.mjs                # the page layer's own guardrails
-node    tools/test-experience-dom.mjs            # DOM smoke test (needs: npm i jsdom)
-node    tools/test-search-facets.mjs             # country + language dropdowns
-node    tools/test-shell-drawer.mjs              # one owner of the menu button
-node    tools/test-copy-index.mjs                # the ownership matcher
-node    tools/test-course-country.mjs            # course search by country, both ways
-node    tools/test-reading-layer.mjs             # one stylesheet, two bands, 970 pages
+node    tests/regression/test-page-layer.mjs                # the page layer's own guardrails
+node    tests/regression/test-experience-dom.mjs            # DOM smoke test (needs: npm i jsdom)
+node    tests/regression/test-search-facets.mjs             # country + language dropdowns
+node    tests/regression/test-shell-drawer.mjs              # one owner of the menu button
+node    tests/regression/test-copy-index.mjs                # the ownership matcher
+node    tests/regression/test-course-country.mjs            # course search by country, both ways
+node    tests/regression/test-reading-layer.mjs             # one stylesheet, two bands, 970 pages
 node    tools/build-shell.js            --check  # header + footer on 1,563 pages
 node    tools/build-copy-index.js       --check  # ownership fingerprints
 python3 tools/build-legal-pages.py      --check  # the five legal pages' contents cards
 python3 tools/inject-ads.py             --check  # the ad policy: loader only where the matrix says
-node    tools/test-ad-policy.mjs                 # no ad tag on a page the policy excludes
-node    tools/test-print-sheet-dom.mjs           # printing prints the sheet, not the page
+node    tests/regression/test-ad-policy.mjs                 # no ad tag on a page the policy excludes
+node    tests/regression/test-print-sheet-dom.mjs           # printing prints the sheet, not the page
 ```
 
 ### The ad policy is data, not a directory list
@@ -290,7 +290,7 @@ classes and the path patterns that belong to each. `tools/inject-ads.py` puts
 one marked loader block in `<head>` only where `loader_allowed` says so, strips
 every ad tag, marker and unit everywhere else, and writes the class the page got
 onto `<html data-ad-class="…">`. `--check` fails if a page disagrees with the
-matrix, and `tools/test-ad-policy.mjs` proves the negative: **no page the policy
+matrix, and `tests/regression/test-ad-policy.mjs` proves the negative: **no page the policy
 excludes carries the ad loader**, which is the only promise that survives Auto
 ads placing units by itself. A hard-coded directory list and the matrix had
 drifted apart — which is how the legal pages ended up loading an advertising

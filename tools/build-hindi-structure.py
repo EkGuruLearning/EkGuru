@@ -584,6 +584,10 @@ def render_topic(topic, meta):
     html = shell(depth, title, t_lede, canon, t_h1, t_lede, "\n".join(body), j)
     html = html.replace("</head>",
                         "<style>\n" + PREVNEXT_CSS + "\n</style>\n</head>", 1)
+    if topic == 'conversation':
+        import runpy
+        discovery = runpy.run_path('tools/build-hindi-phrase-discovery.py')
+        html = discovery['transformed'](html, 'learn/hindi/conversation/index.html')
     return html, base
 
 def render_level(level):
