@@ -382,8 +382,8 @@ PROGRESS_JS = """<script>
 # ---------------------------------------------------------------------------
 def practice_hub():
     up = "../../../"
-    body = """  <h1>Hindi Practice</h1>
-  <p class="lede">Three small, honest practice tools that work in your browser — a typing trainer, a topic quiz and printable worksheets — plus the review deck and your local progress.</p>
+    body = """  <h1>Hindi practice: words, sentences and reading</h1>
+  <p class="lede">Hindi practice from first letters to connected reading: explore words, build sentences and read paragraphs with English support and optional Hindi audio. You can also use the typing trainer, topic quiz, conversation practice and printable worksheets, with your existing review deck and local progress.</p>
 """ + sb_band("अभ्यास", "Practice makes permanent.") + """
   <ul class="linklist">
     <li><a href="typing/">Hindi Typing Trainer</a><span>Roman prompt → type it in Devanagari, with harmless formatting differences accepted.</span></li>
@@ -395,11 +395,19 @@ def practice_hub():
   </ul>
   <div class="note">Nothing here needs an account. Your answers and progress stay in this browser; nothing is uploaded.</div>
 """
-    write_page("learn/hindi/practice/index.html", up, "Hindi Practice — typing, quiz, worksheets",
-               "Free Hindi practice tools that run in your browser: a Roman-to-Devanagari typing trainer, a topic quiz with explanations, and printable worksheets.",
+    write_page("learn/hindi/practice/index.html", up, "Hindi Practice: Words, Sentences & Reading",
+               "Practise Hindi words, sentences and paragraph reading with English meanings, optional Hindi audio, typing, quizzes and printable worksheets. No account needed.",
                "learn/hindi/practice/",
                '<a href="../../../">EkGuru</a> › <a href="../../">Learn Hindi</a> › <a href="../">Hindi</a> › Practice',
                body)
+    # Keep the additive collection when this legacy generator rebuilds its hub.
+    import runpy
+    library = runpy.run_path(os.path.join(ROOT, 'tools/build-hindi-learning-library.py'))
+    path = os.path.join(ROOT, 'learn/hindi/practice/index.html')
+    with open(path, encoding='utf-8') as f:
+        raw = f.read()
+    with open(path, 'w', encoding='utf-8') as f:
+        f.write(library['transformed'](raw, library['build']()))
 
 
 # ---------------------------------------------------------------------------

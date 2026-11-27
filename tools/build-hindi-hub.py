@@ -348,6 +348,7 @@ def build_region() -> str:
 
     # 6. practice
     a('<h2 id="hh-practice">Practice, quiz and review</h2>')
+    a('<p><a href="practice/#hindi-learning-library"><strong>From first letters to advanced reading</strong></a> — explore 1,000+ distinct letter, word, sentence and paragraph models, with optional Hindi listening and English support.</p>')
     a('<h3 class="hh-h3">Learning paths</h3>')
     a('<div class="hh-grid">')
     for p in paths:
