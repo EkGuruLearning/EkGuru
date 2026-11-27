@@ -8,7 +8,7 @@ schema, accessibility, mobile, performance, freshness.
 
 This is STATIC scoring only (an internal quality score, NOT a Google
 ranking score). The real-browser half (does each tool actually work) is
-tools/test-tools-browser.py. Output: reports/learn-tools-quality-baseline.json
+tests/e2e/test-tools-browser.py. Output: reports/learn-tools-quality-baseline.json
 """
 import json
 import os

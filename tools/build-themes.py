@@ -75,7 +75,7 @@ def main():
                 print('STALE', p.relative_to(ROOT)); ok = False
             else:
                 p.parent.mkdir(parents=True, exist_ok=True); p.write_text(css)
-    print(f'themes: {len(rows)} per-language themes · system fonts · AA checked by tools/test-theme-contrast.mjs')
+    print(f'themes: {len(rows)} per-language themes · system fonts · AA checked by tests/regression/test-theme-contrast.mjs')
     return 0 if ok else 1
 
 

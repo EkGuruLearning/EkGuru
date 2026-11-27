@@ -46,9 +46,9 @@ Machine-readable tracker: `data/quality/hindi-foundation-expansion.json`. This i
 
 ## QA performed
 
-- `python3 -B tools/test-hindi-foundation-depth.py`: **6 regression tests pass**. Conservative word count, duplicate/underlength rejection, static metadata/schema consistency, existing links/voice labels, original generator retention without writing files, honest ten-chapter tracker.
+- `python3 -B tests/regression/test-hindi-foundation-depth.py`: **6 regression tests pass**. Conservative word count, duplicate/underlength rejection, static metadata/schema consistency, existing links/voice labels, original generator retention without writing files, honest ten-chapter tracker.
 - `python3 -B tools/build-hindi-foundation.py --check`: existing cumulative-sign primer validation passes. New models use the existing vowel-chart forms and keyword previews; no claim that all preview keywords are independently decodable at lesson one.
-- `node tools/test-book-mode.mjs`: **44 checks pass**, including the expanded swar page (27 steps) and existing Hindi/other-language book pages. jsdom logs its known missing canvas-rendering implementation; no canvas package was installed and the tests report 0 failed.
+- `node tests/regression/test-book-mode.mjs`: **44 checks pass**, including the expanded swar page (27 steps) and existing Hindi/other-language book pages. jsdom logs its known missing canvas-rendering implementation; no canvas package was installed and the tests report 0 failed.
 - Chromium **158.0.8127.0**, local static server with external requests blocked: 390/768/1280px, keyboard step selection, whole-lesson mode, keyboard answer disclosure, unchanged completion control. No local HTTP errors, page exceptions or document overflow in those cases.
 - Additional 320px reduced-motion light/dark/contrast layouts: no document overflow.
 - JavaScript disabled: all 18 added headings and self-check disclosures remain readable.

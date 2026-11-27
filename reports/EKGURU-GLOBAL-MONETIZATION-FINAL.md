@@ -29,12 +29,12 @@ No affiliate link is authorized until a real programme relationship and tracking
 - Country relation gate: 232 verified; 196 provisional; 1555 research-required.
 - Local HTTP gate: **PASS**; 1007 sitemap URLs fetched; 0 failures.
 - DOM resource/accessibility scan: 0 duplicate-ID pages; 0 duplicate-script pages; 0 images missing `alt`.
-- Consent/release-mode DOM tests are automated in `tools/test-consent-release.mjs` and `tools/test-browser-qa.mjs`.
+- Consent/release-mode DOM tests are automated in `tests/regression/test-consent-release.mjs` and `tests/regression/test-browser-qa.mjs`.
 - Required rendered-browser result: **BLOCKED_ENVIRONMENT**; unresolved and not waived.
 
 ## Blocking technical work
 
-1. Run `tools/test-release-browser.py` in an environment where Playwright Chromium is available, and resolve every rendered accessibility, overflow, keyboard, reduced-motion and request failure.
+1. Run `tests/e2e/test-release-browser.py` in an environment where Playwright Chromium is available, and resolve every rendered accessibility, overflow, keyboard, reduced-motion and request failure.
 2. Verify live mail delivery end to end after secure deployment-time configuration.
 3. Verify the Razorpay-hosted route, merchant identity, confirmation, refund/contact wording and transaction record using an owner-controlled test.
 4. Complete editorial/source review before moving any quarantined country or source-language surface to indexable status.

@@ -5,7 +5,7 @@
 
 ## What was checked
 
-The search-driven detail pages under `/ask/` and `/answers/` already lead with a short `.answer` or `.ans` block. Rather than rewrite those pages without a content need, this increment adds `tools/test-answer-first-pages.py` and registers it in `tools/build-all.py`.
+The search-driven detail pages under `/ask/` and `/answers/` already lead with a short `.answer` or `.ans` block. Rather than rewrite those pages without a content need, this increment adds `tests/regression/test-answer-first-pages.py` and registers it in `tools/build-all.py`.
 
 The check covers 71 detail pages (43 under `/ask/`, 28 under `/answers/`; the two section hubs are excluded). It verifies that each page has one main H1, a non-empty direct-answer block after it, no section heading before that answer, at least 20 characters in the answer block, and no more than 20 non-chrome words before it. Editorial bylines, voice notes, storybook hints and elements marked `data-eg-chrome` are excluded from the pre-answer word count.
 

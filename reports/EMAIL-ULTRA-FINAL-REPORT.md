@@ -83,7 +83,7 @@ Ranked chain, all only reached when the primary is not sendable/refused:
 
 ## SECURITY
 
-Relay contract (`tools/apps-script-mailer.gs`) — all present and verified statically + by `tools/test-email-security.js`:
+Relay contract (`tools/apps-script-mailer.gs`) — all present and verified statically + by `tests/integration/test-email-security.js`:
 
 - Token **only** in Script Property `MAILER_SHARED_TOKEN`; fail-closed (`Not authorised.`); client token wired via gitignored `deploy-secrets.local.json` + `tools/wire-token.py`; no secret in source (scanned).
 - Message-type whitelist (the five types); unknown type refused before any recipient is touched (open-relay defence).
@@ -96,9 +96,9 @@ Relay contract (`tools/apps-script-mailer.gs`) — all present and verified stat
 
 | Suite | Runner | Result |
 |---|---|---|
-| Template registry + render + role QA + escaping | `tools/test-email-system.js` | **63/63 PASS** |
-| Mailer integration (send/contact/tutorEmailInfo/testSend) | `tools/test-email-system.js` | included above |
-| Security (injection, XSS, unknown type, secrets, relay static) | `tools/test-email-security.js` | **20/20 PASS** |
+| Template registry + render + role QA + escaping | `tests/integration/test-email-system.js` | **63/63 PASS** |
+| Mailer integration (send/contact/tutorEmailInfo/testSend) | `tests/integration/test-email-system.js` | included above |
+| Security (injection, XSS, unknown type, secrets, relay static) | `tests/integration/test-email-security.js` | **20/20 PASS** |
 
 - Fixtures used for preview/test: **Priya / Tara / BOOK-TEST-001** (never real customer data).
 - Admin **Mail Ops** (new in `admin.html`): PRIMARY/SENDER/VERIFICATION/TOKEN/FALLBACK chips (GREEN/YELLOW/RED/GRAY — unknown never green), routing matrix, live template health, per-role delivery, **send-test restricted to controlled inboxes** (`[TEST]` prefix, refuses strangers), and fixture previews.
@@ -114,7 +114,7 @@ The relay is now **live and sendable** — verified end-to-end from the build sa
 | Unknown message type | `{"success":"false","message":"Unknown message type."}` — whitelist ✓ |
 | Invalid recipient | `{"success":"false","message":"Missing or invalid recipient."}` ✓ |
 | Controlled send (owner inbox) | `{"success":"true","message":"sent","state":"ACCEPTED"}` — owner Gmail dispatched it ✓ |
-| Shipped mailer path (`testSend`) | ACCEPTED via Apps Script (`tools/test-email-live.js`) ✓ |
+| Shipped mailer path (`testSend`) | ACCEPTED via Apps Script (`tests/integration/test-email-live.js`) ✓ |
 | Server-side idempotency | first POST → `sent`; replay → `duplicate` (no re-send) ✓ |
 
 - Client token is **wired** (via `tools/wire-token.py`; `release-decision.js` now reports `STUDENT_EMAIL: ACCEPTED_UNVERIFIED` instead of `BLOCKED_ON_TOKEN`).

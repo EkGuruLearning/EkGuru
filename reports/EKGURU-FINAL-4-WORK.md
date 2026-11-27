@@ -23,7 +23,7 @@ This is not AdSense approval. This is not a claim that every language now has ex
 | Item | Result |
 |---|---|
 | Extra-level JSON that matched placeholder tokens | 445 / 445 (historical) |
-| After repair | **0 / all course JSON** (`tools/test-course-placeholders.mjs`) |
+| After repair | **0 / all course JSON** (`tests/regression/test-course-placeholders.mjs`) |
 | Phase-11 A1 | Was placeholder; now `content_status=INCOMPLETE`, `indexable=false` |
 
 ## Phases 2–10 — extra-level policy
@@ -99,8 +99,8 @@ Evidence file: `data/quality/adsense-readiness.json`
 
 | Command | Result |
 |---|---|
-| `node tools/test-course-placeholders.mjs` | PASS 7 |
-| `node tools/test-course-levels.mjs` | PASS 29 |
+| `node tests/regression/test-course-placeholders.mjs` | PASS 7 |
+| `node tests/regression/test-course-levels.mjs` | PASS 29 |
 | `npm test` (payments) | **not re-run this slice** — do not treat as green without a run |
 | `npm run test:courses` | added (placeholders + course-levels) |
 

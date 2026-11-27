@@ -27,7 +27,7 @@
     "unknown_type": "{\"success\":\"false\",\"message\":\"Unknown message type.\"}",
     "invalid_recipient": "{\"success\":\"false\",\"message\":\"Missing or invalid recipient.\"}",
     "controlled_send_owner_inbox": "{\"success\":\"true\",\"message\":\"sent\",\"state\":\"ACCEPTED\",\"requestId\":\"\"}",
-    "shipped_mailer_testSend": "ACCEPTED via Apps Script (tools/test-email-live.js)",
+    "shipped_mailer_testSend": "ACCEPTED via Apps Script (tests/integration/test-email-live.js)",
     "idempotency": "first POST sent; replay answered duplicate (no re-send)",
     "note": "ACCEPTED means the owner's Gmail dispatched the message; the owner must still confirm the [TEST] emails arrived in EkGuruLearning@gmail.com (mailbox receipt).",
     "never_claimed": "DELIVERED"

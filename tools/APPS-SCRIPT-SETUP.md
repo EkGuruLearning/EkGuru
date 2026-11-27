@@ -30,13 +30,13 @@ You created a **new** relay project and deployed it:
 | Unknown message type | `{"success":"false","message":"Unknown message type."}` — whitelist ✓ |
 | Invalid recipient | `{"success":"false","message":"Missing or invalid recipient."}` ✓ |
 | Controlled send (owner inbox) | `{"success":"true","message":"sent","state":"ACCEPTED"}` — real send from owner Gmail ✓ |
-| Shipped mailer path (`testSend`) | ACCEPTED via Apps Script (`tools/test-email-live.js`) ✓ |
+| Shipped mailer path (`testSend`) | ACCEPTED via Apps Script (`tests/integration/test-email-live.js`) ✓ |
 | Server-side idempotency | first POST → `sent`; replay of the same key → `duplicate` (no re-send) |
 
 > Note: the sandbox is a datacenter IP. `GET` works without a browser
 > User-Agent; `POST` works but Google throttles **rapid successive POSTs**
 > from datacenter IPs. A real visitor's browser on a residential IP does
-> not hit this. To re-run the live checks: `node tools/test-email-live.js`.
+> not hit this. To re-run the live checks: `node tests/integration/test-email-live.js`.
 
 ### Still required before the final PASS
 

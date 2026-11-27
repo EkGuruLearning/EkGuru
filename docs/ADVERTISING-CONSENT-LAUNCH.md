@@ -175,4 +175,4 @@ check is not a substitute for production browser/network QA.
 - European message choices and revocation: https://support.google.com/adsense/answer/10961068?hl=en
 
 Related: `docs/GOOGLE_MONETIZATION.md`, `data/monetization/google-monetization.json`,
-`tools/test-ad-policy.mjs`, `tools/test-consent-release.mjs`.
+`tests/regression/test-ad-policy.mjs`, `tests/regression/test-consent-release.mjs`.

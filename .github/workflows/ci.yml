@@ -38,19 +38,19 @@ jobs:
         run: python3 tools/build-names-js.py --check
 
       - name: "Script conversion: exact strings, no unassigned codepoints"
-        run: node tools/test-script-map.mjs
+        run: node tests/regression/test-script-map.mjs
 
       - name: "Name pages and learner trust: runtime, share privacy, offer and schema"
         run: |
-          node tools/test-name-page.mjs
-          node tools/test-name-share-privacy.mjs
-          node tools/test-learner-trust.mjs
+          node tests/regression/test-name-page.mjs
+          node tests/regression/test-name-share-privacy.mjs
+          node tests/regression/test-learner-trust.mjs
 
       - name: "Numbers: data, generated JS and visible table agree"
         run: python3 tools/build-numbers-pages.py --check
 
       - name: "Numbers page: every number, and the tool that reads it"
-        run: node tools/test-numbers-page.mjs
+        run: node tests/regression/test-numbers-page.mjs
 
       - name: "Time/days: stale-check the generated data, tables and page bodies"
         run: python3 tools/build-time-pages.py --check && python3 tools/build-time-pages-bodies.py --check
@@ -60,16 +60,16 @@ jobs:
         run: python3 tools/build-hindi-tutor-near-me-page.py --check
 
       - name: "Time/days page: English in, real script out"
-        run: node tools/test-time-page.mjs
+        run: node tests/regression/test-time-page.mjs
 
       - name: Master build check (all generated layers + policy gates)
         run: python3 tools/build-all.py check
 
       - name: "PHASE 3 content gate (Learn-tab posts: 1000+ words, linked, correctly indexed)"
-        run: python3 tools/test-phase3-content.py
+        run: python3 tests/regression/test-phase3-content.py
 
       - name: "Public surface gate (deploy set = website only; no contact data, no secrets)"
-        run: node tools/test-public-surface.mjs
+        run: node tests/regression/test-public-surface.mjs
 
       - name: Readiness preflights
         run: |
@@ -83,8 +83,8 @@ jobs:
 
       - name: "Data-source tests (network: published Sheet endpoints, csv -> tsv fallback)"
         run: |
-          python3 tools/test-appscript-health.py
-          python3 tools/test-data-sources.py 2>&1 | tee /tmp/ds.out
+          python3 tests/unit/test-appscript-health.py
+          python3 tests/integration/test-data-sources.py 2>&1 | tee /tmp/ds.out
           ec=${PIPESTATUS[0]}
           { echo "### test-data-sources.py (exit $ec)"; echo '```'; grep -E "FAIL|failures —|MODE=" /tmp/ds.out || true; tail -n 25 /tmp/ds.out; echo '```'; } >> "$GITHUB_STEP_SUMMARY"
           if [ $ec -ne 0 ]; then grep -E "FAIL|Error|Traceback" /tmp/ds.out | head -6 | while IFS= read -r l; do echo "::error title=test-data-sources::$l"; done; fi
@@ -92,7 +92,7 @@ jobs:
 
       - name: Sheet loader live smoke (csv -> tsv fallback applies cleanly)
         run: |
-          node tools/test-sheet-loader.js 2>&1 | tee /tmp/sl.out
+          node tests/integration/test-sheet-loader.js 2>&1 | tee /tmp/sl.out
           ec=${PIPESTATUS[0]}
           { echo "### test-sheet-loader.js (exit $ec)"; echo '```'; grep -E "FAIL|PASS|fallback" /tmp/sl.out || true; tail -n 25 /tmp/sl.out; echo '```'; } >> "$GITHUB_STEP_SUMMARY"
           if [ $ec -ne 0 ]; then grep -E "FAIL|Error" /tmp/sl.out | head -6 | while IFS= read -r l; do echo "::error title=test-sheet-loader::$l"; done; fi
@@ -100,56 +100,56 @@ jobs:
 
       - name: Sheet sync policy (runtime + build side, adversarial)
         run: |
-          node tools/test-sheet-apply.js
-          node tools/test-live-feed.js
-          node tools/test-intake.js
-          node tools/test-sheetsync-policy.js
-          node tools/test-sheet-fetch.mjs
+          node tests/integration/test-sheet-apply.js
+          node tests/integration/test-live-feed.js
+          node tests/integration/test-intake.js
+          node tests/integration/test-sheetsync-policy.js
+          node tests/integration/test-sheet-fetch.mjs
 
       - name: Tutor re-activation cycle (active=yes/no restores everything)
         run: |
-          node tools/test-tutor-activation.mjs
-          node tools/test-orphan-tutor-quarantine.mjs
+          node tests/integration/test-tutor-activation.mjs
+          node tests/regression/test-orphan-tutor-quarantine.mjs
 
       - name: Real-life sheet cycle (reviews add/delete/replace, roster, price, offline cache)
         run: |
-          node tools/test-reviews-fallback.js
-          node tools/test-real-life-sheet-cycle.mjs
-          node tools/test-real-life-booking-review.mjs
-          node tools/test-intake-real-life.mjs
+          node tests/integration/test-reviews-fallback.js
+          node tests/integration/test-real-life-sheet-cycle.mjs
+          node tests/integration/test-real-life-booking-review.mjs
+          node tests/integration/test-intake-real-life.mjs
 
       - name: Public-output gate (competitor attribution, stale wording, origin)
         run: |
-          node tools/test-no-competitor-attribution.js
-          node tools/test-tutor-claims.js
+          node tests/regression/test-no-competitor-attribution.js
+          node tests/regression/test-tutor-claims.js
 
       - name: jsdom browser-QA suites
         run: |
-          node tools/test-browser-qa.mjs
-          node tools/test-runtime-qa.mjs
-          node tools/test-consent-release.mjs
-          node tools/test-ad-policy.mjs
-          node tools/test-affiliate-disclosure.mjs
-          node tools/test-monetization-disclosures.mjs
-          node tools/test-adsready-diagnostics.mjs
-          node tools/test-name-card.mjs
-          node tools/test-course-levels.mjs
-          node tools/test-course-placeholders.mjs
-          node tools/test-question-api.mjs
-          node tools/test-search-facets.mjs
-          node tools/test-copy-index.mjs
-          node tools/test-shell-drawer.mjs
-          node tools/test-menu-search.mjs
-          node tools/test-advertising-launch.mjs
-          node tools/test-experience-dom.mjs
-          node tools/test-level-visuals.mjs
-          node tools/test-offline-playable.mjs
-          node tools/test-print-sheet-dom.mjs
-          node tools/test-print-visible.mjs
-          node tools/test-refresh-quiet.mjs
-          node tools/test-voice.mjs
-          node tools/test-retention.mjs
-          node tools/test-learning-storage.mjs
-          node tools/test-learning-worker.mjs
-          node tools/test-theme-contrast.mjs
-          node tools/test-googlebot-parity.mjs
+          node tests/regression/test-browser-qa.mjs
+          node tests/regression/test-runtime-qa.mjs
+          node tests/regression/test-consent-release.mjs
+          node tests/regression/test-ad-policy.mjs
+          node tests/regression/test-affiliate-disclosure.mjs
+          node tests/regression/test-monetization-disclosures.mjs
+          node tests/regression/test-adsready-diagnostics.mjs
+          node tests/regression/test-name-card.mjs
+          node tests/regression/test-course-levels.mjs
+          node tests/regression/test-course-placeholders.mjs
+          node tests/regression/test-question-api.mjs
+          node tests/regression/test-search-facets.mjs
+          node tests/regression/test-copy-index.mjs
+          node tests/regression/test-shell-drawer.mjs
+          node tests/regression/test-menu-search.mjs
+          node tests/regression/test-advertising-launch.mjs
+          node tests/regression/test-experience-dom.mjs
+          node tests/regression/test-level-visuals.mjs
+          node tests/regression/test-offline-playable.mjs
+          node tests/regression/test-print-sheet-dom.mjs
+          node tests/regression/test-print-visible.mjs
+          node tests/regression/test-refresh-quiet.mjs
+          node tests/regression/test-voice.mjs
+          node tests/regression/test-retention.mjs
+          node tests/regression/test-learning-storage.mjs
+          node tests/regression/test-learning-worker.mjs
+          node tests/regression/test-theme-contrast.mjs
+          node tests/regression/test-googlebot-parity.mjs

@@ -4,8 +4,8 @@
    ---------------------------------------------------------
    One implementation of "read a published Google Sheet tab" for
    every consumer: tools/sheetsync.js (build), the offline
-   fixture path, tools/test-data-sources.py's Node siblings and
-   the parser unit tests (tools/test-sheet-fetch.mjs).
+   fixture path, tests/integration/test-data-sources.py's Node siblings and
+   the parser unit tests (tests/integration/test-sheet-fetch.mjs).
 
    WHY THIS FILE EXISTS (30 Sep 2026)
    ----------------------------------
@@ -23,7 +23,7 @@
        3. if both fail, fail loudly with both errors
 
    js/sheet.js carries the same order for the browser (it cannot
-   require this file); tools/test-sheet-fetch.mjs asserts the two
+   require this file); tests/integration/test-sheet-fetch.mjs asserts the two
    implementations agree, row for row, on the real sheet shape.
 
    THE PARSER
@@ -177,7 +177,7 @@ async function fetchSheetRows(fetchImpl, url, opts) {
     return {
       rows, format, url: u,
       /* the raw export text, so a caller can feed the exact bytes to a
-         second parser (tools/test-sheet-loader.js hands it to js/sheet.js)
+         second parser (tests/integration/test-sheet-loader.js hands it to js/sheet.js)
          without a lossy rows -> text round trip */
       text: r.text,
       usedFallback: format !== order[0],

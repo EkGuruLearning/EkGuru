@@ -82,16 +82,16 @@ jobs:
             echo "::error::a personal e-mail address reached a public file — refusing to commit"; exit 1; fi
           if grep -Eo "(^|[^0-9A-Za-z_/=-])(\+?91[ -]?)?[6-9][0-9]{4}[ -]?[0-9]{5}([^0-9A-Za-z_/=-]|$)" js/tutors/_overrides.js | head -1 | grep -q . ; then
             echo "::error::a phone-like number reached _overrides.js — refusing to commit"; exit 1; fi
-          node tools/test-public-surface.mjs
-          node tools/test-sheet-only-bake.mjs
-          node tools/test-sheetsync-policy.js
-          node tools/test-sheet-apply.js
+          node tests/regression/test-public-surface.mjs
+          node tests/integration/test-sheet-only-bake.mjs
+          node tests/integration/test-sheetsync-policy.js
+          node tests/integration/test-sheet-apply.js
           node tools/build-tutor-pages.js --check
           node tools/build-home-tutors.js --check
           node tools/build-market-pages.js --check
           node tools/build-roster-rows.js --check
           python3 tools/quarantine-tutor-drafts.py --check
-          node tools/test-orphan-tutor-quarantine.mjs
+          node tests/regression/test-orphan-tutor-quarantine.mjs
 
       - name: Commit when the sheet changed
         run: |

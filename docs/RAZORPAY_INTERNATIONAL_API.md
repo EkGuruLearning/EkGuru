@@ -257,8 +257,8 @@ The server will listen at `http://0.0.0.0:3000`. Open `http://localhost:3000/sup
 npm test
 ```
 Runs:
-1. `tools/test-razorpay-api.mjs` (20 API and security gates)
-2. `tools/test-browser-qa.mjs` (Responsive viewports at 320, 360, 390, 430, 768, 1024, 1440px)
+1. `tests/integration/test-razorpay-api.mjs` (20 API and security gates)
+2. `tests/regression/test-browser-qa.mjs` (Responsive viewports at 320, 360, 390, 430, 768, 1024, 1440px)
 
 ---
 

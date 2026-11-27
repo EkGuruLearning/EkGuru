@@ -107,18 +107,18 @@
       "tools/measure-header.py",
       "tools/probe-providers.py",
       "tools/qa-perf-a11y.py",
-      "tools/test-email-e2e.py",
-      "tools/test-email-e2e.py",
-      "tools/test-idle-parallel.py",
-      "tools/test-idle-regression.py",
-      "tools/test-idle-scenarios.py",
-      "tools/test-recovery.py",
-      "tools/test-tools-browser.py",
-      "tools/test-tools-functional.py",
+      "tests/integration/test-email-e2e.py",
+      "tests/integration/test-email-e2e.py",
+      "tests/regression/test-idle-parallel.py",
+      "tests/regression/test-idle-regression.py",
+      "tests/regression/test-idle-scenarios.py",
+      "tests/regression/test-recovery.py",
+      "tests/e2e/test-tools-browser.py",
+      "tests/regression/test-tools-functional.py",
       "tools/phase3-dynamic-tests.py"
     ],
     "wired_client_token": [
-      "tools/test-email-system.js"
+      "tests/integration/test-email-system.js"
     ]
   },
   "falsePositiveClassification": {

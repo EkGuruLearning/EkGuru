@@ -105,7 +105,7 @@ Before importing, prove the file behaves — the same test the build runs, with
 the file itself as the source of the expectations:
 
 ```bash
-EKGURU_TEST_CSV=csv/ekguru_tutors.local.csv node tools/test-sheet-apply.js
+EKGURU_TEST_CSV=csv/ekguru_tutors.local.csv node tests/integration/test-sheet-apply.js
 ```
 
 ### Rules that already hold (do not fight them)

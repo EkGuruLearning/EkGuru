@@ -463,7 +463,7 @@ intros" gate.
 
 - The `extra` block renders as a real page section: culture note (source **named,
   not linked** — the public surface is closed to outbound hosts outside the
-  calibrated allowlist in `tools/test-no-competitor-attribution.js`), an
+  calibrated allowlist in `tests/regression/test-no-competitor-attribution.js`), an
   original reading text with a plain-English gloss, a listening script tagged
   `hi-IN`, ten idioms, the level's own mistakes, and a task.
 - Level-page word counts rose by roughly 600 words each: Hindi A1 6,799 →

@@ -76,7 +76,7 @@ set("DOCTOR", doctorProblems === 0 ? "PASS" : doctorProblems === null ? "BLOCKED
 {
   const csv = liveCsvMode();
   set("DATA", csv.mode === "MIXED" ? "FAIL" : csv.mode === "UNKNOWN" ? "BLOCKED" : "PASS",
-    `${csv.detail} (read live from js/site-config.js; schema: python3 tools/test-data-sources.py)`);
+    `${csv.detail} (read live from js/site-config.js; schema: python3 tests/integration/test-data-sources.py)`);
 }
 
 /* v97 — the email/booking verdicts now come from a REAL end-to-end run

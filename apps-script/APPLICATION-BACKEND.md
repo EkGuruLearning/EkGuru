@@ -23,8 +23,8 @@ owner-only status API.
 | `js/join-schema.js` | **Generated** browser copy of the schema (`tools/build-join-schema.mjs`) | Deploys with the site |
 | `js/join-wizard.js` | Builds the payload from the schema | Deploys with the site |
 | `tools/build-join-schema.mjs` | Regenerates `js/join-schema.js` | — |
-| `tools/test-application-backend.mjs` | 120 backend checks with mocked Google services | — |
-| `tools/test-join-wizard.mjs` | 117 wizard checks, including a real end-to-end POST | — |
+| `tests/integration/test-application-backend.mjs` | 120 backend checks with mocked Google services | — |
+| `tests/regression/test-join-wizard.mjs` | 117 wizard checks, including a real end-to-end POST | — |
 
 `npm test` runs both.
 

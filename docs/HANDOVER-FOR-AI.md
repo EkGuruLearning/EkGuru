@@ -1,5 +1,15 @@
 # EkGuru: handover for another AI or developer
 
+> **Historical handover:** the operational snapshot below is dated 2 Nov 2026.
+> Its old branch, blank feed/intake URLs and historical failing-CI statements
+> are not current evidence. Use the current branch/status, `js/site-config.js`,
+> workflow definitions and newly executed checks. No external endpoint health
+> or deployment status is asserted here.
+> For the approved test/archive relocation and compatibility commands, see
+> [repository cleanup](architecture/repository-cleanup.md). Paths below have
+> been updated where safe; protected runtime provenance is cross-referenced
+> in `architecture/cleanup-path-map.json` without rewriting public assets.
+
 Last updated: 2 Nov 2026. Read this whole file before changing anything.
 This file holds no applicant contact details. Look those up in the sheet.
 
@@ -99,7 +109,7 @@ Not done, and why:
   the applicant.
 - New pages are noindex, by owner freeze (tools/ultra/contract.py).
 - Ad policy: data/monetization/google-monetization.json; run
-  `node tools/test-ad-policy.mjs`.
+  `node tests/regression/test-ad-policy.mjs`.
 - Indian English: `python3 tools/indian-english.py --check` must report 0.
   Fix with `--apply`.
 - Booking emails use the sender `ekgurulearning@gmail.com`.
@@ -112,8 +122,8 @@ Not done, and why:
 
 ```
 python3 tools/build-all.py check        # master check; see CI for the expected failures above
-node tools/test-ad-policy.mjs
-node tools/test-intake.js
+node tests/regression/test-ad-policy.mjs
+node tests/integration/test-intake.js
 python3 tools/indian-english.py --check
 node --check js/features.js && node --check js/intake.js
 ```

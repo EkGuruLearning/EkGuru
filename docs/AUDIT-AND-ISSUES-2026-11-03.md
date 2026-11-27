@@ -25,7 +25,7 @@ environment).
 ### 2.1 CI and build
 1. **FIXED** Flashcard decks had American spellings after regeneration. The
    generator now applies the Indian English conversion; ids and categories
-   stay exact. Evidence: `node tools/test-flashcards.mjs` passes;
+   stay exact. Evidence: `node tests/regression/test-flashcards.mjs` passes;
    `python3 tools/indian-english.py --check` reports 0.
 2. **FIXED** Course-level pages (91) were stale after the Indian English pass
    changed course data. Regenerated; commit `99c4e57`. Evidence:
@@ -38,7 +38,7 @@ environment).
 4. **OPEN** Print worksheets for Kannada, Punjabi and Urdu are not baked. The
    language-course generator and the print baker disagree on the marker
    (`data-topic`, `ekguru:sample-sheet`, `ekguru:static-sheet`). The test
-   `tools/test-print-sheets.mjs` fails on 2 checks.
+   `tests/regression/test-print-sheets.mjs` fails on 2 checks.
 5. **OPEN** The live-class page gets a half-written byline when the
    decoration step runs (`ekguru:ultra-byline` opened without its matching
    content). It is reverted on every commit; the generator needs a fix.
@@ -148,8 +148,8 @@ Owner approval: `approved` column = yes means the owner has approved the row.
   shell → page layer → legacy layer → copy index (stripped). Running one generator
   alone, as I did several times this session, removed decoration or ad classes
   from 100–1,000 pages. Those changes were reverted each time.
-- The ad-policy test (`node tools/test-ad-policy.mjs`) passes at the committed state.
-- `node tools/test-intake.js` passes.
+- The ad-policy test (`node tests/regression/test-ad-policy.mjs`) passes at the committed state.
+- `node tests/integration/test-intake.js` passes.
 - `python3 tools/build-course-levels.py --check` passes at `99c4e57`.
 
 ## 5. What "arena AI agent" means here

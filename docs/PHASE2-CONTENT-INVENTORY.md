@@ -10,7 +10,7 @@ follows **PHASE 2 — COMPLETE CONTENT INVENTORY** in
 - **Main per-page inventory:** `data/quality/phase2-content-inventory.json`
 - **Existing full-page technical inventory:** `data/quality/full-page-inventory.json`
 - **Generator:** `tools/build-phase2-content-inventory.py`
-- **Integrity test:** `tools/test-phase2-content-inventory.py`
+- **Integrity test:** `tests/regression/test-phase2-content-inventory.py`
 
 Regenerate with `python3 tools/build-phase2-content-inventory.py`; verify
 freshness with `python3 tools/build-phase2-content-inventory.py --check`. The

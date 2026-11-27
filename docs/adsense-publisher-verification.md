@@ -32,10 +32,10 @@ The fast path now parses actual HTML elements and verifies one matching account 
 
 ## Validation
 
-- `python3 tools/test-adsense-publisher-tags.py`: **6 tests pass** — exact three owner identifiers; idempotence; stale ID/missing meta/invalid loader repair; duplicate/outside-head detection; exclusions/runtime gate retained; every eligible page's actual script/meta checked.
+- `python3 tests/regression/test-adsense-publisher-tags.py`: **6 tests pass** — exact three owner identifiers; idempotence; stale ID/missing meta/invalid loader repair; duplicate/outside-head detection; exclusions/runtime gate retained; every eligible page's actual script/meta checked.
 - `python3 tools/inject-ads.py --check`: **PASS**, all 3,016 pages match the existing policy.
-- `node tools/test-ad-policy.mjs`: existing 27 policy checks retained, including loader exclusions and consent safeguards.
-- `node tools/test-advertising-launch.mjs`: validates the owner-reported account state and the fail-closed launch diagnostic. Diagnostic success is not ad-launch approval.
+- `node tests/regression/test-ad-policy.mjs`: existing 27 policy checks retained, including loader exclusions and consent safeguards.
+- `node tests/regression/test-advertising-launch.mjs`: validates the owner-reported account state and the fail-closed launch diagnostic. Diagnostic success is not ad-launch approval.
 - Full `python3 tools/build-all.py check`: **PASS**. Excluded log: `.cache/adsense-publisher-build-check.log`.
 - Tests registered in `tools/build-all.py`; no new dependencies, package manifest changes, indexing changes, course/content edits or ad-network requests are required by these tests.
 

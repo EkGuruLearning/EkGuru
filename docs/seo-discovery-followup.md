@@ -64,8 +64,8 @@ Next measurement loop: canonical sitemap submission, URL Inspection on priority 
 
 ```sh
 python3 tools/build-country-phrases.py --check
-python3 tools/test-country-phrase-consolidation.py
-python3 tools/test-sitemap-freshness.py
+python3 tests/regression/test-country-phrase-consolidation.py
+python3 tests/unit/test-sitemap-freshness.py
 python3 tools/discovery_integrity.py
 python3 tools/build-all.py check
 # Local HTTP (not production evidence):

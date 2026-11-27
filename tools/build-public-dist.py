@@ -34,7 +34,7 @@ WHAT IS PUBLIC (copied verbatim)
            (2) every sw.js precache entry is copied,
            (3) nothing copied references a private path,
            (4) no private file slipped in.
-           Exit 1 on any failure. Run by tools/test-public-surface.mjs and CI.
+           Exit 1 on any failure. Run by tests/regression/test-public-surface.mjs and CI.
 """
 import json
 import os
@@ -51,6 +51,7 @@ PRIVATE_DIRS = {
     ".git", ".github", ".arena", ".cache", ".local", ".playwright-cli",
     "node_modules", "tools", "tests", "src", "reports", "docs", "research",
     "apps-script", "server", "csv", "live-sheets", "uploads", "audit",
+    "generators", "integrations", "config", "scripts", "_site", ".artifacts",
     "playwright-report", "test-results", "Unselected files",
     "Arena latest command  arena",
 }
@@ -108,7 +109,7 @@ def build(out):
 
 
 PRIVATE_REF = re.compile(
-    r"""(?:href|src|action|url)\s*[=(]\s*["']?(?:https?://ekguru\.shop)?/(?:tools|reports|docs|research|apps-script|server|csv|live-sheets|tests|src)/""",
+    r"""(?:href|src|action|url)\s*[=(]\s*["']?(?:https?://ekguru\.shop)?/(?:tools|reports|docs|research|apps-script|server|csv|live-sheets|tests|src|generators|integrations|config|scripts)/""",
     re.I,
 )
 

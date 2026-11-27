@@ -26,5 +26,5 @@
     "4. Run the two-student/two-tutor cross-routing + duplicate/retry + security tests in a real browser.",
     "5. Confirm real mailbox receipt, then mark the final report PASS."
   ],
-  "security_tests": "tools/test-email-system.js covers escaping (XSS), unknown type, missing/undeclared vars; relay-side tests (invalid recipient, header injection, wrong/missing token, replay, oversize, open-relay) are defined in the .gs contract and require the live /exec to exercise."
+  "security_tests": "tests/integration/test-email-system.js covers escaping (XSS), unknown type, missing/undeclared vars; relay-side tests (invalid recipient, header injection, wrong/missing token, replay, oversize, open-relay) are defined in the .gs contract and require the live /exec to exercise."
 }

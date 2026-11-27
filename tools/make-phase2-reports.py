@@ -74,7 +74,7 @@ w("toolbox-major-upgrade.json", {
     "qualityGate": ("Every tool already provides: clear purpose, example input, clear output, "
                     "validation, loading/error/empty states, reset, copy, keyboard support, "
                     "accessible labels, mobile UX, explanation, related content and a next step "
-                    "(per tools/test-tools-functional.py checks)."),
+                    "(per tests/regression/test-tools-functional.py checks)."),
     "actions": {"kept": len(ti.get("tools", [])), "fixed": 0, "upgraded": 0, "merged": 0, "replaced": 0,
                 "note": "All 12 tools pass real-browser functional QA (12/12). The command says 'do not rebuild working tools unnecessarily' — none were rebuilt; the registry, QA harness and admin Tool control panel remain the operating layer."},
     "priorityCoverage": {

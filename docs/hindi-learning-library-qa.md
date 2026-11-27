@@ -23,7 +23,7 @@ Existing offline pin controls/worker save the page and its public JS/CSS assets.
 
 ## Checks executed
 
-- `node tools/test-hindi-learning-library.mjs`: **16 checks pass**: advertised counts/unique Hindi/IDs, aligned search/social metadata and introduction with preserved indexing, stage order, every source/fragment exists, no initialization storage/autoplay/network, exact-text shared voice, filtering/empty states, validated direct navigation, word-practice feedback/retry/reset in all seven stages, exhaustive four-choice/unique-gloss checks for all 1,014 vocabulary items, sentence builder feedback, paragraph controls, existing review deduplication/persistence, corrupt deck preservation, unavailable Hindi voice, no-JS/legacy links/reduced motion.
+- `node tests/regression/test-hindi-learning-library.mjs`: **16 checks pass**: advertised counts/unique Hindi/IDs, aligned search/social metadata and introduction with preserved indexing, stage order, every source/fragment exists, no initialization storage/autoplay/network, exact-text shared voice, filtering/empty states, validated direct navigation, word-practice feedback/retry/reset in all seven stages, exhaustive four-choice/unique-gloss checks for all 1,014 vocabulary items, sentence builder feedback, paragraph controls, existing review deduplication/persistence, corrupt deck preservation, unavailable Hindi voice, no-JS/legacy links/reduced motion.
 - `node --check js/hindi-learning-library.js`: pass.
 - `python3 tools/build-hindi-learning-library.py --check`: current, 0 stale outputs.
 - Exercised the real legacy `practice_hub()` regeneration in a try/finally that restored decorated HTML: one collection and one copy of each required script retained.

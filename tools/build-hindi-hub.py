@@ -146,7 +146,7 @@ DEPTH = 2  # set per page before rendering: learn/hindi/ = 2, hindi/ = 1
 def href(target: str) -> str:
     """From the page being rendered to a site-root-relative target — the
     shortest relative path (learn/x from learn/hindi/ is ../x/, which is also
-    the form tools/test-phase3-content.py expects on the Hindi hub)."""
+    the form tests/regression/test-phase3-content.py expects on the Hindi hub)."""
     if DEPTH == 2 and target.startswith("learn/"):
         rest = target[len("learn/"):]
         if rest.startswith("hindi/"):

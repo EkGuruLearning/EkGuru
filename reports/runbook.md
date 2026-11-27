@@ -9,7 +9,7 @@ browser-side flow.
 | **Booking** | Student → tutor request; record committed before email | Prakash | admin.html → Bookings tab (per-browser) | Email provider down, tutor has no address | Record already saved (`email_degraded`); admin retry re-sends; mailto fallback for the student |
 | **Email chain** | Apps Script → Web3Forms → StaticForms → FormSubmit | Prakash | admin.html → Mail centre / provider matrix | Token missing (`Not authorised`), quota, activation, network | Chain auto-falls-through (v98); fix token → `js/site-config.js` `mail.appsScript.token` |
 | **Apps Script relay** | Own-Gmail sending, no activation, ~90/day | Prakash | `GET …/exec` → `{"success":"true",…}` | Wrong deployment URL (extra letter), no "Anyone" access, token | Re-deploy Web App (Execute as Me / Anyone); correct id `…LnTPoOjqtdA` |
-| **Sheets data** | Tutors/reviews/settings/content CSVs | Prakash | `python3 tools/test-data-sources.py` | Tab deleted → gid changes (HTTP 400) | Use Import → Replace CURRENT sheet (never "Replace spreadsheet"); update `csvUrl` gid in `js/site-config.js` |
+| **Sheets data** | Tutors/reviews/settings/content CSVs | Prakash | `python3 tests/integration/test-data-sources.py` | Tab deleted → gid changes (HTTP 400) | Use Import → Replace CURRENT sheet (never "Replace spreadsheet"); update `csvUrl` gid in `js/site-config.js` |
 | **Search** | Client-side index | Prakash | Search box on site | Index stale after content add | Rebuild index (tools) and redeploy |
 | **SEO** | Canonical/sitemap/robots/ads.txt | Prakash | `ads.txt`, sitemap.xml | Old-domain refs, accidental noindex | `tools/seocheck.js`, domain sweep |
 | **Health** | Provider + subsystem checks | Prakash | admin.html → Health | Datacenter IP bot-gated (false red) | Re-test from residential browser |
@@ -23,7 +23,7 @@ browser-side flow.
 ## Top 3 things to do right now
 1. **Deploy** the local tree to production (it is ahead of live; live still shows `status:"soon"`).
 2. **Set the Apps Script token** in `js/site-config.js` (script answers `Not authorised.` until then).
-3. **Re-run** `python3 tools/test-email-e2e.py` from a real browser to confirm Apps Script carries the internal copy.
+3. **Re-run** `python3 tests/integration/test-email-e2e.py` from a real browser to confirm Apps Script carries the internal copy.
 
 ## Escalation
 - Any email that fails still lands in the ledger with its `via`/`state`/`error` — open admin.html → Incidents.

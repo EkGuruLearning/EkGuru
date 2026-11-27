@@ -76,7 +76,7 @@ features = {
     },
     "offline": {"pass": offline.get("pass"), "facts": offline.get("facts"), "fails": offline.get("fails", [])},
     "search": {"pass": True, "queries": search.get("queries")},
-    "toolQA": jload("reports/tool-functional-qa.json") if os.path.exists("reports/tool-functional-qa.json") else {"note": "run tools/test-tools-functional.py"},
+    "toolQA": jload("reports/tool-functional-qa.json") if os.path.exists("reports/tool-functional-qa.json") else {"note": "run tests/regression/test-tools-functional.py"},
     "pass": bool(
         quiz_t.get("pass") and audio_t.get("pass") and feat_t.get("pass") and
         browser.get("pass") and offline.get("pass") and search.get("pass", True)

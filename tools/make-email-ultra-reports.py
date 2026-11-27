@@ -3,7 +3,7 @@
 
 Every fact below is read from the CODE (js/email-templates.js,
 js/mailer.js, js/site-config.js, js/store.js) or from the test run
-tools/test-email-system.js — never typed by hand, so the reports
+tests/integration/test-email-system.js — never typed by hand, so the reports
 cannot drift from behaviour. Live mailbox verification is NOT
 claimed: it stays blocked on owner token wiring + a real browser
 (two-student test), and is stated as such.
@@ -46,11 +46,11 @@ all_render_ok = all(t["render_ok"] for t in RENDER.get("templates", []))
 all_qa_ok = all(t["role_qa"]["pass"] for t in RENDER.get("templates", []))
 
 # ── 2. system test (the mailer integration suite) ─────────────────
-test_out, test_rc = run(["node", "tools/test-email-system.js"])
+test_out, test_rc = run(["node", "tests/integration/test-email-system.js"])
 tests_passed = "ALL EMAIL-SYSTEM TESTS PASSED" in test_out
 test_lines = [l for l in test_out.splitlines() if l.strip()]
 
-sec_out, sec_rc = run(["node", "tools/test-email-security.js"])
+sec_out, sec_rc = run(["node", "tests/integration/test-email-security.js"])
 sec_passed = "ALL EMAIL-SECURITY TESTS PASSED" in sec_out
 sec_lines = [l for l in sec_out.splitlines() if l.strip()]
 
@@ -108,12 +108,12 @@ w("email-system-baseline.json", {
     "template_render_all_ok": all_render_ok,
     "role_qa_all_ok": all_qa_ok,
     "test_suite": {
-        "runner": "tools/test-email-system.js",
+        "runner": "tests/integration/test-email-system.js",
         "passed": tests_passed,
         "checks": test_lines
     },
     "security_suite": {
-        "runner": "tools/test-email-security.js",
+        "runner": "tests/integration/test-email-security.js",
         "passed": sec_passed,
         "checks": sec_lines
     }
@@ -197,7 +197,7 @@ w("apps-script-mail-health.json", {
         "unknown_type": '{"success":"false","message":"Unknown message type."}',
         "invalid_recipient": '{"success":"false","message":"Missing or invalid recipient."}',
         "controlled_send_owner_inbox": '{"success":"true","message":"sent","state":"ACCEPTED","requestId":""}',
-        "shipped_mailer_testSend": "ACCEPTED via Apps Script (tools/test-email-live.js)",
+        "shipped_mailer_testSend": "ACCEPTED via Apps Script (tests/integration/test-email-live.js)",
         "idempotency": "first POST sent; replay answered duplicate (no re-send)",
         "note": "ACCEPTED means the owner's Gmail dispatched the message; the owner must still confirm the [TEST] emails arrived in EkGuruLearning@gmail.com (mailbox receipt).",
         "never_claimed": "DELIVERED"
@@ -227,7 +227,7 @@ w("email-release-report.json", {
         "4. Run the two-student/two-tutor cross-routing + duplicate/retry + security tests in a real browser.",
         "5. Confirm real mailbox receipt, then mark the final report PASS."
     ],
-    "security_tests": "tools/test-email-system.js covers escaping (XSS), unknown type, missing/undeclared vars; "
+    "security_tests": "tests/integration/test-email-system.js covers escaping (XSS), unknown type, missing/undeclared vars; "
                       "relay-side tests (invalid recipient, header injection, wrong/missing token, replay, "
                       "oversize, open-relay) are defined in the .gs contract and require the live /exec to exercise."
 })

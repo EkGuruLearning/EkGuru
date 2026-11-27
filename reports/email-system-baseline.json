@@ -28,7 +28,7 @@
   "template_render_all_ok": true,
   "role_qa_all_ok": true,
   "test_suite": {
-    "runner": "tools/test-email-system.js",
+    "runner": "tests/integration/test-email-system.js",
     "passed": true,
     "checks": [
       "PASS  EKGURU_EMAIL exposed",
@@ -109,7 +109,7 @@
     ]
   },
   "security_suite": {
-    "runner": "tools/test-email-security.js",
+    "runner": "tests/integration/test-email-security.js",
     "passed": true,
     "checks": [
       "PASS  subject is a single line (no CR/LF)",

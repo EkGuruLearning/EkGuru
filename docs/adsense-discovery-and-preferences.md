@@ -25,9 +25,9 @@ The local banner still cannot grant advertising consent. Advertising was not aut
 
 ## Validation executed
 
-- `node tools/test-consent-persistence.mjs`: valid restore, changed preferences across visits, unchanged dates on restore, invalid records, accessible settings/withdrawal, partial storage failure rollback/warning and successful retry.
-- `node tools/test-consent-release.mjs`: 16 existing checks pass (isolated DOM/runtime harness; not a full eligible-page head loader test).
-- `python3 -B tools/test-public-ads-txt.py`: 2 fixture tests pass.
+- `node tests/regression/test-consent-persistence.mjs`: valid restore, changed preferences across visits, unchanged dates on restore, invalid records, accessible settings/withdrawal, partial storage failure rollback/warning and successful retry.
+- `node tests/regression/test-consent-release.mjs`: 16 existing checks pass (isolated DOM/runtime harness; not a full eligible-page head loader test).
+- `python3 -B tests/unit/test-public-ads-txt.py`: 2 fixture tests pass.
 - `python3 -B tools/build-public-dist.py --check`: full artifact passes, including the new root ads.txt guard.
 - Existing advertising launch diagnostic, 27 ad-policy checks and 6 publisher-tag tests pass without enabling advertising.
 - Chromium 158, 390px viewport, real pointer clicks, local server: Practice → Questions → reload restores checkbox choices; saved date remains unchanged; no repeated automatic banner after a valid save; settings can be reopened and choices changed. External requests were blocked. QA output is excluded at `.cache/consent-remember-qa/results.json`. This is not live-site, CMP, physical-device or production ad-serving evidence.

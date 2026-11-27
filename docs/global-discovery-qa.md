@@ -10,19 +10,19 @@ Date: 2026-11-24. Scope approved by the user: site-wide technical checks and ver
 4. **Sitemap check mode wrote files despite promising read-only validation.** `tools/build-sitemaps.py --check` no longer rewrites the dated audit report or creates its directory. Tests cover both passing and failing validation, preserve non-zero failure exits, and verify that existing report content stays untouched. Write mode still produces the report as before. No sitemap URL, lastmod or robots/canonical setting changed.
 5. **The site-wide ownership index was stale and depended on generated chrome.** Release CI exposed the underlying cause: master checks temporarily strip shared bylines/appearance widgets, but standalone fingerprints included them. The builder now excludes reversible generated ultra slots, with regression tests for decorated/undecorated and CRLF HTML. The regenerated index has 1,871 fingerprints; three chrome-heavy pages no longer meet the existing 150-word own-prose threshold. No site pages were removed or changed by that threshold. Both standalone and full master checks now pass.
 
-Source/test changes for this pass: `js/seo.js`, `tools/test-seo-runtime.mjs`, `tools/build-sitemaps.py`, `tools/test-sitemap-freshness.py`, `tools/build-copy-index.js`, `tools/test-copy-index.mjs`; derived data: `data/copy-index.json`. The new lesson regression test is registered in `tools/build-all.py`. No dependency manifests, service worker, payment/booking logic, tutor content, storage keys or country publication decisions changed.
+Source/test changes for this pass: `js/seo.js`, `tests/regression/test-seo-runtime.mjs`, `tools/build-sitemaps.py`, `tests/unit/test-sitemap-freshness.py`, `tools/build-copy-index.js`, `tests/regression/test-copy-index.mjs`; derived data: `data/copy-index.json`. The new lesson regression test is registered in `tools/build-all.py`. No dependency manifests, service worker, payment/booking logic, tutor content, storage keys or country publication decisions changed.
 
 ## Validation
 
 | Check | Result |
 | --- | --- |
-| Expanded `node tools/test-seo-runtime.mjs` | PASS: 84 combinations (4 browser locales × 3 page families × 7 existing UI language choices), plus existing static-metadata guard tests and noindex-shell check |
+| Expanded `node tests/regression/test-seo-runtime.mjs` | PASS: 84 combinations (4 browser locales × 3 page families × 7 existing UI language choices), plus existing static-metadata guard tests and noindex-shell check |
 | Real Chromium local homepage checks | PASS: en-IN/390px, es-MX/768px, pt-PT/1280px, ar-SA/1440px; all seven generic tags retained, expected canonical and stable default, zero page errors or horizontal document overflow |
 | `python3 tools/discovery_integrity.py` | PASS: 3,016 public HTML files, 249,442 internal references, zero missing-public-target/reciprocity errors |
 | `python3 tools/build-guide-hreflang.py --check` | PASS: 16 existing localized guides, zero stale |
 | `python3 tools/build-sitemaps.py --check` | PASS: 1,561 indexed memberships, zero invalid; report unchanged |
-| `python3 tools/test-sitemap-freshness.py` | PASS: 3 tests, including read-only and failure-exit coverage |
-| `python3 tools/test-discovery-integrity.py` | PASS: 10 tests |
+| `python3 tests/unit/test-sitemap-freshness.py` | PASS: 3 tests, including read-only and failure-exit coverage |
+| `python3 tests/unit/test-discovery-integrity.py` | PASS: 10 tests |
 | `python3 tools/audit-country-language-quality.py --check` | PASS: classifications current; no evidence upgrades |
 | `python3 tools/build-seo-aeo-geo.py --check` | PASS: existing OpenSearch, robots, discovery summaries and checked structured data |
 | Local HTTP discovery gate | PASS: 54 probes, 29 HTML samples, 1,561 sitemap URLs |
@@ -48,7 +48,7 @@ Chromium 158.0.8127.0 used the already approved temporary tooling. External requ
 - Global discoverability improvements are **not** a promise of ranking, indexing, inclusion in AI answers or recommendation in every country. Search engines make those decisions.
 - No live production crawl, Search Console/account access, field Core Web Vitals, physical mobile device, screen reader or native-language review was performed.
 - Static country-language records retain their existing verification/publication states. We did not publish noindex/held pages or create doorway pages to target more countries.
-- A legacy exploratory `tools/test-phase6-seo.py` run reported missing descriptions/canonicals because its regular expressions assume attribute order; those tags are present. Its output is not treated as evidence of real missing metadata. That legacy report's incidental write was reverted; the parser-based and runtime checks above are the verification used here.
+- A legacy exploratory `tests/regression/test-phase6-seo.py` run reported missing descriptions/canonicals because its regular expressions assume attribute order; those tags are present. Its output is not treated as evidence of real missing metadata. That legacy report's incidental write was reverted; the parser-based and runtime checks above are the verification used here.
 - Some noindex lesson pages carry redundant self-only language annotations. These do not establish multilingual coverage and were not mass-rewritten; their indexation is intentionally unchanged.
 - Release preparation subsequently ran the full `tools/build-all.py check`, including its reversible strip/restore cycle. It passed after the ownership-fingerprint fix; this is still not native-language review or a ranking guarantee.
 

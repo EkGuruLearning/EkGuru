@@ -1,7 +1,7 @@
 import { defineConfig } from "@playwright/test";
 
 export default defineConfig({
-  testDir: "tools",
+  testDir: "tests/e2e",
   testMatch: "test-journeys.mjs",
   timeout: 60000,
   use: { baseURL: process.env.EKGURU_BASE || "http://127.0.0.1:4173" },

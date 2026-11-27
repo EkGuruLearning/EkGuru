@@ -15,7 +15,7 @@ build.
 
 - **Per-page audit and review queue:** `data/quality/phase3-originality-audit.json`
 - **Generator:** `tools/build-phase3-originality-audit.py`
-- **Integrity/safety tests:** `tools/test-phase3-originality-audit.py`
+- **Integrity/safety tests:** `tests/regression/test-phase3-originality-audit.py`
 - **Input inventory:** `data/quality/phase2-content-inventory.json`
 
 Regenerate and verify with:
@@ -23,7 +23,7 @@ Regenerate and verify with:
 ```bash
 python3 tools/build-phase3-originality-audit.py
 python3 tools/build-phase3-originality-audit.py --check
-python3 tools/test-phase3-originality-audit.py
+python3 tests/regression/test-phase3-originality-audit.py
 ```
 
 The generator reads repository HTML only. It does not crawl the live site,

@@ -117,7 +117,7 @@ def e(s):
     return H.escape(str(s), quote=True)
 
 def say(dev, label="🔊"):
-    """A native speaker button (tools/test-voice-page-coverage.py: every voice
+    """A native speaker button (tests/regression/test-voice-page-coverage.py: every voice
     control must be a <button>, never a span that speaks itself)."""
     return '<button class="spk" type="button" data-sb-say="%s" aria-label="Play %s">%s</button>' % (e(dev), e(dev), label)
 
@@ -230,7 +230,7 @@ CSS_PATH = "css/foundation.css"
 
 def head(title, desc, url, up):
     """The shared pre-shell head, with the section stylesheet LINKED (not inlined:
-    tools/test-page-layer.mjs caps pages that carry their own <style> rules)."""
+    tests/regression/test-page-layer.mjs caps pages that carry their own <style> rules)."""
     h = P.head(title, desc, url, up, index=False)
     h = h.replace('<html lang="en" dir="ltr" data-ad-class="HIGH">',
                   '<html lang="en" dir="ltr" data-learning-language="hi" data-ad-class="HIGH_CONTENT">')

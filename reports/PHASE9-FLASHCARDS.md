@@ -1,7 +1,7 @@
 # PHASE 9 — interactive tools, slice 1: flashcards (2 October 2026 command)
 
 **Branch:** `arena/01a102f8-ekguru` · **Date:** 4 Oct 2026
-**Command source:** `Arena latest command  arena/Arena latest command  arena/01a0e655-ekguru/after fasst.md` — PHASE 9
+**Command source:** `docs/commands/legacy-arena/01a0e655-ekguru/after-fasst.md` — PHASE 9
 **Scope of this slice:** cards + the surface that studies them. The rest of PHASE 9 (worksheets,
 typing per script, practice-exercise surfaces, the custom deck builder) is listed under *Still open*
 with the exact state of the data, so the next session starts from facts, not from a summary.
@@ -41,11 +41,11 @@ it and this report records it; the fix belongs to PHASE 8 (Kannada course data),
 | File | Role |
 |---|---|
 | `tools/build-flashcards.py` | deck builder; `--check` exits 1 on drift. Cap 300 cards/language, level order A1→C2 first. Writes `data/flashcards/<code>.json`, `js/flashcards-<code>.js`, `data/quality/flashcard-coverage.json` |
-| `js/flashcard-ui.js` | the lab: flip, arrow keys, category chips, shuffle, speak, add-to-review, progress. **No speech engine of its own** — playback goes through `js/voice.js` (js/ is allowed exactly one, enforced by `tools/test-voice.mjs`) |
+| `js/flashcard-ui.js` | the lab: flip, arrow keys, category chips, shuffle, speak, add-to-review, progress. **No speech engine of its own** — playback goes through `js/voice.js` (js/ is allowed exactly one, enforced by `tests/regression/test-voice.mjs`) |
 | `tools/lib/flashcard_section.py` | the shared block: heading, honest note, 12 real cards rendered at build time (a crawler and a no-JS reader see the language's own vocabulary), `<noscript>` line |
 | `tools/inject-flashcards.py` | idempotent injector (`--check`); marker pair `ekguru:flashcards:start/end`; skips any language without a deck |
 | `css/experience.css` §37 | styles, bundled into `css/style.min.css` (231,400 B stylesheet, 122,508 B layer) |
-| `tools/test-flashcards.mjs` | 24-check gate: deck sizes, ids, JSON↔JS parity, page wiring, and the lab in a real DOM (flip, keyboard, chips, SRS, no autoplay, reduced motion) |
+| `tests/regression/test-flashcards.mjs` | 24-check gate: deck sizes, ids, JSON↔JS parity, page wiring, and the lab in a real DOM (flip, keyboard, chips, SRS, no autoplay, reduced motion) |
 | `tools/build-all.py` | registered in `ULTRA_BUILDS` (build + inject) and `ULTRA_TESTS` (test) |
 
 **Surface:** `languages/<code>/practice/` (10 world courses) and `learn/<slug>/practice/` (9 Indian
@@ -57,18 +57,18 @@ the guard.
 
 | Gate | Result |
 |---|---|
-| `node tools/test-flashcards.mjs` | **all checks passed** (24 checks) |
+| `node tests/regression/test-flashcards.mjs` | **all checks passed** (24 checks) |
 | `python3 tools/build-flashcards.py --check` / `inject-flashcards.py --check` | pass (38 decks · 11,232 cards · 38 ≥ 200 · 19 pages) |
-| `python3 tools/test-voice.mjs` | **26/26** — including “voice.js is the only speech engine in js/”, which this slice had to satisfy by routing Speak through the shared provider |
+| `python3 tests/regression/test-voice.mjs` | **26/26** — including “voice.js is the only speech engine in js/”, which this slice had to satisfy by routing Speak through the shared provider |
 | `python3 tools/bundle-experience-css.py --check` | pass (122,508 B layer) |
 | `python3 tools/apply-ultra.py --check` · `test-ultra-integration.py` | 0 stale · 2687 pages, 0 problems |
-| `python3 tools/inject-ads.py --check` · `node tools/test-ad-policy.mjs` | 2689 pages match the matrix · 22/22 (practice pages stay ad-free) |
-| `node tools/test-googlebot-parity.mjs` | identical HTML for Googlebot and Chrome |
+| `python3 tools/inject-ads.py --check` · `node tests/regression/test-ad-policy.mjs` | 2689 pages match the matrix · 22/22 (practice pages stay ad-free) |
+| `node tests/regression/test-googlebot-parity.mjs` | identical HTML for Googlebot and Chrome |
 | `node tools/build-shell.js --check` | 2688 pages carry the same shell |
 | `node tools/dedupe-script-tags.py --check` | no page loads the same script twice |
-| `node tools/test-usability-home.mjs` · `test-experience-dom.mjs` | all checks passed |
-| `node tools/test-retention.mjs` · `test-runtime-qa.mjs` · `test-browser-qa.mjs` | 20/20 · 142/0 · 26/0 |
-| `node tools/test-course-levels.mjs` · `test-course-placeholders.mjs` | 29/0 · 7/0 |
+| `node tests/regression/test-usability-home.mjs` · `test-experience-dom.mjs` | all checks passed |
+| `node tests/regression/test-retention.mjs` · `test-runtime-qa.mjs` · `test-browser-qa.mjs` | 20/20 · 142/0 · 26/0 |
+| `node tests/regression/test-course-levels.mjs` · `test-course-placeholders.mjs` | 29/0 · 7/0 |
 
 ## 5. Still open in PHASE 9 (facts, not estimates)
 
@@ -99,5 +99,5 @@ python3 tools/build-flashcards.py          # write decks + coverage report
 python3 tools/build-flashcards.py --check  # CI: exit 1 on drift
 python3 tools/inject-flashcards.py         # put the lab on every practice page with a deck
 python3 tools/inject-flashcards.py --check # CI: exit 1 on a missing/stale lab
-node tools/test-flashcards.mjs             # the PHASE 9 gate for this slice
+node tests/regression/test-flashcards.mjs             # the PHASE 9 gate for this slice
 ```

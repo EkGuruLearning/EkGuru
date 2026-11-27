@@ -78,7 +78,7 @@ ck "sitemap index 200"     '[ "$(code $SITE/sitemap-index.xml)" = 200 ]'        
 ck "policy gate correct"   'python3 -c "import json,sys; d=json.load(open(\"data/monetization/google-monetization.json\")); sys.exit(0 if d[\"ad_policy\"][\"loader_allowed\"]==[\"HIGH_CONTENT\",\"MEDIUM_CONTENT\"] else 1)"'
 ck "runtime flags still off" 'grep -q "ADS_RUNTIME_ENABLED *= *false" js/monetization.js && grep -q "ADVERTISING_AVAILABLE *= *false" js/cookie-consent.js'
 ck "inject idempotent"     'python3 tools/inject-ads.py --check'
-ck "ad policy tests"       'node tools/test-ad-policy.mjs'
+ck "ad policy tests"       'node tests/regression/test-ad-policy.mjs'
 ck "CI green (main)"       'gh run list -R "${GITHUB_REPOSITORY:-EkGuruLearning/EkGuru}" --branch main --workflow ci.yml --limit 1 --json conclusion -q ".[0].conclusion" | grep -qx success'
 
 echo

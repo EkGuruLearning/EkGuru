@@ -88,7 +88,7 @@ Readiness **12/12** (readiness checks only — approval is Google's decision and
 
 ## 10. Tests run
 
-`node tools/privacy.js --sheets --live --json` (PASS) · `node tools/seocheck.js` (PASS) · `node tools/live-crawl.js` (565/565) · `node tools/doctor.js` (11/11) · `node tools/release-decision.js` (**GO**) · `python3 tools/test-email-e2e.py` (exit 0) · `python3 tools/test-data-sources.py` (26/0) · Playwright: motion 31/31, timezone ×2, 19-page console crawl (0 errors), CLS measurement ×3.
+`node tools/privacy.js --sheets --live --json` (PASS) · `node tools/seocheck.js` (PASS) · `node tools/live-crawl.js` (565/565) · `node tools/doctor.js` (11/11) · `node tools/release-decision.js` (**GO**) · `python3 tests/integration/test-email-e2e.py` (exit 0) · `python3 tests/integration/test-data-sources.py` (26/0) · Playwright: motion 31/31, timezone ×2, 19-page console crawl (0 errors), CLS measurement ×3.
 
 ## 11. Remaining (honest, external)
 

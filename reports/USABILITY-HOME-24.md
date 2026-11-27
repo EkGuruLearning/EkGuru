@@ -8,7 +8,7 @@ human see the same content (R-1), noindex / canonical / domain untouched (R-7), 
 flags stay OFF, WCAG 2.2 AA (R-9), every phase ships its own test.
 
 New files: `tools/build-home-markets.py` (the server-rendered country grid),
-`tools/test-usability-home.mjs` (the regression test for 1–24).
+`tests/regression/test-usability-home.mjs` (the regression test for 1–24).
 
 ---
 
@@ -31,7 +31,7 @@ test caught it before it shipped (a `var()` to an undefined token resolves to `i
 **Result.** 92 → 13 distinct type sizes, 47 → 13 colours, 29 → 11 corner values in the home
 layers; the survivors are structural (`0`, `inherit`, `transparent`) or decorative
 (`color-mix()` gradient stops).
-**Verified by** `tools/test-usability-home.mjs` checks 1–3 (tokens declared in both layers; no
+**Verified by** `tests/regression/test-usability-home.mjs` checks 1–3 (tokens declared in both layers; no
 literal type size or corner value left in a home rule).
 
 ## 4 — a 26-character sentence inside a badge styled for 2-word labels
@@ -264,25 +264,25 @@ when Escape closed it.
 
 | Gate | Result |
 | --- | --- |
-| `node tools/test-usability-home.mjs` | all checks passed (new) |
-| `node tools/test-experience-dom.mjs` | all checks passed |
-| `node tools/test-runtime-qa.mjs` | 142 passed, 0 failed |
-| `node tools/test-browser-qa.mjs` | 26 passed, 0 failed |
-| `node tools/test-theme-contrast.mjs` | 90 themes × 3 modes, 4 320 pairs, 0 problems |
-| `node tools/test-course-levels.mjs` | 29 passed, 0 failed |
-| `node tools/test-course-placeholders.mjs` | 7 passed, 0 failed |
-| `node tools/test-ad-policy.mjs` | 22 passed, 0 failed |
-| `node tools/test-voice.mjs` / `test-retention.mjs` / `test-learning-storage.mjs` / `test-learning-worker.mjs` | 26/26, 20/20, 10/10, 13/13 |
+| `node tests/regression/test-usability-home.mjs` | all checks passed (new) |
+| `node tests/regression/test-experience-dom.mjs` | all checks passed |
+| `node tests/regression/test-runtime-qa.mjs` | 142 passed, 0 failed |
+| `node tests/regression/test-browser-qa.mjs` | 26 passed, 0 failed |
+| `node tests/regression/test-theme-contrast.mjs` | 90 themes × 3 modes, 4 320 pairs, 0 problems |
+| `node tests/regression/test-course-levels.mjs` | 29 passed, 0 failed |
+| `node tests/regression/test-course-placeholders.mjs` | 7 passed, 0 failed |
+| `node tests/regression/test-ad-policy.mjs` | 22 passed, 0 failed |
+| `node tests/regression/test-voice.mjs` / `test-retention.mjs` / `test-learning-storage.mjs` / `test-learning-worker.mjs` | 26/26, 20/20, 10/10, 13/13 |
 | `python3 tools/apply-ultra.py --check` | 0 pages stale |
-| `python3 tools/test-ultra-integration.py` | 2 687 pages, 0 problems |
+| `python3 tests/regression/test-ultra-integration.py` | 2 687 pages, 0 problems |
 | `python3 tools/bundle-experience-css.py --check` | bundle current |
 | `python3 tools/inject-ads.py --check` | 2 689 pages match the ad matrix (ads unchanged, runtime flags OFF) |
-| `python3 tools/test-phase3-content.py` | PASS |
+| `python3 tests/regression/test-phase3-content.py` | PASS |
 | `python3 tools/build-full-page-inventory.py` | 2 690 pages · 1 006 indexable · thin_indexable 0 · broken 0 |
 | `python3 tools/audit-adsense-readiness.py` | 2 687 pages · 504 ad pages · 0 thin home |
 | `node tools/build-home-tutors.js --check`, `python3 tools/build-course-hub.py --check`, `python3 tools/build-home-markets.py --check`, `node tools/build-shell.js --check` | current |
 | `node tools/build-market-pages.js --check` | current (checked with ultra decoration stripped, as `build-all` does) |
 
 Not runnable in this sandbox, unchanged by this pass: `tools/build-all.py` (its first step,
-`tools/sheetsync.js`, needs the live Google Sheet), `tools/test-phase7c-stage6.py` (needs
+`tools/sheetsync.js`, needs the live Google Sheet), `tests/regression/test-phase7c-stage6.py` (needs
 Playwright + a browser download), and any real-Chromium overflow measurement. They run in CI.

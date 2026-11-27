@@ -23,7 +23,7 @@ server between a visitor and the files. So two things are true at once:
 |---|---|
 | GitHub Pages served the **repository root**: `/tools/…`, `/reports/…`, `/docs/…`, `/apps-script/Unified.gs`, `/server/…`, `/csv/…`, `/live-sheets/tutors.csv` were all live URLs. | `.github/workflows/pages.yml` publishes **only** the folder built by `tools/build-public-dist.py` (HTML, css/, js/, data/, images/, sitemaps, robots, ads.txt, CNAME, sw.js). |
 | `live-sheets/*.csv` and `tutors-sheet.csv` — stale sheet exports with `email / notification_email / formKey` columns — sat in the repo. | Deleted. The sheet is read only through the feed. |
-| No automated check. | `tools/test-public-surface.mjs` runs in CI, in `build-all check` and in `sheet-sync` before every commit: no private dir in the deploy set, no e-mail other than the site's own, no phone-like number in tutor data, no secret-shaped string, every sitemap URL and sw.js precache entry still present. |
+| No automated check. | `tests/regression/test-public-surface.mjs` runs in CI, in `build-all check` and in `sheet-sync` before every commit: no private dir in the deploy set, no e-mail other than the site's own, no phone-like number in tutor data, no secret-shaped string, every sitemap URL and sw.js precache entry still present. |
 | `sitemap-tutors.xml` was not well-formed XML (`image:` prefix undeclared). | Fixed in `build-tutor-pages.js`. |
 
 ## ONE-TIME owner steps

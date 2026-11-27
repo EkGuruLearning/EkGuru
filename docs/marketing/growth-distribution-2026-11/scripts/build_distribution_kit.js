@@ -530,7 +530,7 @@ EkGuru — https://ekguru.shop/
 function buildMasterReadme(tutorCount) {
   const md = `# EkGuru — Growth Plan & Distribution Kit Execution Package (Nov 2026)
 
-> **PRIVATE INTERNAL DIRECTORY (\`docs/marketing/\`)** — Automatically excluded from the public \`_site\` build by \`tools/build-public-dist.py\` and enforced by \`tools/test-public-surface.mjs\`.
+> **PRIVATE INTERNAL DIRECTORY (\`docs/marketing/\`)** — Automatically excluded from the public \`_site\` build by \`tools/build-public-dist.py\` and enforced by \`tests/regression/test-public-surface.mjs\`.
 
 ## 1. Saved Master Documents
 - [\`GROWTH-PLAN-2026-11-24.md\`](./GROWTH-PLAN-2026-11-24.md) — Audit & 30-day honest growth strategy

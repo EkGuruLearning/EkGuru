@@ -2,7 +2,7 @@
 
 **Status:** one focused increment; Phase 10 is not complete.
 
-**Source command:** `Arena latest command  arena/Arena latest command  arena/01a0e655-ekguru/after fasst.md` — Phase 10.
+**Source command:** `docs/commands/legacy-arena/01a0e655-ekguru/after-fasst.md` — Phase 10.
 
 ## What changed
 
@@ -14,7 +14,7 @@
 ## Checks and limits
 
 - `python3 tools/build-themes.py --check` passes for 90 themes.
-- `node tools/test-theme-contrast.mjs` passes: **90 themes × 3 modes, 90 unique abstract patterns, 4,320 semantic contrast pairs**, plus the existing motion/voice hooks.
+- `node tests/regression/test-theme-contrast.mjs` passes: **90 themes × 3 modes, 90 unique abstract patterns, 4,320 semantic contrast pairs**, plus the existing motion/voice hooks.
 - `npm run test:courses` exits 0: placeholder checks (7), level-page checks (37), matching checks (8), and reorder checks (7) pass; voice controls cover 12,599 authored items. The pronunciation sub-audit remains **BLOCKED**: 0/5,694 published vocabulary items have source-referenced IPA.
 - `node --check` passes for the player, service worker and JavaScript test scripts; `python3 -m py_compile tools/build-themes.py` and `git diff --check` pass.
 - Full `python3 tools/build-all.py check` was not run; its pipeline begins with the separate live-sheet sync gate.

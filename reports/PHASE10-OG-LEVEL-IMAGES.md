@@ -2,7 +2,7 @@
 
 **Status:** implementation increment complete for the explicit eight-language font-coverage allowlist. Phase 10, full-site OG coverage, and visual/browser review are not complete.
 
-**Source command:** `Arena latest command  arena/Arena latest command  arena/01a0e655-ekguru/after fasst.md` — Phase 10.
+**Source command:** `docs/commands/legacy-arena/01a0e655-ekguru/after-fasst.md` — Phase 10.
 
 ## Scope and output
 
@@ -16,8 +16,8 @@
 
 - `python3 tools/build-course-levels.py --check` — 0 stale pages.
 - `python3 tools/build-og-images.py --check` — 38 deterministic 1200×630 PNGs, all within the per-image limit; coverage reports 38 images across 8 languages and 54 published levels awaiting fonts.
-- `node tools/test-course-levels.mjs` — 37 passed, 0 failed.
-- `node tools/test-level-visuals.mjs` — 39 passed, 0 failed.
+- `node tests/regression/test-course-levels.mjs` — 37 passed, 0 failed.
+- `node tests/regression/test-level-visuals.mjs` — 39 passed, 0 failed.
 - Locally opened the Arabic, Russian and Spanish A1 PNGs for a limited layout spot-check. This is not human/native-speaker review, browser testing or a platform preview.
 - `npm run test:courses` — exits 0. Its separate pronunciation audit remains **BLOCKED**: 0/5,694 published vocabulary items have source-referenced IPA; the test output explicitly does not claim independent linguistic review.
 - Python/Node syntax checks and `git diff --check` pass.
