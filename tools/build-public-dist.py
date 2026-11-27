@@ -36,6 +36,7 @@ WHAT IS PUBLIC (copied verbatim)
            (4) no private file slipped in.
            Exit 1 on any failure. Run by tools/test-public-surface.mjs and CI.
 """
+import json
 import os
 import re
 import shutil
@@ -112,8 +113,26 @@ PRIVATE_REF = re.compile(
 )
 
 
+def check_ads_txt(out):
+    """Check the deployed root seller file, not merely its repository source."""
+    path = os.path.join(out, 'ads.txt')
+    if not os.path.isfile(path):
+        return ['missing root ads.txt in public artifact']
+    try:
+        with open(path, encoding='utf-8-sig') as f:
+            records = [line.strip() for line in f if line.strip() and not line.lstrip().startswith('#')]
+        with open(os.path.join(ROOT, 'data/monetization/google-monetization.json'), encoding='utf-8') as f:
+            publisher = json.load(f)['publisher']
+        expected = ', '.join(publisher[k] for k in ('seller_domain', 'ads_txt_id', 'relationship', 'certification_authority_id'))
+        if records != [expected]:
+            return ['root ads.txt seller record missing, duplicated or incorrect in public artifact']
+    except (OSError, UnicodeError, ValueError, KeyError):
+        return ['unreadable root ads.txt or publisher configuration']
+    return []
+
+
 def check(out):
-    fails = []
+    fails = check_ads_txt(out)
     # 1. sitemap URLs -> files
     sitemap_files = [f for f in os.listdir(out) if f.startswith("sitemap") and f.endswith(".xml")]
     urls = set()

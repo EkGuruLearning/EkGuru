@@ -105,6 +105,8 @@ ULTRA_TESTS = [
     ("Contextual entry links preserve page metadata and existing forms", ["python3", "tools/test-contextual-entry-links.py"]),
     ("AdSense publisher script, verification meta and root seller identity", ["python3", "tools/test-adsense-publisher-tags.py"]),
     ("Advertising launch stays blocked without account and consent evidence", ["node", "tools/test-advertising-launch.mjs"]),
+    ("Privacy preferences persist without renewing consent or removing withdrawal", ["node", "tools/test-consent-persistence.mjs"]),
+    ("Published artifact must contain the exact root ads.txt seller record", ["python3", "tools/test-public-ads-txt.py"]),
     ("Phase 2 public-page inventory is current (repository-only)",
      ["python3", "tools/build-full-page-inventory.py", "--check"]),
     ("Phase 2 detailed content inventory is current (live HTTP pending)",
