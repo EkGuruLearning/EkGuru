@@ -118,7 +118,7 @@ table.ex td.h{font-size:1.28rem}
 <div class="nw">
 <p class="crumb"><a href="../">EkGuru</a> › Write your name in Hindi</p>
 <h1>Write your name in Hindi</h1><!-- ekguru:ultra-byline:start -->
-<p class="eg-byline" lang="en" dir="ltr" data-eg-chrome="editorial">Author: not separately recorded. Maintained by <a href="/authors/prakash/" hreflang="en">Prakash</a>. Reviewed by: not recorded. Updated: <time datetime="2026-11-21">2026-11-21</time>. <a href="/editorial-policy/" hreflang="en">Editorial policy and corrections</a>.</p>
+<p class="eg-byline" lang="en" dir="ltr" data-eg-chrome="editorial">Author: not separately recorded. Maintained by <a href="/authors/prakash/" hreflang="en">Prakash</a>. Reviewed by: not recorded. Updated: <time datetime="2026-11-24">2026-11-24</time>. <a href="/editorial-policy/" hreflang="en">Editorial policy and corrections</a>.</p>
 <!-- ekguru:ultra-byline:end -->
 <!-- ekguru:ultra-audio:start -->
 <p class="eg-voice-note" data-eg-voice-note="hi" lang="en" dir="ltr" data-eg-chrome="audio" aria-live="polite"></p>
@@ -141,11 +141,13 @@ spelling.</p>
 <button id="copyBtn" type="button">Copy</button>
 <button id="explainBtn" type="button">Show every letter</button>
 <button id="shareLinkBtn" type="button">Share link</button>
+<button id="downloadNameCard" type="button">Download name card (PNG)</button>
 <a class="btn-wa" href="https://wa.me/" id="waShareBtn" rel="noopener noreferrer" target="_blank">Share on WhatsApp</a>
 </div>
 <div id="explain"></div>
 <p class="rom" id="outHelp" style="margin-top:14px;font-size:.85rem">
-    Nothing you type leaves your browser. This runs entirely on your device.</p>
+    The first result is generated on your device. When the online spelling helper is available, typing also sends the name to Google Input Tools for suggestions. Do not enter sensitive information. Card downloads are generated in your browser; share links contain the name. <a href="../privacy/#name-tools">Privacy details</a>.</p>
+<p id="name-card-status" role="status" aria-live="polite"></p>
 </div>
 <div class="note">
 <b>Before you tattoo it:</b> transliteration has no single right answer, and
@@ -293,6 +295,11 @@ app can — from <strong data-f="priceUSD" data-fmt="money" data-t="sushila-g">$
      numeric fallback for a value the spreadsheet owns. -->
 <p><a class="btn btn-primary btn-lg" href="../find-tutors.html">Find a Hindi tutor</a></p>
 </aside>
+<aside class="pg-cta" aria-label="Optional support">
+<h2>Keep free tools available</h2>
+<p>This tool and the PNG card download are free. An optional one-time contribution helps support EkGuru; it does not buy access, a tutor lesson or a subscription.</p>
+<a href="../support/">Support EkGuru — optional</a>
+</aside>
 <h2>Keep going</h2>
 <ul>
 <li><a href="../name-in-punjabi/">Write your name in Punjabi</a> — the same name in Gurmukhi, with the spellings Punjabi speakers actually use</li>
@@ -313,6 +320,7 @@ app can — from <strong data-f="priceUSD" data-fmt="money" data-t="sushila-g">$
 <script defer="" src="../js/recovery.js"></script>
 <!-- ekguru:recovery:end -->
 <script defer="" src="../js/translit.js"></script>
+<script defer src="../js/name-card.js"></script>
 <!-- v69: the offline engine above answers instantly; this checks it
      against Google Input Tools and corrects it when the answer
      arrives. The page never waits for it. -->

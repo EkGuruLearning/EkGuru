@@ -27,7 +27,7 @@ const PUB = "pub-8175326569491671";
 
 async function get(url) {
   try {
-    const r = await fetch(url, { redirect: "follow" });
+    const r = await fetch(url, { redirect: "follow", signal: AbortSignal.timeout(12000) });
     return { ok: r.ok, status: r.status, body: await r.text(), url: r.url };
   } catch (e) { return { ok: false, status: 0, body: "", url, error: String(e) }; }
 }
@@ -92,9 +92,9 @@ function localChecks() {
       fs.existsSync(path.join(ROOT, p)), fs.existsSync(path.join(ROOT, p)) ? "present" : "MISSING");
   }
 
-  add("content-volume", "Substantial unique content (≥100 published pages)",
-    pages.length >= 100, `${pages.length} HTML pages in tree`);
-  add("real-pages", "Country pages are real, distinct pages (not redirects to one)",
+  add("content-volume", "HTML file inventory (count only; not quality or eligibility)",
+    pages.length > 0, `${pages.length} HTML pages in tree`);
+  add("real-pages", "Sample country guide exists (not originality or review evidence)",
     fs.existsSync(path.join(ROOT, "learn-hindi-from-usa", "index.html")), "learn-hindi-from-usa/ checked");
 }
 
@@ -109,7 +109,8 @@ async function main() {
       disclaimer: "Readiness only — NOT an approval signal. AdSense approval is Google's decision." };
     fs.writeFileSync(path.join(REPORTS, "adsready-local.json"), JSON.stringify(result0, null, 2));
     for (const c of checks) console.log(`${c.ok ? "✓" : "✗"} ${c.label} — ${c.detail}`);
-    console.log(`\nAdSense readiness (local): ${passed0}/${checks.length} checks pass.`);
+    console.log(`\nAdSense repository diagnostics: ${passed0}/${checks.length} checks pass. Content review, certified CMP and account approval are not verified here.`);
+    if (!result0.ready) process.exitCode = 1;
     return;
   }
 
@@ -135,7 +136,7 @@ async function main() {
     /<link[^>]*(?:rel="canonical"[^>]*href="https:\/\/ekguru\.shop\/"|href="https:\/\/ekguru\.shop\/"[^>]*rel="canonical")[^>]*>/.test(home.body), "https://ekguru.shop/");
 
   const redirect = await get("https://ekgurulearning.github.io/EkGuru/");
-  add("old-github-redirect", "Old GitHub Pages URL 301s to production https",
+  add("old-github-redirect", "Old GitHub Pages URL resolves to production https",
     redirect.url === `${BASE}/`, "final " + redirect.url);
 
   /* required pages live */
@@ -153,12 +154,12 @@ async function main() {
       else if (/\.html?$/.test(e.name)) html.push(path.join(d, e.name));
     }
   })(ROOT);
-  add("content-volume", "Substantial unique content (≥100 published pages)",
-    html.length >= 100, `${html.length} HTML pages in tree`);
+  add("content-volume", "HTML file inventory (count only; not quality or eligibility)",
+    html.length > 0, `${html.length} HTML pages in tree`);
 
   /* no doorway/duplicate signal: countries pages must differ */
   const adHoc = fs.existsSync(path.join(ROOT, "learn-hindi-from-usa", "index.html"));
-  add("real-pages", "Country pages are real, distinct pages (not redirects to one)",
+  add("real-pages", "Sample country guide exists (not originality or review evidence)",
     adHoc, adHoc ? "learn-hindi-from-usa/ exists" : "country pages missing");
 
   const passed = checks.filter(c => c.ok).length;
@@ -175,7 +176,8 @@ async function main() {
   fs.writeFileSync(path.join(REPORTS, "adsready.json"), JSON.stringify(result, null, 2));
 
   for (const c of checks) console.log(`${c.ok ? "✓" : "✗"} ${c.label} — ${c.detail}`);
-  console.log(`\nAdSense readiness: ${passed}/${checks.length} checks pass. ${ready ? "All preconditions verified (approval is Google's call)." : "Fix the failed checks first."}`);
+  if (!ready) process.exitCode = 1;
+  console.log(`\nAdSense diagnostics: ${passed}/${checks.length} checks pass. ${ready ? "HTTP/repository checks passed; content review, certified CMP and account approval remain unverified." : "Fix the failed checks first."}`);
 }
 
 main().catch(e => { console.error("adsready crashed:", e.message); process.exit(1); });

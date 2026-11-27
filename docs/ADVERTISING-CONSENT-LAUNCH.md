@@ -22,6 +22,44 @@ gates. No ad revenue or account approval is established by this document.
   future reviewed implementation supplies all launch evidence. Diagnostic PASS
   lines describe repository prerequisites, not a certified CMP or approval.
 
+### Current-release corrections and support work
+
+- Public Privacy, Cookie and Monetisation disclosures now distinguish **disabled
+  local runtime ad units** from the **existing static review loader**. The local
+  preference banner does not control that loader. This wording correction is
+  not certification, account approval or a zero-Google-request claim.
+- Analytics wording now describes the shipped opt-out behavior, including saved
+  choices, Do Not Track, Global Privacy Control and owner exclusion. A future
+  marketing email course still requires a real opt-in/unsubscribe flow; existing
+  service requests are not newsletter permission.
+- Static support links were already present on all 14 toolbox and 16 materials
+  HTML pages in the checked tree. The Hindi name tool now has an optional support
+  link and a free, browser-generated 1200×630 PNG card download. No paid access,
+  paid printable catalogue, affiliate relationship or tutor fee was introduced.
+  Card generation lazily loads the local Noto Sans Devanagari 700 subset, not a
+  remote font/image service. Source: `@fontsource/noto-sans-devanagari` 5.3.0,
+  `files/noto-sans-devanagari-devanagari-700-normal.woff2`, SIL OFL 1.1;
+  copyright/license shipped in `images/fonts/OFL-NotoSansDevanagari.txt`.
+  Font SHA-256: `6a68069c959d7f3c02f4062dd9be85327448b5d753e95455b1c0320f37f68fc1`.
+- The Hindi name tool's existing Google spelling helper is now explicitly
+  disclosed beside its input and in Privacy. Card rendering itself makes no
+  image-service upload; sharing intentionally includes the name.
+- Repository sitemap measurement: **15 child sitemaps, 1,561 unique entries**, all
+  on `https://ekguru.shop/` in the checked tree. This is not Search Console indexed
+  coverage. Do not substitute the old single-sitemap/~250-URL claim.
+- `ads.txt` retains exactly one authorized DIRECT record. Its diagnostic comments
+  no longer claim that a canonical alone proves why an account reported missing
+  ads.txt. Owner-side fetch/account status is still required.
+- `tools/adsready.js` labels file counts as inventory, not quality/originality or
+  an AdSense minimum-traffic/page threshold. HTTP checks have a bounded timeout;
+  failures return a nonzero exit status. It does not certify consent or approval.
+
+The proposed "1–2 ads on lessons and tools" is **not** this site's current policy:
+interactive-learning/tool routes stay excluded. Do not change the indexing
+contract, remove honest review notices, introduce paid packs/affiliate links or
+change zero tutor commission merely to follow a revenue estimate. Country-level
+traffic, ad rates and earnings have not been measured here.
+
 ## 2. Account owner: create and publish Google's CMP message
 
 Only the account owner/authorized account user can complete this section. There

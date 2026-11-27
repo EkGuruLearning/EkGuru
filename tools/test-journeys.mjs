@@ -5,6 +5,7 @@
  *   npx playwright test tools/test-journeys.mjs
  */
 import { test, expect } from "@playwright/test";
+import { readFileSync } from "node:fs";
 
 const base = process.env.EKGURU_BASE || "http://127.0.0.1:4173";
 
@@ -221,5 +222,32 @@ for (const width of [390, 1280]) {
       await expect(page).toHaveURL(/find-tutors\.html$/);
       await expect(page.locator('#f-q')).toBeVisible();
     }
+  });
+}
+
+for (const width of [390, 1280]) {
+  test(`Hindi name card is a real free PNG at ${width}px`, async ({ page }) => {
+    await page.setViewportSize({ width, height: 844 });
+    // Exercise deterministic offline spelling, not the availability of Google.
+    await page.route('https://inputtools.google.com/**', route => route.abort());
+    await page.goto(base + '/name-in-hindi/');
+    await page.locator('#nameIn').fill('Sarah');
+    await expect(page.locator('#out .big')).not.toHaveText('आपका नाम');
+    const button = page.getByRole('button', { name: 'Download name card (PNG)' });
+    await expect(button).toBeVisible();
+    const pending = page.waitForEvent('download');
+    await button.click();
+    const download = await pending;
+    expect(download.suggestedFilename()).toBe('ekguru-name-card.png');
+    const png = readFileSync(await download.path());
+    expect(png.subarray(0, 8).toString('hex')).toBe('89504e470d0a1a0a');
+    expect(png.readUInt32BE(16)).toBe(1200);
+    expect(png.readUInt32BE(20)).toBe(630);
+    expect(png.length).toBeGreaterThan(10000);
+    await expect(page.locator('#name-card-status')).toContainText('download started');
+    await expect(button).toBeEnabled();
+    const support = page.getByRole('link', { name: 'Support EkGuru — optional', exact: true });
+    await expect(support).toHaveAttribute('href', '../support/');
+    expect(await page.locator('script[src*="adsbygoogle"]').count()).toBe(0);
   });
 }
