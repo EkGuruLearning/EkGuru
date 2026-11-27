@@ -41,6 +41,11 @@ gates. No ad revenue or account approval is established by this document.
   `files/noto-sans-devanagari-devanagari-700-normal.woff2`, SIL OFL 1.1;
   copyright/license shipped in `images/fonts/OFL-NotoSansDevanagari.txt`.
   Font SHA-256: `6a68069c959d7f3c02f4062dd9be85327448b5d753e95455b1c0320f37f68fc1`.
+- Real-browser QA exposed an exclusion gap: the eight `/name-in-*/` tools were
+  classified as medium content. The policy now explicitly marks all eight as
+  interactive learning and removes their static AdSense loader/preconnects.
+  The regression keeps this exclusion; it does not remove the review loader
+  from permitted content pages or enable any runtime advertising.
 - The Hindi name tool's existing Google spelling helper is now explicitly
   disclosed beside its input and in Privacy. Card rendering itself makes no
   image-service upload; sharing intentionally includes the name.
