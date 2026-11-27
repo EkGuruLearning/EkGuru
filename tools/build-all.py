@@ -94,6 +94,7 @@ ULTRA_TESTS = [
     ("public crawl targets, assets and reciprocal hreflang", ["python3", "tools/discovery_integrity.py"]),
     ("discovery audit and relocation regression tests", ["python3", "tools/test-discovery-integrity.py"]),
     ("static landing metadata survives legacy SEO runtime", ["node", "tools/test-seo-runtime.mjs"]),
+    ("Hindi sentence pilot: accessible practice and preserved learning contracts", ["node", "tools/test-hindi-sentence-lesson.mjs"]),
     ("Phase 2 public-page inventory is current (repository-only)",
      ["python3", "tools/build-full-page-inventory.py", "--check"]),
     ("Phase 2 detailed content inventory is current (live HTTP pending)",

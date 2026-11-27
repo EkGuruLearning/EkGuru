@@ -357,8 +357,11 @@ def main() -> int:
         rebuild_index(maps)
         print("removed:", json.dumps(dict(sorted(totals.items())), sort_keys=True))
     result = audit_all()
-    REPORT.parent.mkdir(parents=True, exist_ok=True)
-    REPORT.write_text(json.dumps(result, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+    # --check promises read-only validation: don't rewrite the dated report
+    # (or create its directory) just because CI or a local audit ran.
+    if not args.check:
+        REPORT.parent.mkdir(parents=True, exist_ok=True)
+        REPORT.write_text(json.dumps(result, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
     total = result["indexed_url_memberships"]
     print(f"sitemap gate: {result['status']} ({total} indexed URL memberships, {len(result['failures'])} invalid)")
     return 0 if result["status"] == "PASS" else 1

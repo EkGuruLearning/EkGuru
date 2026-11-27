@@ -25,6 +25,26 @@ class FreshnessTests(unittest.TestCase):
                 MODULE.rebuild_supplement([])
                 self.assertEqual(supplement.read_text(), once)
 
+    def test_check_is_read_only_and_keeps_failure_exit_status(self):
+        with tempfile.TemporaryDirectory() as directory:
+            report = Path(directory) / 'quality' / 'sitemap-audit.json'
+            for status, expected_exit in [('PASS', 0), ('FAIL', 1)]:
+                result = {'status': status, 'indexed_url_memberships': 1, 'failures': [] if status == 'PASS' else ['bad-url']}
+                with patch.object(MODULE, 'REPORT', report), \
+                     patch.object(MODULE, 'generic_disallows', return_value=[]), \
+                     patch.object(MODULE, 'audit_all', return_value=result), \
+                     patch('sys.argv', ['build-sitemaps.py', '--check']):
+                    self.assertEqual(MODULE.main(), expected_exit)
+                    self.assertFalse(report.parent.exists(), 'check must not create report directories')
+            report.parent.mkdir()
+            report.write_text('existing report stays unchanged')
+            with patch.object(MODULE, 'REPORT', report), \
+                 patch.object(MODULE, 'generic_disallows', return_value=[]), \
+                 patch.object(MODULE, 'audit_all', return_value=result), \
+                 patch('sys.argv', ['build-sitemaps.py', '--check']):
+                self.assertEqual(MODULE.main(), 1)
+                self.assertEqual(report.read_text(), 'existing report stays unchanged')
+
     def test_index_does_not_stamp_every_child_with_build_date(self):
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory)
