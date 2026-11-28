@@ -1,0 +1,23 @@
+from pathlib import Path
+from playwright.sync_api import sync_playwright
+import sys
+R=Path(__file__).resolve().parents[1];sys.path.insert(0,str(R/'source'));from preview import embedded
+O=R/'screenshots';O.mkdir(exist_ok=True)
+with sync_playwright() as pw:
+ b=pw.chromium.launch(executable_path='/usr/bin/chromium',args=['--no-sandbox']);p=b.new_page(viewport={'width':1440,'height':1000},reduced_motion='reduce');errors=[];p.on('pageerror',lambda e:errors.append(str(e)))
+ def load(path=''):p.set_content(embedded(path));p.evaluate('scrollTo(0,0)')
+ load();assert p.locator('.chapter-card').count()==40;p.screenshot(path=str(O/'book.png'),animations='disabled')
+ lesson='phase-01/chapter-09/lesson-01';load(lesson);assert p.locator('.concept-box').count()==1;assert p.locator('.syntax-row').count()==1;p.screenshot(path=str(O/'lesson.png'),animations='disabled');p.locator('.visual-model').screenshot(path=str(O/'grammar.png'),animations='disabled');p.locator('.syntax-row [data-correct=false]').first.click();assert 'फिर' in p.locator('.syntax-row [data-feedback]').first.inner_text();p.locator('.syntax-row [data-correct=true]').first.click();assert 'सही' in p.locator('.syntax-row [data-feedback]').first.inner_text();p.locator('[data-model-choice="1"]').click();assert 'दौड़ रहा है' in p.locator('[data-model-parts]').inner_text();p.locator('[data-english]').click();assert p.locator('.word-card .en:visible').count()==0;p.locator('[data-english]').click()
+ c=p.locator('canvas');c.scroll_into_view_if_needed();box=c.bounding_box();p.mouse.move(box['x']+30,box['y']+30);p.mouse.down();p.mouse.move(box['x']+100,box['y']+80,steps=8);p.mouse.up();assert c.evaluate('c=>c.getContext("2d").getImageData(0,0,c.width,c.height).data.some(x=>x!==0)');p.locator('[data-undo]').click();assert not c.evaluate('c=>c.getContext("2d").getImageData(0,0,c.width,c.height).data.some(x=>x!==0)')
+ p.locator('[data-complete]').click();assert p.locator('[data-complete]').get_attribute('aria-pressed')=='true'
+ reading='phase-03/chapter-21/lesson-02';load(reading);assert p.locator('.long-reading details').count()==3;p.locator('.long-reading').screenshot(path=str(O/'reading.png'),animations='disabled');p.locator('.long-reading summary').first.click();assert p.locator('.long-reading details p').first.is_visible();p.locator('button[data-theme]').click();p.locator('.long-reading').screenshot(path=str(O/'dark.png'),animations='disabled');p.locator('button[data-theme]').click()
+ load('phase-03/chapter-21/worksheet');p.locator('[data-ink]').click();p.emulate_media(media='print');assert p.locator('.print-tools').is_hidden() and p.locator('.answer-key').is_hidden();p.emulate_media(media='screen');p.locator('.answer-key summary').click();p.emulate_media(media='print');assert p.locator('.answer-key').is_visible();p.emulate_media(media='screen');p.screenshot(path=str(O/'worksheet.png'),animations='disabled')
+ load('phase-04/chapter-40/lesson-02');assert p.locator('.final-question').count()==10;p.locator('.final-question [data-correct=true]').first.click();assert 'सही' in p.locator('.final-question [data-feedback]').first.inner_text()
+ for path in ['',lesson,reading]:
+  load(path)
+  for w in [320,375,390,430,768,1024,1280,1440,1920]:
+   p.set_viewport_size({'width':w,'height':950});assert p.evaluate('document.documentElement.scrollWidth<=innerWidth'),(path,w)
+ p.set_viewport_size({'width':390,'height':844});load(reading);p.screenshot(path=str(O/'mobile.png'),animations='disabled');assert not errors,errors
+ a=b.new_page();a.set_content(embedded(lesson));a.evaluate("Object.defineProperty(window,'speechSynthesis',{value:{getVoices:()=>[{lang:'en-US'}],cancel(){},speak(){throw Error('wrong voice')}}})");a.locator('[data-say]').first.click();assert 'उपलब्ध नहीं' in a.locator('[data-toast]').inner_text()
+ ctx=b.new_context(java_script_enabled=False);n=ctx.new_page();n.set_content(embedded(reading));assert n.locator('.long-reading p').count()>=4;n.locator('.long-reading summary').first.click();assert n.locator('.long-reading details p').first.is_visible();ctx.close();b.close()
+print('PASS: 27 viewport/page combinations, grammar and final quizzes, visual grammar, English toggle, freehand undo, completion, extended reading, print CSS, missing Hindi voice and no-JS reading. Embedded DOM; hosted navigation/storage not tested.')

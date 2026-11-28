@@ -1,0 +1,27 @@
+# EkGuru Hindi — Book 01: बाल हिंदी (v1)
+
+Independent, preschool-inspired textbook draft (not accredited or native-speaker-reviewed). This package is the NEXT stage after Learn V3 and Hindi Hub V1; no duplicate Academy. Four phases, 40 chapters, 80 authored short lessons, 548 vocabulary/character occurrences (not unique words), 257 reading lines/examples, 40 printable worksheet pages with answers, and 93 original local SVG illustrations (49 reused from the prior visual pack; 44 new). All 165 pages are actually generated, not placeholder cards. Some abstract terms use typography instead of an unrelated image. Original poems and short reading stories included. All 33 standard consonants, 11 independent vowels, additional signs and selected nukta/conjunct forms are covered; 429 traditional chart forms in the full Barakhadi (33 × 13). The preschool track is deliberately an introductory supported reader, not a full Class 1–12 curriculum or proof of mastery.
+
+## Preview (complete website locally)
+Extract the archive. In Terminal, `cd` into the extracted package and run:
+
+```sh
+python3 -m http.server 8000 --directory site
+```
+
+Open `http://localhost:8000/learn/hindi/kids/`. Course, phase, chapter, lesson and worksheet pages are real static files. `preview-lesson.html` is a separate, self-contained example of Chapter 2 Lesson 1. It embeds assets and interactions; intra-course navigation is intentionally disabled there because those routes exist only in the full package. Screenshots show actual embedded Chromium renderings.
+
+## Integration (Arena)
+Use the current working branch, not an assumed default branch. Extract outside the public artifact. Inspect `site/`, `source/curriculum.txt`, `source/art.json`, `site/data/learning/hindi-kids-book.json`, and `migration.md`. `python3 install.py /path/to/EkGuru` is read-only; it checks collisions. `python3 install.py /path/to/EkGuru --apply` copies only new or byte-identical public assets. It sets the previous Hindi Hub V1 Kids registry record to `existing` (available, not editorially approved); if that registry is missing, register manually after installing Hindi Hub V1. It refuses to overwrite differing files. Never blindly replace Arena's uncommitted work. No legacy resource or unrelated page is removed.
+
+Retain this complete source package in a private repo folder such as `tools/hindi-kids-book/` (including its `site/` output) or adapt the generator to the current build convention. Its `source/build.py` generates pages and manifest under `site/`; `source/build_art.py` rebuilds the 44 new SVGs using original shape code and the included 49 prior artwork files. `source/preview.py` creates the standalone sample. Wire the single source into the existing pipeline; preserve shared header/footer, editorial notices, theme convention, analytics, consent, service worker, publisher exclusions and indexing rules. The included book shell is intentionally standalone and must be reconciled with the site shell at integration. Do not ship duplicate private copies or previews. The new routes default to `noindex, follow`; do not change indexing without owner approval and editorial review. Add them to search/sitemaps according to the existing indexing contract, not unconditionally. Verify all former links and legacy learner progress. The new Kids progress is separate; it does not overwrite the existing foundation progress.
+
+## Features and limitations
+- Plain static HTML generated from explicit curriculum records; native CSS and JavaScript; no added runtime dependencies or server. All reading and answer details work without JavaScript.
+- Original local vector art, chapter pictures, vocabulary images where meaningful, short CSS animations, dynamic matra builder, interactive number dots, quizzes, freehand writing canvas with undo/clear, notebook-style copying, theme and optional English support.
+- Hindi speech synthesis only when a matching device voice exists. No native recordings included; verify pronunciation and voice availability on actual target devices. No false pronunciation score.
+- Copy/tracing models are typed glyphs, not verified stroke-order paths. Verified per-character stroke animation, full native/editorial review, more varied audio and activities, additional image coverage and independent age-level validation remain needed. No guaranteed proficiency or ranking. Browser print uses paper size from print dialog (A4 or Letter); no pre-rendered PDFs supplied. Answer key prints separately when expanded.
+- New source curriculum is not a full old-content migration; preserve existing resources and use `migration.md` to map them after actual content review. Other academic books and adult path are not included.
+
+## Tests
+`python3 tests/test_book.py`: static page/asset/link/character/sequence checks. `node --check site/js/hindi-kids-reader.js`: syntax. `python3 tests/browser_test.py`: Chromium embedded DOM tests (requires Playwright/Chromium only for dev). Browser HTTP navigation was blocked by environment; actual host navigation, storage persistence, shared shell, full repository build, a11y audit, real audio, print pagination and performance must be verified in Arena. Standalone embedded browser tests cover 27 width/page combinations, theme, English toggle, matra/429 chart, quiz, canvas draw/undo, self-mark, counting, print media, no-Hindi-voice fallback and JS-free reading. No files have been pushed or deployed.

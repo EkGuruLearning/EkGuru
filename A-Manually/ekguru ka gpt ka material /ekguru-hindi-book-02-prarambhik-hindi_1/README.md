@@ -1,0 +1,25 @@
+# EkGuru Hindi — Book 02: प्रारंभिक हिंदी (v1)
+
+Independent Class 1–3-inspired progressive academic textbook draft, following Book 01 (बाल हिंदी). Not an accredited school curriculum or native-speaker-reviewed work. Contains 4 phases, 40 chapters, 80 original short lessons with an individual teaching explanation and applied task, 671 vocabulary/character occurrences (545 distinct displayed forms), 304 reading/model lines, 31 interactive sentence labs with 61 authored questions and explanations, 6 animated visual grammar models, 40 printable worksheets, 429 Barakhadi forms, and 119 local SVG illustrations (93 shared unchanged from Book 01; 26 new original artwork files). Generated output comprises 165 actual static pages. These are draft instructional materials, not placeholder pages. Illustration coverage is selective; abstract vocabulary may use typography.
+
+## Preview
+Extract the ZIP, change into its folder and run `python3 -m http.server 8000 --directory site`. Open `http://localhost:8000/learn/hindi/beginner/`. `preview-lesson.html` is an embedded standalone sample (Chapter 14, Lesson 2); navigation inside the sample is disabled because the real pages are in the full site folder.
+
+## Integration: important existing route collision
+The existing EkGuru repository has `/learn/hindi/beginner/index.html`. Do not replace that page or change its indexing by accident. Read migration.md first. `python3 install.py /path/to/EkGuru` is a read-only collision check. For an existing beginner landing page use `python3 install.py /path/to/EkGuru --keep-existing-root` to preflight child routes and assets; `--keep-existing-root --apply` safely installs only new or identical child files, leaving the existing landing page and registry unchanged. It aborts if any other conflicting file is found. For a fresh directory, `--apply` works without `--keep-existing-root`. Arena must merge the proposed landing page into the owning generator, retain legacy links, canonicals and indexing policy, and connect the new child routes. The standalone generator is not yet wired to EkGuru's full build; avoid running it over the live checkout without adapting the existing root rendering. Never delete legacy content or reset uncommitted work. Keep a private source copy (e.g. tools/hindi-beginner-book/), with its `site/` output and tests excluded from publication. Use the repository's existing shared shell, header/footer, progress, theme, analytics, consent, accessibility, indexing and publisher contracts. New child pages default to noindex, follow pending approval. Common illustrations use identical Book 01 paths and bytes, avoiding duplicate public copies when both books are integrated. No runtime dependencies.
+
+## Sources
+- `source/curriculum.txt`: 40 chapter records and 80 explicit lesson records (9 pipe-separated fields per lesson).
+- `source/labs.json`: 31 sentence lab sets (61 questions). `source/labs.txt` is the original authoring input; regenerate the JSON when editing the text or edit the JSON as the build source.
+- `source/visual-models.json`: six interactive grammar demonstrations.
+- `source/art.json`: shared Book 01 artwork manifest. Its original image files are bundled under site/images/hindi-kids.
+- `source/build_art.py`: generates 26 new SVGs and `source/new-art.json`.
+- `source/build.py`: generates static HTML and course manifest.
+- `source/preview.py`: generates the embedded sample.
+- `tests/`: static, installer and embedded Chromium checks.
+
+## Limitations
+Audio uses a matching device Hindi speech synthesis voice (normal/slow/stop); no recorded native audio. Copying and freehand canvas are not verified stroke-order animations or handwriting recognition. Printed worksheets use browser Print / Save as PDF; no pre-rendered PDF files or actual page-pagination verification. The activities are self-assessment, not certified mastery. No new backend, login, commission or payment. Preserve old data and review progress migrations separately; local Book 02 state uses distinct beginner keys. English vocabulary meanings remain useful for foreign learners; this is not a full English translation of every reading passage. Editorial review, further illustration coverage, approved indexing, old-content migration, full integrated build, real hosted link/navigation and storage persistence, full accessibility/performance audit and audio quality verification remain pending. No GitHub changes or deployment performed.
+
+## Rebuild and test
+`python3 source/build_art.py`, `python3 source/build.py`, `python3 source/preview.py`, `python3 tests/test_book.py`, `python3 tests/test_install.py`, `node --check site/js/hindi-beginner-reader.js`, `python3 tests/browser_test.py` (requires Playwright/Chromium). Verified 9 static tests, 2 installer tests, JS syntax, 27 embedded viewport/page combinations and actual embedded quiz, visual model, canvas, chart, theme, English toggle, print CSS, missing Hindi voice fallback and no-JS reading checks. No full repo build or live origin tests.
