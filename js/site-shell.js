@@ -202,9 +202,26 @@
     }
   }
 
+  function initStudentNavigation() {
+    var group = doc.querySelector('[data-student-nav]');
+    if (!group) return;
+    var loaded = false;
+    function load() {
+      if (loaded) return;
+      loaded = true;
+      var script = doc.createElement('script'); script.type = 'module'; script.src = '/js/student/nav.js'; doc.head.appendChild(script);
+    }
+    group.addEventListener('pointerenter', load, { once: true });
+    group.addEventListener('focusin', load, { once: true });
+    var burger = doc.querySelector('.hdr .burger');
+    if (burger) burger.addEventListener('click', load, { once: true });
+    if (doc.querySelector('[data-student-page]')) load();
+  }
+
   function boot() {
     try { initMenu(); } catch (e) {}
     try { initValues(); } catch (e) {}
+    try { initStudentNavigation(); } catch (e3) {}
     try { cleanupRemovedGame(); } catch (e2) {}
   }
 

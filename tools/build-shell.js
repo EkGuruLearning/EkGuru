@@ -235,7 +235,7 @@ function anchor(href, english, key, label, loc) {
    8px gap in the mobile drawer. */
 const LANGSWITCH = '      <div class="lang-wrap" id="lang-switch"></div>';
 
-function headerHTML(p, shell, loc, dict, hasMain) {
+function headerHTML(p, shell, loc, dict, hasMain, studentArea) {
   const L = labeller(loc, dict);
   /* l is the market's own root: one level up from the page for /ar/xx/, and
      the page's own directory for the market home itself. */
@@ -248,6 +248,7 @@ function headerHTML(p, shell, loc, dict, hasMain) {
   };
   const nav = NAV.map(([en, key, target]) =>
     "      " + anchor(href(target), en, key, L(en, key), loc)).join("\n");
+  const studentNav = studentArea ? `      <span data-student-nav style="display:contents"><a href="${esc(p)}account/" data-student-neutral>Account</a><a href="${esc(p)}account/login/" data-guest hidden>Log in</a><a href="${esc(p)}account/register/" data-guest hidden>Create account</a><a href="${esc(p)}account/dashboard/" data-signed-in hidden>Account</a></span>\n` : "";
   return `${H_START}
 <header class="hdr">
   <a class="skip" href="#main">${esc(L("Skip to content", "nav.skip"))}</a>
@@ -259,7 +260,7 @@ function headerHTML(p, shell, loc, dict, hasMain) {
     <button class="burger" type="button" aria-label="Menu" aria-expanded="false"><span></span></button>
     <nav class="nav" aria-label="Main">
 ${nav}
-      <a class="btn btn-primary btn-sm" href="${esc(href(ZERO_TUTORS ? "learnHindi" : "findTutors"))}"${loc ? ` data-i18n="${ZERO_TUTORS ? "tutors.emptyCta" : "nav.cta"}"` : ""}>${esc(ZERO_TUTORS ? L("Start the free course", "tutors.emptyCta") : L(CTA[0], CTA[1]))}</a>
+${studentNav}      <a class="btn btn-primary btn-sm" href="${esc(href(ZERO_TUTORS ? "learnHindi" : "findTutors"))}"${loc ? ` data-i18n="${ZERO_TUTORS ? "tutors.emptyCta" : "nav.cta"}"` : ""}>${esc(ZERO_TUTORS ? L("Start the free course", "tutors.emptyCta") : L(CTA[0], CTA[1]))}</a>
 ${hasMain ? LANGSWITCH + "\n" : ""}    </nav>
   </div>
 </header>
@@ -441,6 +442,7 @@ function rebuild(html, file, shell, dict) {
 
   const loc = localeOf(file);
   const p = prefixFor(file);
+  const studentArea = /^account\//.test(file.replace(/^\.\//, ""));
   const hasMain = /<script[^>]+js\/main\.js/.test(html);
   let out = html;
   let touched = false;
@@ -475,7 +477,7 @@ function rebuild(html, file, shell, dict) {
 
   /* 3. put the shell back — fresh markup at the old position, or a new one */
   if (out.includes(HOLD_H)) {
-    let freshHeader = headerHTML(p, shell, loc, dict, hasMain);
+    let freshHeader = headerHTML(p, shell, loc, dict, hasMain, studentArea);
     if (preservedHeaderScripts.length) {
       freshHeader = freshHeader.replace(H_END,
         preservedHeaderScripts.join("\n") + "\n" + H_END);
@@ -487,7 +489,7 @@ function rebuild(html, file, shell, dict) {
     /* after <body>, before anything else: the skip link and the page
        wrapper stay exactly where they were */
     const at = m ? m.index + m[0].length : out.indexOf("\n");
-    out = out.slice(0, at) + "\n" + headerHTML(p, shell, loc, dict, hasMain) + out.slice(at);
+    out = out.slice(0, at) + "\n" + headerHTML(p, shell, loc, dict, hasMain, studentArea) + out.slice(at);
     touched = true;
     stats.injectedHeader = 1;
   }

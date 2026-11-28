@@ -36,9 +36,7 @@ const fs = require("fs");
 const path = require("path");
 const ROOT = path.join(__dirname, "../..");
 
-const EXCL_DIRS = new Set([".git", "node_modules", "ask", "answers", "reports", "docs",
-  "research", "data", "tools", "csv", "live-sheets", "server", "images", "css",
-  "audio", "fonts", "unselected", "Unselected files"]);
+const { walk } = require("../../tools/lib/attribution-walk");
 const EXCL_FILES = new Set(["admin.html"]);
 
 /* Hosts that legitimately appear as absolute URLs in the public
@@ -106,17 +104,7 @@ const fails = (what, where, detail) => {
   console.log(`FAIL  ${what}  →  ${where}${detail ? "  →  " + detail.slice(0, 140) : ""}`);
 };
 
-function walk(dir, out) {
-  for (const e of fs.readdirSync(dir, { withFileTypes: true })) {
-    if (e.isDirectory()) {
-      if (!EXCL_DIRS.has(e.name)) walk(path.join(dir, e.name), out);
-    } else if (e.isFile()) {
-      out.push(path.join(dir, e.name));
-    }
-  }
-}
-const files = [];
-walk(ROOT, files);
+const files = walk(ROOT);
 const rel = (p) => path.relative(ROOT, p);
 
 const htmlFiles = [];
@@ -211,7 +199,10 @@ for (const r of jsFiles) {
   }
   for (const m of t.matchAll(/https?:\/\/([^/"'\s<>`]+)([^\s"'<>`]*)/g)) {
     const host = m[1].toLowerCase().split(":")[0];
-    if (!ALLOWED_HOSTS.has(host) && !APPROVED_TUTOR_PHOTOS.has(m[0])) fails("URL host outside allowlist in JS", r, m[0]);
+    // Exact documentation URL embedded by the pinned, locally bundled Firebase SDK.
+    const firebaseSdkDoc = r === "js/student/firebase-sdk.js" && m[0] === "https://firebase.google.com/docs/studio/preview-apps#preview-backend";
+    const proposedStudentApi = ["js/student/api.js", "js/student/config.js"].includes(r) && m[0] === "https://api.ekguru.shop";
+    if (!ALLOWED_HOSTS.has(host) && !APPROVED_TUTOR_PHOTOS.has(m[0]) && !firebaseSdkDoc && !proposedStudentApi) fails("URL host outside allowlist in JS", r, m[0]);
   }
   if (/preplyUrl\s*:\s*["'][^"']+["']/.test(t)) fails("non-empty preplyUrl literal in public JS", r);
   if (/sameAs\s*:\s*\[[^\]]*preplyUrl/i.test(t)) fails("sameAs built from preplyUrl", r);

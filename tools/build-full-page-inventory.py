@@ -258,7 +258,7 @@ def analyse(path: str, sitemap_urls, file_set):
 def main():
     all_html = []
     excluded_dirs = {
-        ".git", "node_modules", ".venv", "vendor", "build", "dist", "coverage",
+        ".git", ".artifacts", "node_modules", ".venv", "vendor", "build", "dist", "coverage",
         "out", "target", "reports", "research", "docs", "tools", "data", "A-Manually",
     }
     machine_file = re.compile(r"^google[a-z0-9]+\.html$")
@@ -271,7 +271,7 @@ def main():
     all_html.sort()
     file_set = set()
     for dirpath, dirnames, filenames in os.walk(ROOT):
-        dirnames[:] = [d for d in dirnames if d not in (".git", "node_modules")]
+        dirnames[:] = [d for d in dirnames if d not in (".git", ".artifacts", "node_modules")]
         for f in filenames:
             file_set.add(os.path.relpath(os.path.join(dirpath, f), ROOT).replace("\\", "/"))
 
