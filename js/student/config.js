@@ -10,6 +10,5 @@ export const studentConfig = Object.freeze({
     appId: '1:496486998098:web:3de9073998de6e6d94ff8b'
   }),
   authActionUrl: null,
-  workerOrigin: 'https://api.ekguru.shop',
-  routes: Object.freeze({ dashboard: null, catalogue: null, purchases: null, deleteAccount: null })
+  workerOrigin: 'https://api.ekguru.shop'
 });

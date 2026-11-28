@@ -32,12 +32,11 @@ class LMSRoutes(unittest.TestCase):
                     self.assertFalse(key.lower().startswith('on'))
                     if 'href' in key:self.assertTrue(value.startswith('#'))
                     self.assertNotRegex(value,r'https?://')
-    def test_reader_and_checkout_are_not_published_paid_content(self):
-        reader=(ROOT/'premium/reader/index.html').read_text()
-        checkout=(ROOT/'premium/checkout/index.html').read_text()
-        self.assertIn('not connected',reader)
-        self.assertIn('Checkout unavailable',checkout)
-        self.assertNotIn('checkout.razorpay.com',checkout)
+    def test_unrelated_learning_and_checkout_routes_are_absent(self):
+        for route in ('premium/reader/', 'premium/checkout/', 'premium/courses/', 'courses/premium/',
+                      'account/courses/', 'account/progress/', 'account/bookmarks/', 'account/results/', 'account/orders/'):
+            self.assertFalse((ROOT / route / 'index.html').exists(), route)
+
     def test_visible_static_interface_has_hindi_mapping(self):
         from html.parser import HTMLParser
         class Text(HTMLParser):
@@ -50,16 +49,14 @@ class LMSRoutes(unittest.TestCase):
         keys=set(re.findall(r"'([^']+)'\s*:",dictionary))
         missing={text for text in parser.values if text not in keys and re.search(r'[A-Za-z]',text)}
         self.assertEqual(missing,set(),f'Unmapped English interface text: {missing}')
-    def test_only_reviewed_student_api_is_configured(self):
+    def test_only_authentication_api_is_configured(self):
         config=(ROOT/'js/student/config.js').read_text()
         self.assertRegex(config,r"workerOrigin:\s*'https://api\.ekguru\.shop'")
-        # Unsupported catalogue, purchases and account deletion do not become enabled.
-        for route in ('catalogue','purchases','deleteAccount'):
-            self.assertRegex(config,route+r':\s*null')
         client=(ROOT/'js/student/api.js').read_text()
-        self.assertIn("const ORIGIN='https://api.ekguru.shop'",client)
-        for method,path in [('GET','/v1/auth/session'),('POST','/v1/auth/logout'),('GET','/v1/profile'),('PATCH','/v1/profile'),('GET','/v1/dashboard'),('PUT','/v1/progress')]:
-            self.assertIn("method:'"+method+"',path:'"+path+"'",client)
-        self.assertIn("path='/v1/courses/'",client)
-        # Behavioral request validation and cancellation are covered in student-api.test.mjs.
+        self.assertIn("method:'GET',path:'/v1/auth/session'",client)
+        self.assertIn("method:'POST',path:'/v1/auth/logout'",client)
+        for path in ('/v1/profile', '/v1/dashboard', '/v1/progress', '/v1/courses/'):
+            self.assertNotIn(path, client)
+        self.assertNotIn('initialiseReader', (ROOT/'js/student/app.js').read_text())
+
 if __name__=='__main__':unittest.main()

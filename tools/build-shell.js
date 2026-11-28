@@ -248,7 +248,7 @@ function headerHTML(p, shell, loc, dict, hasMain, studentArea) {
   };
   const nav = NAV.map(([en, key, target]) =>
     "      " + anchor(href(target), en, key, L(en, key), loc)).join("\n");
-  const studentNav = studentArea ? `      <span data-student-nav style="display:contents"><a href="${esc(p)}account/" data-student-neutral>Account</a><a href="${esc(p)}account/login/" data-guest hidden>Log in</a><a href="${esc(p)}account/register/" data-guest hidden>Create account</a><a href="${esc(p)}account/dashboard/" data-signed-in hidden>My Learning</a><a href="${esc(p)}account/settings/" data-signed-in hidden>Account</a></span>\n` : "";
+  const studentNav = studentArea ? `      <span data-student-nav style="display:contents"><a href="${esc(p)}account/" data-student-neutral>Account</a><a href="${esc(p)}account/login/" data-guest hidden>Log in</a><a href="${esc(p)}account/register/" data-guest hidden>Create account</a><a href="${esc(p)}account/dashboard/" data-signed-in hidden>Account</a></span>\n` : "";
   return `${H_START}
 <header class="hdr">
   <a class="skip" href="#main">${esc(L("Skip to content", "nav.skip"))}</a>
@@ -442,7 +442,7 @@ function rebuild(html, file, shell, dict) {
 
   const loc = localeOf(file);
   const p = prefixFor(file);
-  const studentArea = /^(?:account|premium|courses\/premium)\//.test(file.replace(/^\.\//, ""));
+  const studentArea = /^account\//.test(file.replace(/^\.\//, ""));
   const hasMain = /<script[^>]+js\/main\.js/.test(html);
   let out = html;
   let touched = false;
