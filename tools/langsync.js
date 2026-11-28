@@ -37,7 +37,7 @@ const path = require("path");
 const ROOT = path.resolve(__dirname, "..");
 process.chdir(ROOT);
 
-const SKIP_DIRS = new Set([".git", "node_modules", "images", "css", "data", "reports", "docs"]);
+const SKIP_DIRS = new Set([".git", "node_modules", "images", "css", "data", "reports", "docs", "A-Manually"]);
 
 /* The registry is a plain list of ids — read it without running it. */
 function readRegistry() {

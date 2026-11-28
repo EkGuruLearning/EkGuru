@@ -21,7 +21,7 @@ import re
 ROOT = Path(__file__).parent.parent
 os.chdir(ROOT)
 
-SKIP_DIRS = {".git", "node_modules", "images", "css", "js", "data", "reports", "docs", "templates", "research", "tools", "csv"}
+SKIP_DIRS = {".git", "node_modules", "images", "css", "js", "data", "reports", "docs", "templates", "research", "tools", "csv", "A-Manually"}
 
 MODERN_JS = [
     ("js/cookie-consent.js", "cookie-consent"),

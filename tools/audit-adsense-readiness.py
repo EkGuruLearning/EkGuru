@@ -20,7 +20,7 @@ from urllib.parse import urlparse
 
 ROOT=Path(__file__).resolve().parents[1]
 OUT=ROOT/'data/quality/adsense-readiness.json'
-EXCLUDED_DIRS={'.git','node_modules','.venv','vendor','reports','research','docs','tools','data'}
+EXCLUDED_DIRS={'.git','node_modules','.venv','vendor','reports','research','docs','tools','data','A-Manually'}
 CJK_RE = re.compile(r'[\u3040-\u30ff\u3400-\u4dbf\u4e00-\u9fff\uac00-\ud7af]')
 THAI_RE = re.compile(r'[\u0e00-\u0e7f]')
 THAI_MARK_RE = re.compile(r'[\u0e31\u0e34-\u0e3a\u0e47-\u0e4e]')

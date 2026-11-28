@@ -11,7 +11,7 @@ import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-SKIP = {".git", "node_modules", "reports", "tools", "data", "research", "templates"}
+SKIP = {".git", "node_modules", "reports", "tools", "data", "research", "templates", "A-Manually"}
 MARK = "<!-- ekguru:questions-api -->"
 BLOCK = re.compile(r"\s*<!-- ekguru:questions-api -->\s*<script\b[^>]*\bsrc=[\"'](?:\.\./)*js/question-api\.js[\"'][^>]*>\s*</script>", re.I)
 SCRIPT = re.compile(r"<script\b[^>]*>", re.I)

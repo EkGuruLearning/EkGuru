@@ -55,7 +55,7 @@ const ROOT = path.resolve(__dirname, "..");
 process.chdir(ROOT);
 
 const SKIP_DIRS = new Set([".git", "node_modules", "images", "css", "js", "data",
-  "reports", "docs", "templates", "research"]);
+  "reports", "docs", "templates", "research", "A-Manually"]);
 const SKIP_FILES = new Set(["googleb3b0e3defc1daa17.html"]);   // Google verification
 
 const H_START = "<!-- ekguru:shell-header:start -->";

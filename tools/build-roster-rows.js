@@ -32,7 +32,7 @@ const { loadSite } = require("./lib/site-data");
 const ROOT = path.resolve(__dirname, "..");
 process.chdir(ROOT);
 
-const SKIP_DIRS = new Set([".git", "node_modules", "images", "css", "data", "reports", "docs"]);
+const SKIP_DIRS = new Set([".git", "node_modules", "images", "css", "data", "reports", "docs", "A-Manually"]);
 
 const esc = (s) =>
   String(s == null ? "" : s)

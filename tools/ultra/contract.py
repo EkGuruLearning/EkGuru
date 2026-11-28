@@ -6,7 +6,7 @@ from html.parser import HTMLParser
 ROOT=Path(__file__).resolve().parents[2]
 BASE='bc8c0bd09e01100fbe04c465748aa417bd905925'
 OUT=ROOT/'data/quality/indexing-baseline.json'
-SKIP={'.git','node_modules','reports','research','docs','tools','tests','data','templates','Arena latest command  arena'}
+SKIP={'.git','node_modules','reports','research','docs','tools','tests','data','templates','Arena latest command  arena','A-Manually'}
 class Head(HTMLParser):
  def __init__(self,s):
   super().__init__(convert_charrefs=True);self.noindex=False;self.canonical='';self.feed(s.split('</head>',1)[0])

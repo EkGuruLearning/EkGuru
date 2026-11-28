@@ -59,7 +59,7 @@ SNIPPET = (
 )
 
 SKIP_DIRS = {".git", "node_modules", "images", "css", "js", "docs", "templates",
-             "research", "tools", "data", "reports"}
+             "research", "tools", "data", "reports", "A-Manually"}
 
 # Every shape an ad block takes in this repository, newest first. A stale unit
 # left behind by an older build is exactly what this tool exists to prevent, so

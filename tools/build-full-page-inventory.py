@@ -259,7 +259,7 @@ def main():
     all_html = []
     excluded_dirs = {
         ".git", "node_modules", ".venv", "vendor", "build", "dist", "coverage",
-        "out", "target", "reports", "research", "docs", "tools", "data",
+        "out", "target", "reports", "research", "docs", "tools", "data", "A-Manually",
     }
     machine_file = re.compile(r"^google[a-z0-9]+\.html$")
     for dirpath, dirnames, filenames in os.walk(ROOT):
