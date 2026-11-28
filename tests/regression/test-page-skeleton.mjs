@@ -26,7 +26,7 @@ const ok = (name, cond, detail = "") => {
 const read = (p) => fs.readFileSync(p, "utf8");
 
 const SKIP = new Set([".git", "node_modules", "images", "css", "js", "data",
-                      "reports", "docs", "templates", "research", "tools"]);
+                      "reports", "docs", "templates", "research", "tools", "A-Manually"]);
 const pages = [];
 (function walk(dir) {
   for (const e of fs.readdirSync(dir, { withFileTypes: true })) {

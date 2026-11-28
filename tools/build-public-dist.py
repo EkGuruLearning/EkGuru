@@ -53,10 +53,11 @@ PRIVATE_DIRS = {
     "apps-script", "server", "csv", "live-sheets", "uploads", "audit",
     "generators", "integrations", "config", "scripts", "_site", ".artifacts",
     "playwright-report", "test-results", "Unselected files",
-    "Arena latest command  arena",
+    # Uploaded design/source packs are development inputs, not site pages.
+    "A-Manually", "Arena latest command  arena",
 }
 PRIVATE_FILES = {
-    ".gitignore", "package.json", "package-lock.json", "playwright.config.mjs",
+    ".gitignore", "package.json", "package-lock.json", "playwright.config.mjs", "Manually",
 }
 # Root-level files by extension that are never pages.
 PRIVATE_ROOT_EXT = {".md", ".csv", ".log", ".py", ".mjs"}

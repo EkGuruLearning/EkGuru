@@ -40,6 +40,7 @@ def _load(name, path):
 C = _load("hindi_foundation_content", os.path.join(ROOT, "tools", "hindi-foundation-content.py"))
 P = _load("build_hindi_pages", os.path.join(ROOT, "tools", "build-hindi-pages.py"))
 D = _load("foundation_depth", os.path.join(ROOT, "tools", "build-hindi-foundation-depth.py"))
+R = _load("textbook_reader", os.path.join(ROOT, "tools", "build-hindi-textbook-reader.py"))
 DEPTH_CHAPTERS = {chapter['slug']: chapter for chapter in D.content()['chapters']}
 
 BASE = "https://ekguru.shop"
@@ -151,6 +152,27 @@ STYLE = """
 .fd-letter .rm{display:block;color:var(--muted);font-size:.86rem;margin:2px 0 8px}
 .fd-letter .kw{display:block;font-size:1.25rem;line-height:1.3}
 .fd-letter .kw i{font-style:normal;font-size:1.5rem;display:block}
+.fd-letter .fd-picture{display:block;width:min(100%%,180px);height:auto;aspect-ratio:4/3;object-fit:contain;margin:4px auto 9px;border-radius:10px}
+.fd-air-demo{margin:18px 0;padding:14px;border:1px solid var(--line);border-radius:12px;background:var(--bg,#fff)}
+.fd-air-demo summary{cursor:pointer;font-weight:600}
+.fd-air-demo svg{display:block;width:min(100%%,480px);height:auto;margin:10px auto}
+.fd-air-demo .air{transform-box:fill-box;transform-origin:center;opacity:.75}
+.fd-air-demo[open] .air{animation:fd-air-puff 1.5s ease-out 2}
+.fd-air-demo[open] .air.strong{animation-delay:.2s}
+@keyframes fd-air-puff{0%%{transform:translateX(-12px) scale(.6);opacity:.2}60%%{opacity:1}100%%{transform:translateX(18px) scale(1.08);opacity:.75}}
+@media(prefers-reduced-motion:reduce){.fd-air-demo[open] .air{animation:none}}
+/* Trace glyphs need the locally supplied font even without a system Hindi font. */
+main:has(>.htr-nav) .trace-cell text{font-family:TextbookDevanagari,system-ui,sans-serif}
+@media print{
+  .fd-letter .fd-picture{width:95px}
+  .fd-air-demo .air{animation:none!important}
+  /* Avoid splitting character cards between pages and expose all trace models,
+     including those not yet scrolled into view in the interactive lesson. */
+  .fd-letter,.trace-cell{break-inside:avoid;page-break-inside:avoid}
+  html.sb-js .trace-cell{opacity:1!important;transform:none!important}
+  /* Book-mode activities need input or audio; a frozen round is not a worksheet. */
+  .art .bk-ex{display:none!important}
+}
 .fd-letter .en{display:block;color:var(--ink-2);font-size:.82rem;margin-top:2px}
 .fd-letter .hint{display:block;color:var(--muted);font-size:.78rem;margin-top:6px;line-height:1.35}
 .fd-letter .spk{margin-top:8px;font-size:.84rem}
@@ -178,6 +200,19 @@ STYLE = """
 .vcards{grid-template-columns:repeat(auto-fill,minmax(140px,1fr))}
 @media (max-width:520px){.fd-sign b{font-size:2.1rem}.fd-letter .lt{font-size:2.3rem}}
 """ % {"accent": ACCENT, "tint": TINT}
+
+
+# Original picture-word illustrations; match both character and keyword.
+# Future changed or unmapped keywords retain the existing fallback until illustrated.
+_PICTURE_FILE = os.path.join(ROOT, "data", "learning", "hindi-textbook-illustrations.json")
+with open(_PICTURE_FILE, encoding="utf-8") as _picture_file:
+    _PICTURES = {(r["character"], r["word"]): r["path"] for r in json.load(_picture_file)}
+
+def letter_illustration(lt, kw, emo):
+    asset = _PICTURES.get((lt, kw))
+    if not asset:
+        return '<i aria-hidden="true">%s</i>' % e(emo)
+    return '<img class="fd-picture" src="/%s" width="240" height="180" alt="चित्र: %s" loading="lazy" decoding="async">' % (e(asset), e(kw))
 
 
 def vcard(dev, rom, en, mt=""):
@@ -316,10 +351,12 @@ def lesson_page(L, prev, nxt, total):
         b.append('<div class="fd-letters">')
         for lt, rm, hint, kw, kwr, kwe, emo in letters:
             b.append('<div class="fd-letter"><span class="lt" lang="hi">%s</span><span class="rm">%s</span>'
-                     '<span class="kw" lang="hi"><i aria-hidden="true">%s</i>%s</span><span class="en">%s · %s</span>'
+                     '<span class="kw" lang="hi">%s%s</span><span class="en">%s · %s</span>'
                      '<span class="hint">%s</span><div>%s %s</div></div>' % (
-                         e(lt), e(rm), emo, e(kw), e(kwr), e(kwe), e(hint), say(lt, "🔊 " + lt), say(kw, "🔊 " + kw)))
+                         e(lt), e(rm), letter_illustration(lt, kw, emo), e(kw), e(kwr), e(kwe), e(hint), say(lt, "🔊 " + lt), say(kw, "🔊 " + kw)))
         b.append("</div>")
+        if L["slug"] == "vyanjan-1":
+            b.append('<details class="fd-air-demo"><summary lang="hi">क और ख — हवा का अंतर (Airflow)</summary><p lang="hi">हथेली मुँह के सामने रखिए। क बोलिए, फिर ख। ख में हवा का झोंका अधिक महसूस होता है।</p><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 124" role="img" aria-label="Schematic: a smaller air puff for ka, a stronger puff for kha"><rect x="1" y="1" width="318" height="122" rx="12" fill="#fff9ed" stroke="#d5cbb7"/><g stroke="#294d43" stroke-width="3" stroke-linecap="round" fill="none"><path d="M30 12Q65 11 65 27L76 31 66 37Q65 46 45 47M30 74Q65 73 65 89L76 93 66 99Q65 108 45 109"/><path d="M190 12V48M190 74V110" stroke="#8d7456" stroke-width="8"/></g><g fill="#357f93"><g class="air"><circle cx="104" cy="32" r="4"/><circle cx="124" cy="32" r="3"/></g><g class="air strong"><circle cx="103" cy="93" r="7"/><circle cx="125" cy="82" r="5"/><circle cx="126" cy="103" r="5"/><circle cx="148" cy="93" r="6"/><circle cx="168" cy="93" r="3"/></g></g><g fill="#23463d" font-family="sans-serif" font-size="13"><text x="208" y="35">ka</text><text x="208" y="97">kha</text></g></svg><p><small>Illustrative airflow, not an anatomical or measured diagram. Close and reopen to replay. Reduced-motion settings keep it still.</small></p></details>')
         b.append("<h2>What to notice</h2><ul>")
         for n in L["notes"]:
             b.append("<li>%s</li>" % fix_inline(n))
@@ -421,6 +458,7 @@ def lesson_page(L, prev, nxt, total):
     html += P.foot(up, ("book-mode.js",))
     if L['slug'] in DEPTH_CHAPTERS:
         html = D.transformed(html, DEPTH_CHAPTERS[L['slug']])
+    html = R.transformed(html, R.load(), 'foundation-' + L['slug'])
     path = os.path.join(SECTION, L["slug"], "index.html")
     os.makedirs(os.path.dirname(path), exist_ok=True)
     with open(path, "w", encoding="utf-8") as f:

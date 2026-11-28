@@ -49,7 +49,7 @@ blp = importlib.util.module_from_spec(_spec)
 _spec.loader.exec_module(blp)
 
 SKIP_DIRS = {".git", "node_modules", "images", "css", "js", "data", "reports",
-             "docs", "templates", "research", "tools"}
+             "docs", "templates", "research", "tools", "A-Manually"}
 CONTAINER = re.compile(r'<div class="(art|qw|aw)(["\s])')
 BANDS = re.compile(r"<!-- ekguru:pw-bands:start -->[\s\S]*?<!-- ekguru:pw-bands:end -->")
 V200 = re.compile(r'class="xp-')

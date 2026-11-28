@@ -8,7 +8,7 @@ from pathlib import Path
 from urllib.parse import unquote, urljoin, urlsplit
 
 ROOT = Path(__file__).resolve().parents[2]
-EXCLUDE = {'.git', 'node_modules', '.artifacts', 'reports', 'research', 'docs', 'tools', 'tests', 'data', 'Arena latest command  arena', 'images', 'fonts', 'templates', 'build', 'dist'}
+EXCLUDE = {'.git', 'node_modules', '.artifacts', 'reports', 'research', 'docs', 'tools', 'tests', 'data', 'Arena latest command  arena', 'images', 'fonts', 'templates', 'build', 'dist', 'A-Manually'}
 VOID = {'area', 'base', 'br', 'col', 'embed', 'hr', 'img', 'input', 'link', 'meta', 'param', 'source', 'track', 'wbr'}
 CHROME = {'voice-control', 'voice-settings', 'eg-byline', 'eg-today', 'eg-continue', 'eg-review-notice', 'eg-visual', 'pg-note', 'pg-cta', 'crumb', 'crumbs', 'sb-note', 'sb-hint', 'sb-voicenudge', 'sb-chapter', 'sb-mastery', 'updated', 'dateline', 'cta', 'cta-box'}
 

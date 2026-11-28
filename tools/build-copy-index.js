@@ -63,7 +63,7 @@ const SHINGLE = 6;          // words per window
 const MAX_SHINGLES = 160;   // per page: enough to match a lifted paragraph
 const MIN_WORDS = 150;      // below this, a match means nothing
 const SKIP_DIRS = new Set([".git", "node_modules", "images", "css", "js", "data",
-  "reports", "docs", "research", "tools", "templates"]);
+  "reports", "docs", "research", "tools", "templates", "A-Manually"]);
 const SKIP_FILES = new Set(["googleb3b0e3defc1daa17.html"]);
 
 function walk(dir, out) {

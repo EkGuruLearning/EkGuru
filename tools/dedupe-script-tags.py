@@ -12,7 +12,7 @@ import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-SKIP = {".git", "node_modules", "reports", "tools", "data", "research", "templates"}
+SKIP = {".git", "node_modules", "reports", "tools", "data", "research", "templates", "A-Manually"}
 SCRIPT = re.compile(r"[ \t]*<script\b([^>]*)>\s*</script>[ \t]*\n?", re.I)
 SRC = re.compile(r"\bsrc\s*=\s*([\"'])(.*?)\1", re.I | re.S)
 

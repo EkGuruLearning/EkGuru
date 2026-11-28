@@ -40,7 +40,7 @@ try {
   ok(false, "build-public-dist --check passes", (e.stdout || "") + (e.stderr || ""));
 }
 
-const PRIVATE_TOP = ["tools", "tests", "src", "reports", "docs", "research", "apps-script", "server", "csv", "live-sheets", ".github", "node_modules", "generators", "integrations", "config", "scripts", "_site", ".artifacts"];
+const PRIVATE_TOP = ["tools", "tests", "src", "reports", "docs", "research", "apps-script", "server", "csv", "live-sheets", ".github", "node_modules", "generators", "integrations", "config", "scripts", "_site", ".artifacts", "A-Manually"];
 for (const d of PRIVATE_TOP) ok(!fs.existsSync(path.join(out, d)), "public set has no /" + d + "/");
 for (const f of ["package.json", "package-lock.json", "playwright.config.mjs", "FINAL_REPORT.md", "docs/audits/legacy/FINAL_REPORT.md", "tutors-sheet.csv", ".gitignore"]) {
   ok(!fs.existsSync(path.join(out, f)), "public set has no /" + f);

@@ -93,7 +93,7 @@ class MetaScanner(PAGE_AUDIT.HTMLParser):
 def walk_files() -> set[str]:
     """Repository file set used only to distinguish local links from broken ones."""
     found: set[str] = set()
-    excluded = {".git", "node_modules", ".venv", "vendor", "build", "dist", "coverage", "out", "target"}
+    excluded = {".git", "node_modules", ".venv", "vendor", "build", "dist", "coverage", "out", "target", "A-Manually"}
     for directory, dirs, names in os.walk(ROOT):
         dirs[:] = [d for d in dirs if d not in excluded and not d.startswith(".")]
         for name in names:

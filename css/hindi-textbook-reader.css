@@ -1,0 +1,18 @@
+/* The first shared textbook navigation: no scripting required.
+   Local OFL-licensed font supplies Devanagari even on devices without it. */
+@font-face{font-family:TextbookDevanagari;src:url('/images/fonts/noto-sans-devanagari-700.woff2') format('woff2');font-weight:100 900;font-display:swap}
+/* Apply without a script-created data-theme too; mixed-language paragraphs
+   also need a local Devanagari fallback on devices without Hindi fonts. */
+html main:has(>.htr-nav) [lang=hi],html[data-theme] main:has(>.htr-nav) [lang=hi],main:has(>.htr-nav) .sb-ch-name i{font-family:TextbookDevanagari,system-ui,sans-serif}
+main:has(>.htr-nav) .art{font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,TextbookDevanagari,sans-serif}
+
+.htr-nav{box-sizing:border-box;max-width:770px;margin:1rem auto;padding:0 1rem;color:var(--ink,#1a2920);font-family:system-ui,TextbookDevanagari,sans-serif}
+.htr-nav *{box-sizing:border-box}.htr-nav details{background:var(--card,#fff);border:1px solid var(--line,#cddbd0);border-radius:12px}
+.htr-nav summary{cursor:pointer;padding:.75rem 1rem;font-weight:700}.htr-nav summary:focus-visible,.htr-nav a:focus-visible{outline:3px solid #b05d08;outline-offset:2px}
+.htr-nav ol{margin:0;padding:.1rem 1.1rem 1rem 2.5rem}.htr-nav li{padding:.2rem 0;line-height:1.4}.htr-nav a{color:var(--ink,#173d2b)}
+.htr-nav [aria-current=page]{font-weight:700;text-decoration:underline;text-decoration-thickness:2px}
+.htr-context{font-size:.9rem;line-height:1.5;margin:.2rem 0 .6rem}.htr-context span{display:inline-block}
+@media(min-width:1280px){.htr-nav{position:fixed;z-index:8;top:95px;left:max(12px,calc((100vw - 1300px)/2));width:220px;max-height:calc(100vh - 190px);overflow:auto;padding:0;margin:0}}
+@media print{.htr-nav{display:none}}
+/* Speech buttons can contain Hindi without a lang attribute in older lessons. */
+main:has(>.htr-nav) .fd-letter button.spk{font-family:system-ui,TextbookDevanagari,sans-serif}

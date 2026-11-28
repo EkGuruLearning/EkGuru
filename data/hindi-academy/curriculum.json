@@ -1,0 +1,3480 @@
+{
+  "version": 2,
+  "note": "Curated entry points to existing resources, not complete new courses. Phase labels are study suggestions, not proficiency certificates.",
+  "tracks": [
+    {
+      "id": "kids",
+      "title": "Hindi for Kids",
+      "description": "Short, supervised activities; choose a starting point by ability, not age.",
+      "phases": [
+        {
+          "id": "kids-discover",
+          "title": "1 · Discover letters",
+          "url": "/learn/hindi/foundation/swar/"
+        },
+        {
+          "id": "kids-build",
+          "title": "2 · Build words",
+          "url": "/learn/hindi/foundation/bina-matra/"
+        },
+        {
+          "id": "kids-read",
+          "title": "3 · Read a first story",
+          "url": "/learn/hindi/foundation/pahli-kahani/"
+        },
+        {
+          "id": "kids-review",
+          "title": "4 · Play and review",
+          "url": "/toolbox/hindi-flashcards/"
+        }
+      ]
+    },
+    {
+      "id": "beginner",
+      "title": "Absolute Beginners",
+      "description": "Start with sounds and script, then build everyday sentences.",
+      "phases": [
+        {
+          "id": "beginner-sounds",
+          "title": "1 · Sounds and vowels",
+          "url": "/learn/hindi/academy/vowels/"
+        },
+        {
+          "id": "beginner-script",
+          "title": "2 · Consonants and matras",
+          "url": "/learn/hindi/foundation/"
+        },
+        {
+          "id": "beginner-words",
+          "title": "3 · Words and sentences",
+          "url": "/learn/paths/hindi-from-zero/"
+        },
+        {
+          "id": "beginner-conversation",
+          "title": "4 · Everyday conversation",
+          "url": "/learn/paths/speaking-starter/"
+        }
+      ]
+    },
+    {
+      "id": "intermediate",
+      "title": "Intermediate Hindi",
+      "description": "Refresh foundations and extend your reading and conversation.",
+      "phases": [
+        {
+          "id": "intermediate-refresh",
+          "title": "1 · Refresh foundations",
+          "url": "/learn/paths/grammar-foundations/"
+        },
+        {
+          "id": "intermediate-grammar",
+          "title": "2 · Strengthen grammar",
+          "url": "/learn/practice/grammar/"
+        },
+        {
+          "id": "intermediate-read",
+          "title": "3 · Read and listen",
+          "url": "/learn/practice/reading/"
+        },
+        {
+          "id": "intermediate-speak",
+          "title": "4 · Use Hindi in context",
+          "url": "/learn/paths/everyday-hindi/"
+        }
+      ]
+    },
+    {
+      "id": "advanced",
+      "title": "Advanced Hindi",
+      "description": "Explore nuanced communication, reading and advanced topics.",
+      "phases": [
+        {
+          "id": "advanced-refine",
+          "title": "1 · Refine your foundations",
+          "url": "/languages/hi/level/b2/"
+        },
+        {
+          "id": "advanced-topics",
+          "title": "2 · Explore advanced topics",
+          "url": "/learn/hindi/advanced/"
+        },
+        {
+          "id": "advanced-discourse",
+          "title": "3 · Professional discourse",
+          "url": "/languages/hi/level/c1/"
+        },
+        {
+          "id": "advanced-reading",
+          "title": "4 · Advanced reading",
+          "url": "/languages/hi/level/c2/"
+        }
+      ]
+    },
+    {
+      "id": "adults",
+      "title": "Adults and Older Adults",
+      "description": "A practical route with optional larger text; no experience assumed.",
+      "phases": [
+        {
+          "id": "adults-start",
+          "title": "1 · Start at your pace",
+          "url": "/learn/hindi/academy/vowels/"
+        },
+        {
+          "id": "adults-family",
+          "title": "2 · Family and daily life",
+          "url": "/materials/family/family-words-quick-ref/"
+        },
+        {
+          "id": "adults-travel",
+          "title": "3 · Travel and shopping",
+          "url": "/learn/paths/travel-hindi/"
+        },
+        {
+          "id": "adults-practice",
+          "title": "4 · Practise conversations",
+          "url": "/learn/practice/speaking/"
+        }
+      ]
+    }
+  ],
+  "languages": [
+    {
+      "id": "hi",
+      "title": "Hindi",
+      "url": "/learn/hindi/"
+    }
+  ],
+  "courses": [
+    {
+      "id": "hi-foundation",
+      "language": "hi",
+      "title": "Hindi Foundation",
+      "url": "/learn/hindi/foundation/",
+      "description": "Existing lessons for learning to read Devanagari.",
+      "catalogue_url": "/learn/hindi/academy/catalogue/"
+    }
+  ],
+  "levels": [
+    {
+      "id": "foundation",
+      "language": "hi",
+      "title": "Foundation",
+      "standard": "EkGuru introductory stage, not an official CEFR level"
+    }
+  ],
+  "phases": [
+    {
+      "id": "foundation-1",
+      "course": "hi-foundation",
+      "level": "foundation",
+      "title": "Letters and sounds"
+    },
+    {
+      "id": "foundation-2",
+      "course": "hi-foundation",
+      "level": "foundation",
+      "title": "First words and vowel signs"
+    },
+    {
+      "id": "foundation-3",
+      "course": "hi-foundation",
+      "level": "foundation",
+      "title": "More vowel signs"
+    },
+    {
+      "id": "foundation-4",
+      "course": "hi-foundation",
+      "level": "foundation",
+      "title": "Marks, joined letters and reading"
+    }
+  ],
+  "chapters": [
+    {
+      "id": "vowels-companion",
+      "phase": "foundation-1",
+      "title": "Hindi vowels: practice companion",
+      "url": "/learn/hindi/academy/vowels/",
+      "review": "draft"
+    }
+  ],
+  "lessons": [
+    {
+      "id": "foundation-swar",
+      "phase": "foundation-1",
+      "title": "The vowels",
+      "url": "/learn/hindi/foundation/swar/",
+      "topic": "script",
+      "skills": [
+        "reading",
+        "writing"
+      ],
+      "ages": [
+        "all"
+      ],
+      "proficiency": "foundation",
+      "goals": [
+        "script"
+      ],
+      "audio": "device",
+      "worksheet": false,
+      "review": "existing draft"
+    },
+    {
+      "id": "academy-vowels",
+      "phase": "foundation-1",
+      "chapter": "vowels-companion",
+      "title": "Hindi vowels: listen and trace",
+      "url": "/learn/hindi/academy/vowels/",
+      "topic": "vowels",
+      "skills": [
+        "reading",
+        "writing",
+        "listening",
+        "speaking"
+      ],
+      "ages": [
+        "all"
+      ],
+      "proficiency": "foundation",
+      "goals": [
+        "script"
+      ],
+      "audio": "device",
+      "worksheet": true,
+      "review": "draft",
+      "managed_navigation": true
+    },
+    {
+      "id": "foundation-vyanjan-1",
+      "phase": "foundation-1",
+      "title": "Consonants 1 — the throat and palate rows",
+      "url": "/learn/hindi/foundation/vyanjan-1/",
+      "topic": "script",
+      "skills": [
+        "reading",
+        "writing"
+      ],
+      "ages": [
+        "all"
+      ],
+      "proficiency": "foundation",
+      "goals": [
+        "script"
+      ],
+      "audio": "device",
+      "worksheet": false,
+      "review": "existing draft"
+    },
+    {
+      "id": "foundation-vyanjan-2",
+      "phase": "foundation-1",
+      "title": "Consonants 2 — the two T rows",
+      "url": "/learn/hindi/foundation/vyanjan-2/",
+      "topic": "script",
+      "skills": [
+        "reading",
+        "writing"
+      ],
+      "ages": [
+        "all"
+      ],
+      "proficiency": "foundation",
+      "goals": [
+        "script"
+      ],
+      "audio": "device",
+      "worksheet": false,
+      "review": "existing draft"
+    },
+    {
+      "id": "foundation-vyanjan-3",
+      "phase": "foundation-1",
+      "title": "Consonants 3 — lips, semivowels, sibilants and the three joined letters",
+      "url": "/learn/hindi/foundation/vyanjan-3/",
+      "topic": "script",
+      "skills": [
+        "reading",
+        "writing"
+      ],
+      "ages": [
+        "all"
+      ],
+      "proficiency": "foundation",
+      "goals": [
+        "script"
+      ],
+      "audio": "device",
+      "worksheet": false,
+      "review": "existing draft"
+    },
+    {
+      "id": "foundation-bina-matra",
+      "phase": "foundation-2",
+      "title": "Words with no matra",
+      "url": "/learn/hindi/foundation/bina-matra/",
+      "topic": "matras and words",
+      "skills": [
+        "reading",
+        "writing"
+      ],
+      "ages": [
+        "all"
+      ],
+      "proficiency": "foundation",
+      "goals": [
+        "script"
+      ],
+      "audio": "device",
+      "worksheet": false,
+      "review": "existing draft"
+    },
+    {
+      "id": "foundation-aa-ki-matra",
+      "phase": "foundation-2",
+      "title": "The aa matra — ा",
+      "url": "/learn/hindi/foundation/aa-ki-matra/",
+      "topic": "matras and words",
+      "skills": [
+        "reading",
+        "writing"
+      ],
+      "ages": [
+        "all"
+      ],
+      "proficiency": "foundation",
+      "goals": [
+        "script"
+      ],
+      "audio": "device",
+      "worksheet": false,
+      "review": "existing draft"
+    },
+    {
+      "id": "foundation-i-ki-matra",
+      "phase": "foundation-2",
+      "title": "The i matra — ि",
+      "url": "/learn/hindi/foundation/i-ki-matra/",
+      "topic": "matras and words",
+      "skills": [
+        "reading",
+        "writing"
+      ],
+      "ages": [
+        "all"
+      ],
+      "proficiency": "foundation",
+      "goals": [
+        "script"
+      ],
+      "audio": "device",
+      "worksheet": false,
+      "review": "existing draft"
+    },
+    {
+      "id": "foundation-ee-ki-matra",
+      "phase": "foundation-2",
+      "title": "The ee matra — ी",
+      "url": "/learn/hindi/foundation/ee-ki-matra/",
+      "topic": "matras and words",
+      "skills": [
+        "reading",
+        "writing"
+      ],
+      "ages": [
+        "all"
+      ],
+      "proficiency": "foundation",
+      "goals": [
+        "script"
+      ],
+      "audio": "device",
+      "worksheet": false,
+      "review": "existing draft"
+    },
+    {
+      "id": "foundation-u-ki-matra",
+      "phase": "foundation-2",
+      "title": "The u matra — ु",
+      "url": "/learn/hindi/foundation/u-ki-matra/",
+      "topic": "matras and words",
+      "skills": [
+        "reading",
+        "writing"
+      ],
+      "ages": [
+        "all"
+      ],
+      "proficiency": "foundation",
+      "goals": [
+        "script"
+      ],
+      "audio": "device",
+      "worksheet": false,
+      "review": "existing draft"
+    },
+    {
+      "id": "foundation-oo-ki-matra",
+      "phase": "foundation-3",
+      "title": "The oo matra — ू",
+      "url": "/learn/hindi/foundation/oo-ki-matra/",
+      "topic": "matras and words",
+      "skills": [
+        "reading",
+        "writing"
+      ],
+      "ages": [
+        "all"
+      ],
+      "proficiency": "foundation",
+      "goals": [
+        "script"
+      ],
+      "audio": "device",
+      "worksheet": false,
+      "review": "existing draft"
+    },
+    {
+      "id": "foundation-e-ki-matra",
+      "phase": "foundation-3",
+      "title": "The e matra — े",
+      "url": "/learn/hindi/foundation/e-ki-matra/",
+      "topic": "matras and words",
+      "skills": [
+        "reading",
+        "writing"
+      ],
+      "ages": [
+        "all"
+      ],
+      "proficiency": "foundation",
+      "goals": [
+        "script"
+      ],
+      "audio": "device",
+      "worksheet": false,
+      "review": "existing draft"
+    },
+    {
+      "id": "foundation-ai-ki-matra",
+      "phase": "foundation-3",
+      "title": "The ai matra — ै",
+      "url": "/learn/hindi/foundation/ai-ki-matra/",
+      "topic": "matras and words",
+      "skills": [
+        "reading",
+        "writing"
+      ],
+      "ages": [
+        "all"
+      ],
+      "proficiency": "foundation",
+      "goals": [
+        "script"
+      ],
+      "audio": "device",
+      "worksheet": false,
+      "review": "existing draft"
+    },
+    {
+      "id": "foundation-o-ki-matra",
+      "phase": "foundation-3",
+      "title": "The o matra — ो",
+      "url": "/learn/hindi/foundation/o-ki-matra/",
+      "topic": "matras and words",
+      "skills": [
+        "reading",
+        "writing"
+      ],
+      "ages": [
+        "all"
+      ],
+      "proficiency": "foundation",
+      "goals": [
+        "script"
+      ],
+      "audio": "device",
+      "worksheet": false,
+      "review": "existing draft"
+    },
+    {
+      "id": "foundation-au-ki-matra",
+      "phase": "foundation-3",
+      "title": "The au matra — ौ",
+      "url": "/learn/hindi/foundation/au-ki-matra/",
+      "topic": "matras and words",
+      "skills": [
+        "reading",
+        "writing"
+      ],
+      "ages": [
+        "all"
+      ],
+      "proficiency": "foundation",
+      "goals": [
+        "script"
+      ],
+      "audio": "device",
+      "worksheet": false,
+      "review": "existing draft"
+    },
+    {
+      "id": "foundation-anusvar-visarg-chandrabindu",
+      "phase": "foundation-4",
+      "title": "The dot, the two dots and the moon-dot",
+      "url": "/learn/hindi/foundation/anusvar-visarg-chandrabindu/",
+      "topic": "matras and words",
+      "skills": [
+        "reading",
+        "writing"
+      ],
+      "ages": [
+        "all"
+      ],
+      "proficiency": "foundation",
+      "goals": [
+        "script"
+      ],
+      "audio": "device",
+      "worksheet": false,
+      "review": "existing draft"
+    },
+    {
+      "id": "foundation-ri-ki-matra",
+      "phase": "foundation-4",
+      "title": "The ri matra — ृ",
+      "url": "/learn/hindi/foundation/ri-ki-matra/",
+      "topic": "matras and words",
+      "skills": [
+        "reading",
+        "writing"
+      ],
+      "ages": [
+        "all"
+      ],
+      "proficiency": "foundation",
+      "goals": [
+        "script"
+      ],
+      "audio": "device",
+      "worksheet": false,
+      "review": "existing draft"
+    },
+    {
+      "id": "foundation-sanyukt-akshar",
+      "phase": "foundation-4",
+      "title": "Half letters and joined letters",
+      "url": "/learn/hindi/foundation/sanyukt-akshar/",
+      "topic": "matras and words",
+      "skills": [
+        "reading",
+        "writing"
+      ],
+      "ages": [
+        "all"
+      ],
+      "proficiency": "foundation",
+      "goals": [
+        "script"
+      ],
+      "audio": "device",
+      "worksheet": false,
+      "review": "existing draft"
+    },
+    {
+      "id": "foundation-pahli-kahani",
+      "phase": "foundation-4",
+      "title": "Your first reader",
+      "url": "/learn/hindi/foundation/pahli-kahani/",
+      "topic": "reading",
+      "skills": [
+        "reading",
+        "writing"
+      ],
+      "ages": [
+        "all"
+      ],
+      "proficiency": "foundation",
+      "goals": [
+        "script"
+      ],
+      "audio": "device",
+      "worksheet": false,
+      "review": "existing draft"
+    }
+  ],
+  "activities": [
+    {
+      "id": "vowels-tracing",
+      "lesson": "academy-vowels",
+      "title": "Vowel tracing and self-check",
+      "url": "/learn/hindi/academy/vowels/#write",
+      "kind": "tracing"
+    }
+  ],
+  "resources": [
+    {
+      "id": "vowels-sheet",
+      "lesson": "academy-vowels",
+      "title": "Vowel practice worksheet",
+      "url": "/learn/hindi/academy/worksheet/",
+      "kind": "worksheet"
+    },
+    {
+      "id": "vowels-device-audio",
+      "lesson": "academy-vowels",
+      "title": "Hindi device voice",
+      "url": "/learn/hindi/academy/vowels/#listen",
+      "kind": "device-audio"
+    }
+  ],
+  "vocabulary": [
+    {
+      "id": "v-anar",
+      "lesson": "academy-vowels",
+      "hi": "अनार",
+      "roman": "anaar",
+      "meaning": "pomegranate",
+      "review": "draft"
+    },
+    {
+      "id": "v-aam",
+      "lesson": "academy-vowels",
+      "hi": "आम",
+      "roman": "aam",
+      "meaning": "mango",
+      "review": "draft"
+    },
+    {
+      "id": "v-imli",
+      "lesson": "academy-vowels",
+      "hi": "इमली",
+      "roman": "imlee",
+      "meaning": "tamarind",
+      "review": "draft"
+    }
+  ],
+  "textbook": {
+    "version": 2,
+    "description": "Independent planned curricula: shared software and reusable vocabulary/media do not make learning content identical. Topics are planning labels, not completed lessons. No board accreditation or age gating is implied.",
+    "pathways": [
+      {
+        "id": "academic",
+        "title": "Progressive Academic Hindi",
+        "planned_url": "/learn/hindi/",
+        "books": [
+          {
+            "id": "kids",
+            "title_hi": "बाल हिंदी",
+            "title_en": "Kids Hindi",
+            "planned_url": "/learn/hindi/kids/",
+            "prerequisites": "पहचान, ध्वनि और बड़े अक्षर",
+            "status": "incomplete",
+            "phases": [
+              {
+                "id": "kids-phase-01",
+                "title": "Letters and sounds",
+                "planned_url": "/learn/hindi/kids/phase-01/",
+                "status": "incomplete",
+                "chapters": [],
+                "planned_topics": [
+                  {
+                    "title_hi": "मेरी पहली हिंदी",
+                    "status": "planned-not-a-lesson"
+                  },
+                  {
+                    "title_hi": "स्वर और उनकी ध्वनियाँ",
+                    "status": "planned-not-a-lesson"
+                  },
+                  {
+                    "title_hi": "व्यंजन और उनकी पहचान",
+                    "status": "planned-not-a-lesson"
+                  },
+                  {
+                    "title_hi": "अक्षर लिखना",
+                    "status": "planned-not-a-lesson"
+                  },
+                  {
+                    "title_hi": "चित्र देखकर शब्द पहचानना",
+                    "status": "planned-not-a-lesson"
+                  }
+                ]
+              },
+              {
+                "id": "kids-phase-02",
+                "title": "Words and daily life",
+                "planned_url": "/learn/hindi/kids/phase-02/",
+                "status": "incomplete",
+                "chapters": [],
+                "planned_topics": [
+                  {
+                    "title_hi": "दो अक्षर वाले शब्द",
+                    "status": "planned-not-a-lesson"
+                  },
+                  {
+                    "title_hi": "तीन अक्षर वाले शब्द",
+                    "status": "planned-not-a-lesson"
+                  },
+                  {
+                    "title_hi": "चार अक्षर वाले शब्द",
+                    "status": "planned-not-a-lesson"
+                  },
+                  {
+                    "title_hi": "रंग",
+                    "status": "planned-not-a-lesson"
+                  },
+                  {
+                    "title_hi": "फल और सब्जियाँ",
+                    "status": "planned-not-a-lesson"
+                  }
+                ]
+              },
+              {
+                "id": "kids-phase-03",
+                "title": "Reading and stories",
+                "planned_url": "/learn/hindi/kids/phase-03/",
+                "status": "incomplete",
+                "chapters": [],
+                "planned_topics": [
+                  {
+                    "title_hi": "पशु और पक्षी",
+                    "status": "planned-not-a-lesson"
+                  },
+                  {
+                    "title_hi": "शरीर के अंग",
+                    "status": "planned-not-a-lesson"
+                  },
+                  {
+                    "title_hi": "मेरा परिवार",
+                    "status": "planned-not-a-lesson"
+                  },
+                  {
+                    "title_hi": "गिनती",
+                    "status": "planned-not-a-lesson"
+                  },
+                  {
+                    "title_hi": "खिलौने और खेल",
+                    "status": "planned-not-a-lesson"
+                  }
+                ]
+              },
+              {
+                "id": "kids-phase-04",
+                "title": "Communication and review",
+                "planned_url": "/learn/hindi/kids/phase-04/",
+                "status": "incomplete",
+                "chapters": [],
+                "planned_topics": [
+                  {
+                    "title_hi": "छोटी कविताएँ",
+                    "status": "planned-not-a-lesson"
+                  },
+                  {
+                    "title_hi": "चित्रों वाली कहानियाँ",
+                    "status": "planned-not-a-lesson"
+                  },
+                  {
+                    "title_hi": "छोटे वाक्य",
+                    "status": "planned-not-a-lesson"
+                  },
+                  {
+                    "title_hi": "बोलना और सुनना",
+                    "status": "planned-not-a-lesson"
+                  },
+                  {
+                    "title_hi": "बाल हिंदी अंतिम परीक्षा",
+                    "status": "planned-not-a-lesson"
+                  }
+                ]
+              }
+            ],
+            "age_guidance": "4–6 / Nursery–UKG-inspired",
+            "entry_competencies": "पहचान, ध्वनि और बड़े अक्षर",
+            "exit_competencies": "अक्षर पहचानना, परिचित शब्द बोलना और सरल वाक्य समझना",
+            "vocabulary_targets": "चित्र और परिचित जीवन से जुड़े सीमित शब्द",
+            "grammar_coverage": "अक्षर और सरल शब्द",
+            "reading_complexity": "छोटे शब्द और वाक्य",
+            "writing_complexity": "मॉडल देखकर अक्षर और शब्द लिखना",
+            "speaking_ability": "परिचित शब्द बोलना",
+            "listening_comprehension": "सरल निर्देश और ध्वनियाँ पहचानना",
+            "assessment_criteria": "Planned: reading, writing, vocabulary, grammar, listening and speaking self-assessment; criteria and content require editorial development.",
+            "prerequisite_book_ids": []
+          },
+          {
+            "id": "beginner",
+            "title_hi": "प्रारंभिक हिंदी",
+            "title_en": "Beginner Hindi",
+            "planned_url": "/learn/hindi/beginner/",
+            "prerequisites": "अक्षर और प्रारंभिक ध्वनि पहचान",
+            "status": "incomplete",
+            "phases": [
+              {
+                "id": "beginner-phase-01",
+                "title": "Devanagari foundations",
+                "planned_url": "/learn/hindi/beginner/phase-01/",
+                "status": "incomplete",
+                "chapters": [
+                  {
+                    "id": "beginner-foundation-swar",
+                    "title": "The vowels",
+                    "lesson_ids": [
+                      "foundation-swar"
+                    ],
+                    "status": "existing-draft",
+                    "source_url": "/learn/hindi/foundation/swar/"
+                  },
+                  {
+                    "id": "beginner-foundation-vyanjan-1",
+                    "title": "Consonants 1 — the throat and palate rows",
+                    "lesson_ids": [
+                      "foundation-vyanjan-1"
+                    ],
+                    "status": "existing-draft",
+                    "source_url": "/learn/hindi/foundation/vyanjan-1/"
+                  },
+                  {
+                    "id": "beginner-foundation-vyanjan-2",
+                    "title": "Consonants 2 — the two T rows",
+                    "lesson_ids": [
+                      "foundation-vyanjan-2"
+                    ],
+                    "status": "existing-draft",
+                    "source_url": "/learn/hindi/foundation/vyanjan-2/"
+                  },
+                  {
+                    "id": "beginner-foundation-vyanjan-3",
+                    "title": "Consonants 3 — lips, semivowels, sibilants and the three joined letters",
+                    "lesson_ids": [
+                      "foundation-vyanjan-3"
+                    ],
+                    "status": "existing-draft",
+                    "source_url": "/learn/hindi/foundation/vyanjan-3/"
+                  },
+                  {
+                    "id": "beginner-foundation-bina-matra",
+                    "title": "Words with no matra",
+                    "lesson_ids": [
+                      "foundation-bina-matra"
+                    ],
+                    "status": "existing-draft",
+                    "source_url": "/learn/hindi/foundation/bina-matra/"
+                  },
+                  {
+                    "id": "beginner-foundation-aa-ki-matra",
+                    "title": "The aa matra — ा",
+                    "lesson_ids": [
+                      "foundation-aa-ki-matra"
+                    ],
+                    "status": "existing-draft",
+                    "source_url": "/learn/hindi/foundation/aa-ki-matra/"
+                  },
+                  {
+                    "id": "beginner-foundation-i-ki-matra",
+                    "title": "The i matra — ि",
+                    "lesson_ids": [
+                      "foundation-i-ki-matra"
+                    ],
+                    "status": "existing-draft",
+                    "source_url": "/learn/hindi/foundation/i-ki-matra/"
+                  },
+                  {
+                    "id": "beginner-foundation-ee-ki-matra",
+                    "title": "The ee matra — ी",
+                    "lesson_ids": [
+                      "foundation-ee-ki-matra"
+                    ],
+                    "status": "existing-draft",
+                    "source_url": "/learn/hindi/foundation/ee-ki-matra/"
+                  },
+                  {
+                    "id": "beginner-foundation-u-ki-matra",
+                    "title": "The u matra — ु",
+                    "lesson_ids": [
+                      "foundation-u-ki-matra"
+                    ],
+                    "status": "existing-draft",
+                    "source_url": "/learn/hindi/foundation/u-ki-matra/"
+                  },
+                  {
+                    "id": "beginner-foundation-oo-ki-matra",
+                    "title": "The oo matra — ू",
+                    "lesson_ids": [
+                      "foundation-oo-ki-matra"
+                    ],
+                    "status": "existing-draft",
+                    "source_url": "/learn/hindi/foundation/oo-ki-matra/"
+                  },
+                  {
+                    "id": "beginner-foundation-e-ki-matra",
+                    "title": "The e matra — े",
+                    "lesson_ids": [
+                      "foundation-e-ki-matra"
+                    ],
+                    "status": "existing-draft",
+                    "source_url": "/learn/hindi/foundation/e-ki-matra/"
+                  },
+                  {
+                    "id": "beginner-foundation-ai-ki-matra",
+                    "title": "The ai matra — ै",
+                    "lesson_ids": [
+                      "foundation-ai-ki-matra"
+                    ],
+                    "status": "existing-draft",
+                    "source_url": "/learn/hindi/foundation/ai-ki-matra/"
+                  },
+                  {
+                    "id": "beginner-foundation-o-ki-matra",
+                    "title": "The o matra — ो",
+                    "lesson_ids": [
+                      "foundation-o-ki-matra"
+                    ],
+                    "status": "existing-draft",
+                    "source_url": "/learn/hindi/foundation/o-ki-matra/"
+                  },
+                  {
+                    "id": "beginner-foundation-au-ki-matra",
+                    "title": "The au matra — ौ",
+                    "lesson_ids": [
+                      "foundation-au-ki-matra"
+                    ],
+                    "status": "existing-draft",
+                    "source_url": "/learn/hindi/foundation/au-ki-matra/"
+                  },
+                  {
+                    "id": "beginner-foundation-anusvar-visarg-chandrabindu",
+                    "title": "The dot, the two dots and the moon-dot",
+                    "lesson_ids": [
+                      "foundation-anusvar-visarg-chandrabindu"
+                    ],
+                    "status": "existing-draft",
+                    "source_url": "/learn/hindi/foundation/anusvar-visarg-chandrabindu/"
+                  },
+                  {
+                    "id": "beginner-foundation-ri-ki-matra",
+                    "title": "The ri matra — ृ",
+                    "lesson_ids": [
+                      "foundation-ri-ki-matra"
+                    ],
+                    "status": "existing-draft",
+                    "source_url": "/learn/hindi/foundation/ri-ki-matra/"
+                  },
+                  {
+                    "id": "beginner-foundation-sanyukt-akshar",
+                    "title": "Half letters and joined letters",
+                    "lesson_ids": [
+                      "foundation-sanyukt-akshar"
+                    ],
+                    "status": "existing-draft",
+                    "source_url": "/learn/hindi/foundation/sanyukt-akshar/"
+                  },
+                  {
+                    "id": "beginner-foundation-pahli-kahani",
+                    "title": "Your first reader",
+                    "lesson_ids": [
+                      "foundation-pahli-kahani"
+                    ],
+                    "status": "existing-draft",
+                    "source_url": "/learn/hindi/foundation/pahli-kahani/"
+                  }
+                ],
+                "planned_topics": [
+                  {
+                    "title_hi": "वर्णमाला पुनरावृत्ति",
+                    "status": "planned-not-a-lesson"
+                  },
+                  {
+                    "title_hi": "सभी मात्राएँ",
+                    "status": "planned-not-a-lesson"
+                  },
+                  {
+                    "title_hi": "संपूर्ण बारहखड़ी",
+                    "status": "planned-not-a-lesson"
+                  },
+                  {
+                    "title_hi": "अनुस्वार और चंद्रबिंदु",
+                    "status": "planned-not-a-lesson"
+                  },
+                  {
+                    "title_hi": "संयुक्त अक्षर",
+                    "status": "planned-not-a-lesson"
+                  }
+                ]
+              },
+              {
+                "id": "beginner-phase-02",
+                "title": "Words and basic grammar",
+                "planned_url": "/learn/hindi/beginner/phase-02/",
+                "status": "incomplete",
+                "chapters": [],
+                "planned_topics": [
+                  {
+                    "title_hi": "शब्द निर्माण",
+                    "status": "planned-not-a-lesson"
+                  },
+                  {
+                    "title_hi": "वाक्य निर्माण",
+                    "status": "planned-not-a-lesson"
+                  },
+                  {
+                    "title_hi": "संज्ञा",
+                    "status": "planned-not-a-lesson"
+                  },
+                  {
+                    "title_hi": "सर्वनाम",
+                    "status": "planned-not-a-lesson"
+                  },
+                  {
+                    "title_hi": "क्रिया",
+                    "status": "planned-not-a-lesson"
+                  }
+                ]
+              },
+              {
+                "id": "beginner-phase-03",
+                "title": "Sentences and conversation",
+                "planned_url": "/learn/hindi/beginner/phase-03/",
+                "status": "incomplete",
+                "chapters": [],
+                "planned_topics": [
+                  {
+                    "title_hi": "विशेषण",
+                    "status": "planned-not-a-lesson"
+                  },
+                  {
+                    "title_hi": "लिंग",
+                    "status": "planned-not-a-lesson"
+                  },
+                  {
+                    "title_hi": "वचन",
+                    "status": "planned-not-a-lesson"
+                  },
+                  {
+                    "title_hi": "विलोम शब्द",
+                    "status": "planned-not-a-lesson"
+                  },
+                  {
+                    "title_hi": "सरल पर्यायवाची",
+                    "status": "planned-not-a-lesson"
+                  }
+                ]
+              },
+              {
+                "id": "beginner-phase-04",
+                "title": "Reading, writing and practical Hindi",
+                "planned_url": "/learn/hindi/beginner/phase-04/",
+                "status": "incomplete",
+                "chapters": [],
+                "planned_topics": [
+                  {
+                    "title_hi": "दिन और महीने",
+                    "status": "planned-not-a-lesson"
+                  },
+                  {
+                    "title_hi": "दैनिक बातचीत",
+                    "status": "planned-not-a-lesson"
+                  },
+                  {
+                    "title_hi": "कहानी और कविता",
+                    "status": "planned-not-a-lesson"
+                  },
+                  {
+                    "title_hi": "अनुच्छेद लेखन",
+                    "status": "planned-not-a-lesson"
+                  },
+                  {
+                    "title_hi": "प्रारंभिक हिंदी परीक्षा",
+                    "status": "planned-not-a-lesson"
+                  }
+                ]
+              }
+            ],
+            "age_guidance": "6–9 / Class 1–3-inspired",
+            "entry_competencies": "अक्षर और प्रारंभिक ध्वनि पहचान",
+            "exit_competencies": "मात्राओं के साथ शब्द और सरल अनुच्छेद पढ़ना व लिखना",
+            "vocabulary_targets": "परिवार, दैनिक जीवन, संख्या और सरल बातचीत",
+            "grammar_coverage": "शब्द, वाक्य, संज्ञा, सर्वनाम, क्रिया, लिंग और वचन",
+            "reading_complexity": "छोटी कहानी और सरल अनुच्छेद",
+            "writing_complexity": "छोटे वाक्य और निर्देशित अनुच्छेद",
+            "speaking_ability": "सरल दैनिक बातचीत",
+            "listening_comprehension": "छोटे संवाद और निर्देश समझना",
+            "assessment_criteria": "Planned: reading, writing, vocabulary, grammar, listening and speaking self-assessment; criteria and content require editorial development.",
+            "prerequisite_book_ids": [
+              "kids"
+            ]
+          },
+          {
+            "id": "intermediate",
+            "title_hi": "मध्यम हिंदी",
+            "title_en": "Intermediate Hindi",
+            "planned_url": "/learn/hindi/intermediate/",
+            "prerequisites": "सरल पाठ और वाक्य समझना",
+            "status": "incomplete",
+            "phases": [
+              {
+                "id": "intermediate-phase-01",
+                "title": "Foundation revision",
+                "planned_url": "/learn/hindi/intermediate/phase-01/",
+                "status": "incomplete",
+                "chapters": [],
+                "planned_topics": [
+                  {
+                    "title_hi": "भाषा और व्याकरण",
+                    "status": "planned-not-a-lesson"
+                  },
+                  {
+                    "title_hi": "वर्ण और शब्द विचार",
+                    "status": "planned-not-a-lesson"
+                  },
+                  {
+                    "title_hi": "संज्ञा के भेद",
+                    "status": "planned-not-a-lesson"
+                  },
+                  {
+                    "title_hi": "सर्वनाम के भेद",
+                    "status": "planned-not-a-lesson"
+                  },
+                  {
+                    "title_hi": "विशेषण के भेद",
+                    "status": "planned-not-a-lesson"
+                  }
+                ]
+              },
+              {
+                "id": "intermediate-phase-02",
+                "title": "Grammar and sentence building",
+                "planned_url": "/learn/hindi/intermediate/phase-02/",
+                "status": "incomplete",
+                "chapters": [],
+                "planned_topics": [
+                  {
+                    "title_hi": "क्रिया के भेद",
+                    "status": "planned-not-a-lesson"
+                  },
+                  {
+                    "title_hi": "काल",
+                    "status": "planned-not-a-lesson"
+                  },
+                  {
+                    "title_hi": "कारक",
+                    "status": "planned-not-a-lesson"
+                  },
+                  {
+                    "title_hi": "अव्यय",
+                    "status": "planned-not-a-lesson"
+                  },
+                  {
+                    "title_hi": "विराम चिह्न",
+                    "status": "planned-not-a-lesson"
+                  }
+                ]
+              },
+              {
+                "id": "intermediate-phase-03",
+                "title": "Reading and listening",
+                "planned_url": "/learn/hindi/intermediate/phase-03/",
+                "status": "incomplete",
+                "chapters": [],
+                "planned_topics": [
+                  {
+                    "title_hi": "उपसर्ग",
+                    "status": "planned-not-a-lesson"
+                  },
+                  {
+                    "title_hi": "प्रत्यय",
+                    "status": "planned-not-a-lesson"
+                  },
+                  {
+                    "title_hi": "शब्द भंडार",
+                    "status": "planned-not-a-lesson"
+                  },
+                  {
+                    "title_hi": "मुहावरे",
+                    "status": "planned-not-a-lesson"
+                  },
+                  {
+                    "title_hi": "अशुद्धि शोधन",
+                    "status": "planned-not-a-lesson"
+                  }
+                ]
+              },
+              {
+                "id": "intermediate-phase-04",
+                "title": "Writing and conversation",
+                "planned_url": "/learn/hindi/intermediate/phase-04/",
+                "status": "incomplete",
+                "chapters": [],
+                "planned_topics": [
+                  {
+                    "title_hi": "पत्र लेखन",
+                    "status": "planned-not-a-lesson"
+                  },
+                  {
+                    "title_hi": "संवाद लेखन",
+                    "status": "planned-not-a-lesson"
+                  },
+                  {
+                    "title_hi": "अपठित गद्यांश",
+                    "status": "planned-not-a-lesson"
+                  },
+                  {
+                    "title_hi": "कहानी लेखन",
+                    "status": "planned-not-a-lesson"
+                  },
+                  {
+                    "title_hi": "मध्यम हिंदी परीक्षा",
+                    "status": "planned-not-a-lesson"
+                  }
+                ]
+              }
+            ],
+            "age_guidance": "9–12 / Class 4–6-inspired",
+            "entry_competencies": "सरल पाठ और वाक्य समझना",
+            "exit_competencies": "व्याकरण समझकर अनुच्छेद, संवाद और पत्र लिखना",
+            "vocabulary_targets": "व्यापक रोज़मर्रा और वर्णनात्मक शब्द",
+            "grammar_coverage": "शब्द भेद, काल, कारक, उपसर्ग और प्रत्यय",
+            "reading_complexity": "अपठित गद्यांश और अनुच्छेद",
+            "writing_complexity": "पत्र, संवाद और कहानी",
+            "speaking_ability": "विचार स्पष्ट करना",
+            "listening_comprehension": "विस्तृत निर्देश और बातचीत समझना",
+            "assessment_criteria": "Planned: reading, writing, vocabulary, grammar, listening and speaking self-assessment; criteria and content require editorial development.",
+            "prerequisite_book_ids": [
+              "beginner"
+            ]
+          },
+          {
+            "id": "advanced",
+            "title_hi": "उन्नत हिंदी",
+            "title_en": "Advanced Hindi",
+            "planned_url": "/learn/hindi/advanced/",
+            "prerequisites": "अनुच्छेद और मूल व्याकरण में आत्मविश्वास",
+            "status": "incomplete",
+            "phases": [
+              {
+                "id": "advanced-phase-01",
+                "title": "Advanced grammar",
+                "planned_url": "/learn/hindi/advanced/phase-01/",
+                "status": "incomplete",
+                "chapters": [],
+                "planned_topics": [
+                  {
+                    "title_hi": "हिंदी भाषा का विकास",
+                    "status": "planned-not-a-lesson"
+                  },
+                  {
+                    "title_hi": "उन्नत व्याकरण",
+                    "status": "planned-not-a-lesson"
+                  },
+                  {
+                    "title_hi": "संधि",
+                    "status": "planned-not-a-lesson"
+                  },
+                  {
+                    "title_hi": "समास",
+                    "status": "planned-not-a-lesson"
+                  },
+                  {
+                    "title_hi": "तत्सम और तद्भव",
+                    "status": "planned-not-a-lesson"
+                  }
+                ]
+              },
+              {
+                "id": "advanced-phase-02",
+                "title": "Natural communication",
+                "planned_url": "/learn/hindi/advanced/phase-02/",
+                "status": "incomplete",
+                "chapters": [],
+                "planned_topics": [
+                  {
+                    "title_hi": "देशज और विदेशी शब्द",
+                    "status": "planned-not-a-lesson"
+                  },
+                  {
+                    "title_hi": "वाक्य के प्रकार",
+                    "status": "planned-not-a-lesson"
+                  },
+                  {
+                    "title_hi": "वाक्य परिवर्तन",
+                    "status": "planned-not-a-lesson"
+                  },
+                  {
+                    "title_hi": "वाच्य",
+                    "status": "planned-not-a-lesson"
+                  },
+                  {
+                    "title_hi": "पद परिचय",
+                    "status": "planned-not-a-lesson"
+                  }
+                ]
+              },
+              {
+                "id": "advanced-phase-03",
+                "title": "Literature and writing",
+                "planned_url": "/learn/hindi/advanced/phase-03/",
+                "status": "incomplete",
+                "chapters": [],
+                "planned_topics": [
+                  {
+                    "title_hi": "लोकोक्तियाँ",
+                    "status": "planned-not-a-lesson"
+                  },
+                  {
+                    "title_hi": "अलंकार परिचय",
+                    "status": "planned-not-a-lesson"
+                  },
+                  {
+                    "title_hi": "काव्य परिचय",
+                    "status": "planned-not-a-lesson"
+                  },
+                  {
+                    "title_hi": "हिंदी गद्य",
+                    "status": "planned-not-a-lesson"
+                  },
+                  {
+                    "title_hi": "औपचारिक पत्र",
+                    "status": "planned-not-a-lesson"
+                  }
+                ]
+              },
+              {
+                "id": "advanced-phase-04",
+                "title": "Professional use and translation",
+                "planned_url": "/learn/hindi/advanced/phase-04/",
+                "status": "incomplete",
+                "chapters": [],
+                "planned_topics": [
+                  {
+                    "title_hi": "निबंध लेखन",
+                    "status": "planned-not-a-lesson"
+                  },
+                  {
+                    "title_hi": "भाषण और वाद-विवाद",
+                    "status": "planned-not-a-lesson"
+                  },
+                  {
+                    "title_hi": "अपठित पद्यांश",
+                    "status": "planned-not-a-lesson"
+                  },
+                  {
+                    "title_hi": "रचनात्मक लेखन",
+                    "status": "planned-not-a-lesson"
+                  },
+                  {
+                    "title_hi": "उन्नत हिंदी परीक्षा",
+                    "status": "planned-not-a-lesson"
+                  }
+                ]
+              }
+            ],
+            "age_guidance": "12–15 / Class 7–9-inspired",
+            "entry_competencies": "अनुच्छेद और मूल व्याकरण में आत्मविश्वास",
+            "exit_competencies": "जटिल पाठ का विवेचन और स्वतंत्र अभिव्यक्ति",
+            "vocabulary_targets": "रजिस्टर, साहित्य और तर्क की शब्दावली",
+            "grammar_coverage": "संधि, समास, वाच्य और वाक्य परिवर्तन",
+            "reading_complexity": "गद्य और पद्य की व्याख्या",
+            "writing_complexity": "निबंध, औपचारिक पत्र और रचनात्मक लेखन",
+            "speaking_ability": "भाषण और चर्चा",
+            "listening_comprehension": "विस्तृत वार्ता और विचार समझना",
+            "assessment_criteria": "Planned: reading, writing, vocabulary, grammar, listening and speaking self-assessment; criteria and content require editorial development.",
+            "prerequisite_book_ids": [
+              "intermediate"
+            ]
+          },
+          {
+            "id": "mastery",
+            "title_hi": "संपूर्ण हिंदी",
+            "title_en": "Hindi Mastery",
+            "age_guidance": "15+ / Class 10–12-inspired",
+            "entry_competencies": "मध्यम और उन्नत पाठ व लेखन का अभ्यास",
+            "exit_competencies": "साहित्यिक, औपचारिक और विश्लेषणात्मक भाषा का स्वतंत्र प्रयोग",
+            "prerequisites": "मध्यम और उन्नत पाठ व लेखन का अभ्यास",
+            "vocabulary_targets": "साहित्य, जनसंचार, पेशेवर और विश्लेषणात्मक शब्द",
+            "grammar_coverage": "उन्नत शब्द-वाक्य विचार, शैली, रस, छंद और अलंकार",
+            "reading_complexity": "विभिन्न साहित्यिक विधाओं का विश्लेषण",
+            "writing_complexity": "आलोचनात्मक, विचारात्मक और कार्यालयी लेखन",
+            "speaking_ability": "सुसंगत तर्क और प्रस्तुति",
+            "listening_comprehension": "जटिल वार्ता और वक्तव्य का विवेचन",
+            "assessment_criteria": "Planned: reading, writing, vocabulary, grammar, listening and speaking self-assessment; criteria and content require editorial development.",
+            "planned_url": "/learn/hindi/mastery/",
+            "status": "incomplete",
+            "prerequisite_book_ids": [
+              "advanced"
+            ],
+            "phases": [
+              {
+                "id": "mastery-phase-01",
+                "title": "Phase 01 — curriculum planning",
+                "planned_url": "/learn/hindi/mastery/phase-01/",
+                "status": "incomplete",
+                "chapters": [],
+                "planned_topics": [
+                  {
+                    "title_hi": "मानक हिंदी भाषा",
+                    "status": "planned-not-a-lesson"
+                  },
+                  {
+                    "title_hi": "उन्नत शब्द एवं वाक्य विचार",
+                    "status": "planned-not-a-lesson"
+                  },
+                  {
+                    "title_hi": "हिंदी साहित्य का इतिहास",
+                    "status": "planned-not-a-lesson"
+                  },
+                  {
+                    "title_hi": "भक्तिकाल",
+                    "status": "planned-not-a-lesson"
+                  },
+                  {
+                    "title_hi": "रीतिकाल",
+                    "status": "planned-not-a-lesson"
+                  }
+                ]
+              },
+              {
+                "id": "mastery-phase-02",
+                "title": "Phase 02 — curriculum planning",
+                "planned_url": "/learn/hindi/mastery/phase-02/",
+                "status": "incomplete",
+                "chapters": [],
+                "planned_topics": [
+                  {
+                    "title_hi": "आधुनिक हिंदी साहित्य",
+                    "status": "planned-not-a-lesson"
+                  },
+                  {
+                    "title_hi": "गद्य की प्रमुख विधाएँ",
+                    "status": "planned-not-a-lesson"
+                  },
+                  {
+                    "title_hi": "पद्य और काव्य",
+                    "status": "planned-not-a-lesson"
+                  },
+                  {
+                    "title_hi": "रस",
+                    "status": "planned-not-a-lesson"
+                  },
+                  {
+                    "title_hi": "छंद",
+                    "status": "planned-not-a-lesson"
+                  }
+                ]
+              },
+              {
+                "id": "mastery-phase-03",
+                "title": "Phase 03 — curriculum planning",
+                "planned_url": "/learn/hindi/mastery/phase-03/",
+                "status": "incomplete",
+                "chapters": [],
+                "planned_topics": [
+                  {
+                    "title_hi": "अलंकार",
+                    "status": "planned-not-a-lesson"
+                  },
+                  {
+                    "title_hi": "साहित्यिक विश्लेषण",
+                    "status": "planned-not-a-lesson"
+                  },
+                  {
+                    "title_hi": "आलोचनात्मक लेखन",
+                    "status": "planned-not-a-lesson"
+                  },
+                  {
+                    "title_hi": "पत्रकारिता और जनसंचार",
+                    "status": "planned-not-a-lesson"
+                  },
+                  {
+                    "title_hi": "व्यावसायिक हिंदी",
+                    "status": "planned-not-a-lesson"
+                  }
+                ]
+              },
+              {
+                "id": "mastery-phase-04",
+                "title": "Phase 04 — curriculum planning",
+                "planned_url": "/learn/hindi/mastery/phase-04/",
+                "status": "incomplete",
+                "chapters": [],
+                "planned_topics": [
+                  {
+                    "title_hi": "औपचारिक एवं कार्यालयी हिंदी",
+                    "status": "planned-not-a-lesson"
+                  },
+                  {
+                    "title_hi": "हिंदी-अंग्रेजी अनुवाद",
+                    "status": "planned-not-a-lesson"
+                  },
+                  {
+                    "title_hi": "विचारात्मक निबंध",
+                    "status": "planned-not-a-lesson"
+                  },
+                  {
+                    "title_hi": "स्वतंत्र लेखन और वाचन",
+                    "status": "planned-not-a-lesson"
+                  },
+                  {
+                    "title_hi": "संपूर्ण हिंदी अंतिम परीक्षा",
+                    "status": "planned-not-a-lesson"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "adult",
+        "title": "Hindi for Adults and Older Adults",
+        "planned_url": "/learn/hindi/older-adults/",
+        "books": [
+          {
+            "id": "adult-foundation",
+            "title_hi": "वयस्क आधार",
+            "title_en": "Adult Foundation",
+            "age_guidance": "Adults and older adults; placement by proficiency, not age",
+            "entry_competencies": "पूर्व हिंदी ज्ञान आवश्यक नहीं",
+            "exit_competencies": "ध्वनियों और सरल शब्दों की पहचान",
+            "prerequisites": "पूर्व हिंदी ज्ञान आवश्यक नहीं",
+            "vocabulary_targets": "नाम, परिचय, परिवार और दैनिक वस्तुएँ",
+            "grammar_coverage": "ध्वनि और वर्ण परिचय",
+            "reading_complexity": "परिचित शब्द",
+            "writing_complexity": "अक्षर और अपना नाम",
+            "speaking_ability": "परिचय और मूल प्रश्न",
+            "listening_comprehension": "धीमे स्पष्ट शब्द और निर्देश",
+            "assessment_criteria": "Planned: reading, writing, vocabulary, grammar, listening and speaking self-assessment; criteria and content require editorial development.",
+            "planned_url": "/learn/hindi/older-adults/foundation/",
+            "status": "incomplete",
+            "prerequisite_book_ids": [],
+            "phases": [
+              {
+                "id": "adult-foundation-phase-01",
+                "title": "Phase 01 — curriculum planning",
+                "planned_url": "/learn/hindi/older-adults/foundation/phase-01/",
+                "status": "incomplete",
+                "chapters": [],
+                "planned_topics": [
+                  {
+                    "title_hi": "हिंदी ध्वनियाँ",
+                    "status": "planned-not-a-lesson"
+                  },
+                  {
+                    "title_hi": "स्वर",
+                    "status": "planned-not-a-lesson"
+                  },
+                  {
+                    "title_hi": "व्यंजन",
+                    "status": "planned-not-a-lesson"
+                  },
+                  {
+                    "title_hi": "अक्षर पहचान",
+                    "status": "planned-not-a-lesson"
+                  },
+                  {
+                    "title_hi": "मूल लेखन",
+                    "status": "planned-not-a-lesson"
+                  }
+                ]
+              },
+              {
+                "id": "adult-foundation-phase-02",
+                "title": "Phase 02 — curriculum planning",
+                "planned_url": "/learn/hindi/older-adults/foundation/phase-02/",
+                "status": "incomplete",
+                "chapters": [],
+                "planned_topics": [
+                  {
+                    "title_hi": "अभिवादन",
+                    "status": "planned-not-a-lesson"
+                  },
+                  {
+                    "title_hi": "अपना नाम",
+                    "status": "planned-not-a-lesson"
+                  },
+                  {
+                    "title_hi": "संख्या और समय",
+                    "status": "planned-not-a-lesson"
+                  },
+                  {
+                    "title_hi": "परिवार",
+                    "status": "planned-not-a-lesson"
+                  },
+                  {
+                    "title_hi": "स्थानों के नाम",
+                    "status": "planned-not-a-lesson"
+                  }
+                ]
+              },
+              {
+                "id": "adult-foundation-phase-03",
+                "title": "Phase 03 — curriculum planning",
+                "planned_url": "/learn/hindi/older-adults/foundation/phase-03/",
+                "status": "incomplete",
+                "chapters": [],
+                "planned_topics": [
+                  {
+                    "title_hi": "खाना और पानी",
+                    "status": "planned-not-a-lesson"
+                  },
+                  {
+                    "title_hi": "दैनिक वस्तुएँ",
+                    "status": "planned-not-a-lesson"
+                  },
+                  {
+                    "title_hi": "दिशा और परिवहन",
+                    "status": "planned-not-a-lesson"
+                  },
+                  {
+                    "title_hi": "ज़रूरी प्रश्न",
+                    "status": "planned-not-a-lesson"
+                  },
+                  {
+                    "title_hi": "सम्मानसूचक संबोधन",
+                    "status": "planned-not-a-lesson"
+                  }
+                ]
+              },
+              {
+                "id": "adult-foundation-phase-04",
+                "title": "Phase 04 — curriculum planning",
+                "planned_url": "/learn/hindi/older-adults/foundation/phase-04/",
+                "status": "incomplete",
+                "chapters": [],
+                "planned_topics": [
+                  {
+                    "title_hi": "मूल शब्द पढ़ना",
+                    "status": "planned-not-a-lesson"
+                  },
+                  {
+                    "title_hi": "सरल उत्तर",
+                    "status": "planned-not-a-lesson"
+                  },
+                  {
+                    "title_hi": "सुनना और दोहराना",
+                    "status": "planned-not-a-lesson"
+                  },
+                  {
+                    "title_hi": "दैनिक जीवन का संवाद",
+                    "status": "planned-not-a-lesson"
+                  },
+                  {
+                    "title_hi": "पुनरावृत्ति और मूल्यांकन",
+                    "status": "planned-not-a-lesson"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "adult-beginner",
+            "title_hi": "वयस्क प्रारंभिक",
+            "title_en": "Adult Beginner",
+            "age_guidance": "Adults and older adults; placement by proficiency, not age",
+            "entry_competencies": "मूल वर्ण और परिचित शब्द",
+            "exit_competencies": "दैनिक स्थितियों में सरल वाक्य",
+            "prerequisites": "मूल वर्ण और परिचित शब्द",
+            "vocabulary_targets": "खरीदारी, यात्रा, परिवार और स्वास्थ्य",
+            "grammar_coverage": "मात्राएँ, शब्द, वाक्य, लिंग और वचन",
+            "reading_complexity": "सरल सूचनाएँ और संवाद",
+            "writing_complexity": "छोटे संदेश और वाक्य",
+            "speaking_ability": "व्यावहारिक दैनिक संवाद",
+            "listening_comprehension": "सरल प्रश्न और उत्तर",
+            "assessment_criteria": "Planned: reading, writing, vocabulary, grammar, listening and speaking self-assessment; criteria and content require editorial development.",
+            "planned_url": "/learn/hindi/older-adults/beginner/",
+            "status": "incomplete",
+            "prerequisite_book_ids": [
+              "adult-foundation"
+            ],
+            "phases": [
+              {
+                "id": "adult-beginner-phase-01",
+                "title": "Phase 01 — curriculum planning",
+                "planned_url": "/learn/hindi/older-adults/beginner/phase-01/",
+                "status": "incomplete",
+                "chapters": [],
+                "planned_topics": [
+                  {
+                    "title_hi": "मात्राएँ और बारहखड़ी",
+                    "status": "planned-not-a-lesson"
+                  },
+                  {
+                    "title_hi": "संयुक्त अक्षर",
+                    "status": "planned-not-a-lesson"
+                  },
+                  {
+                    "title_hi": "शब्द और वाक्य",
+                    "status": "planned-not-a-lesson"
+                  },
+                  {
+                    "title_hi": "संज्ञा और सर्वनाम",
+                    "status": "planned-not-a-lesson"
+                  },
+                  {
+                    "title_hi": "क्रिया का परिचय",
+                    "status": "planned-not-a-lesson"
+                  }
+                ]
+              },
+              {
+                "id": "adult-beginner-phase-02",
+                "title": "Phase 02 — curriculum planning",
+                "planned_url": "/learn/hindi/older-adults/beginner/phase-02/",
+                "status": "incomplete",
+                "chapters": [],
+                "planned_topics": [
+                  {
+                    "title_hi": "लिंग और वचन",
+                    "status": "planned-not-a-lesson"
+                  },
+                  {
+                    "title_hi": "तारीख और समय",
+                    "status": "planned-not-a-lesson"
+                  },
+                  {
+                    "title_hi": "परिवार से बातचीत",
+                    "status": "planned-not-a-lesson"
+                  },
+                  {
+                    "title_hi": "बाज़ार में खरीदारी",
+                    "status": "planned-not-a-lesson"
+                  },
+                  {
+                    "title_hi": "भोजन का ऑर्डर",
+                    "status": "planned-not-a-lesson"
+                  }
+                ]
+              },
+              {
+                "id": "adult-beginner-phase-03",
+                "title": "Phase 03 — curriculum planning",
+                "planned_url": "/learn/hindi/older-adults/beginner/phase-03/",
+                "status": "incomplete",
+                "chapters": [],
+                "planned_topics": [
+                  {
+                    "title_hi": "यात्रा और दिशा",
+                    "status": "planned-not-a-lesson"
+                  },
+                  {
+                    "title_hi": "स्वास्थ्य संबंधी वाक्य",
+                    "status": "planned-not-a-lesson"
+                  },
+                  {
+                    "title_hi": "काम और दिनचर्या",
+                    "status": "planned-not-a-lesson"
+                  },
+                  {
+                    "title_hi": "मौसम",
+                    "status": "planned-not-a-lesson"
+                  },
+                  {
+                    "title_hi": "आसान संदेश",
+                    "status": "planned-not-a-lesson"
+                  }
+                ]
+              },
+              {
+                "id": "adult-beginner-phase-04",
+                "title": "Phase 04 — curriculum planning",
+                "planned_url": "/learn/hindi/older-adults/beginner/phase-04/",
+                "status": "incomplete",
+                "chapters": [],
+                "planned_topics": [
+                  {
+                    "title_hi": "सूचना पढ़ना",
+                    "status": "planned-not-a-lesson"
+                  },
+                  {
+                    "title_hi": "सरल संवाद",
+                    "status": "planned-not-a-lesson"
+                  },
+                  {
+                    "title_hi": "छोटा विवरण लिखना",
+                    "status": "planned-not-a-lesson"
+                  },
+                  {
+                    "title_hi": "सुनकर उत्तर देना",
+                    "status": "planned-not-a-lesson"
+                  },
+                  {
+                    "title_hi": "पुनरावृत्ति और मूल्यांकन",
+                    "status": "planned-not-a-lesson"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "adult-intermediate",
+            "title_hi": "वयस्क मध्यम",
+            "title_en": "Adult Intermediate",
+            "age_guidance": "Adults and older adults; placement by proficiency, not age",
+            "entry_competencies": "सरल वाक्य, लिपि और दैनिक बातचीत",
+            "exit_competencies": "रोज़मर्रा विषयों पर स्वतंत्र बातचीत और लेखन",
+            "prerequisites": "सरल वाक्य, लिपि और दैनिक बातचीत",
+            "vocabulary_targets": "सेवाएँ, काम, समाचार और पर्यावरण",
+            "grammar_coverage": "काल, पक्ष, कारक और परसर्ग",
+            "reading_complexity": "अनुच्छेद और सामान्य जानकारी",
+            "writing_complexity": "अनुच्छेद तथा ईमेल",
+            "speaking_ability": "अनुभव और योजना समझाना",
+            "listening_comprehension": "सामान्य बातचीत का सार",
+            "assessment_criteria": "Planned: reading, writing, vocabulary, grammar, listening and speaking self-assessment; criteria and content require editorial development.",
+            "planned_url": "/learn/hindi/older-adults/intermediate/",
+            "status": "incomplete",
+            "prerequisite_book_ids": [
+              "adult-beginner"
+            ],
+            "phases": [
+              {
+                "id": "adult-intermediate-phase-01",
+                "title": "Phase 01 — curriculum planning",
+                "planned_url": "/learn/hindi/older-adults/intermediate/phase-01/",
+                "status": "incomplete",
+                "chapters": [],
+                "planned_topics": [
+                  {
+                    "title_hi": "व्याकरण की पुनरावृत्ति",
+                    "status": "planned-not-a-lesson"
+                  },
+                  {
+                    "title_hi": "काल और पक्ष",
+                    "status": "planned-not-a-lesson"
+                  },
+                  {
+                    "title_hi": "कारक और परसर्ग",
+                    "status": "planned-not-a-lesson"
+                  },
+                  {
+                    "title_hi": "वाक्य विस्तार",
+                    "status": "planned-not-a-lesson"
+                  },
+                  {
+                    "title_hi": "शब्द भंडार",
+                    "status": "planned-not-a-lesson"
+                  }
+                ]
+              },
+              {
+                "id": "adult-intermediate-phase-02",
+                "title": "Phase 02 — curriculum planning",
+                "planned_url": "/learn/hindi/older-adults/intermediate/phase-02/",
+                "status": "incomplete",
+                "chapters": [],
+                "planned_topics": [
+                  {
+                    "title_hi": "रहना और आवास",
+                    "status": "planned-not-a-lesson"
+                  },
+                  {
+                    "title_hi": "बैंक और सेवाएँ",
+                    "status": "planned-not-a-lesson"
+                  },
+                  {
+                    "title_hi": "चिकित्सा संवाद",
+                    "status": "planned-not-a-lesson"
+                  },
+                  {
+                    "title_hi": "कार्यक्षेत्र में बातचीत",
+                    "status": "planned-not-a-lesson"
+                  },
+                  {
+                    "title_hi": "यात्रा की योजना",
+                    "status": "planned-not-a-lesson"
+                  }
+                ]
+              },
+              {
+                "id": "adult-intermediate-phase-03",
+                "title": "Phase 03 — curriculum planning",
+                "planned_url": "/learn/hindi/older-adults/intermediate/phase-03/",
+                "status": "incomplete",
+                "chapters": [],
+                "planned_topics": [
+                  {
+                    "title_hi": "सामाजिक बातचीत",
+                    "status": "planned-not-a-lesson"
+                  },
+                  {
+                    "title_hi": "समाचार का परिचय",
+                    "status": "planned-not-a-lesson"
+                  },
+                  {
+                    "title_hi": "पर्यावरण पर बातचीत",
+                    "status": "planned-not-a-lesson"
+                  },
+                  {
+                    "title_hi": "सुनने का अभ्यास",
+                    "status": "planned-not-a-lesson"
+                  },
+                  {
+                    "title_hi": "अपठित गद्यांश",
+                    "status": "planned-not-a-lesson"
+                  }
+                ]
+              },
+              {
+                "id": "adult-intermediate-phase-04",
+                "title": "Phase 04 — curriculum planning",
+                "planned_url": "/learn/hindi/older-adults/intermediate/phase-04/",
+                "status": "incomplete",
+                "chapters": [],
+                "planned_topics": [
+                  {
+                    "title_hi": "अनुच्छेद लेखन",
+                    "status": "planned-not-a-lesson"
+                  },
+                  {
+                    "title_hi": "ईमेल और संदेश",
+                    "status": "planned-not-a-lesson"
+                  },
+                  {
+                    "title_hi": "स्पष्टीकरण माँगना",
+                    "status": "planned-not-a-lesson"
+                  },
+                  {
+                    "title_hi": "स्वतंत्र संवाद",
+                    "status": "planned-not-a-lesson"
+                  },
+                  {
+                    "title_hi": "पुनरावृत्ति और मूल्यांकन",
+                    "status": "planned-not-a-lesson"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "adult-advanced",
+            "title_hi": "वयस्क उन्नत",
+            "title_en": "Adult Advanced",
+            "age_guidance": "Adults and older adults; placement by proficiency, not age",
+            "entry_competencies": "स्वतंत्र दैनिक बातचीत और अनुच्छेद लेखन",
+            "exit_competencies": "जटिल चर्चा और औपचारिक लेखन",
+            "prerequisites": "स्वतंत्र दैनिक बातचीत और अनुच्छेद लेखन",
+            "vocabulary_targets": "कार्यक्षेत्र, विचार, मीडिया और समाज",
+            "grammar_coverage": "जटिल वाक्य, रजिस्टर, वाच्य और मुहावरे",
+            "reading_complexity": "विस्तृत गद्य और तर्क",
+            "writing_complexity": "पत्र और विचारपूर्ण निबंध",
+            "speaking_ability": "विचार और असहमति व्यक्त करना",
+            "listening_comprehension": "विस्तृत बातचीत समझना",
+            "assessment_criteria": "Planned: reading, writing, vocabulary, grammar, listening and speaking self-assessment; criteria and content require editorial development.",
+            "planned_url": "/learn/hindi/older-adults/advanced/",
+            "status": "incomplete",
+            "prerequisite_book_ids": [
+              "adult-intermediate"
+            ],
+            "phases": [
+              {
+                "id": "adult-advanced-phase-01",
+                "title": "Phase 01 — curriculum planning",
+                "planned_url": "/learn/hindi/older-adults/advanced/phase-01/",
+                "status": "incomplete",
+                "chapters": [],
+                "planned_topics": [
+                  {
+                    "title_hi": "जटिल वाक्य",
+                    "status": "planned-not-a-lesson"
+                  },
+                  {
+                    "title_hi": "वाच्य और रजिस्टर",
+                    "status": "planned-not-a-lesson"
+                  },
+                  {
+                    "title_hi": "शब्द चयन",
+                    "status": "planned-not-a-lesson"
+                  },
+                  {
+                    "title_hi": "मुहावरे और लोकोक्तियाँ",
+                    "status": "planned-not-a-lesson"
+                  },
+                  {
+                    "title_hi": "औपचारिक भाषा",
+                    "status": "planned-not-a-lesson"
+                  }
+                ]
+              },
+              {
+                "id": "adult-advanced-phase-02",
+                "title": "Phase 02 — curriculum planning",
+                "planned_url": "/learn/hindi/older-adults/advanced/phase-02/",
+                "status": "incomplete",
+                "chapters": [],
+                "planned_topics": [
+                  {
+                    "title_hi": "कार्यालय संवाद",
+                    "status": "planned-not-a-lesson"
+                  },
+                  {
+                    "title_hi": "विचार प्रस्तुत करना",
+                    "status": "planned-not-a-lesson"
+                  },
+                  {
+                    "title_hi": "सहमति और असहमति",
+                    "status": "planned-not-a-lesson"
+                  },
+                  {
+                    "title_hi": "विस्तृत चर्चा",
+                    "status": "planned-not-a-lesson"
+                  },
+                  {
+                    "title_hi": "समाचार और विचार",
+                    "status": "planned-not-a-lesson"
+                  }
+                ]
+              },
+              {
+                "id": "adult-advanced-phase-03",
+                "title": "Phase 03 — curriculum planning",
+                "planned_url": "/learn/hindi/older-adults/advanced/phase-03/",
+                "status": "incomplete",
+                "chapters": [],
+                "planned_topics": [
+                  {
+                    "title_hi": "पठन विश्लेषण",
+                    "status": "planned-not-a-lesson"
+                  },
+                  {
+                    "title_hi": "सुनकर सार",
+                    "status": "planned-not-a-lesson"
+                  },
+                  {
+                    "title_hi": "आधिकारिक पत्र",
+                    "status": "planned-not-a-lesson"
+                  },
+                  {
+                    "title_hi": "निबंध लेखन",
+                    "status": "planned-not-a-lesson"
+                  },
+                  {
+                    "title_hi": "प्रस्तुति देना",
+                    "status": "planned-not-a-lesson"
+                  }
+                ]
+              },
+              {
+                "id": "adult-advanced-phase-04",
+                "title": "Phase 04 — curriculum planning",
+                "planned_url": "/learn/hindi/older-adults/advanced/phase-04/",
+                "status": "incomplete",
+                "chapters": [],
+                "planned_topics": [
+                  {
+                    "title_hi": "व्यावसायिक स्थिति",
+                    "status": "planned-not-a-lesson"
+                  },
+                  {
+                    "title_hi": "सांस्कृतिक पाठ",
+                    "status": "planned-not-a-lesson"
+                  },
+                  {
+                    "title_hi": "रचनात्मक अभिव्यक्ति",
+                    "status": "planned-not-a-lesson"
+                  },
+                  {
+                    "title_hi": "अनुवाद परिचय",
+                    "status": "planned-not-a-lesson"
+                  },
+                  {
+                    "title_hi": "पुनरावृत्ति और मूल्यांकन",
+                    "status": "planned-not-a-lesson"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "adult-mastery",
+            "title_hi": "वयस्क संपूर्ण",
+            "title_en": "Adult Mastery",
+            "age_guidance": "Adults and older adults; placement by proficiency, not age",
+            "entry_competencies": "विस्तृत चर्चा और औपचारिक लेखन",
+            "exit_competencies": "परिष्कृत पेशेवर और विश्लेषणात्मक संचार",
+            "prerequisites": "विस्तृत चर्चा और औपचारिक लेखन",
+            "vocabulary_targets": "विश्लेषण, साहित्य, पेशेवर व सामाजिक विषय",
+            "grammar_coverage": "उन्नत शैली, संदर्भ और अर्थ",
+            "reading_complexity": "साहित्यिक तथा औपचारिक पाठ का विश्लेषण",
+            "writing_complexity": "समालोचनात्मक लेखन और अनुवाद",
+            "speaking_ability": "परिष्कृत प्रस्तुति और तर्क",
+            "listening_comprehension": "जटिल वक्तव्य का विवेचन",
+            "assessment_criteria": "Planned: reading, writing, vocabulary, grammar, listening and speaking self-assessment; criteria and content require editorial development.",
+            "planned_url": "/learn/hindi/older-adults/mastery/",
+            "status": "incomplete",
+            "prerequisite_book_ids": [
+              "adult-advanced"
+            ],
+            "phases": [
+              {
+                "id": "adult-mastery-phase-01",
+                "title": "Phase 01 — curriculum planning",
+                "planned_url": "/learn/hindi/older-adults/mastery/phase-01/",
+                "status": "incomplete",
+                "chapters": [],
+                "planned_topics": [
+                  {
+                    "title_hi": "मानक हिंदी",
+                    "status": "planned-not-a-lesson"
+                  },
+                  {
+                    "title_hi": "उन्नत शब्द और शैली",
+                    "status": "planned-not-a-lesson"
+                  },
+                  {
+                    "title_hi": "साहित्यिक पाठ",
+                    "status": "planned-not-a-lesson"
+                  },
+                  {
+                    "title_hi": "कविता का अध्ययन",
+                    "status": "planned-not-a-lesson"
+                  },
+                  {
+                    "title_hi": "विश्लेषणात्मक पठन",
+                    "status": "planned-not-a-lesson"
+                  }
+                ]
+              },
+              {
+                "id": "adult-mastery-phase-02",
+                "title": "Phase 02 — curriculum planning",
+                "planned_url": "/learn/hindi/older-adults/mastery/phase-02/",
+                "status": "incomplete",
+                "chapters": [],
+                "planned_topics": [
+                  {
+                    "title_hi": "आलोचनात्मक चर्चा",
+                    "status": "planned-not-a-lesson"
+                  },
+                  {
+                    "title_hi": "समाज और पर्यावरण",
+                    "status": "planned-not-a-lesson"
+                  },
+                  {
+                    "title_hi": "शोधपरक लेखन",
+                    "status": "planned-not-a-lesson"
+                  },
+                  {
+                    "title_hi": "औपचारिक निबंध",
+                    "status": "planned-not-a-lesson"
+                  },
+                  {
+                    "title_hi": "व्यावसायिक पत्राचार",
+                    "status": "planned-not-a-lesson"
+                  }
+                ]
+              },
+              {
+                "id": "adult-mastery-phase-03",
+                "title": "Phase 03 — curriculum planning",
+                "planned_url": "/learn/hindi/older-adults/mastery/phase-03/",
+                "status": "incomplete",
+                "chapters": [],
+                "planned_topics": [
+                  {
+                    "title_hi": "कार्यालयी हिंदी",
+                    "status": "planned-not-a-lesson"
+                  },
+                  {
+                    "title_hi": "जनसंचार",
+                    "status": "planned-not-a-lesson"
+                  },
+                  {
+                    "title_hi": "हिंदी-अंग्रेजी अनुवाद",
+                    "status": "planned-not-a-lesson"
+                  },
+                  {
+                    "title_hi": "अर्थ और संदर्भ",
+                    "status": "planned-not-a-lesson"
+                  },
+                  {
+                    "title_hi": "शैली संपादन",
+                    "status": "planned-not-a-lesson"
+                  }
+                ]
+              },
+              {
+                "id": "adult-mastery-phase-04",
+                "title": "Phase 04 — curriculum planning",
+                "planned_url": "/learn/hindi/older-adults/mastery/phase-04/",
+                "status": "incomplete",
+                "chapters": [],
+                "planned_topics": [
+                  {
+                    "title_hi": "स्वतंत्र वाचन",
+                    "status": "planned-not-a-lesson"
+                  },
+                  {
+                    "title_hi": "गहन श्रवण",
+                    "status": "planned-not-a-lesson"
+                  },
+                  {
+                    "title_hi": "प्रस्तुति और तर्क",
+                    "status": "planned-not-a-lesson"
+                  },
+                  {
+                    "title_hi": "स्वतंत्र लेखन",
+                    "status": "planned-not-a-lesson"
+                  },
+                  {
+                    "title_hi": "अंतिम भाषा मूल्यांकन",
+                    "status": "planned-not-a-lesson"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "character_coverage": {
+    "version": 1,
+    "note": "References identify existing grouped instruction only; none counts as a completed character lesson. Stroke order and native-speaker review have not been verified.",
+    "characters": [
+      {
+        "character": "अ",
+        "category": "independent-vowel",
+        "existing_group_lesson_ids": [
+          "foundation-swar"
+        ],
+        "individual_lesson": "not implemented",
+        "stroke_order": "unverified",
+        "educational_illustrations": "one existing grouped example; draft visual review required",
+        "human_audio": "not verified",
+        "worksheet": "not verified",
+        "editorial_review": "not recorded",
+        "complete": false,
+        "illustration": {
+          "path": "images/hindi-textbook/0905.svg",
+          "word": "अनार",
+          "review": "draft-visual-review-required"
+        }
+      },
+      {
+        "character": "आ",
+        "category": "independent-vowel",
+        "existing_group_lesson_ids": [
+          "foundation-swar"
+        ],
+        "individual_lesson": "not implemented",
+        "stroke_order": "unverified",
+        "educational_illustrations": "one existing grouped example; draft visual review required",
+        "human_audio": "not verified",
+        "worksheet": "not verified",
+        "editorial_review": "not recorded",
+        "complete": false,
+        "illustration": {
+          "path": "images/hindi-textbook/0906.svg",
+          "word": "आम",
+          "review": "draft-visual-review-required"
+        }
+      },
+      {
+        "character": "इ",
+        "category": "independent-vowel",
+        "existing_group_lesson_ids": [
+          "foundation-swar"
+        ],
+        "individual_lesson": "not implemented",
+        "stroke_order": "unverified",
+        "educational_illustrations": "one existing grouped example; draft visual review required",
+        "human_audio": "not verified",
+        "worksheet": "not verified",
+        "editorial_review": "not recorded",
+        "complete": false,
+        "illustration": {
+          "path": "images/hindi-textbook/0907.svg",
+          "word": "इमली",
+          "review": "draft-visual-review-required"
+        }
+      },
+      {
+        "character": "ई",
+        "category": "independent-vowel",
+        "existing_group_lesson_ids": [
+          "foundation-swar"
+        ],
+        "individual_lesson": "not implemented",
+        "stroke_order": "unverified",
+        "educational_illustrations": "one existing grouped example; draft visual review required",
+        "human_audio": "not verified",
+        "worksheet": "not verified",
+        "editorial_review": "not recorded",
+        "complete": false,
+        "illustration": {
+          "path": "images/hindi-textbook/0908.svg",
+          "word": "ईख",
+          "review": "draft-visual-review-required"
+        }
+      },
+      {
+        "character": "उ",
+        "category": "independent-vowel",
+        "existing_group_lesson_ids": [
+          "foundation-swar"
+        ],
+        "individual_lesson": "not implemented",
+        "stroke_order": "unverified",
+        "educational_illustrations": "one existing grouped example; draft visual review required",
+        "human_audio": "not verified",
+        "worksheet": "not verified",
+        "editorial_review": "not recorded",
+        "complete": false,
+        "illustration": {
+          "path": "images/hindi-textbook/0909.svg",
+          "word": "उल्लू",
+          "review": "draft-visual-review-required"
+        }
+      },
+      {
+        "character": "ऊ",
+        "category": "independent-vowel",
+        "existing_group_lesson_ids": [
+          "foundation-swar"
+        ],
+        "individual_lesson": "not implemented",
+        "stroke_order": "unverified",
+        "educational_illustrations": "one existing grouped example; draft visual review required",
+        "human_audio": "not verified",
+        "worksheet": "not verified",
+        "editorial_review": "not recorded",
+        "complete": false,
+        "illustration": {
+          "path": "images/hindi-textbook/090a.svg",
+          "word": "ऊन",
+          "review": "draft-visual-review-required"
+        }
+      },
+      {
+        "character": "ऋ",
+        "category": "independent-vowel",
+        "existing_group_lesson_ids": [
+          "foundation-swar"
+        ],
+        "individual_lesson": "not implemented",
+        "stroke_order": "unverified",
+        "educational_illustrations": "one existing grouped example; draft visual review required",
+        "human_audio": "not verified",
+        "worksheet": "not verified",
+        "editorial_review": "not recorded",
+        "complete": false,
+        "illustration": {
+          "path": "images/hindi-textbook/090b.svg",
+          "word": "ऋषि",
+          "review": "draft-visual-review-required"
+        }
+      },
+      {
+        "character": "ए",
+        "category": "independent-vowel",
+        "existing_group_lesson_ids": [
+          "foundation-swar"
+        ],
+        "individual_lesson": "not implemented",
+        "stroke_order": "unverified",
+        "educational_illustrations": "one existing grouped example; draft visual review required",
+        "human_audio": "not verified",
+        "worksheet": "not verified",
+        "editorial_review": "not recorded",
+        "complete": false,
+        "illustration": {
+          "path": "images/hindi-textbook/090f.svg",
+          "word": "एड़ी",
+          "review": "draft-visual-review-required"
+        }
+      },
+      {
+        "character": "ऐ",
+        "category": "independent-vowel",
+        "existing_group_lesson_ids": [
+          "foundation-swar"
+        ],
+        "individual_lesson": "not implemented",
+        "stroke_order": "unverified",
+        "educational_illustrations": "one existing grouped example; draft visual review required",
+        "human_audio": "not verified",
+        "worksheet": "not verified",
+        "editorial_review": "not recorded",
+        "complete": false,
+        "illustration": {
+          "path": "images/hindi-textbook/0910.svg",
+          "word": "ऐनक",
+          "review": "draft-visual-review-required"
+        }
+      },
+      {
+        "character": "ओ",
+        "category": "independent-vowel",
+        "existing_group_lesson_ids": [
+          "foundation-swar"
+        ],
+        "individual_lesson": "not implemented",
+        "stroke_order": "unverified",
+        "educational_illustrations": "one existing grouped example; draft visual review required",
+        "human_audio": "not verified",
+        "worksheet": "not verified",
+        "editorial_review": "not recorded",
+        "complete": false,
+        "illustration": {
+          "path": "images/hindi-textbook/0913.svg",
+          "word": "ओखली",
+          "review": "draft-visual-review-required"
+        }
+      },
+      {
+        "character": "औ",
+        "category": "independent-vowel",
+        "existing_group_lesson_ids": [
+          "foundation-swar"
+        ],
+        "individual_lesson": "not implemented",
+        "stroke_order": "unverified",
+        "educational_illustrations": "one existing grouped example; draft visual review required",
+        "human_audio": "not verified",
+        "worksheet": "not verified",
+        "editorial_review": "not recorded",
+        "complete": false,
+        "illustration": {
+          "path": "images/hindi-textbook/0914.svg",
+          "word": "औरत",
+          "review": "draft-visual-review-required"
+        }
+      },
+      {
+        "character": "अं",
+        "category": "traditional-chart-form",
+        "existing_group_lesson_ids": [
+          "foundation-swar"
+        ],
+        "individual_lesson": "not implemented",
+        "stroke_order": "unverified",
+        "educational_illustrations": "one existing grouped example; draft visual review required",
+        "human_audio": "not verified",
+        "worksheet": "not verified",
+        "editorial_review": "not recorded",
+        "complete": false,
+        "illustration": {
+          "path": "images/hindi-textbook/0905-0902.svg",
+          "word": "अंगूर",
+          "review": "draft-visual-review-required"
+        }
+      },
+      {
+        "character": "अः",
+        "category": "traditional-chart-form",
+        "existing_group_lesson_ids": [
+          "foundation-swar"
+        ],
+        "individual_lesson": "not implemented",
+        "stroke_order": "unverified",
+        "educational_illustrations": "one existing grouped example; draft visual review required",
+        "human_audio": "not verified",
+        "worksheet": "not verified",
+        "editorial_review": "not recorded",
+        "complete": false,
+        "illustration": {
+          "path": "images/hindi-textbook/0905-0903.svg",
+          "word": "नमः",
+          "review": "draft-visual-review-required"
+        }
+      },
+      {
+        "character": "अँ",
+        "category": "traditional-chart-form",
+        "existing_group_lesson_ids": [
+          "foundation-anusvar-visarg-chandrabindu"
+        ],
+        "individual_lesson": "not implemented",
+        "stroke_order": "unverified",
+        "educational_illustrations": "not verified",
+        "human_audio": "not verified",
+        "worksheet": "not verified",
+        "editorial_review": "not recorded",
+        "complete": false
+      },
+      {
+        "character": "क",
+        "category": "consonant",
+        "existing_group_lesson_ids": [
+          "foundation-vyanjan-1"
+        ],
+        "individual_lesson": "not implemented",
+        "stroke_order": "unverified",
+        "educational_illustrations": "one existing grouped example; draft visual review required",
+        "human_audio": "not verified",
+        "worksheet": "not verified",
+        "editorial_review": "not recorded",
+        "complete": false,
+        "illustration": {
+          "path": "images/hindi-textbook/0915.svg",
+          "word": "कबूतर",
+          "review": "draft-visual-review-required"
+        }
+      },
+      {
+        "character": "ख",
+        "category": "consonant",
+        "existing_group_lesson_ids": [
+          "foundation-vyanjan-1"
+        ],
+        "individual_lesson": "not implemented",
+        "stroke_order": "unverified",
+        "educational_illustrations": "one existing grouped example; draft visual review required",
+        "human_audio": "not verified",
+        "worksheet": "not verified",
+        "editorial_review": "not recorded",
+        "complete": false,
+        "illustration": {
+          "path": "images/hindi-textbook/0916.svg",
+          "word": "खरगोश",
+          "review": "draft-visual-review-required"
+        }
+      },
+      {
+        "character": "ग",
+        "category": "consonant",
+        "existing_group_lesson_ids": [
+          "foundation-vyanjan-1"
+        ],
+        "individual_lesson": "not implemented",
+        "stroke_order": "unverified",
+        "educational_illustrations": "one existing grouped example; draft visual review required",
+        "human_audio": "not verified",
+        "worksheet": "not verified",
+        "editorial_review": "not recorded",
+        "complete": false,
+        "illustration": {
+          "path": "images/hindi-textbook/0917.svg",
+          "word": "गमला",
+          "review": "draft-visual-review-required"
+        }
+      },
+      {
+        "character": "घ",
+        "category": "consonant",
+        "existing_group_lesson_ids": [
+          "foundation-vyanjan-1"
+        ],
+        "individual_lesson": "not implemented",
+        "stroke_order": "unverified",
+        "educational_illustrations": "one existing grouped example; draft visual review required",
+        "human_audio": "not verified",
+        "worksheet": "not verified",
+        "editorial_review": "not recorded",
+        "complete": false,
+        "illustration": {
+          "path": "images/hindi-textbook/0918.svg",
+          "word": "घर",
+          "review": "draft-visual-review-required"
+        }
+      },
+      {
+        "character": "ङ",
+        "category": "consonant",
+        "existing_group_lesson_ids": [
+          "foundation-vyanjan-1"
+        ],
+        "individual_lesson": "not implemented",
+        "stroke_order": "unverified",
+        "educational_illustrations": "one existing grouped example; draft visual review required",
+        "human_audio": "not verified",
+        "worksheet": "not verified",
+        "editorial_review": "not recorded",
+        "complete": false,
+        "illustration": {
+          "path": "images/hindi-textbook/0919.svg",
+          "word": "रंग",
+          "review": "draft-visual-review-required"
+        }
+      },
+      {
+        "character": "च",
+        "category": "consonant",
+        "existing_group_lesson_ids": [
+          "foundation-vyanjan-1"
+        ],
+        "individual_lesson": "not implemented",
+        "stroke_order": "unverified",
+        "educational_illustrations": "one existing grouped example; draft visual review required",
+        "human_audio": "not verified",
+        "worksheet": "not verified",
+        "editorial_review": "not recorded",
+        "complete": false,
+        "illustration": {
+          "path": "images/hindi-textbook/091a.svg",
+          "word": "चम्मच",
+          "review": "draft-visual-review-required"
+        }
+      },
+      {
+        "character": "छ",
+        "category": "consonant",
+        "existing_group_lesson_ids": [
+          "foundation-vyanjan-1"
+        ],
+        "individual_lesson": "not implemented",
+        "stroke_order": "unverified",
+        "educational_illustrations": "one existing grouped example; draft visual review required",
+        "human_audio": "not verified",
+        "worksheet": "not verified",
+        "editorial_review": "not recorded",
+        "complete": false,
+        "illustration": {
+          "path": "images/hindi-textbook/091b.svg",
+          "word": "छाता",
+          "review": "draft-visual-review-required"
+        }
+      },
+      {
+        "character": "ज",
+        "category": "consonant",
+        "existing_group_lesson_ids": [
+          "foundation-vyanjan-1"
+        ],
+        "individual_lesson": "not implemented",
+        "stroke_order": "unverified",
+        "educational_illustrations": "one existing grouped example; draft visual review required",
+        "human_audio": "not verified",
+        "worksheet": "not verified",
+        "editorial_review": "not recorded",
+        "complete": false,
+        "illustration": {
+          "path": "images/hindi-textbook/091c.svg",
+          "word": "जहाज",
+          "review": "draft-visual-review-required"
+        }
+      },
+      {
+        "character": "झ",
+        "category": "consonant",
+        "existing_group_lesson_ids": [
+          "foundation-vyanjan-1"
+        ],
+        "individual_lesson": "not implemented",
+        "stroke_order": "unverified",
+        "educational_illustrations": "one existing grouped example; draft visual review required",
+        "human_audio": "not verified",
+        "worksheet": "not verified",
+        "editorial_review": "not recorded",
+        "complete": false,
+        "illustration": {
+          "path": "images/hindi-textbook/091d.svg",
+          "word": "झंडा",
+          "review": "draft-visual-review-required"
+        }
+      },
+      {
+        "character": "ञ",
+        "category": "consonant",
+        "existing_group_lesson_ids": [
+          "foundation-vyanjan-1"
+        ],
+        "individual_lesson": "not implemented",
+        "stroke_order": "unverified",
+        "educational_illustrations": "one existing grouped example; draft visual review required",
+        "human_audio": "not verified",
+        "worksheet": "not verified",
+        "editorial_review": "not recorded",
+        "complete": false,
+        "illustration": {
+          "path": "images/hindi-textbook/091e.svg",
+          "word": "ज्ञान",
+          "review": "draft-visual-review-required"
+        }
+      },
+      {
+        "character": "ट",
+        "category": "consonant",
+        "existing_group_lesson_ids": [
+          "foundation-vyanjan-2"
+        ],
+        "individual_lesson": "not implemented",
+        "stroke_order": "unverified",
+        "educational_illustrations": "one existing grouped example; draft visual review required",
+        "human_audio": "not verified",
+        "worksheet": "not verified",
+        "editorial_review": "not recorded",
+        "complete": false,
+        "illustration": {
+          "path": "images/hindi-textbook/091f.svg",
+          "word": "टमाटर",
+          "review": "draft-visual-review-required"
+        }
+      },
+      {
+        "character": "ठ",
+        "category": "consonant",
+        "existing_group_lesson_ids": [
+          "foundation-vyanjan-2"
+        ],
+        "individual_lesson": "not implemented",
+        "stroke_order": "unverified",
+        "educational_illustrations": "one existing grouped example; draft visual review required",
+        "human_audio": "not verified",
+        "worksheet": "not verified",
+        "editorial_review": "not recorded",
+        "complete": false,
+        "illustration": {
+          "path": "images/hindi-textbook/0920.svg",
+          "word": "ठेला",
+          "review": "draft-visual-review-required"
+        }
+      },
+      {
+        "character": "ड",
+        "category": "consonant",
+        "existing_group_lesson_ids": [
+          "foundation-vyanjan-2"
+        ],
+        "individual_lesson": "not implemented",
+        "stroke_order": "unverified",
+        "educational_illustrations": "one existing grouped example; draft visual review required",
+        "human_audio": "not verified",
+        "worksheet": "not verified",
+        "editorial_review": "not recorded",
+        "complete": false,
+        "illustration": {
+          "path": "images/hindi-textbook/0921.svg",
+          "word": "डमरू",
+          "review": "draft-visual-review-required"
+        }
+      },
+      {
+        "character": "ढ",
+        "category": "consonant",
+        "existing_group_lesson_ids": [
+          "foundation-vyanjan-2"
+        ],
+        "individual_lesson": "not implemented",
+        "stroke_order": "unverified",
+        "educational_illustrations": "one existing grouped example; draft visual review required",
+        "human_audio": "not verified",
+        "worksheet": "not verified",
+        "editorial_review": "not recorded",
+        "complete": false,
+        "illustration": {
+          "path": "images/hindi-textbook/0922.svg",
+          "word": "ढक्कन",
+          "review": "draft-visual-review-required"
+        }
+      },
+      {
+        "character": "ण",
+        "category": "consonant",
+        "existing_group_lesson_ids": [
+          "foundation-vyanjan-2"
+        ],
+        "individual_lesson": "not implemented",
+        "stroke_order": "unverified",
+        "educational_illustrations": "one existing grouped example; draft visual review required",
+        "human_audio": "not verified",
+        "worksheet": "not verified",
+        "editorial_review": "not recorded",
+        "complete": false,
+        "illustration": {
+          "path": "images/hindi-textbook/0923.svg",
+          "word": "बाण",
+          "review": "draft-visual-review-required"
+        }
+      },
+      {
+        "character": "त",
+        "category": "consonant",
+        "existing_group_lesson_ids": [
+          "foundation-vyanjan-2"
+        ],
+        "individual_lesson": "not implemented",
+        "stroke_order": "unverified",
+        "educational_illustrations": "one existing grouped example; draft visual review required",
+        "human_audio": "not verified",
+        "worksheet": "not verified",
+        "editorial_review": "not recorded",
+        "complete": false,
+        "illustration": {
+          "path": "images/hindi-textbook/0924.svg",
+          "word": "तरबूज",
+          "review": "draft-visual-review-required"
+        }
+      },
+      {
+        "character": "थ",
+        "category": "consonant",
+        "existing_group_lesson_ids": [
+          "foundation-vyanjan-2"
+        ],
+        "individual_lesson": "not implemented",
+        "stroke_order": "unverified",
+        "educational_illustrations": "one existing grouped example; draft visual review required",
+        "human_audio": "not verified",
+        "worksheet": "not verified",
+        "editorial_review": "not recorded",
+        "complete": false,
+        "illustration": {
+          "path": "images/hindi-textbook/0925.svg",
+          "word": "थाली",
+          "review": "draft-visual-review-required"
+        }
+      },
+      {
+        "character": "द",
+        "category": "consonant",
+        "existing_group_lesson_ids": [
+          "foundation-vyanjan-2"
+        ],
+        "individual_lesson": "not implemented",
+        "stroke_order": "unverified",
+        "educational_illustrations": "one existing grouped example; draft visual review required",
+        "human_audio": "not verified",
+        "worksheet": "not verified",
+        "editorial_review": "not recorded",
+        "complete": false,
+        "illustration": {
+          "path": "images/hindi-textbook/0926.svg",
+          "word": "दरवाजा",
+          "review": "draft-visual-review-required"
+        }
+      },
+      {
+        "character": "ध",
+        "category": "consonant",
+        "existing_group_lesson_ids": [
+          "foundation-vyanjan-2"
+        ],
+        "individual_lesson": "not implemented",
+        "stroke_order": "unverified",
+        "educational_illustrations": "one existing grouped example; draft visual review required",
+        "human_audio": "not verified",
+        "worksheet": "not verified",
+        "editorial_review": "not recorded",
+        "complete": false,
+        "illustration": {
+          "path": "images/hindi-textbook/0927.svg",
+          "word": "धनुष",
+          "review": "draft-visual-review-required"
+        }
+      },
+      {
+        "character": "न",
+        "category": "consonant",
+        "existing_group_lesson_ids": [
+          "foundation-vyanjan-2"
+        ],
+        "individual_lesson": "not implemented",
+        "stroke_order": "unverified",
+        "educational_illustrations": "one existing grouped example; draft visual review required",
+        "human_audio": "not verified",
+        "worksheet": "not verified",
+        "editorial_review": "not recorded",
+        "complete": false,
+        "illustration": {
+          "path": "images/hindi-textbook/0928.svg",
+          "word": "नल",
+          "review": "draft-visual-review-required"
+        }
+      },
+      {
+        "character": "प",
+        "category": "consonant",
+        "existing_group_lesson_ids": [
+          "foundation-vyanjan-3"
+        ],
+        "individual_lesson": "not implemented",
+        "stroke_order": "unverified",
+        "educational_illustrations": "one existing grouped example; draft visual review required",
+        "human_audio": "not verified",
+        "worksheet": "not verified",
+        "editorial_review": "not recorded",
+        "complete": false,
+        "illustration": {
+          "path": "images/hindi-textbook/092a.svg",
+          "word": "पतंग",
+          "review": "draft-visual-review-required"
+        }
+      },
+      {
+        "character": "फ",
+        "category": "consonant",
+        "existing_group_lesson_ids": [
+          "foundation-vyanjan-3"
+        ],
+        "individual_lesson": "not implemented",
+        "stroke_order": "unverified",
+        "educational_illustrations": "one existing grouped example; draft visual review required",
+        "human_audio": "not verified",
+        "worksheet": "not verified",
+        "editorial_review": "not recorded",
+        "complete": false,
+        "illustration": {
+          "path": "images/hindi-textbook/092b.svg",
+          "word": "फल",
+          "review": "draft-visual-review-required"
+        }
+      },
+      {
+        "character": "ब",
+        "category": "consonant",
+        "existing_group_lesson_ids": [
+          "foundation-vyanjan-3"
+        ],
+        "individual_lesson": "not implemented",
+        "stroke_order": "unverified",
+        "educational_illustrations": "one existing grouped example; draft visual review required",
+        "human_audio": "not verified",
+        "worksheet": "not verified",
+        "editorial_review": "not recorded",
+        "complete": false,
+        "illustration": {
+          "path": "images/hindi-textbook/092c.svg",
+          "word": "बतख",
+          "review": "draft-visual-review-required"
+        }
+      },
+      {
+        "character": "भ",
+        "category": "consonant",
+        "existing_group_lesson_ids": [
+          "foundation-vyanjan-3"
+        ],
+        "individual_lesson": "not implemented",
+        "stroke_order": "unverified",
+        "educational_illustrations": "one existing grouped example; draft visual review required",
+        "human_audio": "not verified",
+        "worksheet": "not verified",
+        "editorial_review": "not recorded",
+        "complete": false,
+        "illustration": {
+          "path": "images/hindi-textbook/092d.svg",
+          "word": "भालू",
+          "review": "draft-visual-review-required"
+        }
+      },
+      {
+        "character": "म",
+        "category": "consonant",
+        "existing_group_lesson_ids": [
+          "foundation-vyanjan-3"
+        ],
+        "individual_lesson": "not implemented",
+        "stroke_order": "unverified",
+        "educational_illustrations": "one existing grouped example; draft visual review required",
+        "human_audio": "not verified",
+        "worksheet": "not verified",
+        "editorial_review": "not recorded",
+        "complete": false,
+        "illustration": {
+          "path": "images/hindi-textbook/092e.svg",
+          "word": "मछली",
+          "review": "draft-visual-review-required"
+        }
+      },
+      {
+        "character": "य",
+        "category": "consonant",
+        "existing_group_lesson_ids": [
+          "foundation-vyanjan-3"
+        ],
+        "individual_lesson": "not implemented",
+        "stroke_order": "unverified",
+        "educational_illustrations": "one existing grouped example; draft visual review required",
+        "human_audio": "not verified",
+        "worksheet": "not verified",
+        "editorial_review": "not recorded",
+        "complete": false,
+        "illustration": {
+          "path": "images/hindi-textbook/092f.svg",
+          "word": "योग",
+          "review": "draft-visual-review-required"
+        }
+      },
+      {
+        "character": "र",
+        "category": "consonant",
+        "existing_group_lesson_ids": [
+          "foundation-vyanjan-3"
+        ],
+        "individual_lesson": "not implemented",
+        "stroke_order": "unverified",
+        "educational_illustrations": "one existing grouped example; draft visual review required",
+        "human_audio": "not verified",
+        "worksheet": "not verified",
+        "editorial_review": "not recorded",
+        "complete": false,
+        "illustration": {
+          "path": "images/hindi-textbook/0930.svg",
+          "word": "रथ",
+          "review": "draft-visual-review-required"
+        }
+      },
+      {
+        "character": "ल",
+        "category": "consonant",
+        "existing_group_lesson_ids": [
+          "foundation-vyanjan-3"
+        ],
+        "individual_lesson": "not implemented",
+        "stroke_order": "unverified",
+        "educational_illustrations": "one existing grouped example; draft visual review required",
+        "human_audio": "not verified",
+        "worksheet": "not verified",
+        "editorial_review": "not recorded",
+        "complete": false,
+        "illustration": {
+          "path": "images/hindi-textbook/0932.svg",
+          "word": "लोमड़ी",
+          "review": "draft-visual-review-required"
+        }
+      },
+      {
+        "character": "व",
+        "category": "consonant",
+        "existing_group_lesson_ids": [
+          "foundation-vyanjan-3"
+        ],
+        "individual_lesson": "not implemented",
+        "stroke_order": "unverified",
+        "educational_illustrations": "one existing grouped example; draft visual review required",
+        "human_audio": "not verified",
+        "worksheet": "not verified",
+        "editorial_review": "not recorded",
+        "complete": false,
+        "illustration": {
+          "path": "images/hindi-textbook/0935.svg",
+          "word": "वन",
+          "review": "draft-visual-review-required"
+        }
+      },
+      {
+        "character": "श",
+        "category": "consonant",
+        "existing_group_lesson_ids": [
+          "foundation-vyanjan-3"
+        ],
+        "individual_lesson": "not implemented",
+        "stroke_order": "unverified",
+        "educational_illustrations": "one existing grouped example; draft visual review required",
+        "human_audio": "not verified",
+        "worksheet": "not verified",
+        "editorial_review": "not recorded",
+        "complete": false,
+        "illustration": {
+          "path": "images/hindi-textbook/0936.svg",
+          "word": "शेर",
+          "review": "draft-visual-review-required"
+        }
+      },
+      {
+        "character": "ष",
+        "category": "consonant",
+        "existing_group_lesson_ids": [
+          "foundation-vyanjan-3"
+        ],
+        "individual_lesson": "not implemented",
+        "stroke_order": "unverified",
+        "educational_illustrations": "one existing grouped example; draft visual review required",
+        "human_audio": "not verified",
+        "worksheet": "not verified",
+        "editorial_review": "not recorded",
+        "complete": false,
+        "illustration": {
+          "path": "images/hindi-textbook/0937.svg",
+          "word": "षट्कोण",
+          "review": "draft-visual-review-required"
+        }
+      },
+      {
+        "character": "स",
+        "category": "consonant",
+        "existing_group_lesson_ids": [
+          "foundation-vyanjan-3"
+        ],
+        "individual_lesson": "not implemented",
+        "stroke_order": "unverified",
+        "educational_illustrations": "one existing grouped example; draft visual review required",
+        "human_audio": "not verified",
+        "worksheet": "not verified",
+        "editorial_review": "not recorded",
+        "complete": false,
+        "illustration": {
+          "path": "images/hindi-textbook/0938.svg",
+          "word": "सेब",
+          "review": "draft-visual-review-required"
+        }
+      },
+      {
+        "character": "ह",
+        "category": "consonant",
+        "existing_group_lesson_ids": [
+          "foundation-vyanjan-3"
+        ],
+        "individual_lesson": "not implemented",
+        "stroke_order": "unverified",
+        "educational_illustrations": "one existing grouped example; draft visual review required",
+        "human_audio": "not verified",
+        "worksheet": "not verified",
+        "editorial_review": "not recorded",
+        "complete": false,
+        "illustration": {
+          "path": "images/hindi-textbook/0939.svg",
+          "word": "हाथी",
+          "review": "draft-visual-review-required"
+        }
+      },
+      {
+        "character": "ड़",
+        "category": "additional-letter",
+        "existing_group_lesson_ids": [],
+        "individual_lesson": "not implemented",
+        "stroke_order": "unverified",
+        "educational_illustrations": "not verified",
+        "human_audio": "not verified",
+        "worksheet": "not verified",
+        "editorial_review": "not recorded",
+        "complete": false
+      },
+      {
+        "character": "ढ़",
+        "category": "additional-letter",
+        "existing_group_lesson_ids": [],
+        "individual_lesson": "not implemented",
+        "stroke_order": "unverified",
+        "educational_illustrations": "not verified",
+        "human_audio": "not verified",
+        "worksheet": "not verified",
+        "editorial_review": "not recorded",
+        "complete": false
+      },
+      {
+        "character": "क़",
+        "category": "additional-letter",
+        "existing_group_lesson_ids": [],
+        "individual_lesson": "not implemented",
+        "stroke_order": "unverified",
+        "educational_illustrations": "not verified",
+        "human_audio": "not verified",
+        "worksheet": "not verified",
+        "editorial_review": "not recorded",
+        "complete": false
+      },
+      {
+        "character": "ख़",
+        "category": "additional-letter",
+        "existing_group_lesson_ids": [],
+        "individual_lesson": "not implemented",
+        "stroke_order": "unverified",
+        "educational_illustrations": "not verified",
+        "human_audio": "not verified",
+        "worksheet": "not verified",
+        "editorial_review": "not recorded",
+        "complete": false
+      },
+      {
+        "character": "ग़",
+        "category": "additional-letter",
+        "existing_group_lesson_ids": [],
+        "individual_lesson": "not implemented",
+        "stroke_order": "unverified",
+        "educational_illustrations": "not verified",
+        "human_audio": "not verified",
+        "worksheet": "not verified",
+        "editorial_review": "not recorded",
+        "complete": false
+      },
+      {
+        "character": "ज़",
+        "category": "additional-letter",
+        "existing_group_lesson_ids": [],
+        "individual_lesson": "not implemented",
+        "stroke_order": "unverified",
+        "educational_illustrations": "not verified",
+        "human_audio": "not verified",
+        "worksheet": "not verified",
+        "editorial_review": "not recorded",
+        "complete": false
+      },
+      {
+        "character": "फ़",
+        "category": "additional-letter",
+        "existing_group_lesson_ids": [],
+        "individual_lesson": "not implemented",
+        "stroke_order": "unverified",
+        "educational_illustrations": "not verified",
+        "human_audio": "not verified",
+        "worksheet": "not verified",
+        "editorial_review": "not recorded",
+        "complete": false
+      },
+      {
+        "character": "क्ष",
+        "category": "conjunct",
+        "existing_group_lesson_ids": [
+          "foundation-sanyukt-akshar"
+        ],
+        "individual_lesson": "not implemented",
+        "stroke_order": "unverified",
+        "educational_illustrations": "one existing grouped example; draft visual review required",
+        "human_audio": "not verified",
+        "worksheet": "not verified",
+        "editorial_review": "not recorded",
+        "complete": false,
+        "illustration": {
+          "path": "images/hindi-textbook/0915-094d-0937.svg",
+          "word": "क्षत्रिय",
+          "review": "draft-visual-review-required"
+        }
+      },
+      {
+        "character": "त्र",
+        "category": "conjunct",
+        "existing_group_lesson_ids": [
+          "foundation-sanyukt-akshar"
+        ],
+        "individual_lesson": "not implemented",
+        "stroke_order": "unverified",
+        "educational_illustrations": "one existing grouped example; draft visual review required",
+        "human_audio": "not verified",
+        "worksheet": "not verified",
+        "editorial_review": "not recorded",
+        "complete": false,
+        "illustration": {
+          "path": "images/hindi-textbook/0924-094d-0930.svg",
+          "word": "त्रिशूल",
+          "review": "draft-visual-review-required"
+        }
+      },
+      {
+        "character": "ज्ञ",
+        "category": "conjunct",
+        "existing_group_lesson_ids": [
+          "foundation-sanyukt-akshar"
+        ],
+        "individual_lesson": "not implemented",
+        "stroke_order": "unverified",
+        "educational_illustrations": "one existing grouped example; draft visual review required",
+        "human_audio": "not verified",
+        "worksheet": "not verified",
+        "editorial_review": "not recorded",
+        "complete": false,
+        "illustration": {
+          "path": "images/hindi-textbook/091c-094d-091e.svg",
+          "word": "ज्ञानी",
+          "review": "draft-visual-review-required"
+        }
+      },
+      {
+        "character": "श्र",
+        "category": "conjunct",
+        "existing_group_lesson_ids": [
+          "foundation-sanyukt-akshar"
+        ],
+        "individual_lesson": "not implemented",
+        "stroke_order": "unverified",
+        "educational_illustrations": "not verified",
+        "human_audio": "not verified",
+        "worksheet": "not verified",
+        "editorial_review": "not recorded",
+        "complete": false
+      },
+      {
+        "character": "ा",
+        "category": "vowel-sign",
+        "existing_group_lesson_ids": [
+          "foundation-aa-ki-matra"
+        ],
+        "individual_lesson": "not implemented",
+        "stroke_order": "unverified",
+        "educational_illustrations": "not verified",
+        "human_audio": "not verified",
+        "worksheet": "not verified",
+        "editorial_review": "not recorded",
+        "complete": false
+      },
+      {
+        "character": "ि",
+        "category": "vowel-sign",
+        "existing_group_lesson_ids": [
+          "foundation-i-ki-matra"
+        ],
+        "individual_lesson": "not implemented",
+        "stroke_order": "unverified",
+        "educational_illustrations": "not verified",
+        "human_audio": "not verified",
+        "worksheet": "not verified",
+        "editorial_review": "not recorded",
+        "complete": false
+      },
+      {
+        "character": "ी",
+        "category": "vowel-sign",
+        "existing_group_lesson_ids": [
+          "foundation-ee-ki-matra"
+        ],
+        "individual_lesson": "not implemented",
+        "stroke_order": "unverified",
+        "educational_illustrations": "not verified",
+        "human_audio": "not verified",
+        "worksheet": "not verified",
+        "editorial_review": "not recorded",
+        "complete": false
+      },
+      {
+        "character": "ु",
+        "category": "vowel-sign",
+        "existing_group_lesson_ids": [
+          "foundation-u-ki-matra"
+        ],
+        "individual_lesson": "not implemented",
+        "stroke_order": "unverified",
+        "educational_illustrations": "not verified",
+        "human_audio": "not verified",
+        "worksheet": "not verified",
+        "editorial_review": "not recorded",
+        "complete": false
+      },
+      {
+        "character": "ू",
+        "category": "vowel-sign",
+        "existing_group_lesson_ids": [
+          "foundation-oo-ki-matra"
+        ],
+        "individual_lesson": "not implemented",
+        "stroke_order": "unverified",
+        "educational_illustrations": "not verified",
+        "human_audio": "not verified",
+        "worksheet": "not verified",
+        "editorial_review": "not recorded",
+        "complete": false
+      },
+      {
+        "character": "ृ",
+        "category": "vowel-sign",
+        "existing_group_lesson_ids": [
+          "foundation-ri-ki-matra"
+        ],
+        "individual_lesson": "not implemented",
+        "stroke_order": "unverified",
+        "educational_illustrations": "not verified",
+        "human_audio": "not verified",
+        "worksheet": "not verified",
+        "editorial_review": "not recorded",
+        "complete": false
+      },
+      {
+        "character": "े",
+        "category": "vowel-sign",
+        "existing_group_lesson_ids": [
+          "foundation-e-ki-matra"
+        ],
+        "individual_lesson": "not implemented",
+        "stroke_order": "unverified",
+        "educational_illustrations": "not verified",
+        "human_audio": "not verified",
+        "worksheet": "not verified",
+        "editorial_review": "not recorded",
+        "complete": false
+      },
+      {
+        "character": "ै",
+        "category": "vowel-sign",
+        "existing_group_lesson_ids": [
+          "foundation-ai-ki-matra"
+        ],
+        "individual_lesson": "not implemented",
+        "stroke_order": "unverified",
+        "educational_illustrations": "not verified",
+        "human_audio": "not verified",
+        "worksheet": "not verified",
+        "editorial_review": "not recorded",
+        "complete": false
+      },
+      {
+        "character": "ो",
+        "category": "vowel-sign",
+        "existing_group_lesson_ids": [
+          "foundation-o-ki-matra"
+        ],
+        "individual_lesson": "not implemented",
+        "stroke_order": "unverified",
+        "educational_illustrations": "not verified",
+        "human_audio": "not verified",
+        "worksheet": "not verified",
+        "editorial_review": "not recorded",
+        "complete": false
+      },
+      {
+        "character": "ौ",
+        "category": "vowel-sign",
+        "existing_group_lesson_ids": [
+          "foundation-au-ki-matra"
+        ],
+        "individual_lesson": "not implemented",
+        "stroke_order": "unverified",
+        "educational_illustrations": "not verified",
+        "human_audio": "not verified",
+        "worksheet": "not verified",
+        "editorial_review": "not recorded",
+        "complete": false
+      },
+      {
+        "character": "ं",
+        "category": "mark",
+        "existing_group_lesson_ids": [
+          "foundation-anusvar-visarg-chandrabindu"
+        ],
+        "individual_lesson": "not implemented",
+        "stroke_order": "unverified",
+        "educational_illustrations": "not verified",
+        "human_audio": "not verified",
+        "worksheet": "not verified",
+        "editorial_review": "not recorded",
+        "complete": false
+      },
+      {
+        "character": "ँ",
+        "category": "mark",
+        "existing_group_lesson_ids": [
+          "foundation-anusvar-visarg-chandrabindu"
+        ],
+        "individual_lesson": "not implemented",
+        "stroke_order": "unverified",
+        "educational_illustrations": "not verified",
+        "human_audio": "not verified",
+        "worksheet": "not verified",
+        "editorial_review": "not recorded",
+        "complete": false
+      },
+      {
+        "character": "ः",
+        "category": "mark",
+        "existing_group_lesson_ids": [
+          "foundation-anusvar-visarg-chandrabindu"
+        ],
+        "individual_lesson": "not implemented",
+        "stroke_order": "unverified",
+        "educational_illustrations": "not verified",
+        "human_audio": "not verified",
+        "worksheet": "not verified",
+        "editorial_review": "not recorded",
+        "complete": false
+      },
+      {
+        "character": "्",
+        "category": "mark",
+        "existing_group_lesson_ids": [
+          "foundation-sanyukt-akshar"
+        ],
+        "individual_lesson": "not implemented",
+        "stroke_order": "unverified",
+        "educational_illustrations": "not verified",
+        "human_audio": "not verified",
+        "worksheet": "not verified",
+        "editorial_review": "not recorded",
+        "complete": false
+      }
+    ],
+    "inherent_vowel": {
+      "existing_group_lesson_ids": [
+        "foundation-vyanjan-1",
+        "foundation-bina-matra"
+      ],
+      "individual_lesson": "not implemented",
+      "editorial_review": "not recorded",
+      "complete": false
+    }
+  }
+}

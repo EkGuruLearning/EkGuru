@@ -77,7 +77,7 @@ def eligible_public_urls(disallows: list[str]) -> set[str]:
     """Every crawlable, self-canonical public HTML URL must be discoverable."""
     pages = sorted(
         path for path in ROOT.rglob("*.html")
-        if not any(part in {".git", "node_modules", ".venv", "reports"} for part in path.parts)
+        if not any(part in {".git", "node_modules", ".venv", "reports", "A-Manually"} for part in path.parts)
     )
     out = set()
     for page in pages:

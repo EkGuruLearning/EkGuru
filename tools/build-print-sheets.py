@@ -48,7 +48,7 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 os.chdir(ROOT)
 
 SKIP_DIRS = {".git", "node_modules", "images", "css", "js", "data", "reports",
-             "docs", "templates", "research", "tools"}
+             "docs", "templates", "research", "tools", "A-Manually"}
 MARK = "data-print"
 
 # The sheet, per page kind. A page is only a sheet when printing it is the

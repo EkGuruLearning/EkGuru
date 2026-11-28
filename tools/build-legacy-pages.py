@@ -625,7 +625,7 @@ def transform(html, path, countries, by_country, report=None):
 def pages():
     out = []
     for dirpath, dirs, files in os.walk("."):
-        if ".git" in dirpath or "node_modules" in dirpath:
+        if any(part in {".git", "node_modules", "A-Manually"} for part in dirpath.split(os.sep)):
             continue
         for f in sorted(files):
             if not f.endswith(".html"):

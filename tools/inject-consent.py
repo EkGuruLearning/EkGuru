@@ -79,7 +79,7 @@ def main():
     for dirpath, dirnames, filenames in os.walk(ROOT):
         # reports/ holds build evidence (email previews, audits) — files, not
         # pages anyone visits; tools/ templates are not pages either.
-        dirnames[:] = [d for d in dirnames if d not in ("node_modules", ".git", "reports", "tools")]
+        dirnames[:] = [d for d in dirnames if d not in ("node_modules", ".git", "reports", "tools", "A-Manually")]
         for fn in filenames:
             if not fn.endswith(".html"):
                 continue
