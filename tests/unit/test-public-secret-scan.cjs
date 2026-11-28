@@ -1,0 +1,15 @@
+"use strict";
+const assert = require('node:assert/strict');
+const { findSecrets } = require('../../tools/lib/public-secret-scan.cjs');
+const approved = 'AIzaSyBEPKUDm2eh6rPZxaWolAnOL5JaQKLPDa8';
+const another = 'AIza' + 'A'.repeat(35);
+const location = 'js/student/config.js';
+assert.deepEqual(findSecrets(approved, location), [], 'the owner-approved Firebase web key is accepted only here');
+assert.equal(findSecrets(approved, 'js/elsewhere.js').length, 1, 'same key elsewhere is rejected');
+assert.equal(findSecrets(another, location).length, 1, 'a different Google key in the config is rejected');
+assert.equal(findSecrets(approved + ' ' + another, location).length, 1, 'an approved key cannot mask a second key');
+assert.equal(findSecrets('AKIA' + 'A'.repeat(16), location).length, 1, 'other credential patterns remain blocked in the config');
+assert.equal(findSecrets('ghp_' + 'A'.repeat(30), 'js/elsewhere.js').length, 1, 'GitHub tokens remain blocked');
+assert.equal(findSecrets('sk-' + 'A'.repeat(24), 'js/elsewhere.js').length, 1, 'other secret-shaped strings remain blocked');
+assert.equal(findSecrets(approved, 'js/student/../student/config.js').length, 1, 'path aliases cannot use the exception');
+console.log('PASS exact Firebase web-key exception and unrelated secret rejection');

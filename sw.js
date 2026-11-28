@@ -67,7 +67,8 @@
    receipt is no longer pushed through Web3Forms (it delivered to the owner,
    not the visitor). Rotate the shell cache so no returning visitor keeps the
    precached mailer.js that still sent two. */
-const BUILD_ID = "2026-11-18T02:30:00Z-v60-analytics-country-seo";
+/* v62 — account and premium shells are never cached; purge private legacy pins and shell entries. */
+const BUILD_ID = "2026-11-28T00:00:00Z-v62-student-private-routes";
 const CACHE = "ekguru-" + BUILD_ID;
 
 /* Phase 6 §14 — "Save for offline" pins learner-chosen pages in a dedicated
@@ -202,7 +203,7 @@ function allowed(value) {
     const u = new URL(value, self.location.origin), path = decodeURIComponent(u.pathname);
     if (!["http:", "https:"].includes(u.protocol) || u.origin !== self.location.origin || u.search || u.username || u.password ||
         !path.startsWith("/") || path.split("/").some(x => x.startsWith("."))) return false;
-    if (/^\/(?:api|admin|account|login|messages|notifications|checkout|payment|support|contact|join|booking|tutor)(?:[/.]|$)/i.test(path) ||
+    if (/^\/(?:api|admin|account|premium|login|messages|notifications|checkout|payment|support|contact|join|booking|tutor)(?:[/.]|$)/i.test(path) ||
         /deploy-secrets|credentials|\.local\.|\.env(?:$|[/.])/i.test(path)) return false;
     if (path.startsWith("/data/") && !/^\/data\/(?:courses(?:\.json|\/(?:index\.json|phase-\d+\/[a-z]{2,3}_(?:A1|A2|B1|B2|C1|C2)[-_a-z0-9]*\.json))|global\/language-country-relations\.json|learning\/(?:index|offline-levels|placement\/[a-z]{2,3})\.json|audio-manifest\/[a-z]{2,3}\.json|practice(?:-flags)?\.json|practice\/index\.json)$/i.test(path)) return false;
     return true;
@@ -301,8 +302,10 @@ self.addEventListener("activate", event => {
   event.waitUntil(
     caches.keys()
       .then(keys => Promise.all(keys.filter(k => k.startsWith("ekguru-") && k !== CACHE && k !== OFFLINE).map(k => caches.delete(k))))
-      .then(() => caches.open(OFFLINE))
-      .then(async pins => { for (const key of await pins.keys()) if (!allowed(key.url)) await pins.delete(key); })
+      .then(() => Promise.all([OFFLINE, CACHE].map(async name => {
+        const cache = await caches.open(name);
+        for (const key of await cache.keys()) if (!allowed(key.url)) await cache.delete(key);
+      })))
       .then(() => self.clients.claim())
   );
 });

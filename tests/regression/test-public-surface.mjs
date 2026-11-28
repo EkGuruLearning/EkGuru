@@ -71,17 +71,9 @@ const PUBLIC_EMAILS = new Set([
 ]);
 const EMAIL_RE = /[A-Za-z0-9._%+-]+@[A-Za-z0-9-]+(?:\.[A-Za-z0-9-]+)*\.[A-Za-z]{2,}/g;
 const EXAMPLE_HOST = /(^|\.)(example|test|invalid|localhost)(\.|$)|\.local$|^x\.com$|^y\.com$|^b\.co$|attacker\./i;
-const SECRET_PATTERNS = [
-  [/\bAKIA[0-9A-Z]{16}\b/, "AWS access key"],
-  [/\bAIza[0-9A-Za-z_-]{35}\b/, "Google API key"],
-  [/\bsk-[A-Za-z0-9_-]{24,}\b/, "sk- style key"],
-  [/-----BEGIN (?:RSA |EC |OPENSSH )?PRIVATE KEY-----/, "private key block"],
-  [/\brzp_live_[A-Za-z0-9]{10,}\b/, "Razorpay LIVE key id"],
-  [/\bghp_[A-Za-z0-9]{30,}\b/, "GitHub token"],
-  [/\bxox[baprs]-[A-Za-z0-9-]{10,}\b/, "Slack token"],
-  [/EK_ADMIN_TOKEN\s*[:=]\s*["'][^"'\s]{8,}["']/, "admin token value"],
-  [/MAILER_SHARED_TOKEN\s*[:=]\s*["'][^"'\s]{8,}["']/, "mailer token value"],
-];
+// One owner-approved public Firebase web key is accepted only at its exact
+// config path. All other secret patterns and Google API keys remain blocked.
+import { findSecrets } from '../../tools/lib/public-secret-scan.cjs';
 
 const strangeEmails = new Map();
 const secrets = [];
@@ -97,9 +89,7 @@ for (const p of files) {
     if (/\.(png|jpg|jpeg|svg|webp|css|js|json|html|md|xml)$/.test(e)) continue; // foo@2x.png style
     if (!strangeEmails.has(e)) strangeEmails.set(e, rel);
   }
-  for (const [re, name] of SECRET_PATTERNS) {
-    if (re.test(txt)) secrets.push(name + " in " + rel);
-  }
+  secrets.push(...findSecrets(txt, rel));
 }
 /* A documented allowance: the three tutor template files carry a commented
    EXAMPLE address ("replace with HER address, e.g. …"). Those must stay
