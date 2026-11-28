@@ -140,120 +140,97 @@
     return !!(c && c.timestamp);
   }
 
+  function ensureConsentStyle() {
+    if (document.getElementById('ekguru-consent-style')) return;
+    var link = document.createElement('link');
+    link.id = 'ekguru-consent-style'; link.rel = 'stylesheet'; link.href = '/css/cookie-consent.css';
+    document.head.appendChild(link);
+  }
+
   function createBanner() {
     if (document.getElementById('ekguru-consent')) return;
-    
-    var banner = document.createElement('div');
+    ensureConsentStyle();
+    var banner = document.createElement('section');
     banner.id = 'ekguru-consent';
     banner.setAttribute('role', 'dialog');
-    banner.setAttribute('aria-label', 'Privacy settings');
+    banner.setAttribute('aria-labelledby', 'consent-title');
+    banner.setAttribute('aria-describedby', 'consent-description');
     banner.setAttribute('aria-live', 'polite');
-    banner.style.cssText = 'position:fixed;left:0;right:0;bottom:0;background:var(--bg,#fff);padding:16px;max-height:calc(100vh - 16px);overflow-y:auto;overscroll-behavior:contain;box-sizing:border-box;z-index:10000';
-    
-    var isSmall = window.innerWidth < 600;
-    
-    banner.innerHTML = 
-      '<div class="consent-in">' +
-        '<div class="consent-text">' +
-          '<b>Privacy choices and browser storage</b><br>' +
-          '<span style="font-size:.88em">Learning progress and preferences can stay in browser local storage. ' +
-          'Cookieless analytics counts page views (no cookie, no personal data) so we can see which lessons help; switch it off with <b>Only essential</b> or under Customise, and we also honour Do Not Track. ' +
-          'Advertising is disabled until a certified consent flow is deployed. Learning progress stays on your device. ' +
-          '<a href="/cookie-policy/" target="_blank" rel="noopener">Cookie and storage details</a> • ' +
-          '<a href="/privacy/" target="_blank" rel="noopener">Privacy policy</a></span>' +
-          '<details style="margin-top:10px"><summary style="cursor:pointer;font-weight:700;font-size:.85em">⚙️ Storage and provider details</summary>' +
-            '<div style="margin-top:10px;display:grid;gap:8px;font-size:.84em">' +
-              '<div><b>🔒 Necessary record:</b> ' + COOKIE_INFO.necessary.desc + '<br><small>Examples: ' + COOKIE_INFO.necessary.examples + '</small></div>' +
-              '<div><b>⚙️ Functional:</b> ' + COOKIE_INFO.functional.desc + '<br><small>Examples: ' + COOKIE_INFO.functional.examples + '</small></div>' +
-              '<div><b>📊 Analytics:</b> ' + COOKIE_INFO.analytics.desc + '<br><small>Examples: ' + COOKIE_INFO.analytics.examples + '</small></div>' +
-              '<div><b>💰 Advertising:</b> ' + COOKIE_INFO.advertising.desc + '<br><small>Examples: ' + COOKIE_INFO.advertising.examples + '</small></div>' +
-            '</div>' +
-          '</details>' +
-        '</div>' +
-        '<div class="consent-actions">' +
-          '<button type="button" class="consent-btn consent-accept" id="consent-accept-all">✓ Accept all</button>' +
-          '<button type="button" class="consent-btn consent-reject" id="consent-reject">✕ Only essential</button>' +
-          '<button type="button" class="consent-settings" id="consent-customize">Customise</button>' +
-        '</div>' +
+    banner.innerHTML =
+      '<div class="cc-top"><span class="cc-icon" aria-hidden="true">' +
+        '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.7 19 5.5v5.2c0 4.3-2.7 7.8-7 10.2-4.3-2.4-7-5.9-7-10.2V5.5z"/><path d="m9 11.5 2 2 4-4"/></svg></span>' +
+        '<button type="button" class="cc-close" id="consent-close" aria-label="Close privacy notice without changing choices">&times;</button></div>' +
+      '<p class="cc-eyebrow">Your privacy matters</p>' +
+      '<h2 id="consent-title">Your space. Your choice.</h2>' +
+      '<p class="cc-copy" id="consent-description">Learning preferences can stay on your device. <strong>Cookieless analytics is on by default</strong>; you can switch it off. Advertising is currently disabled.</p>' +
+      '<p class="cc-links"><a href="/cookie-policy/">Cookie &amp; storage details</a> &nbsp;·&nbsp; <a href="/privacy/">Privacy policy</a></p>' +
+      '<div class="consent-actions">' +
+        '<button type="button" class="consent-btn consent-accept" id="consent-accept-all">Accept available</button>' +
+        '<button type="button" class="consent-btn consent-reject" id="consent-reject">Only essential</button>' +
+        '<button type="button" class="consent-settings" id="consent-customize" aria-expanded="false" aria-controls="consent-custom">Manage preferences</button>' +
       '</div>' +
-      '<div id="consent-custom" style="display:none;max-width:1160px;margin:16px auto 0;padding:16px;border:1px solid #e4e4ef;border-radius:12px;background:#f8f7fd">' +
-        '<h3 style="margin:0 0 12px;font-size:1rem">Customise privacy choices</h3>' +
-        '<div style="display:grid;gap:12px">' +
-          '<label style="display:flex;gap:10px;align-items:start"><input type="checkbox" checked disabled> <span><b>Necessary</b> — records this privacy choice</span></label>' +
-          '<label style="display:flex;gap:10px;align-items:start"><input type="checkbox" id="cc-functional"> <span><b>Functional</b> — remembers progress, language, offline saves</span></label>' +
-          '<label style="display:flex;gap:10px;align-items:start"><input type="checkbox" id="cc-analytics"> <span><b>Analytics</b> — cookieless page counts, no personal data (untick to switch off)</span></label>' +
-          '<label style="display:flex;gap:10px;align-items:start"><input type="checkbox" id="cc-advertising" disabled> <span><b>Advertising</b> — unavailable until a certified consent flow is deployed</span></label>' +
-        '</div>' +
-        '<div style="margin-top:16px;display:flex;gap:10px"><button type="button" class="consent-btn consent-accept" id="consent-save-custom">Save preferences</button><button type="button" class="consent-btn consent-reject" id="consent-cancel-custom">Cancel</button></div>' +
-      '</div>';
-
+      '<div id="consent-custom" hidden>' +
+        '<h3 id="consent-custom-title" tabindex="-1">Privacy preferences</h3>' +
+        '<p class="cc-intro">Choose what is available. You can return here any time.</p>' +
+        '<label class="cc-option"><input type="checkbox" checked disabled> <span><strong>Necessary</strong><small>Records your privacy choice.</small></span></label>' +
+        '<label class="cc-option"><input type="checkbox" id="cc-functional"> <span><strong>Functional</strong><small>Signals your functionality preference; learning progress and settings may still be stored on this device.</small></span></label>' +
+        '<label class="cc-option"><input type="checkbox" id="cc-analytics"> <span><strong>Analytics</strong><small>Cookieless page counting. Untick to stop future counting.</small></span></label>' +
+        '<label class="cc-option"><input type="checkbox" id="cc-advertising" disabled> <span><strong>Advertising</strong><small>Unavailable until a certified consent flow is deployed.</small></span></label>' +
+        '<div class="cc-custom-actions"><button type="button" class="consent-btn consent-accept" id="consent-save-custom">Save preferences</button><button type="button" class="consent-btn consent-reject" id="consent-cancel-custom">Cancel</button></div>' +
+      '</div>' +
+      '<p class="cc-intro">Only essential stops analytics and keeps local learning storage available. Close without choosing leaves the current defaults in place.</p>';
     document.body.appendChild(banner);
-    /* The boxes show the state that is actually in force: with no record
-       yet, functional storage and cookieless counting are both on, so a
-       visitor who opens Customise sees the truth and unticks what they
-       do not want (previously both showed unticked while on). */
+    var launcher = document.getElementById('ekguru-cookie-settings');
+    if (launcher) launcher.hidden = true;
     var saved = currentConsent || readConsent() || defaultConsent();
-    var functionalBox = banner.querySelector('#cc-functional');
-    var analyticsBox = banner.querySelector('#cc-analytics');
-    var advertisingBox = banner.querySelector('#cc-advertising');
-    if (functionalBox) functionalBox.checked = saved.functional === true;
-    if (analyticsBox) analyticsBox.checked = saved.analytics === true;
-    if (advertisingBox) advertisingBox.checked = ADVERTISING_AVAILABLE && saved.advertising === true;
-    
-    // Animate in
-    requestAnimationFrame(function() {
-      requestAnimationFrame(function() {
-        banner.classList.add('show');
-      });
-    });
+    banner.querySelector('#cc-functional').checked = saved.functional === true;
+    banner.querySelector('#cc-analytics').checked = saved.analytics === true;
+    banner.querySelector('#cc-advertising').checked = ADVERTISING_AVAILABLE && saved.advertising === true;
+    requestAnimationFrame(function () { requestAnimationFrame(function () { banner.classList.add('show'); }); });
 
-    // Handlers
-    banner.querySelector('#consent-accept-all').addEventListener('click', function() {
+    function setCustom(open, moveFocus) {
+      banner.querySelector('#consent-custom').hidden = !open;
+      banner.querySelector('#consent-customize').setAttribute('aria-expanded', String(open));
+      if (moveFocus) (open ? banner.querySelector('#consent-custom-title') : banner.querySelector('#consent-customize')).focus();
+    }
+    function dismiss() {
+      var hadFocus = banner.contains(document.activeElement);
+      banner.remove();
+      var settings = document.getElementById('ekguru-cookie-settings');
+      if (settings) { settings.hidden = false; if (hadFocus) settings.focus(); }
+    }
+    banner.querySelector('#consent-close').addEventListener('click', dismiss);
+    banner.querySelector('#consent-accept-all').addEventListener('click', function () {
       writeConsent({ necessary: true, functional: true, analytics: true, advertising: false, timestamp: Date.now() });
-      banner.classList.remove('show');
-      setTimeout(function() { if (banner.parentNode) banner.parentNode.removeChild(banner); }, 400);
+      dismiss();
     });
-
-    banner.querySelector('#consent-reject').addEventListener('click', function() {
+    banner.querySelector('#consent-reject').addEventListener('click', function () {
       writeConsent({ necessary: true, functional: true, analytics: false, advertising: false, timestamp: Date.now() });
-      banner.classList.remove('show');
-      setTimeout(function() { if (banner.parentNode) banner.parentNode.removeChild(banner); }, 400);
+      dismiss();
     });
-
-    banner.querySelector('#consent-customize').addEventListener('click', function() {
-      var custom = document.getElementById('consent-custom');
-      custom.style.display = custom.style.display === 'none' ? 'block' : 'none';
+    banner.querySelector('#consent-customize').addEventListener('click', function () {
+      setCustom(banner.querySelector('#consent-custom').hidden, true);
     });
-
-    banner.querySelector('#consent-save-custom').addEventListener('click', function() {
-      var func = document.getElementById('cc-functional').checked;
-      var anal = document.getElementById('cc-analytics').checked;
-      var adv = document.getElementById('cc-advertising').checked;
-      writeConsent({ necessary: true, functional: func, analytics: anal, advertising: adv, timestamp: Date.now() });
-      banner.classList.remove('show');
-      setTimeout(function() { if (banner.parentNode) banner.parentNode.removeChild(banner); }, 400);
+    banner.querySelector('#consent-save-custom').addEventListener('click', function () {
+      writeConsent({ necessary: true, functional: banner.querySelector('#cc-functional').checked,
+        analytics: banner.querySelector('#cc-analytics').checked,
+        advertising: banner.querySelector('#cc-advertising').checked, timestamp: Date.now() });
+      dismiss();
     });
-
-    banner.querySelector('#consent-cancel-custom').addEventListener('click', function() {
-      document.getElementById('consent-custom').style.display = 'none';
-    });
+    banner.querySelector('#consent-cancel-custom').addEventListener('click', function () { setCustom(false, true); });
+    banner._openPreferences = function () { setCustom(true, true); };
   }
 
   function ensureSettingsButton() {
     if (document.getElementById('ekguru-cookie-settings')) return;
     var button = document.createElement('button');
-    button.type = 'button';
-    button.id = 'ekguru-cookie-settings';
-    button.className = 'consent-settings';
-    button.textContent = 'Privacy settings';
+    button.type = 'button'; button.id = 'ekguru-cookie-settings';
+    button.className = 'consent-settings'; button.textContent = 'Privacy settings';
     button.setAttribute('aria-haspopup', 'dialog');
-    button.style.cssText = 'position:fixed;left:12px;bottom:calc(84px + env(safe-area-inset-bottom,0px));z-index:89;padding:8px 12px;border:1px solid #d7d3e8;border-radius:999px;background:#fff;color:#332a66;font:600 13px/1.2 system-ui;box-shadow:0 2px 10px rgba(0,0,0,.1);cursor:pointer';
     button.addEventListener('click', function () {
       createBanner();
-      var custom = document.getElementById('consent-custom');
-      if (custom) custom.style.display = 'block';
       var dialog = document.getElementById('ekguru-consent');
-      if (dialog) dialog.scrollIntoView({ block: 'nearest' });
+      if (dialog) dialog._openPreferences();
     });
     document.body.appendChild(button);
   }
@@ -278,6 +255,7 @@
 
   function init() {
     initConsentMode();
+    ensureConsentStyle();
     ensureSettingsButton();
     
     var consent = readConsent();

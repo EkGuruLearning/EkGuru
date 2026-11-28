@@ -445,7 +445,8 @@
     /* auto table of contents from the page's own h2s */
     try {
       var wrap = document.querySelector(".art,.pw,.qw,.aw");
-      if (wrap) {
+      // Academy hubs have their own directory and stable fragment IDs.
+      if (wrap && !wrap.classList.contains("ac-hub")) {
         var h2s = wrap.querySelectorAll("h2");
         if (h2s.length >= 3) {
           var toc = document.createElement("details");

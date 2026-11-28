@@ -75,6 +75,14 @@ T_DESC = ("The 34 Hindi topic chapters on EkGuru, from the alphabet to slang, ea
           "properly and linked to every guide, question and tool on it. Part of the one Hindi course page.")
 
 
+HUB_INTRO_CSS = [
+    ".hh-intro{background:#e9f0e7;color:#193e2c;border:1px solid #c7d9c9;border-radius:16px;padding:clamp(20px,4vw,38px);margin:18px 0 24px}",
+    ".hh-intro p{max-width:65ch}",
+    ".hh-intro a{color:#155431;font-weight:700}",
+    "[data-theme=dark] .hh-intro,[data-theme=contrast] .hh-intro{background:var(--card,#202b3b);color:var(--ink);border-color:var(--line)}",
+    "[data-theme=dark] .hh-intro a,[data-theme=contrast] .hh-intro a{color:inherit}",
+]
+
 HUB_CSS = [
     ".hh-nav{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0 6px;padding:0;list-style:none}",
     ".hh-nav a{display:inline-block;border:1px solid var(--line);border-radius:999px;padding:6px 12px;font-size:.9rem;text-decoration:none;color:var(--ink);background:var(--card,#fff)}",
@@ -271,27 +279,30 @@ def build_region() -> str:
     # One rule per line, first rule on the <style> line: the exact form
     # tools/build-page-layer.py (which owns learn/hindi/**) normalises page
     # <style> blocks into, so both tools agree and its --check stays green.
-    a("<style>" + "\n".join(HUB_CSS) + "\n</style>")
-
-    a(f'<p class="lede">Every free Hindi lesson EkGuru has, from this one page: the course level by level, '
-      f'{len(chapters)} topic chapters, the thirty-day daily course, practice labs, tools, printables, '
-      f'the questions people ask, and a tutor when you want one. Nothing here needs an account.</p>')
-    a('<div class="facts">'
-      f'<div class="fact"><b>{lessons_total}</b><span>lessons &amp; guides</span></div>'
-      f'<div class="fact"><b>{len(chapters)}</b><span>topic chapters</span></div>'
-      f'<div class="fact"><b>{len(labs) + len(tools)}</b><span>practice labs &amp; tools</span></div>'
-      f'<div class="fact"><b>{len(sheets)}</b><span>printable sheets</span></div>'
-      '</div>')
-    a('<figure class="sb-hero">'
-      '<img alt="Storybook scene: a grandmother reading a glowing book with two children" fetchpriority="high" '
-      f'height="1024" src="{href("images/hindi-hub.jpg").rstrip("/")}" width="1536"/>'
-      '<figcaption>One journey — letters to conversation.</figcaption></figure>')
+    a("<style>" + "\n".join(HUB_INTRO_CSS + HUB_CSS) + "\n</style>")
+    a('<section class="hh-intro" aria-label="Welcome to Hindi">'
+      '<p>Read, speak and practise Hindi at your own pace. Start with the script or choose the level that fits you; '
+      'your age does not determine your level. Lessons and practice are free to use without an account.</p>'
+      '<p><a href="foundation/swar/">Start with the vowels →</a> · '
+      '<a href="my-progress/">Your learning progress</a> · '
+      '<a href="#hh-tools">Printables and tools</a></p></section>')
     a('<ul class="hh-nav" aria-label="On this page">'
       '<li><a href="#hh-start">Start</a></li><li><a href="#hh-levels">Levels</a></li>'
       '<li><a href="#hh-topics">Topics</a></li><li><a href="#hh-guides">Guides</a></li>'
       '<li><a href="#hh-daily">Daily Hindi</a></li><li><a href="#hh-practice">Practice</a></li>'
       '<li><a href="#hh-tools">Tools &amp; printables</a></li><li><a href="#hh-questions">Questions</a></li>'
       '<li><a href="#hh-tutors">Tutors</a></li><li><a href="#hh-other">Other languages</a></li></ul>')
+
+    # The actual level pages and Foundation are the primary entry, not an
+    # additional Academy directory. Retain all existing resources below.
+    a('<h2 id="hh-levels">Choose where to begin</h2>')
+    a('<p>These are existing learning collections, not yet five completed textbooks. '
+      'Dedicated books for children and older adults are still to be developed; '
+      'learners of any age can use the material below.</p>')
+    a('<div class="hh-grid">')
+    for t, label, blurb in LEVELS:
+        a(card(t, label, blurb))
+    a('</div>')
 
     # 1. start
     a('<h2 id="hh-start">Start here — what do you want?</h2>')
@@ -300,19 +311,7 @@ def build_region() -> str:
         a(card(t, label, blurb))
     a('</div>')
 
-    # 2. levels
-    a('<h2 id="hh-levels">The course, level by level</h2>')
-    a('<p>Work down this list in order. Each level page lists its lessons, practice and printables, '
-      'and says what you should be able to do before moving on.</p>')
-    a('<ol class="hh-steps">')
-    for t, label, blurb in LEVELS:
-        extra = ""
-        if t.endswith("foundation"):
-            extra = f" · {len(foundation)} lessons"
-        if t.endswith("advanced"):
-            extra = f" · {len(advanced)} modules"
-        a(f'<li><b><a href="{href(t)}">{escape(label)}</a>{escape(extra)}</b><small>{escape(blurb)}</small></li>')
-    a('</ol>')
+    # Graded levels remain separate from age and the collections above.
     a('<h3 class="hh-h3">The published A1 → C2 course</h3>')
     a(f'<p>The same ground as a graded course, one page per rung. What each rung means is explained in '
       f'<a href="{href("how-levels-work")}">{escape(title_of("how-levels-work"))}</a>.</p>')
@@ -348,6 +347,7 @@ def build_region() -> str:
 
     # 6. practice
     a('<h2 id="hh-practice">Practice, quiz and review</h2>')
+    a('<p><a href="academy/vowels/">Vowel writing practice</a> · <a href="academy/worksheet/">Vowel worksheet</a> · <a href="academy/answers/">Worksheet answers</a></p>')
     a('<p><a href="practice/#hindi-learning-library"><strong>From first letters to advanced reading</strong></a> — explore 1,000+ distinct letter, word, sentence and paragraph models, with optional Hindi listening and English support.</p>')
     a('<h3 class="hh-h3">Learning paths</h3>')
     a('<div class="hh-grid">')
@@ -494,6 +494,9 @@ def apply_region(h: str, region: str, *, title: str, h1: str, desc: str, crumb: 
 
 
 def apply_hub(h: str, region: str) -> str:
+    h = h.replace('<div class="art pw-legacy">', '<div class="art pw-legacy ac-hub">', 1)
+    for asset in ('<link rel="stylesheet" href="/css/academy-shell.css">', '<script defer src="/js/academy-home.js"></script>'):
+        h = h.replace(asset + '\n', '')
     h = re.sub(r"<!-- ekguru:hindi-hub-pointer -->\n<p [^>]*>.*?</p>\n?", "", h, count=1, flags=re.S)
     return apply_region(
         h, region, title=TITLE, h1=H1, desc=DESC, label="learn/hindi/index.html",

@@ -56,7 +56,7 @@ KA_CHA = [
     ("ख", "kha", "k with a strong puff of air", "खरगोश", "khargosh", "rabbit", "🐇"),
     ("ग", "ga", "g in 'go'", "गमला", "gamlaa", "flower pot", "🪴"),
     ("घ", "gha", "g with a breathy puff", "घर", "ghar", "house", "🏠"),
-    ("ङ", "nga", "ng in 'sing' — never starts a word", "रंग", "rang", "colour (the ng inside it)", "🎨"),
+    ("ङ", "nga", "ng in 'sing' — rare as a separate letter in modern Hindi", "रंग", "rang", "colour (anusvara represents a nasal sound here)", "🎨"),
     ("च", "cha", "ch in 'chip', no puff", "चम्मच", "chammach", "spoon", "🥄"),
     ("छ", "chha", "ch with a strong puff", "छाता", "chhaataa", "umbrella", "☂️"),
     ("ज", "ja", "j in 'jug'", "जहाज", "jahaaj", "ship", "🚢"),
@@ -137,15 +137,16 @@ LESSONS = [
             "in front of your mouth: <span class=\"spk\" lang=\"hi\">क</span> gives no air, "
             "<span class=\"spk\" lang=\"hi\">ख</span> gives a puff. That puff is the whole difference "
             "between <span class=\"spk\" lang=\"hi\">कल</span> (tomorrow) and <span class=\"spk\" lang=\"hi\">खल</span> (villain).",
-            "<b>ङ</b> and <b>ञ</b> never start a word. Children learn their shape and move on; "
-            "you will meet them inside words like रंग and ज्ञान.",
+            "<b>ङ</b> and <b>ञ</b> rarely begin words in modern Hindi. In <b>रंग</b>, the dot is "
+            "anusvara, not the written letter ङ; it represents a nasal sound before ग. "
+            "The conjunct <b>ज्ञ</b> contains ञ, as in ज्ञान.",
         ],
         task="Write the row क ख ग घ ङ five times, saying each letter. Then च छ ज झ ञ. Use the "
              "headline — the horizontal bar on top — like washing on a line: letters hang from it.",
         quiz=[
             ("How is ख different from क?", "A puff of air. Say both with your palm in front of your mouth — only ख moves it."),
             ("What sound is built into every consonant?", "A short 'a'. क is 'ka', म is 'ma'. Removing it needs a special sign (lesson 17)."),
-            ("Which two letters here never begin a word?", "ङ and ञ. They live inside words — रंग, ज्ञान."),
+            ("Which two letters here rarely begin modern Hindi words?", "ङ and ञ. ज्ञान contains ञ in ज्ञ; रंग uses anusvara, not a written ङ."),
         ],
     ),
     # ------------------------------------------------------------ 3

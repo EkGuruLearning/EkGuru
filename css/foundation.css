@@ -11,6 +11,27 @@
 .fd-letter .rm{display:block;color:var(--muted);font-size:.86rem;margin:2px 0 8px}
 .fd-letter .kw{display:block;font-size:1.25rem;line-height:1.3}
 .fd-letter .kw i{font-style:normal;font-size:1.5rem;display:block}
+.fd-letter .fd-picture{display:block;width:min(100%,180px);height:auto;aspect-ratio:4/3;object-fit:contain;margin:4px auto 9px;border-radius:10px}
+.fd-air-demo{margin:18px 0;padding:14px;border:1px solid var(--line);border-radius:12px;background:var(--bg,#fff)}
+.fd-air-demo summary{cursor:pointer;font-weight:600}
+.fd-air-demo svg{display:block;width:min(100%,480px);height:auto;margin:10px auto}
+.fd-air-demo .air{transform-box:fill-box;transform-origin:center;opacity:.75}
+.fd-air-demo[open] .air{animation:fd-air-puff 1.5s ease-out 2}
+.fd-air-demo[open] .air.strong{animation-delay:.2s}
+@keyframes fd-air-puff{0%{transform:translateX(-12px) scale(.6);opacity:.2}60%{opacity:1}100%{transform:translateX(18px) scale(1.08);opacity:.75}}
+@media(prefers-reduced-motion:reduce){.fd-air-demo[open] .air{animation:none}}
+/* Trace glyphs need the locally supplied font even without a system Hindi font. */
+main:has(>.htr-nav) .trace-cell text{font-family:TextbookDevanagari,system-ui,sans-serif}
+@media print{
+  .fd-letter .fd-picture{width:95px}
+  .fd-air-demo .air{animation:none!important}
+  /* Avoid splitting character cards between pages and expose all trace models,
+     including those not yet scrolled into view in the interactive lesson. */
+  .fd-letter,.trace-cell{break-inside:avoid;page-break-inside:avoid}
+  html.sb-js .trace-cell{opacity:1!important;transform:none!important}
+  /* Book-mode activities need input or audio; a frozen round is not a worksheet. */
+  .art .bk-ex{display:none!important}
+}
 .fd-letter .en{display:block;color:var(--ink-2);font-size:.82rem;margin-top:2px}
 .fd-letter .hint{display:block;color:var(--muted);font-size:.78rem;margin-top:6px;line-height:1.35}
 .fd-letter .spk{margin-top:8px;font-size:.84rem}
